@@ -1,0 +1,868 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Contents: Customising LaTeX output
+% $Id: custom.tex,v 1.15 2001/11/25 17:43:58 matthieu Exp $
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Personnalisation de \LaTeX}
+
+\begin{intro}
+Les documents produits avec les commandes que vous avez apprises
+jusqu'ici sont de très bonne qualité aux yeux d'un vaste public. Même s'ils
+manquent de fantaisie, ils obéissent à toutes les règles de l'art de
+la typographie, ce qui les rend agréables à lire.
+
+Mais il y a des situations où \LaTeX{} ne propose pas de commande ou
+d'environnement adapté à vos besoins, ou bien où le résultat obtenu par
+une commande existante peut ne pas répondre  à votre attente.
+
+Dans ce chapitre, vous allez avoir un aperçu sur la manière
+d'enrichir les commandes de \LaTeX{} et de modifier la présentation
+par défaut.
+\end{intro}
+
+\section{Vos propres commandes, environnements et extensions}
+
+Vous avez sûrement constaté que toutes les commandes décrites dans cet
+ouvrage sont présentées dans un cadre et sont référencées dans l'index
+qui se trouve à la fin. Au lieu d'utiliser à chaque fois l'ensemble
+des commandes \LaTeX{} nécessaires, nous avons créé une extension dans
+laquelle nous avons défini de nouvelles commandes et de nouveaux
+environnement adaptés à cet usage. Ainsi nous pouvons simplement
+écrire :
+
+\begin{example}
+\begin{lscommand}
+\ci{dum}
+\end{lscommand}
+\end{example}
+
+Dans cet exemple, nous utilisons à la fois un nouvel environnement
+appelé \ei{lscommand} qui est responsable du tracé du cadre et une
+nouvelle commande appelée \ci{ci} qui compose le nom de la commande et
+qui produit l'entrée correspondante dans l'index. Vous pouvez le
+vérifier en cherchant la commande \ci{dum} dans l'index à la fin de ce 
+document ; vous
+y trouverez une entrée pointant vers chaque page où la commande dum
+est mentionnée.
+
+Si nous décidons un jour que nous ne souhaitons plus voir de cadre
+autour du nom des commandes, il nous suffira de modifier la définition
+de l'environnement \ei{lscommand} pour définir un nouveau style.  C'est
+bien plus simple (et efficace) que de parcourir tout le document pour
+remplacer une à une toutes les commandes qui tracent les cadres.
+
+% Dans le premier chapitre, nous avons vu que \LaTeX{} avait besoin de
+% connaître la structure logique d'un document pour pouvoir le formater
+% correctement. Ceci est une idée intéressante, mais en pratique on
+% atteint assez vite ses limites quand on ne trouve pas dans \LaTeX{} la
+% commande spécialisée pour exprimer ce que l'on voudrait.
+% 
+% Une solution serait de combiner plusieurs commandes \LaTeX{} pour
+% obtenir le résultat désiré. Ponctuellement, cela ne pose pas de
+% problème ; mais si cela se reproduit, répéter chaque fois la même
+% combinaison peut devenir long et fastidieux. De plus, si vous souhaitez
+% plus tard modifier la présentation, il faudra aller modifier chaque
+% combinaison de commandes tout au long du texte.
+% 
+% Pour résoudre ce problème, \LaTeX{} vous permet de définir vos propres
+% commandes et vos propres environnements.
+
+\subsection{Nouvelles commandes}
+
+Pour ajouter de nouvelles commandes, utilisez la commande :
+\begin{lscommand}
+\ci{newcommand}\verb|{|%
+       \emph{nom}\verb|}[|\emph{num}\verb|]{|\emph{définition}\verb|}|
+\end{lscommand}
+\noindent Cette commande prend principalement deux
+arguments : le \emph{nom} de la commande à créer et sa
+\emph{définition}. L'argument \emph{num} entre crochets est
+optionnel. Il indique le nombre de paramètres  qu'utilisera la
+nouvelle commande (jusqu'à 9).
+
+Les deux exemples ci-dessous vous aiderons à saisir le principe.
+Le premier exemple définit une nouvelle commande appelée \verb|\ucil|
+qui est une abréviation de \og une courte introduction à
+\LaTeXe \fg{}. Une telle commande pourrait être utile si vous aviez à
+citer de nombreuses fois le titre de ce livre.
+
+\begin{example}
+\newcommand{\ucil}
+    {Une courte (?) 
+     introduction à \LaTeXe}
+% dans le document :
+Voici \og \ucil \fg\dots
+\end{example}
+
+L'exemple suivant montre comment utiliser l'argument \emph{num}. La
+séquence \verb|#1| est remplacée par le paramètre réel.
+Pour utiliser plus d'un paramètre, continuez avec \verb|#2|, etc.
+
+\begin{example}
+\newcommand{\uxil}[1]
+    {Une \emph{#1}  
+     introduction à \LaTeXe}
+% dans le document :
+\begin{itemize}
+\item \uxil{courte}
+\item \uxil{rapide}
+\end{itemize}
+\end{example}
+
+\LaTeX{} ne vous permet pas de créer une nouvelle commande si celle-ci
+existe déjà. Si vous voulez explicitement remplacer une commande
+existante, utilisez \ci{renewcommand}. Elle utilise la même syntaxe
+que \verb|\newcommand|. 
+
+Dans certains cas, vous pouvez avoir besoin de
+\ci{providecommand}. Cette commande fonctionne comme
+\verb|\newcommand|, mais si la nouvelle commande est déjà définie,
+\LaTeXe{} ignore  la nouvelle définition.
+
+\LaTeX{} supprime en général les espaces qui suivent une commande
+(voir~\pageref{whitespace}).
+
+\subsection{Nouveaux environnements}
+
+De manière analogue à la commande \verb|\newcommand|, il est possible
+de définir de nouveaux environnements.  La commande
+\ci{newenvironment} se présente de la manière suivante :
+
+\begin{lscommand}
+\ci{newenvironment}\verb|{|%
+       \emph{nom}\verb|}[|\emph{num}\verb|]{|%
+       \emph{avant}\verb|}{|\emph{après}\verb|}|
+\end{lscommand}
+
+De même que pour \verb|\newcommand|, vous pouvez utiliser
+\ci{newenvironment} avec un paramètre optionnel ou sans. Le contenu de
+l'argument \emph{avant} est exécuté avant que le contenu de
+l'environnement ne soit traité. Le contenu de l'argument \emph{après}
+est traité lorsque l'on rencontre la commande
+\verb|\end{|\emph{nom}\verb|}|.
+
+L'exemple ci-dessous illustre l'utilisation de \verb|\newenvironment|.
+
+\begin{example}
+\newenvironment{king}
+ {\rule{1ex}{1ex}%
+      \hspace{\stretch{1}}}
+ {\hspace{\stretch{1}}%
+      \rule{1ex}{1ex}}
+
+\begin{king} 
+Mes chers sujets, \dots
+\end{king}
+\end{example}
+
+L'argument \emph{num} est utilisé de la même façon que pour la
+commande \verb|\newcommand|. \LaTeX{} vous empêche de redéfinir un
+environnement qui existe déjà. Si jamais vous vouliez redéfinir un
+environnement existant, utilisez \ci{renewenvironment} qui utilise la
+même syntaxe que \verb|\newenvironment|.
+
+Les commandes utilisées dans l'exemple ci-dessus seront présentées
+plus loin : pour la commande \ci{rule}, voir page~\pageref{sec:rule},
+pour \ci{stretch}, voir page~\pageref{cmd:stretch} enfin, pour plus
+d'informations sur \ci{hspace}, voir page~\pageref{sec:hspace}.
+
+\subsection{Votre propre extension}
+
+Si vous définissez plein de nouveaux environnements et de nouvelles
+commandes, le préambule de votre document va se rallonger
+dangereusement. Il peut alors devenir intéressant de créer une
+extension contenant toutes ces nouvelles définitions. Avec 
+la commande \ci{usepackage} vous pourrez rendre disponible votre
+extension dans votre document.
+
+\begin{figure}[!htbp]
+\begin{lined}{\textwidth}
+\begin{verbatim}
+% Exemple d'extension par Tobias Oetiker
+\ProvidesPackage{demopack}
+\newcommand{\ucil}{Une courte (?) introduction à \LaTeXe}
+\newcommand{\uxil}[1]{Une \emph{#1}  
+                       introduction à \LaTeXe}
+\newenvironment{king}{\begin{quote}}{\end{quote}}
+\end{verbatim}
+\end{lined}
+\caption{Exemple d'extension} \label{package}
+\end{figure}
+
+Écrire une extension consiste principalement à copier le préambule de
+votre document dans un fichier à part, dont le nom se termine par
+\texttt{.sty}. Il y a une commande spécifique à utiliser sur la
+première ligne de votre extension :
+
+\begin{lscommand}
+\ci{ProvidesPackage}\verb|{|\emph{nom de l'extension}\verb|}|
+\end{lscommand}
+
+\noindent  \ci{ProvidesPackage} indique à \LaTeXe{} le nom de
+l'extension afin notamment de lui permettre de produire des messages
+d'erreur significatifs. La figure~\ref{package} montre un exemple
+d'extension simple qui reprend les commandes définies dans les
+exemples précédents. 
+
+\section{Polices et tailles des caractères}
+\index{police}
+\index{taille!des polices}
+\subsection{Commandes de changement de police}
+\LaTeX{} choisit la police de caractères et sa taille en fonction de la
+structure logique du document (sections, notes de bas de
+page, etc. ). Dans certains cas, on voudrait pouvoir changer la taille
+de la police à la main. Pour cela, utilisez les commandes listées dans
+les tableaux~\ref{fonts} et~\ref{sizes}. La taille exacte de chaque
+police est un choix qui dépend de la classe de document et de ses
+options. La table~\ref{tab:pointsizes} donne les tailles absolues en
+points pour les commandes présentes dans les classes de document
+standard. 
+
+\begin{example}
+{\small Les romains 
+petits et \textbf{gras}  
+régnèrent sur}
+{\Large toute la belle 
+et grande \textit{Italie}.}
+\end{example}
+
+Une caractéristique importante de \LaTeXe{} est que les différents
+attributs d'une police sont indépendants. Cela signifie que vous
+pouvez exécuter des commandes de changement de taille ou même de
+changement de police tout en conservant l'attribut gras ou
+italique. 
+
+% Cela peut paraître évident à quelqu'un qui  débute avec
+% \LaTeXe{}, mais ça ne l'est certainement pas pour quelqu'un qui était
+% habitué à \LaTeX{}~2.09.
+
+
+\begin{table}[!bp]
+\caption{Polices} \label{fonts}
+\begin{lined}{12cm}
+%
+% Alan suggested not to tell about the other form of the command
+% eg \verb|\sffamily| or \verb|\bfseries|. This seems a good thing to me.
+%
+\begin{tabular}{@{}rl@{\qquad}rl@{}}
+\ci{textrm}\verb|{...}|        &      \textrm{\wi{roman}}&
+\ci{textsf}\verb|{...}|        &      \textsf{\wi{sans serif}}\\
+\ci{texttt}\verb|{...}|        &      \texttt{typewriter}\\[6pt]
+\ci{textmd}\verb|{...}|        &      \textmd{medium}&
+\ci{textbf}\verb|{...}|        &      \textbf{\wi{bold face}}\\[6pt]
+\ci{textup}\verb|{...}|        &       \textup{\wi{upright}}&
+\ci{textit}\verb|{...}|        &       \textit{\wi{italic}}\\
+\ci{textsl}\verb|{...}|        &       \textsl{\wi{slanted}}&
+\ci{textsc}\verb|{...}|        &       \textsc{\wi{small caps}}\\[6pt]
+\ci{emph}\verb|{...}|          &            \emph{emphasised} &
+\ci{textnormal}\verb|{...}|    &    \textnormal{document} font
+\end{tabular}
+
+\bigskip
+\end{lined}
+\end{table}
+
+
+\begin{table}[!bp]
+\index{taille!prédéfinies}
+\caption{Tailles des polices} \label{sizes}
+\begin{lined}{12cm}
+\begin{tabular}{@{}ll}
+\ci{tiny}      & \tiny        minuscule \\
+\ci{scriptsize}   & \scriptsize  très petit\\
+\ci{footnotesize} & \footnotesize  assez petit \\
+\ci{small}        &  \small            petit \\
+\ci{normalsize}   &  \normalsize  normal  \\
+\ci{large}        &  \large       grand
+\end{tabular}%
+\qquad\begin{tabular}{ll@{}}
+\ci{Large}        &  \Large       plus grand \\[5pt]
+\ci{LARGE}        &  \LARGE       très grand \\[5pt]
+\ci{huge}         &  \huge        énorme \\[5pt]
+\ci{Huge}         &  \Huge        géant
+\end{tabular}
+
+\bigskip
+\end{lined}
+\end{table}
+
+\begin{table}[!tbp]
+\caption{Tailles en points dans les classes standard}\label{tab:pointsizes}
+\label{tab:sizes}
+\begin{lined}{12cm}
+\begin{tabular}{lrrr}
+\multicolumn{1}{c}{taille} &
+\multicolumn{1}{c}{10pt (défaut) } &
+           \multicolumn{1}{c}{option 11pt}  &
+           \multicolumn{1}{c}{option 12pt}\\
+\verb|\tiny|       & 5pt  & 6pt & 6pt\\
+\verb|\scriptsize| & 7pt  & 8pt & 8pt\\
+\verb|\footnotesize| & 8pt & 9pt & 10pt \\
+\verb|\small|        & 9pt & 10pt & 11pt \\
+\verb|\normalsize| & 10pt & 11pt & 12pt \\
+\verb|\large|      & 12pt & 12pt & 14pt \\
+\verb|\Large|      & 14pt & 14pt & 17pt \\
+\verb|\LARGE|      & 17pt & 17pt & 20pt\\
+\verb|\huge|       & 20pt & 20pt & 25pt\\
+\verb|\Huge|       & 25pt & 25pt & 25pt\\
+\end{tabular}
+
+\bigskip
+\end{lined}
+\end{table}
+
+\begin{table}[!htbp]
+\caption{Polices mathématiques} \label{mathfonts}
+\begin{lined}{12.2cm}
+\begin{tabular}{@{}lll@{}}
+\textit{Commande}&\textit{Exemple}&    \textit{Résultat}\\[6pt]
+\ci{mathcal}\verb|{...}|&    \verb|$\mathcal{B}=c$|&     $\mathcal{B}=c$\\
+\ci{mathrm}\verb|{...}|&     \verb|$\mathrm{K}_2$|&      $\mathrm{K}_2$\\
+\ci{mathbf}\verb|{...}|&     \verb|$\sum x=\mathbf{v}$|& $\sum x=\mathbf{v}$\\
+\ci{mathsf}\verb|{...}|&     \verb|$\mathsf{G\times R}$|&        $\mathsf{G\times R}$\\
+\ci{mathtt}\verb|{...}|&     \verb|$\mathtt{L}(b,c)$|&   $\mathtt{L}(b,c)$\\
+\ci{mathnormal}\verb|{...}|& \verb|$\mathnormal{R_{19}}| &\\
+& \verb|    \neq R_{19}$|& $\mathnormal{R_{19}}\neq R_{19}$\\
+\ci{mathit}\verb|{...}|&     \verb|$\mathit{ffi}\neq ffi$|& $\mathit{ffi}\neq ffi$
+\end{tabular}
+
+\bigskip
+\end{lined}
+\end{table}
+
+En mode \emph{mathématique}, vous pouvez utiliser les commandes de
+changement de police pour quitter provisoirement le mode mathématique
+et saisir du texte normal. Pour changer les attributs de la police en
+mode mathématique, il existe un jeu de commandes
+spéciales. Reportez-vous au tableau~\ref{mathfonts}.
+
+En complément des commandes de changement de taille, les
+\wi{accolade}s jouent un rôle essentiel. Elles sont utilisées pour
+former des \emph{\wi{groupe}s} qui limitent la
+portée de la plupart des commandes de \LaTeX{}.
+
+\begin{example}
+Il aime les  {\LARGE grands et  
+{\small les petits} 
+caractères}. 
+\end{example}
+
+Les commandes de changement de taille modifient également
+l'interligne, mais seulement si le paragraphe se termine dans la
+portée de la commande de changement de taille. L'accolade fermante
+\verb|}| ne
+doit donc pas être placée trop tôt. Remarquez la position de la
+commande \verb|\par| dans les deux exemples suivants 
+\,\footnote{\ci{par} est équivalent à une ligne vide} :
+
+\begin{example}
+{\Large Ne lisez pas ceci ! Ce
+n'est pas vrai ! Croyez-moi !\par}
+\end{example}
+\begin{example}
+{\Large Ce n'est pas vrai. Mais
+n'oubliez pas que je suis un
+menteur.}\par
+\end{example}
+
+Si vous voulez utiliser une commande de modification de la taille pour
+tout un paragraphe ou même plus, vous pouvez utiliser la syntaxe des
+environnements à la place des commandes. 
+
+\begin{example}
+\begin{Large} 
+Ceci n'est pas vrai
+Mais, qu'est-ce qui l'est
+de nos jours\dots
+\end{Large}
+\end{example}
+
+\noindent Cela vous évitera d'avoir à compter les accolades
+fermantes. 
+
+\subsection{Attention danger}
+
+Il est dangereux d'utiliser de telles commandes de changement
+explicite de police tout au long de vos documents, en effet ces
+commandes vont à l'encontre de la philosophie de \LaTeX{} qui est de
+séparer les aspects logiques et visuels d'un document. Cela signifie
+que si vous voulez utiliser en plusieurs endroits la même commande de
+changement de style afin de mettre en valeur un type particulier
+d'information, vous devriez utiliser \ci{newcommand} pour définir une
+nouvelle commande en insérant ainsi la commande de changement de style
+dans une enveloppe logique.
+
+\begin{example}
+% dans le préambule ou dans 
+% une extension :
+\newcommand{\danger}[1]
+  {\textbf{#1}}
+% dans le document :
+Défense d'\danger{entrer}.
+Cette pièce contient une 
+\danger{machine} d'origine 
+inconnue.
+\end{example}
+
+Cette approche sera précieuse si vous décidez plus tard
+d'utiliser une autre représentation typographique du danger que
+\verb|\textbf|. Elle évitera d'avoir à rechercher et remplacer une à
+une toutes les occurrences de \verb|\textbf| correspondant à la notion
+de danger. 
+
+\subsection{Un conseil}
+
+Pour conclure cette promenade au pays des commandes de changement de
+police, voici un (mauvais) conseil :
+\begin{quote}
+  \underline{\textbf{N'oubliez pas\Huge!}} \textit{Plus}
+  \textsf{V\textbf{\LARGE O}\texttt{u}\textsl{s}} \Huge utilisez
+  \tiny de polices \footnotesize \textbf{dans} un \small \texttt{document}
+  \large \textit{Plus} \normalsize il \textsc{devient} 
+  \textsl{\textsf{lisible} et bien prés\large e\Large n\LARGE t\huge é}.
+\end{quote}
+
+
+\section{Espacement}
+ 
+\subsection{Entre les lignes}
+
+\index{interligne} Pour utiliser un interligne plus grand pour un
+document, vous pouvez utiliser la commande
+\begin{lscommand}
+\ci{linespread}\verb|{|\emph{facteur}\verb|}|
+\end{lscommand}
+\noindent dans le préambule de votre document. Utilisez
+\verb|\linespread{1.3}| pour un interligne \og un et demi \fg{} et
+\verb|\linespread{1.6}| pour un \og double \fg{}
+interligne. L'interligne par défaut est~1.
+\index{double interligne}
+
+%Ce changement a souvent des effets indésirables dans les
+%notes de bas de page, les tableaux, etc.  C'est assez compliqué à
+%gérer, mais l'extension \pai{setspace} est prévue à cet effet.
+
+\subsection{Mise en page d'un paragraphe}\label{parsp}
+
+Il y a deux paramètres qui jouent sur l'apparence d'un paragraphe. En
+insérant une définition telle que :
+\begin{code}
+\ci{setlength}\verb|{|\ci{parindent}\verb|}{0pt}| \\
+\verb|\setlength{|\ci{parskip}\verb|}{1ex plus 0.5ex minus 0.2ex}|
+\end{code}
+dans le préambule, vous supprimez le retrait des débuts de paragraphe
+(1\iere{} définition) et vous augmentez l'espace entre deux paragraphes
+(2\ieme{} définition). 
+Attention, la deuxième définition a également une influence sur la
+table des matières : ses lignes deviennent également plus
+espacées. Pour éviter cela, vous pouvez déplacer ces commandes du
+préambule vers le corps du document, après la commande
+\ci{tableofcontents} (ou bien ne pas les utiliser du tout, car la
+typographie professionnelle préfère utiliser l'indentation plutôt que
+l'espacement pour séparer les paragraphes).
+
+Pour indenter un paragraphe qui ne l'est pas, utilisez la commande :
+\begin{lscommand}
+\ci{indent}
+\end{lscommand}
+\noindent au début du paragraphe\,\footnote{Pour indenter
+ systématiquement le premier
+ paragraphe après le titre d'une section, utilisez l'extension
+ \pai{indentfirst} de l'ensemble \texttt{tools}.}. Bien sûr cela ne
+ marche que si \verb|\parindent| n'est pas nul.
+
+Pour créer un paragraphe sans indentation, utilisez :
+\begin{lscommand}
+\ci{noindent}
+\end{lscommand}
+\noindent 
+en tête du paragraphe. 
+
+L'option \pai{francais} de l'extension \pai{babel} modifie ici aussi
+les règles par défaut de 
+\LaTeX{} pour s'adapter aux règles françaises. 
+
+Il est possible de commencer un paragraphe par une lettrine en utilisant
+l'extension \pai{lettrine}%
+\,\footnote{\texttt{CTAN:/macros/latex/contrib/supported/lettrine/}} :
+\begin{lscommand}
+\ci{lettrine}\verb|[|\emph{options}\verb|]{|\emph{lettrine}\verb|}|\verb|{|\emph{texte}\verb|}|
+\end{lscommand} 
+La lettrine de la page~\pageref{lettrine} s'obtient par la commande :
+\begin{code}
+\verb|\lettrine{C}{e document}|
+\end{code}
+
+\subsection{Espacement horizontal}
+\label{sec:hspace}
+
+\LaTeX{} détermine l'espacement entre les mots et les phrases
+automatiquement. Pour ajouter de l'espacement horizontal, utilisez :
+\index{espacement!horizontal}
+\begin{lscommand}
+\ci{hspace}\verb|{|\emph{longueur}\verb|}|
+\end{lscommand}
+Si une telle espace doit être conservée, même lorsqu'elle tombe en début ou en
+fin de ligne, utilisez \verb|\hspace*|. Dans le cas le plus simple,
+\emph{longueur} est simplement un nombre suivi d'une unité. Les unités
+les plus importantes sont listées dans le tableau~\ref{units}.
+\index{unités}\index{dimensions}
+
+\begin{example}
+Ceci\hspace{1.5cm}est une espace 
+de 1.5 cm.
+\end{example}
+\suppressfloats
+\begin{table}[tbp]
+\caption{Unités \TeX} \label{units}\index{unités}
+\begin{lined}{9.5cm} 
+\begin{tabular}{@{}ll@{}}
+\texttt{mm} &  millimètre \quad \demowidth{1mm} \\
+\texttt{cm} & centimètre = 10~mm  \quad \demowidth{1cm}                     \\
+\texttt{in} & pouce\,\footnote{\emph{Inch} en anglais. \emph{NdT}.}
+	      $=$ 25,4~mm \quad \demowidth{1in}                    \\
+\texttt{pt} & point $\approx 1/72$~pouce $\approx 0,35$~mm  \quad\demowidth{1pt}\\
+\texttt{em} & largeur d'un  ``M'' dans la police courante \quad \demowidth{1em}\\
+\texttt{ex} & hauteur d'un ``x'' dans la police courante \quad \demowidth{1ex}
+\end{tabular}
+
+\bigskip
+\end{lined}
+\end{table}
+
+La commande : 
+\begin{lscommand}
+\ci{stretch}\verb|{|\emph{n}\verb|}|
+\end{lscommand} 
+\label{cmd:stretch}
+\noindent produit une espace élastique. Elle s'étend jusqu'à ce que tout
+l'espace libre sur la ligne soit occupé. Si deux commandes
+\verb|\hspace{\stretch{|\emph{n}\verb|}}| sont exécutées sur la même
+ligne, les deux espaces s'étendent en fonction du facteur d'élasticité
+\emph{n}.
+\begin{example}
+x\hspace{\stretch{1}}%
+x\hspace{\stretch{3}}x
+\end{example}
+
+\subsection{Espacement vertical}
+
+L'espacement vertical entre les paragraphes, sections,
+sous-sections\dots{} est déterminé automatiquement par \LaTeX{}. 
+En cas de besoin, de l'espace supplémentaire 
+\emph{entre deux paragraphes} peut être inséré avec la commande :
+\begin{lscommand}
+\ci{vspace}\verb|{|\emph{longueur}\verb|}|
+\end{lscommand}
+
+Cette commande doit normalement être utilisée entre deux lignes
+vides. Si l'espacement doit être conservé en haut ou en bas d'une
+page, utilisez la version étoilée de la commande \verb|\vspace*|.
+\index{espacement!vertical}
+\index{vertical!espacement}
+
+La commande \ci{stretch} en association avec \verb|\pagebreak| permet
+d'imprimer du texte sur la dernière ligne d'une page ou de centrer
+verticalement du texte sur une page.
+\begin{code}
+\begin{verbatim}
+Du texte \dots
+
+\vspace{\stretch{1}}
+Ceci sera imprimé sur la dernière ligne.\pagebreak
+\end{verbatim}
+\end{code}
+
+De l'espace supplémentaire entre deux lignes du \emph{même} paragraphe
+ou à l'intérieur d'une table peut être obtenu par la commande :
+\begin{lscommand}
+\ci{\bs}\verb|[|\emph{longueur}\verb|]|
+\end{lscommand}
+
+Les commandes \ci{bigskip} et \ci{smallskip} permettent de créer des
+espacements verticaux prédéfinis sans se préoccuper des dimensions
+exactes. 
+
+\section{Disposition d'une page}
+
+\begin{figure}[!hp]
+\begin{center}
+\makeatletter\lay@layout\makeatother
+\end{center}
+\vspace*{1.8cm}
+\caption{Paramètres de la disposition d'une page}
+\label{fig:layout}
+\end{figure}
+
+\index{disposition d'une page}
+\LaTeXe{} permet d'indiquer la taille du papier en paramètre de  la commande
+\verb|\documentclass|. Il définit ensuite automatiquement les
+\wi{marges} les mieux adaptées. Parfois, on peut ne pas être satisfait par les
+valeurs pré-définies et vouloir les modifier.
+%no idea why this is needed here ...
+\thispagestyle{fancyplain}
+La figure~\ref{fig:layout} montre tous les paramètres qui peuvent être
+modifiés. Cette figure a été réalisée avec l'extension \pai{layout} de
+l'ensemble tools.
+
+\textbf{Attendez !}\dots{} avant de vous lancer dans \og élargissons un peu
+ce texte \fg{}, prenez deux secondes pour réfléchir. Comme souvent avec
+\LaTeX{}, il y a de bonnes raisons pour disposer les pages de cette
+façon. 
+
+Sans doute, comparé avec une page standard produite avec MS Word, une page de
+\LaTeX{} à l'air horriblement étroite. Mais regardez votre livre
+préféré\,\footnote{Un vrai livre, imprimé par un grand éditeur\dots} et
+comptez le nombre de caractères sur une ligne normale. Vous verrez
+qu'il n'y a guère plus de soixante-six caractères par
+ligne. L'expérience montre qu'un texte devient moins lisible si le
+nombre de caractères par ligne dépasse cette valeur, cela parce qu'il
+devient plus difficile pour les yeux de passer de la fin d'une ligne
+au début de la ligne suivante. Ceci explique aussi que les journaux
+utilisent plusieurs colonnes.
+
+Ainsi, si vous élargissez le corps du texte, ayez conscience que vous
+le rendez aussi moins lisible. Ceci dit, si vous tenez à modifier les
+paramètres qui contrôlent la 
+disposition d'une page, voici comment procéder :
+
+\LaTeX{} dispose de deux commandes pour modifier ces paramètres. Elles
+sont généralement utilisées dans le préambule.
+
+La première commande affecte une valeur fixe  au paramètre spécifié :
+\begin{lscommand}
+\ci{setlength}\verb|{|\emph{paramètre}\verb|}{|\emph{longueur}\verb|}|
+\end{lscommand}
+
+La deuxième commande ajoute une longueur à ce paramètre.
+\begin{lscommand}
+\ci{addtolength}\verb|{|\emph{paramètre}\verb|}{|\emph{longueur}\verb|}|
+\end{lscommand} 
+
+La deuxième commande est en pratique plus utile que \ci{setlength},
+parce qu'elle permet de travailler en relatif par rapport à la taille
+par défaut. Pour ajouter un centimètre à la largeur du texte, nous
+utiliserions les commandes suivantes dans le préambule :
+\begin{code}
+\verb|\addtolength{\hoffset}{-0.5cm}|\\
+\verb|\addtolength{\textwidth}{1cm}|
+\end{code}
+
+Dans ce contexte, il peut être intéressant d'utiliser l'extension
+\pai{calc}, qui permet d'utiliser des expressions algébriques
+traditionnelles en argument de \verb|setlength| ainsi que partout où
+l'on utilise des valeurs numériques comme arguments de fonctions.
+
+\section{Jouons un peu avec les dimensions}
+
+Autant que possible nous évitons d'utiliser des dimensions absolues
+dans des documents \LaTeX{}. Nous essayons plutôt de les définir
+relativement aux dimensions d'autres éléments de la page. La largeur
+d'une figure sera ainsi \verb|\textwidth| afin de lui faire occuper
+toute la largeur de la page.
+
+Les trois commandes suivantes permettent de déterminer la largeur, la
+hauteur et la profondeur d'une chaîne de caractères.
+
+\begin{lscommand}
+\ci{settoheight}\verb|{|\emph{commande}\verb|}{|\emph{texte}\verb|}|\\
+\ci{settodepth}\verb|{|\emph{commande}\verb|}{|\emph{texte}\verb|}|\\
+\ci{settowidth}\verb|{|\emph{commande}\verb|}{|\emph{texte}\verb|}|
+\end{lscommand}
+
+\bigbreak
+L'exemple ci-dessous montre une utilisation possible de ces 
+commandes : 
+
+\begin{example}
+\flushleft
+\newenvironment{vardesc}[1]{%
+  \settowidth{\parindent}{#1\ }
+  \makebox[0pt][r]{#1\ }}{}
+\begin{displaymath}
+a^2+b^2=c^2
+\end{displaymath}
+
+\begin{vardesc}{Où :}$a$, 
+$b$ sont les cotés adjacents à
+l'angle droit d'un triangle 
+rectangle,\par
+$c$ est l'hypothénuse du 
+triangle,\par
+$d$ n'est pas utilisé ici. 
+\'Etonnant non ?
+\end{vardesc}
+\end{example}
+
+
+\section{Boîtes}
+\index{boîte}
+
+\LaTeX{} construit ses pages en empilant des boîtes. Au commencement
+chaque caractère est une petite boîte qui est ensuite collée à
+d'autres boîtes-caractères pour former un mot. Ceux-ci sont alors
+assemblés à d'autres mots, avec une colle spéciale qui est élastique
+pour permettre de comprimer ou d'étirer des séries de mots afin de
+remplir exactement une ligne sur la page.
+
+Reconnaissons qu'il s'agit d'une description simpliste de ce
+qui se passe réellement, mais le fait est là : \TeX{} travaille avec
+des boîtes et de la colle. Les caractères ne sont pas les seuls à
+pouvoir former des boîtes. Virtuellement tout peut être mis dans des
+boîtes, y compris d'autres boîtes. Chaque boîte est ensuite traitée
+par \LaTeX{} comme s'il s'agissait d'un simple caractère. 
+
+Dans les chapitres précédents vous avez déjà rencontré quelques
+boîtes, même si nous ne l'avons pas signalé. L'environnement
+\verb|tabular| et la commande \verb|\includegraphics|, par exemple,
+produisent tous les deux des boîtes. Cela signifie que vous pouvez
+facilement aligner deux illustrations ou deux tables côte à côte. Il
+suffit de s'assurer que la somme de leurs largeurs ne dépasse pas la
+largeur du texte.
+
+Il est aussi possible d'emballer un paragraphe dans une boîte  :
+\begin{lscommand}
+\ci{parbox}\verb|[|\emph{pos}\verb|]{|\emph{largeur}\verb|}{|\emph{texte}\verb|}|
+\end{lscommand}
+
+\noindent on peut également utiliser un environnement :
+\begin{lscommand}
+\verb|\begin{|\ei{minipage}\verb|}[|\emph{pos}\verb|]{|\emph{largeur}\verb|}| texte
+\verb|\end{|\ei{minipage}\verb|}|
+\end{lscommand}
+
+\noindent le paramètre \texttt{pos} peut être l'une des lettres
+\texttt{c}, \texttt{t} ou \texttt{b} pour contrôler l'alignement
+vertical de la boîte par rapport à la base du texte
+précédent. \texttt{largeur} est une dimension indiquant la largeur de la
+boîte.
+
+Alors que \ci{parbox} englobe tout un paragraphe en réalisant coupure
+des lignes et tout le reste, il existe également une catégorie de
+commandes de gestion des boîtes qui ne travaillent que sur des
+éléments alignés horizontalement. L'une d'elles nous est déjà
+connue. Il s'agit de \ci{mbox} qui combine simplement une série de
+boîtes pour en former une nouvelle; elle peut être utilisée pour
+empêcher \LaTeX{} de couper une ligne entre deux mots. Puisqu'il est
+possible de placer des boîtes dans d'autres boîtes, ces constructeurs de
+boîtes horizontales sont extrêmement flexibles.
+
+\begin{lscommand}
+\ci{makebox}\verb|[|\emph{largeur}\verb|][|\emph{pos}\verb|]{|\emph{texte}\verb|}|
+\end{lscommand}
+
+\noindent Le paramètre \texttt{largeur} définit la largeur de la boîte vue de
+l'extérieur\,\footnote{Cela signifie qu'elle peut être plus petite que
+la largeur du contenu de la boîte. Dans un cas extrême on peut même
+positionner la largeur à \texttt{0pt}; ainsi le texte dans la boîte
+sera placé sans influencer les boîtes adjacentes.}.  En plus des
+expressions exprimant une longueur vous pouvez également utiliser
+\ci{width}, \ci{height}, \ci{depth} et \ci{totalheight} à l'intérieur
+du paramètre \texttt{largeur}. Leurs valeurs sont obtenues à partir
+des dimensions réelles du \texttt{texte}. Le paramètre \texttt{pos}
+est une lettre parmi \texttt{c} (\textbf{c}enter) pour centrer le
+texte, \texttt{l} (\textbf{l}eft flush) pour l'aligner à gauche,
+\texttt{r} (\textbf{r}ight flush) pour l'aligner à droite, ou
+\texttt{s} (\textbf{s}pread) pour le répartir horizontalement dans la
+boîte.
+
+La commande \ci{framebox} fonctionne de la même façon que
+\verb|\makebox|, mais en plus elle dessine un cadre autour du texte. 
+
+L'exemple suivant vous montre quelques choses que l'on peut faire avec
+les commandes \ci{makebox} et \ci{framebox} :
+
+\begin{example}
+\makebox[\textwidth]{%
+    c e n t r \'e}\par
+\makebox[\textwidth][s]{%
+é t i r é}\par
+\framebox[1.1\width]{Whoua 
+    le cadre !} \par
+\framebox[0.8\width][r]{Rat\'e, 
+    je suis trop large} \par
+\framebox[1cm][l]{c'est aussi 
+    mon cas.} 
+Pouvez-vous lire ceci ?
+\end{example}
+
+Maintenant que nous savons contrôler l'alignement horizontal, la suite
+logique est de voir comment gérer l'alignement vertical\,\footnote{Le
+contrôle total est obtenu en contrôlant en même temps l'alignement
+horizontal et l'alignement vertical.}. Pas de problème avec
+\LaTeX{}. La commande :
+
+\begin{lscommand}
+\ci{raisebox}\verb|{|\emph{élévation}\verb|}[|\emph{profondeur}\verb|][|\emph{hauteur}\verb|]{|\emph{texte}\verb|}|
+\end{lscommand}
+
+\noindent permet de définir les propriétés verticales d'une boîte. Vous
+pouvez utiliser \ci{width}, \ci{height}, \ci{depth} et
+\ci{totalheight} dans les trois premiers paramètres afin d'agir en
+fonction de la taille du texte contenu dans la boîte.
+
+\begin{example}
+\raisebox{0pt}[0pt][0pt]{\Large%
+\textbf{Aaaa\raisebox{-0.3ex}{a}%
+\raisebox{-0.7ex}{aa}%
+\raisebox{-1.2ex}{r}%
+\raisebox{-2.2ex}{g}%
+\raisebox{-4.5ex}{h}}}
+cria-t-il, mais la ligne suivante
+ne remarqua pas qu'une chose
+horrible lui était arrivée.
+\end{example}
+
+\section{Filets}
+\label{sec:rule}
+
+\index{filet}
+
+%%% XXX Je ne sais pas quel est le terme technique exact pour 'strut'.
+
+Quelques pages plus haut vous avez peut-être remarqué la commande :
+
+\begin{lscommand}
+\ci{rule}\verb|[|\emph{élévation}\verb|]{|\emph{largeur}\verb|}{|\emph{hauteur}\verb|}|
+\end{lscommand}
+
+\noindent En utilisation normale, elle produit une simple boîte
+noire. 
+
+\begin{example}
+\rule{3mm}{.1pt}%
+\rule[-1mm]{5mm}{1cm}%
+\rule{3mm}{.1pt}%
+\rule[1mm]{1cm}{5mm}%
+\rule{3mm}{.1pt}
+\end{example}
+
+\index{horizontal!filet}
+\noindent C'est utile pour produire des lignes horizontales et
+verticales. La ligne horizontale sur la page de titre par exemple a
+été tracée à l'aide d'une commande \ci{rule}.
+
+Un cas particulier est un filet avec une largeur nulle mais une
+certaine hauteur. En typographie professionnelle ceci est appelé un
+\wi{montant}. Il sont utilisés pour s'assurer qu'un élément aura une
+hauteur donnée. Vous pouvez par exemple l'utiliser dans un
+environnement \verb|tabular| pour garantir la hauteur d'une ligne.
+\index{montant}
+
+\begin{example}
+\begin{tabular}{|c|}
+\hline
+\rule{1pt}{4ex}\'Etai\dots\\
+\hline
+\rule{0pt}{4ex} montant \\
+\hline
+\end{tabular}
+\end{example}
+
+\label{LastRealPage}
+
+\endinput
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "flshort"
+%%% End: 

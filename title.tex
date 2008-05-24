@@ -1,0 +1,91 @@
+% page de titre pour flshort (latin1)
+%
+% Pour les informations de licence, voir flshort.tex.
+% See flshort.tex for licence information.
+%
+\svnid{$Id$}
+
+\pdfbookmark{Page de titre}{title}
+
+\newlength\centeroffset
+\setlength\centeroffset{-0.5\oddsidemargin}
+\addtolength\centeroffset{0.5\evensidemargin}
+
+\begin{titlepage} \addtolength\textwidth{-\centeroffset}
+
+  \vspace*{\stretch{1}}
+  \noindent\hspace*{\centeroffset}%
+  \begin{minipage}{\textwidth} \flushright
+    { \Huge\bfseries
+      Une courte (?)\\ introduction à \LaTeXe\par
+      }
+    \rule[-1ex]{\textwidth}{5pt}\\[2.5ex]
+    \emph{\Large ou \LaTeXe en \pageref{LastRealPage} minutes}\\[2ex]
+  \end{minipage}
+
+  \vspace{\stretch{1}}
+  \noindent\hspace*{\centeroffset}%
+  \begin{minipage}{\textwidth} \flushright
+    { \bfseries 
+      par Tobias Oetiker\\[1.5ex]
+      Hubert Partl, Irene Hyna et  Elisabeth Schlegl\\[1.5ex]
+      traduit en français par Matthieu Herrb\\[1.5ex]
+      puis Manuel Pégourié-Gonnard\\[3ex]}
+    version~4.24 du 8 février 2008\\
+    traduction v4.24-a, juin 2008
+  \end{minipage}
+
+  \vspace{\stretch{2}}
+\end{titlepage}
+
+\begin{small} 
+
+  \copyright{} 1998-2001 Tobias Oetiker et tous les contributeurs
+  de LShort.\par
+  \copyright{} 1998-2001 LAAS/CNRS pour la traduction.\par
+  \copyright{} 2008 Manuel Pégourié-Gonnard pour la traduction mise à
+  jour.\par
+
+  Ce document est libre ; vous pouvez le redistribuer et/ou le modifier selon
+  les termes de la licence publique générale de GNU publiée par la Free
+  Software Foundation (version 2 ou tout autre version ultérieure choisie par
+  vous).
+
+  Ce document est diffusé en espérant qu'il sera utile, mais \emph{sans aucune
+    garantie}, ni explicite ni implicite, y compris les garanties de
+  commercialisation ou d'adaptation à un but spécifique. Reportez-vous à
+  la licence publique générale de GNU pour plus de détails.
+
+  Vous devez avoir reçu une copie de la licence publique générale de GNU en
+  même temps que (les sources de) ce document. Si ce n'est pas le cas, écrivez
+  à la Free Software Fundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+  02111-1307, États-Unis.
+
+%   \vspace{4ex}
+% 
+%   \begin{foreignlanguage}{english}
+%     Copyright \copyright{} 1998 Tobias Oetiker and all the Contributers to
+%     LShort.\par Copyright \copyright{} 1998-2001 LAAS/CNRS (French
+%     translation).\par Copyright \copyright{} 2008 Manuel Pégourié-Gonnard
+%     (updated French translation).\par
+% 
+%     This document is free; you can redistribute it and/or modify it under the
+%     terms of the GNU General Public License as published by the Free Software
+%     Foundation; either version 2 of the License, or (at your option) any later
+%     version.
+% 
+%     This document is distributed in the hope that it will be useful, but
+%     WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+%     or FITNESS FOR A PARTICULAR PURPOSE\@. See the GNU General Public License
+%     for more details.
+% 
+%     You should have received a copy of the GNU General Public License along
+%     with this program; if not, write to the Free Software Foundation, Inc., 59
+%     Temple Place, Suite 330, Boston, MA 02111-1307, USA.
+%   \end{foreignlanguage}
+
+\end{small}
+
+
+
+\endinput

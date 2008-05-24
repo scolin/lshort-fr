@@ -1,0 +1,396 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Contents: Specialties of the LaTeX system
+% $Id: spec.tex,v 1.23 2001/11/25 17:43:58 matthieu Exp $
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Compléments}
+\label{chap:spec}
+\thispagestyle{plain}
+
+\begin{intro}
+%  Ne lisez pas ce chapitre ! Si vous vous sentez à l'aise, vous pouvez
+%  écrire vos premiers documents avec \LaTeX{} dès maintenant. Le but
+%  de ce chapitre est d'ajouter un peu de piment à votre connaissance
+%  de \LaTeX{}. Une description bien plus complète des possibilités et
+%  des améliorations possibles se trouve dans le {\normalfont\manual{}} et
+%  dans {\normalfont\companion}.
+
+Pour rédiger un document important, \LaTeX{} vous fournit des outils
+pour réaliser un index, une liste de références bibliographiques et
+d'autres choses. Des descriptions bien plus complètes de ces possibilités
+et des améliorations possibles avec \LaTeX{} se trouvent
+dans le {\normalfont\manual{}},dans {\normalfont\companion{}} 
+et dans {\normalfont\desgraupes{}}. 
+\end{intro}
+
+\section{Figures PostScript} \label{eps}
+
+Avec les environnements \ei{figure} et \texttt{table}, \LaTeX{}
+fournit les mécanismes de base pour travailler avec des objets tels que
+des images ou des graphiques.
+
+Il existe également plusieurs possibilités pour produire des
+\wi{graphiques} avec des commandes \LaTeX{} ou des extensions
+de \LaTeX{}. Malheureusement, la plupart des utilisateurs
+trouvent ces commandes difficiles à mettre en \oe uvre. Pour plus
+d'informations à leur  sujet, reportez-vous à~\desgraupes{} ou à
+\companion{}. 
+
+Un moyen bien plus simple d'inclure des graphiques dans un document
+est de les produire à l'aide d'un logiciel spécialisé%
+\footnote{Tel que XFig, CorelDraw!, FreeHand, Gnuplot...} 
+puis d'inclure le résultat dans
+le document. Ici encore \LaTeX{} offre de nombreuses solutions. Dans
+cette introduction, seule l'utilisation de graphiques \wi{PostScript
+Encapsulé} (EPS) sera traitée. En effet, c'est la solution la plus
+simple et la plus utilisée. Pour pouvoir utiliser des graphiques au
+format EPS, il faut disposer d'une imprimante acceptant les documents
+PostScript%
+\,\footnote{Une autre possibilité pour imprimer du PostScript
+          est d'utiliser le logiciel \textsc{Ghost\-Script}, disponible
+          sur \texttt{CTAN:/support/ghostscript}}.
+
+Un ensemble de commandes bien adaptées à l'insertion de graphiques est
+fourni par l'extension \pai{graphicx}, développée par D.~P.~Carlisle. Elle
+fait partie d'un ensemble d'extensions appelé \og graphics \fg{}.
+\,\footnote{\texttt{CTAN:/macros/latex/packages/graphics}}.
+
+En supposant maintenant que vous travaillez sur un système où
+l'extension \textsf{graphicx} est installée et qui dispose d'une
+imprimante PostScript, voici la marche à suivre pour inclure une
+figure dans un document :
+
+\begin{enumerate}
+\item exportez la figure de votre logiciel graphique au format EPS ;
+\item chargez l'extension \textsf{graphicx} dans le préambule de votre
+      fichier source avec :
+\begin{lscommand}
+\verb|\usepackage[|\emph{pilote}\verb|]{graphicx}|
+\end{lscommand}
+\emph{pilote} est le nom du programme de conversion \og DVI vers
+ PostScript \fg{} que vous utilisez. Le programme le plus répandu
+ est \texttt{dvips}. Cette information est nécessaire car
+ il n'y a pas de standard pour l'insertion de figures en \TeX{} ;
+ celle-ci est réalisée par le pilote au moment de
+ l'impression. Connaître le nom du pilote  permet à l'extension
+ \pai{graphics} d'inclure les bonnes commandes dans le
+ fichier \verb|.dvi| pour réaliser cette insertion ;
+\item utilisez la commande :
+\begin{lscommand}
+\ci{includegraphics}\verb|[|\emph{clef}=\emph{valeur}, ... \verb|]{|\emph{fichier}\verb|}|
+\end{lscommand}
+pour insérer \emph{fichier} dans votre document. Le paramètre
+optionnel est une liste de paires de \emph{clefs} et de \emph{valeurs}
+séparées par des virgules. Les \emph{clefs} permettent de modifier la
+largeur, la hauteur, ou l'angle de rotation de la figure. Le
+tableau~\ref{keyvals} présente les clefs les plus importantes.
+\end{enumerate}
+
+\begin{table}[htb]
+\caption{Clefs pour l'extension \textsf{graphicx}}
+\label{keyvals}
+\begin{lined}{9cm}
+\begin{tabular}{@{}ll}
+\texttt{width}& définit la largeur de la figure\\
+\texttt{height}& définit la hauteur de la figure\\
+\texttt{angle}& (en degrés) tourne la figure dans le sens \\
+&  des aiguilles d'une montre \\
+\texttt{scale}& échelle de la figure
+\end{tabular}
+
+\bigskip
+\end{lined}
+\end{table}
+
+L'exemple suivant devrait illustrer le fonctionnement de la commande :
+\begin{code}
+\begin{verbatim}
+\begin{figure}
+\begin{center}
+\includegraphics[angle=90, width=10cm]{test.eps}
+\end{center}
+\end{figure}
+\end{verbatim}
+\end{code}
+
+Cette commande inclut la figure stockée dans le fichier
+\texttt{test.eps}. La figure est \emph{d'abord} tournée de 90 degrés
+puis ajustée pour que sa largeur finale soit de 10 cm. Les proportions
+largeur/hauteur sont conservées, puisqu'aucune hauteur n'est spécifiée.
+
+Pour plus d'informations, reportez vous à~\cite{graphics} et \cite{eps}.
+
+\section{Références bibliographiques}
+
+L'environnement \ei{thebibliography} permet de produire une liste de
+références bibliographiques.  Chaque référence
+commence par
+\begin{lscommand}
+\ci{bibitem}\verb|{|\emph{marque}\verb|}|
+\end{lscommand}
+La \emph{marque} est utilisée pour citer la référence dans le
+document.
+\begin{lscommand}
+\ci{cite}\verb|{|\emph{marque}\verb|}|
+\end{lscommand}
+La numérotation des références est produite automatiquement. Le
+paramètre qui suit \verb|\begin{\thebibliography}| définit la largeur
+du décrochement utilisé pour placer ces numéros.
+
+\begin{example}
+Partl~\cite{pa} 
+propose que\dots
+
+{\small
+\begin{thebibliography}{99}
+\bibitem{pa} H.~Partl: 
+\emph{German \TeX},
+TUGboat Vol.~9, No.~1 ('88)
+\end{thebibliography}
+}
+\end{example}
+\chaptermark{Compléments} % w need to fix the damage done by the
+                           %bibliography example.
+\thispagestyle{fancyplain}
+
+Pour des projets plus importants, il est recommandé d'utiliser l'outil
+BiB\TeX{}. Celui-ci est fourni avec la plupart des installations de
+\TeX{}. Il permet de maintenir une base de données de références
+bibliographiques et d'en extraire la liste des références citées dans
+votre document. La génération des listes de références  par
+BiB\TeX{} utilise un mécanisme de feuilles de style qui permettent
+de réaliser tous les types de présentations habituellement demandés. 
+
+\section{Index} \label{sec:indexing}
+L'\wi{index} est un élément fort utile de nombreux
+ouvrages. \LaTeX{} et le programme associé
+\texttt{makeindex}\,\footnote{sur les systèmes qui ne supportent pas les
+noms de fichiers de plus de huit caractères, ce programme s'appelle
+\texttt{makeidx}.} permettent de créer des index assez
+facilement. Dans cette introduction, seules les commandes élémentaires
+de gestion d'un index sont présentées. Pour une description plus
+détaillée, reportez-vous à~\companion ou à \desgraupes{}. 
+
+Pour utiliser cette fonctionnalité, l'extension \pai{makeidx} doit être
+chargée dans le préambule avec :
+\begin{lscommand}
+\verb|\usepackage{makeidx}|
+\end{lscommand}
+\pagebreak[3]
+La  création de l'index doit être activée par la commande :
+\begin{lscommand}
+  \ci{makeindex}
+\end{lscommand}
+\noindent placée dans le préambule.
+
+Le contenu de l'index est défini par une série de commandes :
+\begin{lscommand}
+  \ci{index}\verb|{|\emph{clef}\verb|}|
+\end{lscommand}
+\noindent 
+où \emph{clef} est un mot-clef de l'index. Vous insérez des commandes
+ \ci{index} aux endroits du texte que vous voulez voir référencés par
+ l'index. Le tableau~\ref{index} explique la syntaxe de l'argument
+ \emph{clef} avec plusieurs exemples.
+
+\begin{table}[!htp]
+\caption{Exemples de clefs d'index}
+\label{index}
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+  \textbf{Exemple} &\textbf{Résultat} &\textbf{Commentaires}\\\hline
+  \rule{0pt}{1.05em}\verb|\index{hello}| &hello, 1 &Entrée normale\\ 
+\verb|\index{hello!Peter}|   &\hspace*{2ex}Peter, 3 &Sous-entrée de 'hello'\\ 
+\verb|\index{Sam@\textsl{Sam}}|     &\textsl{Sam}, 2& Entrée formatée\\ 
+\verb|\index{Lin@\textbf{Lin}}|     &\textbf{Lin}, 7& idem\\ 
+\verb.\index{Jenny|textbf}.     &Jenny, \textbf{3}& Numéro de page formaté\\
+\verb.\index{Joe|textit}.     &Joe, \textit{5}& idem\\
+\verb.\index{eolienne@éolienne}.     &éolienne, 4& clef accentuée
+\end{tabular}
+\end{center}
+\end{table}
+
+Quand le fichier source est traité par \LaTeX{}, chaque commande
+\verb|\index| crée une entrée adaptée contenant le numéro de la page
+en cours dans le fichier qui porte le même nom de base que le fichier
+source, mais avec le suffixe \verb|.idx|. Ce fichier est ensuite
+traité par le programme \texttt{makeindex}.
+\begin{lscommand}
+  \texttt{makeindex} \emph{nom de fichier}
+\end{lscommand}
+\index{makeindex@\texttt{makeindex}}
+Le programme \texttt{makeindex} crée un index trié dans le fichier
+\verb|.ind|. Ensuite, la prochaine fois que  le fichier source sera
+traité, le contenu du fichier \verb|.ind| sera
+inclus à l'endroit où \LaTeX{} rencontrera la commande :
+\begin{lscommand}
+  \ci{printindex}
+\end{lscommand}
+
+L'extension \pai{showidx} permet de visualiser les entrées de l'index
+dans la marge gauche du texte. Cela permet la relecture et la mise au
+point de l'index.
+
+Le programme \texttt{makeindex} standard ne traite malheureusement pas
+correctement les caractères accentués dans les clefs : il les place
+systématiquement en tête de l'ordre alphabétique.
+% ajout (df)
+Pour obtenir un classement correct des clés contenant des caractères 
+accentués (le «é» doit être classé comme un «e»), on peut utiliser
+le caractère \texttt{@} : la dernière ligne du tableau~\ref{index}
+produira une entrée \og éolienne \fg{} dans l'index, classée comme s'il s'agissait
+de \og eolienne \fg{}.
+
+\section{En-têtes améliorés}
+\label{sec:fancyhdr}
+
+L'extension \pai{fancyhdr}%
+\,\footnote{disponible sur 
+          \texttt{CTAN:/macros/latex/contrib/supported/fancyhdr/}.},
+développée par P.~van Oostrum, offre quelques commandes simples
+permettant de personnaliser les en-têtes et les pieds de page de votre
+document. Si vous regardez en haut de cette page, vous verrez un
+résultat possible de cette extension.
+
+La difficulté principale pour personnaliser les en-têtes et les pieds
+de page consiste à mettre à jour le nom de la section ou du chapitre
+en cours utilisés par ces éléments. \LaTeX{} réalise cela en deux
+étapes. Dans la définition des en-têtes et pieds de page 
+les commandes \ci{leftmark} et \ci{rightmark} sont utilisées pour désigner
+respectivement les noms du chapitre et la section courants.
+La valeur de ces commandes est redéfinie chaque fois
+qu'un nouveau chapitre ou une nouvelle section commence.
+
+Pour plus de souplesse, la commande \verb|\chapter| et ses collègues
+ne redéfinissent pas \verb|\leftmark| et \verb|\rightmark|
+directement. Elles appellent les commandes appelées \ci{chaptermark},
+\ci{sectionmark} et \ci{subsectionmark} qui sont chargées de redéfinir
+\verb|\leftmark| et/ou \verb|\rightmark|, selon la présentation
+désirée. 
+
+Ainsi, si vous voulez modifier la présentation du nom du chapitre
+courant dans l'en-tête, vous devrez redéfinir la commande
+\verb|\chaptermark|. 
+
+\begin{figure}[!htbp]
+\begin{lined}{\textwidth}
+\begin{verbatim}
+\documentclass{book}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+% Ceci permet d'avoir les noms de chapitre et de section 
+% en minuscules
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\fancyhf{}     % supprime les en-têtes et pieds prédéfinis
+\fancyhead[LE,RO]{\bfseries\thepage}% Left Even, Right Odd
+\fancyhead[LO]{\bfseries\rightmark} % Left Odd
+\fancyhead[RE]{\bfseries\leftmark}  % Right Even
+\renewcommand{\headrulewidth}{0.5pt}% filet en haut de page
+\addtolength{\headheight}{0.5pt}    % espace pour le filet
+\renewcommand{\footrulewidth}{0pt}  % pas de filet en bas
+\fancypagestyle{plain}{ % pages de tetes de chapitre
+   \fancyhead{}         % supprime l'entete
+   \renewcommand{\headrulewidth}{0pt} % et le filet
+}
+\end{verbatim}
+\end{lined}
+\caption{Exemple de configuration de l'extension \pai{fancyhdr}}%
+\label{fancyhdr}
+\end{figure}
+
+La figure~\ref{fancyhdr} montre un exemple de configuration de l'extension
+\pai{fancyhdr} qui se rapproche de la présentation utilisée pour ce
+document. La documentation complète de cette extension se trouve à
+l'adresse mentionnée dans la note de bas de page. 
+
+
+\section{L'extension verbatim}
+
+Plus haut dans ce document, vous avez appris à utiliser
+l'\emph{environnement} \ei{verbatim}. Dans cette section vous allez découvrir
+l'\emph{extension} \pai{verbatim}. L'extension \pai{verbatim} est une
+nouvelle implémentation de l'environnement du même nom qui corrige
+certaines de ses limitations. En soi cela n'est pas spectaculaire,
+mais en plus, une fonctionnalité nouvelle a été ajoutée, et c'est elle
+qui justifie que cette extension soit citée ici. L'extension
+\pai{verbatim} propose la commande :
+
+\begin{lscommand}
+\ci{verbatiminput}\verb|{|\emph{nom de fichier}\verb|}|
+\end{lscommand}
+
+\noindent qui permet d'inclure un fichier ASCII brut dans votre
+document, comme s'il se trouvait à l'intérieur d'un environnement
+\ei{verbatim}. 
+
+Puisque l'extension \pai{verbatim} fait partie de l'ensemble 
+\og \texttt{tools} \fg{}, elle devrait être installée sur la plupart des
+systèmes. Pour en savoir plus au sujet de cette extension,
+reportez-vous à~\cite{verbatim}.
+
+\section{Téléchargement et installation d'extensions}
+\label{downloading}
+
+La plupart des  installations \LaTeX{} fournissent en standard un grand
+nombre d'extensions, mais il arrive que justement celle dont on aurait
+besoin manque, ou qu'une extension nécessite une mise à jour.
+L'endroit le plus adéquat pour rechercher les versions officielles
+des  extensions \LaTeX{} est
+\url{http\string://www.tex.ac.uk/CTANfind.html}
+
+Les extensions sont en général fournies sous la forme de deux fichiers,
+l'un de suffixe \texttt{.dtx}, l'autre de suffixe \texttt{.ins}.
+Souvent un fichier \texttt{readme.txt} est joint et donne une brève
+description de l'extension, le mieux est de commencer par la lecture de ce
+fichier. 
+
+Ensuite, il faut, d'une part installer l'extension et
+d'autre part extraire la documentation, voici la manière de procéder :
+
+\begin{enumerate}
+\item exécuter \LaTeX{} sur le fichier \texttt{.ins}. Ceci produira les
+  fichiers \texttt{.sty}, \texttt{.def}, etc., dont \LaTeX{} a besoin.
+\item déplacer ces fichiers dans un répertoire adéquat, en général 
+  c'est dans \texttt{\ldots/texmf/tex/latex} ou dans
+  \texttt{\ldots/\emph{localtexmf}/tex/latex}.
+\item mettre à jour la base de données des noms de fichiers, la commande
+  dépend de votre distribution \LaTeX{}, c'est en général \texttt{mktexlsr}
+  \texttt{texhash}, ou encore \texttt{texconfig rehash}.
+\end{enumerate}
+
+\noindent Il faut ensuite  extraire la documentation du fichier
+\texttt{.dtx} :
+\begin{enumerate}
+\item exécuter \LaTeX{} sur le fichier \texttt{.dtx}. Cela produira un
+      fichier \texttt{.dvi}. Noter que plusieurs exécutions de
+      \LaTeX{} peuvent être nécessaires pour produire les références
+      croisées complètes.
+\item vérifier si \LaTeX{} a produit un fichier \texttt{.idx}. Si ce
+      n'est pas le cas, passer à l'étape 5. 
+\item pour produire l'index, exécuter la commande suivante :
+\begin{lscommand}
+\texttt{makeindex -s gind.ist \textit{nom}}
+\end{lscommand}
+(où \textit{nom} représente le nom du fichier principal, sans
+suffixe).
+\item exécuter \LaTeX{} sur le fichier \texttt{.dtx} une fois de plus.
+\item enfin, produire un fichier PostScript ou PDF à imprimer pour une
+      lecture plus confortable. 
+\end{enumerate}
+
+Parfois vous constaterez qu'un fichier \texttt{.glo} (glossaire) a
+également été produit. Exécutez la commande suivante entre les étapes
+4 et 5 :
+
+\texttt{makeindex -s gglo.ist -o \textit{nom}\texttt{.gls} 
+\textit{nom}\texttt{.glo}}
+
+\noindent Et n'oubliez pas de re-exécuter \LaTeX{} sur le fichier
+\texttt{.dtx} avant de passer à l'étape 5. 
+
+\endinput
+
+%%% Local Variables: 
+%%% mode: latex 
+%%% TeX-master: "flshort2e" 
+%%% End:  
