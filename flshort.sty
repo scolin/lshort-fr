@@ -108,8 +108,9 @@
 %
 \newcommand\proofmode{%
   \setlength\overfullrule{5pt}
-  \renewcommand\ifoot{flshort \svndate{} r\svnrev}
-  \renewcommand\ofoot{\svnkw{Filename} \svnfiledate{} r\svnfilerev}}
+  \renewcommand\ifoot{flshort \svnyear/\svnmonth/\svnday{} r\svnrev}
+  \renewcommand\ofoot{\svnkw{Filename} 
+    \svnfileyear/\svnfilemonth/\svnfileday{} r\svnfilerev}}
 \newcommand\ifoot{}
 \newcommand\ofoot{}
 \newcommand\prooffoot{%
