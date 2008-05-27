@@ -1,61 +1,67 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Contents: Things you need to know
-% $Id: things.tex,v 1.25 2001/11/25 17:43:58 matthieu Exp $
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% préface pour flshort (encodé en latin1)
+%
+% Pour les informations de licence, voir flshort.tex.
+% See flshort.tex for licence information.
+%
+\svnid{$Id$}
+
 \chapter{Ce qu'il faut savoir}
 \thispagestyle{plain}
 
 \begin{intro}
 Dans la première partie de ce chapitre vous trouverez une rapide
-présentation de la philosophie et de l'histoire de \LaTeXe{}. La
+présentation de la philosophie et de l'histoire de \LaTeXe. La
 deuxième partie met l'accent sur les structures fondamentales d'un
-document \LaTeX{}. Après avoir lu ce chapitre, vous devriez avoir une
-idée d'ensemble du fonctionnement de \LaTeX{} qui vous aidera à mieux
+document \LaTeX. Après avoir lu ce chapitre, vous devriez avoir une
+idée d'ensemble du fonctionnement de \LaTeX qui vous aidera à mieux
 comprendre les chapitres suivants.
 \end{intro}
 
 \section{Le nom de la bête}
+
 \subsection{\TeX}
  
-\TeX{} est un programme écrit par \index{Knuth, Donald E.}Donald
+\TeX est un programme écrit par \index{Knuth, Donald E.}Donald
 E.~Knuth~\cite{texbook}.  Il est conçu pour la composition de textes
-et d'équations mathématiques.  
+et de formules mathématiques. Knuth a commencé à écrire \TeX en 1977 pour
+explorer les possibilités du matériel d'impression numérique qui commençait à
+s'introduire dans le milieu de l'édition de l'époque, et en particulier dans
+l'espoir de contrecarrer la baisse de qualité typographique qui
+touchait ses propres livres et articles. Le \TeX que nous connaissons
+aujourd'hui a été publié en 1982, avec de légères améliorations en 1989 visant
+à mieux gérer les caractères 8 bits ainsi que plusieurs langages. \TeX est
+connu pour sa très grande stabilité, sa capacité à fonctionner sur toutes
+sortes d'ordinateurs, et son absence quasi-totale de bogues. Son numéro de
+version converge vers $\pi$ et vaut actuellement\footnote{Au moment de la
+  traduction\dots (NdT)} $3.1415926$.
 
-Knuth a commencé le développement de \TeX{} en 1977 parce qu'il était
-frustré par la manière avec laquelle ses articles étaient publiés par
-l'American Mathematical Society. Il avait arrêté de soumettre des
-articles vers 1974 parce que \og le résultat final était trop pénible à
-regarder \fg{}. \TeX{}, tel que nous l'utilisons aujourd'hui, est sorti en
-1982 et a été amélioré au fil des ans. Ces dernières années \TeX{} a
-atteint une grande stabilité. Aujourd'hui Knuth affirme qu'il n'y a
-virtuellement plus de \og bug \fg{}. Le numéro de version de \TeX{} tend
-vers $\pi$ et est actuellement $3.14159$.
+\csname Ici se trouve la limite de la traduction révisée\endcsname
 
-\TeX{} se prononce \og Tech \fg{}, avec un \og ch \fg{} comme dans le mot
+\TeX se prononce \og Tech \fg{}, avec un \og ch \fg{} comme dans le mot
 écossais \og Loch \fg{}. En alphabet phonétique cela donne
-\textbf{[tex]}\dots Dans un environnement \texttt{ASCII}, \TeX{}
+\textbf{[tex]}\dots Dans un environnement \texttt{ASCII}, \TeX
 devient \texttt{TeX}.
 
 \subsection{\LaTeX}
  
-\LaTeX{} est un ensemble de macros qui permettent à un auteur de
+\LaTeX est un ensemble de macros qui permettent à un auteur de
 mettre en page son travail avec la meilleure qualité typographique en
-utilisant un format professionnel pré-défini. \LaTeX{} a été écrit par
-\index{Lamport, Leslie}Leslie Lamport~\cite{manual}. Il utilise \TeX{}
+utilisant un format professionnel pré-défini. \LaTeX a été écrit par
+\index{Lamport, Leslie}Leslie Lamport~\cite{manual}. Il utilise \TeX
 comme outil de mise en page.
 
-En 1994, \LaTeX{} a été mis à jour par
+En 1994, \LaTeX a été mis à jour par
 l'équipe \index{LaTeX3@\LaTeX 3}\LaTeX 3, menée par \index{Mittelbach,
 Frank}Frank Mittelbach, afin de réaliser certaines améliorations
 demandées depuis longtemps et de fusionner toutes les variantes qui
-s'étaient développées depuis la sortie de \index{LaTeX 2.09@\LaTeX{}
-2.09}\LaTeX{} 2.09 quelques années auparavent. Pour distinguer cette
+s'étaient développées depuis la sortie de \index{LaTeX 2.09@\LaTeX
+2.09}\LaTeX 2.09 quelques années auparavent. Pour distinguer cette
 nouvelle version des précédentes, elle est appelée \index{LaTeX
 2e@\LaTeXe}\LaTeXe. Ce document est relatif à \LaTeXe.
 
-\LaTeX{} se prononce \textbf{[latex]}. Si vous
-voulez faire référence à \LaTeX{} dans un environnement
-\texttt{ASCII}, utilisez \texttt{LaTeX}. \LaTeXe{} se prononce
+\LaTeX se prononce \textbf{[latex]}. Si vous
+voulez faire référence à \LaTeX dans un environnement
+\texttt{ASCII}, utilisez \texttt{LaTeX}. \LaTeXe se prononce
 \textbf{[latex d\o{}z\o{}]} et s'écrit
 \texttt{LaTeX2e}.
 
@@ -63,7 +69,7 @@ En anglais, cela donne \textbf{[la\i{}tex]} et \textbf{[la\i{}tex tu:
 i:]}. 
 
 % La figure~\ref{components}, page~\pageref{components} montre
-% l'interaction entre les différents éléments d'un système \TeX{}. Cette
+% l'interaction entre les différents éléments d'un système \TeX. Cette
 % figure est extraite de \texttt{wots.tex} de Kees van der Laan.
 % 
 % \begin{figure}[btp]
@@ -72,7 +78,7 @@ i:]}.
 % \input{kees.fig}
 % \end{center}
 % \end{lined}
-% \caption{Éléments d'un système \TeX{}} \label{components}
+% \caption{Éléments d'un système \TeX} \label{components}
 % \end{figure}
 
 \section{Les bases}
@@ -90,12 +96,12 @@ Un éditeur humain essaye de comprendre ce que l'auteur veut mettre en
 valeur et décide de la présentation en fonction de son expérience
 professionnelle et du contenu du manuscrit. 
 
-Dans un environnement \LaTeX{}, celui-ci joue le rôle de l'éditeur et
-utilise \TeX{} comme typographe pour la composition. Mais \LaTeX{}
+Dans un environnement \LaTeX, celui-ci joue le rôle de l'éditeur et
+utilise \TeX comme typographe pour la composition. Mais \LaTeX
 n'est qu'un programme et a donc besoin de plus de directives. L'auteur
 doit en particulier lui fournir la structure logique de son
 document. Cette information est insérée dans le texte sous la forme de
-\og commandes \LaTeX{} \fg{}.
+\og commandes \LaTeX \fg{}.
 
 Cette approche est totalement différente de l'approche
 \wi{WYSIWYG}\,\footnote{What you see is what you get -- Ce que vous
@@ -106,9 +112,9 @@ document de manière interactive pendant la saisie du texte. Tout au
 long de cette opération, il voit à l'écran à quoi ressemblera le
 document final une fois imprimé.
 
-Avec \LaTeX{}, il n'est normalement pas possible de voir le résultat
+Avec \LaTeX, il n'est normalement pas possible de voir le résultat
 final durant la saisie du texte. Mais celui-ci peut être
-pré-visualisé après traitement du fichier par \LaTeX{}. Des corrections
+pré-visualisé après traitement du fichier par \LaTeX. Des corrections
 peuvent alors être apportées avant d'envoyer la version définitive
 vers l'imprimante.
 
@@ -131,7 +137,7 @@ plus importantes que le \og look \fg{}. Par exemple :
 
 Avec un logiciel \wi{WYSIWYG}, l'auteur produit généralement des
 documents esthétiquement plaisants (quoi que\dots) mais très peu ou
-mal structurés. \LaTeX{} empêche de telles erreurs de formatage en
+mal structurés. \LaTeX empêche de telles erreurs de formatage en
 forçant l'auteur à décrire la structure logique de son document et en
 choisissant lui-même la mise en page la plus appropriée.
 
@@ -139,15 +145,15 @@ choisissant lui-même la mise en page la plus appropriée.
 \subsection{Avantages et inconvénients}
 
 Un sujet de discussion qui  revient souvent quand des gens du monde
-\wi{WYSIWYG} rencontrent des utilisateurs de \LaTeX{} est le 
-suivant : \og les \wi{avantages de \LaTeX{}} par rapport à un
+\wi{WYSIWYG} rencontrent des utilisateurs de \LaTeX est le 
+suivant : \og les \wi{avantages de \LaTeX} par rapport à un
 traitement de texte classique \fg{} ou bien le contraire.
 La meilleure chose à faire quand une telle discussion démarre, est de
 garder son calme, car souvent cela dégénère. Mais parfois on ne peut y
 échapper\dots
 
 \medskip Voici donc quelques arguments. Les principaux avantages de
-\LaTeX{} par rapport à un traitement de texte traditionnel sont :
+\LaTeX par rapport à un traitement de texte traditionnel sont :
 
 \begin{itemize}
 
@@ -162,15 +168,15 @@ garder son calme, car souvent cela dégénère. Mais parfois on ne peut y
       des renvois, la table des matières ou les références
       bibliographiques sont produites facilement ;
 \item pour la plupart des tâches de la typographie qui ne sont pas
-      directement gérées par \LaTeX{}, il existe des extensions
+      directement gérées par \LaTeX, il existe des extensions
       gratuites. Par exemple pour inclure des figures
       \textsc{PostScript} ou pour formater une bibliographie selon un
       standard précis. La majorité de ces extensions sont décrites dans
       \companion{} (en anglais) et dans \desgraupes{} (en français) ;
-\item \LaTeX{} encourage les auteurs à écrire des documents bien
+\item \LaTeX encourage les auteurs à écrire des documents bien
       structurés, parce que c'est ainsi qu'il fonctionne (en
       décrivant la structure) ;
-\item \TeX{}, l'outil de formatage de \LaTeXe{}, est réellement
+\item \TeX, l'outil de formatage de \LaTeXe, est réellement
       portable et gratuit. Ainsi il est disponible sur quasiment
       toutes les machines existantes.
 %
@@ -180,11 +186,11 @@ garder son calme, car souvent cela dégénère. Mais parfois on ne peut y
 
 \medskip
 
-\LaTeX{} a également quelques inconvénients ; il est difficile
+\LaTeX a également quelques inconvénients ; il est difficile
 pour moi d'en trouver, mais d'autres vous en citeront des centaines  :
 
 \begin{itemize}
-\item \LaTeX{} ne fonctionne pas bien pour ceux qui ont vendu leur 
+\item \LaTeX ne fonctionne pas bien pour ceux qui ont vendu leur 
       âme ;
 \item bien que quelques paramètres des mises en page pré-définies
       puissent être personnalisés, la mise au point d'une présentation
@@ -196,11 +202,11 @@ pour moi d'en trouver, mais d'autres vous en citeront des centaines  :
       difficile. 
 \end{itemize}
  
-\section{Fichiers source \LaTeX{}}
+\section{Fichiers source \LaTeX}
 
-L'entrée de \LaTeX{} est un fichier texte \texttt{ASCII}. Vous pouvez
+L'entrée de \LaTeX est un fichier texte \texttt{ASCII}. Vous pouvez
 le créer avec l'éditeur de texte de votre choix. Il contient le texte
-de votre document ainsi que les commandes qui vont dire à \LaTeX{}
+de votre document ainsi que les commandes qui vont dire à \LaTeX
 comment mettre en page le texte. On appelle ce fichier \emph{\wi{fichier
 source}}. 
 
@@ -208,7 +214,7 @@ source}}.
 
 Les caractères d'espacement, tels que les blancs ou les tabulations
 sont traités de manière unique comme \og \wi{espace} \fg{} par
-\LaTeX{}. Plusieurs \wi{blancs} \emph{consécutifs} sont considérés
+\LaTeX. Plusieurs \wi{blancs} \emph{consécutifs} sont considérés
 comme \emph{une seule} espace\,\footnote{En langage typographique,
     \emph{espace} est un mot féminin. \emph{NdT.}}.  Les espaces en début
 d'une ligne sont en général ignorées et un seul retour à la ligne est
@@ -232,9 +238,9 @@ un nouveau paragraphe.
 \subsection{Caractères spéciaux}
 
 Les symboles suivants sont des \wi{caractères réservés} qui, soit ont 
-une signification spéciale dans \LaTeX{}, soit ne sont pas disponibles
+une signification spéciale dans \LaTeX, soit ne sont pas disponibles
 dans toutes les polices. Si vous les saisissez directement dans votre
-texte, ils ne seront pas imprimés et forceront \LaTeX{} à faire des
+texte, ils ne seront pas imprimés et forceront \LaTeX à faire des
 choses que vous n'avez pas voulues.
 
 \begin{code}
@@ -258,9 +264,9 @@ un second antislash (\verb|\\|). Cette séquense est utilisée pour
 indiquer les coupures de ligne\,\footnote{Utilisez la commande
 \texttt{\$}\ci{backslash}\texttt{\$}. Elle produit un $\backslash$.}.
 
-\subsection{Commandes \LaTeX{}}
+\subsection{Commandes \LaTeX}
 
-Les commandes \LaTeX{} sont sensibles à la casse des caractères
+Les commandes \LaTeX sont sensibles à la casse des caractères
 (majuscules ou minuscules) et utilisent l'un des deux formats
 suivants :
 
@@ -282,15 +288,15 @@ suivants :
 % Can \3 be a valid command ? (jacoboni)
 %
 \label{whitespace}
-\LaTeX{} ignore les espaces après les commandes. Si vous souhaitez
+\LaTeX ignore les espaces après les commandes. Si vous souhaitez
 obtenir un blanc après une commande\index{espace!après une commande},
 il faut ou bien insérer \verb|{}| suivi d'un blanc ou bien utiliser une
-commande d'espacement spécifique de \LaTeX{}. La séquence \verb|{}|
-empêche \LaTeX{} d'ignorer les blancs après une commande.
+commande d'espacement spécifique de \LaTeX. La séquence \verb|{}|
+empêche \LaTeX d'ignorer les blancs après une commande.
 
 \begin{example}
 J'ai lu que Knuth classe les
-gens qui utilisent \TeX{} en
+gens qui utilisent \TeX en
 \TeX{}niciens et en \TeX perts.\\
 Aujourd'hui nous sommes le \today.
 \end{example}
@@ -299,7 +305,7 @@ Certaines commandes sont suivies d'un \wi{paramètre} qui est mis entre
 \wi{accolades} \verb|{ }|. Certaines commandes supportent des
 \wi{paramètres optionnels} qui suivent le nom de la commande entre
 \wi{crochets}~\verb|[ ]|. L'exemple suivant montre quelques commandes
-\LaTeX{}. Ne vous tracassez pas pour les comprendre, elles seront
+\LaTeX. Ne vous tracassez pas pour les comprendre, elles seront
 expliquées plus loin.
 
 \begin{example}
@@ -314,7 +320,7 @@ Merci !
 \subsection{Commentaires}
 \index{commentaires}
 
-Quand \LaTeX{} rencontre un caractère \verb|%| dans le fichier
+Quand \LaTeX rencontre un caractère \verb|%| dans le fichier
 source, il ignore le reste de la ligne en cours. C'est utile pour
 ajouter des notes qui n'apparaîtront  pas dans la version imprimée.
 
@@ -346,7 +352,7 @@ environnements complexes, tels que le mode mathématique par exemple.
 
 \section{Structure du fichier source}
 
-Quand \LaTeX{} analyse un fichier source, il s'attend à y trouver une
+Quand \LaTeX analyse un fichier source, il s'attend à y trouver une
 certaine structure. C'est pourquoi chaque fichier source doit
 commencer par la commande :
 \begin{code}
@@ -355,7 +361,7 @@ commencer par la commande :
 Elle indique quel type de document vous voulez écrire. Après cela vous
 pouvez insérer des commandes qui vont influencer le style du document
 ou vous pouvez charger des \wi{extension}s qui ajoutent de nouvelles
-fonctions au système \LaTeX{}. Pour charger une extension, utilisez la
+fonctions au système \LaTeX. Pour charger une extension, utilisez la
 commande :
 \begin{code}
 \verb|\usepackage{...}|
@@ -371,14 +377,14 @@ la commande :
 \end{code}
 
 Maintenant vous pouvez saisir votre texte et y insérer des commandes
-\LaTeX{}. À la fin de votre document, utilisez la commande
+\LaTeX. À la fin de votre document, utilisez la commande
 \begin{code}
 \verb|\end{document}|
 \end{code}
-pour dire à \LaTeX{} qu'il en a fini. Tout ce qui suivra dans le
+pour dire à \LaTeX qu'il en a fini. Tout ce qui suivra dans le
 fichier source sera ignoré.
 
-La figure~\ref{mini} montre le contenu d'un document \LaTeXe{}
+La figure~\ref{mini} montre le contenu d'un document \LaTeXe
 minimum. Un fichier source plus complet est présenté sur la
 figure~\ref{document}. 
 
@@ -391,7 +397,7 @@ Small is beautiful.
 \end{document}
 \end{verbatim}
 \end{lined}
-\caption{Un fichier \LaTeX{} minimal} \label{mini}
+\caption{Un fichier \LaTeX minimal} \label{mini}
 \end{figure}
  
 \begin{figure}[htbp]
@@ -419,27 +425,27 @@ On verra plus tard.
 
 Vous brûlez probablement d'envie d'essayer l'exemple présenté
 page~\pageref{mini}. Voici quelques informations :
-\LaTeX{} lui-même ne propose pas d'interface graphique ni de jolis
+\LaTeX lui-même ne propose pas d'interface graphique ni de jolis
 boutons à 
 cliquer. Il s'agit simplement d'un programme qui \og digère \fg{} votre
-fichier source. Certaines installations de \LaTeX{} ajoutent une
+fichier source. Certaines installations de \LaTeX ajoutent une
 telle interface graphique permettant de cliquer pour lancer la
 mise en page de votre document. 
 
 Mais les puristes ne cliquent pas ; voici donc comment demander à
-\LaTeX{} de traiter votre document sur un système avec une interface
-textuelle. Remarquez que ceci suppose que \LaTeX{} soit déjà installé
+\LaTeX de traiter votre document sur un système avec une interface
+textuelle. Remarquez que ceci suppose que \LaTeX soit déjà installé
 sur votre ordinateur. 
 
 \begin{enumerate}
-\item Créez/éditez votre fichier source \LaTeX{}. Il s'agit d'un
+\item Créez/éditez votre fichier source \LaTeX. Il s'agit d'un
       fichier texte pur. Sur les systèmes Unix, tous les éditeurs
       créent ce type de fichier. Sous Windows, assurez-vous que le
       fichier est sauvegardé en texte seul (ASCII ou encore \og plain
       text \fg{}). Choisissez pour votre fichier un nom avec le suffixe
       \texttt{.tex}. 
 
-\item Exécutez \LaTeX{} sur votre fichier. Si tout se passe bien, vous
+\item Exécutez \LaTeX sur votre fichier. Si tout se passe bien, vous
       obtiendrez un nouveau fichier avec le suffixe \texttt{.dvi}. 
 \begin{verbatim}
 latex document.tex
@@ -465,7 +471,7 @@ manipulation des fichiers DVI sont disponibles.
  
 \subsection {Classes de documents}\label{sec:documentclass}
 
-La première information dont \LaTeX{} a besoin en traitant un fichier
+La première information dont \LaTeX a besoin en traitant un fichier
 source est le type de document que son auteur est en train de
 créer. Ce type est spécifié par la commande \ci{documentclass}.
 \begin{lscommand}
@@ -473,7 +479,7 @@ créer. Ce type est spécifié par la commande \ci{documentclass}.
 \end{lscommand}
 Ici \emph{classe} indique le type de document à créer. Le
 tableau~\ref{documentclasses} donne la liste des classes de documents
-présentées dans cette introduction. \LaTeXe{} fournit d'autres classes
+présentées dans cette introduction. \LaTeXe fournit d'autres classes
 pour d'autres types de documents, notamment des lettres et des
 transparents. Le paramètre \emph{\wi{option}s} permet de modifier le
 comportement de la classe de document. Les options sont séparées par
@@ -499,7 +505,7 @@ le tableau~\ref{options}.
   \index{livre}
 \item [\normalfont\texttt{slides}] pour des transparents. Cette classe
       utilise de grands caractères sans serif. Voir également la
-      classe Foil\TeX{}\,\footnote{%
+      classe Foil\TeX\,\footnote{%
         \texttt{CTAN:/tex-archive/macros/latex/contrib/supported/foiltex}}
    \index{slides@\textsf{slides}}\index{foiltex@\textsf{foiltex}}
    \index{transparents}
@@ -544,7 +550,7 @@ la même page contrairement aux classes \texttt{report} et
 \index{notitlepage@\texttt{notitlepage}}
 
 \item[\normalfont\texttt{twocolumn}] \quad 
-demande à \LaTeX{} de formater le texte sur \wi{deux colonnes}.
+demande à \LaTeX de formater le texte sur \wi{deux colonnes}.
 \index{twocolumn@\texttt{twocolumn}}
 
 \item[\normalfont\texttt{twoside, oneside}] \quad indique si la sortie
@@ -568,12 +574,12 @@ chapitres sur la prochaine page vierge alors que la classe
 \end{lined}
 \end{table}
 
-Exemple : un fichier source pour un document \LaTeX{} pourrait
+Exemple : un fichier source pour un document \LaTeX pourrait
 commencer par la ligne
 \begin{code}
 \ci{documentclass}\verb|[11pt,twoside,a4paper]{article}|
 \end{code}
-elle informe \LaTeX{} qu'il doit composer ce document comme un
+elle informe \LaTeX qu'il doit composer ce document comme un
 \emph{article} avec une taille de caractère de base de \emph{onze
 points} et qu'il devra produire une mise en page pour une impression
 \emph{double face} sur du papier au format \emph{A4}%
@@ -588,7 +594,7 @@ américain : 8,5~$\times$~11 pouces, soit 216~$\times$~280 mm.}.
 \begin{lined}{11cm}
 \begin{description}
 \item[\normalfont\texttt{doc}] permet de documenter des programmes
- pour  \LaTeX{}.\\
+ pour  \LaTeX.\\
  Décrite dans \texttt{doc.dtx}\,\footnote{Ce fichier devrait être intallé
  sur votre système et vous devriez être capable de le formater avec
  la commande \texttt{latex doc.dtx}. Il en est de même pour les autres
@@ -599,7 +605,7 @@ américain : 8,5~$\times$~11 pouces, soit 216~$\times$~280 mm.}.
   Décrite dans \texttt{ltexscale.dtx}.
 
 \item[\normalfont\pai{fontenc}] spécifie le \wi{codage} des polices
-  de caractère que \LaTeX{} va utiliser.\\
+  de caractère que \LaTeX va utiliser.\\
   Décrite dans \texttt{ltoutenc.dtx}.
 
 \item[\normalfont\pai{ifthen}] fournit des commandes de la forme\\
@@ -608,7 +614,7 @@ américain : 8,5~$\times$~11 pouces, soit 216~$\times$~280 mm.}.
   \desgraupes{}. 
 
 \item[\normalfont\pai{latexsym}] permet l'utilisation de la police des
-  symboles \LaTeX{}.\\
+  symboles \LaTeX.\\
   Décrite dans \texttt{latexsym.dtx}, dans \companion{} et dans
   \desgraupes{}. 
  
@@ -633,10 +639,10 @@ américain : 8,5~$\times$~11 pouces, soit 216~$\times$~280 mm.}.
 
 \index{extension} 
 En rédigeant votre document, vous remarquerez peut-être qu'il y a des
-domaines où les commandes de base de \LaTeX{} ne permettent pas
+domaines où les commandes de base de \LaTeX ne permettent pas
 d'exprimer ce que vous voudriez. Si vous voulez inclure des
 graphiques, du texte en couleur ou du code d'un programme dans votre
-document, il faut augmenter les possibilités de \LaTeX{} grâce à des
+document, il faut augmenter les possibilités de \LaTeX grâce à des
 extensions. 
 Une extension est chargée par la commande
 \begin{lscommand}
@@ -645,17 +651,17 @@ Une extension est chargée par la commande
 \emph{extension} est le nom de l'extension et \emph{options} une liste
 de mots-clés qui déclenchent certaines fonctions de
 l'extension. Certaines extensions font partie de la distribution
-standard de \LaTeXe{} (reportez-vous au
+standard de \LaTeXe (reportez-vous au
 tableau~\ref{extensions}). D'autres sont distribuées à part. Le
 \guide{} peut vous fournir plus d'informations sur les extensions
 installées sur votre site. \companion{} est la principale source
-d'information au sujet de \LaTeXe{}. Ce livre contient la description
+d'information au sujet de \LaTeXe. Ce livre contient la description
 de centaines d'extensions ainsi que les informations nécessaires pour
 écrire vos propres extensions à \LaTeXe.
 
 \subsection{Styles de page}
 
-\LaTeX{} propose trois combinaisons d'\wi{en-tête}s et de \wi{pieds de
+\LaTeX propose trois combinaisons d'\wi{en-tête}s et de \wi{pieds de
 page}, appelées styles de page et définies par le paramètre \emph{style} de la
 commande :
 \index{style de page!plain@\texttt{plain}}\index{plain@\texttt{plain}}
@@ -699,21 +705,21 @@ comment créer vos propres en-têtes et pieds de pages.
 % \pagenumbering
 
 \section{Les fichiers manipulés}
-L'utilisateur de \LaTeX{} est amené à cotoyer un grand nombre de fichiers
+L'utilisateur de \LaTeX est amené à cotoyer un grand nombre de fichiers
 aux suffixes divers, chaque suffixe renseigne sur le rôle du fichier,
 il est donc utile d'en connaître la signification, voici les suffixes
 les plus courants :
 \begin{description}
-\item[\wi{.tex}] fichier source \TeX{} ou \LaTeX{} ;
+\item[\wi{.tex}] fichier source \TeX ou \LaTeX ;
 \item[\wi{.sty}] fichier contenant des commandes, que l'on charge dans le
   préambule d'un document grâce à une commande \verb+\usepackage+ ;
-\item[\wi{.dtx}] fichier contenant du code \LaTeX{} (commandes) documenté,
-  le lancement de \LaTeX{} sur un fichier \texttt{.dtx} en extrait la
+\item[\wi{.dtx}] fichier contenant du code \LaTeX (commandes) documenté,
+  le lancement de \LaTeX sur un fichier \texttt{.dtx} en extrait la
   documentation.
 \item[\wi{.ins}] fichier permettant d'installer le contenu du
-  fichier~\texttt{.dtx} de même nom. Une extension \LaTeX{}
+  fichier~\texttt{.dtx} de même nom. Une extension \LaTeX
   téléchargée de l'Internet est composée d'un fichier \texttt{.dtx} et
-  d'un \texttt{.ins}. Exécuter \LaTeX{} sur le fichier \texttt{.ins}
+  d'un \texttt{.ins}. Exécuter \LaTeX sur le fichier \texttt{.ins}
   pour extraire les fichiers à installer du \texttt{.dtx}.
 \item[\wi{.cls}] désigne un fichier de \emph{classe} contenant la
   description d'un type de document, chargé par la commande
@@ -722,7 +728,7 @@ les plus courants :
   caractères ; 
 \end{description}
 
-\noindent Les fichiers suivants sont produits par \LaTeX{} à partir du fichier
+\noindent Les fichiers suivants sont produits par \LaTeX à partir du fichier
 source (de suffixe~\texttt{.tex}) :
 \begin{description}
 \item[\wi{.dvi}] signifie \emph{DeVice Independent}, c'est le fichier que l'on
@@ -739,7 +745,7 @@ source (de suffixe~\texttt{.tex}) :
 \item[\wi{.aux}] contient diverses informations utiles à \LaTeX, en
   particulier ce qui est nécessaire au fonctionnement des références
   croisées. Le fichier \texttt{.aux} produit lors d'une exécution de
-  \LaTeX{} est lu lors de l'exécution suivante ;
+  \LaTeX est lu lors de l'exécution suivante ;
 \item[\wi{.idx}] fichier produit seulement si un index est demandé, il doit
   être traité par \texttt{makeindex} (voir section~\ref{sec:indexing}
   page~\pageref{sec:indexing}) ;
@@ -752,20 +758,20 @@ source (de suffixe~\texttt{.tex}) :
 \section{Gros documents}
 
 Lorsque l'on travaille sur de gros documents, il peut être
-pratique de couper le fichier source en plusieurs morceaux. \LaTeX{} a
+pratique de couper le fichier source en plusieurs morceaux. \LaTeX a
 deux commandes qui vous permettent de gérer plusieurs fichiers sources.
 
 \begin{lscommand}
 \ci{include}\verb|{|\emph{fichier}\verb|}|
 \end{lscommand}
 Vous pouvez utiliser cette commande dans le corps de votre document
-pour insérer le contenu d'un autre fichier source. \LaTeX{} ajoute
+pour insérer le contenu d'un autre fichier source. \LaTeX ajoute
 automatiquement le suffixe \texttt{.tex} au nom spécifié. Remarquez que
-\LaTeX{} va sauter une page pour traiter le contenu de
+\LaTeX va sauter une page pour traiter le contenu de
 \emph{fichier}\texttt{.tex}. 
 
 La seconde commande peut être utilisée dans le préambule. Elle permet
-de dire à \LaTeX{} de n'inclure que certains des fichiers désignés par
+de dire à \LaTeX de n'inclure que certains des fichiers désignés par
 les commandes \verb|\include|.
 \begin{lscommand}
 \ci{includeonly}\verb|{|\emph{fichier}\verb|,|\emph{fichier}%
@@ -790,7 +796,7 @@ sophistiqué.
 
 \enlargethispage{\baselineskip}
 
-Il est possible de demander à \LaTeX{} de simplement vérifier la syntaxe d'un
+Il est possible de demander à \LaTeX de simplement vérifier la syntaxe d'un
 document, sans produire de fichier~\texttt{.dvi} pour gagner du temps, 
 en  utilisant l'extension~\texttt{syntonly} :
 \begin{verbatim}
