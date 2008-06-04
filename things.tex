@@ -237,64 +237,55 @@ dans toutes les polices. Si vous les saisissez directement dans votre
 texte, ils ne seront pas imprimés mais forceront \LaTeX à faire des
 choses que vous n'avez pas voulues.
 \begin{code}
-\verb.#  $  %  ^  &  _  {  }  ~  \ . %$
+\verb.#  $  %  ^  &  _  {  }  ~  \ .
 \end{code}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                     Frontière de la traduction révisée                     %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\index{Backslash|see{Contre-oblique}}
+\index{Antislash|see{Contre-oblique}}
+\index{Barre oblique inverse|see{Contre-oblique}}
 Comme vous le voyez, certains de ces caractères peuvent être utilisés dans vos
-documents en les préfixant par une contre-oblique\footnote{Aussi nommée
-  « barre oblique inverse », \emph{\mbox{antislash}} en franglais, et
-  \eng{backslash} en anglais. \NdT} :
+documents en les préfixant par une \wi{contre-oblique}\footnote{Aussi nommée
+  « barre oblique inverse », ou parfois \nolang{antislash} d'après l'anglais
+  \eng{backslash}. \NdT } :
 
 \begin{example}
 \# \$ \% \^{} \& \_ \{ \} \~{} 
 \end{example} 
 
-Les autres et bien d'autres encore peuvent être obtenus avec des
-commandes spéciales à l'intérieur de formules mathématiques ou comme
-accents. La contre-oblique \textbackslash ne peut pas être saisi en ajoutant
-une contre-oblique devant (\verb|\\|). Cette séquence est utilisée pour
-indiquer les coupures de ligne\,\footnote{Utilisez la commande
-\texttt{\$}\ci{backslash}\texttt{\$}. Elle produit un $\backslash$.}.
+Les autres et bien d'autres encore peuvent être obtenus avec des commandes
+spéciales à l'intérieur de formules mathématiques ou comme accents. La
+contre-oblique \textbackslash ne peut pas être saisi en ajoutant une
+contre-oblique devant (©\\©). Cette séquence est utilisée pour indiquer les
+coupures de ligne\footnote{Pour produire une contre-oblique dans le texte,
+  utilisez la commande \ci{textbackslash}, fournie par l'extension
+  \pai{textcomp}. En mode maths, utilisez \ci{backslash}. [La version
+  originale ne fait pas cette distinction. \NdT]}.
 
 \subsection{Commandes \LaTeX}
 
-Les commandes \LaTeX sont sensibles à la casse des caractères
-(majuscules ou minuscules) et utilisent l'un des deux formats
-suivants :
+Les commandes \LaTeX sont sensibles à la casse des caractères (majuscules ou
+minuscules) et utilisent l'une des deux formes suivantes :
 
 \begin{itemize}
-\item soit elles commencent par un \wi{antislash} \verb|\| et ont un
-      nom composé uniquement de lettres. Un nom de commande est
-      terminé par une espace, un chiffre ou tout autre caractère qui
-      n'est pas une lettre ;
-\index{backslash}
-\item soit elles sont composées d'un antislash et d'un 
-      caractère spécial (non-lettre) exactement.
+  \item soit elles commencent par une \wi{contre-oblique} ©\© et ont un nom
+    composé uniquement de lettres. Un nom de commande est terminé par une
+    espace, un chiffre ou tout autre caractère qui n'est pas une lettre ;
+  \item soit elles sont composées d'une contre-oblique et d'exactement un
+    caractère spécial (non-lettre).
 \end{itemize}
 
-%
-% \\* doesn't comply !
-%
-
-%
-% Can \3 be a valid command ? (jacoboni)
-%
 \label{whitespace}
-\LaTeX ignore les espaces après les commandes. Si vous souhaitez
-obtenir un blanc après une commande\index{espace!après une commande},
-il faut ou bien insérer \verb|{}| suivi d'un blanc ou bien utiliser une
-commande d'espacement spécifique de \LaTeX. La séquence \verb|{}|
-empêche \LaTeX d'ignorer les blancs après une commande.
+\LaTeX ignore les espaces après les commandes. Si vous souhaitez obtenir un
+blanc après une commande\index{espace!après une commande}, il faut ou bien
+insérer \verb|{}| suivi d'un blanc ou bien utiliser une commande d'espacement
+spécifique de \LaTeX. La séquence \verb|{}| empêche \LaTeX d'ignorer les
+blancs après une commande.
 
 \begin{example}
 J'ai lu que Knuth classe les
 gens qui utilisent \TeX en
 \TeX{}niciens et en \TeX perts.\\
-Aujourd'hui nous sommes le \today.
+Nous sommes le \today.
 \end{example}
 
 Certaines commandes sont suivies d'un \wi{paramètre} qui est mis entre
@@ -308,7 +299,7 @@ expliquées plus loin.
 \textsl{Penchez}-vous !
 \end{example}
 \begin{example}
-S'il vous plait, passez \`a la 
+S'il vous plaît, passez à la 
 ligne ici.\newline
 Merci !
 \end{example}
@@ -316,29 +307,33 @@ Merci !
 \subsection{Commentaires}
 \index{commentaires}
 
-Quand \LaTeX rencontre un caractère \verb|%| dans le fichier
-source, il ignore le reste de la ligne en cours. C'est utile pour
-ajouter des notes qui n'apparaîtront  pas dans la version imprimée.
+Quand \LaTeX rencontre un caractère \verb|%| dans le fichier source, il ignore
+le reste de la ligne en cours, le changement de ligne, et tous les espaces au
+début de la ligne\footnote{Ceci est habituel et n'est pas propre à
+  \texttt{\%}. \NdT} suivante. C'est utile pour ajouter des notes qui
+  n'apparaîtront  pas dans la version imprimée.
 
 \begin{example}
-% Demonstration :
+% Démonstration :
 Ceci est un % mauvais
 exemple: anticonstitu%
        tionnellement
 \end{example}
 
-Le caractère \verb|%| 
-peut également être utilisé pour couper des lignes trop longues dans 
-le fichier d'entrée, lorsqu'aucun espace ou coupure n'est autorisé. 
+Le caractère \verb|%| peut également être utilisé pour couper des lignes trop
+longues dans le fichier d'entrée, lorsqu'aucun espace ou coupure n'est
+autorisé. 
 
-Pour créer des commentaires plus longs, il vaut mieux utilier
+Pour créer des commentaires plus longs, on peut utiliser
 l'environnement \ei{comment} fourni par l'extension \pai{verbatim}. 
-Vous apprendrez plus loin à utiliser une extension. 
+Ceci signifie que vous devez ajouter la ligne ©\usepackage{verbatim}© au
+préambule de votre document, comme nous le verrons plus loin, pour utiliser
+cette commande.
 
 \begin{example}
 Voici un autre exemple
 \begin{comment}
-Limité mais demonstratif
+Limité mais démonstratif
 \end{comment}
 de commentaires. 
 \end{example}
@@ -348,9 +343,9 @@ environnements complexes, tels que le mode mathématique par exemple.
 
 \section{Structure du fichier source}
 
-Quand \LaTeX analyse un fichier source, il s'attend à y trouver une
-certaine structure. C'est pourquoi chaque fichier source doit
-commencer par la commande :
+Quand \LaTeX traite un fichier source, il s'attend à y trouver une certaine
+structure. C'est pourquoi chaque fichier source doit commencer par la
+commande :
 \begin{code}
 \verb|\documentclass{...}|
 \end{code}
@@ -363,26 +358,29 @@ commande :
 \verb|\usepackage{...}|
 \end{code}
 
-Quand tout le travail de préparation est fait\,\footnote{La partie entre
-\texttt{\bs{}documentclass} et
-\texttt{\bs{}begin$\mathtt{\{}$document$\mathtt{\}}$} est appelée le
-\emph{\wi{préambule}}.}, vous pouvez commencer le corps du texte avec
-la commande :
+Quand tout le travail de préparation est fait\footnote{La partie entre
+  ©documentclass© et ©\begin{document}© est appelée le
+  \emph{\wi{préambule}}.}, vous pouvez commencer le corps du texte avec la
+commande :
 \begin{code}
 \verb|\begin{document}|
 \end{code}
 
-Maintenant vous pouvez saisir votre texte et y insérer des commandes
-\LaTeX. À la fin de votre document, utilisez la commande
+Maintenant vous pouvez saisir votre texte et y insérer des commandes \LaTeX. À
+la fin de votre document, utilisez la commande
 \begin{code}
 \verb|\end{document}|
 \end{code}
-pour dire à \LaTeX qu'il en a fini. Tout ce qui suivra dans le
-fichier source sera ignoré.
+pour dire à \LaTeX qu'il en a fini. Tout ce qui suivra dans le fichier source
+sera ignoré.
 
 La figure~\ref{mini} montre le contenu d'un document \LaTeXe
 minimum. Un fichier source plus complet est présenté sur la
 figure~\ref{document}. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                     Frontière de la traduction révisée                     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{figure}[hbp]
 \begin{lined}{6cm}
@@ -501,7 +499,7 @@ le tableau~\ref{options}.
   \index{livre}
 \item [\normalfont\texttt{slides}] pour des transparents. Cette classe
       utilise de grands caractères sans serif. Voir également la
-      classe Foil\TeX\,\footnote{%
+      classe Foil\TeX\footnote{%
         \texttt{CTAN:/tex-archive/macros/latex/contrib/supported/foiltex}}
    \index{slides@\textsf{slides}}\index{foiltex@\textsf{foiltex}}
    \index{transparents}
@@ -579,7 +577,7 @@ elle informe \LaTeX qu'il doit composer ce document comme un
 \emph{article} avec une taille de caractère de base de \emph{onze
 points} et qu'il devra produire une mise en page pour une impression
 \emph{double face} sur du papier au format \emph{A4}%
-\,\footnote{Sans l'option \texttt{a4paper}, le format de papier sera
+\footnote{Sans l'option \texttt{a4paper}, le format de papier sera
 américain : 8,5~$\times$~11 pouces, soit 216~$\times$~280 mm.}.
 
 %\clearpage
@@ -591,7 +589,7 @@ américain : 8,5~$\times$~11 pouces, soit 216~$\times$~280 mm.}.
 \begin{description}
 \item[\normalfont\texttt{doc}] permet de documenter des programmes
  pour  \LaTeX.\\
- Décrite dans \texttt{doc.dtx}\,\footnote{Ce fichier devrait être intallé
+ Décrite dans \texttt{doc.dtx}\footnote{Ce fichier devrait être intallé
  sur votre système et vous devriez être capable de le formater avec
  la commande \texttt{latex doc.dtx}. Il en est de même pour les autres
  fichiers cités dans ce tableau.} et dans \companion.

@@ -15,6 +15,8 @@ set fileencodings=utf8,latin1
 set helplang=fr
 set hidden
 set history=50
+set iminsert=0
+set imsearch=0
 set incsearch
 set pastetoggle=<F12>
 set printoptions=paper:a4
@@ -24,6 +26,7 @@ set sessionoptions=blank,buffers,curdir,folds,help,options,tabpages,winsize,glob
 set shiftwidth=4
 set showcmd
 set smartcase
+set spelllang=fr
 set suffixes=.aux,.pdf,.dvi,.ps,.bbl,.blg,.ind,.idx,.ilg,.inx,.out,.toc
 set tabstop=4
 set textwidth=80
@@ -37,9 +40,9 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +6 flshort.tex
-badd +1 flshort.sty
-badd +0 en-4.24/things.tex
+badd +8 flshort.tex
+badd +229 flshort.sty
+badd +1 en-4.24/things.tex
 badd +1 things.tex
 args flshort.tex
 edit flshort.sty
@@ -82,6 +85,7 @@ unlet s:cpo_save
 setlocal keymap=
 setlocal noarabic
 setlocal autoindent
+setlocal balloonexpr=
 setlocal nobinary
 setlocal bufhidden=
 setlocal buflisted
@@ -172,12 +176,18 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 1 - ((0 * winheight(0) + 4) / 9)
+32
+normal zo
+151
+normal zo
+388
+normal zo
+let s:l = 398 - ((6 * winheight(0) + 4) / 9)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 0
+398
+normal! 06l
 wincmd w
 argglobal
 edit en-4.24/things.tex
@@ -194,6 +204,7 @@ unlet s:cpo_save
 setlocal keymap=
 setlocal noarabic
 setlocal autoindent
+setlocal balloonexpr=
 setlocal nobinary
 setlocal bufhidden=
 setlocal buflisted
@@ -284,11 +295,11 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 1 - ((0 * winheight(0) + 19) / 39)
+let s:l = 378 - ((0 * winheight(0) + 19) / 39)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
+378
 normal! 0
 wincmd w
 argglobal
@@ -306,6 +317,7 @@ unlet s:cpo_save
 setlocal keymap=
 setlocal noarabic
 setlocal autoindent
+setlocal balloonexpr=
 setlocal nobinary
 setlocal bufhidden=
 setlocal buflisted
@@ -400,12 +412,14 @@ setlocal wrapmargin=0
 normal zo
 10
 normal zo
-let s:l = 1 - ((0 * winheight(0) + 4) / 9)
+15
+normal zo
+let s:l = 16 - ((5 * winheight(0) + 4) / 9)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 0
+16
+normal! 017l
 wincmd w
 argglobal
 edit things.tex
@@ -422,6 +436,7 @@ unlet s:cpo_save
 setlocal keymap=
 setlocal noarabic
 setlocal autoindent
+setlocal balloonexpr=
 setlocal nobinary
 setlocal bufhidden=
 setlocal buflisted
@@ -496,7 +511,7 @@ setlocal softtabstop=0
 setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
-setlocal spelllang=en
+setlocal spelllang=fr
 setlocal statusline=
 setlocal suffixesadd=.tex
 setlocal swapfile
@@ -512,14 +527,78 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 1 - ((0 * winheight(0) + 19) / 39)
+8
+normal zo
+19
+normal zo
+51
+normal zo
+88
+normal zo
+147
+normal zo
+200
+normal zo
+232
+normal zo
+264
+normal zo
+307
+normal zo
+344
+normal zo
+381
+normal zo
+344
+normal zo
+418
+normal zo
+464
+normal zo
+466
+normal zo
+656
+normal zo
+697
+normal zo
+701
+normal zo
+752
+normal zo
+805
+normal zo
+813
+normal zo
+752
+normal zo
+656
+normal zo
+464
+normal zo
+418
+normal zo
+307
+normal zo
+200
+normal zo
+147
+normal zo
+88
+normal zo
+51
+normal zo
+19
+normal zo
+8
+normal zo
+let s:l = 385 - ((0 * winheight(0) + 19) / 39)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
+385
 normal! 0
 wincmd w
-4wincmd w
+2wincmd w
 exe '1resize ' . ((&lines * 9 + 25) / 51)
 exe 'vert 1resize ' . ((&columns * 80 + 80) / 161)
 exe '2resize ' . ((&lines * 39 + 25) / 51)

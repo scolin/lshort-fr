@@ -31,7 +31,7 @@
 
 % extensions diverses en vrac [[1
 %
-\RequirePackage{amsthm, shortvrb, lettrine, mflogo, thumbpdf}
+\RequirePackage{amsthm, shortvrb, lettrine, mflogo, thumbpdf, fancyvrb}
 \RequirePackage{verbatim, fancyhdr, calc, ifthen, fixltx2e, xspace}
 \RequirePackage[french]{layout}
 \RequirePackage[all]{xy}
@@ -150,6 +150,7 @@
 
 % Some commands for helping with index creation [[1
 %
+
 \providecommand\bs{\textbackslash}
 % File extensions
 \newcommand{\eei}[1]{%
@@ -390,6 +391,11 @@
   \unskip~(NdT)}
 \newcommand\eng[1]{%
   \emph{\foreignlanguage{english}{#1}}}
+\newcommand\nohyph[1]{%
+  \begin{hyphenrules}{nohyphenation}#1\end{hyphenrules}}
+\newcommand\nolang[1]{%
+  \emph{\nohyph{#1}}}
+\DefineShortVerb\©
 
 % pris de lshort-base.tex [[1
 %
