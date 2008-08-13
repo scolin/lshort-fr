@@ -1,0 +1,467 @@
+3c3
+< % $Id: custom.tex,v 1.2 1998/09/29 08:05:09 oetiker Exp oetiker $
+---
+> % $Id: custom.tex,v 1.2 2003/03/19 20:57:45 oetiker Exp $
+8c8
+< Documents produced by using the commands you have learned up to this
+---
+> Documents produced with the commands you have learned up to this
+10c10
+< looking fancy, they obey all the established rules of good
+---
+> fancy-looking, they obey all the established rules of good
+13,14c13,14
+< However there are situations where \LaTeX{} does not provide a
+< command or environment which matches your needs, or the output
+---
+> However, there are situations where \LaTeX{} does not provide a
+> command or environment that matches your needs, or the output
+19c19
+< which looks different than what is provided by default.
+---
+> that looks different from what is provided by default.
+37,40c37,40
+< In this example, I am using both a new environment called
+< \ei{lscommand} which is responsible for drawing the box around the
+< command and a new command named \ci{ci} which typesets the command
+< name and also makes a corresponding entry in the index. You can check
+---
+> In this example, I am using both a new environment called\\
+> \ei{lscommand}, which is responsible for drawing the box around the
+> command, and a new command named \ci{ci}, which typesets the command
+> name and makes a corresponding entry in the index. You can check
+69c69
+< short for ``The Not So Short Introduction to \LaTeXe''. Such a command
+---
+> short for ``The Not So Short Introduction to \LaTeXe.'' Such a command
+82c82
+< command which takes one argument.
+---
+> command that takes one argument.
+98c98
+< \LaTeX{} will not allow you to create a new command which would
+---
+> \LaTeX{} will not allow you to create a new command that would
+112c112
+< Similar to the \verb|\newcommand| command, there is also a command
+---
+> Just as with the \verb|\newcommand| command, there is a command
+122,123c122,123
+< Like the \verb|\newcommand| command, you can use \ci{newenvironment}
+< with an optional argument or without. The material specified
+---
+> Again \ci{newenvironment} can have
+> an optional argument. The material specified
+144c144
+< an environment which already exists. If you ever want to change an
+---
+> an environment that already exists. If you ever want to change an
+148c148
+< The commands used in this example will be explained later: For the
+---
+> The commands used in this example will be explained later. For the
+153c153,212
+< \subsection{Your own Package}
+---
+> \subsection{Extra Space}
+> 
+> When creating a new environment you may easily get bitten by extra spaces
+> creeping in, which can potentially have fatal effects. For example when you
+> want to create a title environment which supresses its own indentation as
+> well as the one on the following paragraph. The \ci{ignorespaces} command in
+> the begin block of the environment will make it ignore any space after
+> executing the begin block. The end block is a bit more tricky as special
+> processing occurs at the end of an environment. With the
+> \ci{ignorespacesafterend} \LaTeX{} will issue an \ci{ignorespaces} after the
+> special `end' processing has occured.
+> 
+> \begin{example}
+> \newenvironment{simple}%
+>  {\noindent}%
+>  {\par\noindent}
+> 
+> \begin{simple}
+> See the space\\to the left.
+> \end{simple}
+> Same\\here.
+> \end{example}
+> 
+> \begin{example}
+> \newenvironment{correct}%
+>  {\noindent\ignorespaces}%
+>  {\par\noindent%
+>    \ignorespacesafterend}
+> 
+> \begin{correct}
+> No space\\to the left.
+> \end{correct}
+> Same\\here.
+> \end{example}
+> 
+> \subsection{Commandline \LaTeX}
+> 
+> If you work on a Unix like OS, you might be using Makefiles to build your
+> \LaTeX{} projects. In that connection it might be interesting to produce
+> different versions of the same document by calling \LaTeX{} with commandline
+> parameters. If you add the following structure to your document:
+> 
+> \begin{verbatim}
+> \usepackage{ifthen}
+> \ifthenelse{\equal{\blackandwhite}{true}}{
+>   % "black and white" mode; do something..
+> }{
+>   % "color" mode; do something different..
+> }
+> \end{verbatim}
+> 
+> Now you can call \LaTeX{} like this:
+> \begin{verbatim}
+> latex '\newcommand{\blackandwhite}{true}\input{test.tex}'
+> \end{verbatim}
+> 
+> First the command \verb|\blackandwhite| gets defined and then the actual file is read with input.
+> By setting \verb|\blackandwhite| to false the color version of the document would be produced.
+> 
+> \subsection{Your Own Package}
+166c225,226
+< \newcommand{\tnss}{The not so Short Introduction to \LaTeXe}
+---
+> \newcommand{\tnss}{The not so Short Introduction 
+>                    to \LaTeXe}
+175c235
+< Writing a package consists  basically in copying the contents of
+---
+> Writing a package basically consists of copying the contents of
+185c245
+< package which contains the commands defined in the examples above.
+---
+> package that contains the commands defined in the examples above.
+189c249
+< \subsection{Font changing Commands}
+---
+> \subsection{Font Changing Commands}
+206,208c266,268
+< One important feature of \LaTeXe{} is, that the font attributes are
+< independent. This means, that you can issue size or even font
+< changing commands and still keep the bold or slant attribute set
+---
+> One important feature of \LaTeXe{} is that the font attributes are
+> independent. This means that you can issue size or even font
+> changing commands, and still keep the bold or slant attribute set
+213,214c273,274
+< switch to another font for math typesetting there exists another
+< special set of commands. Refer to Table~\ref{mathfonts}.
+---
+> switch to another font for math typesetting you need another
+> special set of commands; refer to Table~\ref{mathfonts}.
+224,232c284,292
+< \ci{textrm}\verb|{...}|        &      \textrm{\wi{roman}}&
+< \ci{textsf}\verb|{...}|        &      \textsf{\wi{sans serif}}\\
+< \ci{texttt}\verb|{...}|        &      \texttt{typewriter}\\[6pt]
+< \ci{textmd}\verb|{...}|        &      \textmd{medium}&
+< \ci{textbf}\verb|{...}|        &      \textbf{\wi{bold face}}\\[6pt]
+< \ci{textup}\verb|{...}|        &       \textup{\wi{upright}}&
+< \ci{textit}\verb|{...}|        &       \textit{\wi{italic}}\\
+< \ci{textsl}\verb|{...}|        &       \textsl{\wi{slanted}}&
+< \ci{textsc}\verb|{...}|        &       \textsc{\wi{small caps}}\\[6pt]
+---
+> \fni{textrm}\verb|{...}|        &      \textrm{\wi{roman}}&
+> \fni{textsf}\verb|{...}|        &      \textsf{\wi{sans serif}}\\
+> \fni{texttt}\verb|{...}|        &      \texttt{typewriter}\\[6pt]
+> \fni{textmd}\verb|{...}|        &      \textmd{medium}&
+> \fni{textbf}\verb|{...}|        &      \textbf{\wi{bold face}}\\[6pt]
+> \fni{textup}\verb|{...}|        &       \textup{\wi{upright}}&
+> \fni{textit}\verb|{...}|        &       \textit{\wi{italic}}\\
+> \fni{textsl}\verb|{...}|        &       \textsl{\wi{slanted}}&
+> \fni{textsc}\verb|{...}|        &       \textsc{\wi{Small Caps}}\\[6pt]
+234c294
+< \ci{textnormal}\verb|{...}|    &    \textnormal{document} font
+---
+> \fni{textnormal}\verb|{...}|    &    \textnormal{document} font
+247,252c307,312
+< \ci{tiny}      & \tiny        tiny font \\
+< \ci{scriptsize}   & \scriptsize  very small font\\
+< \ci{footnotesize} & \footnotesize  quite small font \\
+< \ci{small}        &  \small            small font \\
+< \ci{normalsize}   &  \normalsize  normal font \\
+< \ci{large}        &  \large       large font
+---
+> \fni{tiny}      & \tiny        tiny font \\
+> \fni{scriptsize}   & \scriptsize  very small font\\
+> \fni{footnotesize} & \footnotesize  quite small font \\
+> \fni{small}        &  \small            small font \\
+> \fni{normalsize}   &  \normalsize  normal font \\
+> \fni{large}        &  \large       large font
+255,258c315,318
+< \ci{Large}        &  \Large       larger font \\[5pt]
+< \ci{LARGE}        &  \LARGE       very large font \\[5pt]
+< \ci{huge}         &  \huge        huge \\[5pt]
+< \ci{Huge}         &  \Huge        largest
+---
+> \fni{Large}        &  \Large       larger font \\[5pt]
+> \fni{LARGE}        &  \LARGE       very large font \\[5pt]
+> \fni{huge}         &  \huge        huge \\[5pt]
+> \fni{Huge}         &  \Huge        largest
+293,303c353,361
+< \begin{lined}{\textwidth}
+< \begin{tabular}{@{}lll@{}}
+< \textit{Command}&\textit{Example}&    \textit{Output}\\[6pt]
+< \ci{mathcal}\verb|{...}|&    \verb|$\mathcal{B}=c$|&     $\mathcal{B}=c$\\
+< \ci{mathrm}\verb|{...}|&     \verb|$\mathrm{K}_2$|&      $\mathrm{K}_2$\\
+< \ci{mathbf}\verb|{...}|&     \verb|$\sum x=\mathbf{v}$|& $\sum x=\mathbf{v}$\\
+< \ci{mathsf}\verb|{...}|&     \verb|$\mathsf{G\times R}$|&        $\mathsf{G\times R}$\\
+< \ci{mathtt}\verb|{...}|&     \verb|$\mathtt{L}(b,c)$|&   $\mathtt{L}(b,c)$\\
+< \ci{mathnormal}\verb|{...}|& \verb|$\mathnormal{R_{19}}\neq R_{19}$|&
+< $\mathnormal{R_{19}}\neq R_{19}$\\
+< \ci{mathit}\verb|{...}|&     \verb|$\mathit{ffi}\neq ffi$|& $\mathit{ffi}\neq ffi$
+---
+> \begin{lined}{0.7\textwidth}
+> \begin{tabular}{@{}ll@{}}
+> \fni{mathrm}\verb|{...}|&     $\mathrm{Roman\ Font}$\\
+> \fni{mathbf}\verb|{...}|&     $\mathbf{Boldface\ Font}$\\
+> \fni{mathsf}\verb|{...}|&     $\mathsf{Sans\ Serif\ Font}$\\
+> \fni{mathtt}\verb|{...}|&     $\mathtt{Typewriter\ Font}$\\
+> \fni{mathit}\verb|{...}|&     $\mathit{Italic\ Font}$\\
+> \fni{mathcal}\verb|{...}|&    $\mathcal{CALLIGRAPHIC\ FONT}$\\
+> \fni{mathnormal}\verb|{...}|& $\mathnormal{Normal\ Font}$\\
+305a364,376
+> %\begin{tabular}{@{}lll@{}}
+> %\textit{Command}&\textit{Example}&    \textit{Output}\\[6pt]
+> %\fni{mathcal}\verb|{...}|&    \verb|$\mathcal{B}=c$|&     $\mathcal{B}=c$\\
+> %\fni{mathscr}\verb|{...}|&    \verb|$\mathscr{B}=c$|&     $\mathscr{B}=c$\\
+> %\fni{mathrm}\verb|{...}|&     \verb|$\mathrm{K}_2$|&      $\mathrm{K}_2$\\
+> %\fni{mathbf}\verb|{...}|&     \verb|$\sum x=\mathbf{v}$|& $\sum x=\mathbf{v}$\\
+> %\fni{mathsf}\verb|{...}|&     \verb|$\mathsf{G\times R}$|&        $\mathsf{G\times R}$\\
+> %\fni{mathtt}\verb|{...}|&     \verb|$\mathtt{L}(b,c)$|&   $\mathtt{L}(b,c)$\\
+> %\fni{mathnormal}\verb|{...}|& \verb|$\mathnormal{R_{19}}\neq R_{19}$|&
+> %$\mathnormal{R_{19}}\neq R_{19}$\\
+> %\fni{mathit}\verb|{...}|&     \verb|$\mathit{ffi}\neq ffi$|& $\mathit{ffi}\neq ffi$
+> %\end{tabular}
+> 
+327,328c398,400
+< {\Large Don't read this! It is not
+< true. You can believe me!\par}
+---
+> {\Large Don't read this! 
+>  It is not true.
+>  You can believe me!\par}
+362c434,435
+< \newcommand{\oops}[1]{\textbf{#1}}
+---
+> \newcommand{\oops}[1]{%
+>  \textbf{#1}}
+364c437
+< it's occupied by a \oops{machine}
+---
+> it's occupied by \oops{machines}
+369,370c442,443
+< stage whether you want to use some other visual representation of danger
+< than \verb|\textbf| without having to wade through your document,
+---
+> stage that you want to use some visual representation of danger other
+> than \verb|\textbf|, without having to wade through your document,
+401c474
+< the lines are not spread, therefore the default line spread factor
+---
+> the lines are not spread, so the default line spread factor
+403a477,497
+> Note that the effect of the \ci{linespread} command is rather drastic and     
+> not appropriate for published work. So if you have a good reason for
+> changing the line spacing you might want to use the command:
+> \begin{lscommand}
+> \verb|\setlength{\baselineskip}{1.5\baselineskip}|
+> \end{lscommand}
+> 
+> \begin{example}
+> {\setlength{\baselineskip}%
+>            {1.5\baselineskip}
+> This paragraph is typeset with
+> the baseline skip set to 1.5 of
+> what it was before. Note the par
+> command at the end of the
+> paragraph.\par}
+> 
+> This paragraph has a clear
+> purpose, it shows that after the
+> curly brace has been closed,
+> everything is back to normal.
+> \end{example}
+418,419c512,513
+< \TeX{}, that it can compress and expand the inter paragraph skip by the
+< amount specified if this is necessary to properly fit the paragraphs
+---
+> \TeX{} that it can compress and expand the inter paragraph skip by the
+> amount specified, if this is necessary to properly fit the paragraphs
+427c521
+< place after the \verb|\tableofcontents| or to not use them at all,
+---
+> place below the command \verb|\tableofcontents| or to not use them at all,
+432c526
+< If you want to indent a paragraph which is not indented, you can use 
+---
+> If you want to indent a paragraph that is not indented, you can use 
+458c552
+< \emph{length} in the simplest case just is a number plus a unit.  The
+---
+> \emph{length} in the simplest case is just a number plus a unit.  The
+489,491c583,587
+< remaining space on a line is filled up. If two
+< \verb|\hspace{\stretch{|\emph{n}\verb|}}| commands are issued on the
+< same line, they grow according to the stretch factor.
+---
+> remaining space on a line is filled up. If multiple
+> \verb|\hspace{\stretch{|\emph{n}\verb|}}| commands are issued on the same
+> line, they occupy all available space in proportion of their respective
+> stretch factors.
+> 
+497a594,603
+> When using horizontal space together with text, it may make sense to make
+> the space adjust its size relative to the size of the current font.
+> This can be done by using the text-relative units \texttt{em} and
+> \texttt{ex}:
+> 
+> \begin{example}
+> {\Large{}big\hspace{1em}y}\\
+> {\tiny{}tin\hspace{1em}y}
+> \end{example}
+>  
+508c614
+< the starred version of the command \verb|\vspace*| instead of \verb|\vspace|.
+---
+> the starred version of the command, \verb|\vspace*|, instead of \verb|\vspace|.
+511c617
+< The \verb|\stretch| command in connection with \verb|\pagebreak| can
+---
+> The \verb|\stretch| command, in connection with \verb|\pagebreak|, can
+538c644
+< \makeatletter\@layout\makeatother
+---
+> \makeatletter\@mylayout\makeatother
+542a649,660
+> \cih{footskip}
+> \cih{headheight}
+> \cih{headsep}
+> \cih{marginparpush}
+> \cih{marginparsep}
+> \cih{marginparwidth}
+> \cih{oddsidemargin}
+> \cih{paperheight}
+> \cih{paperwidth}
+> \cih{textheight}
+> \cih{textwidth}
+> \cih{topmargin}
+548c665
+< text \wi{margins}. But sometimes you may not be happy with 
+---
+> text \wi{margins}, but sometimes you may not be happy with 
+552,554c669,671
+< Figure~\ref{fig:layout} shows all the parameters which can be changed.
+< The figure was produced with the \pai{layout} package from the tools bundle%
+< \footnote{\texttt{CTAN:/tex-archive/macros/latex/required/tools}}.
+---
+> Figure~\ref{fig:layout} shows all the parameters that can be changed.
+> The figure was produced with the \pai{layout} package from the tools bundle.%
+> \footnote{\CTANref|macros/latex/required/tools|}
+570c687
+< This is also the reason why newspapers are typeset in multiple columns.
+---
+> This is also why newspapers are typeset in multiple columns.
+584c701
+< The second command adds a length to any of the parameters. 
+---
+> The second command adds a length to any of the parameters:
+598,599c715,716
+< In this context, you might want to look at the \pai{calc} package,
+< it allows you to use arithmetic operations in the argument of setlength
+---
+> In this context, you might want to look at the \pai{calc} package.
+> It allows you to use arithmetic operations in the argument of \ci{setlength}
+603c720
+< \section{More fun with lengths}
+---
+> \section{More Fun With Lengths}
+614,616c731,733
+< \ci{settoheight}\verb|{|\emph{lscommand}\verb|}{|\emph{text}\verb|}|\\
+< \ci{settodepth}\verb|{|\emph{lscommand}\verb|}{|\emph{text}\verb|}|\\
+< \ci{settowidth}\verb|{|\emph{lscommand}\verb|}{|\emph{text}\verb|}|
+---
+> \ci{settoheight}\verb|{|\emph{variable}\verb|}{|\emph{text}\verb|}|\\
+> \ci{settodepth}\verb|{|\emph{variable}\verb|}{|\emph{text}\verb|}|\\
+> \ci{settowidth}\verb|{|\emph{variable}\verb|}{|\emph{text}\verb|}|
+632c749
+< $b$ -- are adjunct to the right 
+---
+> $b$ -- are adjoin to the right 
+651,653c768,770
+< the point is that \TeX{} operates on glue and boxes. Not only a letter
+< can be a box. You can put virtually everything into a box including
+< other boxes. Each box will then be handled by \LaTeX{} as if it was a
+---
+> the point is that \TeX{} operates on glue and boxes. Letters are not the only things that
+> can be boxes. You can put virtually everything into a box, including
+> other boxes. Each box will then be handled by \LaTeX{} as if it were a
+680,681c797,798
+< between a \ei{minipage} and a \ei{parbox} is that you cannot use all commands
+< and environments inside a \ei{parbox} while almost anything is possible in
+---
+> between a \ei{minipage} and a \ci{parbox} is that you cannot use all commands
+> and environments inside a \ei{parbox}, while almost anything is possible in
+685,687c802,804
+< everything, there is also a class of boxing commands which operates
+< only on horizontally aligned material. We already know one of them.
+< It's called \ci{mbox}, it simply packs up a series of boxes into
+---
+> everything, there is also a class of boxing commands that operates
+> only on horizontally aligned material. We already know one of them;
+> it's called \ci{mbox}. It simply packs up a series of boxes into
+698,706c815,822
+<   material inside the box. You can even set the
+<   width to 0pt so that the text inside the box will be typeset without
+<   influencing the surrounding boxes.}  Apart from the length
+<   expressions you can also use \ci{width}, \ci{height}, \ci{depth} and
+<   \ci{totalheight} in the width parameter. They are set from values
+<   obtained by measuring the typeset \emph{text}. The \emph{pos} parameter takes
+< a one letter value: \textbf{c}enter, \textbf{l}eft flush,
+< \textbf{r}ight flush or \textbf{s} which spreads the text inside the
+< box to fill it.
+---
+> material inside the box. You can even set the
+> width to 0pt so that the text inside the box will be typeset without
+> influencing the surrounding boxes.}  Besides the length
+> expressions, you can also use \ci{width}, \ci{height}, \ci{depth}, and
+> \ci{totalheight} in the width parameter. They are set from values
+> obtained by measuring the typeset \emph{text}. The \emph{pos} parameter takes
+> a one letter value: \textbf{c}enter, flush\textbf{l}eft,
+> flush\textbf{r}ight, or \textbf{s}pread the text to fill the box.
+735c851
+< \ci{raisebox}\verb|{|\emph{lift}\verb|}[|\emph{depth}\verb|][|\emph{height}\verb|]{|\emph{text}\verb|}|
+---
+> \ci{raisebox}\verb|{|\emph{lift}\verb|}[|\emph{extend-above-baseline}\verb|][|\emph{extend-below-baseline}\verb|]{|\emph{text}\verb|}|
+739c855
+< box. You can use \ci{width}, \ci{height}, \ci{depth} and
+---
+> box. You can use \ci{width}, \ci{height}, \ci{depth}, and
+766c882
+< \newpage
+---
+> 
+776c892
+< lines. The line on the title page for example, has been created with a
+---
+> lines. The line on the title page, for example, has been created with a
+795,798c911,914
+< %%% Local Variables: 
+< %%% mode: latex
+< %%% TeX-master: "lshort2e"
+< %%% End: 
+---
+> \bigskip
+> {\flushright The End.\par}
+> 
+> %
+799a916,920
+> % Local Variables:
+> % TeX-master: "lshort2e"
+> % mode: latex
+> % mode: flyspell
+> % End:

@@ -1,0 +1,363 @@
+3c3
+< % $Id: lssym.tex,v 1.4 1998/09/29 08:05:09 oetiker Exp oetiker $
+---
+> % $Id: lssym.tex,v 1.2 2003/03/19 20:57:46 oetiker Exp $
+9c9
+< In the following tables, you find all the symbols normally accessible
+---
+> The following tables demonstrate all the symbols normally accessible
+15,16c15,16
+< \ifx\noAMS\relax To use the symbols listed in
+< Tables~\ref{AMSD}--\ref{AMSNBR},\footnote{These tables were derived
+---
+> To use the symbols listed in
+> Tables~\ref{AMSD}--\ref{AMSmisc},\footnote{These tables were derived
+20,22c20,23
+< AMS math fonts must be installed, on the system. If the AMS package and
+< fonts are not installed, on your system, have a look at\\ 
+< \texttt{CTAN:/tex-archive/macros/latex/required/amslatex}\fi
+---
+> \AmS{} math fonts must be installed on the system. If the \AmS{} package and
+> fonts are not installed on your system, have a look at
+> \CTANref|CTAN:macros/latex/required/amslatex|. An even more comprehensive list of
+> symbols can be found at \CTANref|CTAN:info/symbols/comprehensive|.
+26,29c27,32
+< \begin{symbols}{*4{cl}}
+< \W{\hat}{a}     & \W{\check}{a} & \W{\tilde}{a} & \W{\acute}{a} \\
+< \W{\grave}{a} & \W{\dot}{a} & \W{\ddot}{a}    & \W{\breve}{a} \\
+< \W{\bar}{a} &\W{\vec}{a} &\W{\widehat}{A}&\W{\widetilde}{A}\\  
+---
+> \begin{symbols}{*3{cl}}
+> \W{\hat}{a}   & \W{\check}{a} & \W{\tilde}{a}       \\
+> \W{\grave}{a} & \W{\dot}{a}   & \W{\ddot}{a}        \\
+> \W{\bar}{a}   & \W{\vec}{a}   & \W{\widehat}{AAA}   \\  
+> \W{\acute}{a} & \W{\breve}{a} & \W{\widetilde}{AAA} \\
+> \W{\mathring}{a}
+34c38,41
+< \caption{Lowercase Greek Letters.}
+---
+> \caption{Greek Letters.} \label{greekletters}
+> \bigskip
+> There is no uppercase of some of the letters like \ci{Alpha}, \ci{Beta} and so
+> on, because they look the same as normal roman letters: A, B\ldots
+42,49c49,50
+<  \X{\zeta}      & \X{\nu}        & \X{\varsigma}  & &             \\
+<  \X{\eta}       & \X{\xi}        & \X{\tau} 
+< \end{symbols}
+< \end{table}
+< 
+< \begin{table}[!h]
+< \caption{Uppercase Greek Letters.}
+< \begin{symbols}{*4{cl}}
+---
+>  \X{\zeta}      & \X{\nu}        & \X{\varsigma}  &               \\
+>  \X{\eta}       & \X{\xi}        & \X{\tau} & \\
+55c56,57
+< \clearpage 
+---
+> 
+> 
+58c60
+< \caption{Binary Relations.}
+---
+> \caption{Binary Relations.} \label{binaryrel}
+60,61c62
+< You can produce corresponding negations by adding a \verb|\not| command
+< as prefix to the following symbols.
+---
+> You can negate the following symbols by prefixing them with a \ci{not} command.
+104,107c105,109
+<  \X{\sum}      & \X{\bigcup}   & \X{\bigvee}   & \X{\bigoplus}\\
+<  \X{\prod}     & \X{\bigcap}   & \X{\bigwedge} &\X{\bigotimes}\\
+<  \X{\coprod}   & \X{\bigsqcup} & &             & \X{\bigodot} \\
+<  \X{\int}      & \X{\oint}     & &             & \X{\biguplus}
+---
+>  \X{\sum}      & \X{\bigcup}   & \X{\bigvee}  \\
+>  \X{\prod}     & \X{\bigcap}   & \X{\bigwedge} \\
+>  \X{\coprod}   & \X{\bigsqcup} & \X{\biguplus} \\
+>  \X{\int}      & \X{\oint}     & \X{\bigodot} \\
+>  \X{\bigoplus} & \X{\bigotimes} & \\
+114,127c116,134
+< \caption{Arrows.}
+< \begin{symbols}{*3{cl}}
+<  \X{\leftarrow}or \verb|\gets|& \X{\longleftarrow}     & \X{\uparrow}          \\
+<  \X{\rightarrow}or \verb|\to|& \X{\longrightarrow}    & \X{\downarrow}        \\
+<  \X{\leftrightarrow}    & \X{\longleftrightarrow}& \X{\updownarrow}      \\
+<  \X{\Leftarrow}         & \X{\Longleftarrow}     & \X{\Uparrow}          \\
+<  \X{\Rightarrow}        & \X{\Longrightarrow}    & \X{\Downarrow}        \\
+<  \X{\Leftrightarrow}    & \X{\Longleftrightarrow}& \X{\Updownarrow}      \\
+<  \X{\mapsto}            & \X{\longmapsto}        & \X{\nearrow}          \\
+<  \X{\hookleftarrow}     & \X{\hookrightarrow}    & \X{\searrow}          \\
+<  \X{\leftharpoonup}     & \X{\rightharpoonup}    & \X{\swarrow}          \\
+<  \X{\leftharpoondown}   & \X{\rightharpoondown}  & \X{\nwarrow}          \\
+<  \X{\rightleftharpoons} & \X{\iff}(bigger spaces)& \X{\leadsto}$^a$
+< 
+---
+> \caption{Arrows.} \label{tab:arrows}
+> \begin{symbols}{*2{cl}}
+>  \X{\leftarrow}or \verb|\gets|& \X{\longleftarrow} \\
+>  \X{\rightarrow}or \verb|\to|& \X{\longrightarrow} \\
+>  \X{\leftrightarrow}    & \X{\longleftrightarrow} \\
+>  \X{\Leftarrow}         & \X{\Longleftarrow}     \\
+>  \X{\Rightarrow}        & \X{\Longrightarrow}    \\
+>  \X{\Leftrightarrow}    & \X{\Longleftrightarrow}\\
+>  \X{\mapsto}            & \X{\longmapsto}        \\
+>  \X{\hookleftarrow}     & \X{\hookrightarrow}    \\
+>  \X{\leftharpoonup}     & \X{\rightharpoonup}    \\
+>  \X{\leftharpoondown}   & \X{\rightharpoondown}  \\
+>  \X{\rightleftharpoons} & \X{\iff}(bigger spaces) \\
+>  \X{\uparrow}   & \X{\downarrow} \\
+>  \X{\updownarrow} & \X{\Uparrow} \\
+>  \X{\Downarrow} &  \X{\Updownarrow} \\
+>  \X{\nearrow} &  \X{\searrow} \\
+>   \X{\swarrow} & \X{\nwarrow} \\
+>  \X{\leadsto}$^a$
+132a140,148
+> \caption{Arrows as Accents.}  \label{arrowacc}
+> \begin{symbols}{*2{cl}}
+> \W{\overrightarrow}{AB}     & \W{\underrightarrow}{AB}     \\
+> \W{\overleftarrow}{AB}      & \W{\underleftarrow}{AB}      \\
+> \W{\overleftrightarrow}{AB} & \W{\underleftrightarrow}{AB} \\
+> \end{symbols}
+> \end{table}
+> 
+> \begin{table}[!tbp]
+134,140c150,158
+< \begin{symbols}{*4{cl}}
+<  \X{(}            & \X{)}            & \X{\uparrow} & \X{\Uparrow}    \\
+<  \X{[}or \verb|\lbrack|   & \X{]}or \verb|\rbrack|  & \X{\downarrow}   & \X{\Downarrow}  \\
+<  \X{\{}or \verb|\lbrace|  & \X{\}}or \verb|\rbrace|  & \X{\updownarrow} & \X{\Updownarrow}\\
+<  \X{\langle}      & \X{\rangle}  & \X{|}or \verb|\vert| &\X{\|}or \verb|\Vert|\\
+<  \X{\lfloor}      & \X{\rfloor}      & \X{\lceil}       & \X{\rceil}      \\
+<  \X{/}            & \X{\backslash}   & &. (dual. empty)
+---
+> \begin{symbols}{*3{cl}}
+>  \X{(}            & \X{)}            & \X{\uparrow} \\
+>  \X{[}or \verb|\lbrack|   & \X{]}or \verb|\rbrack|  & \X{\downarrow}   \\
+>  \X{\{}or \verb|\lbrace|  & \X{\}}or \verb|\rbrace|  & \X{\updownarrow} \\
+>  \X{\langle}      & \X{\rangle}      &  \X{\Uparrow} \\
+>  \X{|}or \verb|\vert| & \X{\|}or \verb|\Vert| & \X{\Downarrow} \\
+>   \X{/}            & \X{\backslash}   &   \X{\Updownarrow}  \\ 
+>  \X{\lfloor}      & \X{\rfloor}      &  \\
+>  \X{\rceil}       &  \X{\lceil}  &&\\
+146,148c164,167
+< \begin{symbols}{*4{cl}}
+<  \Y{\lgroup}      & \Y{\rgroup}      & \Y{\lmoustache}  & \Y{\rmoustache} \\
+<  \Y{\arrowvert}   & \Y{\Arrowvert}   & \Y{\bracevert} 
+---
+> \begin{symbols}{*3{cl}}
+>  \Y{\lgroup}      & \Y{\rgroup}      & \Y{\lmoustache}  \\
+>  \Y{\arrowvert}   & \Y{\Arrowvert}   & \Y{\bracevert} \\
+>  \Y{\rmoustache} \\
+174,176c193,195
+< \begin{symbols}{*3{cl}}
+< \SC{\dag} & \SC{\S} & \SC{\copyright}  \\
+< \SC{\ddag} & \SC{\P} & \SC{\pounds}  \\
+---
+> \begin{symbols}{*4{cl}}
+>  \SC{\dag}  &  \SC{\S}  &  \SC{\copyright} &  \SC{\textregistered}  \\
+>  \SC{\ddag} &  \SC{\P}  &  \SC{\pounds}    &  \SC{\%}               \\
+179a199,200
+> \clearpage
+> 
+184d204
+< \noAMS
+187c207
+< \caption{AMS Delimiters.}\label{AMSD}
+---
+> \caption{\AmS{} Delimiters.}\label{AMSD}
+196c216
+< \caption{AMS Greek and Hebrew.}
+---
+> \caption{\AmS{} Greek and Hebrew.}
+198c218,248
+< \X{\digamma}     &\X{\varkappa} & \X{\beth}& \X{\daleth}     &\X{\gimel}
+---
+> \X{\digamma}     &\X{\varkappa} & \X{\beth} &\X{\gimel} & \X{\daleth}    
+> \end{symbols}
+> \end{table}
+> 
+> \begin{table}[tbp]
+>   \caption{Math Alphabets.} \label{mathalpha}
+> \bigskip See Table~\ref{mathfonts} on \pageref{mathfonts} for other math fonts.
+> \begin{symbols}{@{}*3l@{}}
+> Example& Command &Required package\\
+> \hline
+> \rule{0pt}{1.05em}$\mathrm{ABCDE abcde 1234}$
+>         & \verb|\mathrm{ABCDE abcde 1234}|
+>         &       \\
+> $\mathit{ABCDE abcde 1234}$
+>         & \verb|\mathit{ABCDE abcde 1234}|
+>         &       \\
+> $\mathnormal{ABCDE abcde 1234}$
+>         & \verb|\mathnormal{ABCDE abcde 1234}|
+>         &  \\
+> $\mathcal{ABCDE abcde 1234}$
+>         & \verb|\mathcal{ABCDE abcde 1234}|
+>         &  \\
+> $\mathscr{ABCDE abcde 1234}$
+>         &\verb|\mathscr{ABCDE abcde 1234}|
+>         &\pai{mathrsfs}\\
+> $\mathfrak{ABCDE abcde 1234}$
+>         & \verb|\mathfrak{ABCDE abcde 1234}|
+>         &\pai{amsfonts}  or \textsf{amssymb}  \\
+> $\mathbb{ABCDE abcde 1234}$
+>         & \verb|\mathbb{ABCDE abcde 1234}|
+>         &\pai{amsfonts}  or \textsf{amssymb} \\
+203c253
+< \caption{AMS Binary Relations.}
+---
+> \caption{\AmS{} Binary Operators.}
+205c255,269
+<  \X{\lessdot}           & \X{\gtrdot}            & \X{\doteqdot}or \verb|\Doteq| \\
+---
+>  \X{\dotplus}        & \X{\centerdot}      &       \\
+>  \X{\ltimes}         & \X{\rtimes}         & \X{\divideontimes} \\
+>  \X{\doublecup}      & \X{\doublecap}	   & \X{\smallsetminus} \\
+>  \X{\veebar}         & \X{\barwedge}       & \X{\doublebarwedge}\\
+>  \X{\boxplus}        & \X{\boxminus}       & \X{\circleddash}   \\
+>  \X{\boxtimes}       & \X{\boxdot}         & \X{\circledcirc}   \\
+>  \X{\intercal}       & \X{\circledast}     & \X{\rightthreetimes} \\
+>  \X{\curlyvee}       & \X{\curlywedge}     & \X{\leftthreetimes}
+> \end{symbols}
+> \end{table}
+> 
+> \begin{table}[!tbp]
+> \caption{\AmS{} Binary Relations.}
+> \begin{symbols}{*3{cl}}
+>  \X{\lessdot}           & \X{\gtrdot}            & \X{\doteqdot} \\
+209c273
+<  \X{\lll}or \verb|\llless|      & \X{\ggg}or \verb|\gggtr| & \X{\circeq}  \\
+---
+>  \X{\lll}or \verb|\llless| & \X{\ggg}            & \X{\circeq}  \\
+220,226c284,290
+<  \X{\Subset}            & \X{\Supset}            & \X{\Vvdash}           \\
+<  \X{\sqsubset}          & \X{\sqsupset}          & \X{\backepsilon}      \\
+<  \X{\therefore}         & \X{\because}           & \X{\varpropto}        \\
+<  \X{\shortmid}          & \X{\shortparallel}     & \X{\between}          \\
+<  \X{\smallsmile}        & \X{\smallfrown}        & \X{\pitchfork}        \\
+<  \X{\vartriangleleft}   & \X{\vartriangleright}  & \X{\blacktriangleleft}\\
+<  \X{\trianglelefteq}    & \X{\trianglerighteq}   &\X{\blacktriangleright}
+---
+>  \X{\shortparallel}     & \X{\Supset}            & \X{\Vvdash}           \\
+>  \X{\blacktriangleleft} & \X{\sqsupset}          & \X{\backepsilon}      \\
+>  \X{\vartriangleright}  & \X{\because}           & \X{\varpropto}        \\
+>  \X{\blacktriangleright}& \X{\Subset}            & \X{\between}          \\
+>  \X{\trianglerighteq}   & \X{\smallfrown}        & \X{\pitchfork}        \\
+>  \X{\vartriangleleft}   & \X{\shortmid} 	 & \X{\smallsmile} 	\\
+>  \X{\trianglelefteq}    & \X{\therefore} 	 & \X{\sqsubset}  
+231,243c295,311
+< \caption{AMS Arrows.}
+< \begin{symbols}{*3{cl}}
+<  \X{\dashleftarrow}      & \X{\dashrightarrow}     & \X{\multimap}          \\
+<  \X{\leftleftarrows}     & \X{\rightrightarrows}   & \X{\upuparrows}        \\
+<  \X{\leftrightarrows}    & \X{\rightleftarrows}    & \X{\downdownarrows}    \\
+<  \X{\Lleftarrow}         & \X{\Rrightarrow}        & \X{\upharpoonleft}     \\
+<  \X{\twoheadleftarrow}   & \X{\twoheadrightarrow}  & \X{\upharpoonright}    \\
+<  \X{\leftarrowtail}      & \X{\rightarrowtail}     & \X{\downharpoonleft}   \\
+<  \X{\leftrightharpoons}  & \X{\rightleftharpoons}  & \X{\downharpoonright}  \\
+<  \X{\Lsh}                & \X{\Rsh}                & \X{\rightsquigarrow}   \\
+<  \X{\looparrowleft}      & \X{\looparrowright}     &\X{\leftrightsquigarrow}\\
+<  \X{\curvearrowleft}     & \X{\curvearrowright}    & &                      \\
+<  \X{\circlearrowleft}    & \X{\circlearrowright}   & &
+---
+> \caption{\AmS{} Arrows.}
+> \begin{symbols}{*2{cl}}
+>  \X{\dashleftarrow}      & \X{\dashrightarrow}     \\
+>  \X{\leftleftarrows}     & \X{\rightrightarrows}   \\
+>  \X{\leftrightarrows}    & \X{\rightleftarrows}    \\
+>  \X{\Lleftarrow}         & \X{\Rrightarrow}        \\
+>  \X{\twoheadleftarrow}   & \X{\twoheadrightarrow}  \\
+>  \X{\leftarrowtail}      & \X{\rightarrowtail}     \\
+>  \X{\leftrightharpoons}  & \X{\rightleftharpoons}  \\
+>  \X{\Lsh}                & \X{\Rsh}                \\
+>  \X{\looparrowleft}      & \X{\looparrowright}     \\
+>  \X{\curvearrowleft}     & \X{\curvearrowright}    \\
+>  \X{\circlearrowleft}    & \X{\circlearrowright}   \\
+>  \X{\multimap}  &  \X{\upuparrows}  \\
+>  \X{\downdownarrows} & \X{\upharpoonleft} \\
+>  \X{\upharpoonright} & \X{\downharpoonright} \\
+>  \X{\rightsquigarrow} & \X{\leftrightsquigarrow} \\
+248c316
+< \caption{AMS Negated Binary Relations and Arrows.}\label{AMSNBR}
+---
+> \caption{\AmS{} Negated Binary Relations and Arrows.}\label{AMSNBR}
+274,289c342,343
+< \begin{table}[!tbp]
+< \caption{AMS Binary Operators.}
+< \begin{symbols}{*3{cl}}
+<  \X{\dotplus}        & \X{\centerdot}      & \X{\intercal}      \\
+<  \X{\ltimes}         & \X{\rtimes}         & \X{\divideontimes} \\
+<  \X{\Cup}or \verb|\doublecup|& \X{\Cap}or \verb|\doublecap|& \X{\smallsetminus} \\
+<  \X{\veebar}         & \X{\barwedge}       & \X{\doublebarwedge}\\
+<  \X{\boxplus}        & \X{\boxminus}       & \X{\circleddash}   \\
+<  \X{\boxtimes}       & \X{\boxdot}         & \X{\circledcirc}   \\
+<  \X{\leftthreetimes} & \X{\rightthreetimes}& \X{\circledast}    \\
+<  \X{\curlyvee}       & \X{\curlywedge}  
+< \end{symbols}
+< \end{table}
+< 
+< \begin{table}[!tbp]
+< \caption{AMS Miscellaneous.}
+---
+> \begin{table}[!tbp] \label{AMSmisc}
+> \caption{\AmS{} Miscellaneous.}
+296c350
+<  \X{\angle}            & \X{\measuredangle}    & \X{\sphericalangle}  \\
+---
+>  \X{\angle}            & \X{\measuredangle}    & \\
+299c353
+<  \X{\eth}              & \X{\mho}       
+---
+>  \X{\eth}              & \X{\sphericalangle}   & \X{\mho}              
+305,341d358
+< \begin{table}[!tbp]
+< \caption{Math Alphabets.}
+< \begin{symbols}{@{}*3l@{}}
+< Example& Command &Required package\\
+< \hline
+< \rule{0pt}{1.05em}$\mathrm{ABCdef}$
+<         & \verb|\mathrm{ABCdef}|
+<         &       \\
+< $\mathit{ABCdef}$
+<         & \verb|\mathit{ABCdef}|
+<         &       \\
+< $\mathnormal{ABCdef}$
+<         & \verb|\mathnormal{ABCdef}|
+<         &       \\
+< $\mathcal{ABC}$
+<         & \verb|\mathcal{ABC}|
+<         &       \\
+< \ifx\MathRSFS\undefined\else
+< $\MathRSFS{ABC}$
+<         &\verb|\mathcal{ABC}|
+<         &\pai{mathrsfs}\\
+< \fi
+< \ifx\EuScript\undefined\else
+< $\EuScript{ABC}$
+<         & \verb|\mathcal{ABC}|
+<         &\pai{eucal} with option: \textsf{mathcal}  \quad or\\
+<         & \verb|\mathscr{ABC}|  
+<         &\pai{eucal}  with option: \textsf{mathscr}\\
+< $\mathfrak{ABCdef}$
+<         & \verb|\mathfrak{ABCdef}|
+<         &\pai{eufrak}                \\
+< \fi
+< $\mathbb{ABC}$
+<         & \verb|\mathbb{ABC}|
+<         &\pai{amsfonts} or \textsf{amssymb}        \\
+< \end{symbols}
+< \end{table}
+346,349c363,369
+< %%% Local Variables: 
+< %%% mode: latex
+< %%% TeX-master: "lshort2e"
+< %%% End: 
+---
+> %
+> 
+> % Local Variables:
+> % TeX-master: "lshort2e"
+> % mode: latex
+> % mode: flyspell
+> % End:

@@ -1,0 +1,37 @@
+3c3
+< % $Id: title.tex,v 1.6 1998/09/29 08:05:09 oetiker Exp oetiker $
+---
+> % $Id: title.tex,v 1.2 2003/03/19 20:57:47 oetiker Exp $
+6,8c6,7
+< \ifx\pdfoutput\undefined % We're not running pdftex
+< \else
+< \pdfbookmark{Title Page}{title}
+---
+> \ifpdf
+>   \pdfbookmark{Title Page}{title}
+23c22
+< \hfill\emph{\Large Or \LaTeXe{} in \pageref{verylast} minutes}
+---
+> \hfill\emph{\Large Or \LaTeXe{} in \pageref{LastPage} minutes}
+32c31
+< Version~3.20, 09 August, 2001
+---
+> Version~4.24, February 08, 2008
+41,42c40
+<   Copyright \copyright 2000 Tobias Oetiker and all the Contributers to
+<   LShort.  All rights reserved.
+---
+>   Copyright \copyright 1995-2005 Tobias Oetiker and Contributers.  All rights reserved.
+63,66c61
+< %%% Local Variables: 
+< %%% mode: latex
+< %%% TeX-master: "lshort2e"
+< %%% End: 
+---
+> %
+67a63,67
+> % Local Variables:
+> % TeX-master: "lshort2e"
+> % mode: latex
+> % mode: flyspell
+> % End:

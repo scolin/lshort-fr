@@ -1,0 +1,176 @@
+3c3
+< % $Id: lshort2e.sty,v 1.5 1998/09/29 08:05:50 oetiker Exp oetiker $
+---
+> % $Id: lshort.sty,v 1.2 2003/03/19 20:57:45 oetiker Exp $
+12c12,13
+< \RequirePackage[english]{babel}
+---
+> \RequirePackage[english,frenchb,german]{babel}
+> \RequirePackage{mflogo}
+16,17c17,52
+< \RequirePackage{amsmath}
+< % 
+---
+> \RequirePackage{lastpage}
+> \RequirePackage{amsmath,latexsym,amsthm}
+> \RequirePackage[psamsfonts]{amssymb}
+> \RequirePackage{cmmib57}% Use blueSky cmmib5 cmmib7 cmsy
+> \RequirePackage[all]{xy}
+> \RequirePackage[T1]{fontenc}
+> \RequirePackage[latin1]{inputenc}
+> \RequirePackage{lmodern}
+> %\RequirePackage{textcomp}
+> %\RequirePackage{type1cm}% remove size restrictions
+> %\RequirePackage{aeguill}
+> % some packages which draw a euro
+> \RequirePackage{textcomp}
+> % need some magic here to keep the original definition of rightarrow
+> \newcommand{\org@Rightarrow}{}
+> \let\org@Rightarrow\Rightarrow
+> \usepackage{marvosym}
+> \let\MVRightarrow\Rightarrow
+> \let\Rightarrow\org@Rightarrow
+> %%%%
+> \RequirePackage[gen]{eurosym} % redefines \EUR
+> \RequirePackage{eurosans}
+> \let\EUROSANS\euro
+> % marvosym defines \EUR, \EURtm, \EURhv and \EURcr (with \def), while europs
+> % uses \providecommand to define them :-( so let's first undefine them:
+> \let\EURtm\undefined
+> \let\EURhv\undefined
+> \let\EURcr\undefined
+> \RequirePackage{europs}
+> %\RequirePackage[mathcal]{euscript}
+> %\IfFileExists{eucal.sty}
+> %  {\RequirePackage[psamsfonts]{eucal}}
+> %  {\IfFileExists{euscript.sty}
+> %  {\RequirePackage[mathcal]{euscript}}{}}
+> 
+> \RequirePackage{url}
+30a66,80
+> %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+> % Adapted from TeX FAQ
+> \renewcommand{\Email}{\begingroup \def\UrlLeft{<}\def\UrlRight{>} \urlstyle{tt}\Url}     % email address
+> \def\mailto|#1|{\href{mailto:#1}{\Email|#1|}}        % url to mail somewhere
+> \newcommand{\CTANref}{\begingroup \urlstyle{tt}\Url}     % 
+> \def\CTAN|#1|{\href{ftp://ftp.dante.de/tex-archive/#1}{\CTANref|CTAN:/tex-archive/#1|}}  
+> \newcommand\Newsgroup{\begingroup \urlstyle{tt}\Url} % newsgroup
+> \let\URL\url                                         % just a URL
+> 
+> \newcommand{\PSi}{\textsc{PostScript}\index{PostScript@\textsc{PostScript}}}
+> \newcommand{\EPSi}{Encapsulated \textsc{PostScript}%
+> \index{Encapsulated PostScript@Encapsulated \textsc{PostScript}}%
+> \index{PostScript@\textsc{PostScript}!Encapsulated}%
+> }
+> 
+39c89
+< \newcommand{\contrib}[3]{#1\quad\texttt{<#2>}{\small\\\quad\textit{#3}}\\[1ex]}
+---
+> \newcommand{\contrib}[3]{#1\quad\mailto|#2|{\small\\\quad\textit{#3}}\\[1ex]}
+43c93
+< \newcommand{\bs}{\symbol{'134}}%Print backslash
+---
+> %\newcommand{\bs}{\symbol{'134}}%Print backslash
+45a96,101
+> \newcommand{\eei}[1]{%
+> \index{extension!\texttt{#1}}\texttt{#1}}
+> % probably add handling of period like handling of \ in \ci 
+> \newcommand{\fni}[1]{%
+> \index{font!#1@\texttt{\bs#1}}%
+> \index{#1@\texttt{\hspace*{-1.2ex}\bs #1}}\texttt{\bs #1}}
+49c105
+< \newcommand{\ci}[1]{\cih{#1}\texttt{\bs#1}}
+---
+> \newcommand{\ci}[1]{\cih{#1}\texttt{\bs #1}}
+51c107
+< \newcommand{\pai}[1]{%
+---
+> \newcommand{\paih}[1]{%
+53,54c109,111
+< \index{#1@\textsf{#1}}%
+< \textsf{#1}}
+---
+> \index{#1@\textsf{#1}}}
+> \newcommand{\pai}[1]{%
+> \paih{#1}\textsf{#1}}
+79a137,143
+> %
+> \newcommand{\secby}[2]{\nopagebreak\par\addvspace{-1.5ex}%
+>      \vskip -\parskip\noindent{\tiny By #1 \mailto|#2|}\par\nopagebreak%
+>      \addvspace{1ex plus 0.8ex minus 0.2ex}% 
+>      \vskip -\parskip\noindent\ignorespaces}
+> %
+> % propper bookmark entries in pdftex
+80a145,152
+> \ifx\hypersetup\undefined\else
+> \pdfstringdefDisableCommands{\edef\ci{\textbackslash}}%
+> \pdfstringdefDisableCommands{\edef\sim{\textasciitilde}}%
+> \pdfstringdefDisableCommands{\edef\circ{\textdegree}}%
+> \pdfstringdefDisableCommands{\edef\ldots{... }}%
+> \fi
+> 
+> %\noindent\addvspace{1ex}\small #1 $<$\texttt{#2}$>$\par\addvspace{2ex}\noindnet\ignorespaces}
+108,125c180,185
+< % we have no PS versions of the rsfs fonts ... so this is a nogo for pdf
+< \ifx\pdfoutput\undefined % We're not running pdftex
+< \IfFileExists{mathrsfs.sty}
+<   {\RequirePackage{mathrsfs}\let\MathRSFS\mathscr\let\mathscr\relax}{}
+< \fi
+< \IfFileExists{amssymb.sty}
+<   {\let\noAMS\relax \RequirePackage{amssymb}}
+<   {\def\noAMS{\endinput}\RequirePackage{latexsym}}
+< \IfFileExists{eucal.sty}
+<   {\RequirePackage[mathscr]{eucal}}
+<   {\IfFileExists{euscript.sty}
+<   {\RequirePackage{euscript}}{}}
+< %\IfFileExists{eufrak.sty}
+< %  {\RequirePackage{eufrak}}{}
+< \IfFileExists{amsbsy.sty}
+<   {\RequirePackage{amsbsy}}{}
+< 
+< 
+---
+> %% we have no PS versions of the rsfs fonts ... so this is a nogo for pdf
+> %\ifx\HyPsd@pageref\undefined
+> \RequirePackage{mathrsfs}
+> %\fi
+> \RequirePackage{latexsym}
+> \RequirePackage[mathcal]{euscript}
+140d199
+< %
+149c208
+< \setlength{\outdent}{2cm}
+---
+> \setlength{\outdent}{1cm}
+168,171c227,230
+< \ifx\pdfoutput\undefined % We're not running pdftex
+<   \ifodd\lsspageref{exa\theexacnt}\hspace*{0pt}\else\hspace*{-\outdent}\fi%
+< \else
+< % HyPsd@pageref internal hyperref command v6.69c
+---
+> %\ifx\pdfoutput\undefined % We're not running pdftex
+> %  \ifodd\lsspageref{exa\theexacnt}\hspace*{0pt}\else\hspace*{-\outdent}\fi%
+> %\else
+> %% HyPsd@pageref internal hyperref command v6.69c
+173c232
+< \fi
+---
+> %\fi
+210a270,286
+> 
+> % section titles should be raggright ... since
+> % this is not a trivial change I have to repeat the definitions here ...
+> % taken from book.cls
+> 
+> \renewcommand\section{\@startsection {section}{1}{\z@}%
+>                                    {-3.5ex \@plus -1ex \@minus -.2ex}%
+>                                    {2.3ex \@plus.2ex}%
+>                                    {\raggedright\normalfont\Large\bfseries}}
+> \renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+>                                      {-3.25ex\@plus -1ex \@minus -.2ex}%
+>                                      {1.5ex \@plus .2ex}%
+>                                      {\raggedright\normalfont\large\bfseries}}
+> \renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
+>                                      {-3.25ex\@plus -1ex \@minus -.2ex}%
+>                                      {1.5ex \@plus .2ex}%
+>                                      {\raggedright\normalfont\normalsize\bfseries}}
