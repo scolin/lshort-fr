@@ -378,10 +378,6 @@ La figure~\ref{mini} montre le contenu d'un document \LaTeXe
 minimum. Un fichier source plus complet est présenté sur la
 figure~\ref{document}. 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                     Frontière de la traduction révisée                     %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \begin{figure}[hbp]
 \begin{lined}{6cm}
 \begin{verbatim}
@@ -412,24 +408,29 @@ On verra plus tard.
 \end{document}
 \end{verbatim}
 \end{lined}
-\caption{Exemple d'un article de revue plus réaliste} \label{document}
+\caption[Exemple d'un article de revue plus réaliste]{Exemple d'un article de
+  revue plus réaliste. Toutes les commandes de cet exemple seront expliquées
+  plus tard dans cette introduction.}
+\label{document}
 \end{figure}
  
 \section{Utilisation typique en ligne de commande}
 
 Vous brûlez probablement d'envie d'essayer l'exemple présenté
-page~\pageref{mini}. Voici quelques informations :
-\LaTeX lui-même ne propose pas d'interface graphique ni de jolis
-boutons à 
-cliquer. Il s'agit simplement d'un programme qui « digère » votre
-fichier source. Certaines installations de \LaTeX ajoutent une
-telle interface graphique permettant de cliquer pour lancer la
-mise en page de votre document. 
+page~\pageref{mini}. Voici quelques informations : \LaTeX lui-même ne propose
+pas d'interface graphique ni de jolis boutons à cliquer. Il s'agit simplement
+d'un programme qui « digère » votre fichier source. Certaines installations de
+\LaTeX ajoutent une telle interface graphique permettant de cliquer pour
+lancer la « compilation » de votre document. Sur d'autres systèmes, il faut
+taper quelques commandes, donc voyons comment convaincre \LaTeX de compiler
+votre fichier source sur un système orienté texte. Attention : ceci suppose
+qu'une installation \LaTeX fonctionnelle est déjà présente sur votre
+ordinateur\footnote{C'est le cas sur la plupart des systèmes Unix bien
+  élevés\dots et les Vrais Hommes utilisent Unix, donc\dots \texttt{;-)}}.
 
-Mais les puristes ne cliquent pas ; voici donc comment demander à
-\LaTeX de traiter votre document sur un système avec une interface
-textuelle. Remarquez que ceci suppose que \LaTeX soit déjà installé
-sur votre ordinateur. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                     Frontière de la traduction révisée                     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{enumerate}
 \item Créez/éditez votre fichier source \LaTeX. Il s'agit d'un
