@@ -433,358 +433,308 @@ ordinateur\footnote{C'est le cas sur la plupart des systèmes Unix bien
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{enumerate}
-\item Créez/éditez votre fichier source \LaTeX. Il s'agit d'un
-      fichier texte pur. Sur les systèmes Unix, tous les éditeurs
-      créent ce type de fichier. Sous Windows, assurez-vous que le
-      fichier est sauvegardé en texte seul (ASCII ou encore « plain
-      text »). Choisissez pour votre fichier un nom avec le suffixe
-      \texttt{.tex}. 
-
-\item Exécutez \LaTeX sur votre fichier. Si tout se passe bien, vous
-      obtiendrez un nouveau fichier avec le suffixe \texttt{.dvi}. 
+  \item Créez/éditez votre fichier source \LaTeX. Il s'agit d'un fichier texte
+    pur. Sur les systèmes Unix, tous les éditeurs créent ce type de fichier.
+    Sous Windows, assurez-vous que le fichier est sauvegardé en texte seul
+    (ASCII ou encore « plain text »). Choisissez pour votre fichier un nom
+    avec le suffixe \texttt{.tex}. 
+  \item Exécutez \LaTeX sur votre fichier. Si tout se passe bien, vous
+    obtiendrez un nouveau fichier avec le suffixe \texttt{.dvi}. 
 \begin{verbatim}
 latex document.tex
 \end{verbatim}
-
-\item À présent, vous pouvez visualiser le résultat, le fichier DVI.
+  \item À présent, vous pouvez visualiser le résultat, le fichier DVI.
 \begin{verbatim}
 xdvi document.dvi
 \end{verbatim}
-ou encore transformer le résultat en PostScript
+    ou encore transformer le résultat en PostScript
 \begin{verbatim}
 dvips -Pcmz -o document.ps document.dvi
 \end{verbatim}
-\texttt{\wi{xdvi}} et \texttt{\wi{dvips}} sont des logiciels %libres
-qui manipulent les fichiers DVI. Ils sont disponibles sur la plupart
-des systèmes Unix. Sur les autres systèmes, d'autres outils de
-manipulation des fichiers DVI sont disponibles. 
-
+    \texttt{\wi{xdvi}} et \texttt{\wi{dvips}} sont des logiciels %libres qui
+    manipulent les fichiers DVI. Ils sont disponibles sur la plupart des
+    systèmes Unix. Sur les autres systèmes, d'autres outils de manipulation
+    des fichiers DVI sont disponibles. 
 \end{enumerate}
 
-% \clearpage
 \section{La mise en page du document}
  
 \subsection {Classes de documents}\label{sec:documentclass}
 
-La première information dont \LaTeX a besoin en traitant un fichier
-source est le type de document que son auteur est en train de
-créer. Ce type est spécifié par la commande \ci{documentclass}.
+La première information dont \LaTeX a besoin en traitant un fichier source est
+le type de document que son auteur est en train de créer. Ce type est spécifié
+par la commande \ci{documentclass}.
 \begin{lscommand}
 \ci{documentclass}\verb|[|\emph{options}\verb|]{|\emph{classe}\verb|}|
 \end{lscommand}
 Ici \emph{classe} indique le type de document à créer. Le
 tableau~\ref{documentclasses} donne la liste des classes de documents
-présentées dans cette introduction. \LaTeXe fournit d'autres classes
-pour d'autres types de documents, notamment des lettres et des
-transparents. Le paramètre \emph{\wi{option}s} permet de modifier le
-comportement de la classe de document. Les options sont séparées par
-des virgules. Les principales options disponibles sont présentées dans
-le tableau~\ref{options}.
-
+présentées dans cette introduction. \LaTeXe fournit d'autres classes pour
+d'autres types de documents, notamment des lettres et des transparents. Le
+paramètre \emph{\wi{option}s} permet de modifier le comportement de la classe
+de document. Les options sont séparées par des virgules. Les principales
+options disponibles sont présentées dans le tableau~\ref{options}.
 
 \begin{table}[!thbp]
-\caption{Classes de documents} \label{documentclasses}
-\begin{lined}{12cm}
-\begin{description}
- 
-\item [\normalfont\texttt{article}] pour des articles dans des revues
-      scientifiques, des présentations, des rapports courts, des
-      documentations, des invitations, etc.
-  \index{article (classe)}
-\item [\normalfont\texttt{report}] pour des rapports plus longs
-      contenant plusieurs chapitres, des petits livres, des thèses, etc.
-  \index{report (classe)}
-  \index{rapport}
-\item [\normalfont\texttt{book}] pour des vrais livres.
-  \index{book (classe)}
-  \index{livre}
-\item [\normalfont\texttt{slides}] pour des transparents. Cette classe
-      utilise de grands caractères sans serif. Voir également la
-      classe Foil\TeX\footnote{%
-        \texttt{CTAN:/tex-archive/macros/latex/contrib/supported/foiltex}}
-   \index{slides@\textsf{slides}}\index{foiltex@\textsf{foiltex}}
-   \index{transparents}
-\end{description}
-\end{lined}
+  \caption{Classes de documents} \label{documentclasses}
+  \begin{lined}{12cm}
+    \begin{description}
+      \item [\normalfont\texttt{article}] pour des articles dans des revues
+        scientifiques, des présentations, des rapports courts, des
+        documentations, des invitations, etc.  \index{article (classe)}
+      \item [\normalfont\texttt{report}] pour des rapports plus longs
+        contenant plusieurs chapitres, des petits livres, des thèses, etc.
+        \index{report (classe)} \index{rapport}
+      \item [\normalfont\texttt{book}] pour des vrais livres.  \index{book
+          (classe)} \index{livre}
+      \item [\normalfont\texttt{slides}] pour des transparents. Cette classe
+        utilise de grands caractères sans serif. Voir également la classe
+        Foil\TeX\footnote{%
+          \texttt{CTAN:/tex-archive/macros/latex/contrib/supported/foiltex}}
+        \index{slides@\textsf{slides}}\index{foiltex@\textsf{foiltex}}
+        \index{transparents}
+    \end{description}
+  \end{lined}
 \end{table}
 
 \begin{table}[!hbp]
-\caption{Options de classes de document} \label{options}
-\begin{lined}{12cm}
-\begin{flushleft}
-\begin{description}
-\item[\normalfont\texttt{10pt}, \texttt{11pt}, \texttt{12pt}] \quad
-définit la taille de la police principale du document. Si aucune
-option n'est présente, la taille par défaut est de \texttt{10pt}.
- \index{taille!de la police par défaut}
-\item[\normalfont\texttt{a4paper}, \texttt{letterpaper}, \dots] \quad
-définit la taille du papier. Le papier par défaut est
-\texttt{letterpaper}, le format standard américain. Les autres valeurs
-possibles sont : \texttt{a5paper}, \texttt{b5paper}, \texttt{executivepaper},
-  et \texttt{legalpaper}. \index{legal (papier)}
-  \index{taille!du papier}\index{A4 (papier)}\index{letter (papier)} \index{A5
-    (papier)}\index{B5 (papier)}\index{executive (papier)}
-\index{papier!taille du}
-\index{papier!A4}
-\index{papier!A5}
-\index{papier!letter}
-
-\item[\normalfont\texttt{fleqn}] \quad aligne les formules
-  mathématiques à gauche au lieu de les centrer.
-\index{fleqn@\texttt{fleqn}}
-
-\item[\normalfont\texttt{leqno}] \quad place la numérotation des
-formules à gauche plutôt qu'à droite.
-\index{leqno@\texttt{leqno}}
-
-\item[\normalfont\texttt{titlepage}, \texttt{notitlepage}] \quad
-indique si une nouvelle page doit être commencée après le \wi{titre du
-document} ou non. La classe \texttt{article} continue par défaut sur
-la même page contrairement aux classes \texttt{report} et
-\texttt{book}.  \index{titlepage@\texttt{titlepage}}
-\index{notitlepage@\texttt{notitlepage}}
-
-\item[\normalfont\texttt{twocolumn}] \quad 
-demande à \LaTeX de formater le texte sur \wi{deux colonnes}.
-\index{twocolumn@\texttt{twocolumn}}
-
-\item[\normalfont\texttt{twoside, oneside}] \quad indique si la sortie
-se fera en \wi{recto-verso} ou en \wi{recto simple}. Par défaut, les classes
-\texttt{article} et \texttt{report} sont en \wi{simple face} 
-alors que la classe \texttt{book} est en \wi{double-face}.
-\index{twoside@\texttt{twoside}}
-\index{oneside@\texttt{oneside}}
-
-\item[\normalfont\texttt{openright, openany}] \quad fait commencer un
-chapitre sur la page de droite ou sur la prochaine page. Cette option
-n'a pas de sens avec la classe \texttt{article} qui ne connaît pas la
-notion de chapitre. Par défaut, la classe \texttt{report} commence les
-chapitres sur la prochaine page vierge alors que la classe
-\texttt{book} les commence toujours sur une page de droite.
-\index{openright@\texttt{openright}}
-\index{openany@\texttt{openany}}
-
-\end{description}
-\end{flushleft}
-\end{lined}
+  \caption{Options de classes de document} \label{options}
+  \begin{lined}{12cm}
+    \begin{flushleft}
+      \begin{description}
+        \item[\normalfont\texttt{10pt}, \texttt{11pt}, \texttt{12pt}] \quad
+          définit la taille de la police principale du document. Si aucune
+          option n'est présente, la taille par défaut est de \texttt{10pt}.
+          \index{taille!de la police par défaut}
+        \item[\normalfont\texttt{a4paper}, \texttt{letterpaper}, \dots] \quad
+          définit la taille du papier. Le papier par défaut est
+          \texttt{letterpaper}, le format standard américain. Les autres
+          valeurs possibles sont : \texttt{a5paper}, \texttt{b5paper},
+          \texttt{executivepaper}, et \texttt{legalpaper}. 
+          \index{legal (papier)}
+          \index{taille!du papier} \index{A4 (papier)} \index{letter (papier)} 
+          \index{A5 (papier)} \index{B5 (papier)} \index{executive (papier)}
+          \index{papier!taille du} \index{papier!A4} \index{papier!A5}
+          \index{papier!letter}
+        \item[\normalfont\texttt{fleqn}] \quad aligne les formules
+          mathématiques à gauche au lieu de les centrer.
+          \index{fleqn@\texttt{fleqn}}
+        \item[\normalfont\texttt{leqno}] \quad place la numérotation des
+          formules à gauche plutôt qu'à droite.  \index{leqno@\texttt{leqno}}
+        \item[\normalfont\texttt{titlepage}, \texttt{notitlepage}] \quad
+          indique si une nouvelle page doit être commencée après le \wi{titre
+            du document} ou non. La classe \texttt{article} continue par
+          défaut sur la même page contrairement aux classes \texttt{report} et
+          \texttt{book}.  \index{titlepage@\texttt{titlepage}}
+          \index{notitlepage@\texttt{notitlepage}}
+        \item[\normalfont\texttt{twocolumn}] \quad demande à \LaTeX de
+          formater le texte sur \wi{deux colonnes}.
+          \index{twocolumn@\texttt{twocolumn}}
+        \item[\normalfont\texttt{twoside, oneside}] \quad indique si la sortie
+          se fera en \wi{recto-verso} ou en \wi{recto simple}. Par défaut, les
+          classes \texttt{article} et \texttt{report} sont en \wi{simple face}
+          alors que la classe \texttt{book} est en \wi{double-face}.
+          \index{twoside@\texttt{twoside}} \index{oneside@\texttt{oneside}}
+        \item[\normalfont\texttt{openright, openany}] \quad fait commencer un
+          chapitre sur la page de droite ou sur la prochaine page. Cette
+          option n'a pas de sens avec la classe \texttt{article} qui ne
+          connaît pas la notion de chapitre. Par défaut, la classe
+          \texttt{report} commence les chapitres sur la prochaine page vierge
+          alors que la classe \texttt{book} les commence toujours sur une page
+          de droite.  \index{openright@\texttt{openright}}
+          \index{openany@\texttt{openany}}
+      \end{description}
+    \end{flushleft}
+  \end{lined}
 \end{table}
 
-Exemple : un fichier source pour un document \LaTeX pourrait
-commencer par la ligne
+Exemple : un fichier source pour un document \LaTeX pourrait commencer par la
+ligne
 \begin{code}
-\ci{documentclass}\verb|[11pt,twoside,a4paper]{article}|
+  \ci{documentclass}\verb|[11pt,twoside,a4paper]{article}|
 \end{code}
-elle informe \LaTeX qu'il doit composer ce document comme un
-\emph{article} avec une taille de caractère de base de \emph{onze
-points} et qu'il devra produire une mise en page pour une impression
-\emph{double face} sur du papier au format \emph{A4}%
-\footnote{Sans l'option \texttt{a4paper}, le format de papier sera
-américain : 8,5~$\times$~11 pouces, soit 216~$\times$~280 mm.}.
+elle informe \LaTeX qu'il doit composer ce document comme un \emph{article}
+avec une taille de caractère de base de \emph{onze points} et qu'il devra
+produire une mise en page pour une impression \emph{double face} sur du papier
+au format \emph{A4}% \footnote{Sans l'option \texttt{a4paper}, le format de
+papier sera américain : 8,5~$\times$~11 pouces, soit 216~$\times$~280 mm.}.
 
-%\clearpage
 \subsection{Extensions}
 
 \begin{table}[!tbp]
-\caption{Quelques extensions fournies avec \LaTeX} \label{extensions}
-\begin{lined}{11cm}
-\begin{description}
-\item[\normalfont\texttt{doc}] permet de documenter des programmes
- pour  \LaTeX.\\
- Décrite dans \texttt{doc.dtx}\footnote{Ce fichier devrait être intallé
- sur votre système et vous devriez être capable de le formater avec
- la commande \texttt{latex doc.dtx}. Il en est de même pour les autres
- fichiers cités dans ce tableau.} et dans \companion.
-
-\item[\normalfont\pai{exscale}] fournit des versions de taille
-  paramétrable des polices mathématiques étendues.\\ 
-  Décrite dans \texttt{ltexscale.dtx}.
-
-\item[\normalfont\pai{fontenc}] spécifie le \wi{codage} des polices
-  de caractère que \LaTeX va utiliser.\\
-  Décrite dans \texttt{ltoutenc.dtx}.
-
-\item[\normalfont\pai{ifthen}] fournit des commandes de la forme\\
-  `if\dots then do\dots otherwise do\dots.'\\ 
-  Décrite dans \texttt{ifthen.dtx}, dans \companion et dans
-  \desgraupes. 
-
-\item[\normalfont\pai{latexsym}] permet l'utilisation de la police des
-  symboles \LaTeX.\\
-  Décrite dans \texttt{latexsym.dtx}, dans \companion et dans
-  \desgraupes. 
- 
-\item[\normalfont\pai{makeidx}] fournit des commandes pour réaliser
-  un index.\\
-  Décrite dans ce document, section~\ref{sec:indexing}, dans
-  \companion et dans \desgraupes.
-
-\item[\normalfont\pai{syntonly}] analyse un document sans le
-  formater.\\
-  Décrite dans \texttt{syntonly.dtx} et dans \companion. Utile pour une
-  vérification rapide de la syntaxe.
-  
-\item[\normalfont\pai{inputenc}] permet de spécifier le codage des
-  caractères utilisé dans le fichier source, parmi ASCII, ISO Latin-1,
-  ISO Latin-2, 437/850 IBM code pages,  Apple Macintosh, Next,
-  ANSI-Windows ou un codage défini par l'utilisateur.\\
-  Décrite dans \texttt{inputenc.dtx}. 
-\end{description}
-\end{lined}
+  \caption{Quelques extensions fournies avec \LaTeX} \label{extensions}
+  \begin{lined}{11cm}
+    \begin{description}
+      \item[\normalfont\texttt{doc}] permet de documenter des programmes pour
+        \LaTeX.\\ Décrite dans \texttt{doc.dtx}\footnote{Ce fichier devrait
+          être intallé sur votre système et vous devriez être capable de le
+          formater avec la commande \texttt{latex doc.dtx}. Il en est de même
+          pour les autres fichiers cités dans ce tableau.} et dans \companion.
+      \item[\normalfont\pai{exscale}] fournit des versions de taille
+        paramétrable des polices mathématiques étendues.\\ Décrite dans
+        \texttt{ltexscale.dtx}.
+      \item[\normalfont\pai{fontenc}] spécifie le \wi{codage} des polices de
+        caractère que \LaTeX va utiliser.\\ Décrite dans
+        \texttt{ltoutenc.dtx}.
+      \item[\normalfont\pai{ifthen}] fournit des commandes de la forme\\
+        `if\dots then do\dots otherwise do\dots.'\\ Décrite dans
+        \texttt{ifthen.dtx}, dans \companion et dans \desgraupes. 
+      \item[\normalfont\pai{latexsym}] permet l'utilisation de la police des
+        symboles \LaTeX.\\ Décrite dans \texttt{latexsym.dtx}, dans \companion
+        et dans \desgraupes. 
+      \item[\normalfont\pai{makeidx}] fournit des commandes pour réaliser un
+        index.\\ Décrite dans ce document, section~\ref{sec:indexing}, dans
+        \companion et dans \desgraupes.
+      \item[\normalfont\pai{syntonly}] analyse un document sans le formater.\\
+        Décrite dans \texttt{syntonly.dtx} et dans \companion. Utile pour une
+        vérification rapide de la syntaxe.
+      \item[\normalfont\pai{inputenc}] permet de spécifier le codage des
+        caractères utilisé dans le fichier source, parmi ASCII, ISO Latin-1,
+        ISO Latin-2, 437/850 IBM code pages,  Apple Macintosh, Next,
+        ANSI-Windows ou un codage défini par l'utilisateur.\\ Décrite dans
+        \texttt{inputenc.dtx}. 
+    \end{description}
+  \end{lined}
 \end{table}
 
 \index{extension} 
-En rédigeant votre document, vous remarquerez peut-être qu'il y a des
-domaines où les commandes de base de \LaTeX ne permettent pas
-d'exprimer ce que vous voudriez. Si vous voulez inclure des
-graphiques, du texte en couleur ou du code d'un programme dans votre
-document, il faut augmenter les possibilités de \LaTeX grâce à des
-extensions. 
-Une extension est chargée par la commande
+En rédigeant votre document, vous remarquerez peut-être qu'il y a des domaines
+où les commandes de base de \LaTeX ne permettent pas d'exprimer ce que vous
+voudriez. Si vous voulez inclure des graphiques, du texte en couleur ou du
+code d'un programme dans votre document, il faut augmenter les possibilités de
+\LaTeX grâce à des extensions.  Une extension est chargée par la commande
 \begin{lscommand}
 \ci{usepackage}\verb|[|\emph{options}\verb|]{|\emph{extension}\verb|}|
 \end{lscommand}
-\emph{extension} est le nom de l'extension et \emph{options} une liste
-de mots-clés qui déclenchent certaines fonctions de
-l'extension. Certaines extensions font partie de la distribution
-standard de \LaTeXe (reportez-vous au
-tableau~\ref{extensions}). D'autres sont distribuées à part. Le
-\guide peut vous fournir plus d'informations sur les extensions
-installées sur votre site. \companion est la principale source
-d'information au sujet de \LaTeXe. Ce livre contient la description
-de centaines d'extensions ainsi que les informations nécessaires pour
-écrire vos propres extensions à \LaTeXe.
+\emph{extension} est le nom de l'extension et \emph{options} une liste de
+mots-clés qui déclenchent certaines fonctions de l'extension. Certaines
+extensions font partie de la distribution standard de \LaTeXe (reportez-vous
+au tableau~\ref{extensions}). D'autres sont distribuées à part. Le \guide peut
+vous fournir plus d'informations sur les extensions installées sur votre site.
+\companion est la principale source d'information au sujet de \LaTeXe. Ce
+livre contient la description de centaines d'extensions ainsi que les
+informations nécessaires pour écrire vos propres extensions à \LaTeXe.
 
 \subsection{Styles de page}
 
-\LaTeX propose trois combinaisons d'\wi{en-tête}s et de \wi{pieds de
-page}, appelées styles de page et définies par le paramètre \emph{style} de la
+\LaTeX propose trois combinaisons d'\wi{en-tête}s et de \wi{pieds de page},
+appelées styles de page et définies par le paramètre \emph{style} de la
 commande :
 \index{style de page!plain@\texttt{plain}}\index{plain@\texttt{plain}}
 \index{style de page!headings@\texttt{headings}}
 \index{headings@\texttt{headings}}
 \index{style de page!empty@\texttt{empty}}\index{empty@\texttt{empty}}
 \begin{lscommand}
-\ci{pagestyle}\verb|{|\emph{style}\verb|}|
+  \ci{pagestyle}\verb|{|\emph{style}\verb|}|
 \end{lscommand}
-Le tableau~\ref{pagestyle}
-donne la liste des styles prédéfinis.
+Le tableau~\ref{pagestyle} donne la liste des styles prédéfinis.
 
 \begin{table}[!hbp]
-\caption{Les styles de page de \LaTeX} \label{pagestyle}
-\begin{lined}{12cm}
-\begin{description}
-
-\item[\normalfont\texttt{plain}] imprime le numéro de page au milieu
-du pied de page. C'est le style par défaut.
-
-\item[\normalfont\texttt{headings}] imprime le titre du chapitre
-courant et le numéro de page dans l'en-tête de chaque page et laisse le
-pied de page vide. C'est à peu près le style utilisé dans ce document.
-
-\item[\normalfont\texttt{empty}] laisse l'en-tête et le pied de page
-vides. 
-\end{description}
-\end{lined}
+  \caption{Les styles de page de \LaTeX} \label{pagestyle}
+  \begin{lined}{12cm}
+    \begin{description}
+      \item[\normalfont\texttt{plain}] imprime le numéro de page au milieu du
+        pied de page. C'est le style par défaut.
+      \item[\normalfont\texttt{headings}] imprime le titre du chapitre courant
+        et le numéro de page dans l'en-tête de chaque page et laisse le pied
+        de page vide. C'est à peu près le style utilisé dans ce document.
+      \item[\normalfont\texttt{empty}] laisse l'en-tête et le pied de page
+        vides. 
+    \end{description}
+  \end{lined}
 \end{table}
 
 On peut changer le style de la page en cours grâce à la commande
 \begin{lscommand}
-\ci{thispagestyle}\verb|{|\emph{style}\verb|}|
+  \ci{thispagestyle}\verb|{|\emph{style}\verb|}|
 \end{lscommand}
 
 Au chapitre~\ref{chap:spec}, page~\pageref{sec:fancyhdr}, vous apprendrez
 comment créer vos propres en-têtes et pieds de pages.
 
-%
-% Add Info on page-numbering, ...
-% \pagenumbering
-
 \section{Les fichiers manipulés}
-L'utilisateur de \LaTeX est amené à cotoyer un grand nombre de fichiers
-aux suffixes divers, chaque suffixe renseigne sur le rôle du fichier,
-il est donc utile d'en connaître la signification, voici les suffixes
-les plus courants :
+
+L'utilisateur de \LaTeX est amené à cotoyer un grand nombre de fichiers aux
+suffixes divers, chaque suffixe renseigne sur le rôle du fichier, il est donc
+utile d'en connaître la signification, voici les suffixes les plus courants :
 \begin{description}
-\item[\wi{.tex}] fichier source \TeX ou \LaTeX ;
-\item[\wi{.sty}] fichier contenant des commandes, que l'on charge dans le
-  préambule d'un document grâce à une commande \verb+\usepackage+ ;
-\item[\wi{.dtx}] fichier contenant du code \LaTeX (commandes) documenté,
-  le lancement de \LaTeX sur un fichier \texttt{.dtx} en extrait la
-  documentation.
-\item[\wi{.ins}] fichier permettant d'installer le contenu du
-  fichier~\texttt{.dtx} de même nom. Une extension \LaTeX
-  téléchargée de l'Internet est composée d'un fichier \texttt{.dtx} et
-  d'un \texttt{.ins}. Exécuter \LaTeX sur le fichier \texttt{.ins}
-  pour extraire les fichiers à installer du \texttt{.dtx}.
-\item[\wi{.cls}] désigne un fichier de \emph{classe} contenant la
-  description d'un type de document, chargé par la commande
-  \ci{documentclass};
-\item[\wi{.fd}] fichier contenant des définitions pour les polices de
-  caractères ; 
+  \item[\wi{.tex}] fichier source \TeX ou \LaTeX ;
+  \item[\wi{.sty}] fichier contenant des commandes, que l'on charge dans le
+    préambule d'un document grâce à une commande \verb+\usepackage+ ;
+  \item[\wi{.dtx}] fichier contenant du code \LaTeX (commandes) documenté, le
+    lancement de \LaTeX sur un fichier \texttt{.dtx} en extrait la
+    documentation.
+  \item[\wi{.ins}] fichier permettant d'installer le contenu du
+    fichier~\texttt{.dtx} de même nom. Une extension \LaTeX téléchargée de
+    l'Internet est composée d'un fichier \texttt{.dtx} et d'un \texttt{.ins}.
+    Exécuter \LaTeX sur le fichier \texttt{.ins} pour extraire les fichiers à
+    installer du \texttt{.dtx}.
+  \item[\wi{.cls}] désigne un fichier de \emph{classe} contenant la
+    description d'un type de document, chargé par la commande
+    \ci{documentclass};
+  \item[\wi{.fd}] fichier contenant des définitions pour les polices de
+    caractères ; 
 \end{description}
 
-\noindent Les fichiers suivants sont produits par \LaTeX à partir du fichier
-source (de suffixe~\texttt{.tex}) :
+Les fichiers suivants sont produits par \LaTeX à partir du fichier source (de
+suffixe~\texttt{.tex}) :
 \begin{description}
-\item[\wi{.dvi}] signifie \emph{DeVice Independent}, c'est le fichier que l'on
-  visualise à l'écran et qui servira à l'impression (par \texttt{dvips} par
-  exemple) ;
-\item[\wi{.log}] fichier contenant le compte-rendu détaillé de la
-  compilation du fichier source (avec les messages d'erreur éventuels), 
-\item[\wi{.toc}] contient le matériel nécessaire à la production de la
-  table des matières, si celle-ci a été demandée ;
-\item[\wi{.lof}] contient la liste numérotée des figures, si elle a été
-  demandée ;
-\item[\wi{.lot}] contient la liste numérotée des tableaux, si elle a été
-  demandée ;
-\item[\wi{.aux}] contient diverses informations utiles à \LaTeX, en
-  particulier ce qui est nécessaire au fonctionnement des références
-  croisées. Le fichier \texttt{.aux} produit lors d'une exécution de
-  \LaTeX est lu lors de l'exécution suivante ;
-\item[\wi{.idx}] fichier produit seulement si un index est demandé, il doit
-  être traité par \texttt{makeindex} (voir section~\ref{sec:indexing}
-  page~\pageref{sec:indexing}) ;
-\item[\wi{.ind}] fichier produit par \texttt{makeindex} à partir
-  du~\texttt{.idx}, il contient l'index prêt à être inclus dans le document ;
-\item[\wi{.ilg}] fichier contenant le compte-rendu du travail de
-  \texttt{makeindex}.
+  \item[\wi{.dvi}] signifie \emph{DeVice Independent}, c'est le fichier que
+    l'on visualise à l'écran et qui servira à l'impression (par \texttt{dvips}
+    par exemple) ;
+  \item[\wi{.log}] fichier contenant le compte-rendu détaillé de la
+    compilation du fichier source (avec les messages d'erreur éventuels), 
+  \item[\wi{.toc}] contient le matériel nécessaire à la production de la table
+    des matières, si celle-ci a été demandée ;
+  \item[\wi{.lof}] contient la liste numérotée des figures, si elle a été
+    demandée ;
+  \item[\wi{.lot}] contient la liste numérotée des tableaux, si elle a été
+    demandée ;
+  \item[\wi{.aux}] contient diverses informations utiles à \LaTeX, en
+    particulier ce qui est nécessaire au fonctionnement des références
+    croisées. Le fichier \texttt{.aux} produit lors d'une exécution de \LaTeX
+    est lu lors de l'exécution suivante ;
+  \item[\wi{.idx}] fichier produit seulement si un index est demandé, il doit
+    être traité par \texttt{makeindex} (voir section~\ref{sec:indexing}
+    page~\pageref{sec:indexing}) ; \item[\wi{.ind}] fichier produit par
+    \texttt{makeindex} à partir du~\texttt{.idx}, il contient l'index prêt à
+    être inclus dans le document ; \item[\wi{.ilg}] fichier contenant le
+    compte-rendu du travail de \texttt{makeindex}.
 \end{description}
 
 \section{Gros documents}
 
-Lorsque l'on travaille sur de gros documents, il peut être
-pratique de couper le fichier source en plusieurs morceaux. \LaTeX a
-deux commandes qui vous permettent de gérer plusieurs fichiers sources.
+Lorsque l'on travaille sur de gros documents, il peut être pratique de couper
+le fichier source en plusieurs morceaux. \LaTeX a deux commandes qui vous
+permettent de gérer plusieurs fichiers sources.
 
 \begin{lscommand}
-\ci{include}\verb|{|\emph{fichier}\verb|}|
+  \ci{include}\verb|{|\emph{fichier}\verb|}|
 \end{lscommand}
-Vous pouvez utiliser cette commande dans le corps de votre document
-pour insérer le contenu d'un autre fichier source. \LaTeX ajoute
-automatiquement le suffixe \texttt{.tex} au nom spécifié. Remarquez que
-\LaTeX va sauter une page pour traiter le contenu de
-\emph{fichier}\texttt{.tex}. 
+Vous pouvez utiliser cette commande dans le corps de votre document pour
+insérer le contenu d'un autre fichier source. \LaTeX ajoute automatiquement le
+suffixe \texttt{.tex} au nom spécifié. Remarquez que \LaTeX va sauter une page
+pour traiter le contenu de \emph{fichier}\texttt{.tex}. 
 
-La seconde commande peut être utilisée dans le préambule. Elle permet
-de dire à \LaTeX de n'inclure que certains des fichiers désignés par
-les commandes \verb|\include|.
+La seconde commande peut être utilisée dans le préambule. Elle permet de dire
+à \LaTeX de n'inclure que certains des fichiers désignés par les commandes
+\verb|\include|.
 \begin{lscommand}
-\ci{includeonly}\verb|{|\emph{fichier}\verb|,|\emph{fichier}%
-\verb|,|\ldots\verb|}|
+  \ci{includeonly}\verb|{|\emph{fichier}\verb|,|\emph{fichier}%
+    \verb|,|\ldots\verb|}|
 \end{lscommand}
-Après avoir rencontré cette commande dans le préambule d'un document,
-seules les commandes \ci{include} dont les fichiers sont cités en
-paramètre de la commande \ci{includeonly} seront exécutées. Attention,
-il ne doit pas y avoir d'espace entre les noms de fichiers et les
-virgules. 
+Après avoir rencontré cette commande dans le préambule d'un document, seules
+les commandes \ci{include} dont les fichiers sont cités en paramètre de la
+commande \ci{includeonly} seront exécutées. Attention, il ne doit pas y avoir
+d'espace entre les noms de fichiers et les virgules. 
 
-La commande \ci{include} saute une page avant de commencer le
-formatage du texte inclus. Ceci est utile lorsqu'on utilise
-\ci{includeonly}, parce qu'ainsi les sauts de pages ne bougeront pas,
-même si certains morceaux ne sont pas inclus. Parfois ce comportement
-n'est pas souhaitable. Dans ce cas, vous pouvez utiliser la commande :
+La commande \ci{include} saute une page avant de commencer le formatage du
+texte inclus. Ceci est utile lorsqu'on utilise \ci{includeonly}, parce
+qu'ainsi les sauts de pages ne bougeront pas, même si certains morceaux ne
+sont pas inclus. Parfois ce comportement n'est pas souhaitable. Dans ce cas,
+vous pouvez utiliser la commande :
 \begin{lscommand}
-\ci{input}\verb|{|\emph{fichier.tex}\verb|}|
+  \ci{input}\verb|{|\emph{fichier.tex}\verb|}|
 \end{lscommand}
 \noindent qui insère simplement le fichier indiqué sans aucun traitement
 sophistiqué. 
@@ -792,22 +742,14 @@ sophistiqué.
 \enlargethispage{\baselineskip}
 
 Il est possible de demander à \LaTeX de simplement vérifier la syntaxe d'un
-document, sans produire de fichier~\texttt{.dvi} pour gagner du temps, 
-en  utilisant l'extension~\texttt{syntonly} :
+document, sans produire de fichier~\texttt{.dvi} pour gagner du temps, en
+utilisant l'extension~\texttt{syntonly} :
 \begin{verbatim}
 \usepackage{syntonly}
 \syntaxonly
 \end{verbatim}
-La vérification terminée, il suffit de mettre ces deux lignes
-(ou simplement la seconde) en commentaire en plaçant un~\texttt{\%}
-en tête de ligne.
-
-
-% Cette remarque est-elle utile ?
-% Attention : certaines extensions redéfinissent parfois certains
-% caractères spéciaux\footnote{Par exemple le caractère « souligné » :
-% \texttt{\_}.}. Ils ne peuvent plus alors être utilisés dans les
-% \emph{noms de fichiers}.
+La vérification terminée, il suffit de mettre ces deux lignes (ou simplement
+la seconde) en commentaire en plaçant un~\texttt{\%} en tête de ligne.
 
 \endinput
 
