@@ -33,19 +33,19 @@ set textwidth=80
 set wildmenu
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
-let TeX_main_file = "flshort"
+let TeX_main_file = "lshort-fr"
 silent only
 cd ~/tex/traduc/lshort
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +8 flshort.tex
-badd +229 flshort.sty
+badd +8 lshort-fr.tex
+badd +229 lshort-fr.sty
 badd +1 en-4.24/things.tex
 badd +1 things.tex
-args flshort.tex
-edit flshort.sty
+args lshort-fr.tex
+edit lshort-fr.sty
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
@@ -303,7 +303,7 @@ normal! zt
 normal! 0
 wincmd w
 argglobal
-edit flshort.tex
+edit lshort-fr.tex
 let s:cpo_save=&cpo
 set cpo&vim
 vmap <buffer> <F4> :s:^\( *\)% :\1:e
