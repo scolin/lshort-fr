@@ -447,18 +447,22 @@ input file. Type \texttt{ctrl-D} to get back to the command line.
 \end{lscommand}
 
 \item 
-Now you may view the DVI file. There are several ways to do that. You can show the file on screen with
+Now you may view the DVI file. There are several ways to do that. You can show
+the file on screen with
 \begin{lscommand}
 \verb+xdvi foo.dvi &+
 \end{lscommand}
-This only works on Unix with X11. If you are on Windows you might want to try \texttt{yap} (yet another previewer).
+This only works on Unix with X11. If you are on Windows you might want to try
+\texttt{yap} (yet another previewer).
 
-You can also convert the dvi file to \PSi{} for printing or viewing with Ghostscript.
+You can also convert the dvi file to \PSi{} for printing or viewing with
+Ghostscript.
 \begin{lscommand}
 \verb+dvips -Pcmz foo.dvi -o foo.ps+
 \end{lscommand}
 
-If you are lucky your \LaTeX{} system even comes with the \texttt{dvipdf} tool, which allows
+If you are lucky your \LaTeX{} system even comes with the \texttt{dvipdf}
+tool, which allows
 you to convert your \texttt{.dvi} files straight into pdf.
 \begin{lscommand}
 \verb+dvipdf foo.dvi+
@@ -539,7 +543,8 @@ purposes.
   or not. The \texttt{article} class does not start a new page by
   default, while \texttt{report} and \texttt{book} do.  \index{title}
 
-\item[\normalfont\texttt{onecolumn}, \texttt{twocolumn}] \quad Instructs \LaTeX{} to typeset the
+\item[\normalfont\texttt{onecolumn}, \texttt{twocolumn}] \quad Instructs
+  \LaTeX{} to typeset the
   document in \wi{one column} or \wi{two column}s.
 
 \item[\normalfont\texttt{twoside, oneside}] \quad Specifies whether double or
@@ -549,7 +554,8 @@ purposes.
   option concerns the style of the document only. The option
   \texttt{twoside} does \emph{not} tell the printer you use that it
   should actually make a two-sided printout.
-\item[\normalfont\texttt{landscape}] \quad Changes the layout of the document to print in landscape mode.
+\item[\normalfont\texttt{landscape}] \quad Changes the layout of the document
+  to print in landscape mode.
 \item[\normalfont\texttt{openright, openany}] \quad Makes chapters begin either
   only on right hand pages or on the next page available. This does
   not work with the \texttt{article} class, as it does not know about

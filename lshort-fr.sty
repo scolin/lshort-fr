@@ -31,7 +31,7 @@
 
 % extensions diverses en vrac [[1
 %
-\RequirePackage{amsthm, shortvrb, lettrine, mflogo, fancyvrb, xargs}
+\RequirePackage{amsthm, shortvrb, lettrine, mflogo, fancyvrb, xargs, ifmtarg}
 \RequirePackage{verbatim, fancyhdr, calc, ifthen, fixltx2e, xspace}
 \RequirePackage[french]{layout}
 \RequirePackage[all]{xy}
@@ -152,30 +152,34 @@
 %
 
 \providecommand\bs{\textbackslash}
+% Various things in tt (hidden or not)
+\newcommand\tth[1]{%
+  \index{#1@\texttt{#1}}}
+\newcommand\tti[1]{%
+  \tth{#1}#1}
+% Word (inserted into the text)
+\newcommand\wi[1]{\index{#1}#1}
 % File extensions
-\newcommand{\eei}[1]{%
+\newcommand\eei[1]{%
   \index{extensions de fichier!\texttt{.#1}}\texttt{.#1}}
 % Fonts
-\newcommand{\fni}[1]{%
+\newcommand\fni[1]{%
   \index{font!#1@\texttt{\bs#1}}%
   \index{#1@\texttt{\hspace*{-1.2ex}\bs #1}}\texttt{\bs #1}}
 % Commands (\cih for command index hidden)
 \newcommand\cih[1]{%
-  \index{commandes!#1@\protect\texttt{\bs#1}}%
-  \index{#1@\protect\texttt{\hspace*{-1.2ex}\bs #1}}}
-\newcommand\ci[1]{\cih{#1}\texttt{\bs#1}}
+  \index{commandes!#1@\texttt{\bs#1}}%
+  \index{#1@\texttt{\hspace*{-1.2ex}\bs #1}}}
+\newcommand\ci[1]{\cih{#1}{\texttt{\bs#1}}}
 % Packages
 \newcommand\pai[1]{%
-  \index{extensions!#1@\protect\textsf{#1}}%
-  \index{#1@\protect\textsf{#1}}%
-  \textsf{#1}}
+  \index{extensions!#1@\textsf{#1}}%
+  \index{#1@\textsf{#1}}%
+  \package{#1}}
 % Environments
 \newcommand\ei[1]{%
-  \index{environnements!\protect\texttt{#1}}%
-  \index{#1@\protect\texttt{#1}}%
-  \texttt{#1}}
-% Word (inserted into the text)
-\newcommand\wi[1]{\index{#1}#1}
+  \index{environnements!\texttt{#1}}%
+  \tti{#1}}
 % Postscript
 \newcommand\PSi{%
   \textsc{PostScript}\index{PostScript@\textsc{PostScript}}\xspace}
@@ -186,20 +190,18 @@
 
 % liens particuliers [[1
 %
-\newcommand\email[1]{%
-  \nolinkurl{#1}}
 \newcommand\mailto[1]{%
-  \href{mailto:#1}{\email{#1}}}
-\newcommand\CTANref[1]{%
-  \nolinkurl{#1}}
+  \href{mailto:#1}{\texttt{#1}}}
 \newcommand\CTAN[1]{%
-  \href{http://mirror.ctan.org/#1}{\CTANref{CTAN:/#1}}}
+  \href{http://mirror.ctan.org/#1}{\texttt{CTAN://#1}}}
 \newcommand\newsgroup[1]{%
-  \href{news://#1}{#1}}
-\newcommand\package[1]{%
-  \href{http://ctan.org/pkg/#1}{#1}}
+  \href{news://#1}{\texttt{#1}}}
+\newcommand\package[2][]{%
+  \@ifmtarg{#1}
+  {\href{http://ctan.org/pkg/#2}{\textsf{#2}}}
+  {\href{http://ctan.org/pkg/#1}{\textsf{#2}}}}
 
-% lists of contributors
+% lists of contributors [[1
 \newcommand\contrib[3]{%
 \item\relax#1\quad\mailto{#2}\\
   \textit{\small#3}}
@@ -213,7 +215,6 @@
 
 % Fancyvrb General [[1
 %
-\DefineShortVerb\©
 {\catcode`\¡\active \makeatletter
   \newcommandx\mkfvindex[0][addprefix=\global]{%
     \catcode`\¡\active
@@ -223,12 +224,14 @@
   \newcommandx\mkfvog[0][addprefix=\global]{%
     \catcode`\«\active \catcode`\»\active
     \def«##1»{{\normalfont\itshape##1}}}}
+\DefineShortVerb\©
+\fvset{gobble=2}
 
 % Typesetting Commands [[1
 %
 \newenvironment{lscommand}[1]{%
-  \fvset{defineactive={\mkfvog\mkfvindex}}%
-  \SaveVerbatim[samepage, gobble=#1]{verbmat}%
+  \fvset{samepage, defineactive={\mkfvog\mkfvindex}}%
+  \SaveVerbatim[gobble=#1]{verbmat}%
   }{%
   \endSaveVerbatim
   \nopagebreak\par\addvspace{3.2ex plus 0.8ex minus 0.2ex}%
@@ -239,9 +242,16 @@
   \addvspace{3.2ex plus 0.8ex minus 0.2ex}%
   \vskip -\parskip}
 
-% Type setting Code Fragments [[1
+% Typesetting Code Fragments [[1
 %
-\newenvironment{code}{\quote}{\endquote}
+\newenvironment{code}{%
+  \fvset{samepage, defineactive={\mkfvog\mkfvindex}}%
+  \SaveVerbatim{verbmat}%
+  }{%
+  \endSaveVerbatim
+  \begin{quote}
+    \BUseVerbatim{verbmat}
+  \end{quote}}
 
 % Exemple : recopié texto de lshort.sty [[1
 %
@@ -394,12 +404,12 @@
   {1.5ex \@plus .2ex}%
   {\raggedright\normalfont\normalsize\bfseries}}
 
-% French.sty redefined tilde. Grrr [[1
+% Change the way the labels of descriptions are set [[1
+% #2 gets before (can be font), #1 after (can be space)
 %
-\ifx\@tildeORI\undefined
-\else
-\let\tilde\@tildeORI
-\fi
+\newcommand\changelabels[2][]{%
+  \renewcommand\makelabel[1]{%
+    {\hspace\labelsep \normalfont#2##1#1}}}
 
 % trucs à moi, divers [[1
 %
