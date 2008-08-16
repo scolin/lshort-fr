@@ -8,7 +8,7 @@
 
 \ProvidesPackage{lshort-fr}
 
-% save pageref an label ((wtf?)) [[1
+% save pageref ((wtf?)) [[1
 %
 \let\lsspageref=\pageref
 
@@ -31,7 +31,7 @@
 
 % extensions diverses en vrac [[1
 %
-\RequirePackage{amsthm, shortvrb, lettrine, mflogo, thumbpdf, fancyvrb}
+\RequirePackage{amsthm, shortvrb, lettrine, mflogo, fancyvrb, xargs}
 \RequirePackage{verbatim, fancyhdr, calc, ifthen, fixltx2e, xspace}
 \RequirePackage[french]{layout}
 \RequirePackage[all]{xy}
@@ -193,9 +193,11 @@
 \newcommand\CTANref[1]{%
   \nolinkurl{#1}}
 \newcommand\CTAN[1]{%
-  \href{http://ftp.dante.de/tex-archive/#1}{\CTANref{CTAN:/tex-archive/#1}}}
+  \href{http://mirror.ctan.org/#1}{\CTANref{CTAN:/#1}}}
 \newcommand\newsgroup[1]{%
   \href{news://#1}{#1}}
+\newcommand\package[1]{%
+  \href{http://ctan.org/pkg/#1}{#1}}
 
 % lists of contributors
 \newcommand\contrib[3]{%
@@ -209,67 +211,37 @@
   }{%
   \endlist}
 
+% Fancyvrb General [[1
+%
+\DefineShortVerb\©
+{\catcode`\¡\active \makeatletter
+  \newcommandx\mkfvindex[0][addprefix=\global]{%
+    \catcode`\¡\active
+    \def¡##1¡{%
+      \expandafter\ci\expandafter{\@gobble##1}}}}
+{\catcode`\«\active \catcode`\»\active
+  \newcommandx\mkfvog[0][addprefix=\global]{%
+    \catcode`\«\active \catcode`\»\active
+    \def«##1»{{\normalfont\itshape##1}}}}
+
 % Typesetting Commands [[1
 %
-\newenvironment{lscommand}{%
-  \nopagebreak\par\small\addvspace{3.2ex plus 0.8ex minus 0.2ex}%
+\newenvironment{lscommand}[1]{%
+  \fvset{defineactive={\mkfvog\mkfvindex}}%
+  \SaveVerbatim[samepage, gobble=#1]{verbmat}%
+  }{%
+  \endSaveVerbatim
+  \nopagebreak\par\addvspace{3.2ex plus 0.8ex minus 0.2ex}%
   \vskip -\parskip
-  \noindent%
-  \begin{tabular}{|l|}
-    \hline\rule{0pt}{1em}\ignorespaces
-    }{%
-    \\\hline
-  \end{tabular}\par\nopagebreak
+  \noindent\small
+  \fbox{\BUseVerbatim{verbmat}}%
+  \par\nopagebreak
   \addvspace{3.2ex plus 0.8ex minus 0.2ex}%
   \vskip -\parskip}
 
 % Type setting Code Fragments [[1
 %
 \newenvironment{code}{\quote}{\endquote}
-
-% Intro Environment [[1
-%
-\newenvironment{intro}{\sffamily}{\vspace*{2ex minus 1.5ex}}
-\newcommand{\secby}[2]{%
-  \nopagebreak\par\addvspace{-1.5ex}%
-  \vskip -\parskip\noindent{\tiny Par #1 \mailto|#2|}\par\nopagebreak%
-  \addvspace{1ex plus 0.8ex minus 0.2ex}% 
-  \vskip -\parskip\noindent\ignorespaces}
-
-% proper bookmark entries in pdftex [[1
-%
-\pdfstringdefDisableCommands{\edef\ci{\textbackslash}}%
-\pdfstringdefDisableCommands{\edef\sim{\textasciitilde}}%
-\pdfstringdefDisableCommands{\edef\circ{\textdegree}}%
-\pdfstringdefDisableCommands{\edef\ldots{... }}%
-
-% Symbol Entry for Math Symbol Tables [[1
-%
-\newcommand\X[1]{$#1$&\texttt{\string#1}\hspace*{1ex}}
-% normal text .... 
-\newcommand\SC[1]{#1&\texttt{\string#1}\hspace*{1ex}}
-% for accents in text mode
-\newcommand\A[1]{#1&\texttt{\string#1}\hspace*{1ex}}
-\newcommand\B[2]{#1#2&\texttt{\string#1{} #2}\hspace*{1ex}}
-\newcommand\W[2]{$#1{#2}$&
-  \texttt{\string#1}\texttt{\string{\string#2\string}}\hspace*{1ex}}
-\newcommand\Y[1]{$\big#1$ &\texttt{\string#1}}  %
-% Mathsymbol Table
-\newsavebox{\symbbox}
-\newenvironment{symbols}[1]{%
-  \par\vspace*{2ex}
-  \renewcommand{\arraystretch}{1.1}
-  \begin{lrbox}{\symbbox}%
-    \hspace*{4ex}%
-    \begin{tabular}{@{}#1@{}}
-      }{%
-    \end{tabular}%
-  \end{lrbox}
-  \makebox[\textwidth]{\usebox{\symbbox}}\par\medskip}
-
-% Print |--| to show a distance [[1
-%
-\newcommand\demowidth[1]{\rule{0.3pt}{1.3ex}\rule{#1}{0.3pt}\rule{0.3pt}{1.3ex}}
 
 % Exemple : recopié texto de lshort.sty [[1
 %
@@ -354,6 +326,50 @@
     \end{minipage}%
   \end{center}}
 
+% Intro Environment [[1
+%
+\newenvironment{intro}{\sffamily}{\vspace*{2ex minus 1.5ex}}
+\newcommand{\secby}[2]{%
+  \nopagebreak\par\addvspace{-1.5ex}%
+  \vskip -\parskip\noindent{\tiny Par #1 \mailto|#2|}\par\nopagebreak%
+  \addvspace{1ex plus 0.8ex minus 0.2ex}% 
+  \vskip -\parskip\noindent\ignorespaces}
+
+% proper bookmark entries in pdftex [[1
+%
+\pdfstringdefDisableCommands{\edef\ci{\textbackslash}}%
+\pdfstringdefDisableCommands{\edef\sim{\textasciitilde}}%
+\pdfstringdefDisableCommands{\edef\circ{\textdegree}}%
+\pdfstringdefDisableCommands{\edef\ldots{... }}%
+
+% Symbol Entry for Math Symbol Tables [[1
+%
+\newcommand\X[1]{$#1$&\texttt{\string#1}\hspace*{1ex}}
+% normal text .... 
+\newcommand\SC[1]{#1&\texttt{\string#1}\hspace*{1ex}}
+% for accents in text mode
+\newcommand\A[1]{#1&\texttt{\string#1}\hspace*{1ex}}
+\newcommand\B[2]{#1#2&\texttt{\string#1{} #2}\hspace*{1ex}}
+\newcommand\W[2]{$#1{#2}$&
+  \texttt{\string#1}\texttt{\string{\string#2\string}}\hspace*{1ex}}
+\newcommand\Y[1]{$\big#1$ &\texttt{\string#1}}  %
+% Mathsymbol Table
+\newsavebox{\symbbox}
+\newenvironment{symbols}[1]{%
+  \par\vspace*{2ex}
+  \renewcommand{\arraystretch}{1.1}
+  \begin{lrbox}{\symbbox}%
+    \hspace*{4ex}%
+    \begin{tabular}{@{}#1@{}}
+      }{%
+    \end{tabular}%
+  \end{lrbox}
+  \makebox[\textwidth]{\usebox{\symbbox}}\par\medskip}
+
+% Print |--| to show a distance [[1
+%
+\newcommand\demowidth[1]{\rule{0.3pt}{1.3ex}\rule{#1}{0.3pt}\rule{0.3pt}{1.3ex}}
+
 % I want no headers on pages created by clearpage [[1
 %
 \renewcommand\cleardoublepage{%
@@ -395,7 +411,6 @@
   \begin{hyphenrules}{nohyphenation}#1\end{hyphenrules}}
 \newcommand\nolang[1]{%
   \emph{\nohyph{#1}}}
-\DefineShortVerb\©
 
 % pris de lshort-base.tex [[1
 %

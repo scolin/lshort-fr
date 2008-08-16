@@ -379,41 +379,41 @@ minimum. Un fichier source plus complet est présenté sur la
 figure~\ref{document}. 
 
 \begin{figure}[hbp]
-\begin{lined}{6cm}
-\begin{verbatim}
-\documentclass{article}
-\begin{document}
-Small is beautiful.
-\end{document}
-\end{verbatim}
-\end{lined}
-\caption{Un fichier \LaTeX minimal} \label{mini}
+  \begin{lined}{6cm}
+    \begin{Verbatim}[gobble=6]
+      \documentclass{article}
+      \begin{document}
+      Small is beautiful.
+      \end{document}
+    \end{Verbatim}
+  \end{lined}
+  \caption{Un fichier \LaTeX minimal} \label{mini}
 \end{figure}
- 
+
 \begin{figure}[htbp]
-\begin{lined}{10cm}
-\begin{verbatim}
-\documentclass[a4paper,11pt]{article}
-\usepackage[T1]{fontenc}
-\usepackage[english,francais]{babel}
-\author{P.~Tar}
-\title{Le Minimalisme}
-\begin{document}
-\maketitle
-\tableofcontents
-\section{D\'ebut}
-\`A \'ecrire\dots
-\section{Suite et fin}
-On verra plus tard.
-\end{document}
-\end{verbatim}
-\end{lined}
-\caption[Exemple d'un article de revue plus réaliste]{Exemple d'un article de
+  \begin{lined}{10cm}
+    \begin{Verbatim}[gobble=6]
+      \documentclass[a4paper,11pt]{article}
+      \usepackage[T1]{fontenc}
+      \usepackage[english,francais]{babel}
+      \author{P.~Tar}
+      \title{Le Minimalisme}
+      \begin{document}
+      \maketitle
+      \tableofcontents
+      \section{D\'ebut}
+      \`A \'ecrire\dots
+      \section{Suite et fin}
+      On verra plus tard.
+      \end{document}
+    \end{Verbatim}
+  \end{lined}
+  \caption[Exemple d'un article de revue plus réaliste]{Exemple d'un article de
   revue plus réaliste. Toutes les commandes de cet exemple seront expliquées
   plus tard dans cette introduction.}
-\label{document}
+  \label{document}
 \end{figure}
- 
+
 \section{Utilisation typique en ligne de commande}
 
 Vous brûlez probablement d'envie d'essayer l'exemple présenté
@@ -440,18 +440,18 @@ ordinateur\footnote{C'est le cas sur la plupart des systèmes Unix bien
     avec le suffixe \texttt{.tex}. 
   \item Exécutez \LaTeX sur votre fichier. Si tout se passe bien, vous
     obtiendrez un nouveau fichier avec le suffixe \texttt{.dvi}. 
-\begin{verbatim}
-latex document.tex
-\end{verbatim}
+    \begin{Verbatim}[gobble=6]
+      latex document.tex
+    \end{Verbatim}
   \item À présent, vous pouvez visualiser le résultat, le fichier DVI.
-\begin{verbatim}
-xdvi document.dvi
-\end{verbatim}
+    \begin{Verbatim}[gobble=6]
+      xdvi document.dvi
+    \end{Verbatim}
     ou encore transformer le résultat en PostScript
-\begin{verbatim}
-dvips -Pcmz -o document.ps document.dvi
-\end{verbatim}
-    \texttt{\wi{xdvi}} et \texttt{\wi{dvips}} sont des logiciels %libres qui
+    \begin{Verbatim}[gobble=6]
+      dvips -Pcmz -o document.ps document.dvi
+    \end{Verbatim}
+    \texttt{\wi{xdvi}} et \texttt{\wi{dvips}} sont des logiciels qui
     manipulent les fichiers DVI. Ils sont disponibles sur la plupart des
     systèmes Unix. Sur les autres systèmes, d'autres outils de manipulation
     des fichiers DVI sont disponibles. 
@@ -464,8 +464,8 @@ dvips -Pcmz -o document.ps document.dvi
 La première information dont \LaTeX a besoin en traitant un fichier source est
 le type de document que son auteur est en train de créer. Ce type est spécifié
 par la commande \ci{documentclass}.
-\begin{lscommand}
-\ci{documentclass}\verb|[|\emph{options}\verb|]{|\emph{classe}\verb|}|
+\begin{lscommand}{2}
+  ¡\documentclass¡[«options»]{«classe»}
 \end{lscommand}
 Ici \emph{classe} indique le type de document à créer. Le
 tableau~\ref{documentclasses} donne la liste des classes de documents
@@ -603,8 +603,8 @@ où les commandes de base de \LaTeX ne permettent pas d'exprimer ce que vous
 voudriez. Si vous voulez inclure des graphiques, du texte en couleur ou du
 code d'un programme dans votre document, il faut augmenter les possibilités de
 \LaTeX grâce à des extensions.  Une extension est chargée par la commande
-\begin{lscommand}
-\ci{usepackage}\verb|[|\emph{options}\verb|]{|\emph{extension}\verb|}|
+\begin{lscommand}{2}
+  ¡\usepackage¡[«options»]{«extension»}
 \end{lscommand}
 \emph{extension} est le nom de l'extension et \emph{options} une liste de
 mots-clés qui déclenchent certaines fonctions de l'extension. Certaines
@@ -624,8 +624,8 @@ commande :
 \index{style de page!headings@\texttt{headings}}
 \index{headings@\texttt{headings}}
 \index{style de page!empty@\texttt{empty}}\index{empty@\texttt{empty}}
-\begin{lscommand}
-  \ci{pagestyle}\verb|{|\emph{style}\verb|}|
+\begin{lscommand}{2}
+  ¡\pagestyle¡{«style»}
 \end{lscommand}
 Le tableau~\ref{pagestyle} donne la liste des styles prédéfinis.
 
@@ -645,8 +645,8 @@ Le tableau~\ref{pagestyle} donne la liste des styles prédéfinis.
 \end{table}
 
 On peut changer le style de la page en cours grâce à la commande
-\begin{lscommand}
-  \ci{thispagestyle}\verb|{|\emph{style}\verb|}|
+\begin{lscommand}{2}
+  ¡\thispagestyle¡{«style»}
 \end{lscommand}
 
 Au chapitre~\ref{chap:spec}, page~\pageref{sec:fancyhdr}, vous apprendrez
@@ -708,8 +708,8 @@ Lorsque l'on travaille sur de gros documents, il peut être pratique de couper
 le fichier source en plusieurs morceaux. \LaTeX a deux commandes qui vous
 permettent de gérer plusieurs fichiers sources.
 
-\begin{lscommand}
-  \ci{include}\verb|{|\emph{fichier}\verb|}|
+\begin{lscommand}{2}
+  ¡\include¡{«fichier»}
 \end{lscommand}
 Vous pouvez utiliser cette commande dans le corps de votre document pour
 insérer le contenu d'un autre fichier source. \LaTeX ajoute automatiquement le
@@ -719,9 +719,8 @@ pour traiter le contenu de \emph{fichier}\texttt{.tex}.
 La seconde commande peut être utilisée dans le préambule. Elle permet de dire
 à \LaTeX de n'inclure que certains des fichiers désignés par les commandes
 \verb|\include|.
-\begin{lscommand}
-  \ci{includeonly}\verb|{|\emph{fichier}\verb|,|\emph{fichier}%
-    \verb|,|\ldots\verb|}|
+\begin{lscommand}{2}
+  ¡\includeonly¡{«fichier», «fichier», «\dots»}
 \end{lscommand}
 Après avoir rencontré cette commande dans le préambule d'un document, seules
 les commandes \ci{include} dont les fichiers sont cités en paramètre de la
@@ -733,8 +732,8 @@ texte inclus. Ceci est utile lorsqu'on utilise \ci{includeonly}, parce
 qu'ainsi les sauts de pages ne bougeront pas, même si certains morceaux ne
 sont pas inclus. Parfois ce comportement n'est pas souhaitable. Dans ce cas,
 vous pouvez utiliser la commande :
-\begin{lscommand}
-  \ci{input}\verb|{|\emph{fichier.tex}\verb|}|
+\begin{lscommand}{2}
+  ¡\input¡{«fichier»}
 \end{lscommand}
 \noindent qui insère simplement le fichier indiqué sans aucun traitement
 sophistiqué. 
@@ -744,16 +743,10 @@ sophistiqué.
 Il est possible de demander à \LaTeX de simplement vérifier la syntaxe d'un
 document, sans produire de fichier~\texttt{.dvi} pour gagner du temps, en
 utilisant l'extension~\texttt{syntonly} :
-\begin{verbatim}
-\usepackage{syntonly}
-\syntaxonly
-\end{verbatim}
+\begin{Verbatim}[gobble=2]
+  \usepackage{syntonly}
+  \syntaxonly
+\end{Verbatim}
 La vérification terminée, il suffit de mettre ces deux lignes (ou simplement
 la seconde) en commentaire en plaçant un~\texttt{\%} en tête de ligne.
 
-\endinput
-
-%%% Local Variables: 
-%%% mode: latex
-%%% TeX-master: "lshort-fr"
-%%% End: 
