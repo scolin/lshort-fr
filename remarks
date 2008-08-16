@@ -1,0 +1,46 @@
+# Style file (implementation questions)
+
+Why use url.sty and not just hyperref? Is it a matter of taste or does it really
+add features?
+
+Looks like the \@tildeORI things is now useless, is it?
+
+Why save \pageref at the beginning?
+
+mylayout.sty ? fancy.sty ?
+
+# Style file (features)
+
+Using mirror.ctan.org to make clickable CTAN: urls (sse \CTAN)
+
+Using ctan.org/pkg/PKGNAME as link for package names (see \package and \pai).
+
+# Style file (implementation)
+
+Use fancyvrb + active chars for lscommand and code environments.
+
+New command \changelabels for descriptions.
+
+New \tti and \tth commands for things in tt in index.
+
+# things.tex
+
+202: add 'this file is refered to as the "source file", or simply "source"'?
+
+250: why not advertise \textbackslash by textcomp? Shifting to math mode for
+anything else but math is a bad habit (\everymath, \mathsurround, etc).
+
+450 & Co: why not simply consider pdflatex as the normal compilation mode.
+Everyone knows how to view a pdf... And anyway nearly everyone will consider
+only the pdf as the final result (even pstricks addicts generally agree that
+dvi/ps are just intermediate steps).
+
+454: AFAIK, yap only works with MikTeX but you can also have TeX Live on windows
+(which unfortunately doesn't come with a dvi viewer).
+
+464: Actually dvipdf comes with GhostScript. Only (x)dvipdfm(x) come with the
+TeX distro. Anyway, this is another point that make me think pdflatex should be
+introduced instead: all those new commands and file formats look so scary to a
+newcomer.
+
+511: Why not advertise beamer?
