@@ -8,11 +8,10 @@
 \chapter{Ce qu'il faut savoir}
 
 \begin{intro}
-Dans la première partie de ce chapitre vous trouverez une rapide
-présentation de la philosophie et de l'histoire de \LaTeXe. La
-deuxième partie met l'accent sur les structures fondamentales d'un
-document \LaTeX. Après avoir lu ce chapitre, vous devriez avoir une
-idée d'ensemble du fonctionnement de \LaTeX qui vous aidera à mieux
+La première partie de ce chapitre présente rapidement la philosophie et
+l'histoire de \LaTeXe. La deuxième partie met l'accent sur les structures
+fondamentales d'un document \LaTeX. Après avoir lu ce chapitre, vous devriez
+avoir une idée d'ensemble du fonctionnement de \LaTeX qui vous aidera à mieux
 comprendre les chapitres suivants.
 \end{intro}
 
@@ -50,40 +49,18 @@ première syllabe du mot grec texnologia (technologie). Dans un environnement
 
 \subsection{\LaTeX}
  
-\LaTeX est un ensemble de macros qui permettent à un auteur de
-mettre en page son travail avec la meilleure qualité typographique en
-utilisant un format professionnel pré-défini. \LaTeX a été écrit par
-\index{Lamport, Leslie}Leslie Lamport~\cite{manual}. Il utilise \TeX
-comme moteur typographique. De nos jours, \LaTeX est maintenu par
-\index{Mittelbach, Frank}Frank Mittelbach.
-
-% En 1994, \LaTeX a été mis à jour par
-% l'équipe \index{LaTeX3@\LaTeX 3}\LaTeX 3, menée par \index{Mittelbach,
-% Frank}Frank Mittelbach, afin de réaliser certaines améliorations
-% demandées depuis longtemps et de fusionner toutes les variantes qui
-% s'étaient développées depuis la sortie de \index{LaTeX 2.09@\LaTeX
-% 2.09}\LaTeX 2.09 quelques années auparavent. Pour distinguer cette
-% nouvelle version des précédentes, elle est appelée \index{LaTeX
-% 2e@\LaTeXe}\LaTeXe. Ce document est relatif à \LaTeXe.
+\LaTeX est un ensemble de macros qui permettent à un auteur de mettre en page
+son travail avec la meilleure qualité typographique en utilisant un format
+professionnel pré-défini. \LaTeX a été écrit par \index{Lamport, Leslie}Leslie
+Lamport~\cite{manual}. Il utilise \TeX comme moteur typographique. De nos
+jours, \LaTeX est maintenu par \index{Mittelbach, Frank}Frank
+Mittelbach\footnote{et l'équipe du projet \LaTeX{}\thinspace3.\NdT}.
 
 \LaTeX se prononce \textbf{[latex]}. Si vous voulez faire référence à \LaTeX
 dans un environnement \texttt{ASCII}, utilisez \texttt{LaTeX}. \LaTeXe se
 prononce \textbf{[latex d\o{}z\o{}]} et s'écrit \texttt{LaTeX2e}.
 
 En anglais, cela donne \textbf{[la\i{}tex]} et \textbf{[la\i{}tex tu: i:]}. 
-
-% La figure~\ref{components}, page~\pageref{components} montre
-% l'interaction entre les différents éléments d'un système \TeX. Cette
-% figure est extraite de \texttt{wots.tex} de Kees van der Laan.
-% 
-% \begin{figure}[btp]
-% \begin{lined}{0.8\textwidth}
-% \begin{center}
-% \input{kees.fig}
-% \end{center}
-% \end{lined}
-% \caption{Éléments d'un système \TeX} \label{components}
-% \end{figure}
 
 \section{Les bases}
  
@@ -104,8 +81,8 @@ professionnelle et du contenu du manuscrit.
 Dans un environnement \LaTeX, celui-ci joue le rôle de l'éditeur et utilise
 \TeX comme typographe pour la composition. Mais \LaTeX n'est qu'un programme
 et a donc besoin de plus de directives. L'auteur doit en particulier lui
-fournir la structure logique de son document. Cette information est insérée
-dans le texte sous la forme de « commandes \LaTeX ».
+fournir de l'information sur la structure logique de son document. Cette
+information est insérée dans le texte sous la forme de « commandes \LaTeX ».
 
 Cette approche est totalement différente de l'approche
 \wi{WYSIWYG}\footnote{What you see is what you get -- Ce que vous voyez est ce
@@ -125,15 +102,16 @@ avant d'envoyer la version définitive à l'impression.
 La typographie est un métier (un art ?). Les auteurs inexpérimentés font
 souvent de graves erreurs en considérant que la mise en page est avant tout
 une question d'esthétique : « si un document est beau, il est bien conçu ».
-Mais un document doit être lu et non accroché dans une galerie d'art. La
-lisibilité et la compréhensibilité sont bien
-plus importantes que l'apparence. Par exemple :
+Mais un comme une document doit être lu et non accroché dans une galerie
+d'art, la lisibilité et la compréhensibilité sont bien plus importantes que
+l'apparence. Par exemple :
 \begin{itemize}
   \item la taille de la police et la numérotation des en-têtes doivent être
     choisies afin de mettre en évidence la structure des chapitres et des
     sections ;
   \item les lignes ne doivent pas être trop longues pour ne pas fatiguer la
-    vue du lecteur, tout en remplissant la page de manière harmonieuse. 
+    vue du lecteur, mais cepandant assez pour remplir la page de manière
+    harmonieuse. 
 \end{itemize}
 
 Avec un logiciel \wi{WYSIWYG}, l'auteur produit généralement des documents
@@ -162,7 +140,7 @@ Voici donc quelques arguments. Les principaux avantages de \LaTeX par rapport
     de l'atelier d'un imprimeur ;
   \item la composition des formules mathématiques se fait de manière
     pratique ;
-  \item il suffit de connaître quelques commandes de base pour décrire la
+  \item il suffit de connaître quelques les quelques commandes qui décrivent la
     structure logique du document. Il n'est pas nécessaire de se préoccuper
     de la mise en page ;
   \item même les structures complexes telles que des notes de bas de page, des
@@ -170,7 +148,7 @@ Voici donc quelques arguments. Les principaux avantages de \LaTeX par rapport
     faciles à produire ;
   \item pour la plupart des tâches de la typographie qui ne sont pas
     directement gérées par \LaTeX, il existe des extensions gratuites : par
-    exemple pour inclure des figures \textsc{PostScript} ou pour formater une
+    exemple pour inclure des figures \PSi ou pour formater une
     bibliographie selon un standard précis. La majorité de ces extensions sont
     décrites dans \companion ;
   \item \LaTeX encourage les auteurs à écrire des documents bien structurés,
@@ -207,13 +185,13 @@ texte. On appelle ce fichier le \emph{\wi{fichier source}}\footnote{Couramment
 
 \subsection{Espaces}
 
-Les caractères d'espacement, tels que les blancs ou les tabulations
-sont traités de manière unique comme « \wi{espace} » par
-\LaTeX. Plusieurs \wi{blancs} \emph{consécutifs} sont considérés
-comme \emph{une seule} espace\footnote{En langage typographique,
-    \emph{espace} est un mot féminin. \NdT}. Les espaces en début
-de ligne sont en général ignorées et un seul retour à la ligne est
-traité comme une espace. \index{espace!en début de ligne}
+Les caractères d'espacement, tels que les blancs ou les tabulations, sont
+traités de manière unique comme « \wi{espace} » par \LaTeX. Plusieurs
+\wi{blancs} \emph{consécutifs} sont considérés comme \emph{une seule}
+espace\footnote{En langage typographique, \emph{espace} est un mot féminin.
+  \NdT}. Les espaces en début de ligne sont en général ignorées et un seul
+retour à la ligne est traité comme une espace. \index{espace!en début de
+  ligne}
 
 Une ligne vide entre deux lignes de texte marque la fin d'un paragraphe.
 \emph{Plusieurs} lignes vides sont considérées comme \emph{une seule} ligne
@@ -271,7 +249,7 @@ minuscules) et utilisent l'une des deux formes suivantes :
     composé uniquement de lettres. Un nom de commande est terminé par une
     espace, un chiffre ou tout autre caractère qui n'est pas une lettre ;
   \item soit elles sont composées d'une contre-oblique et d'exactement un
-    caractère spécial (non-lettre).
+    caractère autre qu'une lettre.
 \end{itemize}
 
 \label{whitespace}
@@ -288,12 +266,11 @@ gens qui utilisent \TeX en
 Nous sommes le \today.
 \end{example}
 
-Certaines commandes sont suivies d'un \wi{paramètre} qui est mis entre
-\wi{accolades} \verb|{ }|. Certaines commandes supportent des
-\wi{paramètres optionnels} qui suivent le nom de la commande entre
-\wi{crochets}~\verb|[ ]|. L'exemple suivant montre quelques commandes
-\LaTeX. Ne vous tracassez pas pour les comprendre, elles seront
-expliquées plus loin.
+Certaines commandes prennent un \wi{paramètre}, qui est mis entre
+\wi{accolades}~©{ }© après le nom de la commande. Certaines commandes
+supportent des \wi{paramètres optionnels} qui suivent le nom de la commande
+entre \wi{crochets}~©[ ]©. L'exemple suivant montre quelques commandes \LaTeX.
+Ne vous tracassez pas pour les comprendre, elles seront expliquées plus loin.
 
 \begin{example}
 \textsl{Penchez}-vous !
@@ -309,9 +286,9 @@ Merci !
 
 Quand \LaTeX rencontre un caractère \verb|%| dans le fichier source, il ignore
 le reste de la ligne en cours, le changement de ligne, et tous les espaces au
-début de la ligne\footnote{Ceci est habituel et n'est pas propre à
-  \texttt{\%}. \NdT} suivante. C'est utile pour ajouter des notes qui
-  n'apparaîtront  pas dans la version imprimée.
+début de la ligne\footnote{Ceci est habituel et n'est pas propre à \verb|%|.
+  \NdT} suivante. C'est utile pour ajouter des notes qui n'apparaîtront  pas
+dans la version imprimée.
 
 \begin{example}
 % Démonstration :
@@ -324,11 +301,10 @@ Le caractère \verb|%| peut également être utilisé pour couper des lignes trop
 longues dans le fichier d'entrée, lorsqu'aucun espace ou coupure n'est
 autorisé. 
 
-Pour créer des commentaires plus longs, on peut utiliser
-l'environnement \ei{comment} fourni par l'extension \pai{verbatim}. 
-Ceci signifie que vous devez ajouter la ligne ©\usepackage{verbatim}© au
-préambule de votre document, comme nous le verrons plus loin, pour utiliser
-cette commande.
+Pour créer des commentaires plus longs, on peut utiliser l'environnement
+\ei{comment} fourni par l'extension \pai{verbatim}. Ceci signifie, comme nous
+le verrons plus loin, que vous devez ajouter la ligne ©\usepackage{verbatim}©
+au préambule de votre document pour utiliser cette commande.
 
 \begin{example}
 Voici un autre exemple
@@ -338,8 +314,8 @@ Limité mais démonstratif
 de commentaires. 
 \end{example}
 
-Cet environnement n'est pas utilisable à l'intérieur d'autres
-environnements complexes, tels que le mode mathématique par exemple. 
+Cet environnement n'est pas utilisable à l'intérieur d'autres environnements
+complexes, tels que certains environnement mathématiques par exemple.
 
 \section{Structure du fichier source}
 
@@ -359,7 +335,7 @@ commande :
 \end{code}
 
 Quand tout le travail de préparation est fait\footnote{La partie entre
-  ©documentclass© et ©\begin{document}© est appelée le
+  ©\documentclass© et ©\begin{document}© est appelée le
   \emph{\wi{préambule}}.}, vous pouvez commencer le corps du texte avec la
 commande :
 \begin{code}
@@ -427,10 +403,6 @@ votre fichier source sur un système orienté texte. Attention : ceci suppose
 qu'une installation \LaTeX fonctionnelle est déjà présente sur votre
 ordinateur\footnote{C'est le cas sur la plupart des systèmes Unix bien
   élevés\dots et les Vrais Hommes utilisent Unix, donc\dots \texttt{;-)}}.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                     Frontière de la traduction révisée                     %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{enumerate}
   \item Créez/éditez votre fichier source \LaTeX. Il s'agit d'un fichier texte
