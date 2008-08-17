@@ -550,36 +550,41 @@ papier sera américain : 8,5~$\times$~11 pouces, soit 216~$\times$~280 mm.}.
 
 \begin{table}[!tbp]
   \caption{Quelques extensions fournies avec \LaTeX} \label{extensions}
-  \begin{lined}{11cm}
+  \begin{lined}{\textwidth}
     \begin{description} \changelabels{\normalfont}
-      \item[\pai{doc}] permet de documenter des programmes pour
-        \LaTeX.\\ Décrite dans \texttt{doc.dtx}\footnote{Ce fichier devrait
-          être intallé sur votre système et vous devriez être capable de le
-          formater avec la commande \texttt{latex doc.dtx}. Il en est de même
-          pour les autres fichiers cités dans ce tableau.} et dans \companion.
-      \item[\pai{exscale}] fournit des versions de taille
-        paramétrable des polices mathématiques étendues.\\ Décrite dans
-        \texttt{ltexscale.dtx}.
-      \item[\pai{fontenc}] spécifie le \wi{codage} des polices de
-        caractère que \LaTeX va utiliser.\\ Décrite dans
-        \texttt{ltoutenc.dtx}.
-      \item[\pai{ifthen}] fournit des commandes de la forme\\
-        `if\dots then do\dots otherwise do\dots.'\\ Décrite dans
-        \texttt{ifthen.dtx}, dans \companion et dans \desgraupes. 
-      \item[\pai{latexsym}] permet l'utilisation de la police des
-        symboles \LaTeX.\\ Décrite dans \texttt{latexsym.dtx}, dans \companion
-        et dans \desgraupes. 
-      \item[\pai{makeidx}] fournit des commandes pour réaliser un
-        index.\\ Décrite dans ce document, section~\ref{sec:indexing}, dans
-        \companion et dans \desgraupes.
-      \item[\pai{syntonly}] analyse un document sans le formater.\\
-        Décrite dans \texttt{syntonly.dtx} et dans \companion. Utile pour une
-        vérification rapide de la syntaxe.
-      \item[\pai{inputenc}] permet de spécifier le codage des
-        caractères utilisé dans le fichier source, parmi ASCII, ISO Latin-1,
-        ISO Latin-2, 437/850 IBM code pages,  Apple Macintosh, Next,
-        ANSI-Windows ou un codage défini par l'utilisateur.\\ Décrite dans
-        \texttt{inputenc.dtx}. 
+      \item[\pai{doc}] 
+	permet de documenter des programmes pour \LaTeX.\\ Décrite dans
+	\texttt{doc.pdf}\footnote{Ce fichier devrait être installé sur votre
+	  système et vous devriez être capable de le trouver en utilisant le
+	  commande \texttt{texdoc} ou \texttt{mthelp} selon votre
+	  distribution.  Il en est de même pour les autres fichiers cités dans
+	  ce tableau.} et dans \companion.
+      \item[\pai{exscale}] 
+	fournit des versions de taille paramétrable des polices mathématiques
+	étendues.\\ Décrite dans \texttt{ltexscale.pdf}.
+      \item[\pai{fontenc}] 
+	spécifie le \wi{codage} des polices de caractère que \LaTeX va
+	utiliser.\\ Décrite dans \texttt{ltoutenc.pdf}.
+      \item[\pai{ifthen}] 
+	fournit des commandes de la forme\\ `if\dots then do\dots otherwise
+	do\dots.'\\ Décrite dans \texttt{ifthen.pdf}, dans \companion et dans
+	\desgraupes. 
+      \item[\pai{latexsym}] 
+	permet l'utilisation de la police des symboles \LaTeX.\\ Décrite dans
+	\texttt{latexsym.pdf}, dans \companion et dans \desgraupes. 
+      \item[\pai{makeidx}] 
+	fournit des commandes pour réaliser un index.\\ Décrite dans ce
+	document, section~\ref{sec:indexing}, dans \companion et dans
+	\desgraupes.
+      \item[\pai{syntonly}] 
+	analyse un document sans le formater.  Utile pour une vérification
+	rapide de la syntaxe.  \\ Décrite dans \texttt{syntonly.pdf} et dans
+	\companion. 
+      \item[\pai{inputenc}] 
+	permet de spécifier le codage des caractères utilisé dans le fichier
+	source, parmi ASCII, ISO Latin-1, ISO Latin-2, 437/850 IBM code pages,
+	Apple Macintosh, Next, ANSI-Windows ou un codage défini par
+	l'utilisateur.\\ Décrite dans \texttt{inputenc.pdf}. 
     \end{description}
   \end{lined}
 \end{table}
@@ -593,20 +598,26 @@ code d'un programme dans votre document, il faut augmenter les possibilités de
 \begin{lscommand}{2}
   ¡\usepackage¡[«options»]{«extension»}
 \end{lscommand}
-\emph{extension} est le nom de l'extension et \emph{options} une liste de
-mots-clés qui déclenchent certaines fonctions de l'extension. Certaines
-extensions font partie de la distribution standard de \LaTeXe (reportez-vous
-au tableau~\ref{extensions}). D'autres sont distribuées à part. Le \guide peut
-vous fournir plus d'informations sur les extensions installées sur votre site.
-\companion est la principale source d'information au sujet de \LaTeXe. Ce
-livre contient la description de centaines d'extensions ainsi que les
-informations nécessaires pour écrire vos propres extensions à \LaTeXe.
+\noindent où \emph{extension} est le nom de l'extension et \emph{options} une
+liste de mots-clés qui déclenchent certaines fonctions de l'extension.
+Certaines extensions font partie de la distribution standard de \LaTeXe
+(reportez-vous au tableau~\ref{extensions}). D'autres sont distribuées à part.
+Le \guide peut vous fournir plus d'informations sur les extensions installées
+sur votre site.  \companion est la principale source d'information au sujet de
+\LaTeXe. Ce livre contient la description de centaines d'extensions, ainsi que
+les informations nécessaires pour écrire vos propres extensions à \LaTeXe.
+
+Les distributions \TeX modernes comportent un grand nombre d'extensions. Si
+votre distribution est teTeX\footnote{Plus maintenue ; \texlive est son
+  successeur naturel.}, \texlive ou Mac\TeX, utilisez la commande
+\texttt{texdoc} pour accéder à leur documentation ; sous Mik\TeX, utilisez la
+commande \texttt{mthelp}.
 
 \subsection{Styles de page}
 
-\LaTeX propose trois combinaisons d'\wi{en-tête}s et de \wi{pieds de page},
-appelées styles de page et définies par le paramètre \emph{style} de la
-commande :
+\LaTeX propose trois ensembles pré-définis  d'\wi{en-tête}s et de \wi{pieds de
+  page}, appelées styles de page et définies par le paramètre \emph{style} de
+la commande :
 \index{style de page!plain@\texttt{plain}}\tth{plain}
 \index{style de page!headings@\texttt{headings}}
 \tth{headings}
@@ -618,7 +629,7 @@ Le tableau~\ref{pagestyle} donne la liste des styles prédéfinis.
 
 \begin{table}[!hbp]
   \caption{Les styles de page de \LaTeX} \label{pagestyle}
-  \begin{lined}{12cm}
+  \begin{lined}{\textwidth}
     \begin{description}
       \item[\normalfont\texttt{plain}] imprime le numéro de page au milieu du
         pied de page. C'est le style par défaut.
@@ -641,67 +652,75 @@ comment créer vos propres en-têtes et pieds de pages.
 
 \section{Les fichiers manipulés}
 
-L'utilisateur de \LaTeX est amené à cotoyer un grand nombre de fichiers aux
-suffixes divers, chaque suffixe renseigne sur le rôle du fichier, il est donc
-utile d'en connaître la signification, voici les suffixes les plus courants :
+En travaillant avec \LaTeX, vous rencontrerez un grand nombre de fichiers de
+\wi{suffixes} \index{extension de fichier} variés et probablement mystérieux.
+La liste qui suit présente les \wi{types de fichiers} que vous êtes
+susceptibles de croiser avec \LaTeX. Cette liste ne prétend pas être
+exhaustive, mais si vous trouvez qu'un suffixe courant manque, merci de nous
+le signaler.
+
 \begin{description}
-  \item[\wi{.tex}] fichier source \TeX ou \LaTeX ;
-  \item[\wi{.sty}] fichier contenant des commandes, que l'on charge dans le
-    préambule d'un document grâce à une commande \verb+\usepackage+ ;
-  \item[\wi{.dtx}] fichier contenant du code \LaTeX (commandes) documenté, le
+  \item [\eei{tex}] fichier source \TeX ou \LaTeX, peut être compilé avec les
+    commandes \texttt{latex} ou \texttt{pdflatex} ;
+  \item [\eei{sty}] fichier contenant des commandes, que l'on charge dans le
+    préambule d'un document grâce à une commande \ci{usepackage} ;
+  \item [\eei{dtx}] fichier contenant du code \LaTeX (commandes) documenté, le
     lancement de \LaTeX sur un fichier \texttt{.dtx} en extrait la
     documentation.
-  \item[\wi{.ins}] fichier permettant d'installer le contenu du
+  \item [\eei{ins}] fichier permettant d'installer le contenu du
     fichier~\texttt{.dtx} de même nom. Une extension \LaTeX téléchargée de
     l'Internet est composée d'un fichier \texttt{.dtx} et d'un \texttt{.ins}.
     Exécuter \LaTeX sur le fichier \texttt{.ins} pour extraire les fichiers à
     installer du \texttt{.dtx}.
-  \item[\wi{.cls}] désigne un fichier de \emph{classe} contenant la
-    description d'un type de document, chargé par la commande
-    \ci{documentclass};
-  \item[\wi{.fd}] fichier contenant des définitions pour les polices de
+  \item [\eei{cls}] désigne un fichier de \emph{classe}, qui définit
+    l'apparence de document. On le charge avec \ci{documentclass} ;
+  \item [\eei{fd}] fichier contenant des définitions pour les polices de
     caractères ; 
 \end{description}
 
 Les fichiers suivants sont produits par \LaTeX à partir du fichier source (de
 suffixe~\texttt{.tex}) :
 \begin{description}
-  \item[\wi{.dvi}] signifie \emph{DeVice Independent}, c'est le fichier que
-    l'on visualise à l'écran et qui servira à l'impression (par \texttt{dvips}
-    par exemple) ;
-  \item[\wi{.log}] fichier contenant le compte-rendu détaillé de la
-    compilation du fichier source (avec les messages d'erreur éventuels), 
-  \item[\wi{.toc}] contient le matériel nécessaire à la production de la table
-    des matières, si celle-ci a été demandée ;
-  \item[\wi{.lof}] contient la liste numérotée des figures, si elle a été
+  \item [\eei{pdf}] votre document compilé, résultat principal d'une
+    compilation par la commande \texttt{pdflatex} ;
+  \item [\eei{dvi}] signifie \emph{DeVice Independent}, c'est le résultat
+    principal d'une compilation par la commande \texttt{latex}. Il peut être
+    converti en \textsc{PostScript} ou en pdf, ou visualisé directement avec
+    un lecteur approprié.
+  \item [\eei{log}] contient le compte-rendu détaillé de la dernière
+    compilation (avec les messages d'erreur éventuels) ;
+  \item [\eei{toc}] contient le matériel nécessaire à la production de la table
+    des matières, qui sera éventuellement utilisé à la prochaine compilation ;
+  \item [\eei{lof}] contient la liste numérotée des figures, si elle a été
     demandée ;
-  \item[\wi{.lot}] contient la liste numérotée des tableaux, si elle a été
+  \item [\eei{lot}] contient la liste numérotée des tableaux, si elle a été
     demandée ;
-  \item[\wi{.aux}] contient diverses informations utiles à \LaTeX, en
-    particulier ce qui est nécessaire au fonctionnement des références
-    croisées. Le fichier \texttt{.aux} produit lors d'une exécution de \LaTeX
-    est lu lors de l'exécution suivante ;
-  \item[\wi{.idx}] fichier produit seulement si un index est demandé, il doit
+  \item [\eei{aux}] un autre fichier véhiculant les informations entre une
+    compilation et la suivante. Il contient en particulier les informations
+    sur les références croisées. 
+  \item [\eei{idx}] fichier produit seulement si un index est demandé, il doit
     être traité par \texttt{makeindex} (voir section~\ref{sec:indexing}
-    page~\pageref{sec:indexing}) ; \item[\wi{.ind}] fichier produit par
-    \texttt{makeindex} à partir du~\texttt{.idx}, il contient l'index prêt à
-    être inclus dans le document ; \item[\wi{.ilg}] fichier contenant le
-    compte-rendu du travail de \texttt{makeindex}.
+    page~\pageref{sec:indexing}) ;
+  \item[\eei{ind}] fichier produit par \texttt{makeindex} à partir
+    du~\texttt{.idx}, il contient l'index prêt à être inclus dans le
+    document ;
+  \item[\eei{ilg}] fichier journal contenant le compte-rendu du travail de
+    \texttt{makeindex}.
 \end{description}
 
 \section{Gros documents}
 
 Lorsque l'on travaille sur de gros documents, il peut être pratique de couper
 le fichier source en plusieurs morceaux. \LaTeX a deux commandes qui vous
-permettent de gérer plusieurs fichiers sources.
+permettent de faire cela.
 
 \begin{lscommand}{2}
   ¡\include¡{«fichier»}
 \end{lscommand}
-Vous pouvez utiliser cette commande dans le corps de votre document pour
-insérer le contenu d'un autre fichier source. \LaTeX ajoute automatiquement le
-suffixe \texttt{.tex} au nom spécifié. Remarquez que \LaTeX va sauter une page
-pour traiter le contenu de \emph{fichier}\texttt{.tex}. 
+\noindent Vous pouvez utiliser cette commande dans le corps de votre document
+pour insérer le contenu d'un autre fichier source. \LaTeX ajoute
+automatiquement le suffixe \texttt{.tex} au nom spécifié. Remarquez que \LaTeX
+va sauter une page pour traiter le contenu de \emph{fichier}\texttt{.tex}. 
 
 La seconde commande peut être utilisée dans le préambule. Elle permet de dire
 à \LaTeX de n'inclure que certains des fichiers désignés par les commandes

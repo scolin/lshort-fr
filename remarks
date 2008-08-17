@@ -11,7 +11,7 @@ mylayout.sty ? fancy.sty ?
 
 # Style file (features)
 
-Using mirror.ctan.org to make clickable CTAN: urls (sse \CTAN)
+Using mirror.ctan.org to make clickable CTAN: urls (see \CTAN)
 
 Using ctan.org/pkg/PKGNAME as link for package names (see \package and \pai).
 
@@ -44,3 +44,14 @@ introduced instead: all those new commands and file formats look so scary to a
 newcomer.
 
 511: Why not advertise beamer?
+
+602: texdoc is specific to teTeX and TeXLive (hence MacTeX), not really to Unix
+(TeXLive exsists on windows). And MikTeX provides a similar thing named mthelp,
+worth mentionning.
+
+609 etc: every decent distro comes with the doc compiled, and the CTAN holds a
+pdf version of every packages's doc (or is trying to). So I would just mention
+doc.pdf etc, remember texdoc/mthelp, and say nothing about compiling dtx.
+
+721: here too, mention pdf as well as dvi. 
+
