@@ -22,3 +22,5 @@ elsewhere)
 check all %TODO marks in the files
 
 redo the section about command-line to talk of pdflatex first
+
+reread the section about special chars with T1/TS1 in mind

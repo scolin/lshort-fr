@@ -32,7 +32,7 @@
 % extensions diverses en vrac [[1
 %
 \RequirePackage{amsthm, shortvrb, lettrine, mflogo, fancyvrb, xargs, ifmtarg}
-\RequirePackage{verbatim, fancyhdr, calc, ifthen, fixltx2e, xspace}
+\RequirePackage{verbatim, fancyhdr, calc, ifthen, fixltx2e, xspace, longtable}
 \RequirePackage[french]{layout}
 \RequirePackage[all]{xy}
 \RequirePackage{makeidx} \makeindex
@@ -180,6 +180,20 @@
 \newcommand\ei[1]{%
   \index{environnements!\texttt{#1}}%
   \tti{#1}}
+%Input Encoding
+\newcommand\ieih[1]{%
+  \index{encodings!input!#1@\texttt{#1}}%
+  \index{input encodings!#1@\texttt{#1}}%
+  \index{#1@\texttt{#1}}}
+\newcommand\iei[1]{%
+  \ieih{#1}\texttt{#1}}
+%Font Encoding
+\newcommand\feih[1]{%
+  \index{encodings!font!#1@\texttt{#1}}%
+  \index{font encodings!#1@\texttt{#1}}%
+  \index{#1@\texttt{#1}}}
+\newcommand\fei[1]{%
+  \feih{#1}\texttt{#1}}
 % Postscript
 \newcommand\PSi{%
   \textsc{PostScript}\index{PostScript@\textsc{PostScript}}\xspace}

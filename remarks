@@ -23,6 +23,8 @@ New command \changelabels for descriptions.
 
 New \tti and \tth commands for things in tt in index.
 
+Imported \iei and \fei from typeset.tex
+
 # things.tex
 
 202: add 'this file is refered to as the "source file", or simply "source"'?
@@ -57,5 +59,22 @@ doc.pdf etc, remember texdoc/mthelp, and say nothing about compiling dtx.
 
 # typeset.tex
 
+181: may be worth mentionning that the words in the list should be separated by
+spaces (one could otherwise be tempted to try comas).
 
+310: one could also mention siunitx in this context
 
+330: I think the \emph around official is a typo, should be \verb
+
+326 etc: since the 2nd possibility is commented out, probably it would be better to say one more choice?
+
+397: are you sure that an \mbox is necessary? I think {} is enough.
+
+516 etc: I disagree on tying encodings to platforms. Nowadays, most text editors (at least on Unix and Mac) allow you to choose your encoding. I rephrased the whole paragraph.
+
+523: here too, mention pdf rather than dtx. Also mention utf8ienc.pdf.
+
+530 table: drop dos+os/2, and after tehtable add a remark about
+latin1-latin9-cp1252 (esp. usefull for French) and mention utf-8.
+
+542: I think ucs is obsolete. inputenc handles utf8 correctly anyway.

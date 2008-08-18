@@ -27,14 +27,14 @@ qu'il suffit d'indiquer à \LaTeX la structure logique et sémantique d'un
 texte. Il en déduit la forme typographique en fonction des « règles » définies
 dans la classe de document et les différents fichiers de style.
 
-L'élément de texte le plus important pour \LaTeX (et en typographie) est le
+L'unité de texte la plus importante pour \LaTeX (et en typographie) est le
 \wi{paragraphe}.  Le paragraphe est la forme typographique qui contient une
 pensée cohérente ou qui développe une idée. Vous allez apprendre dans les
 pages suivantes la différence entre un retour à la ligne (obtenu avec la
-commande \texttt{\bs\bs}) et un changement de paragraphe (obtenu en laissant
-une ligne vide dans le document source). Une nouvelle réflexion doit débuter
-sur un nouveau paragraphe, mais si vous poursuivez une réflexion déjà entamée,
-un simple retour à la ligne suffit.
+commande ©\\©) et un changement de paragraphe (obtenu en laissant une ligne
+vide dans le document source). Une nouvelle réflexion doit débuter sur un
+nouveau paragraphe, mais si vous poursuivez une réflexion déjà entamée, un
+simple retour à la ligne suffit.
 
 En général, on sous-estime complètement l'importance du découpage en
 paragraphes. Certains ignorent même la signification d'un changement de
@@ -139,16 +139,18 @@ de couper une ligne :
   ¡\pagebreak¡[«n»]
   ¡\nopagebreak¡[«n»]
 \end{lscommand}
-\noindent font ce que suggère leur nom anglais. Ces commandes permettent à
+\noindent suggère à \LaTeX des endroits où un changement de page serait
+souhaitable (ou indésirable). Ces commandes permettent à
 l'auteur de paramétrer leur action par l'intermédiaire du paramètre optionnel
 \emph{n}. Il peut prendre une valeur entre zéro et quatre. En donnant à
 \emph{n} une valeur inférieure à quatre, vous laissez à \LaTeX la possibilité
 de ne pas tenir compte de votre commande si cela devait rendre le résultat
 réellement laid.  Ne confondez pas ces commandes « break » avec les commandes
-« new »{}.  Même lorsque vous utilisez une commande « break », \LaTeX essaye
+« new ».  Même lorsque vous utilisez une commande « break », \LaTeX essaye
 de justifier le bord droit du texte et d'ajuster la longueur totale de la
-page, comme expliqué plus loin. Si vous voulez réellement commencer une
-« nouvelle » ligne, utilisez la commande « new »{} correspondante. 
+page, comme expliqué plus loin ; ceci peut créer des trous disgracieux dans
+votre texte. Si vous voulez réellement commencer une « nouvelle » ligne,
+utilisez la commande « new » correspondante. 
 
 \LaTeX essaye toujours de trouver les meilleurs endroits pour les retours à la
 ligne.  S'il ne trouve pas de solution pour couper les lignes de manière
@@ -234,6 +236,9 @@ contient le nom du fichier
 \`a lire.
 \end{example}
 
+La commande \ci{fbox} est semblable à \ci{mbox}, mais en plus elle dessine un
+cadre visible autour de son contenu.
+
 \section{Chaînes prêtes à l'emploi}
 
 Dans les exemples précédents, vous avez découvert certaines commandes
@@ -261,14 +266,17 @@ Pour insérer des \wi{guillemets} n'utilisez pas le caractère ©"©
 des guillemets ouvrants et fermants spécifiques. En anglais, utilisez deux~©`©
 pour les guillemets ouvrants et deux~©'© pour les guillemets fermants.  En
 français, avec l'option \pai{francais} de l'extension \pai{babel}, utilisez
-\ci{og} et \ci{fg} ou bien utilisez directement \texttt{«} et \texttt{»} si
-vous disposez d'un moyen de saisir ces caractères. 
+\ci{og} et \ci{fg} ou bien utilisez directement \texttt{\guillemotleft} et
+\texttt{\guillemotright} si vous disposez d'un moyen de saisir ces caractères
+(voir la section~\ref{ss-frenchb} pour plus de détails).
 
+\begingroup \let«\guillemotleft \let»\guillemotright
 \begin{example}
 ``Please press the `x' key.''
 
-«~Appuyez sur la touche `x'.~»
+« Appuyez sur la touche `x'. »
 \end{example}
+\endgroup
  
 \subsection{Tirets}
 
@@ -323,6 +331,53 @@ je vais bient\^ot devenir
 supra-conducteur.
 \end{example}
 
+L'extension \pai{textcomp} fournit également la commande \ci{textcelsius} pour
+le symbole degré.
+
+\subsection{Le symbole monétaire euro \texorpdfstring{(\officialeuro)}{}}
+
+Pour parler d'argent de nos jours, on a besoin du symbole de l'euro. Beaucoup
+de fontes actuelles contiennent un symbole euro. Après avoir chargé
+\pai{textcomp} dans votre préambule,
+\begin{lscommand}{2}
+  ¡\usepackage¡{textcomp}
+\end{lscommand}
+\noindent vous pouvez utiliser la commande
+\begin{lscommand}{2}
+  ¡\texteuro¡
+\end{lscommand}
+\noindent pour y accéder.
+
+Si votre fonte ne fournit pas de symbole euro ou si vous n'aimez pas son
+symbole euro, vous avez d'autres possibilités.  Par exemple, l'extension
+\pai{eurosym}, qui fournit le symbole euro officiel :
+\begin{lscommand}{2}
+  ¡\usepackage¡[official]{eurosym}
+\end{lscommand}
+Si vous préférez un symbole euro qui se marie bien avec votre fonte, essayez
+l'option \texttt{gen} au lieu d'\texttt{official}.
+
+\begin{table}[!htbp]
+  \caption{Quelques symboles euro} \label{eurosymb}
+  \begin{lined}{10cm}
+    \begin{tabular}{llccc}
+      LM+textcomp  &\verb+\texteuro+ & \huge\texteuro &\huge\sffamily\texteuro
+      &\huge\ttfamily\texteuro\\
+      eurosym      &\verb+\euro+ & \huge\officialeuro &\huge\sffamily\officialeuro
+      &\huge\ttfamily\officialeuro\\
+      $[$gen$]$eurosym &\verb+\euro+ & \huge\geneuro  &\huge\sffamily\geneuro
+      &\huge\ttfamily\geneuro\\
+      %europs       &\verb+\EUR + & \huge\EURtm        &\huge\EURhv
+      %                                                &\huge\EURcr\\
+      %eurosans     &\verb+\euro+ & \huge\EUROSANS  &\huge\sffamily\EUROSANS
+      %                                             & \huge\ttfamily\EUROSANS \\
+      %marvosym     &\verb+\EURtm+  & \huge\mvchr101  &\huge\mvchr101
+      %                                               &\huge\mvchr101
+    \end{tabular}
+    \medskip
+  \end{lined}
+\end{table}
+
 \subsection{Points de suspension (\dots)}
 
 Sur une machine à écrire, une \wi{virgule} ou un \wi{point} occupent la même
@@ -356,9 +411,8 @@ symboles spéciaux.
 Ces \wi{ligature}s peuvent être désactivées en insérant un ©{}© entre les
 lettres en question. Cela peut s'avérer utile pour certains mots
 composés\footnote{Il n'existe pas d'exemple en français. \emph{NdT.}}.
-%TODO: check if original says \mbox{}
 \begin{example}
-Not shelfful\\
+\Large Not shelfful\\
 but shelf{}ful
 \end{example}
  
@@ -395,7 +449,7 @@ Stra\ss e
     \index{i et j@\i{} et \j{} sans points}\index{scandinaves (caractères)}
     \index{ae@\ae}\index{umlaut}\index{accent!grave}\index{accent!aigu}
     \index{accent!circonflexe}
-    \index{oe@\oe}
+    \index{oe@\oe} \index{aa@\aa}
     \index{cédille}
     \bigskip
   \end{lined}
@@ -404,14 +458,12 @@ Stra\ss e
 \section{Support multilingue\label{international}}
 
 \index{international} 
-
-Pour composer des documents dans des langues autres que l'anglais, \LaTeX doit
-pouvoir s'adapter aux règles typographiques et aux règles de césure propres à
-chaque langue. Il y a plusieurs domaines pour lesquels il faut configurer
-\LaTeX pour chaque langue : 
+Pour composer des documents dans des langues autres que l'anglais, 
+il y a plusieurs domaines pour lesquels \LaTeX doit d'adapter aux spécificités
+de chaque langue :
 \begin{enumerate}
   \item Toutes les chaînes de caractères générées automatiquement
-    \footnote{« Table des matières », « Liste des figures »{},...} doivent
+    \footnote{« Table des matières », « Liste des figures »,...} doivent
     être traduites. Pour de nombreuses langues, ces adaptations peuvent être
     réalisées par l'extension \pai{babel} de Johannes Braams.
   \item \LaTeX doit connaître les règles de césure de la nouvelle langue.
@@ -420,9 +472,8 @@ chaque langue. Il y a plusieurs domaines pour lesquels il faut configurer
     \guide{} devrait vous indiquer quelles sont les langues supportées par
     votre installation de \LaTeX et comment configurer les règles de césure.
   \item Certaines règles typographiques changent en fonction de la langue ou
-    de la région géographique. Ces changements peuvent être supportés par
-    l'extension \pai{babel} ou par des extensions spécifiques (telles que
-    \pai{french}~\cite{french} pour le français).  
+    de la région géographique. En français par exemple, il il doit toujours y
+    avoir un espace avec le caractère deux-points.
 \end{enumerate}
 
 Si votre système est configuré correctement, vous pouvez sélectionner la
@@ -430,51 +481,87 @@ langue utilisée par l'extension \pai{babel} avec la commande :
 \begin{lscommand}{2}
   ¡\usepackage¡[«langue»]{babel}
 \end{lscommand}
-\noindent après la commande ©\documentclass©. Les \emph{langue}s supportées
-par votre système sont normalement listées dans votre \guide.  Lorsque la
-césure d'une langue n'est pas supportée par votre moteur \LaTeX, celle-ci peut
-être utilisée avec l'extension \pai{babel} mais à cause des césures
-incorrectes le résultat ne sera pas satisfaisant.
+\noindent après la commande ©\documentclass©. La liste des langues intégrées à
+votre système \LaTeX est affichée à l'écran quand vous lancez \texttt{latex}
+et au début du rapport de compilation (fichier \eei{log}).
+\package[babel]{Babel} activera automatiquement les règles de césures
+correctes pour la langue choisie. Si votre format \LaTeX ne possède pas les
+règles de césures pour la langue choisie, \package{babel} fonctionnera quand
+même mais désactivera la césure des mots, ce qui peut avoir un impact négatif
+sur l'aspect de votre document.
 
 Pour certaines langues \textsf{babel} définit également de nouvelles commandes
-qui simplifient la saisie des caractères spéciaux.
+qui simplifient la saisie des caractères spéciaux. La langue allemande, par
+exemple, utilise beaucoup d'\emph{umlaut} (\"a\"o\"u). Avec \package{babel},
+vous pouvez saisir un \"o avec ©"o© au lieu de~©\"o©.
 
-Les systèmes informatiques modernes vous permettent de saisir directement les
-caractères accentués ou les symboles spécifiques d'une langue. Depuis la
-version de décembre 1994, \LaTeXe sait gérer ce type de codage grâce à
-l'extension \pai{inputenc} : \label{inputenc}
+Si vous appelez \package{babel} avec plusieurs langues
 \begin{lscommand}{2}
-  ¡\usepackage¡[«codage»]{inputenc}
+  ¡\usepackage¡[«langue1, langue2»]{babel}
+\end{lscommand}
+\noindent la dernière langue chargée sera la langue active au début du
+document (ici, \emph{langue2}). Vous pouvez alors utiliser
+\begin{lscommand}{2}
+  ¡\selectlanguage{«langue1»}¡
+\end{lscommand}
+\noindent au cours de votre document pour changer la langue active.
+
+Les systèmes informatiques modernes vous permettent de saisir directement au
+clavier les caractères accentués ou les symboles spécifiques d'une langue.
+Pour gérer les divers encodages d'entrée associées aux différentes langues
+et/ou conventions informatiques, \LaTeX utilise l'extension \pai{inputenc} :
+\begin{lscommand}{2}
+  ¡\usepackage¡[«encodage»]{inputenc}
 \end{lscommand}
 
-Les codages suivants sont utilisés en fonction du système d'exploitation pour
-les langues d'Europe de l'Ouest :
+En utilisant cette extension, vous devez être conscient que cela peut poser
+problème pour visualiser votre fichier source sur d'autres ordinateurs ou avec
+d'autres éditeurs de texte, si ils utilisent par défaut un encodage différent.
+Par exemple, le caractère \emph{é} est représenté par le nombre~142 en
+\iei{macroman}, 233 en \iei{latin1}, et la succession de nombres 195-169 en
+\iei{utf8}.
+
+Pour visualiser correctement votre fichier source sous un autre éditeur, il
+faut donc sélectionner l'encodage correspondant à celui avec lequel le fichier
+a été créé. La plupart des éditeurs de texte permettent de choisir l'encodage
+voulu, mais soyez conscients que certains (notamment sous Windows) ne le
+permettent pas, et qu'en tout cas cela demande une intervention manuelle.
+
+Par contre, votre fichier sera compilable sans problème sur tout ordinateur,
+du moment que l'option passée à \package{inputenc} correspond bien à
+l'encodage réel du document.
+
+Les encodages suivants sont les plus courants, en fonction de la langue et du
+système d'exploitation utilisés\footnote{Pour en savoir plus sur les encodages
+  d'entrés gérés par \LaTeX, consultes \texttt{inputenc.pdf},
+  \texttt{cyinpenc.pdf} et \texttt{utf8ienc.pdf}.} :
 \begin{center}
-  \begin{tabular}{l | r}
-    Système & Codage \\
-    \hline
-    Mac OS  &  \texttt{applemac} \\
-    Unix    &  \texttt{latin1} \\ 
-    Windows &  \texttt{ansinew} \\
-    OS/2    &  \texttt{cp850}
-  \end{tabular}
-\end{center}
+    \begin{longtable}{l|r|r}
+      Système  & \multicolumn{2}{c}{Encodages}\\
+      d'exploitation & Europ de l'ouest & Langues cyriliques\\
+      \hline
+      Mac     &  \iei{applemac}\footnote{Synonyme de \iei{applemac}.}
+      & \iei{macukr}  \\
+      Unix    &  \iei{latin1}\footnote{Dont le nom « officiel » est
+	ISO-8859-1.} & \iei{koi8-ru}  \\ 
+      Windows & \iei{ansinew}\footnote{Synonyme de \iei{cp1252}.} &
+      \iei{cp1251}
+    \end{longtable}                
+\end{center}                 
 
-Pour faciliter la lecture, cette extension est utilisée dans la suite du
+Il est intéressant de noter que les encodages \iei{latin1},
+\iei{latin9}\footnote{Nom officiel : ISO-8859-15.} et \iei{cp1252} sont très
+proches entre eux et sont compatibles pour la plupart des caractères usuels,
+bien qu'il présentent des différences sur des caractères comme \texteuro{} et
+\oe. 
+
+L'encodage \iei{utf8} présente l'avantage d'être utilisable pour toutes
+les langues et sur tous les systèmes modernes, mais n'est pas encore très
+répandu. C'est la meilleure solution pour saisir des documents multilingues
+avec un jeu de caractères varié.
+
+Pour faciliter la lecture, \package{inputenc} est utilisé dans la suite du
 document pour représenter les caractères accentués dans les exemples.
-
-En utilisant cette extension, il faut prendre garde au fait que les systèmes
-informatiques n'utilisent pas tous le même codage des caractères spéciaux.  Le
-caractère \textit{é} par exemple, est codé~142 sur Mac et 233 sur PC Windows
-ou sous Unix (codage latin-1).  D'autres personnes risquent donc de ne pas
-pouvoir lire votre document source, parce que leur système utilise un codage
-différent.
-
-Lorsqu'un document source \LaTeX doit être transmis vers un autre système, il
-est recommandé de convertir les caractères accentués et spéciaux en séquences
-du type ©\'©©e© préalablement au transfert.  Il existe de nombreux utilitaires
-pour faire la conversion automatique dans les deux sens : \texttt{recode} sous
-Unix, \texttt{Tower of Babel} sur Macintosh, etc.
 
 Le codage des polices de caractères est une autre histoire.  Celui-ci définit
 à quelle position dans une police de \TeX se trouve chaque caractère. La
@@ -495,7 +582,7 @@ préambule :
   \usepackage[T1]{fontenc}
 \end{lscommand}
 
-\subsection{Support de la langue française} 
+\subsection{Support de la langue française} \label{ss-frenchb}
 
 Pour le français, l'option \pai{francais} de l'extension \pai{babel} applique
 les règles de césure spécifiques du français et adapte \LaTeX à la plupart des
