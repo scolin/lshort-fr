@@ -69,7 +69,7 @@
   AutoSpacePunctuation=false,
   og=«, fg=»,
   ThinSpaceInFrenchNumbers=true}
-% si jamais je saisis par mégarde des espaces insécables, les ignorer
+% si jamais je saisis des espaces insécables, les ignorer
 \catcode`\ 10 % c'est un insécable là
 
 % internationalisation de svn-multi [[1
@@ -193,7 +193,7 @@
 \newcommand\mailto[1]{%
   \href{mailto:#1}{\texttt{#1}}}
 \newcommand\CTAN[1]{%
-  \href{http://mirror.ctan.org/#1}{\texttt{CTAN://#1}}}
+  \href{http://mirror.ctan.org/#1}{\texttt{CTAN:#1}}}
 \newcommand\newsgroup[1]{%
   \href{news://#1}{\texttt{#1}}}
 \newcommand\package[2][]{%
