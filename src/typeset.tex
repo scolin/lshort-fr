@@ -625,7 +625,7 @@ DOS, OS/2  &  \iei{cp850} & \iei{cp866nav}
 \end{tabular}
 \end{center}
 
-Si vous utilisez un document multilingue qui cause des conflits entre
+Si vous avez un document multilingue qui cause des conflits entre
 codages d'entrée, vous devriez considérer l'utilisation d'unicode à
 l'aide de l'extension \pai{ucs}.
 
@@ -725,7 +725,6 @@ simplement le codage adéquat.
 \end{lined}
 \end{table}
 
-\newpage
 
 \subsection{Support de la langue française} 
 
@@ -936,7 +935,7 @@ par Werner~Lemberg.\footnote{%
   typographie est un ensemble de polices bien conçues. La distribution
   H\LaTeX{} inclut les polices \PSi{} UHC
   \index{Police coréenne!police UHC} de 10 familles différentes et des
-  polices TrueType Munhwabu\footnote{Ministère coréen de la culture}
+  polices TrueType Munhwabu\footnote{Ministère coréen de la culture.}
   de 5 différentes familles. L'extension CJK fonctionne avec un
   ensemble de polices utilisé par des versions antérieures d'H\LaTeX{}
   et elle peut utiliser la police TrueType Bitstream cyberbit.
@@ -1044,8 +1043,8 @@ tableau~\ref{Cyrillic}.
    \verb|"---| & Tiret long cyrillique pour le texte.        \\
    \verb|"--~| & Tiret long cyrillique pour les noms composés.       \\
    \verb|"--*| & Tiret long cyrillique pour le dialogue.         \\
-   \verb|""| & comme |"-|, mais n'affiche pas le tiret
-               (pour les mots composés avec tiret, p.e. \ |x-""y|
+   \verb|""| & comme \verb|"-|, mais n'affiche pas le tiret
+               (pour les mots composés avec tiret, p.e. \verb|x-""y|
                 ou d'autres signes comme \og disable/enable \fg{}). \\
    \verb|"~| & pour une marque de mot composé sans rupture.        \\
    \verb|"=| & pour une marque de mot composé avec rupture, pour
@@ -1707,10 +1706,11 @@ Dupont & Jules \\
 \end{tabular}
 \end{example}
 
-\LaTeX{} traite le contenu d'un environnement \texttt{tabular}
-comme une boîte indivisible, en particulier il ne peut y avoir de coupure
-de page. Pour réaliser de longs tableaux s'étendant sur plusieurs pages
-il faut avoir recours aux extensions \pai{supertabular} ou \pai{longtabular}.
+\LaTeX{} traite le contenu d'un environnement \texttt{tabular} comme
+une boîte indivisible, en particulier il ne peut y avoir de coupure de
+page. Pour réaliser de longs tableaux s'étendant sur plusieurs pages
+il faut avoir recours aux extensions \pai{supertabular} ou
+\pai{longtabular}.
 
 \section{Objets flottants}
 
@@ -1891,19 +1891,18 @@ page. \ci{cleardoublepage} commence une nouvelle page de droite.
 En section~\ref{eps}, vous apprendrez à inclure une figure
 \PSi{} dans vos documents.
 
-\section{Protection des commandes 
-         \texorpdfstring{\og fragiles \fg}{\string«fragiles \string»}}
+\section{Protection des commandes \texorpdfstring{\og fragiles \fg}{\string«fragiles \string»}}
 
-Les arguments de commandes telles que \ci{section} ou \ci{caption} etc.,
-peuvent apparaître plusieurs fois dans le document (par exemple aussi
-dans la table des matières, les hauts de pages\dots), on dit qu'il s'agit
-d'arguments \og mobiles \fg{} (\emph{moving arguments}).
-Certaines commandes, entre autres  \ci{footnote}, \ci{phantom} etc.,
-ne produisent pas le résultat escompté
-quand elles sont exécutées comme argument de commandes de type
-\ci{section}, on dit qu'elles sont \og fragiles \fg, ce qui signifie
-qu'elles ont besoin de la protection (comme nous tous ?) d'un \dots{}
-\ci{protect}.
+Les arguments de commandes telles que \ci{section} ou \ci{caption}
+etc., peuvent apparaître plusieurs fois dans le document (par exemple
+dans la table des matières, les hauts de pages\dots), on dit qu'il
+s'agit d'arguments \og mobiles \fg{} (\emph{moving arguments}).
+Certaines commandes, entre autres \ci{footnote}, \ci{phantom} etc., ne
+produisent pas le résultat escompté quand elles sont exécutées comme
+argument de commandes de type \ci{section}. La compilation du document
+échouera alors. On dit de ces commandes qu'elles sont \og fragiles
+\fg, ce qui signifie qu'elles ont besoin de la protection (comme nous
+tous ?). Il faut alors les faire précéder de \ci{protect}.
 
 La commande \ci{protect} n'a d'effet que sur la commande qui la suit
 immédiatement, mais \emph{pas ses arguments} éventuels.
