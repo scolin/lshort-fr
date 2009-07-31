@@ -1,0 +1,11 @@
+--- a/src/contrib.tex
++++ b/src/contrib.tex
+@@ -108,6 +108,8 @@ Fritz~Zaucker,          %zaucker@ee.ethz.ch 3.0
+ Rick~Zaccone,           %zaccone@bucknell.edu 2.2
+ and Mikhail~Zotov.      %zotov@eas.npi.msu.su 3.1
+ 
++}
++
+ \vspace*{\stretch{1}}
+ 
+ 

@@ -1,0 +1,11 @@
+--- a/src/title.tex
++++ b/src/title.tex
+@@ -29,7 +29,7 @@ Introduction to \LaTeXe
+ {\bfseries 
+ by Tobias Oetiker\\[1.5ex]
+ Hubert Partl, Irene Hyna and  Elisabeth Schlegl\\[3ex]} 
+-Version~3.21, 04 October, 2002
++Version~3.22, 10 October, 2002
+ \end{minipage}}
+ 
+ %\addtolength{\textwidth}{\centeroffset}
