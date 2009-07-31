@@ -1,0 +1,11 @@
+--- a/src/custom.tex
++++ b/src/custom.tex
+@@ -95,7 +95,7 @@ so on.
+ \end{itemize}
+ \end{example}
+ 
+-\LaTeX{} will not allow you to create a new command which would
++\LaTeX{} will not allow you to create a new command that would
+ overwrite an existing one. But there is a special command in case you
+ explicitly want this: \ci{renewcommand}.
+ It uses the same syntax as the \verb|\newcommand|

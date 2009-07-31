@@ -1,0 +1,11 @@
+--- a/src/things.tex
++++ b/src/things.tex
+@@ -528,7 +528,7 @@ Table~\ref{options}.
+   option concerns the style of the document only. The option
+   \texttt{twoside} does \emph{not} tell the printer you use that it
+   should actually make a two-sided printout.
+-
++\item[\normalfont\texttt{landscape}] \quad Changes the layout of the document to print in landscape mode.
+ \item[\normalfont\texttt{openright, openany}] \quad Makes chapters begin either
+   only on right hand pages or on the next page available. This does
+   not work with the \texttt{article} class, as it does not know about

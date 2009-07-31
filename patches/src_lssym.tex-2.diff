@@ -1,0 +1,12 @@
+--- a/src/lssym.tex
++++ b/src/lssym.tex
+@@ -57,8 +57,7 @@ fonts are not installed, on your system, have a look at\\
+ \begin{table}[!tbp]
+ \caption{Binary Relations.}
+ \bigskip
+-You can produce corresponding negations by adding a \verb|\not| command
+-as prefix to the following symbols.
++You can negate the following symbols by prefixing them with a \ci{not} command.
+ \begin{symbols}{*3{cl}}
+  \X{<}           & \X{>}           & \X{=}          \\
+  \X{\leq}or \verb|\le|   & \X{\geq}or \verb|\ge|   & \X{\equiv}     \\

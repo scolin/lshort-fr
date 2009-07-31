@@ -1,0 +1,11 @@
+--- a/src/custom.tex
++++ b/src/custom.tex
+@@ -429,7 +429,7 @@ because you'll find that most professional books use indenting and not
+ spacing to separate paragraphs.
+ 
+ 
+-If you want to indent a paragraph which is not indented, you can use 
++If you want to indent a paragraph that is not indented, you can use 
+ \begin{lscommand}
+ \ci{indent}
+ \end{lscommand}

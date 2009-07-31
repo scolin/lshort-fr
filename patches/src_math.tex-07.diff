@@ -1,0 +1,11 @@
+--- a/src/math.tex
++++ b/src/math.tex
+@@ -153,8 +153,6 @@ are entered as \verb|\Gamma|, \verb|\Delta|, \ldots\footnote{There is no
+ \begin{example}
+ $\lambda,\xi,\pi,\mu,\Phi,\Omega$
+ \end{example}
+-\enlargethispage{\baselineskip}
+-\pagebreak[4]
+ 
+ \textbf{Exponents and Subscripts} can be specified using\index{exponent}\index{subscript}
+ the \verb|^|\index{^@\verb"|^"|} and the \verb|_|\index{_@\verb"|_"|} character.

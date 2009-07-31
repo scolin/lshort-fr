@@ -1,0 +1,15 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -1263,9 +1263,8 @@ to its arguments. In most cases a superfluous \ci{protect} won't hurt.
+ \verb|      \protect\footnote{and protect my footnotes}}|
+ \end{code}
+ 
+-
+-% Local Variables: 
++% Local Variables:
++% TeX-master: "lshort2e"
+ % mode: latex
+-% TeX-master: "lshort"
+-% mode: flyspell-prog
++% mode: flyspell
+ % End:

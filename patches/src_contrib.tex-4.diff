@@ -1,0 +1,13 @@
+--- a/src/contrib.tex
++++ b/src/contrib.tex
+@@ -95,8 +95,10 @@ Chris~Rowley,           %C.A.Rowley@open.ac.uk 0.91
+ Risto~Saarelma,         %risto.saarelma@cs.helsinki.fi
+ Hanspeter~Schmid,       %schmid@isi.ee.ethz.ch
+ Craig~Schlenter,        %cschle@lucy.ee.und.ac.za 0.1 0.2 0.9
++Baron~Schwartz,         % <bps7j@cs.virginia.edu>      
+ Christopher~Sawtell,    %<csawtell@xtra.co.nz> 1 Sep 1999
+ Geoffrey~Swindale,      % <geofftswin@ntlworld.com>
++Boris~Tobotras,         % <tobotras@jet.msk.su>
+ Josef~Tkadlec,          %tkadlec@math.feld.cvut.cz 2.0 2.2
+ Scott~Veirs,            %scottv@ocean.washington.edu
+ Didier~Verna,           %verna@inf.enst.fr 2.2

@@ -1,0 +1,30 @@
+--- a/src/math.tex
++++ b/src/math.tex
+@@ -262,24 +262,17 @@ x^{ 1/2 }
+ \end{example}
+ 
+ To typeset binomial coefficients or similar structures, you can use
+-either the command \verb|{... |\ci{choose}\verb| ...}| or 
+-\verb|{... |\ci{atop}\verb| ...}|. The second command produces the
+-same output as the first one, but without braces.
+-\footnote{Note that the usage of these old-style commands is expressly forbidden
+-by the \pai{amsmath} package. They are replaced by
+-\ci{binom} and \ci{genfrac}. The latter is a superset of all related
+-constructs, e.g. you may get a similar construct to \ci{atop}
+-by \texttt{$\backslash$newcommand\{$\backslash$newatop\}[2]\{$\backslash$genfrac\{\}\{\}\{0pt\}\{1\}\{\#1\}\{\#2\}\}}.}
++the command \ci{binom} from the \pai{amsmath} package.
+ 
+ \begin{example}
+ \begin{displaymath}
+-{n \choose k}\qquad {x \atop y+2}
++\binom{n}{k}\qquad\mathrm{C}_n^k
+ \end{displaymath}
+ \end{example}
+ 
+ For binary relations it may be useful to stack symbols over each other.
+ \ci{stackrel} puts the symbol given
+-in the first argument in superscript-like size over the second which
++in the first argument in superscript-like size over the second, which
+ is set in its usual position.
+ \begin{example}
+ \begin{displaymath}

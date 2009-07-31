@@ -1,0 +1,21 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -710,15 +710,15 @@ a book:
+   \verb|\begin{document}|. It will switch page numbering to Roman
+     numerals. It is common to use the starred sectioning commands (eg
+     \verb|\chapter*{Preface}|) for
+-    frontmatter as this stops \LaTeX{} from
++    front matter as this stops \LaTeX{} from
+     enumerating them.
+-\item[\ci{mainmatter}] comes after right before the first chapter of
++\item[\ci{mainmatter}] comes right before the first chapter of
+   the book. It turns on Arabic page numbering and restarts the page
+   counter.
+ \item[\ci{appendix}] marks the start of additional material in your
+   book. After this command chapters will be numbered with letters.
+ \item[\ci{backmatter}] should be inserted before the very last items
+-  in your book like the bibliography and the index. In the standard
++  in your book, such as the bibliography and the index. In the standard
+   document classes, this has no visual effect.
+ \end{description}
+ 

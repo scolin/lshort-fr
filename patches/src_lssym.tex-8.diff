@@ -1,0 +1,17 @@
+--- a/src/lssym.tex
++++ b/src/lssym.tex
+@@ -343,10 +343,10 @@ $\mathbb{ABC}$
+ 
+ \endinput
+ 
+-%%% Local Variables: 
+-%%% mode: latex
+-%%% TeX-master: "lshort2e"
+-%%% End: 
++%
++
+ % Local Variables:
++% TeX-master: "lshort2e"
++% mode: latex
+ % mode: flyspell
+ % End:

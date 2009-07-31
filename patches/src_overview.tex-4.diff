@@ -1,0 +1,16 @@
+--- a/src/overview.tex
++++ b/src/overview.tex
+@@ -95,8 +95,10 @@ Swiss Federal Institute of Technology}
+ 
+ 
+ 
+-%%% Local Variables: 
+-%%% mode: latex
+-%%% TeX-master: "lshort2e"
++%
++
++% Local Variables:
++% TeX-master: "lshort2e"
++% mode: latex
+ % mode: flyspell
+ % End:

@@ -1,0 +1,15 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -929,9 +929,9 @@ again.
+ 
+ \subsection{Printing Verbatim}
+ 
+-Text which is enclosed between \verb|\begin{|\ei{verbatim}\verb|}| and
+-\verb|\end{verbatim}| will be directly printed, as if it was typed on a
+-typewriter, with all linebreaks and spaces, without any \LaTeX{}
++Text that is enclosed between \verb|\begin{|\ei{verbatim}\verb|}| and
++\verb|\end{verbatim}| will be directly printed, as if typed on a
++typewriter, with all line breaks and spaces, without any \LaTeX{}
+ command being executed.
+ 
+ Within a paragraph, similar behavior can be accessed with

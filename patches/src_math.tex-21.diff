@@ -1,0 +1,11 @@
+--- a/src/math.tex
++++ b/src/math.tex
+@@ -447,7 +447,7 @@ equation number. The \verb|eqnarray*| does not number anything.
+ 
+ The \texttt{eqnarray} and the \verb|eqnarray*| environments work like
+ a 3-column table of the form \verb|{rcl}|, where the middle column can
+-be used for the equal sign or the not-equal sign. Or any other sign
++be used for the equal sign, the not-equal sign, or any other sign
+ you see fit. The \verb|\\| command breaks the lines.
+ \begin{example}
+ \begin{eqnarray}

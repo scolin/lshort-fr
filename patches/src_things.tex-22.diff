@@ -1,0 +1,23 @@
+--- a/src/things.tex
++++ b/src/things.tex
+@@ -560,16 +560,16 @@ Packages are activated with the
+ \begin{lscommand}
+ \ci{usepackage}\verb|[|\emph{options}\verb|]{|\emph{package}\verb|}|
+ \end{lscommand}
+-\noindent command where \emph{package} is the name of the package and
+-\emph{options} is a list of keywords which trigger special features in
++\noindent command, where \emph{package} is the name of the package and
++\emph{options} is a list of keywords that trigger special features in
+ the package. Some packages come with the \LaTeXe{} base distribution
+ (See Table~\ref{packages}). Others are provided separately. You may
+ find more information on the packages installed at your site in your
+ \guide. The prime source for information about \LaTeX{} packages is \companion.
+-It contains descriptions of hundreds of packages along with
++It contains descriptions on hundreds of packages, along with
+ information of how to write your own extensions to \LaTeXe.
+ 
+-\begin{table}[!hbp]
++\begin{table}[btp]
+ \caption{Some of the Packages Distributed with \LaTeX.} \label{packages}
+ \begin{lined}{11cm}
+ \begin{description}

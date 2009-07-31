@@ -1,0 +1,11 @@
+--- a/src/math.tex
++++ b/src/math.tex
+@@ -464,7 +464,7 @@ the equal signs is rather large. It can be reduced by setting
+ \index{long equations} \textbf{Long equations} will not be
+ automatically divided into neat bits.  The author has to specify
+ where to break them and how much to indent. The following two methods
+-are the most common ones used to achieve this.
++are the most common ways to achieve this.
+ \begin{example}
+ {\setlength\arraycolsep{2pt}
+ \begin{eqnarray}

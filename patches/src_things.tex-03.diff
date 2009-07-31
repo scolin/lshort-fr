@@ -1,0 +1,28 @@
+--- a/src/things.tex
++++ b/src/things.tex
+@@ -86,19 +86,19 @@ knowledge and from the contents of the manuscript.
+ In a \LaTeX{} environment, \LaTeX{} takes the role of the book
+ designer and uses \TeX{} as its typesetter. But \LaTeX{} is ``only'' a
+ program and therefore needs more guidance. The author has to provide
+-additional information which describes the logical structure of his
++additional information to describe the logical structure of his
+ work. This information is written into the text as ``\LaTeX{}
+ commands.''
+ 
+ This is quite different from the \wi{WYSIWYG}\footnote{What you see is
+-  what you get.} approach which most modern word processors such as
+-\emph{MS Word} or \emph{Corel WordPerfect} take. With these
++  what you get.} approach that most modern word processors, such as
++\emph{MS Word} or \emph{Corel WordPerfect}, take. With these
+ applications, authors specify the document layout interactively while
+-typing text into the computer. All along the way, they can see on the
++typing text into the computer. They can see on the
+ screen how the final work will look when it is printed.
+ 
+-When using \LaTeX{} it is normally not possible to see the final output
+-while typing the text. But the final output can be previewed on the
++When using \LaTeX{} it is not normally possible to see the final output
++while typing the text, but the final output can be previewed on the
+ screen after processing the file with \LaTeX. Then corrections can be
+ made before actually sending the document to the printer.
+ 

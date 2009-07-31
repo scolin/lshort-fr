@@ -1,0 +1,13 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -669,8 +669,8 @@ when this is necessary.
+ 
+ All sectioning commands listed above also exist as ``starred''
+ versions.  A ``starred'' version of a command is built by adding a
+-star \verb|*| after the command name.  They generate section headings
+-which do not show up in the table of contents and which are not
++star \verb|*| after the command name.  This generates section headings
++that do not show up in the table of contents and are not
+ numbered. The command \verb|\section{Help}|, for example, would become
+ \verb|\section*{Help}|.
+ 

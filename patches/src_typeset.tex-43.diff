@@ -1,0 +1,11 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -1088,7 +1088,7 @@ pages.  One method would be to start a new page every time a figure or
+ a table is too large to fit on the present page. This approach would
+ leave pages partially empty, which looks very bad.
+ 
+-The solution to this problem is to `float' any figure or table which
++The solution to this problem is to `float' any figure or table that
+ does not fit on the current page to a later page, while filling the
+ current page with body text. \LaTeX{} offers two environments for
+ \wi{floating bodies}; one for tables and  one for figures.  To

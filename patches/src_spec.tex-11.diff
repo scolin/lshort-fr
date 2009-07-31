@@ -1,0 +1,59 @@
+--- a/src/spec.tex
++++ b/src/spec.tex
+@@ -290,40 +290,40 @@ the package at the address mentioned in the footnote.
+ Earlier in this book, you got to know the \ei{verbatim}
+ \emph{environment}.  In this section, you are going to learn about the
+ \pai{verbatim} \emph{package}. The \pai{verbatim} package is basically
+-a re-implementation of the \ei{verbatim} environment, which works around
++a re-implementation of the \ei{verbatim} environment that works around
+ some of the limitations of the original \ei{verbatim} environment.
+-This by itself is not spectacular, but with the implementation of the
+-\pai{verbatim} package, there was also new functionality added, and
+-this is the reason I am mentioning the package here. The \pai{verbatim}
++This by itself is not spectacular, but the implementation of the
++\pai{verbatim} package added new functionality, which is
++why I am mentioning the package here. The \pai{verbatim}
+ package provides the
+ 
+ \begin{lscommand}
+ \ci{verbatiminput}\verb|{|\emph{filename}\verb|}|
+ \end{lscommand}
+ 
+-\noindent command which allows you to include raw ASCII text into your
+-document as if it was inside a \ei{verbatim} environment.
++\noindent command, which allows you to include raw ASCII text into your
++document as if it were inside a \ei{verbatim} environment.
+ 
+ As the \pai{verbatim} package is part of the `tools' bundle, you
+-should find it preinstalled on most systems. If you want to know more
+-about this package, make sure to read \cite{verbatim} 
++should find it pre-installed on most systems. If you want to know more
++about this package, make sure to read \cite{verbatim}.
+ 
+ 
+ \section{Downloading and Installing \LaTeX{} Packages}
+ 
+ Most \LaTeX{} installations come with a large set of pre-installed
+-style packages, but there are many more available on the net. The main
+-place to look for style package on the Internet is CTAN (\verb|http://www.ctan.org/|).
++style packages, but many more are available on the net. The main
++place to look for style packages on the Internet is CTAN (\verb|http://www.ctan.org/|).
+ 
+-Packages, such as, \pai{geometry}, \pai{hyphenat}, and many
+-others, are typically made up of two files: a file with the extension
+-\texttt{.ins} and another with the extension \texttt{.dtx}. Often
+-there will be a \texttt{readme.txt} with a brief description of the
++Packages such as \pai{geometry}, \pai{hyphenat}, and many
++others are typically made up of two files: a file with the extension
++\texttt{.ins} and another with the extension \texttt{.dtx}. There
++will often be a \texttt{readme.txt} with a brief description of the
+ package. You should of course read this file first.
+ 
+ In any event, once you have copied the package files onto your
+-machine, you still have to process them in a way that (a) your
+-\TeX\ distribution knows about the new style package and (b) you get
++machine, you still have to process them in a way that (a) tells your
++\TeX\ distribution about the new style package and (b) gives you
+ the documentation.  Here's how you do the first part:
+ 
+ \begin{enumerate}

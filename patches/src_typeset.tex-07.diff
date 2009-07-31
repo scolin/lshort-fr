@@ -1,0 +1,13 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -126,8 +126,8 @@ line:
+ \begin{lscommand}
+ \ci{\bs*}
+ \end{lscommand}
+-\noindent additionally prohibits a pagebreak after the forced
+-linebreak. 
++\noindent additionally prohibits a page break after the forced
++line break. 
+ 
+ \begin{lscommand}
+ \ci{newpage}

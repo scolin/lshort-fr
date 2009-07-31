@@ -1,0 +1,11 @@
+--- a/src/things.tex
++++ b/src/things.tex
+@@ -289,7 +289,7 @@ Thank you!
+ \index{comments}
+ 
+ When \LaTeX{} encounters a \verb|%| character while processing an input file,
+-it ignores the rest of the present line, the linebreak, and all
++it ignores the rest of the present line, the line break, and all
+ whitespace at the beginning of the next line.
+ 
+ This can be used to write notes into the input file, which will not show up

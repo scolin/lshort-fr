@@ -1,0 +1,55 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -302,13 +302,47 @@ I will soon start to
+ super-conduct.
+ \end{example}
+ 
+-\subsection{Ellipsis ( \ldots )}
++\subsection{The Euro Currency Symbol \texorpdfstring{(\EUR)}{}}
++
++When writing about money these days, you need the euro symbol. Many current
++fonts contain a Euro symbol. After loading the \pai{textcomp} package in the preamble of your document
++\begin{lscommand}
++\ci{usepackage}\verb|{textcomp}| 
++\end{lscommand}
++you can use the command
++\begin{lscommand}
++\ci{texteuro}
++\end{lscommand}
++to access it.
++
++If your font does not provide its own Euro symbol or if you do not like the font's Euro symbol, you have two more choices:
++
++First the \pai{eurosym} package. It provides the official Euro symbol:
++\begin{lscommand}
++\ci{usepackage}\verb|[|\emph{official}\verb|]{eurosym}| 
++\end{lscommand}
++If you prefer a euro symbol that matches your font, use the option
++\texttt{gen} in place of the \texttt{official} option.
++
++The \pai{marvosym} package also provides many different symbols,
++including a Euro, under the name:
++\begin{lscommand}
++\ci{EUR}
++\end{lscommand}
++
++\begin{example}
++The \texteuro{}, the \euro{}
++and the \EUR{} all look
++different.
++\end{example} 
++
++\subsection{Ellipsis (\texorpdfstring{\ldots}{...})}
+ 
+-On a typewriter a \wi{comma} or a \wi{period} takes the same amount of
+-space as any other letter. In book printing these characters occupy
++On a typewriter, a \wi{comma} or a \wi{period} takes the same amount of
++space as any other letter. In book printing, these characters occupy
+ only a little space and are set very close to the preceding letter.
+-Therefore you cannot enter `\wi{ellipsis}' by just typing three
+-dots, as the spacing would be wrong. Besides that there is a special
++Therefore, you cannot enter `\wi{ellipsis}' by just typing three
++dots, as the spacing would be wrong. Instead, there is a special
+ command for these dots. It is called
+ 
+ \begin{lscommand}

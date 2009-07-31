@@ -1,0 +1,58 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -616,34 +616,43 @@ The additional space after periods can be disabled with the command
+ period than after ordinary character. This is very common in
+ non-English languages, except bibliographies. If you use
+ \ci{frenchspacing}, the command \verb|\@| is not necessary.
+-    
++
++\newpage    
+ \section{Titles, Chapters, and Sections}
+ 
+ To help the reader find his or her way through your work, you should
+ divide it into chapters, sections, and subsections.  \LaTeX{} supports
+-this with special commands which take the section title as their
++this with special commands that take the section title as their
+ argument.  It is up to you to use them in the correct order.
+ 
+ The following sectioning commands are available for the
+ \texttt{article} class: \nopagebreak
+-\begin{code}
+-\ci{section}\verb|{...}           |\ci{paragraph}\verb|{...}|\\
+-\ci{subsection}\verb|{...}        |\ci{subparagraph}\verb|{...}|\\
+-\ci{subsubsection}\verb|{...}|
+-\end{code}
+ 
+-You can use an additional sectioning command for the \texttt{report}
+-and the \texttt{book} class: \ci{chapter}\verb|{...}|
++\begin{lscommand}
++\ci{section}\verb|{...}|\\
++\ci{subsection}\verb|{...}|\\
++\ci{subsubsection}\verb|{...}|\\
++\ci{paragraph}\verb|{...}|\\
++\ci{subparagraph}\verb|{...}|
++\end{lscommand}
+ 
+-If you want to split your document in parts without influencing the section
+-/ chapter numbering you can use \ci{part}\verb|{...}|.
++If you want to split your document in parts without influencing the
++section or chapter numbering you can use
++\begin{lscommand}
++\ci{part}\verb|{...}|
++\end{lscommand}
++
++When you work with the \texttt{report} or \texttt{book} class,
++an additional top-level sectioning command becomes available
++\begin{lscommand}
++\ci{chapter}\verb|{...}|
++\end{lscommand}
+ 
+ As the \texttt{article} class does not know about chapters, it is quite easy
+ to add articles as chapters to a book.
+ The spacing between sections, the numbering and the font size of the
+ titles will be set automatically by \LaTeX. 
+ 
+-\pagebreak[3]
+ Two of the sectioning commands are a bit special: 
+ \begin{itemize}
+ \item The \ci{part} command does

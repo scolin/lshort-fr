@@ -1,0 +1,13 @@
+--- a/src/things.tex
++++ b/src/things.tex
+@@ -332,8 +332,8 @@ command
+ \verb|\documentclass{...}|
+ \end{code}
+ This specifies what sort of document you intend to write. After that,
+-you can include commands which influence the style of the whole
+-document, or you can load \wi{package}s which add new
++you can include commands that influence the style of the whole
++document, or you can load \wi{package}s that add new
+ features to the \LaTeX{} system. To load such a package you use the
+ command
+ \begin{code}

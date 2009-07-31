@@ -1,0 +1,23 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -548,16 +548,16 @@ easily. Check out table \ref{cmd-french} for inspiration.
+ \end{table}
+ 
+ You will also notice that the layout of lists changes when switching to the
+-French language. To get a full knowledge of what the \texttt{frenchb}
+-option of \textsf{babel} does and how you can customize it's behaviour, run
++French language. For more information on what the \texttt{frenchb}
++option of \textsf{babel} does and how you can customize its behaviour, run
+ \LaTeX{} on file \texttt{frenchb.dtx} and read the produced file
+ \texttt{frenchb.dvi}.
+ 
+ \subsection{Support for German}
+ 
+ Some hints for those creating \wi{German}\index{Deutsch}
+-documents with \LaTeX{}. You can load German language support with the
+-command:
++documents with \LaTeX{}: you can load German language support with the
++command
+ 
+ \begin{lscommand}
+ \verb|\usepackage[german]{babel}|

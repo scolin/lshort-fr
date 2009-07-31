@@ -1,0 +1,13 @@
+--- a/src/math.tex
++++ b/src/math.tex
+@@ -139,8 +139,8 @@ a^x+y \neq a^{x+y}
+  
+ \section{Building Blocks of a Mathematical Formula}
+ 
+-In this section, the most important commands used in mathematical
+-typesetting will be described. Take a look at section~\ref{symbols} on
++This section describes the most important commands used in mathematical
++typesetting. Take a look at section~\ref{symbols} on
+ page~\pageref{symbols} for a detailed list of commands for typesetting
+ mathematical symbols.
+ 

@@ -1,0 +1,11 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -162,7 +162,7 @@ suitable place to hyphenate a word.\footnote{Although \LaTeX{} gives
+   lines will be marked with a thick black line on the right margin.}
+ You can instruct \LaTeX{} to lower its standards a little by giving
+ the \ci{sloppy} command. It prevents such over-long lines by
+-increasing the inter-word spacing --- even if the final output is not
++increasing the inter-word spacing---even if the final output is not
+ optimal.  In this case a warning (``\wi{underfull hbox}'') is given to
+ the user.  In most such cases the result doesn't look very good. The
+ command \ci{fussy} brings \LaTeX{} back to its default behaviour.

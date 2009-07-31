@@ -1,0 +1,11 @@
+--- a/src/math.tex
++++ b/src/math.tex
+@@ -380,7 +380,7 @@ instead of
+ \end{example}
+ Note that `d' in the differential is conventionally set in roman.
+ 
+-\AmS-\LaTeX{} provides another way for finetuning
++\AmS-\LaTeX{} provides another way for fine-tuning
+ the spacing between multiple integral signs,
+ namely the \ci{iint}, \ci{iiint}, \ci{iiiint}, and \ci{idotsint} commands.
+ With the \pai{amsmath} package loaded, the above example can be

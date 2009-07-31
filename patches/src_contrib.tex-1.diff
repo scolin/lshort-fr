@@ -1,0 +1,21 @@
+--- a/src/contrib.tex
++++ b/src/contrib.tex
+@@ -25,15 +25,17 @@ following individuals helped with corrections, suggestions and
+ material to improve this paper. They put in a big effort to help me
+ get this document into its present shape. I would like to
+ sincerely thank all of them. Naturally, all the mistakes you'll find
+-in this book are mine. If you ever find a word which is spelled
++in this book are mine. If you ever find a word that is spelled
+ correctly, it must have been one of the people below dropping me a
+ line.
+ 
+ { \flushleft\small
+ Rosemary~Bailey,        %r.a.bailey@qmw.ac.uk 0.2
++Marc~Bevand,            % <bevand_m@epita.fr>
+ Friedemann~Brauer,      %fbrauer@is.dal.ca 3.4
+ Jan~Busa,               % <busaj@ccsun.tuke.sk>
+ Markus~Br\"uhwiler,     % <m.br@switzerland.org>
++Pietro~Braione,         % <braione@elet.polimi.it>
+ David~Carlisle,         %GONE carlisle@cs.man.ac.uk 1.0
+ Jos\'e~Carlos~Santos,   % <jcsantos@fc.up.pt>
+ Mike~Chapman,           %chapman@eeh.ee.ethz.ch 3.16

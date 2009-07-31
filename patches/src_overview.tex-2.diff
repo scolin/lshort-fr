@@ -1,0 +1,62 @@
+--- a/src/overview.tex
++++ b/src/overview.tex
+@@ -14,39 +14,41 @@ This short introduction describes \LaTeXe{} and should be sufficient
+ for most applications of \LaTeX. Refer to~\cite{manual,companion} for
+ a complete description of the \LaTeX{} system.
+ 
+-\noindent This Introduction is split into 5 chapters:
++\bigskip
++\noindent This introduction is split into 5 chapters:
+ \begin{description}
+ \item[Chapter 1] tells you about the basic structure of \LaTeXe{}
+   documents. You will also learn a bit about the history of \LaTeX{}.
+-  After reading this chapter, you should have a rough picture of
+-  \LaTeX{}. The picture will only be a framework, but it will enable
+-  you to integrate the information provided in the other chapters into
++  After reading this chapter, you should have a roughly understand how
++  \LaTeX{} works. This framework will enable
++  you to integrate the information in the other chapters into
+   the big picture.
+ \item[Chapter 2] goes into the details of typesetting your
+   documents. It explains most of the essential \LaTeX{} commands and
+   environments. After reading this chapter, you will be able to write
+   your first documents. 
+-\item[Chapter 3] explains how to typeset formulae with \LaTeX. Again, a
+-  lot of examples help you to understand how to use one of \LaTeX{}'s
+-  main strengths. At the end of this chapter, you will find tables, listing
+-  all the mathematical symbols available in \LaTeX{}.
+-\item[Chapter 4] explains index and  bibliography generation,
+-  inclusion of EPS graphics, and some other useful extensions.
++\item[Chapter 3] explains how to typeset formulae with \LaTeX. Many
++  examples demonstrate how to use one of \LaTeX{}'s
++  main strengths. At the end of the chapter are tables listing
++  all mathematical symbols available in \LaTeX{}.
++\item[Chapter 4] explains indexes,  bibliography generation and
++  inclusion of EPS graphics. It introduces creation of PDF documents with pdf\LaTeX{}
++  and presents some handy extension packages, such as XY-pic.
+ \item[Chapter 5] contains some potentially dangerous information about
+-  how to make alterations to the
++  how to alter the
+   standard document layout produced by \LaTeX{}. It will tell you how  to
+   change things such that the beautiful output of \LaTeX{}
+-  begins looking quite bad.
++  turns ugly or stunning, depending on your abilities.
+ \end{description}
+ \bigskip
+-It is important to read the chapters in sequential order. The book is
+-not that big after all. Make sure to carefully read the examples,
+-because a great part of the information is contained in the various
+-examples you will find all throughout the book.
++\noindent It is important to read the chapters in order---the book is
++not that big, after all. Be sure to carefully read the examples,
++because a lot of the information is in the
++examples placed throughout the book.
+ 
+ \bigskip
+-\LaTeX{} is available for most computers, from the PC and Mac to large
+-UNIX and VMS systems. On many university computer clusters, you will
++\noindent \LaTeX{} is available for most computers, from the PC and Mac to large
++UNIX and VMS systems. On many university computer clusters you will
+ find that a \LaTeX{} installation is available, ready to use.
+ Information on how to access
+ the local \LaTeX{} installation should be provided in the \guide. If

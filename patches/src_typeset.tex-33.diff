@@ -1,0 +1,11 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -738,7 +738,7 @@ table, or theorem after which the corresponding \verb|\label| command
+ was issued. \verb|\pageref| prints the page number of the
+ page where the \verb|\label| command occurred.\footnote{Note that these commands
+   are not aware of what they refer to. \ci{label} just saves the last
+-  automatically generated number.} Just as the section titles, the
++  automatically generated number.} As with the section titles, the
+ numbers from the previous run are used.
+ 
+ \begin{example}

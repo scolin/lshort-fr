@@ -1,0 +1,30 @@
+--- a/src/biblio.tex
++++ b/src/biblio.tex
+@@ -53,18 +53,22 @@
+   \newblock Available online from \texttt{CTAN:/tex-archive/help/Catalogue/catalogue.html}
+   
+ \bibitem{eps} Keith~Reckdahl.  \newblock \emph{Using EPS Graphics in
+-    \LaTeXe{} Documents} which explains everything and much more than
++    \LaTeXe{} Documents}, which explains everything and much more than
+   you ever wanted to know about EPS files and their use in \LaTeX{}
+   documents.  \newblock Available online from
+   \texttt{CTAN:/tex-archive/info/epslatex.ps}
+ 
++\bibitem{xy-pic} Kristoffer H. Rose
++  \newblock \emph{\Xy-pic User's Guide}.  \newblock
++  Downloadable from CTAN with \Xy-pic distribution 
++
+ \end{thebibliography}
+ 
+ 
+-%%% Local Variables: 
+-%%% mode: latex
+-%%% TeX-master: "lshort2e"
+-%%% End: 
++%
++
+ % Local Variables:
++% TeX-master: "lshort2e"
++% mode: latex
+ % mode: flyspell
+ % End:

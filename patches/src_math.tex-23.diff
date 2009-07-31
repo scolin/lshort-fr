@@ -1,0 +1,11 @@
+--- a/src/math.tex
++++ b/src/math.tex
+@@ -485,7 +485,7 @@ are the most common ones used to achieve this.
+ \end{example}
+ 
+ %\enlargethispage{\baselineskip}
+-\noindent The \ci{nonumber} command causes \LaTeX{} to not generate a number for
++\noindent The \ci{nonumber} command tells \LaTeX{} not to generate a number for
+ this equation.
+ 
+ It can be difficult to get vertically aligned equations to look right

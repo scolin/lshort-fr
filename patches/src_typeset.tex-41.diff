@@ -1,0 +1,17 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -1017,12 +1017,12 @@ all enjoy the show.\\
+ \end{tabular}
+ \end{example}
+ 
+-The column separator can be specified with the \verb|@{...}|
++The column separator can be specified with the \mfr{@\{...\}}
+ construct. This command kills the inter-column space and replaces it
+ with whatever is between the curly braces.  One common use for
+ this command is explained below in the decimal alignment problem.
+ Another possible application is to suppress leading space in a table with
+-\verb|@{}|.
++\mfr{@\{\}}.
+ 
+ \begin{example}
+ \begin{tabular}{@{} l @{}}

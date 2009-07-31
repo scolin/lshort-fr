@@ -1,0 +1,22 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -1127,16 +1127,15 @@ Spec&Permission to place the float \ldots\\
+ \texttt{b} & at the \emph{bottom} of a page\\[0.3ex]
+ \texttt{p} & on a special \emph{page} containing only floats.\\[0.3ex]
+ \texttt{!} & without considering most of the  internal parameters\footnote{Such as the
+-    maximum number of floats allowed  on one page.} which could stop this
++    maximum number of floats allowed  on one page.}, which could stop this
+   float from being placed.
+ \end{tabular}
+ \end{center}
++Note that \texttt{pt} and \texttt{em} are \TeX{} units. Read more
++on this in table \ref{units} on page \pageref{units}.
+ \end{minipage}
+ \end{table}
+-Note: The \texttt{0pt} and \texttt{1.05em} are \TeX{} units. Read more
+-on this in table \ref{units} on page \pageref{units}.
+ 
+-\pagebreak[3]
+ A table could be started with the following line e.g.{}
+ \begin{code}
+ \verb|\begin{table}[!hbp]|

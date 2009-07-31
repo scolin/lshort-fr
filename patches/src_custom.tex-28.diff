@@ -1,0 +1,11 @@
+--- a/src/custom.tex
++++ b/src/custom.tex
+@@ -773,7 +773,7 @@ A few pages back you may have noticed the command
+ \end{example}
+ 
+ \noindent This is useful for drawing vertical and horizontal
+-lines. The line on the title page for example, has been created with a
++lines. The line on the title page, for example, has been created with a
+ \ci{rule} command.
+ 
+ A special case is a rule with no width but a certain height. In

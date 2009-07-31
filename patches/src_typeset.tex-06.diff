@@ -1,0 +1,18 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -103,12 +103,12 @@ e.g.{} \verb|\section{The| \texttt{Structure of Text and Language}\verb|}| is
+ so obvious that it is almost self-evident how these high-level
+ structures should be used.
+ 
+-\section{Linebreaking and Pagebreaking}
++\section{Line Breaking and Page Breaking}
+  
+ \subsection{Justified Paragraphs}
+ 
+-Often books are typeset with each line having the same length.
+-\LaTeX{} inserts the necessary \wi{linebreak}s and spaces between words
++Books are often typeset with each line having the same length.
++\LaTeX{} inserts the necessary \wi{line break}s and spaces between words
+ by optimizing the contents of a whole paragraph. If necessary, it
+ also hyphenates words that would not fit comfortably on a line.
+ How the paragraphs are typeset depends on the document class.

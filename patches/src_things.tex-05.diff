@@ -1,0 +1,11 @@
+--- a/src/things.tex
++++ b/src/things.tex
+@@ -127,7 +127,7 @@ chooses the most suitable layout.
+ 
+ \subsection{Advantages and Disadvantages}
+ 
+-When People from the \wi{WYSIWYG} world meet people who use \LaTeX{},
++When people from the \wi{WYSIWYG} world meet people who use \LaTeX{},
+ they often discuss ``the \wi{advantages of \LaTeX{}} over a normal
+ word processor'' or the opposite.  The best thing you can do when such
+ a discussion starts is to keep a low profile, since such discussions

@@ -1,0 +1,14 @@
+--- a/TRANSLATIONS
++++ b/TRANSLATIONS
+@@ -47,6 +47,11 @@ Japanese        NOMURA Masataka <nomura@cc.kshosen.ac.jp>
+         --> CTAN:info/lshort/japanese
+ 
+ 
++Korean           Karnes Kim karnes@doeun.pe.kr
++        --> http://www.doeun.pe.kr/frames/lshort.html
++        --> CTAN:/tex-archive/info/lshort/korean/
++>
++
+ If you know of other translations, please tell me. 
+ 
+ German          The original german version...

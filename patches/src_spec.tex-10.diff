@@ -1,0 +1,29 @@
+--- a/src/spec.tex
++++ b/src/spec.tex
+@@ -270,19 +270,19 @@ The values of these two commands are overwritten whenever a chapter or
+ section command is processed. 
+ 
+ For ultimate flexibility, the \verb|\chapter| command and its friends
+-do not redefine \ci{rightmark} and \ci{leftmark} themselves, they call
+-yet another command called \ci{chaptermark}, \ci{sectionmark} or
+-\ci{subsectionmark} which is responsible for redefining \ci{rightmark}
++do not redefine \ci{rightmark} and \ci{leftmark} themselves. They call
++yet another command (\ci{chaptermark}, \ci{sectionmark}, or
++\ci{subsectionmark}) that is responsible for redefining \ci{rightmark}
+ and \ci{leftmark}.
+ 
+-So, if you wanted to change the look of the chapter
+-name in the header line, you simply have to ``renew'' the \ci{chaptermark}
++If you want to change the look of the chapter
++name in the header line, you need only ``renew'' the \ci{chaptermark}
+ command. \cih{sectionmark}\cih{subsectionmark}
+ 
+  
+ Figure~\ref{fancyhdr} shows a possible setup for the \pai{fancyhdr}
+-package which makes the headers look about the same as they look in
+-this booklet. In any case I suggest you fetch the documentation for
++package that makes the headers look about the same as they look in
++this booklet. In any case, I suggest you fetch the documentation for
+ the package at the address mentioned in the footnote. 
+ 
+ \section{The Verbatim Package}

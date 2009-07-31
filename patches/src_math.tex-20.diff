@@ -1,0 +1,11 @@
+--- a/src/math.tex
++++ b/src/math.tex
+@@ -425,7 +425,7 @@ y = \left\{ \begin{array}{ll}
+ \end{displaymath}
+ \end{example}
+ 
+-As within the \verb|tabular| environment you can also
++Just as with the \verb|tabular| environment, you can also
+ draw lines in the \ei{array} environment, e.g. separating the entries of
+ a matrix:
+ \begin{example}

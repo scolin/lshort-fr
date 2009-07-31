@@ -1,0 +1,15 @@
+--- a/src/lssym.tex
++++ b/src/lssym.tex
+@@ -171,9 +171,9 @@ as prefix to the following symbols.
+ \caption{Non-Mathematical Symbols.}
+ \bigskip
+ These symbols can also be used in text mode.
+-\begin{symbols}{*3{cl}}
+-\SC{\dag} & \SC{\S} & \SC{\copyright}  \\
+-\SC{\ddag} & \SC{\P} & \SC{\pounds}  \\
++\begin{symbols}{*4{cl}}
++ \SC{\dag}  &  \SC{\S}  &  \SC{\copyright} &  \SC{\textregistered}  \\
++ \SC{\ddag} &  \SC{\P}  &  \SC{\pounds}    &  \SC{\%}               \\
+ \end{symbols}
+ \end{table}
+ 

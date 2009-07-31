@@ -1,0 +1,20 @@
+--- a/src/things.tex
++++ b/src/things.tex
+@@ -5,12 +5,12 @@
+  
+ \chapter{Things You Need to Know}
+ \begin{intro}
+-In the first part of this chapter, you will get a short 
+-overview about the philosophy and history of \LaTeXe. The second part
+-of the chapter focuses on the basic structures of a \LaTeX{} document. 
++The first part of this chapter presents a short 
++overview of the philosophy and history of \LaTeXe. The second part
++focuses on the basic structures of a \LaTeX{} document. 
+ After reading this chapter, you should have a rough knowledge
+-of how \LaTeX{} works. When reading on, this will help you to integrate
+-all the new information into the big picture.  
++of how \LaTeX{} works, which you will need to understand the rest
++of this book.  
+ \end{intro}
+ 
+ \section{The Name of the Game}

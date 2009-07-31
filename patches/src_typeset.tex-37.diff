@@ -1,0 +1,16 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -905,10 +905,10 @@ used in newspapers.
+ 
+ There are two similar environments: the \ei{quotation} and the
+ \ei{verse} environments. The \texttt{quotation} environment is useful
+-for longer quotes going over several paragraphs, because it does
+-indent paragraphs. The \texttt{verse} environment is useful for poems
++for longer quotes going over several paragraphs, because it indents the
++first line of each paragraph. The \texttt{verse} environment is useful for poems
+ where the line breaks are important. The lines are separated by
+-issuing a \ci{\bs} at the end of a line and a empty line after each
++issuing a \ci{\bs} at the end of a line and an empty line after each
+ verse.
+ 
+ 

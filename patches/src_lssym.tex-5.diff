@@ -1,0 +1,10 @@
+--- a/src/lssym.tex
++++ b/src/lssym.tex
+@@ -181,7 +181,6 @@ These symbols can also be used in text mode.
+ %
+ % If the AMS Stuff is not available, we drop out right here :-)
+ %
+-\noAMS
+ 
+ \begin{table}[!tbp]
+ \caption{AMS Delimiters.}\label{AMSD}

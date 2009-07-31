@@ -1,0 +1,11 @@
+--- a/src/things.tex
++++ b/src/things.tex
+@@ -321,7 +321,7 @@ example for embedding
+ comments in your document.
+ \end{example}
+ 
+-Note that this won't work inside complex environments like math for example.
++Note that this won't work inside complex environments, like math for example.
+ 
+ \section{Input File Structure}
+ 

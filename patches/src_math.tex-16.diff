@@ -1,0 +1,13 @@
+--- a/src/math.tex
++++ b/src/math.tex
+@@ -342,8 +342,8 @@ $\big\}\Big\}\bigg\}\Bigg\}$\quad
+ $\big\|\Big\|\bigg\|\Bigg\|$
+ \end{example}
+ 
+-To enter \textbf{\wi{three dots}} into a formula, you can use several
+-commands. \ci{ldots} typesets the dots on the baseline, \ci{cdots}
++There are several commands to enter \textbf{\wi{three dots}} into a formula.
++\ci{ldots} typesets the dots on the baseline and \ci{cdots}
+ sets them centred. Besides that, there are the commands \ci{vdots} for
+ vertical and \ci{ddots} for \wi{diagonal dots}.\index{vertical
+   dots}\index{horizontal!dots} You can find another example in section~\ref{sec:vert}.

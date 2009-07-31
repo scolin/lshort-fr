@@ -1,0 +1,11 @@
+--- a/src/custom.tex
++++ b/src/custom.tex
+@@ -736,7 +736,7 @@ Now that we control the horizontal, the obvious next step is to go for
+ \end{lscommand}
+ 
+ \noindent command lets you define the vertical properties of a
+-box. You can use \ci{width}, \ci{height}, \ci{depth} and
++box. You can use \ci{width}, \ci{height}, \ci{depth}, and
+   \ci{totalheight} in the first three parameters, in order to act
+   upon the size of the box inside the \emph{text} argument.
+ 

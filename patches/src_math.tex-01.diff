@@ -1,0 +1,27 @@
+--- a/src/math.tex
++++ b/src/math.tex
+@@ -12,16 +12,19 @@
+   sufficient for many people, don't despair if you can't find a
+   solution to your mathematical typesetting needs here. It is highly likely
+   that your problem is addressed in \AmS-\LaTeX{}%
+-  \footnote{\texttt{CTAN:/tex-archive/macros/latex/required/amslatex}}
+-  or some other package.
++  \footnote{The \emph{American Mathematical Society} has produced a
++  powerful extension to \LaTeX{}. Many of the examples in this
++  chapter make use of this extension. It is provided with all recent
++  \TeX{} distributions. If yours is missing it, go to \texttt{CTAN:/tex-archive/macros/latex/required/amslatex}.}
+ \end{intro}
+   
+ \section{General}
+ 
+-\LaTeX{} has a special mode for typesetting \wi{mathematics}.
+-Mathematical text within a paragraph is entered between \ci{(}
++\LaTeX{} has a special mode for typesetting \wi{mathematics}. Mathematics
++can be typeset inline within a paragraph, or the paragraph can be broken to
++typeset it separately. Mathematical text \emph{within} a paragraph is entered between \ci{(}
+ and \ci{)}, \index{$@\texttt{\$}} %$
+-between \texttt{\$} and \texttt{\$} or between %}
++between \texttt{\$} and \texttt{\$}, or between %}
+ \verb|\begin{|\ei{math}\verb|}| and \verb|\end{math}|.\index{formulae}
+ \begin{example}
+ Add $a$ squared and $b$ squared 

@@ -1,0 +1,11 @@
+--- a/src/biblio.tex
++++ b/src/biblio.tex
+@@ -4,7 +4,7 @@
+ % $Id: biblio.tex,v 1.1.1.1 2002/02/26 10:04:20 oetiker Exp $
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \begin{thebibliography}{99}
+-\addcontentsline{toc}{chapter}{\numberline{}\bibname} 
++\addcontentsline{toc}{chapter}{\bibname} 
+ \bibitem{manual} Leslie Lamport.  \newblock \emph{{\LaTeX:} A Document
+     Preparation System}.  \newblock Addison-Wesley, Reading,
+   Massachusetts, second edition, 1994, ISBN~0-201-52983-1.

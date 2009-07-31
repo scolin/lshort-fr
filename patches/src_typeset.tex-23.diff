@@ -1,0 +1,73 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -459,45 +459,52 @@ fonts. These fonts look like the Computer Modern fonts, but contain
+ special characters for most of the accented characters used in
+ European languages. By using these fonts you can improve hyphenation
+ in non-English documents. The EC fonts are activated by including the
+-\pai{fontenc} package in the preamble of your document.
++\pai{fontenc} package in the preamble of your document. \label{fontenc}
+ 
+ \begin{lscommand}
+ \ci{usepackage}\verb|[T1]{fontenc}| 
+ \end{lscommand}
+ 
+-Unfortunately, there are no Postscript versions of the EC fonts available
+-which can cause problems when generating PDF versions of your documents. If
+-this is a problem for you you might want to have a look at the \pai{ae}
+-package aka \emph{Almost European Computer Modern} which still uses the
+-characters from the original Computer Modern font, but rearanges them in the
+-EC order.
+-
+-\pagebreak[4]
++As of this writing, no free, high quality \textsc{PostScript} versions of the EC fonts are
++available.\footnote{Vladimir Volovich has created the cm-super font bundle
++which covers the entire EC/TC, EC Concrete, EC Bright and LH fonts. It is avalable from \texttt{CTAN:/fonts/ps-type1/cm-super} and is
++included with \TeX{}Live7 and Mik\TeX. Unfortunately these fonts are not
++of the same typographic quality as the normal Type1 renderings of the CM fonts} This causes problems when generating PDF versions of your
++documents---the resulting PDF file will look abysmal on screen. You might
++want to have a look at the \pai{aeguill} package, aka \emph{Almost European
++Computer Modern with Guillemets}, which uses the characters from the original Computer
++Modern font, but rearranges them in the EC order and can thus use the
++excellent type 1 format CM fonts available on most systems. There is also an \pai{ae} package, but it
++does not provide proper rendering of French quotes, aka guillemets (see the section
++on pdf\LaTeX{} on page \pageref{sec:pdftex}).
+ 
+ \subsection{Support for Portuguese}
+ 
+ \secby{Demerson Andre Polli}{polli@linux.ime.usp.br}
+-To enable the hyphenation and change all automatic text to \wi{Portuguese}
++To enable hyphenation and change all automatic text to \wi{Portuguese},
+ \index{Portugu\^es} use the command:
+ \begin{lscommand}
+-\verb|\usepackage[portuges]{babel}|
++\verb|\usepackage[portuguese]{babel}|
+ \end{lscommand}
++Or if you are in Brazil, substitute the language for \wi{brazilian}.
+ 
+-However, it's necessary to enable the accents used in portuguese, with the
+-commands
++As there are a lot of accents in Portuguese you might want to use
+ \begin{lscommand}
+ \verb|\usepackage[latin1]{inputenc}|
+ \end{lscommand}
+-and
++to be able to input them correctly as well as 
+ \begin{lscommand}
+ \verb|\usepackage[T1]{fontenc}|
+ \end{lscommand}
++to get the hyphenation right.
+ 
+-Now, you can type normally all the accents used in the portuguese language.
+-See the table~\ref{portuguese} to the preamble to write in portuguese language.
++See table~\ref{portuguese} for the preamble you need to write in the
++Portuguese language. Note that we are using the latin1 input encoding here,
++so this will not work on a Mac or on DOS. Just use
++the appropriate encoding for your system.
+ 
+-\begin{table}[!hbp]
+-\caption{Preamble to Write in Portuguese.} \label{portuguese}
++\begin{table}[btp]
++\caption{Preamble forPortuguese documents.} \label{portuguese}
+ \begin{lined}{5cm}
+ \begin{verbatim}
+ \usepackage[portuges]{babel}

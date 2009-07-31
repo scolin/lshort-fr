@@ -1,0 +1,28 @@
+--- a/src/lssym.tex
++++ b/src/lssym.tex
+@@ -318,22 +318,13 @@ $\mathnormal{ABCdef}$
+         &       \\
+ $\mathcal{ABC}$
+         & \verb|\mathcal{ABC}|
+-        &       \\
+-\ifx\MathRSFS\undefined\else
+-$\MathRSFS{ABC}$
+-        &\verb|\mathcal{ABC}|
++        & \pai{euscript} with option \texttt{mathcal} \\
++$\mathscr{ABC}$
++        &\verb|\mathscr{ABC}|
+         &\pai{mathrsfs}\\
+-\fi
+-\ifx\EuScript\undefined\else
+-$\EuScript{ABC}$
+-        & \verb|\mathcal{ABC}|
+-        &\pai{eucal} with option: \textsf{mathcal}  \quad or\\
+-        & \verb|\mathscr{ABC}|  
+-        &\pai{eucal}  with option: \textsf{mathscr}\\
+ $\mathfrak{ABCdef}$
+         & \verb|\mathfrak{ABCdef}|
+         &\pai{eufrak}                \\
+-\fi
+ $\mathbb{ABC}$
+         & \verb|\mathbb{ABC}|
+         &\pai{amsfonts} or \textsf{amssymb}        \\

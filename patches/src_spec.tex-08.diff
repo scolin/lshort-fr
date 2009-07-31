@@ -1,0 +1,11 @@
+--- a/src/spec.tex
++++ b/src/spec.tex
+@@ -221,7 +221,7 @@ included into the document at the point where \LaTeX{} finds
+   \ci{printindex}
+ \end{lscommand}
+ 
+-The \pai{showidx} package which comes with \LaTeXe{} prints out all
++The \pai{showidx} package that comes with \LaTeXe{} prints out all
+ index entries in the left margin of the text. This is quite useful for
+ proofreading a document and verifying the index.
+    

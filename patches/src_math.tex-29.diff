@@ -1,0 +1,13 @@
+--- a/src/math.tex
++++ b/src/math.tex
+@@ -594,8 +594,8 @@ This is my interesting theorem\\
+ \verb|\end{|\emph{name}\verb|}|     
+ \end{code}
+ 
+-This should be enough theory. The following examples will hopefully
+-remove the final remains of doubt and make it clear that the
++This should be enough theory. The following examples should
++remove any remaining doubt, and make it clear that the
+ \verb|\newtheorem| environment is way too complex to understand.
+ \begin{example}
+ % definitions for the document

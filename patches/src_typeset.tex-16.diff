@@ -1,0 +1,14 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -292,9 +292,9 @@ http://www.rich.edu/\~{}bush \\
+ http://www.clever.edu/$\sim$demo
+ \end{example}  
+  
+-\subsection{Degree Symbol ($\circ$)}
++\subsection{Degree Symbol \texorpdfstring{($\circ$)}{}}
+ 
+-How to print a \wi{degree symbol} in \LaTeX{}?
++The following example shows how to print a \wi{degree symbol} in \LaTeX{}:
+ 
+ \begin{example}
+ It's $-30\,^{\circ}\mathrm{C}$.

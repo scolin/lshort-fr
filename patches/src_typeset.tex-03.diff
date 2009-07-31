@@ -1,0 +1,11 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -62,7 +62,7 @@ and the least well understood physical formula.
+ 
+ 
+ % Example 2
+-\ldots from which follows Kirchoff's current law:
++\ldots from which follows Kirchhoff's current law:
+ \begin{equation} 
+   \sum_{k=1}^{n} I_k = 0 \; .
+ \end{equation} 

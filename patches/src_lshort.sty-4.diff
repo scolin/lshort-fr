@@ -1,0 +1,34 @@
+--- a/src/lshort.sty
++++ b/src/lshort.sty
+@@ -118,25 +118,12 @@
+ % Should work if AMS is not available
+ %
+ 
+-% we have no PS versions of the rsfs fonts ... so this is a nogo for pdf
+-\ifx\HyPsd@pageref\undefined
+-%\ifx\pdfoutput\undefined % We're not running pdftex
+-\IfFileExists{mathrsfs.sty}
+-  {\RequirePackage{mathrsfs}\let\MathRSFS\mathscr\let\mathscr\relax}{}
+-\fi
+-\IfFileExists{amssymb.sty}
+-  {\let\noAMS\relax \RequirePackage{amssymb}}
+-  {\def\noAMS{\endinput}\RequirePackage{latexsym}}
+-\IfFileExists{eucal.sty}
+-  {\RequirePackage[mathscr]{eucal}}
+-  {\IfFileExists{euscript.sty}
+-  {\RequirePackage{euscript}}{}}
+-%\IfFileExists{eufrak.sty}
+-%  {\RequirePackage{eufrak}}{}
+-\IfFileExists{amsbsy.sty}
+-  {\RequirePackage{amsbsy}}{}
+-
+-
++%% we have no PS versions of the rsfs fonts ... so this is a nogo for pdf
++%\ifx\HyPsd@pageref\undefined
++\RequirePackage{mathrsfs}
++%\fi
++\RequirePackage{latexsym}
++\RequirePackage[mathcal]{euscript}
+ %
+ % Print |--| to show a distance
+ %

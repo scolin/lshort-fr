@@ -1,0 +1,11 @@
+--- a/src/custom.tex
++++ b/src/custom.tex
+@@ -109,7 +109,7 @@ There are some points to note about whitespace following \LaTeX{} commands. See
+ page \pageref{whitespace} for more information.
+ 
+ \subsection{New Environments}
+-Similar to the \verb|\newcommand| command, there is also a command
++Just as with the \verb|\newcommand| command, there is a command
+ to create your own environments. The \ci{newenvironment} command uses the
+ following syntax:
+ 

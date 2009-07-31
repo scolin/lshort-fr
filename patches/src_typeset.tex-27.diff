@@ -1,0 +1,15 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -594,9 +594,9 @@ sentence ending, since periods after uppercase letters normally occur in
+ abbreviations.
+ 
+ Any exception from these assumptions has to be specified by the
+-author. A backslash in front of a space generates a space which will
+-not be enlarged. A tilde~`\verb|~|' character generates a space which cannot be
+-enlarged and which additionally prohibits a linebreak. The command
++author. A backslash in front of a space generates a space that will
++not be enlarged. A tilde~`\verb|~|' character generates a space that cannot be
++enlarged and additionally prohibits a line break. The command
+ \verb|\@| in front of a period specifies that this period terminates a
+ sentence even when it follows an uppercase letter.
+ \cih{"@} \index{~@ \verb.~.} \index{tilde@tilde ( \verb.~.)}

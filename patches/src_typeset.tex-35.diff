@@ -1,0 +1,11 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -819,7 +819,7 @@ Please note the difference between telling \LaTeX{} to
+ \ci{end}\verb|{|\emph{environment}\verb|}|
+ \end{lscommand}
+ \noindent Where \emph{environment} is the name of the environment. Environments can be
+-called several times within each other as long as the calling order is
++nested within each other as long as the correct nesting order is
+ maintained.
+ \begin{code}
+ \verb|\begin{aaa}...\begin{bbb}...\end{bbb}...\end{aaa}|

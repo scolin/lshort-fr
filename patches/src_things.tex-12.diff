@@ -1,0 +1,11 @@
+--- a/src/things.tex
++++ b/src/things.tex
+@@ -304,7 +304,7 @@ example: Supercal%
+ \end{example}
+ 
+ The \texttt{\%} character can also be used to split long input lines where no
+-whitespace or linebreaks are allowed.
++whitespace or line breaks are allowed.
+ 
+ For longer comments you could use the \ei{comment} environment
+ provided by the \pai{verbatim} package. This means, to use the

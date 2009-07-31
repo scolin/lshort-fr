@@ -1,0 +1,17 @@
+--- a/src/contrib.tex
++++ b/src/contrib.tex
+@@ -116,10 +116,10 @@ and Mikhail~Zotov.      %zotov@eas.npi.msu.su 3.1
+ 
+ \pagebreak
+ \endinput
+-%%% Local Variables: 
+-%%% mode: latex
+-%%% TeX-master: "lshort"
+-%%% End: 
++%
++
+ % Local Variables:
++% TeX-master: "lshort2e"
++% mode: latex
+ % mode: flyspell
+ % End:

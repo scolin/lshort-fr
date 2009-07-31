@@ -1,0 +1,11 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -972,6 +972,8 @@ within parameters of other commands.
+ 
+ \subsection{Tabular}
+ 
++\newcommand{\mfr}[1]{\framebox{\rule{0pt}{0.7em}\texttt{#1}}}
++
+ The \ei{tabular} environment can be used to typeset beautiful
+ \wi{table}s with optional horizontal and vertical lines. \LaTeX{}
+ determines the width of the columns automatically.

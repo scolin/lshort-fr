@@ -1,0 +1,11 @@
+--- a/src/things.tex
++++ b/src/things.tex
+@@ -355,7 +355,7 @@ the end of the document you add the
+ \begin{code}
+ \verb|\end{document}|
+ \end{code}
+-command, which tells \LaTeX{} to call it a day. Anything which
++command, which tells \LaTeX{} to call it a day. Anything that
+ follows this command will be ignored by \LaTeX.
+ 
+ Figure~\ref{mini} shows the contents of a minimal \LaTeXe{} file. A

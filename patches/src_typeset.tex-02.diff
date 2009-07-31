@@ -1,0 +1,18 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -28,11 +28,11 @@ then derives the typographical form of the text according to the
+ 
+ The most important text unit in \LaTeX{} (and in typography) is the
+ \wi{paragraph}.  We call it ``text unit'' because a paragraph is the
+-typographical form which should reflect one coherent thought, or one
+-idea.  You will learn in the following sections, how you can force
+-linebreaks with e.g.{} \texttt{\bs\bs} and paragraph breaks with e.g.{} 
++typographical form that should reflect one coherent thought, or one
++idea.  You will learn in the following sections how you can force
++line breaks with e.g.{} \texttt{\bs\bs}, and paragraph breaks with e.g.{} 
+ leaving an empty line in the source code.  Therefore, if a new thought
+-begins, a new paragraph should begin, and if not, only linebreaks
++begins, a new paragraph should begin, and if not, only line breaks
+ should be used.  If in doubt about paragraph breaks, think about your
+ text as a conveyor of ideas and thoughts.  If you have a paragraph
+ break, but the old thought continues, it should be removed.  If some

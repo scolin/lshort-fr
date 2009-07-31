@@ -1,0 +1,18 @@
+--- a/src/things.tex
++++ b/src/things.tex
+@@ -719,13 +719,13 @@ file:
+ 
+ \section{Big Projects}
+ When working on big documents, you might want to split the input file
+-into several parts. \LaTeX{} has two commands which help you to do
++into several parts. \LaTeX{} has two commands that help you to do
+ that.
+ 
+ \begin{lscommand}
+ \ci{include}\verb|{|\emph{filename}\verb|}|
+ \end{lscommand}
+-\noindent you can use this command in the document body to insert the
++\noindent You can use this command in the document body to insert the
+ contents of another file named \emph{filename.tex}. Note that \LaTeX{}
+ will start a new page
+ before processing the material input from \emph{filename.tex}.

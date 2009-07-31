@@ -1,0 +1,20 @@
+--- a/src/custom.tex
++++ b/src/custom.tex
+@@ -792,11 +792,13 @@ a certain minimum height.
+ \end{tabular}
+ \end{example}
+ 
+-%%% Local Variables: 
+-%%% mode: latex
+-%%% TeX-master: "lshort2e"
+-%%% End: 
++\bigskip
++{\flushright The End.\par}
++
++%
+ 
+ % Local Variables:
++% TeX-master: "lshort2e"
++% mode: latex
+ % mode: flyspell
+ % End:

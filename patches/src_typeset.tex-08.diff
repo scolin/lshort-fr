@@ -1,0 +1,25 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -141,17 +141,17 @@ linebreak.
+ \ci{nopagebreak}\verb|[|\emph{n}\verb|]|
+ \end{lscommand}
+ \noindent do what their names say. They enable the author to influence their
+-actions with the optional argument \emph{n}. It can be set to a number
+-between zero to four. By setting \emph{n} to a value below 4 you leave
++actions with the optional argument \emph{n}, which can be set to a number
++between zero and four. By setting \emph{n} to a value below 4, you leave
+ \LaTeX{} the option of ignoring your command if the result would look very
+ bad. Do not confuse these ``break'' commands with the ``new'' commands. Even
+ when you give a ``break'' command, \LaTeX{} still tries to even out the
+-right border of the page and the total length of the page as described in
++right border of the page and the total length of the page, as described in
+ the next section. If you really want to start a ``new line'', then use the
+ corresponding command. Guess its name!
+ 
+-\LaTeX{} always tries to produce the best linebreaks possible. If it
+-cannot find a way to break the lines in a manner which meets its high
++\LaTeX{} always tries to produce the best line breaks possible. If it
++cannot find a way to break the lines in a manner that meets its high
+ standards, it lets one line stick out on the right of the paragraph.
+ \LaTeX{} then complains (``\wi{overfull hbox}'') while processing the
+ input file. This happens most often when \LaTeX{} cannot find a

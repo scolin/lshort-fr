@@ -1,0 +1,20 @@
+--- a/src/lshort.sty
++++ b/src/lshort.sty
+@@ -179,12 +179,12 @@
+   \par\addvspace{3.0ex plus 0.8ex minus 0.5ex}\vskip -\parskip
+ %  Page \lsspageref{exa:\theexacnt}
+ \expandafter\ifx\csname r@exa\theexacnt\endcsname\relax\else
+-\ifx\pdfoutput\undefined % We're not running pdftex
+-  \ifodd\lsspageref{exa\theexacnt}\hspace*{0pt}\else\hspace*{-\outdent}\fi%
+-\else
+-% HyPsd@pageref internal hyperref command v6.69c
++%\ifx\pdfoutput\undefined % We're not running pdftex
++%  \ifodd\lsspageref{exa\theexacnt}\hspace*{0pt}\else\hspace*{-\outdent}\fi%
++%\else
++%% HyPsd@pageref internal hyperref command v6.69c
+   \ifodd\HyPsd@pageref{exa\theexacnt}\hspace*{0pt}\else\hspace*{-\outdent}\fi%
+-\fi
++%\fi
+ \fi
+ \makebox[\textwidth][l]{%
+ %\raisebox{-\height}[0pt][\totalheight]{%

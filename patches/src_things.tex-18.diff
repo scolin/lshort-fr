@@ -1,0 +1,34 @@
+--- a/src/things.tex
++++ b/src/things.tex
+@@ -396,24 +396,24 @@ Well, and here begins my lovely article.
+ \caption{Example of a Realistic Journal Article.} \label{document}
+ \end{figure}
+ 
+-\section{A Typical Commandline Session}
++\section{A Typical Command Line Session}
+ 
+ I bet you must be dying to try out the neat small \LaTeX{} input file
+ shown on page \pageref{mini}. Here is some help:
+ \LaTeX{} itself comes without a GUI or
+-fancy buttons to press. It is just a program which crunches away
+-on your input file. Some \LaTeX{} installations feature a graphical
+-front end where you can click \LaTeX{} into compiling your input file.
++fancy buttons to press. It is just a program that crunches away
++at your input file. Some \LaTeX{} installations feature a graphical
++front-end where you can click \LaTeX{} into compiling your input file.
+ But Real Men don't Click, so here is how to coax \LaTeX{} into
+-compiling your input file on a text based system. Please note, this
++compiling your input file on a text based system. Please note: this
+ description assumes that a working \LaTeX{} installation already sits
+-on your computer.
++on your computer (Real Men use Unix).
+ 
+ \begin{enumerate}
+ \item 
+   
+   Edit/Create your \LaTeX{} input file. This file must be plain ASCII
+-  text.  On Unix all the editors will create just that. On windows you
++  text.  On Unix all the editors will create just that. On Windows you
+   might want to make sure that you save the file in ASCII or
+   \emph{Plain Text} format.  When picking a name for your file, make
+   sure it bears the extension \eei{.tex}.

@@ -1,0 +1,11 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -660,7 +660,7 @@ and page numbers from the last compile cycle of the document. The command
+ \begin{lscommand} 
+ \ci{tableofcontents}
+ \end{lscommand} 
+-\noindent expands to a table of contents at the place where it
++\noindent expands to a table of contents at the place it
+ is issued. A new
+ document has to be compiled (``\LaTeX ed'') twice to get a
+ correct \wi{table of contents}. Sometimes it might be

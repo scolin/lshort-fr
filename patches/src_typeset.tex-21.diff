@@ -1,0 +1,15 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -430,9 +430,9 @@ encodings is included in the basic distribution of \LaTeXe. Check the
+ When using this package, you should consider
+ that other people might not be able to display your input files on
+ their computer, because they use a different encoding. For example,
+-the German umlaut \"a on a PC is encoded as 132, but on some Unix
+-systems using ISO-LATIN~1 it is encoded as 228. Therefore you should
+-use this feature with care. The following encodings may come handy,
++the German umlaut \"a on OS/2 is encoded as 132, but on Unix
++systems using ISO-LATIN~1 it is encoded as 228; therefore you should
++use this feature with care. The following encodings may come in handy,
+ depending on the type of system you are working on: 
+ 
+ \begin{center}

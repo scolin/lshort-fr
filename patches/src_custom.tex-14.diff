@@ -1,0 +1,13 @@
+--- a/src/custom.tex
++++ b/src/custom.tex
+@@ -415,8 +415,8 @@ paragraphs. These two commands increase the space between two paragraphs
+ while setting the paragraph indent to zero.  
+ 
+ The \texttt{plus} and \texttt{minus} parts of the length above tell
+-\TeX{}, that it can compress and expand the inter paragraph skip by the
+-amount specified if this is necessary to properly fit the paragraphs
++\TeX{} that it can compress and expand the inter paragraph skip by the
++amount specified, if this is necessary to properly fit the paragraphs
+ onto the page.
+ 
+ In continental Europe,

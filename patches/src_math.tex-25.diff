@@ -1,0 +1,11 @@
+--- a/src/math.tex
++++ b/src/math.tex
+@@ -518,7 +518,7 @@ is to look at the following examples.
+ \end{displaymath}  
+ \end{example}
+ 
+-\section{Math Font Size}
++\section{Math Font Size}\label{sec:fontsz}
+ 
+ \index{math font size} In math mode, \TeX{} selects the font size
+ according to the context. Superscripts, for example, get typeset in a

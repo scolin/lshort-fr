@@ -1,0 +1,26 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -1148,19 +1148,18 @@ or on a special floats page (\texttt{p}), and all this even if it does not
+ look that good (\texttt{!}). If no placement specifier is given, the standard
+ classes assume \verb|[tbp]|.
+ 
+-\LaTeX{} will place every float it encounters, according to the
++\LaTeX{} will place every float it encounters according to the
+ placement specifier supplied by the author. If a float cannot be
+ placed on the current page it is deferred either to the
+-\emph{figures} or the \emph{tables} queue\footnote{These are fifo -
+-  `first in first out' queues!}.  When a new page is started,
++\emph{figures} or the \emph{tables} queue.\footnote{These are FIFO---`first in first out'---queues!}  When a new page is started,
+ \LaTeX{} first checks if it is possible to fill a special `float'
+ page with floats from the queues. If this is not possible, the first
+ float on each queue is treated as if it had just occurred in the
+ text: \LaTeX{} tries again to place it according to its
+-respective placement specifiers (except `h' which is no longer
++respective placement specifiers (except `h,' which is no longer
+ possible).  Any new floats occurring in the text get placed into the
+ appropriate queues. \LaTeX{} strictly maintains the original order of
+-appearance for each type of float. That's why a figure which cannot
++appearance for each type of float. That's why a figure that cannot
+ be placed pushes all further figures to the end of the document.
+ Therefore:
+ 

@@ -1,0 +1,24 @@
+--- a/src/things.tex
++++ b/src/things.tex
+@@ -185,16 +185,16 @@ able to fully grasp the concept of Logical Markup.
+ \section{\LaTeX{} Input Files}
+ 
+ The input for \LaTeX{} is a plain \texttt{ASCII} text file. You can create it
+-with any text editor. It contains the text of the document as well as
+-the commands which tell \LaTeX{} how to typeset the text.
++with any text editor. It contains the text of the document, as well as
++the commands that tell \LaTeX{} how to typeset the text.
+ 
+ \subsection{Spaces}
+ 
+-``Whitespace'' characters such as blank or tab are
++``Whitespace'' characters, such as blank or tab, are
+ treated uniformly as ``\wi{space}'' by \LaTeX{}. \emph{Several
+   consecutive} \wi{whitespace} characters are treated as \emph{one}
+-``space''.  Whitespace at the start of a line is generally ignored, and
+-a single linebreak is treated as ``whitespace''.
++``space.''  Whitespace at the start of a line is generally ignored, and
++a single line break is treated as ``whitespace.''
+ \index{whitespace!at the start of a line}
+ 
+ An empty line between two lines of text defines the end of a

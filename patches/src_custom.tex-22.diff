@@ -1,0 +1,18 @@
+--- a/src/custom.tex
++++ b/src/custom.tex
+@@ -595,12 +595,12 @@ following commands into the document preamble:
+ \verb|\addtolength{\textwidth}{1cm}|
+ \end{code}
+ 
+-In this context, you might want to look at the \pai{calc} package,
+-it allows you to use arithmetic operations in the argument of setlength
++In this context, you might want to look at the \pai{calc} package.
++It allows you to use arithmetic operations in the argument of \ci{setlength}
+ and other places where you can enter numeric values into function
+ arguments.
+ 
+-\section{More fun with lengths}
++\section{More Fun With Lengths}
+ 
+ Whenever possible, I avoid using absolute lengths in
+ \LaTeX{} documents. I rather try to base things on the width or height

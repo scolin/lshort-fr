@@ -1,0 +1,11 @@
+--- a/src/math.tex
++++ b/src/math.tex
+@@ -128,7 +128,7 @@ x^{2} \geq 0\qquad
+ 
+ \section{Grouping in Math Mode}
+ 
+-Most math mode commands act only on the next character. So if you
++Most math mode commands act only on the next character, so if you
+ want a command to affect several characters, you have to group them
+ together using curly braces: \verb|{...}|.
+ \begin{example}

@@ -1,0 +1,14 @@
+--- a/src/lshort.tex
++++ b/src/lshort.tex
+@@ -88,8 +88,10 @@
+ \include{custom}
+ \backmatter
+ \include{biblio}
+-\addcontentsline{toc}{chapter}{\numberline{}Index} 
++\refstepcounter{chapter}
++\addcontentsline{toc}{chapter}{Index} 
+ \printindex
++\refstepcounter{chapter}
+ \label{verylast}
+ \mbox{}
+ \end{document}

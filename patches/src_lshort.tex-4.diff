@@ -1,0 +1,13 @@
+--- a/src/lshort.tex
++++ b/src/lshort.tex
+@@ -98,6 +98,10 @@
+ 
+ 
+ 
++%
++
+ % Local Variables:
++% TeX-master: "lshort2e"
++% mode: latex
+ % mode: flyspell
+ % End:

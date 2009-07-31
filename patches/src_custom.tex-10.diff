@@ -1,0 +1,16 @@
+--- a/src/custom.tex
++++ b/src/custom.tex
+@@ -182,11 +182,11 @@ your document preamble into a separate file with a name ending in
+ file. \verb|\ProvidesPackage| tells \LaTeX{} the name of the package
+ and will allow it to issue a sensible error message when you try to
+ include a package twice. Figure~\ref{package} shows a small example
+-package which contains the commands defined in the examples above.
++package that contains the commands defined in the examples above.
+ 
+ \section{Fonts and Sizes}
+ 
+-\subsection{Font changing Commands}
++\subsection{Font Changing Commands}
+ \index{font}\index{font size} \LaTeX{} chooses the appropriate font
+ and font size based on the logical structure of the document
+ (sections, footnotes, \ldots).  In some cases, one might like to change

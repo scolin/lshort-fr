@@ -1,0 +1,11 @@
+--- a/src/spec.tex
++++ b/src/spec.tex
+@@ -230,7 +230,7 @@ proofreading a document and verifying the index.
+ 
+ The \pai{fancyhdr} package,\footnote{Available from
+   \texttt{CTAN:/tex-archive/macros/latex/contrib/supported/fancyhdr}.} written by
+-Piet van Oostrum, provides a few simple commands which allow you to
++Piet van Oostrum, provides a few simple commands that allow you to
+ customize the header and footer lines of your document.  If you look
+ at the top of this page, you can see a possible application of this
+ package.

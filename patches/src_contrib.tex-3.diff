@@ -1,0 +1,15 @@
+--- a/src/contrib.tex
++++ b/src/contrib.tex
+@@ -77,9 +77,12 @@ Christian Kern,         %ck@unixen.hrz.uni-oldenburg.de 2.1
+ J\"org~Knappen,         %knappen@vkpmzd.kph.uni-mainz.de 0.1
+ Kjetil~Kjernsmo,        %<kjetil.kjernsmo@astro.uio.no> 3.2
+ Maik~Lehradt,           %greek@uni-paderborn.de 0.1
++R\'emi~Letot,           % <r_letot@yahoo.com>
++Johan~Lundberg,         %p99jlu@physto.se
+ Alexander~Mai,          %Alexander.Mai@physik.tu-darmstadt.de 3.8
+ Martin~Maechler,        %<maechler@stat.math.ethz.ch> 2.2
+ Aleksandar~S~Milosevic, % <aleksandar.milosevic@yale.edu>
++Henrik~Mitsch,          % <Henrik.Mitsch@gmx.at>
+ Claus~Malten,           %GONE <ASI138%BITNET.DJUKFA11@BITNET.CEARN> 1.1
+ Kevin~Van~Maren,        % <vanmaren@fast.cs.utah.edu>  24 Nov 1999
+ Lenimar~Nunes~de~Andrade, % <lenimar@mat.ufpb.br> Fri, 12 Nov 1999
