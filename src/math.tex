@@ -195,7 +195,7 @@ The commands \ci{overbrace} and \ci{underbrace} create
 long \textbf{horizontal braces} over or under an expression.
 \index{horizontal!brace}
 \begin{example}
-$\underbrace{ a+b+\cdots+z }_{26}$
+$\underbrace{a+b+\cdots+z}_{26}$
 \end{example}
 
 \index{mathematical!accents} To add mathematical accents such as small
@@ -238,12 +238,13 @@ font, and not in italics as variables are, so \LaTeX{} supplies the
 following commands to typeset the most important function names:
 \index{mathematical!functions}
 
-\begin{tabular}{lllllll}
-\ci{arccos} &  \ci{cos}  &  \ci{csc} &  \ci{exp} &  \ci{ker}    & \ci{limsup} & \ci{min} \\
-\ci{arcsin} &  \ci{cosh} &  \ci{deg} &  \ci{gcd} &  \ci{lg}     & \ci{ln}     & \ci{Pr}  \\
-\ci{arctan} &  \ci{cot}  &  \ci{det} &  \ci{hom} &  \ci{lim}    & \ci{log}    & \ci{sec} \\
-\ci{arg}    &  \ci{coth} &  \ci{dim} &  \ci{inf} &  \ci{liminf} & \ci{max}    & \ci{sin} \\
-\ci{sinh} & \ci{sup} & \ci{tan} & \ci{tanh}\\
+\begin{tabular}{llllll}
+\ci{arccos} &  \ci{cos}  &  \ci{csc} &  \ci{exp} &  \ci{ker}    & \ci{limsup} \\
+\ci{arcsin} &  \ci{cosh} &  \ci{deg} &  \ci{gcd} &  \ci{lg}     & \ci{ln}     \\
+\ci{arctan} &  \ci{cot}  &  \ci{det} &  \ci{hom} &  \ci{lim}    & \ci{log}    \\
+\ci{arg}    &  \ci{coth} &  \ci{dim} &  \ci{inf} &  \ci{liminf} & \ci{max}    \\
+\ci{sinh}   & \ci{sup}   &  \ci{tan}  & \ci{tanh}&  \ci{min}    & \ci{Pr}     \\
+\ci{sec}    & \ci{sin} \\
 \end{tabular}
 
 \begin{example}
@@ -312,7 +313,8 @@ the \ci{substack} command and the \ei{subarray} environment:
 \begin{displaymath}
 \sum_{\substack{0<i<n \\ 1<j<m}}
    P(i,j) =
-\sum_{\begin{subarray}{l} i\in I\\
+\sum_{\begin{subarray}{l}
+         i\in I\\
          1<j<m
       \end{subarray}}     Q(i,j)
 \end{displaymath}
@@ -358,7 +360,8 @@ which can be done using the commands \ci{big}, \ci{Big}, \ci{bigg} and
 \begin{example}
 $\Big( (x+1) (x-1) \Big) ^{2}$\\
 $\big(\Big(\bigg(\Bigg($\quad
-$\big\}\Big\}\bigg\}\Bigg\}$\quad
+$\big\}\Big\}\bigg\}\Bigg\}$
+\quad
 $\big\|\Big\|\bigg\|\Bigg\|$
 \end{example}
 
@@ -491,7 +494,7 @@ are the most common ways to achieve this.
 \sin x & = & x -\frac{x^{3}}{3!}
      +\frac{x^{5}}{5!}-{}
                     \nonumber\\
- & & {}-\frac{x^{7}}{7!}+{}\cdots
+&& {}-\frac{x^{7}}{7!}+{}\cdots
 \end{eqnarray}}
 \end{example}
 \begin{example}
@@ -569,7 +572,6 @@ size. In math mode, this is set with the following four commands:
 Changing styles also affects the way limits are displayed.
 \begin{example}
 \begin{displaymath}
-\mathop{\mathrm{corr}}(X,Y)= 
  \frac{\displaystyle 
    \sum_{i=1}^n(x_i-\overline x)
    (y_i-\overline y)} 
@@ -592,7 +594,7 @@ respectively.
 
 When writing mathematical documents, you probably need a way to
 typeset ``Lemmas'', ``Definitions'', ``Axioms'' and similar
-structures. \LaTeX{} supports this with the command
+structures.
 \begin{lscommand}
 \ci{newtheorem}\verb|{|\emph{name}\verb|}[|\emph{counter}\verb|]{|%
          \emph{text}\verb|}[|\emph{section}\verb|]|
@@ -616,22 +618,37 @@ This is my interesting theorem\\
 \verb|\end{|\emph{name}\verb|}|     
 \end{code}
 
+The \pai{amsthm} package provides the \ci{newtheoremstyle}\verb|{|\emph{style}\verb|}|
+command which lets you define what the theorem is all about by picking
+from three predefined styles: \texttt{definition} (fat title, roman body),
+\texttt{plain} (fat title, italic body) or \texttt{remark} (italic
+title, roman body).
+
 This should be enough theory. The following examples should
 remove any remaining doubt, and make it clear that the
 \verb|\newtheorem| environment is way too complex to understand.
+
+% actually define things
+\theoremstyle{definition} \newtheorem{law}{Law}
+\theoremstyle{plain}      \newtheorem{jury}[law]{Jury}
+\theoremstyle{remark}     \newtheorem*{marg}{Margaret}
+
+First define the theorems:
+
+\begin{verbatim}
+\theoremstyle{definition} \newtheorem{law}{Law}
+\theoremstyle{plain}      \newtheorem{jury}[law]{Jury}
+\theoremstyle{remark}     \newtheorem*{marg}{Margaret}
+\end{verbatim}
+
 \begin{example}
-% definitions for the document
-% preamble
-\newtheorem{law}{Law}
-\newtheorem{jury}[law]{Jury}
-%in the document
 \begin{law} \label{law:box}
 Don't hide in the witness box
 \end{law}
 \begin{jury}[The Twelve]
 It could be you! So beware and
 see law~\ref{law:box}\end{jury}
-\begin{law}No, No, No\end{law}
+\begin{marg}No, No, No\end{marg}
 \end{example}
 
 The ``Jury'' theorem uses the same counter as the ``Law''
@@ -652,6 +669,25 @@ someone will do it.\end{mur}
 The ``Murphy'' theorem gets a number that is linked to the number of
 the current section. You could also use another unit, for example chapter or
 subsection.
+
+The \pai{amsthm} also provides the \ei{proof}.
+
+\begin{example}
+\begin{proof}
+ Trivial, use
+\[E=mc^2\]
+\end{proof}
+\end{example}
+
+With the command \ci{qedhere} you can move the `end of proof symbol'. symbol around for
+situations where it would end up alone on a line.
+
+\begin{example}
+\begin{proof}
+ Trivial, use
+\[E=mc^2 \qedhere\]
+\end{proof}
+\end{example}
 
 \section{Bold Symbols}
 \index{bold symbols}

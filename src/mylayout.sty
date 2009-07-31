@@ -173,11 +173,11 @@
 \newcount\PositionY
 \newcount\ArrowLength
 \newcommand\layout{%
-  \@layout
+  \@mylayout
   \if@twoside
-    \@layout
+    \@mylayout
   \fi}
-\newcommand\@layout{%
+\newcommand\@mylayout{%
   \thispagestyle{empty}
   \if@twoside
     \ifodd\count\z@

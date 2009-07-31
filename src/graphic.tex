@@ -93,9 +93,9 @@ B\'ezier curves are an exception. They are drawn with the command
 \begin{lscommand}
 \ci{qbezier}\verb|(|$x_1,y_1$\verb|)(|$x_2,y_2$\verb|)(|$x_3,y_3$\verb|)|
 \end{lscommand}
+\newpage
 
 \subsection{Line Segments}
-
 \begin{example}
 \setlength{\unitlength}{5cm}
 \begin{picture}(1,1)
@@ -147,7 +147,7 @@ horizontal coordinate in all other cases.
 \subsection{Arrows}
 
 \begin{example}
-\setlength{\unitlength}{1mm}
+\setlength{\unitlength}{0.75mm}
 \begin{picture}(60,40)
   \put(30,20){\vector(1,0){30}}
   \put(30,20){\vector(4,1){20}}
@@ -230,7 +230,7 @@ See \graphicsinlatex\ for examples and Java source files.
 \subsection{Text and Formulas}
 
 \begin{example}
-\setlength{\unitlength}{1cm}
+\setlength{\unitlength}{0.8cm}
 \begin{picture}(6,5)
   \thicklines
   \put(1,0.5){\line(2,1){3}}
@@ -251,26 +251,26 @@ See \graphicsinlatex\ for examples and Java source files.
 As this example shows, text and formulas can be written into a \ei{picture} environment with
 the \ci{put} command in the usual way.
 
-\subsection{The \ci{multiput} and the \ci{linethickness} command}
+\subsection{\ci{multiput} and \ci{linethickness}}
 
 \begin{example}
 \setlength{\unitlength}{2mm}
 \begin{picture}(30,20)
   \linethickness{0.075mm}
-  \multiput(0,0)(1,0){31}%
+  \multiput(0,0)(1,0){26}%
     {\line(0,1){20}}
   \multiput(0,0)(0,1){21}%
-    {\line(1,0){30}}
+    {\line(1,0){25}}
   \linethickness{0.15mm}    
-  \multiput(0,0)(5,0){7}%
+  \multiput(0,0)(5,0){6}%
     {\line(0,1){20}}
   \multiput(0,0)(0,5){5}%
-    {\line(1,0){30}}
+    {\line(1,0){25}}
   \linethickness{0.3mm}    
-  \multiput(5,0)(10,0){3}%
+  \multiput(5,0)(10,0){2}%
     {\line(0,1){20}}
   \multiput(0,5)(0,10){2}%
-    {\line(1,0){30}}
+    {\line(1,0){25}}
 \end{picture}
 \end{example}
 The command
@@ -282,10 +282,10 @@ the number of objects, and the object to be drawn. The \ci{linethickness} comman
 horizontal and vertical line segments, but neither to oblique line segments, nor to circles. 
 It does, however, apply to quadratic B\'ezier curves!
 
-\subsection{Ovals. The \ci{thinlines} and the \ci{thicklines} command}
+\subsection{Ovals}
 
 \begin{example}
-\setlength{\unitlength}{1cm}
+\setlength{\unitlength}{0.75cm}
 \begin{picture}(6,4)
   \linethickness{0.075mm}
   \multiput(0,0)(1,0){7}%
@@ -327,7 +327,7 @@ apply to oblique line segments as well as to circles and ovals.
 \begin{example}
 \setlength{\unitlength}{0.5mm}
 \begin{picture}(120,168)
-\newsavebox{\foldera}% declaration
+\newsavebox{\foldera}
 \savebox{\foldera}
   (40,32)[bl]{% definition 
   \multiput(0,0)(0,28){2}
@@ -342,7 +342,7 @@ apply to oblique line segments as well as to circles and ovals.
   \put(20,29){\line(1,0){19}}
   \put(39,28){\oval(2,2)[tr]}  
 }
-\newsavebox{\folderb}% declaration
+\newsavebox{\folderb}
 \savebox{\folderb}
   (40,32)[l]{%         definition 
   \put(0,14){\line(1,0){8}}
@@ -383,7 +383,7 @@ about 3\,mm.
 \subsection{Quadratic B\'ezier Curves}
 
 \begin{example}
-\setlength{\unitlength}{1cm}
+\setlength{\unitlength}{0.8cm}
 \begin{picture}(6,4)
   \linethickness{0.075mm}
   \multiput(0,0)(1,0){7}
@@ -430,35 +430,35 @@ the necessary \ci{qbezier} command line.
 \subsection{Catenary}
 
 \begin{example}
-\setlength{\unitlength}{1.3cm}
+\setlength{\unitlength}{1cm}
 \begin{picture}(4.3,3.6)(-2.5,-0.25)
-  \put(-2,0){\vector(1,0){4.4}}
-  \put(2.45,-.05){$x$}
-  \put(0,0){\vector(0,1){3.2}}
-  \put(0,3.35){\makebox(0,0){$y$}}
-  \qbezier(0.0,0.0)(1.2384,0.0)
-    (2.0,2.7622) 
-  \qbezier(0.0,0.0)(-1.2384,0.0)
-    (-2.0,2.7622)
-  \linethickness{.075mm}
-  \multiput(-2,0)(1,0){5}
-    {\line(0,1){3}}
-  \multiput(-2,0)(0,1){4}
-    {\line(1,0){4}}
-  \linethickness{.2mm}
-  \put( .3,.12763){\line(1,0){.4}}
-  \put(.5,-.07237){\line(0,1){.4}}
-  \put(-.7,.12763){\line(1,0){.4}}
-  \put(-.5,-.07237){\line(0,1){.4}}
-  \put(.8,.54308){\line(1,0){.4}}
-  \put(1,.34308){\line(0,1){.4}}
-  \put(-1.2,.54308){\line(1,0){.4}}
-  \put(-1,.34308){\line(0,1){.4}}
-  \put(1.3,1.35241){\line(1,0){.4}}
-  \put(1.5,1.15241){\line(0,1){.4}}
-  \put(-1.7,1.35241){\line(1,0){.4}}
-  \put(-1.5,1.15241){\line(0,1){.4}}
-  \put(-2.5,-0.25){\circle*{0.2}}
+\put(-2,0){\vector(1,0){4.4}}
+\put(2.45,-.05){$x$}
+\put(0,0){\vector(0,1){3.2}}
+\put(0,3.35){\makebox(0,0){$y$}}
+\qbezier(0.0,0.0)(1.2384,0.0)
+  (2.0,2.7622) 
+\qbezier(0.0,0.0)(-1.2384,0.0)
+  (-2.0,2.7622)
+\linethickness{.075mm}
+\multiput(-2,0)(1,0){5}
+  {\line(0,1){3}}
+\multiput(-2,0)(0,1){4}
+  {\line(1,0){4}}
+\linethickness{.2mm}
+\put( .3,.12763){\line(1,0){.4}}
+\put(.5,-.07237){\line(0,1){.4}}
+\put(-.7,.12763){\line(1,0){.4}}
+\put(-.5,-.07237){\line(0,1){.4}}
+\put(.8,.54308){\line(1,0){.4}}
+\put(1,.34308){\line(0,1){.4}}
+\put(-1.2,.54308){\line(1,0){.4}}
+\put(-1,.34308){\line(0,1){.4}}
+\put(1.3,1.35241){\line(1,0){.4}}
+\put(1.5,1.15241){\line(0,1){.4}}
+\put(-1.7,1.35241){\line(1,0){.4}}
+\put(-1.5,1.15241){\line(0,1){.4}}
+\put(-2.5,-0.25){\circle*{0.2}}
 \end{picture}
 \end{example}
 
@@ -480,7 +480,7 @@ The picture is defined in convenient ``mathematical'' coordinates, whereas by th
 \subsection{Rapidity in the Special Theory of Relativity}
 
 \begin{example}
-\setlength{\unitlength}{1cm}
+\setlength{\unitlength}{0.8cm}
 \begin{picture}(6,4)(-3,-2)
   \put(-2.5,0){\vector(1,0){5}}
   \put(2.7,-0.1){$\chi$}
@@ -587,15 +587,16 @@ arrows. This can be done by putting labels on them, or changing their appearance
 \shorthandoff{"}
 \begin{displaymath}
 \xymatrix{
- \bullet\ar@{->}[rr] && \bullet\\
- \bullet\ar@{.<}[rr] && \bullet\\
- \bullet\ar@{~)}[rr] && \bullet\\
- \bullet\ar@{=(}[rr] && \bullet\\
- \bullet\ar@{~/}[rr]  && \bullet\\
- \bullet\ar@{^{(}->}[rr]  && \bullet\\
- \bullet\ar@2{->}[rr]  && \bullet\\
- \bullet\ar@3{->}[rr]  && \bullet\\
- \bullet\ar@{=+}[rr]   && \bullet
+\bullet\ar@{->}[rr] && \bullet\\
+\bullet\ar@{.<}[rr] && \bullet\\
+\bullet\ar@{~)}[rr] && \bullet\\
+\bullet\ar@{=(}[rr] && \bullet\\
+\bullet\ar@{~/}[rr] && \bullet\\
+\bullet\ar@{^{(}->}[rr] &&
+                       \bullet\\
+\bullet\ar@2{->}[rr] && \bullet\\
+\bullet\ar@3{->}[rr] && \bullet\\
+\bullet\ar@{=+}[rr]  && \bullet
 }
 \end{displaymath}
 \shorthandon{"}

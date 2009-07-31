@@ -137,7 +137,7 @@ line break.
 \begin{lscommand}
 \ci{linebreak}\verb|[|\emph{n}\verb|]|,
 \ci{nolinebreak}\verb|[|\emph{n}\verb|]|, 
-\ci{pagebreak}\verb|[|\emph{n}\verb|]| and
+\ci{pagebreak}\verb|[|\emph{n}\verb|]|,
 \ci{nopagebreak}\verb|[|\emph{n}\verb|]|
 \end{lscommand}
 \noindent do what their names say. They enable the author to influence their
@@ -244,10 +244,10 @@ text strings:
 \begin{tabular}{@{}lll@{}}
 Command&Example&Description\\
 \hline
-\ci{today} & \today   &  Current date in the current language\\
-\ci{TeX} & \TeX       & The name of your favorite typesetter\\
+\ci{today} & \today   & Current date\\
+\ci{TeX} & \TeX       & Your favorite typesetter\\
 \ci{LaTeX} & \LaTeX   & The Name of the Game\\
-\ci{LaTeXe} & \LaTeXe & The current incarnation of \LaTeX\\
+\ci{LaTeXe} & \LaTeXe & The current incarnation\\
 \end{tabular}
 
 \section{Special Characters and Symbols}
@@ -257,14 +257,15 @@ Command&Example&Description\\
 You should \emph{not} use the \verb|"| for \wi{quotation marks}
 \index{""@\texttt{""}} as you would on a typewriter.  In publishing
 there are special opening and closing quotation marks.  In \LaTeX{},
-use two~\verb|`|s (grave accent) for opening quotation marks and
-two~\verb|'|s (vertical quote) for closing quotation marks. For single
+use two~\textasciigrave~(grave accent) for opening quotation marks and
+two~\textquotesingle~(vertical quote) for closing quotation marks. For single
 quotes you use just one of each.
 \begin{example}
 ``Please press the `x' key.''
 \end{example}
-Yes I know the rendering is not ideal, it's really a back-tick or grave accent for
-opening quotes and vertical quote for closing, despite what the font chosen might suggest.
+Yes I know the rendering is not ideal, it's really a back-tick or grave accent
+(\textasciigrave) for
+opening quotes and vertical quote (\textquotesingle) for closing, despite what the font chosen might suggest.
 
 \subsection{Dashes and Hyphens}
 
@@ -306,7 +307,7 @@ super-conduct.
 
 The \pai{textcomp} package makes the degree symbol also available as \ci{textcelsius}.
 
-\subsection{The Euro Currency Symbol \texorpdfstring{(\euro{})}{}}
+\subsection{The Euro Currency Symbol \texorpdfstring{(\officialeuro)}{}}
 
 When writing about money these days, you need the Euro symbol. Many current
 fonts contain a Euro symbol. After loading the \pai{textcomp} package in the preamble of your document
@@ -329,33 +330,34 @@ First the \pai{eurosym} package. It provides the official Euro symbol:
 If you prefer a Euro symbol that matches your font, use the option
 \texttt{gen} in place of the \texttt{official} option.
 
-If the Adobe Eurofonts are installed on your system (they are available for
-free from \url{ftp://ftp.adobe.com/pub/adobe/type/win/all}) you can use
-either the package \pai{europs} and the command \ci{EUR} (for a Euro symbol
-that matches the current font).
+%If the Adobe Eurofonts are installed on your system (they are available for
+%free from \url{ftp://ftp.adobe.com/pub/adobe/type/win/all}) you can use
+%either the package \pai{europs} and the command \ci{EUR} (for a Euro symbol
+%that matches the current font).
 % does not work
 % or the package
 % \pai{eurosans} and the command \ci{euro} (for the ``official Euro'').
 
 The \pai{marvosym} package also provides many different symbols, including a
-Euro, under the name \ci{EUR}. Its disadvantage is that it does not provide
+Euro, under the name \ci{EURtm}. Its disadvantage is that it does not provide
 slanted and bold variants of the Euro symbol.
 
 \begin{table}[!htbp]
 \caption{A bag full of Euro symbols} \label{eurosymb}
 \begin{lined}{10cm}
 \begin{tabular}{llccc}
-package    & command     & roman       & sans-serif      & typewriter \\
+LM+textcomp  &\verb+\texteuro+ & \huge\texteuro &\huge\sffamily\texteuro
+                                                &\huge\ttfamily\texteuro\\
 eurosym      &\verb+\euro+ & \huge\officialeuro &\huge\sffamily\officialeuro
-                                             & \huge\ttfamily\officialeuro\\
+                                                &\huge\ttfamily\officialeuro\\
 $[$gen$]$eurosym &\verb+\euro+ & \huge\geneuro  &\huge\sffamily\geneuro
-                                                & \huge\ttfamily\geneuro \\
-% En fait on appelle eurofont pour des conflits de noms...
-europs       &\verb+\EUR + & \huge\EURtm     &\huge\EURhv   & \huge\EURcr \\
-% this does not seem to work ... 
+                                                &\huge\ttfamily\geneuro\\
+%europs       &\verb+\EUR + & \huge\EURtm        &\huge\EURhv
+%                                                &\huge\EURcr\\
 %eurosans     &\verb+\euro+ & \huge\EUROSANS  &\huge\sffamily\EUROSANS
-%                                                & \huge\ttfamily\EUROSANS \\
-marvosym     &\verb+\EUR+  & \huge\mvchr164  &\huge\mvchr164 & \huge\mvchr164
+%                                             & \huge\ttfamily\EUROSANS \\
+marvosym     &\verb+\EURtm+  & \huge\mvchr101  &\huge\mvchr101
+                                               &\huge\mvchr101
 \end{tabular}
 \medskip
 \end{lined}
@@ -478,11 +480,12 @@ If you call babel with multiple languages
 \begin{lscommand}
 \ci{usepackage}\verb|[|\emph{languageA}\verb|,|\emph{languageB}\verb|]{babel}| 
 \end{lscommand}
-\noindent you have to use the command
+\noindent then the last language in the option list will be active (i.e.
+languageB) you can to use the command
 \begin{lscommand}
 \ci{selectlanguage}\verb|{|\emph{languageA}\verb|}|
 \end{lscommand}
-\noindent to set the current language.
+\noindent to change the active language.
 
 %Input Encoding
 \newcommand{\ieih}[1]{%
@@ -539,10 +542,10 @@ you might want to switch to unicode, using the \pai{ucs} package.
 
 \begin{lscommand}
 \ci{usepackage}\verb|{ucs}|\\ 
-\ci{usepackage}\verb|[|\iei{utf8}\verb|]{inputenc}| 
+\ci{usepackage}\verb|[|\iei{utf8x}\verb|]{inputenc}| 
 \end{lscommand}
 \noindent will enable you to create \LaTeX{} input files in 
-\iei{utf8}, a multi-byte encoding in which each character can be encoded in
+\iei{utf8x}, a multi-byte encoding in which each character can be encoded in
 as little as one byte and as many as four bytes. 
 
 Font encoding is a different matter. It defines at which position inside
@@ -699,7 +702,7 @@ text also is locked in a particular encoding world.
 \end{lined}
 \end{table}
 
-In German books you often find French quotation marks (\flqq guillemets\frqq).
+In German books you often find French quotation marks (\flqq guil\-le\-mets\frqq).
 German typesetters, however, use them differently. A quote in a German book
 would look like \frqq this\flqq. In the German speaking part of Switzerland,
 typesetters use \flqq guillemets\frqq~the same way the French do.
@@ -732,7 +735,7 @@ Korean text files are  EUC-KR and its upward compatible
 extension used in Korean MS-Windows, CP949/Windows-949/UHC.
 In these encodings each US-ASCII character represents its normal ASCII
 character similar to other ASCII compatible encodings such as
-ISO-8859-\textit{x}, EUC-JP, Shift\_JIS, and Big5. On the other hand, Hangul
+ISO-8859-\textit{x}, EUC-JP, Big5, or Shift\_JIS. On the other hand, Hangul
 syllables, Hanjas (Chinese characters as used in Korea), Hangul Jamos,
 Hiraganas, Katakanas, Greek and Cyrillic characters and other
 symbols and letters drawn from KS~X~1001 are represented by two
@@ -851,6 +854,50 @@ the \emph{H\LaTeX{} Guide}.  Check out the web site of the Korean
 There is also a Korean translation
 of this manual available.
 
+\subsection{Writing in Greek}
+\secby{Nikolaos Pothitos}{pothitos@di.uoa.gr}
+See table~\ref{preamble-greek} for the preamble you need to write in the
+\wi{Greek} \index{Greek} language.  This preamble enables hyphenation and
+changes all automatic text to Greek.\footnote{If you select the
+\texttt{utf8x}
+option for the package \texttt{inputenc}, you can type Greek and polytonic
+Greek
+unicode characters.}
+
+\begin{table}[btp]
+\caption{Preamble for Greek documents.} \label{preamble-greek}
+\begin{lined}{7cm}
+\begin{verbatim}
+\usepackage[english,greek]{babel}
+\usepackage[iso-8859-7]{inputenc}
+\end{verbatim}
+\bigskip
+\end{lined}
+\end{table}
+
+A set of new commands also becomes available, which allows you to write
+Greek input files more easily.  In order to temporarily switch to English
+and vice versa, one can use the commands \verb|\textlatin{|\emph{english
+text}\verb|}| and \verb|\textgreek{|\emph{greek text}\verb|}| that both take
+one argument which is then typeset using the requested font encoding. 
+Otherwise you can use the command \verb|\selectlanguage{...}| described in a
+previous section.  Check out table~\ref{sym-greek} for some Greek
+punctuation characters.  Use \verb|\euro| for the Euro symbol.
+
+\begin{table}[!htbp]
+\caption{Greek Special Characters.} \label{sym-greek}
+\begin{lined}{4cm}
+\selectlanguage{french}
+\begin{tabular}{*2{ll}}
+\verb|;| \hspace*{1ex}  &  $\cdot$ \hspace*{1ex}  &  \verb|?| \hspace*{1ex}&  ;   \\[1ex]
+\verb|((|               &  \og                    &  \verb|))|&  \fg \\[1ex]
+\verb|``|               &  `                      &  \verb|''| &  '   \\
+\end{tabular}
+\selectlanguage{english}
+\bigskip
+\end{lined}
+\end{table}
+
 
 \subsection{Support for Cyrillic}
 
@@ -859,7 +906,7 @@ Version~3.7h of \pai{babel} includes support for the
 \fei{T2*}~encodings and for typesetting Bulgarian, Russian and
 Ukrainian texts using Cyrillic letters.  
 
-Support for Cyrillic is based on standard \LaTeX{} mechanisms through 
+Support for Cyrillic is based on standard \LaTeX{} mechanisms plus
 the \pai{fontenc} and \pai{inputenc} packages. But, if you are going to
 use Cyrillics in math mode, you need to load \pai{mathtext} package
 before \pai{fontenc}:\footnote{If you use \AmS-\LaTeX{} packages, 
@@ -1074,7 +1121,7 @@ chapter headings and page numbering to work as you would expect it in
 a book:
 \begin{description}
 \item[\ci{frontmatter}] should be the very first command after
-  \verb|\begin{document}|. It will switch page numbering to Roman
+  the start of the document body (\verb|\begin{document}|). It will switch page numbering to Roman
     numerals and sections be non-enumerated. As if you were using 
     the starred sectioning commands (eg \verb|\chapter*{Preface}|)
     but the sections will still show up in the table of contents.
@@ -1138,8 +1185,8 @@ by people using \LaTeX.
  
 \section{Emphasized Words}
 
-If a text is typed using a typewriter, \texttt{important words are
-  emphasized by \underline{underlining} them.}
+If a text is typed using a typewriter, important words are
+  \texttt{emphasized by \underline{underlining} them.}
 \begin{lscommand}
 \ci{underline}\verb|{|\emph{text}\verb|}|
 \end{lscommand}
@@ -1215,8 +1262,9 @@ look silly.
 \item[Stupid] things will not
 become smart because they are
 in a list.
-\item[Smart] things, though, can be
-presented beautifully in a list.
+\item[Smart] things, though,
+can be presented beautifully
+in a list.
 \end{description}
 \end{enumerate}
 \end{example}
@@ -1264,9 +1312,9 @@ On average, no line should
 be longer than 66 characters.
 \end{quote}
 This is why \LaTeX{} pages have 
-such large borders by default and
-also why multicolumn print is
-used in newspapers.
+such large borders by default
+and also why multicolumn print
+is used in newspapers.
 \end{example}
 
 There are two similar environments: the \ei{quotation} and the
@@ -1496,7 +1544,7 @@ be treated as floating matter. Both float environments support an optional
 parameter
 \begin{lscommand}
 \verb|\begin{figure}[|\emph{placement specifier}\verb|]| or
-\verb|\begin{table}[|\emph{placement specifier}\verb|]|
+\verb|\begin{table}[|\ldots|]|
 \end{lscommand}
 \noindent called the \emph{placement specifier}. This parameter
 is used to tell \LaTeX{} about the locations to which the float
@@ -1508,7 +1556,7 @@ of \emph{float-placing permissions}. See Table~\ref{tab:permiss}.
 \noindent \begin{minipage}{\textwidth}
 \medskip
 \begin{center}
-\begin{tabular}{@{}cp{10cm}@{}}
+\begin{tabular}{@{}cp{8cm}@{}}
 Spec&Permission to place the float \ldots\\
 \hline
 \rule{0pt}{1.05em}\texttt{h} & \emph{here} at the very place in the text

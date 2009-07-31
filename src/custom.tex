@@ -34,7 +34,7 @@ commands and environments for this purpose. Now I can simply write:
 \end{lscommand}
 \end{example}
 
-In this example, I am using both a new environment called
+In this example, I am using both a new environment called\\
 \ei{lscommand}, which is responsible for drawing the box around the
 command, and a new command named \ci{ci}, which typesets the command
 name and makes a corresponding entry in the index. You can check
@@ -176,7 +176,8 @@ Same\\here.
 \begin{example}
 \newenvironment{correct}%
  {\noindent\ignorespaces}%
- {\par\noindent\ignorespacesafterend}
+ {\par\noindent%
+   \ignorespacesafterend}
 
 \begin{correct}
 No space\\to the left.
@@ -221,7 +222,8 @@ command to make the package available in your document.
 \begin{verbatim}
 % Demo Package by Tobias Oetiker
 \ProvidesPackage{demopack}
-\newcommand{\tnss}{The not so Short Introduction to \LaTeXe}
+\newcommand{\tnss}{The not so Short Introduction 
+                   to \LaTeXe}
 \newcommand{\txsit}[1]{The \emph{#1} Short 
                        Introduction to \LaTeXe}
 \newenvironment{king}{\begin{quote}}{\end{quote}}
@@ -393,8 +395,9 @@ is equivalent to a blank line}
 
 
 \begin{example}
-{\Large Don't read this! It is not
-true. You can believe me!\par}
+{\Large Don't read this! 
+ It is not true.
+ You can believe me!\par}
 \end{example}
 
 \begin{example}
@@ -428,9 +431,10 @@ typeset a special kind of information, you should use
 changing command.
 
 \begin{example}
-\newcommand{\oops}[1]{\textbf{#1}}
+\newcommand{\oops}[1]{%
+ \textbf{#1}}
 Do not \oops{enter} this room,
-it's occupied by a \oops{machine}
+it's occupied by \oops{machines}
 of unknown origin and purpose.
 \end{example}
 
@@ -470,7 +474,7 @@ spacing, and \verb|\linespread{1.6}| for ``double'' line spacing.  Normally
 the lines are not spread, so the default line spread factor
 is~1.\index{double line spacing}
 
-Note that the effect of the \ci{linespread} command is rather drastic and
+Note that the effect of the \ci{linespread} command is rather drastic and     
 not appropriate for published work. So if you have a good reason for
 changing the line spacing you might want to use the command:
 \begin{lscommand}
@@ -480,15 +484,16 @@ changing the line spacing you might want to use the command:
 \begin{example}
 {\setlength{\baselineskip}%
            {1.5\baselineskip}
-This paragraph is typeset with the
-baseline skip set to 1.5 of what
-it was before. Note the par command
-at the end of the paragraph.\par}
+This paragraph is typeset with
+the baseline skip set to 1.5 of
+what it was before. Note the par
+command at the end of the
+paragraph.\par}
 
-This paragraph has a clear purpose,
-it shows that after the curly brace
-has been closed, everything is back
-to normal.
+This paragraph has a clear
+purpose, it shows that after the
+curly brace has been closed,
+everything is back to normal.
 \end{example}
 
 \subsection{Paragraph Formatting}\label{parsp}
@@ -513,7 +518,7 @@ paragraphs are often separated by some space and not indented. But
 beware, this also has its effect on the table of contents. Its lines
 get spaced more loosely now as well. To avoid this, you might want to
 move the two commands from the preamble into your document to some
-place after the \verb|\tableofcontents| or to not use them at all,
+place below the command \verb|\tableofcontents| or to not use them at all,
 because you'll find that most professional books use indenting and not
 spacing to separate paragraphs.
 
@@ -634,7 +639,7 @@ vertical space without having to worry about exact numbers.
 
 \begin{figure}[!hp]
 \begin{center}
-\makeatletter\@layout\makeatother
+\makeatletter\@mylayout\makeatother
 \end{center}
 \vspace*{1.8cm}
 \caption{Page Layout Parameters.}

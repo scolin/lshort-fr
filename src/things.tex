@@ -39,9 +39,7 @@ more appropriate. Asked about this, Knuth wrote in the German Wikipedia:
 e, not the harder ch that follows the vowel a. In Russia, `tex' is a very
 common word, pronounced `tyekh'. But I believe the most proper pronunciation
 is heard in Greece, where you have the harsher ch of ach and Loch.}}
-
- or in the Scottish ``Loch.'' The ``ch'' originates from the Greek
-
+or in the Scottish ``Loch.'' The ``ch'' originates from the Greek
 alphabet where X is the letter ``ch'' or ``chi''. \TeX{} is also the first syllable
 of the Greek word texnologia (technology). In an ASCII environment, \TeX{}
 becomes \texttt{TeX}.
@@ -322,9 +320,9 @@ The \texttt{\%} character can also be used to split long input lines where no
 whitespace or line breaks are allowed.
 
 For longer comments you could use the \ei{comment} environment
-provided by the \pai{verbatim} package. This means, to use the
-\ei{comment} environment you have to add the command
-\verb|\usepackage{verbatim}| to the preamble of your document.
+provided by the \pai{verbatim} package. This means, that you have to add the
+line \verb|\usepackage{verbatim}| to the preamble of your document as
+explained below before you can use this command.
 
 \begin{example}
 This is another
@@ -408,7 +406,10 @@ Well, and here begins my lovely article.
 \end{document}
 \end{verbatim}
 \end{lined}
-\caption{Example of a Realistic Journal Article.} \label{document}
+\caption[Example of a Realistic Journal Article.]{Example of a Realistic
+Journal Article. Note that all the commands you see in this example will be
+explained later in the introduction.} \label{document}
+
 \end{figure}
 
 \section{A Typical Command Line Session}
@@ -488,7 +489,7 @@ Table~\ref{options}.
 
 \begin{table}[!bp]
 \caption{Document Classes.} \label{documentclasses}
-\begin{lined}{12cm}
+\begin{lined}{\textwidth}
 \begin{description}
  
 \item [\normalfont\texttt{article}] for articles in scientific journals, presentations,
@@ -513,7 +514,7 @@ purposes.
 
 \begin{table}[!bp]
 \caption{Document Class Options.} \label{options}
-\begin{lined}{12cm}
+\begin{lined}{\textwidth}
 \begin{flushleft}
 \begin{description}
 \item[\normalfont\texttt{10pt}, \texttt{11pt}, \texttt{12pt}] \quad Sets the size
@@ -596,7 +597,7 @@ preinstalled. If you are working on a Unix system, use the command
 
 \begin{table}[btp]
 \caption{Some of the Packages Distributed with \LaTeX.} \label{packages}
-\begin{lined}{11cm}
+\begin{lined}{\textwidth}
 \begin{description}
 \item[\normalfont\pai{doc}] Allows the documentation of \LaTeX{} programs.\\
  Described in \texttt{doc.dtx}\footnote{This file should be installed
@@ -652,7 +653,7 @@ lists the predefined page styles.
 
 \begin{table}[!hbp]
 \caption{The Predefined Page Styles of \LaTeX.} \label{pagestyle}
-\begin{lined}{12cm}
+\begin{lined}{\textwidth}
 \begin{description}
 
 \item[\normalfont\texttt{plain}] prints the page numbers on the bottom
