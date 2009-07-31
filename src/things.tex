@@ -164,7 +164,7 @@ garder son calme, car souvent cela dégénère. Mais parfois on ne peut y
 \item pour la plupart des tâches de la typographie qui ne sont pas
       directement gérées par \LaTeX{}, il existe des extensions
       gratuites. Par exemple pour inclure des figures
-      \textsc{PostScript} ou pour formater une bibliographie selon un
+      \PSi{} ou pour formater une bibliographie selon un
       standard précis. La majorité de ces extensions sont décrites dans
       \companion{} (en anglais) et dans \desgraupes{} (en français) ;
 \item \LaTeX{} encourage les auteurs à écrire des documents bien
@@ -428,12 +428,13 @@ ne propose pas d'interface graphique ni de jolis boutons à cliquer. Il
 s'agit simplement d'un programme qui \og digère \fg{} votre fichier
 source. Certaines installations de \LaTeX{} ajoutent une interface
 graphique permettant de cliquer pour lancer la mise en page de votre
-document.
-
-Cependant, les puristes ne cliquent pas ; voici donc comment demander
-à \LaTeX{} de traiter votre document sur un système avec une interface
-textuelle. Remarquez que ceci suppose que \LaTeX{} soit déjà installé
-sur votre ordinateur (les puristes utilisent une déclinaison d'Unix).
+document. Sur d'autres systèmes il faudra probablement taper quelques
+lignes de commande, aussi voici comment convaincre \LaTeX{} de
+compiler votre fichier d'entrée sur un système à interface
+textuelle. Notez cependant que ces explications supposent que \LaTeX{}
+soit déjà installé sur votre ordinateur.\footnote{
+C'est le cas de toute bonne déclinaison d'Unix, et \ldots{} les
+Puristes utilisent Unix, donc \ldots{} \texttt{;-)}}
 
 \begin{enumerate}
 \item Créez/éditez votre fichier source \LaTeX{}. Il s'agit d'un
@@ -466,7 +467,7 @@ Cela ne fonctionne que sous un système Unix avec X11. Si vous utilisez
 Windows vous pouvez essayer via \texttt{yap} (\emph{yet another
   previewer} -- NdT. \emph{encore un autre prévisualiseur}).
 
-Vous pouvez également transformer le résultat en PostScript pour
+Vous pouvez également transformer le résultat en \PSi{} pour
 impression ou affichage avec Ghostcript.
 \begin{lscommand}
 \verb+dvips -Pcmz -o document.ps document.dvi+
@@ -521,7 +522,7 @@ le tableau~\ref{options}.
 \item [\normalfont\texttt{slides}] pour des transparents. Cette classe
       utilise de grands caractères sans serif. Voir également la
       classe Foil\TeX{}\,\footnote{%
-        \texttt{CTAN:/tex-archive/macros/latex/contrib/supported/foiltex}}
+        \CTANref|macros/latex/contrib/supported/foiltex|}
    \index{slides@\textsf{slides}}\index{foiltex@\textsf{foiltex}}
    \index{transparents}
 \end{description}
