@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Things you need to know
-% $Id: things.tex,v 1.4 1998/09/29 08:05:09 oetiker Exp oetiker $
+% $Id: things.tex,v 1.1.1.1 2002/02/26 10:04:20 oetiker Exp $
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  
 \chapter{Things You Need to Know}
@@ -245,8 +245,7 @@ two formats:
 \item They start with a \wi{backslash} \verb|\| and then have a name
  consisting of letters only. Command names are terminated by a
  space, a number or any other `non-letter'.
-\item They consist of a backslash and exactly one % numerical or
- special character.
+\item They consist of a backslash and exactly one non-letter.
 \end{itemize}
 
 %
@@ -307,9 +306,9 @@ example: Supercal%
 The \texttt{\%} character can also be used to split long input lines where no
 whitespace or linebreaks are allowed.
 
-For longer comments you should use the \ei{comment} environment
+For longer comments you could use the \ei{comment} environment
 provided by the \pai{verbatim} package. This means, to use the
-\ei{comment} environment you have to add the commend
+\ei{comment} environment you have to add the command
 \verb|\usepackage{verbatim}| to the preamble of your document.
 
 \begin{example}
@@ -407,7 +406,7 @@ on your input file. Some \LaTeX{} installations feature a graphical
 front end where you can click \LaTeX{} into compiling your input file.
 But Real Men don't Click, so here is how to coax \LaTeX{} into
 compiling your input file on a text based system. Please note, this
-description assumes that a working \LaTeX{} installation already sitts
+description assumes that a working \LaTeX{} installation already sits
 on your computer.
 
 \begin{enumerate}
@@ -417,11 +416,18 @@ on your computer.
   text.  On Unix all the editors will create just that. On windows you
   might want to make sure that you save the file in ASCII or
   \emph{Plain Text} format.  When picking a name for your file, make
-  sure it bears the extention \texttt{.tex}.
+  sure it bears the extension \eei{.tex}.
 
 \item 
-Run \LaTeX{} on your input file. If successful you will end up
-with a \texttt{.dvi} file.
+
+Run \LaTeX{} on your input file. If successful you will end up with a
+\texttt{.dvi} file. It may be necessary to run \LaTeX{} several times to get
+the table of contents and all internal references right. When your input
+file has a bug \LaTeX{} will tell you about it and stop processing your
+input file.
+
+
+
 \begin{verbatim}
 latex foo.tex
 \end{verbatim}
@@ -437,10 +443,10 @@ convert it to PS
 dvips -Pcmz foo.dvi -o foo.ps
 \end{verbatim}
 \texttt{\wi{xdvi}} and \texttt{\wi{dvips}} are open-source
-tools for handling \texttt{.dvi} files. The first displays them on
+tools for handling \eei{.dvi} files. The first displays them on
 screen within the X11 environment and the other
 creates a PostScript file for printing. If you are not working on
-a Unix system, other means for handling the \texttt{.dvi} files may be
+a Unix system, other means for handling the \eei{.dvi} files may be
 provided. 
 
 \end{enumerate}
@@ -604,63 +610,6 @@ information of how to write your own extensions to \LaTeXe.
 \end{lined}
 \end{table}
 
-\section{Files you might encounter}
-
-When you work with \LaTeX{} you will soon find yourself in a maze of
-files with various \wi{extension}s and probably no clue. Below there is a
-list telling about the various \wi{file types} you might encounter when
-working with \TeX{}. Please note that this table does not claim to be
-a complete list of extensions, but if you find one missing which you
-think is important, please drop a line.
-
-\begin{description}
-  
-\item[\wi{.tex}] \LaTeX{} or \TeX{} input file. Can be compiled with
-  \texttt{latex}.
-\item[\wi{.sty}] \LaTeX{} Macro package. This is a file you can load
-  into your \LaTeX{} document using the \ci{usepackage} command.
-\item[\wi{.dtx}] Documented \TeX{}. This is the main distribution
-  format for \LaTeX{} style files. If you process a .dtx file you get
-  documented macro code of the \LaTeX{} package contained in the .dtx
-  file.
-\item[\wi{.ins}] Is the installer for the files contained in the
-  matching .dtx file. If you download a \LaTeX{} package from the net,
-  you will normally get a .dtx and a .ins file. Run \LaTeX{} on the
-  .ins file to unpack the .dtx file.
-\item[\wi{.cls}] Class files define what your document looks
-  like. They are selected with the \ci{documentclass} command.
-\end{description}
-The following files are generated when you run \LaTeX{} on your input
-file:
-
-\begin{description}
-\item[\wi{.dvi}] Device Independent file. This is the main result of a \LaTeX{}
-  compile run. You can look at its content with a DVI previewer
-  program or you can send it to a printer with \texttt{dvips} or a
-  similar application.
-\item[\wi{.log}] Gives a detailed account of what happened during the
-  last compiler run.
-\item[\wi{.toc}] Stores all your section headers. It gets read in for the
-  next compiler run and is used to produce the table of content.
-\item[\wi{.lof}] This is like .toc but for the list of figures.
-\item[\wi{.lot}] And again the same for the list of tables.
-\item[\wi{.aux}] Another file which transports information from one
-  compiler run to the next. Among other things, the .aux file is used
-  to store information associated with crossreferences.
-\item[\wi{.idx}] If your document contains an index. \LaTeX{} stores all
-  the words which go into the index in this file. Process this file with
-  \texttt{makeindex}. Refer to section \ref{sec:indexing} on
-  page \pageref{sec:indexing} for more information on indexing.
-\item[\wi{.ind}] Is the processed .idx file, ready for inclusion into your
-  document on the next compile cycle.
-\item[\wi{.ilg}] Logfile telling about what \texttt{makeindex} did.
-\end{description}
-
-
-% Package Info pointer
-%
-%
-
 \subsection{Page Styles}
  
 \LaTeX{} supports three predefined \wi{header}/\wi{footer}
@@ -704,6 +653,64 @@ headers and footers can be found in \companion{} and in section~\ref{sec:fancy} 
 %
 % Pointer to the Fancy headings Package description !
 %
+
+\section{Files you might encounter}
+
+When you work with \LaTeX{} you will soon find yourself in a maze of
+files with various \wi{extension}s and probably no clue. Below there is a
+list telling about the various \wi{file types} you might encounter when
+working with \TeX{}. Please note that this table does not claim to be
+a complete list of extensions, but if you find one missing which you
+think is important, please drop a line.
+
+\begin{description}
+  
+\item[\eei{.tex}] \LaTeX{} or \TeX{} input file. Can be compiled with
+  \texttt{latex}.
+\item[\eei{.sty}] \LaTeX{} Macro package. This is a file you can load
+  into your \LaTeX{} document using the \ci{usepackage} command.
+\item[\eei{.dtx}] Documented \TeX{}. This is the main distribution
+  format for \LaTeX{} style files. If you process a .dtx file you get
+  documented macro code of the \LaTeX{} package contained in the .dtx
+  file.
+\item[\eei{.ins}] Is the installer for the files contained in the
+  matching .dtx file. If you download a \LaTeX{} package from the net,
+  you eeill normally get a .dtx and a .ins file. Run \LaTeX{} on the
+  .ins file to unpack the .dtx file.
+\item[\eei{.cls}] Class files define what your document looks
+  like. They are selected with the \ci{documentclass} command.
+\end{description}
+The following files are generated when you run \LaTeX{} on your input
+file:
+
+\begin{description}
+\item[\eei{.dvi}] Device Independent file. This is the main result of a \LaTeX{}
+  compile run. You can look at its content with a DVI previewer
+  program or you can send it to a printer with \texttt{dvips} or a
+  similar application.
+\item[\eei{.log}] Gives a detailed account of what happened during the
+  last compiler run.
+\item[\eei{.toc}] Stores all your section headers. It gets read in for the
+  next compiler run and is used to produce the table of content.
+\item[\eei{.lof}] This is like .toc but for the list of figures.
+\item[\eei{.lot}] And again the same for the list of tables.
+\item[\eei{.aux}] Another file which transports information from one
+  compiler run to the next. Among other things, the .aux file is used
+  to store information associated with crossreferences.
+\item[\eei{.idx}] If your document contains an index. \LaTeX{} stores all
+  the words which go into the index in this file. Process this file with
+  \texttt{makeindex}. Refer to section \ref{sec:indexing} on
+  page \pageref{sec:indexing} for more information on indexing.
+\item[\eei{.ind}] Is the processed .idx file, ready for inclusion into your
+  document on the next compile cycle.
+\item[\eei{.ilg}] Logfile telling about what \texttt{makeindex} did.
+\end{description}
+
+
+% Package Info pointer
+%
+%
+
 
 
 %
@@ -764,3 +771,6 @@ When you want to produce pages, just comment out the second line
 %%% mode: latex
 %%% TeX-master: "lshort"
 %%% End: 
+% Local Variables:
+% mode: flyspell
+% End:

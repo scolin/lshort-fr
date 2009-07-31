@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Customising LaTeX output
-% $Id: custom.tex,v 1.2 1998/09/29 08:05:09 oetiker Exp oetiker $
+% $Id: custom.tex,v 1.1.1.1 2002/02/26 10:04:20 oetiker Exp $
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Customising \LaTeX}
 
@@ -221,17 +221,17 @@ special set of commands. Refer to Table~\ref{mathfonts}.
 % eg \verb|\sffamily| or \verb|\bfseries|. This seems a good thing to me.
 %
 \begin{tabular}{@{}rl@{\qquad}rl@{}}
-\ci{textrm}\verb|{...}|        &      \textrm{\wi{roman}}&
-\ci{textsf}\verb|{...}|        &      \textsf{\wi{sans serif}}\\
-\ci{texttt}\verb|{...}|        &      \texttt{typewriter}\\[6pt]
-\ci{textmd}\verb|{...}|        &      \textmd{medium}&
-\ci{textbf}\verb|{...}|        &      \textbf{\wi{bold face}}\\[6pt]
-\ci{textup}\verb|{...}|        &       \textup{\wi{upright}}&
-\ci{textit}\verb|{...}|        &       \textit{\wi{italic}}\\
-\ci{textsl}\verb|{...}|        &       \textsl{\wi{slanted}}&
-\ci{textsc}\verb|{...}|        &       \textsc{\wi{small caps}}\\[6pt]
+\fni{textrm}\verb|{...}|        &      \textrm{\wi{roman}}&
+\fni{textsf}\verb|{...}|        &      \textsf{\wi{sans serif}}\\
+\fni{texttt}\verb|{...}|        &      \texttt{typewriter}\\[6pt]
+\fni{textmd}\verb|{...}|        &      \textmd{medium}&
+\fni{textbf}\verb|{...}|        &      \textbf{\wi{bold face}}\\[6pt]
+\fni{textup}\verb|{...}|        &       \textup{\wi{upright}}&
+\fni{textit}\verb|{...}|        &       \textit{\wi{italic}}\\
+\fni{textsl}\verb|{...}|        &       \textsl{\wi{slanted}}&
+\fni{textsc}\verb|{...}|        &       \textsc{\wi{small caps}}\\[6pt]
 \ci{emph}\verb|{...}|          &            \emph{emphasized} &
-\ci{textnormal}\verb|{...}|    &    \textnormal{document} font
+\fni{textnormal}\verb|{...}|    &    \textnormal{document} font
 \end{tabular}
 
 \bigskip
@@ -244,18 +244,18 @@ special set of commands. Refer to Table~\ref{mathfonts}.
 \caption{Font Sizes.} \label{sizes}
 \begin{lined}{12cm}
 \begin{tabular}{@{}ll}
-\ci{tiny}      & \tiny        tiny font \\
-\ci{scriptsize}   & \scriptsize  very small font\\
-\ci{footnotesize} & \footnotesize  quite small font \\
-\ci{small}        &  \small            small font \\
-\ci{normalsize}   &  \normalsize  normal font \\
-\ci{large}        &  \large       large font
+\fni{tiny}      & \tiny        tiny font \\
+\fni{scriptsize}   & \scriptsize  very small font\\
+\fni{footnotesize} & \footnotesize  quite small font \\
+\fni{small}        &  \small            small font \\
+\fni{normalsize}   &  \normalsize  normal font \\
+\fni{large}        &  \large       large font
 \end{tabular}%
 \qquad\begin{tabular}{ll@{}}
-\ci{Large}        &  \Large       larger font \\[5pt]
-\ci{LARGE}        &  \LARGE       very large font \\[5pt]
-\ci{huge}         &  \huge        huge \\[5pt]
-\ci{Huge}         &  \Huge        largest
+\fni{Large}        &  \Large       larger font \\[5pt]
+\fni{LARGE}        &  \LARGE       very large font \\[5pt]
+\fni{huge}         &  \huge        huge \\[5pt]
+\fni{Huge}         &  \Huge        largest
 \end{tabular}
 
 \bigskip
@@ -293,14 +293,14 @@ special set of commands. Refer to Table~\ref{mathfonts}.
 \begin{lined}{\textwidth}
 \begin{tabular}{@{}lll@{}}
 \textit{Command}&\textit{Example}&    \textit{Output}\\[6pt]
-\ci{mathcal}\verb|{...}|&    \verb|$\mathcal{B}=c$|&     $\mathcal{B}=c$\\
-\ci{mathrm}\verb|{...}|&     \verb|$\mathrm{K}_2$|&      $\mathrm{K}_2$\\
-\ci{mathbf}\verb|{...}|&     \verb|$\sum x=\mathbf{v}$|& $\sum x=\mathbf{v}$\\
-\ci{mathsf}\verb|{...}|&     \verb|$\mathsf{G\times R}$|&        $\mathsf{G\times R}$\\
-\ci{mathtt}\verb|{...}|&     \verb|$\mathtt{L}(b,c)$|&   $\mathtt{L}(b,c)$\\
-\ci{mathnormal}\verb|{...}|& \verb|$\mathnormal{R_{19}}\neq R_{19}$|&
+\fni{mathcal}\verb|{...}|&    \verb|$\mathcal{B}=c$|&     $\mathcal{B}=c$\\
+\fni{mathrm}\verb|{...}|&     \verb|$\mathrm{K}_2$|&      $\mathrm{K}_2$\\
+\fni{mathbf}\verb|{...}|&     \verb|$\sum x=\mathbf{v}$|& $\sum x=\mathbf{v}$\\
+\fni{mathsf}\verb|{...}|&     \verb|$\mathsf{G\times R}$|&        $\mathsf{G\times R}$\\
+\fni{mathtt}\verb|{...}|&     \verb|$\mathtt{L}(b,c)$|&   $\mathtt{L}(b,c)$\\
+\fni{mathnormal}\verb|{...}|& \verb|$\mathnormal{R_{19}}\neq R_{19}$|&
 $\mathnormal{R_{19}}\neq R_{19}$\\
-\ci{mathit}\verb|{...}|&     \verb|$\mathit{ffi}\neq ffi$|& $\mathit{ffi}\neq ffi$
+\fni{mathit}\verb|{...}|&     \verb|$\mathit{ffi}\neq ffi$|& $\mathit{ffi}\neq ffi$
 \end{tabular}
 
 \bigskip
@@ -677,7 +677,7 @@ the
 \texttt{c, t} or \texttt{b} to control the vertical alignment of the box,
 relative to the baseline of the surrounding text. \texttt{width} takes
 a length argument specifying the width of the box. The main difference
-between a \ei{minipage} and a \ei{parbox} is that you cannot use all commands
+between a \ei{minipage} and a \ci{parbox} is that you cannot use all commands
 and environments inside a \ei{parbox} while almost anything is possible in
 a \ei{minipage}.
 
@@ -797,3 +797,6 @@ a certain minimum height.
 %%% TeX-master: "lshort2e"
 %%% End: 
 
+% Local Variables:
+% mode: flyspell
+% End:

@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Specialities of the LaTeX system
-% $Id: spec.tex,v 1.4 1998/09/29 08:05:09 oetiker Exp oetiker $
+% $Id: spec.tex,v 1.1.1.1 2002/02/26 10:04:21 oetiker Exp $
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  
 \chapter{Specialities}
@@ -43,6 +43,7 @@ A good set of commands for inclusion of graphics is provided in the
 of packages called the ``graphics''
 bundle\footnote{\texttt{CTAN:/tex-archive/macros/latex/required/graphics}}.
 
+\newpage
 Assuming you are working on a system with a
 PostScript printer available for output and with the \textsf{graphicx}
 package installed, you can use the following step by step guide to
@@ -67,8 +68,8 @@ widely used program is called \texttt{dvips}. The name of the driver is
 required, because there is no standard on how graphics are included in
 \TeX{}. Knowing the name of the \emph{driver}, the
 \textsf{graphicx} package can choose the correct method to insert
-information about the graphics into the \texttt{.dvi}~file, so that the
-printer understands it and can correctly include the \texttt{.eps} file.
+information about the graphics into the \eei{.dvi}~file, so that the
+printer understands it and can correctly include the \eei{.eps} file.
 \item Use the command 
 \begin{lscommand}
 \ci{includegraphics}\verb|[|\emph{key}=\emph{value}, \ldots\verb|]{|\emph{file}\verb|}|
@@ -120,18 +121,18 @@ about this topic, make sure to read \cite{graphics} and \cite{eps}.
 You can produce a \wi{bibliography} with the \ei{thebibliography}
 environment.  Each entry starts with
 \begin{lscommand}
-\ci{bibitem}\verb|{|\emph{marker}\verb|}|
+\ci{bibitem}\verb|[|\emph{label}\verb|]{|\emph{marker}\verb|}|
 \end{lscommand}
 The \emph{marker} is then used to cite the book, article or paper
 within the document.
 \begin{lscommand}
 \ci{cite}\verb|{|\emph{marker}\verb|}|
 \end{lscommand}
-The numbering of the entries is generated automatically.  The
-parameter after the \verb|\begin{thebibliography}| command sets the maximum
-width of these numbers. In the example below, \verb|{99}| tells
-\LaTeX{} to expect that none of the bibliography item numbers will be
-wider than the number 99.
+If you do not use the \emph{label} option, the entries will get enumerated
+automatically.  The parameter after the \verb|\begin{thebibliography}|
+command defines how much space to reserve for the number or labels. In the example below,
+\verb|{99}| tells \LaTeX{} to expect that none of the bibliography item numbers will be wider
+than the number 99.
 \enlargethispage{2cm}
 \begin{example}
 Partl~\cite{pa} has 
@@ -208,14 +209,14 @@ When the input file is processed with \LaTeX{}, each \verb|\index|
 command writes an appropriate index entry together with the current
 page number to a special file. The file has the same name as the
 \LaTeX{} input file, but a different extension (\verb|.idx|). This
-\texttt{.idx} file can then be processed with the \texttt{makeindex}
+\eei{.idx} file can then be processed with the \texttt{makeindex}
 program.
 
 \begin{lscommand}
   \texttt{makeindex} \emph{filename}
 \end{lscommand}
 The \texttt{makeindex} program generates a sorted index with the same base
-file name, but this time with the extension \texttt{.ind}. If now the
+file name, but this time with the extension \eei{.ind}. If now the
 \LaTeX{} input file is processed again, this sorted index gets
 included into the document at the point where \LaTeX{} finds
 \begin{lscommand}
@@ -329,8 +330,8 @@ the documentation.  Here's how you do the first part:
 
 \begin{enumerate}
 \item Run \LaTeX{} on the \texttt{.ins} file. This will
-  extract a \texttt{.sty} file.
-\item Move the \texttt{.sty} file to a place where your distribution
+  extract a \eei{.sty} file.
+\item Move the \eei{.sty} file to a place where your distribution
   can find it. Usually this is in your \texttt{\ldots/\emph{localtexmf}/tex/latex}
   subdirectory (Windows or OS/2 users should feel free to change the
   direction of the slashes).
@@ -386,3 +387,6 @@ time before moving on to step~\ref{step:final}.
 
 
 
+% Local Variables:
+% mode: flyspell
+% End:

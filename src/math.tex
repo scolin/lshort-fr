@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Math typesetting with LaTeX
-% $Id: math.tex,v 1.4 1998/09/29 08:05:09 oetiker Exp oetiker $
+% $Id: math.tex,v 1.1.1.1 2002/02/26 10:04:21 oetiker Exp $
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  
 \chapter{Typesetting Mathematical Formulae}
@@ -268,7 +268,7 @@ same output as the first one, but without braces.
 \footnote{Note that the usage of these old-style commands is expressly forbidden
 by the \pai{amsmath} package. They are replaced by
 \ci{binom} and \ci{genfrac}. The latter is a superset of all related
-construct, e.g. you may get a similar construct to \ci{atop}
+constructs, e.g. you may get a similar construct to \ci{atop}
 by \texttt{$\backslash$newcommand\{$\backslash$newatop\}[2]\{$\backslash$genfrac\{\}\{\}\{0pt\}\{1\}\{\#1\}\{\#2\}\}}.}
 
 \begin{example}
@@ -426,7 +426,7 @@ y = \left\{ \begin{array}{ll}
 \end{example}
 
 As within the \verb|tabular| environment you can also
-draw lines in the \ei{array} environent, e.g. separating the entries of
+draw lines in the \ei{array} environment, e.g. separating the entries of
 a matrix:
 \begin{example}
 \begin{displaymath}
@@ -490,7 +490,8 @@ this equation.
 
 It can be difficult to get vertically aligned equations to look right
 with these methods; the package \pai{amsmath} provides a more
-powerful set of alternatives. (see \verb|split| and \verb|align| environments).
+powerful set of alternatives. (see \verb|align|, \verb|flalign|,
+\verb|gather|, \verb|multline| and \verb|split| environments).
 
 \section{Phantom}
 
@@ -574,8 +575,8 @@ structures. \LaTeX{} supports this with the command
 \ci{newtheorem}\verb|{|\emph{name}\verb|}[|\emph{counter}\verb|]{|%
          \emph{text}\verb|}[|\emph{section}\verb|]|
 \end{lscommand}
-The \emph{name} argument, is a short keyword used to identify the
-``theorem''. With the \emph{text} argument, you define the actual name
+The \emph{name} argument is a short keyword used to identify the
+``theorem''. With the \emph{text} argument you define the actual name
 of the ``theorem'' which will be printed in the final document.
 
 The arguments in square brackets are optional. They are both used to
@@ -583,7 +584,7 @@ specify the numbering used on the ``theorem''. With the \emph{counter}
 argument you can specify the \emph{name} of a previously declared
 ``theorem''. The new ``theorem'' will then be numbered in the same
 sequence.  The \emph{section} argument allows you to specify the
-sectional unit within which you want your ``theorem'' to be numbered.
+sectional unit within which the ``theorem'' should get its numbers.
 
 After executing the \ci{newtheorem} command in the preamble of your
 document, you can use the following command within the document.
@@ -627,7 +628,7 @@ someone will do it.\end{mur}
 \end{example}
 
 The ``Murphy'' theorem gets a number which is linked to the number of
-the current section. You could also use another unit, for example chapter or
+the current section.You could also use another unit, for example chapter or
 subsection.
 
 \section{Bold symbols}
@@ -668,3 +669,6 @@ a \ci{boldsymbol} command.
 %%% End: 
 
 
+% Local Variables:
+% mode: flyspell
+% End:
