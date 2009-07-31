@@ -13,7 +13,7 @@
   {\normalfont\manual{}} and {\normalfont \companion}.
 \end{intro}
 
-\section{Including EPS Graphics}\label{eps}
+\section{Including \EPSi{} Graphics}\label{eps}
 \LaTeX{} provides the basic facilities to work with floating bodies,
 such as images or graphics, with the \texttt{figure} and
 \texttt{table} environments.
@@ -29,30 +29,30 @@ A much easier way to get graphics into a document is to generate them
 with a specialised software package\footnote{Such as XFig, CorelDraw!,
   Freehand, Gnuplot, \ldots} and then include the finished graphics
 into the document. Here again, \LaTeX{} packages offer many ways to do
-this, but this introduction will only discuss the use of \wi{Encapsulated
-  PostScript} (EPS) graphics, because it is quite
+this, but this introduction will only discuss the use of \EPSi{}
+(EPS) graphics, because it is quite
 easy to do and widely used.  In order to use pictures in the EPS
-format, you must have a \wi{PostScript} printer\footnote{Another
-  possibility to output PostScript is the \textsc{\wi{GhostScript}}
+format, you must have a \PSi{} printer\footnote{Another
+  possibility to output \PSi{} is the \textsc{\wi{GhostScript}}
   program available from
-  \texttt{CTAN:/tex-archive/support/ghostscript}. Windows and OS/2 users might
+  \CTANref|support/ghostscript|. Windows and OS/2 users might
   want to look for \textsc{GSview}.} available for output.
 
 A good set of commands for inclusion of graphics is provided in the
 \pai{graphicx} package by D.~P.~Carlisle. It is part of a whole family
 of packages called the ``graphics''
-bundle.\footnote{\texttt{CTAN:/tex-archive/macros/latex/required/graphics}}
+bundle.\footnote{\CTANref|macros/latex/required/graphics|}
 
 \newpage
 Assuming you are working on a system with a
-PostScript printer available for output and with the \textsf{graphicx}
+\PSi{} printer available for output and with the \textsf{graphicx}
 package installed, you can use the following step by step guide to
 include a picture into your document:
 
 \begin{enumerate}
 \item Export the picture from your graphics program in EPS
   format.\footnote{If your software can not export into EPS format, you
-    can try to install a PostScript printer driver (such as an Apple
+    can try to install a \PSi{} printer driver (such as an Apple
     LaserWriter, for example) and then print to a file with this
     driver. With some luck this file will be in EPS format. Note that
     an EPS must not contain more than one page. Some printer drivers
@@ -62,7 +62,7 @@ include a picture into your document:
 \begin{lscommand}
 \verb|\usepackage[|\emph{driver}\verb|]{graphicx}|
 \end{lscommand}
-where \emph{driver} is the name of your ``dvi to postscript''
+\noindent where \emph{driver} is the name of your ``dvi to postscript''
 converter program. The most
 widely used program is called \texttt{dvips}. The name of the driver is
 required, because there is no standard on how graphics are included in
@@ -74,7 +74,7 @@ printer understands it and can correctly include the \eei{.eps} file.
 \begin{lscommand}
 \ci{includegraphics}\verb|[|\emph{key}=\emph{value}, \ldots\verb|]{|\emph{file}\verb|}|
 \end{lscommand}
-to include \emph{file} into your document. The optional parameter
+\noindent to include \emph{file} into your document. The optional parameter
 accepts a comma separated list of \emph{keys} and associated
 \emph{values}. The \emph{keys} can be used to alter the width, height
 and rotation of the included graphic. Table~\ref{keyvals} lists the
@@ -227,12 +227,20 @@ included into the document at the point where \LaTeX{} finds
 The \pai{showidx} package that comes with \LaTeXe{} prints out all
 index entries in the left margin of the text. This is quite useful for
 proofreading a document and verifying the index.
-   
+
+Note that the \ci{index} command can affect your layout if not used carefully.
+
+\begin{example}
+My Word \index{Word}. As oposed
+to Word\index{Word}. Note the
+position of the full stop.
+\end{example}
+
 \section{Fancy Headers}
 \label{sec:fancy}
 
 The \pai{fancyhdr} package,\footnote{Available from
-  \texttt{CTAN:/tex-archive/macros/latex/contrib/supported/fancyhdr}.} written by
+  \CTANref|macros/latex/contrib/supported/fancyhdr|.} written by
 Piet van Oostrum, provides a few simple commands that allow you to
 customize the header and footer lines of your document.  If you look
 at the top of this page, you can see a possible application of this
@@ -312,7 +320,7 @@ should find it pre-installed on most systems. If you want to know more
 about this package, make sure to read \cite{verbatim}.
 
 
-\section{Downloading and Installing \LaTeX{} Packages}
+\section{Downloading and Installing \LaTeX{} Packages}\label{sec:Packages}
 
 Most \LaTeX{} installations come with a large set of pre-installed
 style packages, but many more are available on the net. The main
@@ -415,11 +423,10 @@ layout of the document and permits hypertext
 navigation. Most modern browsers come with plugins that allow the
 direct display of PDF documents.
 
-In contrast to the DVI and PS format, PDF documents can be displayed
-and printed on most computer platforms (Unix, Mac, Windows), thanks to
-the Adobe Acrobat Reader software, which can be downloaded freely from
-Adobe's website. On many computers it even comes pre-installed with the base
-OS distribution.
+Even though there are DVI and PS viewers for almost every platform, you will find that
+\wi{acrobat reader} and \wi{xpdf} for viewing PDF documents 
+are more widely deployed. So providing PDF versions of your documents will
+make them much more accessible to your potential readers.
 
 \subsection{PDF Documents for the Web}
 
@@ -463,51 +470,68 @@ manual configuration of hyperlinks.
 \subsection{The Fonts}
 
 \wi{pdf\LaTeX} can deal with all sorts of fonts (PK bitmaps, TrueType,
-PostScript type~1\dots) but prime \LaTeX{} font format, the bitmap PK
+\PSi{} type~1\dots) but prime \LaTeX{} font format, the bitmap PK
 fonts produce very ugly results when the document is displayed
-with Acrobat Reader. It is best to use PostScript Type 1 fonts
+with Acrobat Reader. It is best to use \PSi{} Type 1 fonts
 exclusively to produce documents that display well.
 
-We have not yet talked about fonts in this book because \LaTeX{}
-handles this on its own just fine, as it uses its own set of fonts well
-adapted to the requirements of scientific publishing.
-Actually, there are two sets of \TeX{} fonts: 
-\emph{Computer Modern} (CM), consisting of 128 characters, which is the
-default font set, and \emph{Extended Cork} (EC), made up from 256
-characters. The speciality of the EC font set is that it contains
-special characters for all the language-specific accented characters
-used in European languages, such as
-\"a or \`e. This allows hyphenation to work properly with words
-that contain such special characters. You can enable the EC character
-set by putting the command \verb+\usepackage[T1]{fontenc}+ into the
-preamble of the document (see page \pageref{fontenc}).
-Unfortunately, there is no free set of PostScript type~1 fonts
-for the EC character set. Fortunately, there are two ways to cheat.
+The \PSi{} Type 1 implementation of the Computer Modern and AMSFonts
+was produced by Blue Sky Research and Y\&Y, Inc., who then transferred
+copyright to the American Mathematical Society. The fonts were made
+publicly available in early 1997 and currently come with most of \TeX{}
+distributions. 
+
+However, if you are using \LaTeX{} to create documents in languages 
+other than English, you might want to use EC, LH, or CB fonts (see the
+discussion about \texttt{OT1} fonts on the page~\pageref{OT1}). 
+Vladimir Volovich has created the cm-super font bundle which covers the
+entire EC/TC, EC Concrete, EC Bright and LH font sets. It is available from
+\texttt{CTAN:/fonts/ps-type1/cm-super} and is included with \TeX{}Live7
+and Mik\TeX. Similar type~1 CB Greek fonts created by Apostolos
+Syropoulos are available at \texttt{CTAN:/tex-archive/fonts/greek/cb}.
+Unfortunately, both of these font sets are not of the same typographic
+quality as the Type1 CM fonts by Blue Sky/Y\&Y. They were automatically
+hinted, and the document might look   as neat on  the screen as the ones using
+Blue Sky/Y\&Y type 1 CM fonts, on high resolution output devices they
+produce results identical to the original bitmap EC/LH/CB fonts. 
+
+If you are creating document in one of Latin-based languages, you have
+several other options. 
 \begin{itemize}
-\item You can put the line \verb+\usepackage{aeguill}+\paih{aeguill} into the
-  preamble of your document, to use AE virtual fonts. 
-\item You can use \verb+\usepackage{mltex}+, but this only works when
+\item You might want to use \pai{aeguill} package, aka
+  \emph{Almost European Computer Modern with Guillemets}. Just put the
+  line \verb+\usepackage{aeguill}+\paih{aeguill}  into the preamble of  
+  your document, to enable AE virtual fonts instead of EC fonts.  
+\item Alternatively, you can use \pai{mltex} package, but this only works when  
   your pdf\TeX{} has been compiled with the \wi{mltex} option.
 \end{itemize}
 The AE virtual fontset, like the {Ml\TeX} system, makes \TeX{} believe
-it has a full 256 character fontset at its disposal by creating the
-missing letters from characters available in the normal CM font, which
-exists in a PostScript type~1 variant. This has the big advantage that
-hyphenation works well in European languages. 
-The only disadvantage of this approach is that the artificial AE
-characters do not work with Acrobat Reader's 
-\texttt{Find} function, so you cannot search for words with accented
-characters in your final PDF file.
+it has a full 256 character fontset at its disposal by creating most of
+the missing letters from characters of the CM font and rearranging them
+in the EC order, this allows to use the excellent type 1 format CM
+fonts available on most systems. As the font now is in T1 encoding
+hyphenation will well in Latin-based European languages.  The only
+disadvantage of this approach is that the artificial AE characters do
+not work with Acrobat Reader's \texttt{Find} function, so you cannot
+search for words with accented characters in your final PDF file.
 
-Another solution is not to use the CM fontset, but to switch to other
-Postscript type~1 fonts. Actually, some of them are even included with
-every copy of Acrobat Reader. Because these fonts have different
-character sizes, the text layout on your pages will change. Generally
-it will use more space than the CM fonts, which are very space-efficient. 
-Also, the overall visual coherence of your document will
-suffer because Times, Helvetica and Courier (the primary candidates
-for such a replacement job) have not been designed to work in harmony in
-a single document as has been done for the Computer Modern fonts.
+For the Russian language a similar solution is to use C1 virtual fonts 
+available at \texttt{ftp://ftp.vsu.ru/pub/tex/font-packs/c1fonts}. 
+These fonts combine the standard CM type~1                                 
+fonts from Bluesky collection and CMCYR type~1 fonts from  Paradissa and
+BaKoMa collection, all available on CTAN. Because Paradissa fonts
+contain only Russian letters, C1 fonts are                                  
+missing other Cyrillic glyphs. 
+
+Another solution is to switch to other \PSi{} type~1 fonts.
+Actually, some of them are even included with every copy of Acrobat
+Reader. Because these fonts have different character sizes, the text
+layout on your pages will change. Generally it will use more space than
+the CM fonts, which are very space-efficient.  Also, the overall visual
+coherence of your document will suffer because Times, Helvetica and
+Courier (the primary candidates for such a replacement job) have not
+been designed to work in harmony in a single document as has been done
+for the Computer Modern fonts.
  
 Two ready-made font sets are available for this purpose:
 \pai{pxfonts}, which is based on \emph{Palatino} as its main text body font,
@@ -533,6 +557,7 @@ to fix these problems, as the resulting PDF document may
 This whole font business, especially the lack of a good EC fontset 
 equivalent in quality to the CM font in type~1 format,  is occupying the 
 minds of many people, so new solutions are cropping up all the time.
+
 \subsection{Using Graphics}
 \label{ssec:pdfgraph}
 
@@ -548,13 +573,13 @@ package will work with pdf\LaTeX{} as well:
 In the sample above I have included the color option, as using color in
 documents displayed on the web comes quite naturally.
 
-So much for the good news. The bad news is that EPS (Encapsulated Postscript), your favorite format
-for graphics in \LaTeX{}, does
-\emph{not} work for PDF files. If you do not define a file extension
+So much for the good news. The bad news is that graphics in \EPSi{}
+format do not work with Pdf\LaTeX{}. If you don't define a file extension
 in the \ci{includegraphics} command, \pai{graphicx} will go
 looking for a suitable file on its own, depending on the setting of
 the \emph{driver} option. For \texttt{pdftex} this is
-formats \texttt{.png}, \texttt{.pdf}, \texttt{.jpg}, \texttt{.mps} (MetaPost),
+formats \texttt{.png}, \texttt{.pdf}, \texttt{.jpg}, \texttt{.mps} (
+\MP\index{metapost@\MP}),
 and \texttt{.tif}---but \emph{not} \texttt{.eps}.
 
 The simple way out of this problem is to just convert your EPS files
@@ -565,9 +590,9 @@ natively supports the inclusion of PNG and JPEG images. PNG is
 good for screenshots and other images with few colors. JPEG is great
 for photos, as it is very space-efficient.
 
-It may even be desirable to not draw certain geometric figures, 
+It may even be desirable not to draw certain geometric figures, 
 but rather describe the figure with a specialized command language, such as
-\wi{MetaPost}, which can be found in most \TeX{} distributions, and
+ \MP\index{metapost@\MP}, which can be found in most \TeX{} distributions, and
 comes with its own extensive manual.
 
 \subsection{Hypertext Links}
@@ -594,35 +619,38 @@ is worth noting that the \pai{hyperref} package is not limited to
 work with pdf\TeX{}. It can also be configured to embed PDF-specific
 information into the DVI output of normal \LaTeX{}, which then gets put
 into the PS file by \texttt{dvips} and is finally picked up by Adobe
-Distiller when it is used to turn the PS file PDF.} In the following
+Distiller when it is used to turn the PS file into PDF.} In the following
 list the default values are written in an upright font.
 
 \begin{description}
-  \item[\texttt{bookmarks (=true,\textit{false})}] show or hide the
+  \item [\texttt{bookmarks (=true,\textit{false})}] show or hide the
     bookmarks bar when displaying the document
+  \item [\texttt{unicode (=false,\textit{true})}] allows to use 
+    characters of non-latin based languages in Acrobat's bookmarks
   \item [\texttt{pdftoolbar (=true,\textit{false})}] show or hide
     Acrobat's toolbar
   \item [\texttt{pdfmenubar (=true,\textit{false})}] show or hide
     Acrobat's menu
   \item [\texttt{pdffitwindow (=true,\textit{false})}] adjust the
     initial magnification of the pdf when displayed
-  \item [\texttt{pdftitle (=\{texte\})}] define the title that gets
+  \item [\texttt{pdftitle (=\{text\})}] define the title that gets
     displayed in the \texttt{Document Info} window of Acrobat
-  \item [\texttt{pdfauthor (=\{texte\})}] the name of the PDF's author
+  \item [\texttt{pdfauthor (=\{text\})}] the name of the PDF's author
   \item [\texttt{pdfnewwindow (=true,\textit{false})}] define if a new
     window should get opened when a link leads out of the current
     document
-  \item [\texttt{colorlinks (=true,\textit{false})}] show link
-    ``zones'' in color. The color of these links can be configured
-    using the following options:
+  \item [\texttt{colorlinks (=false,\textit{true})}] surround the  
+    links by color frames (\texttt{false}) of colors the text of the links 
+    (\texttt{true}). The color of these links can be configured
+    using the following options (default colors are shown):
     \begin{description}
-    \item [\texttt{linkcolor (=color,\textit{red})}] color of internal
+    \item [\texttt{linkcolor (=red)}] color of internal
       links (sections, pages, etc.),
-    \item [\texttt{citecolor (=color,\textit{green})}] color of
+    \item [\texttt{citecolor (=green)}] color of
       citation links (bibliography)
-    \item [\texttt{filecolor (=color,\textit{magenta})}] color of file
+    \item [\texttt{filecolor (=magenta)}] color of file
       links
-    \item [\texttt{urlcolor (=color,\textit{cyan})}] color of url
+    \item [\texttt{urlcolor (=cyan)}] color of URL
       links (mail, web)
     \end{description}
 \end{description}
@@ -646,7 +674,14 @@ To have the bookmark list open and links in color
 
 When creating PDFs destined for printing, colored links are not a
   good thing as they end up in gray in the final output, making it
-  difficult to read:
+  difficult to read. You can use color frames, which are not printed:
+\begin{code}
+\begin{verbatim}
+\usepackage{hyperref}
+\hypersetup{colorlinks=false}
+\end{verbatim}
+\end{code}
+\noindent or make links black:
 \begin{code}
 \begin{verbatim}
 \usepackage{hyperref}
@@ -905,10 +940,13 @@ appropriate options:
   create a printable version.
 \item[\texttt{panelright}] put a navigation panel on the right side of
   the screen. If the panel should be on the left side use
-  \texttt{panelleft}.
+  \texttt{panelleft}. If you do not want panels use \texttt{nopanel}.
 \item[\texttt{french}] or some other supported language will render
   the text on the navigation buttons appropriately. This option is
-  independent of the options set with the babel package.
+  independent of the options set with the babel package. If your language is not suppoted by \pai{pdfscreen}, 
+  you still can localize navigation panel buttons by using 
+  file \texttt{pdfscreen.cfg}, see \texttt{pdfscreen.cfg..specimen} for
+an example.
 \item[\texttt{chocolate}] color scheme for the navigation panel. Other
   choices are \texttt{gray}, \texttt{orange}, \texttt{palegreen},
  \texttt{bluelace} and \texttt{blue}, which is the default.
@@ -918,10 +956,10 @@ always scale to the real size of the screen when displayed, this can
 be used to configure the overall font size:
 \begin{description}
 \item[\ci{panelwidth}] defines the width of the navigation panel
-\item[\ci{screensize}\texttt{\{}\emph{width}\texttt{\}\{}\emph{height}\texttt{\}}]
+\item[\ci{screensize}\textmd{\texttt{\{}\emph{width}\texttt{\}\{}\emph{height}\texttt{\}}}]
   define the width and height of the screen including the navigation
   panel.
-\item[\ci{marginsize}\texttt{\{}\emph{left}\texttt{\}\{}\emph{right}\texttt{\}\{}\emph{top}\texttt{\}\{}\emph{bottom}\texttt{\}}]
+\item[\ci{marginsize}\textmd{\texttt{\{}\emph{left}\texttt{\}\{}\emph{right}\texttt{\}\{}\emph{top}\texttt{\}\{}\emph{bottom}\texttt{\}}}]
   defines the margins of the document. In the example the document is
   not centered because the section numbers are kept in the left
   margin.
@@ -932,7 +970,7 @@ supported by pdf\TeX{} using the command
 \begin{lscommand}
 \ci{overlay}\verb|{|\emph{image}\verb|}|
 \end{lscommand}
-or if you prefer a plain background you can define its color using
+\noindent or if you prefer a plain background you can define its color using
 \begin{lscommand}
 \ci{background}\verb|{|\emph{color}\verb|}|
 \end{lscommand}
@@ -949,18 +987,17 @@ to make use of the \pai{pause} package. It provides the command
 text wherever you want Acrobat to pause the display of your document.
 The \pai{pause} package is part of the \texttt{ppower4} ($P^4$:
 \emph{Pdf Presentation  Post-Processor}) system, which can post-process
-pdf output from pdf\TeX{} and make it dance, sing and beg for
-food. You can treat the output of pdf\TeX{} by passing it through the
-post-processor. On the command line it looks like this:
+pdf output from pdf\TeX{} and make it sing and dance and beg for
+food. On the command line it looks like this:
 \begin{lscommand}
 \verb+ppower4 xy.pdf xyz.pdf+
 \end{lscommand}
 
-To control what goes onto a single slide, you can use the environment
+To control what goes onto a single slide, use the environment
 \verb+\begin{slide}+ \ldots \verb+\end{slide}+. The content of each
 slide will get displayed centered vertically on its page.
 
-If you compile the example above you will get an error message:
+Compiling the example above, will end in an error message:
 \begin{verbatim}
 ! pdfTeX warning (dest): name{contents} has been
   referenced but does not exist, replaced by a fixed one
@@ -981,125 +1018,6 @@ This short introduction only scratches the surface of what is
 possible with \pai{pdfscreen} and \texttt{PPower4}. Both come with
 their own extensive documentation.
 
-
-\section{\texorpdfstring{\Xy}{Xy}-pic}
-\secby{Alberto Manuel Brand\~ao Sim\~oes}{albie@alfarrabio.di.uminho.pt}
-\pai{xy} is a special package for drawing diagrams. To use it,
-simply add the following line to the preamble of your document:
-\begin{lscommand}
-\verb|\usepackage[|\emph{options}\verb|]{xy}|
-\end{lscommand}
-\emph{options} is a list of functions from \Xy-pic you want to
-load. These options are primarily useful when debugging the package.  I recommend
-you pass the \verb!all! option, making \LaTeX{} load all the \Xy{} commands.
-
-\Xy-pic diagrams are drawn over a matrix-oriented canvas, where
-each diagram element is placed in a matrix slot:
-\begin{example}
-\begin{displaymath}
-\xymatrix{A & B \\
-          C & D }
-\end{displaymath}
-\end{example}
-The \ci{xymatrix} command must be used in math mode. Here, we
-specified two lines and two columns. To make this matrix a diagram we
-just add directed arrows using the \ci{ar} command.
-\begin{example}
-\begin{displaymath}
-\xymatrix{ A \ar[r] & B \ar[d] \\
-           D \ar[u] & C \ar[l] }
-\end{displaymath}
-\end{example}
-The arrow command is placed on the origin cell for the arrow. The
-arguments are the direction the arrow should point to (\texttt{u}p,
-\texttt{d}own, \texttt{r}ight and \texttt{l}eft).
-
-\begin{example}
-\begin{displaymath}
-\xymatrix{
-  A \ar[d] \ar[dr] \ar[r] & B \\
-  D                       & C }
-\end{displaymath}
-\end{example}
-To make diagonals, just use more than one direction. In
-fact, you can repeat directions to make bigger arrows.
-\begin{example}
-\begin{displaymath}
-\xymatrix{
-  A \ar[d] \ar[dr] \ar[drr] & & \\
-  B                      & C & D }
-\end{displaymath}
-\end{example}
-
-We can draw even more interesting diagrams by adding
-labels to the arrows. To do this, we use the common superscript and
-subscript operators.
-\begin{example}
-\begin{displaymath}
-\xymatrix{
-  A \ar[r]^f \ar[d]_g &
-             B \ar[d]^{g'} \\
-  D \ar[r]_{f'}       & C }
-\end{displaymath}
-\end{example}
-
-As shown, you use these operators as in math mode. The only
-difference is that that superscript means ``on top of the arrow,''
-and subscript means ``under the arrow.'' There is a third operator, the vertical bar: \verb+|+
-It causes text to be placed \emph{in} the arrow.
-\begin{example}
-\begin{displaymath}
-\xymatrix{
-  A \ar[r]|f \ar[d]|g &
-             B \ar[d]|{g'} \\
-  D \ar[r]|{f'}       & C }
-\end{displaymath}
-\end{example}
-
-To draw an arrow with an hole in it, use \verb!\ar[...]|\hole!.
-
-In some situations, it is important to distinguish between different types of
-arrows. This can be done by putting labels on them, or changing their appearance:
-
-\begin{example}
-\begin{displaymath}
-\xymatrix{
- \bullet\ar@{->}[rr] && \bullet\\
- \bullet\ar@{.<}[rr] && \bullet\\
- \bullet\ar@{~)}[rr] && \bullet\\
- \bullet\ar@{=(}[rr] && \bullet\\
- \bullet\ar@{~/}[rr]  && \bullet\\
- \bullet\ar@{=+}[rr]   && \bullet
-}
-\end{displaymath}
-\end{example}
-
-Notice the difference between the following two diagrams:
-
-\begin{example}
-\begin{displaymath}
-\xymatrix{
- \bullet \ar[r] 
-         \ar@{.>}[r] & 
- \bullet
-}
-\end{displaymath}
-\end{example}
-
-\begin{example}
-\begin{displaymath}
-\xymatrix{
- \bullet \ar@/^/[r] 
-         \ar@/_/@{.>}[r] &
- \bullet
-}
-\end{displaymath}
-\end{example}
-
-The modifiers between the slashes define how the curves are drawn.
-\Xy-pic offers many ways to influence the drawing of curves;
-for more information, check \Xy-pic documentation.
-%
 
 % Local Variables:
 % TeX-master: "lshort2e"

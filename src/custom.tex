@@ -401,7 +401,27 @@ spacing, and \verb|\linespread{1.6}| for ``double'' line spacing.  Normally
 the lines are not spread, so the default line spread factor
 is~1.\index{double line spacing}
 
- 
+Note that the effect of the \ci{linespread} command is rather drastic and
+not appropriate for published work. So if you have a good reason for
+changing the line spacing you might want to use the command:
+\begin{lscommand}
+\verb|\setlength{\baselineskip}{1.5\baselineskip}|
+\end{lscommand}
+
+\begin{example}
+{\setlength{\baselineskip}%
+           {1.5\baselineskip}
+This paragraph is typeset with the
+baseline skip set to 1.5 of what
+it was before. Note the par command
+at the end of the paragraph.\par}
+
+This paragraph has a clear purpose,
+it show that after the curly brace
+has been closed everything is back
+to normal.
+\end{example}
+
 \subsection{Paragraph Formatting}\label{parsp}
 
 In \LaTeX{}, there are two parameters influencing paragraph layout.
@@ -498,7 +518,7 @@ x\hspace{\stretch{3}}x
 When using horizontal space together with text, it may make sense to make
 the space adjust its size relative to the size of the current font.
 This can be done by using the text-relative units \texttt{em} and
-\texttt{en}:
+\texttt{ex}:
 
 \begin{example}
 {\Large{}big\hspace{1em}y}\\
@@ -561,7 +581,7 @@ the predefined values. Naturally, you can change them.
 \thispagestyle{fancyplain}
 Figure~\ref{fig:layout} shows all the parameters that can be changed.
 The figure was produced with the \pai{layout} package from the tools bundle.%
-\footnote{\texttt{CTAN:/tex-archive/macros/latex/required/tools}}
+\footnote{\CTANref|macros/latex/required/tools|}
 
 \textbf{WAIT!} \ldots before you launch into a ``Let's make that
 narrow page a bit wider'' frenzy, take a few seconds to think. As with
@@ -639,7 +659,7 @@ a^2+b^2=c^2
 \end{displaymath}
 
 \begin{vardesc}{Where}$a$, 
-$b$ -- are adjunct to the right 
+$b$ -- are adjoin to the right 
 angle of a right-angled triangle.  
 
 $c$ -- is the hypotenuse of 

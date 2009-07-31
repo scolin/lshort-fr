@@ -152,7 +152,7 @@ of \LaTeX{} over normal word processors are the following:
   contents, and bibliographies can be generated easily.
 \item Free add-on packages exist for many typographical tasks not directly supported by basic
   \LaTeX. For example, packages are
-  available to include \textsc{PostScript} graphics or to typeset
+  available to include \PSi{} graphics or to typeset
   bibliographies conforming to exact standards. Many of these add-on
   packages are described in \companion.
 \item \LaTeX{} encourages authors to write well-structured texts,
@@ -404,13 +404,14 @@ Well, and here begins my lovely article.
 I bet you must be dying to try out the neat small \LaTeX{} input file
 shown on page \pageref{mini}. Here is some help:
 \LaTeX{} itself comes without a GUI or
-fancy buttons to press. It is just a program that crunches away
-at your input file. Some \LaTeX{} installations feature a graphical
-front-end where you can click \LaTeX{} into compiling your input file.
-But Real Men don't Click, so here is how to coax \LaTeX{} into
+fancy buttons to press. It is just a program that crunches away at your
+input file. Some \LaTeX{} installations feature a graphical front-end where
+you can click \LaTeX{} into compiling your input file. On other systems
+there might be some typing involved, so here is how to coax \LaTeX{} into
 compiling your input file on a text based system. Please note: this
-description assumes that a working \LaTeX{} installation already sits
-on your computer (Real Men use Unix).
+description assumes that a working \LaTeX{} installation already sits on
+your computer.\footnote{This is the case with most well groomed Unix
+Systems, and \ldots{} Real Men use Unix, so \ldots{} \texttt{;-)}}
 
 \begin{enumerate}
 \item 
@@ -439,7 +440,7 @@ Now you may view the DVI file. There are several ways to do that. You can show t
 \end{lscommand}
 This only works on Unix with X11. If you are on Windows you might want to try \texttt{yap} (yet another previewer).
 
-You can also convert the dvi file to PostScript for printing or viewing with Ghostscript.
+You can also convert the dvi file to \PSi{} for printing or viewing with Ghostscript.
 \begin{lscommand}
 \verb+dvips -Pcmz foo.dvi -o foo.ps+
 \end{lscommand}
@@ -486,7 +487,7 @@ Table~\ref{options}.
 \item [\normalfont\texttt{book}] for real books \index{book class}
 \item [\normalfont\texttt{slides}] for slides. The class uses big sans serif
   letters. You might want to consider using Foil\TeX{}\footnote{%
-        \texttt{CTAN:/tex-archive/macros/latex/contrib/supported/foiltex}} instead.
+        \CTANref|macros/latex/contrib/supported/foiltex|} instead.
         \index{slides class}\index{foiltex}
 \end{description}
 \end{lined}

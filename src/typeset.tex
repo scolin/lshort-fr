@@ -281,7 +281,7 @@ The names for these dashes are:
 `-' \wi{hyphen}, `--' \wi{en-dash}, `---' \wi{em-dash} and
 `$-$' \wi{minus sign}.
 
-\subsection{Tilde (\texorpdfstring{$\sim$}{~})}
+\subsection{Tilde (\texorpdfstring{$\sim$}{})}
 \index{www}\index{URL}\index{tilde}
 A character often seen in web addresses is the tilde. To generate
 this in \LaTeX{} you can use \verb|\~| but the result: \~{} is not really
@@ -315,7 +315,8 @@ you can use the command
 \end{lscommand}
 to access it.
 
-If your font does not provide its own Euro symbol or if you do not like the font's Euro symbol, you have two more choices:
+If your font does not provide its own Euro symbol or if you do not like the
+font's Euro symbol, you have two more choices:
 
 First the \pai{eurosym} package. It provides the official Euro symbol:
 \begin{lscommand}
@@ -324,17 +325,34 @@ First the \pai{eurosym} package. It provides the official Euro symbol:
 If you prefer a euro symbol that matches your font, use the option
 \texttt{gen} in place of the \texttt{official} option.
 
-The \pai{marvosym} package also provides many different symbols,
-including a Euro, under the name:
-\begin{lscommand}
-\ci{EUR}
-\end{lscommand}
+If the Adobe Eurofonts are installed on your system (they are available for
+free from \url{ftp://ftp.adobe.com/pub/adobe/type/win/all}) you can use
+either the package \pai{europs} and the command \ci{EUR} (for a euro symbol
+that matches the current font) or the package
+\pai{eurosans} and the command \ci{euro} (for the ``official euro'').
 
-\begin{example}
-The \texteuro{}, the \euro{}
-and the \EUR{} all look
-different.
-\end{example} 
+The \pai{marvosym} package also provides many different symbols, including a
+Euro, under the name \ci{EUR}. It's disadvantag is that it does not provide
+slanted and bold variants of the euro symbol.
+
+\begin{table}[!htbp]
+\caption{A bag full of euro symbols} \label{eurosymb}
+\begin{lined}{10cm}
+\begin{tabular}{llccc}
+extension    & codage      & romain       & sans-serif      & chasse fixe \\
+eurosym      &\verb+\euro+ & \huge\officialeuro &\huge\sffamily\officialeuro
+                                             & \huge\ttfamily\officialeuro\\
+$[$gen$]$eurosym &\verb+\euro+ & \huge\geneuro  &\huge\sffamily\geneuro
+                                                & \huge\ttfamily\geneuro \\
+% En fait on appelle eurofont pour des conflits de noms...
+europs       &\verb+\EUR + & \huge\EURtm     &\huge\EURhv   & \huge\EURcr \\
+eurosans     &\verb+\euro+ & \huge\EUROSANS  &\huge\sffamily\EUROSANS
+                                                & \huge\ttfamily\EUROSANS \\
+marvosym     &\verb+\EUR+  & \huge\mvchr164  &\huge\mvchr164 & \huge\mvchr164
+\end{tabular}
+\medskip
+\end{lined}
+\end{table}
 
 \subsection{Ellipsis (\texorpdfstring{\ldots}{...})}
 
@@ -459,63 +477,102 @@ If you call babel with multiple languages
 \end{lscommand}
 \noindent to set the current language.
 
-Most modern computer systems allow you to input some special characters
-directly from the keyboard. \LaTeX{} can handle such characters through the
+%Input Encoding
+\newcommand{\ieih}[1]{%
+\index{encodings!input!#1@\texttt{#1}}%
+\index{input encodings!#1@\texttt{#1}}%
+\index{#1@\texttt{#1}}}
+\newcommand{\iei}[1]{%
+\ieih{#1}\texttt{#1}}
+%Font Encoding
+\newcommand{\feih}[1]{%
+\index{encodings!font!#1@\texttt{#1}}%
+\index{font encodings!#1@\texttt{#1}}%
+\index{#1@\texttt{#1}}}
+\newcommand{\fei}[1]{%
+\feih{#1}\texttt{#1}}
+
+Most of the modern computer systems allow you to input letter of
+national alphabets  directly from the keyboard. In order to 
+handle variety of input encoding used for different groups of 
+languages and/or on different computer platforms \LaTeX{} employs the
 \pai{inputenc} package:
 \begin{lscommand}
 \ci{usepackage}\verb|[|\emph{encoding}\verb|]{inputenc}| 
 \end{lscommand}
 
-When using this package, you should consider
-that other people might not be able to display your input files on
-their computer, because they use a different encoding. For example,
-the German umlaut \"a on OS/2 is encoded as 132, but on Unix
-systems using ISO-LATIN~1 it is encoded as 228; therefore you should
-use this feature with care. The following encodings may come in handy,
-depending on the type of system you are working on: 
+When using this package, you should consider that other people might not
+be able to display your input files on their computer, because they use
+a different encoding. For example, the German umlaut \"a on OS/2 is
+encoded as 132, on Unix systems using ISO-LATIN~1 it is encoded as 228,
+while in cyrillic encoding cp1251 for Windows this letter does not exist
+at all; therefore you should use this feature with care. The following
+encodings may come in handy, depending on the type of system you are
+working on\footnote{To learn more about supported by \LaTeX{}  input
+encodings for Latin-based and Cyrillic-based languages,  read
+documentation for \texttt{inputenc.dtx} and \texttt{cyinpenc.dtx}
+respectively. Section~\ref{sec:Packages} tells how to produce package
+documentation.}
 
 \begin{center}
-\begin{tabular}{l | r}
-Operating system & encoding\\
+\begin{tabular}{l | r | r }
+Operating & \multicolumn{2}{c}{encodings}\\
+system  & western latin      & cyrillic\\
 \hline
-Mac     &  \texttt{applemac} \\
-Unix    &  \texttt{latin1} \\ 
-Windows &  \texttt{ansinew} \\
-DOS, OS/2    &  \texttt{cp850}
-\end{tabular}
-\end{center}
+Mac     &  \iei{applemac} & \iei{macukr}  \\
+Unix    &  \iei{latin1}   & \iei{koi8-ru}  \\ 
+Windows &  \iei{ansinew}  & \iei{cp1251}    \\
+DOS, OS/2  &  \iei{cp850} & \iei{cp866nav}
+\end{tabular}                
+\end{center}                 
 
-Font encoding is a different matter. It defines at which position inside
-a \TeX-font each letter is stored. The original Computer Modern
-\TeX{} font only contains the 128 characters of the old 7-bit ASCII
-character set. When accented characters are required, \TeX{} creates
-them by combining a normal character with an accent. While the
-resulting output looks perfect, this approach stops the automatic
-hyphenation from working inside words containing accented characters.
-
-Fortunately, most modern \TeX{} distributions contain a copy of the EC
-fonts. These fonts look like the Computer Modern fonts, but contain
-special characters for most of the accented characters used in
-European languages. By using these fonts you can improve hyphenation
-in non-English documents. The EC fonts are activated by including the
-\pai{fontenc} package in the preamble of your document. \label{fontenc}
+If you use multilingual document with conflicting input encodings, 
+you might want to switch to unicode with the help of \pai{ucs} package. 
 
 \begin{lscommand}
-\ci{usepackage}\verb|[T1]{fontenc}| 
+\ci{usepackage}\verb|{ucs}|\\ 
+\ci{usepackage}\verb|[|\iei{utf8}\verb|]{inputenc}| 
 \end{lscommand}
+\noindent will enable you to create \LaTeX{} input files in 
+\iei{utf8}, a multi-byte encoding in which each character can be encoded in
+as little as one byte and as many as four bytes. 
 
-As of this writing, no free, high quality \textsc{PostScript} versions of the EC fonts are
-available.\footnote{Vladimir Volovich has created the cm-super font bundle
-which covers the entire EC/TC, EC Concrete, EC Bright and LH fonts. It is avalable from \texttt{CTAN:/fonts/ps-type1/cm-super} and is
-included with \TeX{}Live7 and Mik\TeX. Unfortunately these fonts are not
-of the same typographic quality as the normal Type1 renderings of the CM fonts} This causes problems when generating PDF versions of your
-documents---the resulting PDF file will look abysmal on screen. You might
-want to have a look at the \pai{aeguill} package, aka \emph{Almost European
-Computer Modern with Guillemets}, which uses the characters from the original Computer
-Modern font, but rearranges them in the EC order and can thus use the
-excellent type 1 format CM fonts available on most systems. There is also an \pai{ae} package, but it
-does not provide proper rendering of French quotes, aka guillemets (see the section
-on pdf\LaTeX{} on page \pageref{sec:pdftex}).
+Font encoding is a different matter. It defines at which position inside
+a \TeX-font each letter is stored. Multiple input encodings could be mapped into 
+one font encoding, which reduces number of required font sets.
+Font encodings are handled through 
+\pai{fontenc} package: \label{fontenc}
+\begin{lscommand}
+\ci{usepackage}\verb|[|\emph{encoding}\verb|]{fontenc}| \index{font encodings}
+\end{lscommand}
+\noindent where \emph{encoding} is font encoding. It is possible to load several
+encodings simultaneously.
+
+The default \LaTeX{} font encoding is \label{OT1} \fei{OT1}, the encoding of the
+the  original Computer Modern \TeX{} font. It containins only the 128
+characters of the 7-bit ASCII character set. When accented characters
+are required, \TeX{} creates them by combining a normal character with
+an accent. While the resulting output looks perfect, this approach stops
+the automatic hyphenation from working inside words containing accented
+characters. Besides, some of latin letters could not be created by
+combining a normal character with an accent, to say nothing about letters of
+non-latin alphabets, such as Greek or Cyrillic.
+
+To overcome these shortcomings, several 8-bit CM-like font sets were created.
+\emph{Extended Cork} (EC) fonts in \fei{T1} encoding contains 
+letters and punctuation characters for most of the European
+languages based on Latin script. The LH font set contains letters necessary
+to typeset documents in languages using Cyrillic script. Because of the large
+number of Cyrillic glyphs, they are arranged into four font
+encodings---\fei{T2A}, \fei{T2B}, \fei{T2C},
+and~\fei{X2}.\footnote{The list of languages supported by each of these
+encodings could be found in \cite{cyrguide}.} The CB bundle contains fonts
+in \fei{LGR} encoding for the composition of Greek text.
+
+By using these fonts you can improve/enable hyphenation in non-English
+documents. Another advantage of using new CM-like fonts is that they 
+provide fonts of CM families in all weights, shapes, and optically
+scaled font sizes. 
 
 \subsection{Support for Portuguese}
 
@@ -525,7 +582,7 @@ To enable hyphenation and change all automatic text to \wi{Portuguese},
 \begin{lscommand}
 \verb|\usepackage[portuguese]{babel}|
 \end{lscommand}
-Or if you are in Brazil, substitute the language for \wi{brazilian}.
+Or if you are in Brazil, substitute the language for \texttt{\wi{brazilian}}.
 
 As there are a lot of accents in Portuguese you might want to use
 \begin{lscommand}
@@ -546,7 +603,7 @@ the appropriate encoding for your system.
 \caption{Preamble forPortuguese documents.} \label{portuguese}
 \begin{lined}{5cm}
 \begin{verbatim}
-\usepackage[portuges]{babel}
+\usepackage[portugese]{babel}
 \usepackage[latin1]{inputenc}
 \usepackage[T1]{fontenc}
 \end{verbatim}
@@ -616,7 +673,7 @@ This enables German hyphenation, if you have configured your
 German. Eg. ``Chapter'' becomes ``Kapitel.'' A set of new commands also
 becomes available, which allows you to write German input files more quickly
 even when you don't use the inputenc package. Check out table
-\ref{german} for inspiration. With inputenc, all this become mute, but your 
+\ref{german} for inspiration. With inputenc, all this become moot, but your 
 text also is locked in a particular encoding world.
 
 \begin{table}[!htbp]
@@ -668,7 +725,7 @@ Korean text files are  EUC-KR and its upward compatible
 extension used in Korean MS-Windows, CP949/Windows-949/UHC.
 In these encodings each US-ASCII character represents its normal ASCII
 character similar to other ASCII compatible encodings such as
-ISO-8859-\textit{x}, EUC-JP,Shift\_JIS, and Big5. On the other hand, Hangul
+ISO-8859-\textit{x}, EUC-JP, Shift\_JIS, and Big5. On the other hand, Hangul
 syllables, Hanjas (Chinese characters as used in Korea), Hangul Jamos,
 Hirakanas, Katakanas, Greek and Cyrillic characters and other
 symbols and letters drawn from KS~X~1001 are represented by two
@@ -712,13 +769,13 @@ Korean%,
  will defect from MS Word that already has  a pretty good support 
  for Middle Korean.}
 or Chinese, a subfont mechanism was developed.
-It divides a single CJK fonts with  thousands or tens of thousands of
+It divides a single CJK font with  thousands or tens of thousands of
 glyphs into a set of subfonts with 256 glyphs each. 
 For Korean, there are three widely used packages;  \wi{H\LaTeX}
 by UN~Koaunghi, \wi{h\LaTeX{}p} by CHA~Jaechoon and the \wi{CJK package}
 by Werner~Lemberg.\footnote{% 
-They can be obtained at \texttt{CTAN:/tex-archive/language/korean/HLaTeX/}\\
-   \texttt{CTAN:/tex-archive/language/korean/CJK/} and
+They can be obtained at \CTANref|language/korean/HLaTeX/|\\
+   \CTANref|language/korean/CJK/| and
    \texttt{http://knot.kaist.ac.kr/htex/}}
 H\LaTeX{} and h\LaTeX{}p are specific to Korean and provide
 Korean localization on top of the font support.
@@ -737,7 +794,7 @@ does not come with as many special Korean fonts as H\LaTeX.
 and \LaTeX{} is to get documents typeset in an `aesthetically' satisfying way.
 Arguably the most important element in typesetting is  a set of
 well-designed fonts. The H\LaTeX{} distribution
-includes \index{Korean font!UHC font}UHC \textsc{PostScript} fonts 
+includes \index{Korean font!UHC font}UHC \PSi{} fonts 
 of 10
 different families and
 Munhwabu\footnote{Korean Ministry of Culture}
@@ -787,6 +844,98 @@ the \emph{H\LaTeX{} Guide}.  Check out the web site of the Korean
 There is also a Korean translation
 of this manual available.
 
+
+\subsection{Support for Cyrillic}
+
+\secby{Maksym Polyakov}{polyama@myrealbox.com}
+Version~3.7h of \pai{babel} includes support for the
+\fei{T2*}~encodings and for typesetting Bulgarian, Russian and
+Ukrainian texts using Cyrillic letters.  
+
+Support for Cyrillic is based on standard \LaTeX{} mechanisms through 
+the \pai{fontenc} and \pai{inputenc} packages. But, if you are going to
+use Cyrillics in math mode, you need to load \pai{mathtext} package
+before \pai{fontenc}:\footnote{If you use \AmS-\LaTeX{} packages, 
+load them before \pai{fontenc} and \pai{babel} as well.}
+\begin{lscommand}
+\verb+\usepackage{mathtext}+\\
+\verb+\usepackage[+\fei{T1}\verb+,+\fei{T2A}\verb+]{fontenc}+\\
+\verb+\usepackage[+\iei{koi8-ru}\verb+]{inputenc}+\\
+\verb+\usepackage[english,bulgarian,russian,ukranian]{babel}+
+\end{lscommand}
+
+Generally, \pai{babel} will authomatically choose the default font encoding,
+for the above three languages this is \fei{T2A}.  
+However, documents are not restricted to a single font encoding.
+For multi-lingual documents using Cyrillic and Latin-based languages
+it makes sence to include latin font encoding explicitly. \pai{babel} 
+will take care of switching to necessary font encoding when a different language 
+is selected within the document.
+
+In adition to enabling hyphenations, translating automatically
+generated text strings, and activating some language specific 
+typographic rules (like \ci{frenchspacing}), \pai{babel} provides some 
+commands allowing typesetting according to the standards of 
+Bulgarian, Russian, or Ukrainian languages. 
+
+
+For all three languages, language specific punctuation is provided:
+cyrillic dash for the text (it is little narrower than latin dash and
+surrounded by thin spaces), dash for direct speech, quotes, and
+commands to facilitate hyphenation, see Table~\ref{Cyrillic}.
+
+% Table borrowed from Ukrainian.dtx
+\begin{table}[htb]
+  \begin{center}
+  \index{""-@\texttt{""}\texttt{-}} 
+  \index{""---@\texttt{""}\texttt{-}\texttt{-}\texttt{-}} 
+  \index{""=@\texttt{""}\texttt{=}} 
+  \index{""`@\texttt{""}\texttt{`}} 
+  \index{""'@\texttt{""}\texttt{'}} 
+  \index{"">@\texttt{""}\texttt{>}} 
+  \index{""<@\texttt{""}\texttt{<}} 
+  \caption[Bulgarian, Russian, and Ukrainian]{The extra definitions made
+           by Bulgarian, Russian, and Ukrainian options of \pai{babel}}\label{Cyrillic}
+  \begin{tabular}{@{}p{.1\hsize}@{}p{.9\hsize}@{}}
+   \hline
+   \verb="|= & disable ligature at this position.               \\
+   \verb|"-| & an explicit hyphen sign, allowing hyphenation
+               in the rest of the word.                         \\
+   \verb|"---| & Cyrillic emdash in plain text.                      \\
+   \verb|"--~| & Cyrillic emdash in compound names (surnames).       \\
+   \verb|"--*| & Cyrillic emdash for denoting direct speech.         \\
+   \verb|""| & like |"-|, but producing no hyphen sign
+               (for compound words with hyphen, e.g.\ |x-""y|
+               or some other signs  as ``disable/enable'').     \\
+   \verb|"~| & for a compound word mark without a breakpoint.        \\
+   \verb|"=| & for a compound word mark with a breakpoint, allowing
+          hyphenation in the composing words.                   \\
+   \verb|",| & thinspace for initials with a breakpoint
+           in following surname.                                \\
+   \verb|"`| & for German left double quotes
+               (looks like ,\kern-0.08em,).                     \\
+   \verb|"'| & for German right double quotes (looks like ``).       \\%''
+   \verb|"<| & for French left double quotes (looks like $<\!\!<$).  \\
+   \verb|">| & for French right double quotes (looks like $>\!\!>$). \\
+   \hline
+  \end{tabular}
+  \end{center}
+\end{table}
+
+
+The Russian and Ukrainian options of \pai{babel} define the commands \ci{Asbuk}
+and \ci{asbuk}, which act like \ci{Alph} and \ci{alph}, but produce capital
+and small letters of Russian or Ukrainian alphabets (whichever is the
+active language of the document). The Bulgarian option of \pai{babel} 
+provides the commands \ci{enumBul} and \ci{enumLat} (\ci{enumEng}), which
+make \ci{Alph} and \ci{alph} produce letters of either
+Bulgarian or Latin (English) alphabets. The default behaviour of
+\ci{Alph}  and \ci{alph} for the Bulgarian language option is to
+produce letters from the Bulgarian alphabet. 
+
+%Finally, math alphabets are redefined and  as well as the commands for math
+%operators according to Cyrillic typesetting traditions. 
+
 \section{The Space Between Words}
 
 To get a straight right margin in the output, \LaTeX{} inserts varying
@@ -821,7 +970,6 @@ period than after ordinary character. This is very common in
 non-English languages, except bibliographies. If you use
 \ci{frenchspacing}, the command \verb|\@| is not necessary.
 
-\newpage    
 \section{Titles, Chapters, and Sections}
 
 To help the reader find his or her way through your work, you should
@@ -1200,9 +1348,13 @@ left-aligned text, \mfr{r} for right-aligned text, and \mfr{c} for
 centred text; \mfr{p\{\emph{width}\}} for a column containing justified
 text with line breaks, and \mfr{|} for a vertical line.
 
+If the text in a column is too wide for the page, \LaTeX{} won't
+automatically wrap it. Using \mfr{p\{\emph{width}\}} you can define
+a special type of column which will wrap-around the text as in a normal paragraph.
+
 The \emph{pos} argument specifies the vertical position of the table
 relative to the baseline of the surrounding text.  Use either of the
-letters \texttt{t}, \texttt{b} and \texttt{c} to specify table
+letters \mfr{t}, \mfr{b} and \mfr{c} to specify table
 alignment at the top, bottom or center.
  
 Within a \texttt{tabular} environment, \texttt{\&} jumps to the next
@@ -1457,7 +1609,7 @@ Under certain circumstances it might be necessary to use the
 floats remaining in the queues and then start a new
 page. \ci{cleardoublepage} even goes to a new right-hand page.
 
-You will learn how to include \textsc{PostScript}
+You will learn how to include \PSi{}
 drawings into your \LaTeXe{} documents later in this introduction.
 
 \section{Protecting Fragile Commands}

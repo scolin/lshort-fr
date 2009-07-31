@@ -4,8 +4,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % lshort.tex - The not so short introduction to LaTeX   
 %                                                      by Tobias Oetiker
-%                                                  tobias@ife.ee.ethz.ch
-%                                                      oetiker@dmu.ac.uk
+%                                                     oetiker@ee.ethz.ch
 %
 %                           based on LKURTZ.TEX Uni Graz & TU Wien, 1987
 %-----------------------------------------------------------------------
@@ -39,10 +38,12 @@
 \usepackage{lshort}
 \usepackage{makeidx,shortvrb,latexsym}
 \usepackage{mylayout}
-\RequirePackage[colorlinks,hyperindex,plainpages=false]{hyperref}
 % are we in pdftex ????
 \ifx\pdfoutput\undefined % We're not running pdftex
+\RequirePackage[plainpages=true]{hyperref}
+\usepackage{color}
 \else
+\RequirePackage[colorlinks,hyperindex,plainpages=false]{hyperref}
 \def\pdfBorderAttrs{/Border [0 0 0] } % No border arround Links
 \fi
 %
@@ -85,6 +86,7 @@
 \include{math} 
 \include{lssym}
 \include{spec}
+\include{graphic}
 \include{custom}
 \backmatter
 \include{biblio}

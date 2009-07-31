@@ -10,16 +10,23 @@
 \let\lsspageref\pageref
 \ProvidesPackage{lshort}
 \RequirePackage[english,frenchb,german]{babel}
+\RequirePackage{mflogo}
 \RequirePackage{verbatim}
 \RequirePackage{fancyhea}
 \RequirePackage{calc}
-\RequirePackage[official]{eurosym}
 \RequirePackage{amsmath,amsfonts,amssymb}
 \RequirePackage[all]{xy}
 \RequirePackage[T1]{fontenc}
-\RequirePackage{aeguill}
+\RequirePackage{type1cm}% remove size restrictions
+%\RequirePackage{aeguill}
+% some packages which draw a euro
 \RequirePackage{textcomp}
-\RequirePackage{marvosym}% 
+\RequirePackage{marvosym}
+\RequirePackage[gen]{eurosym}
+\RequirePackage{eurosans}
+\let\EUROSANS\euro
+\RequirePackage{eurofont}% à la place d'europs (conflit de nom)
+\RequirePackage{url}
 % Lets have some nice headings
 %
 \pagestyle{fancyplain}
@@ -33,6 +40,21 @@
 \addtolength{\headheight}{1.6pt}
 %
 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Adapted from TeX FAQ
+\renewcommand{\Email}{\begingroup \def\UrlLeft{<}\def\UrlRight{>} \urlstyle{tt}\Url}     % email address
+\def\mailto|#1|{\href{mailto:#1}{\Email|#1|}}        % url to mail somewhere
+\newcommand{\CTANref}{\begingroup \urlstyle{tt}\Url}     % 
+\def\CTAN|#1|{\href{ftp://ftp.dante.de/tex-archive/#1}{\CTANref|CTAN:/tex-archive/#1|}}  
+\newcommand\Newsgroup{\begingroup \urlstyle{tt}\Url} % newsgroup
+\let\URL\url                                         % just a URL
+
+\newcommand{\PSi}{\textsc{PostScript}\index{PostScript@\textsc{PostScript}}}
+\newcommand{\EPSi}{Encapsulated \textsc{PostScript}%
+\index{Encapsulated PostScript@Encapsulated \textsc{PostScript}}%
+\index{PostScript@\textsc{PostScript}!Encapsulated}%
+}
+
 % Earlier paragraphs were separated by some space
 %
 %\setlength{\parindent}{0pt}
@@ -41,7 +63,7 @@
 \newcommand{\manual}{\emph{\LaTeX{} Manual}~\cite{manual}} 
 \newcommand{\companion}{\emph{The \LaTeX{} Companion}~\cite{companion}} 
 \newcommand{\guide}{\emph{Local Guide}~\cite{local}}
-\newcommand{\contrib}[3]{#1\quad\texttt{<#2>}{\small\\\quad\textit{#3}}\\[1ex]}
+\newcommand{\contrib}[3]{#1\quad\mailto|#2|{\small\\\quad\textit{#3}}\\[1ex]}
 %
 % Some commands for helping with INDEX creation
 %
@@ -91,7 +113,7 @@
 \newenvironment{intro}{\sffamily}{\vspace*{2ex minus 1.5ex}}
 %
 \newcommand{\secby}[2]{\nopagebreak\par\addvspace{-1.5ex}%
-     \vskip -\parskip\noindent{\tiny By #1 $<$\texttt{#2}$>$}\par\nopagebreak%
+     \vskip -\parskip\noindent{\tiny By #1 \mailto|#2|}\par\nopagebreak%
      \addvspace{1ex plus 0.8ex minus 0.2ex}% 
      \vskip -\parskip\noindent\ignorespaces}
 
