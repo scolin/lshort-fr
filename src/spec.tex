@@ -104,6 +104,7 @@ The following example code may help to clarify things:
 \begin{center}
 \includegraphics[angle=90, width=0.5\textwidth]{test}
 \end{center}
+\caption{A caption, explaining that this is a test.}
 \end{figure}
 \end{verbatim}
 \end{code}
@@ -130,7 +131,7 @@ within the document.
 \end{lscommand}
 If you do not use the \emph{label} option, the entries will get enumerated
 automatically.  The parameter after the \verb|\begin{thebibliography}|
-command defines how much space to reserve for the number or labels. In the example below,
+command defines how much space to reserve for the number of labels. In the example below,
 \verb|{99}| tells \LaTeX{} to expect that none of the bibliography item numbers will be wider
 than the number 99.
 \enlargethispage{2cm}
@@ -324,7 +325,7 @@ about this package, make sure to read \cite{verbatim}.
 
 Most \LaTeX{} installations come with a large set of pre-installed
 style packages, but many more are available on the net. The main
-place to look for style packages on the Internet is CTAN (\verb|http://www.ctan.org/|).
+place to look for style packages on the Internet is CTAN (\url{http://www.ctan.org/}).
 
 Packages such as \pai{geometry}, \pai{hyphenat}, and many
 others are typically made up of two files: a file with the extension
@@ -448,8 +449,8 @@ command line, you may find a special button in the \TeX{}ControlCenter.
 In \LaTeX{} you can define the the paper size with an 
 optional documentclass argument such as \texttt{a4paper} or
 \texttt{letterpaper}. This works in pdf\LaTeX{} too, but on top of this
-pdf\TeX{} also needs to know the physical size of the paper and not just
-the area to use for the layout.
+pdf\TeX{} also needs to know the physical size of the paper to determine the physical
+size of the pages in the pdf file.
 \index{paper size}
 If you use the
 \pai{hyperref} package (see page \pageref{ssec:pdfhyperref}), the
@@ -470,10 +471,12 @@ manual configuration of hyperlinks.
 \subsection{The Fonts}
 
 \wi{pdf\LaTeX} can deal with all sorts of fonts (PK bitmaps, TrueType,
-\PSi{} type~1\dots) but prime \LaTeX{} font format, the bitmap PK
-fonts produce very ugly results when the document is displayed
-with Acrobat Reader. It is best to use \PSi{} Type 1 fonts
-exclusively to produce documents that display well.
+\PSi{} type~1\dots) but the normal \LaTeX{} font format, the bitmap PK
+fonts produce very ugly results when the document is displayed with Acrobat
+Reader. It is best to use \PSi{} Type 1 fonts exclusively to produce
+documents that display well. \emph{Modern TeX installations will be setup so that
+this happens automatically. Best is to try. If it works for you,
+just skip this whole section.}
 
 The \PSi{} Type 1 implementation of the Computer Modern and AMSFonts
 was produced by Blue Sky Research and Y\&Y, Inc., who then transferred
@@ -491,7 +494,7 @@ and Mik\TeX. Similar type~1 CB Greek fonts created by Apostolos
 Syropoulos are available at \texttt{CTAN:/tex-archive/fonts/greek/cb}.
 Unfortunately, both of these font sets are not of the same typographic
 quality as the Type1 CM fonts by Blue Sky/Y\&Y. They were automatically
-hinted, and the document might look   as neat on  the screen as the ones using
+hinted, and the document might look not as neat on the screen as the ones using
 Blue Sky/Y\&Y type 1 CM fonts, on high resolution output devices they
 produce results identical to the original bitmap EC/LH/CB fonts. 
 
@@ -526,12 +529,11 @@ missing other Cyrillic glyphs.
 Another solution is to switch to other \PSi{} type~1 fonts.
 Actually, some of them are even included with every copy of Acrobat
 Reader. Because these fonts have different character sizes, the text
-layout on your pages will change. Generally it will use more space than
+layout on your pages will change. Generally these other fonts will use more space than
 the CM fonts, which are very space-efficient.  Also, the overall visual
 coherence of your document will suffer because Times, Helvetica and
 Courier (the primary candidates for such a replacement job) have not
-been designed to work in harmony in a single document as has been done
-for the Computer Modern fonts.
+been designed to work in harmony in a single document.
  
 Two ready-made font sets are available for this purpose:
 \pai{pxfonts}, which is based on \emph{Palatino} as its main text body font,
@@ -936,14 +938,14 @@ To create this type of document you normally work within the
 First you have to load the \pai{pdfscreen} package together with
 appropriate options:
 \begin{description}
-\item[\texttt{screen}]: screen presentation. Use \texttt{print} to
+\item[\texttt{screen}] for screen presentation. Use \texttt{print} to
   create a printable version.
 \item[\texttt{panelright}] put a navigation panel on the right side of
   the screen. If the panel should be on the left side use
   \texttt{panelleft}. If you do not want panels use \texttt{nopanel}.
 \item[\texttt{french}] or some other supported language will render
   the text on the navigation buttons appropriately. This option is
-  independent of the options set with the babel package. If your language is not suppoted by \pai{pdfscreen}, 
+  independent of the options set with the babel package. If your language is not supported by \pai{pdfscreen}, 
   you still can localize navigation panel buttons by using 
   file \texttt{pdfscreen.cfg}, see \texttt{pdfscreen.cfg..specimen} for
 an example.

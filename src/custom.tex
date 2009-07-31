@@ -158,7 +158,7 @@ want to create a title environemnt which supresses its own indentation as
 well as the one on the following paragraph. The \ci{ignorespaces} command in
 the begin block of the environment will make it ignore any space after
 executing the begin block. The end block is a bit more tricky as special
-processing occures at the end of an environment. With the
+processing occurs at the end of an environment. With the
 \ci{ignorespacesafterend} \LaTeX{} will issue an \ci{ignorespaces} after the
 special `end' processing has occured.
 
@@ -206,7 +206,7 @@ latex '\newcommand{\blackandwhite}{true}\input{test.tex}'
 \end{verbatim}
 
 First the command \verb|\blackandwhite| gets defined and then the actual file is read with input.
-By setting \verb|\blackandwhite| to fals the color version of the document would be produced.
+By setting \verb|\blackandwhite| to false the color version of the document would be produced.
 
 \subsection{Your Own Package}
 
@@ -348,18 +348,29 @@ special set of commands; refer to Table~\ref{mathfonts}.
 
 \begin{table}[!bp]
 \caption{Math Fonts.} \label{mathfonts}
-\begin{lined}{\textwidth}
-\begin{tabular}{@{}lll@{}}
-\textit{Command}&\textit{Example}&    \textit{Output}\\[6pt]
-\fni{mathcal}\verb|{...}|&    \verb|$\mathcal{B}=c$|&     $\mathcal{B}=c$\\
-\fni{mathrm}\verb|{...}|&     \verb|$\mathrm{K}_2$|&      $\mathrm{K}_2$\\
-\fni{mathbf}\verb|{...}|&     \verb|$\sum x=\mathbf{v}$|& $\sum x=\mathbf{v}$\\
-\fni{mathsf}\verb|{...}|&     \verb|$\mathsf{G\times R}$|&        $\mathsf{G\times R}$\\
-\fni{mathtt}\verb|{...}|&     \verb|$\mathtt{L}(b,c)$|&   $\mathtt{L}(b,c)$\\
-\fni{mathnormal}\verb|{...}|& \verb|$\mathnormal{R_{19}}\neq R_{19}$|&
-$\mathnormal{R_{19}}\neq R_{19}$\\
-\fni{mathit}\verb|{...}|&     \verb|$\mathit{ffi}\neq ffi$|& $\mathit{ffi}\neq ffi$
+\begin{lined}{0.7\textwidth}
+\begin{tabular}{@{}ll@{}}
+\fni{mathrm}\verb|{...}|&     $\mathrm{Roman\ Font}$\\
+\fni{mathbf}\verb|{...}|&     $\mathbf{Boldface\ Font}$\\
+\fni{mathsf}\verb|{...}|&     $\mathsf{Sans\ Serif\ Font}$\\
+\fni{mathtt}\verb|{...}|&     $\mathtt{Typewriter\ Font}$\\
+\fni{mathit}\verb|{...}|&     $\mathit{Italic\ Font}$\\
+\fni{mathcal}\verb|{...}|&    $\mathcal{CALLIGRAPHIC\ FONT}$\\
+\fni{mathnormal}\verb|{...}|& $\mathnormal{Normal\ Font}$\\
 \end{tabular}
+
+%\begin{tabular}{@{}lll@{}}
+%\textit{Command}&\textit{Example}&    \textit{Output}\\[6pt]
+%\fni{mathcal}\verb|{...}|&    \verb|$\mathcal{B}=c$|&     $\mathcal{B}=c$\\
+%\fni{mathscr}\verb|{...}|&    \verb|$\mathscr{B}=c$|&     $\mathscr{B}=c$\\
+%\fni{mathrm}\verb|{...}|&     \verb|$\mathrm{K}_2$|&      $\mathrm{K}_2$\\
+%\fni{mathbf}\verb|{...}|&     \verb|$\sum x=\mathbf{v}$|& $\sum x=\mathbf{v}$\\
+%\fni{mathsf}\verb|{...}|&     \verb|$\mathsf{G\times R}$|&        $\mathsf{G\times R}$\\
+%\fni{mathtt}\verb|{...}|&     \verb|$\mathtt{L}(b,c)$|&   $\mathtt{L}(b,c)$\\
+%\fni{mathnormal}\verb|{...}|& \verb|$\mathnormal{R_{19}}\neq R_{19}$|&
+%$\mathnormal{R_{19}}\neq R_{19}$\\
+%\fni{mathit}\verb|{...}|&     \verb|$\mathit{ffi}\neq ffi$|& $\mathit{ffi}\neq ffi$
+%\end{tabular}
 
 \bigskip
 \end{lined}
@@ -475,8 +486,8 @@ it was before. Note the par command
 at the end of the paragraph.\par}
 
 This paragraph has a clear purpose,
-it show that after the curly brace
-has been closed everything is back
+it shows that after the curly brace
+has been closed, everything is back
 to normal.
 \end{example}
 
@@ -628,8 +639,19 @@ vertical space without having to worry about exact numbers.
 \vspace*{1.8cm}
 \caption{Page Layout Parameters.}
 \label{fig:layout}
+\cih{footskip}
+\cih{headheight}
+\cih{headsep}
+\cih{marginparpush}
+\cih{marginparsep}
+\cih{marginparwidth}
+\cih{oddsidemargin}
+\cih{paperheight}
+\cih{paperwidth}
+\cih{textheight}
+\cih{textwidth}
+\cih{topmargin}
 \end{figure}
-
 \index{page layout}
 \LaTeXe{} allows you to specify the \wi{paper size} in the
 \verb|\documentclass| command. It then automatically picks the right 
@@ -783,15 +805,14 @@ give you ultimate flexibility.
 
 \noindent \texttt{width} defines the width of the resulting box as
 seen from the outside.\footnote{This means it can be smaller than the
-  material inside the box. You can even set the
-  width to 0pt so that the text inside the box will be typeset without
-  influencing the surrounding boxes.}  Besides the length
-  expressions, you can also use \ci{width}, \ci{height}, \ci{depth}, and
-  \ci{totalheight} in the width parameter. They are set from values
-  obtained by measuring the typeset \emph{text}. The \emph{pos} parameter takes
-a one letter value: \textbf{c}enter, \textbf{l}eft flush,
-\textbf{r}ight, flush, or \textbf{s}, which spreads the text inside the
-box to fill it.
+material inside the box. You can even set the
+width to 0pt so that the text inside the box will be typeset without
+influencing the surrounding boxes.}  Besides the length
+expressions, you can also use \ci{width}, \ci{height}, \ci{depth}, and
+\ci{totalheight} in the width parameter. They are set from values
+obtained by measuring the typeset \emph{text}. The \emph{pos} parameter takes
+a one letter value: \textbf{c}enter, flush\textbf{l}eft,
+flush\textbf{r}ight, or \textbf{s}pread the text to fill the box.
 
 The command \ci{framebox} works exactly the same as \ci{makebox}, but
 it draws a box around the text.
@@ -820,7 +841,7 @@ Now that we control the horizontal, the obvious next step is to go for
 
 
 \begin{lscommand}
-\ci{raisebox}\verb|{|\emph{lift}\verb|}[|\emph{depth}\verb|][|\emph{height}\verb|]{|\emph{text}\verb|}|
+\ci{raisebox}\verb|{|\emph{lift}\verb|}[|\emph{extend-above-baseline}\verb|][|\emph{extend-below-baseline}\verb|]{|\emph{text}\verb|}|
 \end{lscommand}
 
 \noindent command lets you define the vertical properties of a

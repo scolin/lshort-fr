@@ -1,3 +1,14 @@
+4.14 2004.04.04
+----
+* improved explaination of raisebox paramteres
+* added pagelayout parameters to index
+* added caption to includegraphics example
+* better examples for math fonts -- Vadym Lepetyuk <lepetyuk@econ.umn.edu>
+* note in pdf fonts section that fonts may work just fine in a modern tex installation
+* have label inside caption 
+* rephrase the back-tick grave stuff
+* it's textcomp and not texcomp
+
 4.13
 ----
 * added comment on bad rendering of example in Quotes section

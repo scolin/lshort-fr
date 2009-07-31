@@ -263,8 +263,8 @@ quotes you use just one of each.
 \begin{example}
 ``Please press the `x' key.''
 \end{example}
-Yes I know the renderin here is not ideal, it's realy grave accent and
-vertical quote on your keyboard, despite what the font chosen might suggest.
+Yes I know the rendering is not ideal, it's really a back-tick or grave accent for
+opening quotes and vertical quote for closing, despite what the font chosen might suggest.
 
 \subsection{Dashes and Hyphens}
 
@@ -304,7 +304,7 @@ I will soon start to
 super-conduct.
 \end{example}
 
-The \pai{texcomp} package makes the degree symbol also available as \ci{textcelsius} and \ci{texdegree}.
+The \pai{textcomp} package makes the degree symbol also available as \ci{textcelsius}.
 
 \subsection{The Euro Currency Symbol \texorpdfstring{(\euro{})}{}}
 
@@ -512,8 +512,8 @@ encoded as 132, on Unix systems using ISO-LATIN~1 it is encoded as 228,
 while in cyrillic encoding cp1251 for Windows this letter does not exist
 at all; therefore you should use this feature with care. The following
 encodings may come in handy, depending on the type of system you are
-working on\footnote{To learn more about supported by \LaTeX{}  input
-encodings for Latin-based and Cyrillic-based languages,  read
+working on\footnote{To learn more about supported  input
+encodings for Latin-based and Cyrillic-based languages, read the
 documentation for \texttt{inputenc.dtx} and \texttt{cyinpenc.dtx}
 respectively. Section~\ref{sec:Packages} tells how to produce package
 documentation.}
@@ -553,7 +553,7 @@ Font encodings are handled through
 encodings simultaneously.
 
 The default \LaTeX{} font encoding is \label{OT1} \fei{OT1}, the encoding of the
-the  original Computer Modern \TeX{} font. It containins only the 128
+original Computer Modern \TeX{} font. It containins only the 128
 characters of the 7-bit ASCII character set. When accented characters
 are required, \TeX{} creates them by combining a normal character with
 an accent. While the resulting output looks perfect, this approach stops
@@ -677,7 +677,7 @@ This enables German hyphenation, if you have configured your
 German. Eg. ``Chapter'' becomes ``Kapitel.'' A set of new commands also
 becomes available, which allows you to write German input files more quickly
 even when you don't use the inputenc package. Check out table
-\ref{german} for inspiration. With inputenc, all this become moot, but your 
+\ref{german} for inspiration. With inputenc, all this becomes moot, but your 
 text also is locked in a particular encoding world.
 
 \begin{table}[!htbp]
@@ -871,7 +871,7 @@ load them before \pai{fontenc} and \pai{babel} as well.}
 Generally, \pai{babel} will authomatically choose the default font encoding,
 for the above three languages this is \fei{T2A}.  However, documents are not
 restricted to a single font encoding. For multi-lingual documents using
-Cyrillic and Latin-based languages it makes sence to include latin font
+Cyrillic and Latin-based languages it makes sense to include latin font
 encoding explicitly. \pai{babel} will take care of switching to the appropriate
 font encoding when a different language is selected within the document.
 
@@ -1601,7 +1601,7 @@ you are going to paste into the finished document.
 Figure~\ref{white} is an example of Pop-Art.
 \begin{figure}[!hbp]
 \makebox[\textwidth]{\framebox[5cm]{\rule{0pt}{5cm}}}
-\caption{Five by Five in Centimetres.} \label{white}
+\caption{Five by Five in Centimetres.\label{white}}
 \end{figure}
 \end{verbatim}
 \end{code}
