@@ -43,22 +43,20 @@
 \usepackage{thumbpdf}
 \pdfcompresslevel=9
 \else
-\documentclass[11pt,a4paper,twoside]{book}
+\documentclass[dvips,11pt,a4paper,twoside]{book}
 \fi
 \usepackage[T1]{fontenc}
 \usepackage[latin1]{inputenc}
 \usepackage{amsmath}
 \usepackage{lshort}
-\usepackage{shortvrb,latexsym}
+\usepackage{makeidx,shortvrb,latexsym}
 \usepackage[french]{mylayout}
+\RequirePackage[colorlinks,hyperindex,plainpages=false]{hyperref}
 \usepackage{lettrine}
-\usepackage{makeidx}
 
 \ifpdf
-\RequirePackage[colorlinks,hyperindex,plainpages=false]{hyperref}
 \def\pdfBorderAttrs{/Border [0 0 0] } % No border arround Links
 \else
-\RequirePackage[colorlinks]{hyperref}
 \fi
 
 \usepackage[frenchb,english]{babel}
@@ -115,9 +113,12 @@
 \include{custom}
 \backmatter
 \include{biblio}
-%\cleardoublepage
-\addcontentsline{toc}{chapter}{\numberline{}Index} 
+\refstepcounter{chapter}
+\addcontentsline{toc}{chapter}{Index} 
 \printindex
+\refstepcounter{chapter}
+\label{verylast}
+\mbox{}
 \end{document}
 
 
