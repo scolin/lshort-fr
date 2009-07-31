@@ -1,0 +1,12 @@
+--- a/src/graphic.tex
++++ b/src/graphic.tex
+@@ -61,7 +61,8 @@ be found in \hoenig.
+ 
+ \subsection{Basic Commands}
+ 
+-A \ei{picture} environment is created with one of the two commands
++A \ei{picture} environment\footnote{Believe it or not, the picture environment works out of the
++box, with standard \LaTeXe{} no package loading necessary.} is created with one of the two commands
+ \begin{lscommand}
+ \ci{begin}\verb|{picture}(|$x,y$\verb|)|\ldots\ci{end}\verb|{picture}|
+ \end{lscommand}

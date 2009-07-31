@@ -1,0 +1,25 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -1287,6 +1287,22 @@ again.
+ \end{flushleft}
+ \end{example}
+ 
++\subsection{Abstract}
++
++In scientific publications it is customary to start with an abstract which
++gives the reader a quick overview of what to expect. \LaTeX{} provides the
++\ei{abstract} environment for this purpose. Normally \ei{abstract} is used
++in documents typeset with the article document class.
++
++\newenvironment{abstract}%
++        {\begin{center}\begin{small}\begin{minipage}{0.8\textwidth}}%
++        {\end{minipage}\end{small}\end{center}}
++\begin{example}
++\begin{abstract}
++The abstract abstract.
++\end{abstract}
++\end{example}
++
+ \subsection{Printing Verbatim}
+ 
+ Text that is enclosed between \verb|\begin{|\ei{verbatim}\verb|}| and

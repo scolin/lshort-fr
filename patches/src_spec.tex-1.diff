@@ -1,0 +1,11 @@
+--- a/src/spec.tex
++++ b/src/spec.tex
+@@ -231,7 +231,7 @@ proofreading a document and verifying the index.
+ Note that the \ci{index} command can affect your layout if not used carefully.
+ 
+ \begin{example}
+-My Word \index{Word}. As oposed
++My Word \index{Word}. As opposed
+ to Word\index{Word}. Note the
+ position of the full stop.
+ \end{example}

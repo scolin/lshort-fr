@@ -1,0 +1,11 @@
+--- a/src/custom.tex
++++ b/src/custom.tex
+@@ -793,7 +793,7 @@ A few pages back you may have noticed the command
+ \end{lscommand}
+ 
+ \noindent In normal use it produces a simple black box.
+-\newpage
++
+ \begin{example}
+ \rule{3mm}{.1pt}%
+ \rule[-1mm]{5mm}{1cm}%

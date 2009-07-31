@@ -1,0 +1,11 @@
+--- a/src/math.tex
++++ b/src/math.tex
+@@ -295,7 +295,7 @@ is set in its usual position.
+ The \textbf{\wi{integral operator}} is generated with \ci{int}, the
+ \textbf{\wi{sum operator}} with \ci{sum}, and the \textbf{\wi{product operator}}
+ with \ci{prod}. The upper and lower limits are specified with~\verb|^|
+-and~\verb|_| like subscripts and superscripts.
++and~\verb|_| like subscripts and superscripts.\index{superscript}
+ \footnote{\AmS-\LaTeX{} in addition has multi-line super-/subscripts}
+ \begin{example}
+ \begin{displaymath}

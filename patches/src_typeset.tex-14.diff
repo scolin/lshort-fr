@@ -1,0 +1,11 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -1329,7 +1329,7 @@ The \ci{verb} command can be used in a similar fashion with a star:
+ The \texttt{verbatim} environment and the \verb|\verb| command may not be used
+ within parameters of other commands.
+ 
+-
++ 
+ \subsection{Tabular}
+ 
+ \newcommand{\mfr}[1]{\framebox{\rule{0pt}{0.7em}\texttt{#1}}}

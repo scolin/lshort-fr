@@ -1,0 +1,19 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -258,12 +258,14 @@ You should \emph{not} use the \verb|"| for \wi{quotation marks}
+ \index{""@\texttt{""}} as you would on a typewriter.  In publishing
+ there are special opening and closing quotation marks.  In \LaTeX{},
+ use two~\verb|`|s (grave accent) for opening quotation marks and
+-two~\verb|'|s (apostrophe) for closing quotation marks. For single
++two~\verb|'|s (vertical quote) for closing quotation marks. For single
+ quotes you use just one of each.
+ \begin{example}
+ ``Please press the `x' key.''
+ \end{example}
+- 
++Yes I know the renderin here is not ideal, it's realy grave accent and
++vertical quote on your keyboard, despite what the font chosen might suggest.
++
+ \subsection{Dashes and Hyphens}
+ 
+ \LaTeX{} knows four kinds of \wi{dash}es. You can access three of

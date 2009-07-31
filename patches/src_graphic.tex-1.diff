@@ -1,0 +1,32 @@
+--- a/src/graphic.tex
++++ b/src/graphic.tex
+@@ -19,17 +19,18 @@ few of them.
+ 
+ \section{Overview}
+ 
+-The \ei{picture} environment allows programming pictures directly in \LaTeX. 
+-A etailed description can be found in the \manual.
+-On the one hand, there are rather severe constraints, as the slopes of line segments 
+-as well as the radii of circles are restricted to a narrow choice of values. 
+-On the other hand, the \ei{picture} environment of \LaTeXe\ 
+-brings with it the \ci{qbezier} command, ``\texttt{q}'' meaning ``quadratic''. 
+-Many frequently used curves such as circles, ellipses, or catenaries can be 
+-satisfactorily approximated by quadratic B\'ezier curves, although this may 
+-require some mathematical toil. If, in addition, a programming language like Java 
+-is used to generate \ci{qbezier} blocks of \LaTeX\ input files, the \ei{picture} 
+-environment becomes quite powerful. 
++The \ei{picture} environment allows programming pictures directly in
++\LaTeX. A detailed
++description can be found in the \manual. On the one hand, there are rather
++severe constraints, as the slopes of line segments as well as the radii of
++circles are restricted to a narrow choice of values.  On the other hand, the
++\ei{picture} environment of \LaTeXe\ brings with it the \ci{qbezier}
++command, ``\texttt{q}'' meaning ``quadratic''.  Many frequently used curves
++such as circles, ellipses, or catenaries can be satisfactorily approximated
++by quadratic B\'ezier curves, although this may require some mathematical
++toil. If, in addition, a programming language like Java is used to generate
++\ci{qbezier} blocks of \LaTeX\ input files, the \ei{picture} environment
++becomes quite powerful.
+ 
+ Although programming pictures directly in \LaTeX\ is severly restricted,
+ and often rather tiresome, there are still reasons for doing so. The documents
