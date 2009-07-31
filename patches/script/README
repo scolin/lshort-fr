@@ -1,0 +1,27 @@
+Translation process:
+
+We will take the transition from v3.20 to v3.21 as an example. First,
+generate all the hunks thanks to the script.
+
+Then examine the non-translation related patches. Apply them, commit with a
+relevant message (applied cosmetic changes of the transition). If there are
+conflicts, keep the version done by the patch : it will help converge
+towards the shape of the upstream version.
+
+Then examine the changes to the *.sty files: if there are new macros or
+changed macros, apply the patch plus all the patches using these macros. If
+you can separate that into several commits, the better.
+
+Finally, you are normally left with the pure translation patches : apply
+them one by one.
+
+IMPORTANT: for each commit, remember to delete the corresponding patch(es)
+from the patches directory.
+
+When all the patches have been deleted (i.e. they have all been applied or
+translated), you are ready to reread the resulting document, maybe do a few
+more changes translation-wise, and tag it as the new version (here v3.21-fr,
+for instance).
+
+This process might benefit from using quilt/guilt in the future.
+

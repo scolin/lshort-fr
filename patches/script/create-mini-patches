@@ -1,0 +1,33 @@
+#!/bin/sh
+
+if [ $# -ne 2 ]
+then
+  echo Usage: $0 commit1 commit2
+  echo You should launch it at the root of the patches directory
+  echo Example: cd patches && script/create-mini-patches v3.20 v3.21
+  echo It creates all hunks for the diff between the v3.20 and v3.21 tags
+  exit 1
+fi
+
+git diff $1 $2 >machin.diff
+
+sed -i -e '$b; /^diff --git a\/.*$/ { $!N; /^diff --git a\/.*\nindex [0-9a-f]\+\.\.[0-9a-f]\+ [0-9]\+$/d; P; D }' machin.diff
+
+flist=`splitdiff -a -d -p 1 machin.diff | sed -e 's/Wrote >//g'`
+
+for i in $flist
+do
+  echo "$i"
+  nbhunks=`grep '@@ -[0-9]\+,[0-9]\+ +[0-9]\+,[0-9]\+ @@ \?.*$' "$i" | wc -l`
+  echo Hunks: "$nbhunks"
+  for j in `seq -w 1 "$nbhunks"`
+  do
+    noj=`echo "$j" | sed -e 's/^0\+//g'`
+    echo "$i": "$noj"
+    filterdiff -#"$noj" "$i" >"$i"-"$j".diff
+  done
+  rm "$i"
+done
+
+rm machin.diff
+
