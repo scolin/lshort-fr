@@ -15,18 +15,23 @@
   la solution à votre problème de mise en forme d'une équation
   mathématique. Il y a de fortes chances pour que la solution se
   trouve dans l'extension \pai{amsmath} de \AmS-\LaTeX{}% 
-\,\footnote{\emph{American Mathematical Society} = 
-  Société Américaine de Mathématiques.}.
+\,\footnote{L'\emph{American Mathematical Society} (NdT. la Société
+  Américaine de Mathématiques) a produit une extension puissante à
+  LaTeX{}. De nombreux exemples de ce chapitre font usage de cette
+  extension, fournie avec toute distribution \TeX{} récente. Si la
+  vôtre ne la contient pas, visitez
+  \texttt{CTAN:/tex-archive/macros/latex/required/amslatex}.}
 \end{intro}
   
 \section{Généralités}
 
 \LaTeX{} dispose d'un mode spécial pour la mise en page de formules
-\wi{mathématiques}. Des maths à l'intérieur d'un paragraphe sont
-saisies entre  
- \ci{(}
-et \ci{)}, \index{$@\texttt{\$}} entre \texttt{\$} et \texttt{\$} %$
- ou entre
+\wi{mathématiques}. Celles-ci peuvent être insérées à l'intérieur d'un
+paragraphe, ou celui-ci peut être découpé pour qu'elles soient
+typographiées séparément. Des formules mathématiques à l'intérieur
+d'un paragraphe sont saisies entre
+\ci{(} et \ci{)}, \index{$@\texttt{\$}}
+entre \texttt{\$} et \texttt{\$} %$ ou entre
 \verb|\begin{|\ei{math}\verb|}| et \verb|\end{math}|.\index{formules}
 
 \begin{example}
@@ -37,18 +42,17 @@ utilisant une approche plus
 matheuse : $c^{2}=a^{2}+b^{2}$
 \end{example}
 \begin{example}
+ \TeX{} se prononce 
+\(\tau\epsilon\chi\).\\[6pt]
 100~m$^{3}$ d'eau\\[6pt]
-J'$\heartsuit$ \LaTeX{}
+J'\begin{math}\heartsuit\end{math} \LaTeX{}
 \end{example}
 
 Il vaut mieux composer les équations ou les formules plus importantes
-\og \emph{hors-texte} \fg{},
-c'est-à-dire sur des lignes à part. Pour cela, on les
+\og \emph{hors-texte} \fg{} plutôt que de découper un paragraphe pour
+cela, c'est-à-dire sur des lignes à part. À cette fin, on les
 inclut entre \ci{[} et \ci{]} ou entre
 \verb|\begin{|\ei{displaymath}\verb|}| et \verb|\end{displaymath}|.
-On obtient ainsi des formules qui ne sont pas numérotées. Si vous
-voulez qu'elles soient numérotées par \LaTeX{}, utilisez
-l'environnement \ei{equation}.
 
 \begin{example}
 Ajoutez $a$ au carré 
@@ -56,23 +60,28 @@ et $b$ au carré pour obtenir
 $c$ au carré. Ou, en 
 utilisant une approche plus
 matheuse :
-\[ c^{2}=a^{2}+b^{2} \]
-Le mot de la fin.
+\begin{displaymath}
+c^{2}=a^{2}+b^{2}
+\end{displaymath}
+Vous pouvez aussi taper moins via:
+\[ a^{2}+b^{2}=c^{2} \]
 \end{example}
 
-Avec \ci{label} et \ci{ref}, vous pouvez faire référence à une équation.
-
+Si vous souhaitez que \LaTeX{} numérote vos équations, vous pouvez
+utiliser l'environnement \ei{equation}.
+Vous pouvez alors étiqueter une équation via \ci{label} et la
+référencer depuis un autre endroit via \ci{ref} ou \ci{eqref}:
 \begin{example}
 \begin{equation} \label{eq}
 \epsilon > 0
 \end{equation}
-L'équation (\ref{eq}) 
-nous donne\dots
+L'équation (\ref{eq}) nous donne
+\dots{}De \eqref{eq} nous déduisons la même chose.
 \end{example}
 
 Remarquez que les expressions mathématiques sont formatées
-différemment selon qu'elles sont composées \og en ligne \fg{} ou \og hors
-texte \fg{}. Comparez :
+différemment selon qu'elles sont composées \og en ligne \fg{} ou \og
+hors texte \fg{} :
 \begin{example}
 $\lim_{n \to \infty} 
 \sum_{k=1}^n \frac{1}{k^2} 
@@ -93,13 +102,14 @@ Il y a des différences entre le mode \emph{mathématique} et le mode
 \item la plupart des espaces et des retours à la ligne n'ont aucune
       signification. Les espaces sont déduites de la logique de la
       formule ou indiquées à l'aide de commandes spécifiques telles
-      que :  \ci{,}, \ci{quad} ou\ci{qquad} ;
+      que \ci{,}, \ci{quad} ou\ci{qquad} ;
 \item les lignes vides ne sont pas autorisées. Un seul paragraphe par
       formule ;
 \item chaque lettre est considérée comme étant le nom d'une variable
       et sera imprimée comme tel. Pour insérer du  texte
       normal (police et espacement standard) dans une formule, il 
-      faut utiliser la commande \verb|\textrm{...}|.
+      faut utiliser la commande \verb|\textrm{...}| (voir également la
+      section \ref{sec:fontsz} en page \pageref{sec:fontsz}).
 \end{enumerate}
 
 \begin{example}
@@ -149,7 +159,7 @@ a^x+y \neq a^{x+y}
 \section{Éléments d'une formule mathématique}
 \enlargethispage{\baselineskip}
 
-Dans cette section nous allons voir les commandes les plus importantes
+Cette section décrit les commandes les plus importantes 
 du mode mathématique. Pour une liste de tous les symboles disponibles,
 voyez la section~\ref{symbols}, page~\pageref{symbols}.
 
@@ -178,7 +188,7 @@ $a^{3}_{ij}$\\
 $e^{x^2} \neq ({e^x})^2$
 \end{example}
 
-La \textbf{\wi{racine carrée}} est saisie ainsi : \ci{sqrt}, la
+La \textbf{\wi{racine carrée}} est saisie via \ci{sqrt}. La
 racine $n^\mathrm{i\grave{e}me}$ est produite par la commande
 \verb|\sqrt[|$n$\verb|]|. La taille du symbole racine est calculée par
 \LaTeX. Pour obtenir le symbole seul, utilisez \verb|\surd|.
@@ -242,9 +252,9 @@ faire apparaître pour aider la lecture. Utilisez alors \ci{cdot}.
 \end{example}
 
 Les noms des fonctions telles que sinus doivent être imprimés à l'aide
-d'une police droite et non en italique comme les variables. \LaTeX{}
-fournit donc les commandes suivantes pour les fonctions les plus
-utilisées :
+d'une police droite et non en italique comme les variables. C'est
+pourquoi \LaTeX{} fournit les commandes suivantes pour les fonctions
+les plus utilisées :
 \index{mathématiques!fonctions}
 
 \begin{verbatim}
@@ -282,10 +292,6 @@ x^{ 1/2 }
 \end{displaymath}
 \end{example}
 
-% remplacé description de \atop et \choose  selon remarque de 
-% Vincent Zoonekynd <zoonek@dptmaths.ens-cachan.fr>
-%
-
 Pour imprimer des coefficients binomiaux (à l'américaine) ou d'autres
 structures semblables, on peut utiliser la commande \ci{binom} de
 l'extension \pai{amsmath} :
@@ -298,7 +304,7 @@ l'extension \pai{amsmath} :
  
 Il est parfois utile de pouvoir superposer des symboles,
 la commande \ci{stackrel} place son premier argument en taille
-réduite au dessus du second :
+réduite au dessus du second, lui-même mis en position normale :
 
 \begin{example}
 \begin{displaymath}
@@ -307,10 +313,12 @@ X \stackrel{!}{=} 1
 \end{example}
 
 Les \textbf{\wi{intégrale}s} sont produites par la commande \ci{int},
-les \textbf{\wi{somme}s} par la commande \ci{sum}, les produits par la
+les \textbf{\wi{somme}s} par la commande \ci{sum} et les produits par la
 commande \ci{prod}. Les limites
 inférieures et supérieures sont indiquées avec~\verb|_| et~\verb|^|
 comme pour les indices et les exposants.
+\footnote{\AmS-\LaTeX{} dispose en plus de capacités de formattage
+  d'indices et d'exposants sur plusieurs lignes}
 
 \begin{example}
 \begin{displaymath}
@@ -322,7 +330,7 @@ comme pour les indices et les exposants.
 
 % Ajout (df) : doubles indices
 Pour superposer des indices, l'extension \pai{amsmath} propose la
-commande \ci{substack} et l'environnement \ei{subarray} qui permet
+commande \ci{substack} et l'environnement \ei{subarray} qui permettent
 d'aligner les indices à gauche  au lieu de les centrer.
 \begin{example}
 \begin{displaymath}
@@ -336,8 +344,8 @@ d'aligner les indices à gauche  au lieu de les centrer.
 
 \medskip
 
-Pour les \textbf{\wi{crochets}  et les autres \wi{délimiteurs}}, il existe
-toutes sortes de symboles en \TeX{} (par exemple
+\TeX{} fournit toutes sortes de symboles pour les
+\textbf{\wi{crochets} et autres \wi{délimiteurs}} (par exemple
 $[\;\langle\;\|\;\updownarrow$). Les \wi{parenthèses} et les crochets
 sont obtenus avec les caractères correspondants, les \wi{accolades}
 avec \verb|\{|, et tous les autres délimiteurs sont obtenus par des
@@ -382,11 +390,11 @@ $\big\}\Big\}\bigg\}\Bigg\}$\quad
 $\big\|\Big\|\bigg\|\Bigg\|$
 \end{example}
 
-Pour saisir des \textbf{\wi{points de suspension}} dans une formule,
-vous pouvez utiliser plusieurs commandes. \ci{ldots} imprime les
-points sur la base de la ligne, \ci{cdots} les imprime au milieu. En
-plus il y a les commandes \ci{vdots} pour les imprimer verticalement
-et \ci{ddots} pour les imprimer en diagonale.
+Plusieurs commandes sont à disposition pour saisir des
+\textbf{\wi{points de suspension}} dans une formule.\ci{ldots} imprime
+les points sur la base de la ligne, \ci{cdots} les imprime au
+milieu. En plus il y a les commandes \ci{vdots} pour les imprimer
+verticalement et \ci{ddots} pour les imprimer en diagonale.
 \index{points de suspension!verticaux}
 \index{vertical!points de suspension}
 \index{points de suspension!diagonaux}
@@ -431,7 +439,7 @@ Remarquez que le `d' de l'élément différentiel est traditionnellement
 imprimé en caractères romains par la commande \ci{ud}.
  
 \AmS-\LaTeX{} propose un ensemble de commandes pour ajuster finement
-l'espace entre les signes intégrale : \ci{iint}, \ci{iiint},
+l'espace entre les signes d'intégrale : \ci{iint}, \ci{iiint},
 \ci{iiiint} et \ci{idotsint}. Avec l'extension \pai{amsmath},
 l'exemple précédent peut se coder de cette manière :
 
@@ -443,7 +451,8 @@ l'exemple précédent peut se coder de cette manière :
 \end{example}
 
 Reportez-vous au document \texttt{testmath.tex} distribué avec
-\AmS-\LaTeX{} ou au chapitre 9 de \desgraupes{} pour plus de détails. 
+\AmS-\LaTeX{}, au chapitre 8 de \companion{} ou au chapitre 9 de
+\desgraupes{} pour plus de détails.
 
 \section{Alignements verticaux}
 \label{sec:vert}
@@ -500,8 +509,7 @@ numéro.
 Les environnements \texttt{eqnarray} et \verb|eqnarray*| se comportent
 comme un tableau à trois colonnes de la forme \verb|{rcl}|, où la
 colonne centrale peut être utilisée pour le signe égal, ou tout autre
-opérateur relationnel de votre choix. La commande \verb|\\| sépare les
-lignes.
+symbole de votre choix. La commande \verb|\\| sépare les lignes.
 
 \begin{example}
 \begin{eqnarray}
@@ -545,7 +553,7 @@ courantes pour obtenir le résultat attendu.
 \end{eqnarray}
 \end{example}
 
-\enlargethispage{\baselineskip}
+%\enlargethispage{\baselineskip}
 La commande \ci{nonumber} empêche \LaTeX{} de produire un numéro pour
 cette équation.
 
@@ -558,14 +566,16 @@ dans~\cite{amsguide},~\cite{companion} et~\cite{desgraupes}.
 
 \section{Fantômes\texorpdfstring{\dots}{...}}
 
-Les fantômes sont invisibles mais permettent des ajustements intéressants
-en \LaTeX.
+
+
+Les fantômes sont invisibles mais occupent cependant leur place dans
+l'esprit nombreuses personnes. \LaTeX{} n'est pas différent : les
+fantômes y permettent des ajustements intéressants.
 
 Il arrive que \LaTeX{} en fasse un peu trop dans des alignements
 verticaux d'indices ou d'exposants. La commande \ci{phantom} permet
 de réserver de l'espace pour des caractères invisibles, ce qui peut être
 utile comme le montrent les exemples suivants :
-
 \begin{example}
 \begin{displaymath}
 {}^{12}_{\phantom{1}6}\textrm{C}
@@ -583,6 +593,7 @@ utile comme le montrent les exemples suivants :
 \end{example}
 
 \section{Taille des polices mathématiques}
+\label{sec:fontsz}
 
 \index{taille!des polices mathématiques}
 En mode mathématique \TeX{} choisit la taille de la police en fonction
@@ -626,11 +637,16 @@ petits que ceux qui seraient produits par les commandes standards
 
 La commande \ci{mathrm} permet d'insérer du texte normal (en
 caractères romains) dans une formule. La taille du texte est ajustée
-automatiquement, mais on est limité à un mot et les accents sont
-interdits. 
-La commande \ci{textrm} qui fait passer en mode
-\emph{texte} permet l'utilisation des lettres accentuées et
-respecte les espaces. 
+automatiquement, mais ne fonctionnera bien que sur des entrées
+courtes. De plus les espaces ne sont toujours pas actives
+et les accents sont interdits. 
+La commande \ci{textrm} qui fait passer en mode \emph{texte} permet
+l'utilisation des lettres accentuées et respecte les espaces mais
+échappe à l'ajustement automatique de taille justement à cause du
+prassage en mode \emph{texte}.
+\footnote{L'extension \AmS-\LaTeX{} (\pai{amsmath}) rend la commande
+  \ci{textrm} sensible aux changements de taille.}
+
 L'extension \pai{amsmath} fournit une commande \ci{text} également très
 pratique pour insérer du texte dans une équation.
 
@@ -658,11 +674,11 @@ commande :
 \end{lscommand}
 L'argument \emph{nom} est un mot-clef utilisé pour identifier le
 théorème. L'argument \emph{texte} définit le nom réel du théorème tel
-qu'il sera imprimé.
+qu'il sera imprimé dans le document final.
 
 Les arguments entre crochets sont optionnels. Ils servent à
-indiquer la numérotation à utiliser sur le théorème. Avec
-\emph{compteur} vous indiquez le \emph{nom} d'un théorème déjà
+indiquer la numérotation à utiliser sur le théorème. Utilisez
+le \emph{compteur} pour indiquer le \emph{nom} d'un théorème déjà
 déclaré. Le nouveau théorème sera alors numéroté dans la même
 séquence. Avec \emph{section} vous indiquez dans quel niveau de
 sectionnement vous voulez numéroter votre théorème.
@@ -676,10 +692,11 @@ Ceci est mon premier théorème\\
 \verb|\end{|\emph{nom}\verb|}|     
 \end{code}
 
-Voilà pour la théorie. Les exemples qui suivent devraient montrer
-clairement que l'environnement
-\verb|\newtheorem| est facile à utiliser.
+%SC: ah, the initial translation missed the subtle sarcasm here
 
+Voilà pour la théorie. Les exemples qui suivent devraient lever tout
+doute et montrer clairement que l'environnement \verb|\newtheorem| est
+trop complexe à comprendre.
 \begin{example}
 % définitions dans le préambule
 \newtheorem{loi}{Loi}
@@ -700,7 +717,7 @@ la loi~\ref{chef}.
 
 
 Le théorème \og decret \fg{} utilise le même compteur que le
-théorème \og loi \fg{}. C'est pourquoi il a un numéro dans la même
+théorème \og loi \fg{}, donc il obtient un numéro dans la même
 séquence que les autres \og lois \fg{}. L'argument entre crochets permet
 de spécifier un titre ou quelque chose de ce genre pour le théorème.
 
