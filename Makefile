@@ -1,6 +1,6 @@
 #	pstops "4:0L@0.8(22.5cm,-0.6cm)+1L@0.8(22.5cm,13.3cm),2L@0.8(22.5cm,-0.6cm)+3L@0.8(22.5cm,13.3cm)" \
 SHELL = /bin/sh
-VERS = 4.19
+VERS = 4.20
 
 OTHER = README CHANGES
 FILES = src/biblio.tex src/math.tex src/things.tex src/contrib.tex src/lshort.sty src/mylayout.sty src/title.tex \
@@ -14,7 +14,7 @@ MAKEINDEX=makeindex-20051102
 DVIPS=dvips-20051102
 
 # The default targets
-all: lshort.dvi lshort.ps lshort-book.ps lshort.pdf
+all: lshort.ps lshort-book.ps lshort.pdf lshort-a5book.pdf
 
 
 lshort.dvi: $(FILES)
@@ -66,12 +66,12 @@ quick: $(FILES)
         $(LATEX) lshort&& mv lshort.dvi ..)
 
 
-tar:	src/title.tex
+tar:	$(FILES)
 	ln -s . lshort-$(VERS)
 	gtar -zcvf lshort-$(VERS).src.tar.gz `awk -e '{print "lshort-$(VERS)/"$$1}' MANIFEST`
 	rm lshort-$(VERS)
 
-dist:	tar
+dist:	all tar
 	cp lshort-$(VERS).src.tar.gz CHANGES README lshort-book.ps lshort.dvi lshort.pdf lshort.ps $(HOME)/public_html/lshort/
 	lftp -e 'cd incoming;mkdir lshort-$(VERS);cd lshort-$(VERS);mput lshort-$(VERS).src.tar.gz CHANGES README lshort-book.ps lshort.dvi lshort.pdf lshort.ps;quit' ftp.tex.ac.uk
 	(gecho -e "Robin,\n\nI have uploaded lshort-$(VERS) to ftp.tex.ac.uk:/incoming/lshort-$(VERS).\n\nIf you think it is appropriate, announce it please.\n\nThanks and cheers\ntobi\n\n\n--";fortune -s shakes goethe) | mailx -s "Lshort Upload (note the quote)" ctan@dante.de
