@@ -231,7 +231,7 @@ proofreading a document and verifying the index.
 Note that the \ci{index} command can affect your layout if not used carefully.
 
 \begin{example}
-My Word \index{Word}. As oposed
+My Word \index{Word}. As opposed
 to Word\index{Word}. Note the
 position of the full stop.
 \end{example}
@@ -509,8 +509,8 @@ The AE virtual fontset, like the {Ml\TeX} system, makes \TeX{} believe
 it has a full 256 character fontset at its disposal by creating most of
 the missing letters from characters of the CM font and rearranging them
 in the EC order, this allows to use the excellent type 1 format CM
-fonts available on most systems. As the font now is in T1 encoding
-hyphenation will well in Latin-based European languages.  The only
+fonts available on most systems. As the font is now in T1 encoding,
+hyphenation will work well in Latin-based European languages.  The only
 disadvantage of this approach is that the artificial AE characters do
 not work with Acrobat Reader's \texttt{Find} function, so you cannot
 search for words with accented characters in your final PDF file.
@@ -640,7 +640,7 @@ list the default values are written in an upright font.
     window should get opened when a link leads out of the current
     document
   \item [\texttt{colorlinks (=false,\textit{true})}] surround the  
-    links by color frames (\texttt{false}) of colors the text of the links 
+    links by color frames (\texttt{false}) or colors the text of the links 
     (\texttt{true}). The color of these links can be configured
     using the following options (default colors are shown):
     \begin{description}
@@ -723,7 +723,7 @@ a click on the word ``\textcolor{magenta}{CTAN}''
 will take you to the CTAN website.
 
 If the destination of the link is not a URL but a local file,
-  you can use use the \ci{href} command: 
+  you can use the \ci{href} command: 
 \begin{verbatim}
   The complete document is \href{manual.pdf}{here}
 \end{verbatim}

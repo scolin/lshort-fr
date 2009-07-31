@@ -19,17 +19,18 @@ few of them.
 
 \section{Overview}
 
-The \ei{picture} environment allows programming pictures directly in \LaTeX. 
-A etailed description can be found in the \manual.
-On the one hand, there are rather severe constraints, as the slopes of line segments 
-as well as the radii of circles are restricted to a narrow choice of values. 
-On the other hand, the \ei{picture} environment of \LaTeXe\ 
-brings with it the \ci{qbezier} command, ``\texttt{q}'' meaning ``quadratic''. 
-Many frequently used curves such as circles, ellipses, or catenaries can be 
-satisfactorily approximated by quadratic B\'ezier curves, although this may 
-require some mathematical toil. If, in addition, a programming language like Java 
-is used to generate \ci{qbezier} blocks of \LaTeX\ input files, the \ei{picture} 
-environment becomes quite powerful. 
+The \ei{picture} environment allows programming pictures directly in
+\LaTeX. A detailed
+description can be found in the \manual. On the one hand, there are rather
+severe constraints, as the slopes of line segments as well as the radii of
+circles are restricted to a narrow choice of values.  On the other hand, the
+\ei{picture} environment of \LaTeXe\ brings with it the \ci{qbezier}
+command, ``\texttt{q}'' meaning ``quadratic''.  Many frequently used curves
+such as circles, ellipses, or catenaries can be satisfactorily approximated
+by quadratic B\'ezier curves, although this may require some mathematical
+toil. If, in addition, a programming language like Java is used to generate
+\ci{qbezier} blocks of \LaTeX\ input files, the \ei{picture} environment
+becomes quite powerful.
 
 Although programming pictures directly in \LaTeX\ is severly restricted,
 and often rather tiresome, there are still reasons for doing so. The documents
@@ -61,7 +62,8 @@ be found in \hoenig.
 
 \subsection{Basic Commands}
 
-A \ei{picture} environment is created with one of the two commands
+A \ei{picture} environment\footnote{Believe it or not, the picture environment works out of the
+box, with standard \LaTeXe{} no package loading necessary.} is created with one of the two commands
 \begin{lscommand}
 \ci{begin}\verb|{picture}(|$x,y$\verb|)|\ldots\ci{end}\verb|{picture}|
 \end{lscommand}
@@ -416,7 +418,7 @@ $S=(x,\,y)$ is then given by the equations
 \begin{equation} \label{zwischenpunkt}
   \left\{
     \begin{array}{rcl}
-      x & = & \displaystyle \frac{m_2 x_2-m_1x_1-(y_2-y_1}{m_2-m_1}, \\
+      x & = & \displaystyle \frac{m_2 x_2-m_1x_1-(y_2-y_1)}{m_2-m_1}, \\
       y & = & y_i+m_i(x-x_i)\qquad (i=1,\,2).
     \end{array}
   \right.

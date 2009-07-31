@@ -1,3 +1,10 @@
+4.13
+----
+* added comment on bad rendering of example in Quotes section
+* added section on abstract
+* added note on textcelsius and texdegree in texcomp
+* added section on ignorespaces and ignorespacesafterend
+
 4.12
 ----
 * fixed order of hebrwe letters to be 'alphabetic'

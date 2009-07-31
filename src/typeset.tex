@@ -258,12 +258,14 @@ You should \emph{not} use the \verb|"| for \wi{quotation marks}
 \index{""@\texttt{""}} as you would on a typewriter.  In publishing
 there are special opening and closing quotation marks.  In \LaTeX{},
 use two~\verb|`|s (grave accent) for opening quotation marks and
-two~\verb|'|s (apostrophe) for closing quotation marks. For single
+two~\verb|'|s (vertical quote) for closing quotation marks. For single
 quotes you use just one of each.
 \begin{example}
 ``Please press the `x' key.''
 \end{example}
- 
+Yes I know the renderin here is not ideal, it's realy grave accent and
+vertical quote on your keyboard, despite what the font chosen might suggest.
+
 \subsection{Dashes and Hyphens}
 
 \LaTeX{} knows four kinds of \wi{dash}es. You can access three of
@@ -302,7 +304,9 @@ I will soon start to
 super-conduct.
 \end{example}
 
-\subsection{The Euro Currency Symbol \texorpdfstring{(\EUR)}{}}
+The \pai{texcomp} package makes the degree symbol also available as \ci{textcelsius} and \ci{texdegree}.
+
+\subsection{The Euro Currency Symbol \texorpdfstring{(\euro{})}{}}
 
 When writing about money these days, you need the Euro symbol. Many current
 fonts contain a Euro symbol. After loading the \pai{textcomp} package in the preamble of your document
@@ -320,7 +324,7 @@ font's Euro symbol, you have two more choices:
 
 First the \pai{eurosym} package. It provides the official Euro symbol:
 \begin{lscommand}
-\ci{usepackage}\verb|[|\emph{official}\verb|]{eurosym}| 
+\ci{usepackage}\verb|[|\emph{official}\verb|]{eurosym}|
 \end{lscommand}
 If you prefer a Euro symbol that matches your font, use the option
 \texttt{gen} in place of the \texttt{official} option.
@@ -451,7 +455,7 @@ configured appropriately:
 If your system is already configured appropriately, you can activate
 the \pai{babel} package by adding the command
 \begin{lscommand}
-\ci{usepackage}\verb|[|\emph{language}\verb|]{babel}| 
+\ci{usepackage}\verb|[|\emph{language}\verb|]{babel}|
 \end{lscommand}
 \noindent after the \verb|\documentclass| command. A list of the
 \emph{language}s built into your \LaTeX{} system will be displayed
@@ -498,7 +502,7 @@ handle variety of input encoding used for different groups of
 languages and/or on different computer platforms \LaTeX{} employs the
 \pai{inputenc} package:
 \begin{lscommand}
-\ci{usepackage}\verb|[|\emph{encoding}\verb|]{inputenc}| 
+\ci{usepackage}\verb|[|\emph{encoding}\verb|]{inputenc}|
 \end{lscommand}
 
 When using this package, you should consider that other people might not
@@ -600,7 +604,7 @@ so this will not work on a Mac or on DOS. Just use
 the appropriate encoding for your system.
 
 \begin{table}[btp]
-\caption{Preamble forPortuguese documents.} \label{portuguese}
+\caption{Preamble for Portuguese documents.} \label{portuguese}
 \begin{lined}{5cm}
 \begin{verbatim}
 \usepackage[portugese]{babel}
@@ -617,7 +621,7 @@ the appropriate encoding for your system.
 
 \secby{Daniel Flipo}{daniel.flipo@univ-lille1.fr}
 Some hints for those creating \wi{French} documents with \LaTeX{}:
-you can load French language support with the command
+you can load French language support with the following command:
 
 \begin{lscommand}
 \verb|\usepackage[frenchb]{babel}|
@@ -661,8 +665,8 @@ option of \textsf{babel} does and how you can customize its behaviour, run
 \subsection{Support for German}
 
 Some hints for those creating \wi{German}\index{Deutsch}
-documents with \LaTeX{}: you can load German language support with the
-command
+documents with \LaTeX{}: you can load German language support with the following
+command:
 
 \begin{lscommand}
 \verb|\usepackage[german]{babel}|
@@ -730,7 +734,7 @@ syllables, Hanjas (Chinese characters as used in Korea), Hangul Jamos,
 Hirakanas, Katakanas, Greek and Cyrillic characters and other
 symbols and letters drawn from KS~X~1001 are represented by two
 consecutive octets. The first has its MSB set.
-Until mid the 1990's, it took a considerable amount of time and effort to
+Until the mid-1990's, it took a considerable amount of time and effort to
 set up a Korean-capable environment under a non-localized (non-Korean)
 operating system. 
 You can skim through the now much-outdated \url{http://jshin.net/faq} to get 
@@ -753,7 +757,7 @@ Korean%,
  formed out of this finite set of vowels and consonants. Modern Korean
  orthographic standards (both in South Korea and  North Korea), however,
  put some restriction on the formation of these clusters.
- Therefore only a finite the number of  orthographically correct syllables exist.
+ Therefore only a finite number of  orthographically correct syllables exist.
  The Korean Character encoding defines individual code points for each of these syllables (KS~X~1001:1998 and KS~X~1002:1992). So Hangul, albeit alphabetic, is
  treated like the Chinese and Japanese writing systems with tens of thousands of
  ideographic/logographic characters.  ISO~10646/Unicode offers both ways of
@@ -814,7 +818,7 @@ This command turns the Korean localization on. The headings
 of chapters, sections, subsections, table of content and table of
 figures are all translated into Korean and the formatting of the document
 is changed to follow Korean conventions. 
-The packages also provides automatic ``particle selection.''
+The package also provides automatic ``particle selection.''
 In Korean, there are pairs of post-fix particles 
 grammatically equivalent but different in form. Which 
 of any given pair is correct depends on 
@@ -1068,10 +1072,9 @@ a book:
 \begin{description}
 \item[\ci{frontmatter}] should be the very first command after
   \verb|\begin{document}|. It will switch page numbering to Roman
-    numerals. It is common to use the starred sectioning commands (eg
-    \verb|\chapter*{Preface}|) for
-    front matter as this stops \LaTeX{} from
-    enumerating them.
+    numerals and sections be non-enumerated. As if you were using 
+    the starred sectioning commands (eg \verb|\chapter*{Preface}|)
+    but the sections will still show up in the table of contents.
 \item[\ci{mainmatter}] comes right before the first chapter of
   the book. It turns on Arabic page numbering and restarts the page
   counter.
@@ -1287,6 +1290,22 @@ again.
 \end{flushleft}
 \end{example}
 
+\subsection{Abstract}
+
+In scientific publications it is customary to start with an abstract which
+gives the reader a quick overview of what to expect. \LaTeX{} provides the
+\ei{abstract} environment for this purpose. Normally \ei{abstract} is used
+in documents typeset with the article document class.
+
+\newenvironment{abstract}%
+        {\begin{center}\begin{small}\begin{minipage}{0.8\textwidth}}%
+        {\end{minipage}\end{small}\end{center}}
+\begin{example}
+\begin{abstract}
+The abstract abstract.
+\end{abstract}
+\end{example}
+
 \subsection{Printing Verbatim}
 
 Text that is enclosed between \verb|\begin{|\ei{verbatim}\verb|}| and
@@ -1329,7 +1348,7 @@ The \ci{verb} command can be used in a similar fashion with a star:
 The \texttt{verbatim} environment and the \verb|\verb| command may not be used
 within parameters of other commands.
 
-
+ 
 \subsection{Tabular}
 
 \newcommand{\mfr}[1]{\framebox{\rule{0pt}{0.7em}\texttt{#1}}}
