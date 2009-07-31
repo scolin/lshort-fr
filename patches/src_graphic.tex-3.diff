@@ -1,0 +1,11 @@
+--- a/src/graphic.tex
++++ b/src/graphic.tex
+@@ -577,7 +577,7 @@ It causes text to be placed \emph{in} the arrow.
+ \end{displaymath}
+ \end{example}
+ 
+-To draw an arrow with an hole in it, use \verb!\ar[...]|\hole!.
++To draw an arrow with a hole in it, use \verb!\ar[...]|\hole!.
+ 
+ In some situations, it is important to distinguish between different types of
+ arrows. This can be done by putting labels on them, or changing their appearance:

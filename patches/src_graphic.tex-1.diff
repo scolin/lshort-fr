@@ -1,0 +1,11 @@
+--- a/src/graphic.tex
++++ b/src/graphic.tex
+@@ -32,7 +32,7 @@ toil. If, in addition, a programming language like Java is used to generate
+ \ci{qbezier} blocks of \LaTeX\ input files, the \ei{picture} environment
+ becomes quite powerful.
+ 
+-Although programming pictures directly in \LaTeX\ is severly restricted,
++Although programming pictures directly in \LaTeX\ is severely restricted,
+ and often rather tiresome, there are still reasons for doing so. The documents
+ thus produced are ``small'' with respect to bytes, and there are no additional
+ graphics files to be dragged along.

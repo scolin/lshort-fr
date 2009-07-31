@@ -1,0 +1,26 @@
+--- a/src/custom.tex
++++ b/src/custom.tex
+@@ -783,15 +783,14 @@ give you ultimate flexibility.
+ 
+ \noindent \texttt{width} defines the width of the resulting box as
+ seen from the outside.\footnote{This means it can be smaller than the
+-  material inside the box. You can even set the
+-  width to 0pt so that the text inside the box will be typeset without
+-  influencing the surrounding boxes.}  Besides the length
+-  expressions, you can also use \ci{width}, \ci{height}, \ci{depth}, and
+-  \ci{totalheight} in the width parameter. They are set from values
+-  obtained by measuring the typeset \emph{text}. The \emph{pos} parameter takes
+-a one letter value: \textbf{c}enter, \textbf{l}eft flush,
+-\textbf{r}ight, flush, or \textbf{s}, which spreads the text inside the
+-box to fill it.
++material inside the box. You can even set the
++width to 0pt so that the text inside the box will be typeset without
++influencing the surrounding boxes.}  Besides the length
++expressions, you can also use \ci{width}, \ci{height}, \ci{depth}, and
++\ci{totalheight} in the width parameter. They are set from values
++obtained by measuring the typeset \emph{text}. The \emph{pos} parameter takes
++a one letter value: \textbf{c}enter, flush\textbf{l}eft,
++flush\textbf{r}ight, or \textbf{s}pread the text to fill the box.
+ 
+ The command \ci{framebox} works exactly the same as \ci{makebox}, but
+ it draws a box around the text.

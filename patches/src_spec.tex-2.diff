@@ -1,0 +1,11 @@
+--- a/src/spec.tex
++++ b/src/spec.tex
+@@ -130,7 +130,7 @@ within the document.
+ \end{lscommand}
+ If you do not use the \emph{label} option, the entries will get enumerated
+ automatically.  The parameter after the \verb|\begin{thebibliography}|
+-command defines how much space to reserve for the number or labels. In the example below,
++command defines how much space to reserve for the number of labels. In the example below,
+ \verb|{99}| tells \LaTeX{} to expect that none of the bibliography item numbers will be wider
+ than the number 99.
+ \enlargethispage{2cm}

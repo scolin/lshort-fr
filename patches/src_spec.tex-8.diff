@@ -1,0 +1,19 @@
+--- a/src/spec.tex
++++ b/src/spec.tex
+@@ -936,14 +936,14 @@ To create this type of document you normally work within the
+ First you have to load the \pai{pdfscreen} package together with
+ appropriate options:
+ \begin{description}
+-\item[\texttt{screen}]: screen presentation. Use \texttt{print} to
++\item[\texttt{screen}] for screen presentation. Use \texttt{print} to
+   create a printable version.
+ \item[\texttt{panelright}] put a navigation panel on the right side of
+   the screen. If the panel should be on the left side use
+   \texttt{panelleft}. If you do not want panels use \texttt{nopanel}.
+ \item[\texttt{french}] or some other supported language will render
+   the text on the navigation buttons appropriately. This option is
+-  independent of the options set with the babel package. If your language is not suppoted by \pai{pdfscreen}, 
++  independent of the options set with the babel package. If your language is not supported by \pai{pdfscreen}, 
+   you still can localize navigation panel buttons by using 
+   file \texttt{pdfscreen.cfg}, see \texttt{pdfscreen.cfg..specimen} for
+ an example.

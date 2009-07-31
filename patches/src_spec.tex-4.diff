@@ -1,0 +1,13 @@
+--- a/src/spec.tex
++++ b/src/spec.tex
+@@ -448,8 +448,8 @@ command line, you may find a special button in the \TeX{}ControlCenter.
+ In \LaTeX{} you can define the the paper size with an 
+ optional documentclass argument such as \texttt{a4paper} or
+ \texttt{letterpaper}. This works in pdf\LaTeX{} too, but on top of this
+-pdf\TeX{} also needs to know the physical size of the paper and not just
+-the area to use for the layout.
++pdf\TeX{} also needs to know the physical size of the paper to determine the physical
++size of the pages in the pdf file.
+ \index{paper size}
+ If you use the
+ \pai{hyperref} package (see page \pageref{ssec:pdfhyperref}), the

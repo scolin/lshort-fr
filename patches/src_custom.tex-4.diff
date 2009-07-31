@@ -1,0 +1,13 @@
+--- a/src/custom.tex
++++ b/src/custom.tex
+@@ -475,8 +475,8 @@ it was before. Note the par command
+ at the end of the paragraph.\par}
+ 
+ This paragraph has a clear purpose,
+-it show that after the curly brace
+-has been closed everything is back
++it shows that after the curly brace
++has been closed, everything is back
+ to normal.
+ \end{example}
+ 

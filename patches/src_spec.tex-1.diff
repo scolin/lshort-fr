@@ -1,0 +1,10 @@
+--- a/src/spec.tex
++++ b/src/spec.tex
+@@ -104,6 +104,7 @@ The following example code may help to clarify things:
+ \begin{center}
+ \includegraphics[angle=90, width=0.5\textwidth]{test}
+ \end{center}
++\caption{A caption, explaining that this is a test.}
+ \end{figure}
+ \end{verbatim}
+ \end{code}

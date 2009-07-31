@@ -1,0 +1,44 @@
+--- a/src/custom.tex
++++ b/src/custom.tex
+@@ -348,19 +348,30 @@ special set of commands; refer to Table~\ref{mathfonts}.
+ 
+ \begin{table}[!bp]
+ \caption{Math Fonts.} \label{mathfonts}
+-\begin{lined}{\textwidth}
+-\begin{tabular}{@{}lll@{}}
+-\textit{Command}&\textit{Example}&    \textit{Output}\\[6pt]
+-\fni{mathcal}\verb|{...}|&    \verb|$\mathcal{B}=c$|&     $\mathcal{B}=c$\\
+-\fni{mathrm}\verb|{...}|&     \verb|$\mathrm{K}_2$|&      $\mathrm{K}_2$\\
+-\fni{mathbf}\verb|{...}|&     \verb|$\sum x=\mathbf{v}$|& $\sum x=\mathbf{v}$\\
+-\fni{mathsf}\verb|{...}|&     \verb|$\mathsf{G\times R}$|&        $\mathsf{G\times R}$\\
+-\fni{mathtt}\verb|{...}|&     \verb|$\mathtt{L}(b,c)$|&   $\mathtt{L}(b,c)$\\
+-\fni{mathnormal}\verb|{...}|& \verb|$\mathnormal{R_{19}}\neq R_{19}$|&
+-$\mathnormal{R_{19}}\neq R_{19}$\\
+-\fni{mathit}\verb|{...}|&     \verb|$\mathit{ffi}\neq ffi$|& $\mathit{ffi}\neq ffi$
++\begin{lined}{0.7\textwidth}
++\begin{tabular}{@{}ll@{}}
++\fni{mathrm}\verb|{...}|&     $\mathrm{Roman\ Font}$\\
++\fni{mathbf}\verb|{...}|&     $\mathbf{Boldface\ Font}$\\
++\fni{mathsf}\verb|{...}|&     $\mathsf{Sans\ Serif\ Font}$\\
++\fni{mathtt}\verb|{...}|&     $\mathtt{Typewriter\ Font}$\\
++\fni{mathit}\verb|{...}|&     $\mathit{Italic\ Font}$\\
++\fni{mathcal}\verb|{...}|&    $\mathcal{CALLIGRAPHIC\ FONT}$\\
++\fni{mathnormal}\verb|{...}|& $\mathnormal{Normal\ Font}$\\
+ \end{tabular}
+ 
++%\begin{tabular}{@{}lll@{}}
++%\textit{Command}&\textit{Example}&    \textit{Output}\\[6pt]
++%\fni{mathcal}\verb|{...}|&    \verb|$\mathcal{B}=c$|&     $\mathcal{B}=c$\\
++%\fni{mathscr}\verb|{...}|&    \verb|$\mathscr{B}=c$|&     $\mathscr{B}=c$\\
++%\fni{mathrm}\verb|{...}|&     \verb|$\mathrm{K}_2$|&      $\mathrm{K}_2$\\
++%\fni{mathbf}\verb|{...}|&     \verb|$\sum x=\mathbf{v}$|& $\sum x=\mathbf{v}$\\
++%\fni{mathsf}\verb|{...}|&     \verb|$\mathsf{G\times R}$|&        $\mathsf{G\times R}$\\
++%\fni{mathtt}\verb|{...}|&     \verb|$\mathtt{L}(b,c)$|&   $\mathtt{L}(b,c)$\\
++%\fni{mathnormal}\verb|{...}|& \verb|$\mathnormal{R_{19}}\neq R_{19}$|&
++%$\mathnormal{R_{19}}\neq R_{19}$\\
++%\fni{mathit}\verb|{...}|&     \verb|$\mathit{ffi}\neq ffi$|& $\mathit{ffi}\neq ffi$
++%\end{tabular}
++
+ \bigskip
+ \end{lined}
+ \end{table}

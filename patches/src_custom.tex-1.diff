@@ -1,0 +1,11 @@
+--- a/src/custom.tex
++++ b/src/custom.tex
+@@ -158,7 +158,7 @@ want to create a title environemnt which supresses its own indentation as
+ well as the one on the following paragraph. The \ci{ignorespaces} command in
+ the begin block of the environment will make it ignore any space after
+ executing the begin block. The end block is a bit more tricky as special
+-processing occures at the end of an environment. With the
++processing occurs at the end of an environment. With the
+ \ci{ignorespacesafterend} \LaTeX{} will issue an \ci{ignorespaces} after the
+ special `end' processing has occured.
+ 

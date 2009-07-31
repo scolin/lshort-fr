@@ -1,0 +1,11 @@
+--- a/src/spec.tex
++++ b/src/spec.tex
+@@ -491,7 +491,7 @@ and Mik\TeX. Similar type~1 CB Greek fonts created by Apostolos
+ Syropoulos are available at \texttt{CTAN:/tex-archive/fonts/greek/cb}.
+ Unfortunately, both of these font sets are not of the same typographic
+ quality as the Type1 CM fonts by Blue Sky/Y\&Y. They were automatically
+-hinted, and the document might look   as neat on  the screen as the ones using
++hinted, and the document might look not as neat on the screen as the ones using
+ Blue Sky/Y\&Y type 1 CM fonts, on high resolution output devices they
+ produce results identical to the original bitmap EC/LH/CB fonts. 
+ 

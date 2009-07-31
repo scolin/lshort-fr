@@ -1,0 +1,15 @@
+--- a/src/math.tex
++++ b/src/math.tex
+@@ -582,8 +582,10 @@ Changing styles also affects the way limits are displayed.
+ % This is not a math accent, and no maths book would be set this way.
+ % mathop gets the spacing right.
+ 
+-\noindent This is one of those examples in which we need larger
+-brackets than the standard \verb|\left[  \right]| provides.
++\noindent This is an examples with larger
++brackets than \verb|\left[  \right]| provides. The
++\ci{biggl} and \ci{biggr} commands are used for left and right brackets
++respectively.
+ 
+ 
+ \section{Theorems, Laws, \ldots}

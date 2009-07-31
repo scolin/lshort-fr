@@ -1,0 +1,13 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -512,8 +512,8 @@ encoded as 132, on Unix systems using ISO-LATIN~1 it is encoded as 228,
+ while in cyrillic encoding cp1251 for Windows this letter does not exist
+ at all; therefore you should use this feature with care. The following
+ encodings may come in handy, depending on the type of system you are
+-working on\footnote{To learn more about supported by \LaTeX{}  input
+-encodings for Latin-based and Cyrillic-based languages,  read
++working on\footnote{To learn more about supported  input
++encodings for Latin-based and Cyrillic-based languages, read the
+ documentation for \texttt{inputenc.dtx} and \texttt{cyinpenc.dtx}
+ respectively. Section~\ref{sec:Packages} tells how to produce package
+ documentation.}
