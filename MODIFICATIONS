@@ -1,0 +1,59 @@
+Changements entre la version 3.3.1 et la version 3.20 (Novembre 2001)
+---------------------------------------------------------------------
+- basé sur la version 3.20 de Tobias Oetiker. Voir CHANGES dans la VO pour 
+  la liste de toutes les modifs.
+- Traductions nouvelles et quelques ajouts par Daniel Flipo. 
+- Exemples utilisant les accents ISO Latin-1 plutôt que les séquences 
+  TeX. 
+- Présentation de la biblio plus conforme à la norme AFNOR Z44-005 
+- Utilisation des polices Type 1 cm-super pour produire la version PDF.
+- Généralisation de l'utilisation de \og ... \fg pour les guillemets 
+  français. 
+
+Changements entre la version 3.3 et la version 3.3.1 (Octobre 2001)
+----------------------------------------------------
+- toujours basée sur lshort 3.3. Une nouvelle version basée sur 3.20
+  suivra bientôt.
+- prise en compte de corrections par Christophe Dousson.
+- élimination quasi-totale des références à l'extension
+  french. Remplacé par l'option francais de babel. Le document
+  lui-même utilise maintenant babel et aeguill, ce qui le rend plus
+  facile à compiler (notament avec césures correctes avec pdflatex).
+  La nouvelle licence de frenchpro est inacceptable.
+
+Changements entre la version 3.1 et la version 3.3
+--------------------------------------------------
+
+- meilleur packaging
+- prise en compte des modifications mineures de la version anglaise 
+- nouvelle section sur la structure du texte et le langage 
+  (Hanspeter Schmid) 
+
+Changements entre la version 1.1 et la version 3.1
+--------------------------------------------------
+
+- passage sous licence GPL,
+- nouvelle présentation plus logique des exemples,
+- réorganisation du chapitre 4,
+- nouveau chapitre 5 consacré à la personnalisation de LaTeX,
+- mise à jour de la liste des contributeurs,
+- détails sur l'histoire de TeX,
+- suppression du paragraphe sur la taille relative de LaTeX et de Word,
+- description de \\ <-> $\backslash$,
+- description plus detaillée de fontenc,
+- déplacement de la description de \newcommand et \newenvironment,
+  vers le (nouveau) chapitre 5,
+- déplacement des commandes de changement de taille et de style vers le 
+  chapitre 5,
+- ajout d'une description sommaire du rôle de BibTeX,
+- ajout des descriptions des extensions 'fancyhdr' et 'verbatim',
+- nouvelle description de l'utilisation de nouvelles commandes,
+- suppression des remarques relatives à 2.09,
+- suppression de la remarque sur les effets (réels ?) pervers de \linespread{},
+- ajout d'un avertissement sur les paramètres de mise en page,
+- ajout d'une référence à l'extension calc,
+- déplacement section sur la description de variables comme
+  illustration des commandes de manipulation des longueurs,
+- ajout d'une explication sur le mécanisme des boîtes,
+- ajout description des commandes de production de filets,
+- de nombreuses corrections du français.

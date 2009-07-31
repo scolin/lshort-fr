@@ -1,0 +1,64 @@
+# Partie commune aux Makefiles de flshort
+
+VERSION 	= 3.20
+
+LATEX 		= latex	
+MAKEINDEX 	= makeindex	
+PDFLATEX 	= pdflatex	
+DVIPS		= dvips -Pcmz	# dvips avec polices CM Type1
+TAR		= tar
+
+# Si vous n'avez pas MlTeX, utilisez les definitions suivantes
+# LATEX		= latex
+# DVIPS 	= dvips 
+
+.SUFFIXES:
+.SUFFIXES: .tex .aux .ind .idx .dvi .ps .gz
+.PHONY: all
+.PRECIOUS: $(INDEX)
+
+BASE	= flshort
+DOC	= $(BASE)-$(VERSION).dvi
+PS	= $(BASE)-$(VERSION).ps
+PDF	= $(BASE)-$(VERSION).pdf
+MAIN	= $(BASE).tex
+INDEX	= $(BASE).ind
+
+SRCS = \
+	contrib.tex	\
+	custom.tex	\
+	flshort.tex	\
+	lssym.tex	\
+	math.tex	\
+	overview.tex	\
+	spec.tex	\
+	things.tex	\
+	title.tex	\
+	typeset.tex
+BIBLIO = \
+	biblio.tex
+
+DVIAUXS = $(SRCS:%.tex=dvi/%.aux)
+PDFAUXS = $(SRCS:%.tex=pdf/%.aux)
+AUXS = $(DVIAUXS) $(PDFAUXS)
+
+STY = \
+	flshort.sty	  \
+	mylayout.sty	  \
+	index.ist
+
+FIGS = \
+	kees.fig
+
+OTHER = \
+	MODIFICATIONS 	\
+	GPL 		\
+	TRANSLATIONS 	\
+	move-if-change
+
+MAKEFILES = \
+	Makefile 	\
+	Makefile.common \
+	dvi/Makefile	\
+	pdf/Makefile	
+

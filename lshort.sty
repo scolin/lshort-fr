@@ -1,19 +1,19 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Special Commands for the LShort2e Introduction
-% $Id: lshort2e.sty,v 1.5 1998/09/29 08:05:50 oetiker Exp oetiker $
+% $Id: flshort.sty,v 1.7 2001/11/25 17:43:58 matthieu Exp $
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % By Tobias Oetiker
+% Modified by Matthieu Herrb to handle the french extension
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\errorcontextlines=10
 
 %save pageref an label
-\let\lsspageref\pageref
-\ProvidesPackage{lshort}
-\RequirePackage[english]{babel}
+\let\lsspageref=\pageref
+\ProvidesPackage{flshort}
 \RequirePackage{verbatim}
-\RequirePackage{fancyhea}
+\RequirePackage{fancyhdr}
 \RequirePackage{calc}
-\RequirePackage{amsmath}
+\RequirePackage{ifthen}
 % 
 % Lets have some nice headings
 %
@@ -35,27 +35,30 @@
 
 \newcommand{\manual}{\emph{\LaTeX{} Manual}~\cite{manual}} 
 \newcommand{\companion}{\emph{The \LaTeX{} Companion}~\cite{companion}} 
+\newcommand{\desgraupes}{\emph{\LaTeX{}, Apprentissage, guide et référence}~\cite{desgraupes}}
 \newcommand{\guide}{\emph{Local Guide}~\cite{local}}
 \newcommand{\contrib}[3]{#1\quad\texttt{<#2>}{\small\\\quad\textit{#3}}\\[1ex]}
 %
 % Some commands for helping with INDEX creation
 %
+% \protect added because needed with french package. --mh
+%
 \newcommand{\bs}{\symbol{'134}}%Print backslash
 %\newcommand{\bs}{\ensuremath{\mathtt{\backslash}}}%Print backslash
 % Index entry for a command (\cih for hidden command index
 \newcommand{\cih}[1]{%
-\index{commands!#1@\texttt{\bs#1}}%
-\index{#1@\texttt{\hspace*{-1.2ex}\bs #1}}}
+\index{commandes!#1@\protect\texttt{\bs#1}}%
+\index{#1@\protect\texttt{\hspace*{-1.2ex}\bs #1}}}
 \newcommand{\ci}[1]{\cih{#1}\texttt{\bs#1}}
 %Package
 \newcommand{\pai}[1]{%
-\index{packages!#1@\textsf{#1}}%
-\index{#1@\textsf{#1}}%
+\index{extensions!#1@\protect\textsf{#1}}%
+\index{#1@\protect\textsf{#1}}%
 \textsf{#1}}
 % Index entry for an environment
 \newcommand{\ei}[1]{%
-\index{environments!\texttt{#1}}%
-\index{#1@\texttt{#1}}%
+\index{environnements!\protect\texttt{#1}}%
+\index{#1@\protect\texttt{#1}}%
 \texttt{#1}}
 % Indexentry for a word (Word inserted into the text)
 \newcommand{\wi}[1]{\index{#1}#1}
@@ -128,6 +131,13 @@
 %
 \newcommand{\demowidth}[1]{\rule{0.3pt}{1.3ex}\rule{#1}{0.3pt}\rule{0.3pt}{1.3ex}}
 %
+% un morceau pour hyperref
+\def\realpageref#1{%
+ \@safe@activestrue%
+ \expandafter\real@setref\csname r@#1\endcsname\@secondoffive{#1}%
+ \@safe@activesfalse%
+}
+
 %
 % --- example ----
 % This is an environment to set LaTeX examples.
@@ -141,6 +151,7 @@
 % This Part is stolen from the verbaim.sty by FMi
 % 
 \newwrite\example@out
+\newbox\exa@box
 \newcounter{exacnt}
 \setcounter{exacnt}{1}
 \newlength{\savefboxrule}
@@ -148,6 +159,7 @@
 \newlength{\outdent}
 \setlength{\outdent}{2cm}
 \addtolength{\headwidth}{\outdent}
+
 \newenvironment{example}%
 {\begingroup% Lets Keep the Changes Local
   \@bsphack
@@ -159,44 +171,52 @@
 {\immediate\closeout\example@out\@esphack\endgroup%
                                 %
                                 % And here comes my part. :-
-                                %   
+                                %
+\setbox\exa@box=\vbox{% This box is mainly for debugging
   \stepcounter{exacnt}%
   \setlength{\parindent}{0pt}%
-  \par\addvspace{3.0ex plus 0.8ex minus 0.5ex}\vskip -\parskip
-%  Page \lsspageref{exa:\theexacnt}
-\expandafter\ifx\csname r@exa\theexacnt\endcsname\relax\else
+% Page \lsspageref{exa:\theexacnt}
+\expandafter\ifx\csname r@exa:\theexacnt\endcsname\relax\else
 \ifx\pdfoutput\undefined % We're not running pdftex
-  \ifodd\lsspageref{exa\theexacnt}\hspace*{0pt}\else\hspace*{-\outdent}\fi%
-\else
-% HyPsd@pageref internal hyperref command v6.69c
-  \ifodd\HyPsd@pageref{exa\theexacnt}\hspace*{0pt}\else\hspace*{-\outdent}\fi%
+  \ifx\@pr@ORI\undefined % We're not using french package
+    \def\exa@page{\HyPsd@pageref{exa:\theexacnt}}%
+  \else %
+    \def\exa@page{\@pr@ORI{exa:\theexacnt}}% french pageref is not a number
+  \fi %
+\else %
+  \def\exa@page{\HyPsd@pageref{exa:\theexacnt}}%
 \fi
+\ifodd\exa@page\hspace*{0pt}\else\hspace*{-\outdent}\fi%
 \fi
-\makebox[\textwidth][l]{%
-%\raisebox{-\height}[0pt][\totalheight]{%
-  \begin{minipage}[c]{0.5\outdent+0.46\textwidth-3mm}%
-    \small\verbatiminput{\jobname.exa}
-  \end{minipage}%
-                                %}%
-  \hspace{5mm}%
-  \setlength{\savefboxrule}{\fboxrule}%
-  \setlength{\fboxrule}{0.1pt}%
-  \setlength{\savefboxsep}{\fboxsep}%
-  \setlength{\fboxsep}{3mm}%
-                                %  \raisebox{-\height}[0pt][\totalheight]{%
-  \fbox{%
-    \begin{minipage}{0.5\outdent+0.54\textwidth-3.5mm-2\fboxrule-2\fboxsep}%
-      \setlength{\fboxrule}{\savefboxrule}%
-      \setlength{\fboxsep}{\savefboxsep}%
-      \setlength{\fboxrule}{0.5pt}%
-      \setlength{\parskip}{1ex plus 0.4ex minus 0.2ex}%
-      \begin{trivlist}\item\small\input{\jobname.exa}
-      \end{trivlist}
-    \end{minipage}
-    }%
-%  }%
-}\label{exa\theexacnt}%
-\par\addvspace{3ex plus 0.8ex minus 0.5ex}\vskip -\parskip
+   \makebox[\textwidth][l]{%
+    \raisebox{-\height}[0pt][\totalheight]{%
+      \begin{minipage}[t]{0.5\outdent+0.46\textwidth-3mm}%
+        \small\verbatiminput{\jobname.exa}
+      \end{minipage}}%
+    \hspace{5mm}%
+    \setlength{\savefboxrule}{\fboxrule}%
+    \setlength{\fboxrule}{0.1pt}%
+    \setlength{\savefboxsep}{\fboxsep}%
+    \setlength{\fboxsep}{3mm}%
+    \raisebox{-\height}[0pt][\totalheight]{%
+      \fbox{%
+        \begin{minipage}[t]{0.5\outdent+0.54\textwidth-2mm-2\fboxrule-2\fboxsep-0.7ex}%
+          \setlength{\fboxrule}{\savefboxrule}%
+          \setlength{\fboxsep}{\savefboxsep}%
+          \setlength{\fboxrule}{0.5pt}%
+          %\setlength{\parskip}{1ex plus 0.4ex minus 0.2ex}%
+          \setlength{\parskip}{0ex plus 0ex minus 0ex}%
+          \begin{trivlist}\item\small\input{\jobname.exa}
+          \end{trivlist}
+        \end{minipage}
+        }%
+      }%
+    }\label{exa:\theexacnt}%
+} % end vbox
+%\showthe\ht\exa@box
+\par\addvspace{2.0ex plus 0.8ex minus 1ex}\vskip -\parskip
+\noindent\box\exa@box
+\par\addvspace{3.2ex plus 0.8ex minus 1ex}\vskip -\parskip
 }
 
 \newenvironment{lined}[1]%
@@ -208,3 +228,8 @@
     {\clearpage\if@twoside \ifodd\c@page\else
     \hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
 
+% French.sty redefined tilde. Grrr
+\ifx\@tildeORI\undefined
+\else
+\let\tilde\@tildeORI
+\fi

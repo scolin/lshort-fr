@@ -1,62 +1,70 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Things you need to know
-% $Id: things.tex,v 1.4 1998/09/29 08:05:09 oetiker Exp oetiker $
+% $Id: things.tex,v 1.25 2001/11/25 17:43:58 matthieu Exp $
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- 
-\chapter{Things You Need to Know}
+\chapter{Ce qu'il faut savoir}
+\thispagestyle{plain}
+
 \begin{intro}
-In the first part of this chapter, you will get a short 
-overview about the philosophy and history of \LaTeXe. The second part
-of the chapter focuses on the basic structures of a \LaTeX{} document. 
-After reading this chapter, you should have a rough knowledge
-of how \LaTeX{} works. When reading on, this will help you to integrate
-all the new information into the big picture.  
+Dans la première partie de ce chapitre vous trouverez une rapide
+présentation de la philosophie et de l'histoire de \LaTeXe{}. La
+deuxième partie met l'accent sur les structures fondamentales d'un
+document \LaTeX{}. Après avoir lu ce chapitre, vous devriez avoir une
+idée d'ensemble du fonctionnement de \LaTeX{} qui vous aidera à mieux
+comprendre les chapitres suivants.
 \end{intro}
 
-\section{The Name of the Game}
+\section{Le nom de la bête}
 \subsection{\TeX}
  
-\TeX{} is a computer program created by \index{Knuth, Donald E.}Donald
-E. Knuth \cite{texbook}. It is aimed at typesetting text and
-mathematical formulae. Knuth started writing the \TeX{} typesetting
-engine in 1977 to explore the potential of the digital printing
-equipment that was beginning to infiltrate the publishing industry at
-that time, especially in the hope that he could reverse the trend of
-deteriorating typographical quality that he saw affecting his own
-books and articles. \TeX{} as we use it today was released in 1982,
-with some slight enhancements added in 1989 to better support 8-bit
-characters and multiple languages. \TeX{} is renowned for being
-extremely stable, for running on many different kinds of computers,
-and for being virtually bug free. The version number of \TeX{} is
-converging to $\pi$ and is now at $3.14159$.
-                                                                       
-\TeX{} is pronounced ``Tech,'' with a ``ch'' as in the German word
-``Ach'' or in the Scottish ``Loch.'' In an ASCII environment, \TeX{}
-becomes \texttt{TeX}.
+\TeX{} est un programme écrit par \index{Knuth, Donald E.}Donald
+E.~Knuth~\cite{texbook}.  Il est conçu pour la composition de textes
+et d'équations mathématiques.  
+
+Knuth a commencé le développement de \TeX{} en 1977 parce qu'il était
+frustré par la manière avec laquelle ses articles étaient publiés par
+l'American Mathematical Society. Il avait arrêté de soumettre des
+articles vers 1974 parce que \og le résultat final était trop pénible à
+regarder \fg{}. \TeX{}, tel que nous l'utilisons aujourd'hui, est sorti en
+1982 et a été amélioré au fil des ans. Ces dernières années \TeX{} a
+atteint une grande stabilité. Aujourd'hui Knuth affirme qu'il n'y a
+virtuellement plus de \og bug \fg{}. Le numéro de version de \TeX{} tend
+vers $\pi$ et est actuellement $3.14159$.
+
+\TeX{} se prononce \og Tech \fg{}, avec un \og ch \fg{} comme dans le mot
+écossais \og Loch \fg{}. En alphabet phonétique cela donne
+\textbf{[tex]}\dots Dans un environnement \texttt{ASCII}, \TeX{}
+devient \texttt{TeX}.
 
 \subsection{\LaTeX}
  
-\LaTeX{} is a macro package which enables authors to typeset and print
-their work at the highest typographical quality, using a predefined,
-professional layout. \LaTeX{} was originally written by
-\index{Lamport, Leslie}Leslie Lamport~\cite{manual}. It uses the
-\TeX{} formatter as its typesetting engine.
+\LaTeX{} est un ensemble de macros qui permettent à un auteur de
+mettre en page son travail avec la meilleure qualité typographique en
+utilisant un format professionnel pré-défini. \LaTeX{} a été écrit par
+\index{Lamport, Leslie}Leslie Lamport~\cite{manual}. Il utilise \TeX{}
+comme outil de mise en page.
 
-In 1994 the \LaTeX{} package was updated by the \index{LaTeX3@\LaTeX
-  3}\LaTeX 3 team, led by \index{Mittelbach, Frank}Frank Mittelbach,
-to include some long-requested improvements, and to re\-unify all the
-patched versions which had cropped up since the release of
-\index{LaTeX 2.09@\LaTeX{} 2.09}\LaTeX{} 2.09 some years earlier. To
-distinguish the new version from the old, it is called \index{LaTeX
-  2e@\LaTeXe}\LaTeXe. This documentation deals with \LaTeXe.
+En 1994, \LaTeX{} a été mis à jour par
+l'équipe \index{LaTeX3@\LaTeX 3}\LaTeX 3, menée par \index{Mittelbach,
+Frank}Frank Mittelbach, afin de réaliser certaines améliorations
+demandées depuis longtemps et de fusionner toutes les variantes qui
+s'étaient développées depuis la sortie de \index{LaTeX 2.09@\LaTeX{}
+2.09}\LaTeX{} 2.09 quelques années auparavent. Pour distinguer cette
+nouvelle version des précédentes, elle est appelée \index{LaTeX
+2e@\LaTeXe}\LaTeXe. Ce document est relatif à \LaTeXe.
 
-\LaTeX{} is pronounced ``Lay-tech'' or ``Lah-tech.'' If you refer to
-\LaTeX{} in an \texttt{ASCII} environment, you type \texttt{LaTeX}.
-\LaTeXe{} is pronounced ``Lay-tech two e'' and typed \texttt{LaTeX2e}.
+\LaTeX{} se prononce \textbf{[latex]}. Si vous
+voulez faire référence à \LaTeX{} dans un environnement
+\texttt{ASCII}, utilisez \texttt{LaTeX}. \LaTeXe{} se prononce
+\textbf{[latex d\o{}z\o{}]} et s'écrit
+\texttt{LaTeX2e}.
 
-Figure~\ref{components} above % on page \pageref{components}
-shows how \TeX{} and \LaTeXe{} work together. This figure is taken from
-\texttt{wots.tex} by Kees van der Laan.
+En anglais, cela donne \textbf{[la\i{}tex]} et \textbf{[la\i{}tex tu:
+i:]}. 
+
+La figure~\ref{components}, page~\pageref{components} montre
+l'interaction entre les différents éléments d'un système \TeX{}. Cette
+figure est extraite de \texttt{wots.tex} de Kees van der Laan.
 
 \begin{figure}[btp]
 \begin{lined}{0.8\textwidth}
@@ -64,100 +72,107 @@ shows how \TeX{} and \LaTeXe{} work together. This figure is taken from
 \input{kees.fig}
 \end{center}
 \end{lined}
-\caption{Components of a \TeX{} System.} \label{components}
+\caption{Éléments d'un système \TeX{}} \label{components}
 \end{figure}
 
-\section{Basics}
+\section{Les bases}
  
-\subsection{Author, Book Designer, and Typesetter}
+\subsection{Auteur, éditeur et typographe}
 
-To publish something, authors give their typed manuscript to a
-publishing company. One of their book designers then
-decides the layout of the document (column width, fonts, space before
-and after headings,~\ldots). The book designer writes his instructions
-into the manuscript and then gives it to a typesetter, who typesets the
-book according to these instructions.
+Pour publier un texte, un auteur confie son manuscrit  à une maison
+d'édition. L'éditeur décide alors de la mise en page du document
+(largeur des colonnes, polices de caractères, présentation des
+en-têtes,\dots). L'éditeur note ses instructions sur le manuscrit et
+le passe à un technicien typographe qui réalise la mise en page
+en suivant ces instructions.
 
-A human book designer tries to find out what the author had in mind
-while writing the manuscript. He decides on chapter headings,
-citations, examples, formulae, etc.\ based on his professional
-knowledge and from the contents of the manuscript.
+Un éditeur humain essaye de comprendre ce que l'auteur veut mettre en
+valeur et décide de la présentation en fonction de son expérience
+professionnelle et du contenu du manuscrit. 
 
-In a \LaTeX{} environment, \LaTeX{} takes the role of the book
-designer and uses \TeX{} as its typesetter. But \LaTeX{} is ``only'' a
-program and therefore needs more guidance. The author has to provide
-additional information which describes the logical structure of his
-work. This information is written into the text as ``\LaTeX{}
-commands.''
+Dans un environnement \LaTeX{}, celui-ci joue le rôle de l'éditeur et
+utilise \TeX{} comme typographe pour la composition. Mais \LaTeX{}
+n'est qu'un programme et a donc besoin de plus de directives. L'auteur
+doit en particulier lui fournir la structure logique de son
+document. Cette information est insérée dans le texte sous la forme de
+\og commandes \LaTeX{} \fg{}.
 
-This is quite different from the \wi{WYSIWYG}\footnote{What you see is
-  what you get.} approach which most modern word processors such as
-\emph{MS Word} or \emph{Corel WordPerfect} take. With these
-applications, authors specify the document layout interactively while
-typing text into the computer. All along the way, they can see on the
-screen how the final work will look when it is printed.
+Cette approche est totalement différente de l'approche
+\wi{WYSIWYG}\,\footnote{What you see is what you get -- Ce que vous
+voyez est ce qui sera imprimé.}  utilisée par les traitements de texte
+modernes tels que \emph{Microsoft Word} ou \emph{Corel
+WordPerfect}. Avec ces programmes, l'auteur définit la mise en page du
+document de manière interactive pendant la saisie du texte. Tout au
+long de cette opération, il voit à l'écran à quoi ressemblera le
+document final une fois imprimé.
 
-When using \LaTeX{} it is normally not possible to see the final output
-while typing the text. But the final output can be previewed on the
-screen after processing the file with \LaTeX. Then corrections can be
-made before actually sending the document to the printer.
+Avec \LaTeX{}, il n'est normalement pas possible de voir le résultat
+final durant la saisie du texte. Mais celui-ci peut être
+pré-visualisé après traitement du fichier par \LaTeX{}. Des corrections
+peuvent alors être apportées avant d'envoyer la version définitive
+vers l'imprimante.
 
-\subsection{Layout Design}
+\subsection{Choix de la mise en page}
 
-Typographical design is a craft. Unskilled authors often commit
-serious formatting errors by assuming that book design is mostly a
-question of aesthetics---``If a document looks good artistically,
-it is well designed.'' But as a document has to be read and not hung
-up in a picture gallery, the readability and understandability is of
-much greater importance than the beautiful look of it.
-Examples: 
+La typographie est un métier (un art ?). Les auteurs inexpérimentés
+font souvent de graves erreurs en considérant que la mise en page est
+avant tout une question d'esthétique : \og si un document est beau, il
+est bien conçu \fg{}. Mais un document doit être lu et non accroché dans
+une galerie d'art. La lisibilité et la compréhensibilité sont bien
+plus importantes que le \og look \fg{}. Par exemple :
 \begin{itemize}
-\item The font size and the numbering of headings have to be chosen to make
-  the structure of chapters and sections clear to the reader.
-\item The line length has to be short enough to not strain
-  the eyes of the reader, while long enough to fill the page
-  beautifully.
+\item la taille de la police et la numérotation des en-têtes doivent
+      être choisies afin de mettre en évidence la structure des
+      chapitres et des sections ;
+\item les lignes ne doivent pas être trop longues pour ne pas fatiguer
+      la vue du lecteur, tout en remplissant la page de manière
+      harmonieuse. 
 \end{itemize}
 
-With \wi{WYSIWYG} systems, authors often generate aesthetically
-pleasing documents with very little or inconsistent structure.
-\LaTeX{} prevents such formatting errors by forcing the author to
-declare the \emph{logical} structure of his document. \LaTeX{} then
-chooses the most suitable layout.
+Avec un logiciel \wi{WYSIWYG}, l'auteur produit généralement des
+documents esthétiquement plaisants (quoi que\dots) mais très peu ou
+mal structurés. \LaTeX{} empêche de telles erreurs de formatage en
+forçant l'auteur à décrire la structure logique de son document et en
+choisissant lui-même la mise en page la plus appropriée.
 
-\subsection{Advantages and Disadvantages}
 
-When People from the \wi{WYSIWYG} world meet people who use \LaTeX{},
-they often discuss ``the \wi{advantages of \LaTeX{}} over a normal
-word processor'' or the opposite.  The best thing you can do when such
-a discussion starts is to keep a low profile, since such discussions
-often get out of hand. But sometimes you cannot escape \ldots
+\subsection{Avantages et inconvénients}
 
-\medskip\noindent So here is some ammunition. The main advantages
-of \LaTeX{} over normal word processors are the following:
+Un sujet de discussion qui  revient souvent quand des gens du monde
+\wi{WYSIWYG} rencontrent des utilisateurs de \LaTeX{} est le 
+suivant : \og les \wi{avantages de \LaTeX{}} par rapport à un
+traitement de texte classique \fg{} ou bien le contraire.
+La meilleure chose à faire quand une telle discussion démarre, est de
+garder son calme, car souvent cela dégénère. Mais parfois on ne peut y
+échapper\dots
+
+\medskip Voici donc quelques arguments. Les principaux avantages de
+\LaTeX{} par rapport à un traitement de texte traditionnel sont :
 
 \begin{itemize}
 
-\item Professionally crafted layouts are available, which make a
-  document really look as if ``printed.''
-\item The typesetting of mathematical formulae is supported in a
-  convenient way.
-\item The user only needs to learn a few easy-to-understand commands
-  which specify the logical structure of a document. They almost never
-  need to tinker with the actual layout of the document.
-\item Even complex structures such as footnotes, references, table of
-  contents, and bibliographies can be generated easily.
-\item Free add-on packages exist for many typographical tasks not directly supported by basic
-  \LaTeX. For example, packages are
-  available to include \textsc{PostScript} graphics or to typeset
-  bibliographies conforming to exact standards. Many of these add-on
-  packages are described in \companion.
-\item \LaTeX{} encourages authors to write well-structured texts,
-  because this is how \LaTeX{} works---by specifying structure.
-\item \TeX, the formatting engine of \LaTeXe, is highly portable and free.
-  Therefore the system runs on almost any hardware platform
-  available. 
-
+\item mise en page professionnelle qui donne aux documents l'air de
+      sortir de l'atelier d'un imprimeur ;
+\item la composition des formules mathématiques se fait de manière
+      pratique ;
+\item il suffit de connaître quelques commandes de
+      base pour décrire la structure logique du document. 
+      Il n'est pas nécessaire de se préoccuper de la mise en page ;
+\item des structures complexes telles que des notes de bas de page,
+      des renvois, la table des matières ou les références
+      bibliographiques sont produites facilement ;
+\item pour la plupart des tâches de la typographie qui ne sont pas
+      directement gérées par \LaTeX{}, il existe des extensions
+      gratuites. Par exemple pour inclure des figures
+      \textsc{PostScript} ou pour formater une bibliographie selon un
+      standard précis. La majorité de ces extensions sont décrites dans
+      \companion{} (en anglais) et dans \desgraupes{} (en français) ;
+\item \LaTeX{} encourage les auteurs à écrire des documents bien
+      structurés, parce que c'est ainsi qu'il fonctionne (en
+      décrivant la structure) ;
+\item \TeX{}, l'outil de formatage de \LaTeXe{}, est réellement
+      portable et gratuit. Ainsi il est disponible sur quasiment
+      toutes les machines existantes.
 %
 % Add examples ...
 %
@@ -165,88 +180,98 @@ of \LaTeX{} over normal word processors are the following:
 
 \medskip
 
-\noindent\LaTeX{} also has some disadvantages, and I guess it's a bit
-difficult for me to find any sensible ones, though I am sure other people
-can tell you hundreds \texttt{;-)}
+\LaTeX{} a également quelques inconvénients ; il est difficile
+pour moi d'en trouver, mais d'autres vous en citeront des centaines  :
 
 \begin{itemize}
-\item \LaTeX{} does not work well for people who have sold their
-  souls \ldots
-\item Although some parameters can be adjusted within a predefined
-  document layout, the design of a whole new layout is difficult and
-  takes a lot of time.\footnote{Rumour says that this is one of the
-    key elements which will be addressed in the upcoming \LaTeX 3
-    system.}\index{LaTeX3@\LaTeX 3}
-\item It is very hard to write unstructured and disorganized documents.
-\item Your hamster might, despite some encouraging first steps, never be
-able to fully grasp the concept of Logical Markup.
+\item \LaTeX{} ne fonctionne pas bien pour ceux qui ont vendu leur 
+      âme ;
+\item bien que quelques paramètres des mises en page pré-définies
+      puissent être personnalisés, la mise au point d'une présentation
+      entièrement nouvelle est difficile et demande beaucoup de
+      temps\,\footnote{La rumeur dit que c'est un des points qui
+      devrait être améliorés dans la future version \LaTeX
+      3}\index{LaTeX3@\LaTeX 3} ;
+\item écrire des documents mal organisés et mal structurés est très
+      difficile. 
 \end{itemize}
  
-\section{\LaTeX{} Input Files}
+\section{Fichiers source \LaTeX{}}
 
-The input for \LaTeX{} is a plain \texttt{ASCII} text file. You can create it
-with any text editor. It contains the text of the document as well as
-the commands which tell \LaTeX{} how to typeset the text.
+L'entrée de \LaTeX{} est un fichier texte \texttt{ASCII}. Vous pouvez
+le créer avec l'éditeur de texte de votre choix. Il contient le texte
+de votre document ainsi que les commandes qui vont dire à \LaTeX{}
+comment mettre en page le texte. On appelle ce fichier \emph{\wi{fichier
+source}}. 
 
-\subsection{Spaces}
+\subsection{Espaces}
 
-``Whitespace'' characters such as blank or tab are
-treated uniformly as ``\wi{space}'' by \LaTeX{}. \emph{Several
-  consecutive} \wi{whitespace} characters are treated as \emph{one}
-``space''.  Whitespace at the start of a line is generally ignored, and
-a single linebreak is treated as ``whitespace''.
-\index{whitespace!at the start of a line}
+Les caractères d'espacement, tels que les blancs ou les tabulations
+sont traités de manière unique comme \og \wi{espace} \fg{} par
+\LaTeX{}. Plusieurs \wi{blancs} \emph{consécutifs} sont considérés
+comme \emph{une seule} espace\,\footnote{En langage typographique,
+    \emph{espace} est un mot féminin. \emph{NdT.}}.  Les espaces en début
+d'une ligne sont en général ignorées et un seul retour à la ligne est
+traité comme une espace.  \index{espace!en début de ligne}
 
-An empty line between two lines of text defines the end of a
-paragraph. \emph{Several} empty lines are treated the same as
-\emph{one} empty line. The text below is an example. On the left hand
-side is the text from the input file, and on the right hand side is the
-formatted output.
+Une ligne vide entre deux lignes de texte marque la fin d'un
+paragraphe. \emph{Plusieurs} lignes vides sont considérées comme
+\emph{une seule} ligne vide. Le texte ci-dessous est un exemple. Sur
+la gauche se trouve le contenu du fichier source et à droite le
+résultat formaté.
 
 \begin{example}
-It does not matter whether you
-enter one or several     spaces
-after a word.
+Saisir un ou      plusieurs
+espaces entre  les     mots
+n'a pas d'importance.
 
-An empty line starts a new 
-paragraph.
+Une ligne vide commence 
+un nouveau paragraphe.
 \end{example}
  
-\subsection{Special Characters}
+\subsection{Caractères spéciaux}
 
-The following symbols are \wi{reserved characters} that either have a
-special meaning under \LaTeX{} or are not available in all the fonts.
-If you enter them directly in your text, they will normally not print,
-but rather coerce \LaTeX{} to do things you did not intend. 
+Les symboles suivants sont des \wi{caractères réservés} qui, soit ont 
+une signification spéciale dans \LaTeX{}, soit ne sont pas disponibles
+dans toutes les polices. Si vous les saisissez directement dans votre
+texte, ils ne seront pas imprimés et forceront \LaTeX{} à faire des
+choses que vous n'avez pas voulues.
+
 \begin{code}
-\verb.#  $  %  ^  &  _  {  }  ~  \ . %$
+\verb.$ & % # _ { }  ~  ^  \ . %$
 \end{code}
 
-As you will see, these characters can be used in your documents all
-the same by adding a prefix backslash:
+Comme vous le voyez, certains de ces caractères peuvent être utilisés
+dans vos documents en les préfixant par un antislash :
 
 \begin{example}
-\# \$ \% \^{} \& \_ \{ \} \~{} 
-\end{example}
+\$ \& \% \# \_ \{ \}
+\end{example} 
+%$
 
-The other symbols and many more can be printed with special commands
-in mathematical formulae or as accents. The backslash character
-$\backslash$ can \emph{not} be entered by adding another backslash
-in front of it (\verb|\\|), this sequence is used for
-linebreaking.\footnote{Try the \texttt{\$}\ci{backslash}\texttt{\$} command instead. It
-  produces a `$\backslash$'.}
+%%% XXX Trouver un terme meilleur qu'antislash
 
-\subsection{\LaTeX{} Commands}
+Les autres et bien d'autres encore peuvent être obtenus avec des
+commandes spéciales à l'intérieur de formules mathématiques ou comme
+accents. L'antislash $\backslash$ ne peut pas être saisi en ajoutant
+un second antislash (\verb|\\|). Cette séquense est utilisée pour
+indiquer les coupures de ligne\,\footnote{Utilisez la commande
+\texttt{\$}\ci{backslash}\texttt{\$}. Elle produit un $\backslash$.}.
 
-\LaTeX{} \wi{commands} are case sensitive and take one of the following
-two formats:
+\subsection{Commandes \LaTeX{}}
+
+Les commandes \LaTeX{} sont sensibles à la casse des caractères
+(majuscules ou minuscules) et utilisent l'un des deux formats
+suivants :
 
 \begin{itemize}
-\item They start with a \wi{backslash} \verb|\| and then have a name
- consisting of letters only. Command names are terminated by a
- space, a number or any other `non-letter'.
-\item They consist of a backslash and exactly one % numerical or
- special character.
+\item soit elles commencent par un \wi{antislash} \verb|\| et ont un
+      nom composé uniquement de lettres. Un nom de commande est
+      terminé par une espace, un chiffre ou tout autre caractère qui
+      n'est pas une lettre ;
+\index{backslash}
+\item soit elles sont composées d'un antislash et d'un 
+      caractère spécial (non-lettre) exactement.
 \end{itemize}
 
 %
@@ -257,113 +282,107 @@ two formats:
 % Can \3 be a valid command ? (jacoboni)
 %
 \label{whitespace}
-
-\LaTeX{} ignores whitespace after commands. If you want to get a
-\index{whitespace!after commands}space after a command, you have to
-put either \verb|{}| and a blank or a special spacing command after the
-command name. The \verb|{}| stops \LaTeX{} from eating up all the space after
-the command name. 
+\LaTeX{} ignore les espaces après les commandes. Si vous souhaitez
+obtenir un blanc après une commande\index{espace!après une commande},
+il faut ou bien insérer \verb|{}| suivi d'un blanc ou bien utiliser une
+commande d'espacement spécifique de \LaTeX{}. La séquence \verb|{}|
+empêche \LaTeX{} d'ignorer les blancs après une commande.
 
 \begin{example}
-I read that Knuth divides the 
-people working with \TeX{} into 
-\TeX{}nicians and \TeX perts.\\
-Today is \today.
+J'ai lu que Knuth classe les
+gens qui utilisent \TeX{} en
+\TeX{}niciens et en \TeX perts.\\
+Aujourd'hui nous sommes le \today.
 \end{example}
 
-Some commands need a \wi{parameter} which has to be given between
-\wi{curly braces} \verb|{ }| after the command name. Some commands support
-\wi{optional parameters} which are added after the command name in
-\wi{square brackets}~\verb|[ ]|. The next examples use some \LaTeX{}
-commands. Don't worry about them, they will be explained later.
+Certaines commandes sont suivies d'un \wi{paramètre} qui est mis entre
+\wi{accolades} \verb|{ }|. Certaines commandes supportent des
+\wi{paramètres optionnels} qui suivent le nom de la commande entre
+\wi{crochets}~\verb|[ ]|. L'exemple suivant montre quelques commandes
+\LaTeX{}. Ne vous tracassez pas pour les comprendre, elles seront
+expliquées plus loin.
 
 \begin{example}
-You can \textsl{lean} on me!
+\textsl{Penchez}-vous !
 \end{example}
 \begin{example}
-Please, start a new line
-right here!\newline
-Thank you!
+S'il vous plait, passez \`a la 
+ligne ici.\newline
+Merci !
 \end{example}
 
-\subsection{Comments}
-\index{comments}
+\subsection{Commentaires}
+\index{commentaires}
 
-When \LaTeX{} encounters a \verb|%| character while processing an input file,
-it ignores the rest of the present line, the linebreak, and all
-whitespace at the beginning of the next line.
-
-This can be used to write notes into the input file, which will not show up
-in the printed version.
+Quand \LaTeX{} rencontre un caractère \verb|%| dans le fichier
+source, il ignore le reste de la ligne en cours. C'est utile pour
+ajouter des notes qui n'apparaîtront  pas dans la version imprimée.
 
 \begin{example}
-This is an % stupid
-% Better: instructive <----
-example: Supercal%
-              ifragilist%
-    icexpialidocious
+% Demonstration :
+Ceci est un % mauvais
+exemple: anticonstitu%
+       tionnellement
 \end{example}
 
-The \texttt{\%} character can also be used to split long input lines where no
-whitespace or linebreaks are allowed.
+Le caractère \verb|%| 
+peut également être utilisé pour couper des lignes trop longues dans 
+le fichier d'entrée, lorsqu'aucun espace ou coupure n'est autorisé. 
 
-For longer comments you should use the \ei{comment} environment
-provided by the \pai{verbatim} package. This means, to use the
-\ei{comment} environment you have to add the commend
-\verb|\usepackage{verbatim}| to the preamble of your document.
+Pour créer des commentaires plus longs, il vaut mieux utilier
+l'environnement \ei{comment} fourni par l'extension \pai{verbatim}. 
+Vous apprendrez plus loin à utiliser une extension. 
 
 \begin{example}
-This is another
+Voici un autre exemple
 \begin{comment}
-rather stupid,
-but helpful
+Limité mais demonstratif
 \end{comment}
-example for embedding
-comments in your document.
+de commentaires. 
 \end{example}
 
-Note that this won't work inside complex environments like math for example.
+Cet environnement n'est pas utilisable à l'intérieur d'autres
+environnements complexes, tels que le mode mathématique par exemple. 
 
-\section{Input File Structure}
+\section{Structure du fichier source}
 
-When \LaTeXe{} processes an input file, it expects it to follow a
-certain \wi{structure}. Thus every input file must start with the
-command
+Quand \LaTeX{} analyse un fichier source, il s'attend à y trouver une
+certaine structure. C'est pourquoi chaque fichier source doit
+commencer par la commande :
 \begin{code}
 \verb|\documentclass{...}|
 \end{code}
-This specifies what sort of document you intend to write. After that,
-you can include commands which influence the style of the whole
-document, or you can load \wi{package}s which add new
-features to the \LaTeX{} system. To load such a package you use the
-command
+Elle indique quel type de document vous voulez écrire. Après cela vous
+pouvez insérer des commandes qui vont influencer le style du document
+ou vous pouvez charger des \wi{extension}s qui ajoutent de nouvelles
+fonctions au système \LaTeX{}. Pour charger une extension, utilisez la
+commande :
 \begin{code}
 \verb|\usepackage{...}|
 \end{code}
 
-When all the setup work is done,\footnote{The area between \texttt{\bs
-    documentclass} and \texttt{\bs
-    begin$\mathtt{\{}$document$\mathtt{\}}$} is called
-  \emph{\wi{preamble}}.} you start the body of the text with the
-command
-
+Quand tout le travail de préparation est fait\,\footnote{La partie entre
+\texttt{\bs{}documentclass} et
+\texttt{\bs{}begin$\mathtt{\{}$document$\mathtt{\}}$} est appelée le
+\emph{\wi{préambule}}.}, vous pouvez commencer le corps du texte avec
+la commande :
 \begin{code}
 \verb|\begin{document}|
 \end{code}
 
-Now you enter the text mixed with some useful \LaTeX{} commands.  At
-the end of the document you add the
+Maintenant vous pouvez saisir votre texte et y insérer des commandes
+\LaTeX{}. À la fin de votre document, utilisez la commande
 \begin{code}
 \verb|\end{document}|
 \end{code}
-command, which tells \LaTeX{} to call it a day. Anything which
-follows this command will be ignored by \LaTeX.
+pour dire à \LaTeX{} qu'il en a fini. Tout ce qui suivra dans le
+fichier source sera ignoré.
 
-Figure~\ref{mini} shows the contents of a minimal \LaTeXe{} file. A
-slightly more complicated \wi{input file} is given in
-Figure~\ref{document}.
+La figure~\ref{mini} montre le contenu d'un document \LaTeXe{}
+minimum. Un fichier source plus complet est présenté sur la
+figure~\ref{document}. 
 
-\begin{figure}[!bp]
+\begin{figure}[hbp]
 \begin{lined}{6cm}
 \begin{verbatim}
 \documentclass{article}
@@ -372,395 +391,426 @@ Small is beautiful.
 \end{document}
 \end{verbatim}
 \end{lined}
-\caption{A Minimal \LaTeX{} File.} \label{mini}
+\caption{Un fichier \LaTeX{} minimal} \label{mini}
 \end{figure}
  
-\begin{figure}[!bp]
+\begin{figure}[htbp]
 \begin{lined}{10cm}
 \begin{verbatim}
 \documentclass[a4paper,11pt]{article}
-% define the title
-\author{H.~Partl}
-\title{Minimalism}
+\usepackage[T1]{fontenc}
+\usepackage[english,francais]{babel}
+\author{P.~Tar}
+\title{Le Minimalisme}
 \begin{document}
-% generates the title
-\maketitle 
-% insert the table of contents
+\maketitle
 \tableofcontents
-\section{Start}
-Well, and here begins my lovely article.
-\section{End}
-\ldots{} and here it ends.
+\section{D\'ebut}
+\`A \'ecrire\dots
+\section{Suite et fin}
+On verra plus tard.
 \end{document}
 \end{verbatim}
 \end{lined}
-\caption{Example of a Realistic Journal Article.} \label{document}
+\caption{Exemple d'un article de revue plus réaliste} \label{document}
 \end{figure}
+ 
+\section{Utilisation typique en ligne de commande}
 
-\section{A Typical Commandline Session}
+Vous brûlez probablement d'envie d'essayer l'exemple présenté
+page~\pageref{mini}. Voici quelques informations :
+\LaTeX{} lui-même ne propose pas d'interface graphique ni de jolis
+boutons à 
+cliquer. Il s'agit simplement d'un programme qui \og digère \fg{} votre
+fichier source. Certaines installations de \LaTeX{} ajoutent une
+telle interface graphique permettant de cliquer pour lancer la
+mise en page de votre document. 
 
-I bet you must be dying to try out the neat small \LaTeX{} input file
-shown on page \pageref{mini}. Here is some help:
-\LaTeX{} itself comes without a GUI or
-fancy buttons to press. It is just a program which crunches away
-on your input file. Some \LaTeX{} installations feature a graphical
-front end where you can click \LaTeX{} into compiling your input file.
-But Real Men don't Click, so here is how to coax \LaTeX{} into
-compiling your input file on a text based system. Please note, this
-description assumes that a working \LaTeX{} installation already sitts
-on your computer.
+Mais les puristes ne cliquent pas ; voici donc comment demander à
+\LaTeX{} de traiter votre document sur un système avec une interface
+textuelle. Remarquez que ceci suppose que \LaTeX{} soit déjà installé
+sur votre ordinateur. 
 
 \begin{enumerate}
-\item 
-  
-  Edit/Create your \LaTeX{} input file. This file must be plain ASCII
-  text.  On Unix all the editors will create just that. On windows you
-  might want to make sure that you save the file in ASCII or
-  \emph{Plain Text} format.  When picking a name for your file, make
-  sure it bears the extention \texttt{.tex}.
+\item Créez/éditez votre fichier source \LaTeX{}. Il s'agit d'un
+      fichier texte pur. Sur les systèmes Unix, tous les éditeurs
+      créent ce type de fichier. Sous Windows, assurez-vous que le
+      fichier est sauvegardé en texte seul (ASCII ou encore \og plain
+      text \fg{}). Choisissez pour votre fichier un nom avec le suffixe
+      \texttt{.tex}. 
 
-\item 
-Run \LaTeX{} on your input file. If successful you will end up
-with a \texttt{.dvi} file.
+\item Exécutez \LaTeX{} sur votre fichier. Si tout se passe bien, vous
+      obtiendrez un nouveau fichier avec le suffixe \texttt{.dvi}. 
 \begin{verbatim}
-latex foo.tex
+latex document.tex
 \end{verbatim}
 
-\item 
-Now you may view the DVI file.
+\item À présent, vous pouvez visualiser le résultat, le fichier DVI.
 \begin{verbatim}
-xdvi foo.dvi
+xdvi document.dvi
 \end{verbatim}
-or
-convert it to PS
+ou encore transformer le résultat en PostScript
 \begin{verbatim}
-dvips -Pcmz foo.dvi -o foo.ps
+dvips -Pcmz -o document.ps document.dvi
 \end{verbatim}
-\texttt{\wi{xdvi}} and \texttt{\wi{dvips}} are open-source
-tools for handling \texttt{.dvi} files. The first displays them on
-screen within the X11 environment and the other
-creates a PostScript file for printing. If you are not working on
-a Unix system, other means for handling the \texttt{.dvi} files may be
-provided. 
+\texttt{\wi{xdvi}} et \texttt{\wi{dvips}} sont des logiciels %libres
+qui manipulent les fichiers DVI. Ils sont disponibles sur la plupart
+des systèmes Unix. Sur les autres systèmes, d'autres outils de
+manipulation des fichiers DVI sont disponibles. 
 
 \end{enumerate}
 
+% \clearpage
+\section{La mise en page du document}
  
-\section{The Layout of the Document}
- 
-\subsection {Document Classes}\label{sec:documentclass}
+\subsection {Classes de documents}\label{sec:documentclass}
 
-The first information \LaTeX{} needs to know when processing an
-input file is the type of document the author wants to create. This
-is specified with the \ci{documentclass} command.
+La première information dont \LaTeX{} a besoin en traitant un fichier
+source est le type de document que son auteur est en train de
+créer. Ce type est spécifié par la commande \ci{documentclass}.
 \begin{lscommand}
-\ci{documentclass}\verb|[|\emph{options}\verb|]{|\emph{class}\verb|}|
+\ci{documentclass}\verb|[|\emph{options}\verb|]{|\emph{classe}\verb|}|
 \end{lscommand}
-\noindent Here \emph{class} specifies the type of document to be created.
-Table~\ref{documentclasses} lists the document classes explained in
-this introduction. The \LaTeXe{} distribution provides additional
-classes for other documents, including letters and slides.  The
-\emph{\wi{option}s} parameter customises the behaviour of the document
-class. The options have to be separated by commas. The most common options for the standard document
-classes are listed in
-Table~\ref{options}.
+Ici \emph{classe} indique le type de document à créer. Le
+tableau~\ref{documentclasses} donne la liste des classes de documents
+présentées dans cette introduction. \LaTeXe{} fournit d'autres classes
+pour d'autres types de documents, notamment des lettres et des
+transparents. Le paramètre \emph{\wi{option}s} permet de modifier le
+comportement de la classe de document. Les options sont séparées par
+des virgules. Les principales options disponibles sont présentées dans
+le tableau~\ref{options}.
 
 
-\begin{table}[!bp]
-\caption{Document Classes.} \label{documentclasses}
+\begin{table}[!thbp]
+\caption{Classes de documents} \label{documentclasses}
 \begin{lined}{12cm}
 \begin{description}
  
-\item [\normalfont\texttt{article}] for articles in scientific journals, presentations,
-  short reports, program documentation, invitations, \ldots
-  \index{article class}
-\item [\normalfont\texttt{report}] for longer reports containing several chapters, small
-  books, PhD theses, \ldots \index{report class}
-\item [\normalfont\texttt{book}] for real books \index{book class}
-\item [\normalfont\texttt{slides}] for slides. The class uses big sans serif
-  letters. You might want to consider using Foil\TeX{}\footnote{%
-        \texttt{CTAN:/tex-archive/macros/latex/contrib/supported/foiltex}} instead.
-        \index{slides class}\index{foiltex}
+\item [\normalfont\texttt{article}] pour des articles dans des revues
+      scientifiques, des présentations, des rapports courts, des
+      documentations, des invitations, etc.
+  \index{article (classe)}
+\item [\normalfont\texttt{report}] pour des rapports plus longs
+      contenant plusieurs chapitres, des petits livres, des thèses, etc.
+  \index{report (classe)}
+  \index{rapport}
+\item [\normalfont\texttt{book}] pour des vrais livres.
+  \index{book (classe)}
+  \index{livre}
+\item [\normalfont\texttt{slides}] pour des transparents. Cette classe
+      utilise de grands caractères sans serif. Voir également la
+      classe Foil\TeX{}\,\footnote{%
+        \texttt{CTAN:/tex-archive/macros/latex/contrib/supported/foiltex}}
+   \index{slides@\textsf{slides}}\index{foiltex@\textsf{foiltex}}
+   \index{transparents}
 \end{description}
 \end{lined}
 \end{table}
 
-\begin{table}[!bp]
-\caption{Document Class Options.} \label{options}
+\begin{table}[!hbp]
+\caption{Options de classes de document} \label{options}
 \begin{lined}{12cm}
 \begin{flushleft}
 \begin{description}
-\item[\normalfont\texttt{10pt}, \texttt{11pt}, \texttt{12pt}] \quad Sets the size
-  of the main font in the document. If no option is specified,
-  \texttt{10pt} is assumed.  \index{document font size}\index{base
-    font size}
-\item[\normalfont\texttt{a4paper}, \texttt{letterpaper}, \ldots] \quad Defines
-  the paper size. The default size is \texttt{letterpaper}. Besides
-  that, \texttt{a5paper}, \texttt{b5paper}, \texttt{executivepaper},
-  and \texttt{legalpaper} can be specified.  \index{legal paper}
-  \index{paper size}\index{A4 paper}\index{letter paper} \index{A5
-    paper}\index{B5 paper}\index{executive paper}
+\item[\normalfont\texttt{10pt}, \texttt{11pt}, \texttt{12pt}] \quad
+définit la taille de la police principale du document. Si aucune
+option n'est présente, la taille par défaut est de \texttt{10pt}.
+ \index{taille!de la police par défaut}
+\item[\normalfont\texttt{a4paper}, \texttt{letterpaper}, \dots] \quad
+définit la taille du papier. Le papier par défaut est
+\texttt{letterpaper}, le format standard américain. Les autres valeurs
+possibles sont : \texttt{a5paper}, \texttt{b5paper}, \texttt{executivepaper},
+  et \texttt{legalpaper}. \index{legal (papier)}
+  \index{taille!du papier}\index{A4 (papier)}\index{letter (papier)} \index{A5
+    (papier)}\index{B5 (papier)}\index{executive (papier)}
+\index{papier!taille du}
+\index{papier!A4}
+\index{papier!A5}
+\index{papier!letter}
 
-\item[\normalfont\texttt{fleqn}] \quad Typesets displayed formulae left-aligned
-  instead of centred.
+\item[\normalfont\texttt{fleqn}] \quad aligne les formules
+  mathématiques à gauche au lieu de les centrer.
+\index{fleqn@\texttt{fleqn}}
 
-\item[\normalfont\texttt{leqno}] \quad Places the numbering of formulae on the
-  left hand side instead of the right.
+\item[\normalfont\texttt{leqno}] \quad place la numérotation des
+formules à gauche plutôt qu'à droite.
+\index{leqno@\texttt{leqno}}
 
-\item[\normalfont\texttt{titlepage}, \texttt{notitlepage}] \quad Specifies
-  whether a new page should be started after the \wi{document title}
-  or not. The \texttt{article} class does not start a new page by
-  default, while \texttt{report} and \texttt{book} do.  \index{title}
+\item[\normalfont\texttt{titlepage}, \texttt{notitlepage}] \quad
+indique si une nouvelle page doit être commencée après le \wi{titre du
+document} ou non. La classe \texttt{article} continue par défaut sur
+la même page contrairement aux classes \texttt{report} et
+\texttt{book}.  \index{titlepage@\texttt{titlepage}}
+\index{notitlepage@\texttt{notitlepage}}
 
-\item[\normalfont\texttt{onecolumn}, \texttt{twocolumn}] \quad Instructs \LaTeX{} to typeset the
-  document in \wi{one column}\wi{two column}s.
+\item[\normalfont\texttt{twocolumn}] \quad 
+demande à \LaTeX{} de formater le texte sur \wi{deux colonnes}.
+\index{twocolumn@\texttt{twocolumn}}
 
-\item[\normalfont\texttt{twoside, oneside}] \quad Specifies whether double or
-  single sided output should be generated. The classes
-  \texttt{article} and \texttt{report} are \wi{single sided} and the
-  \texttt{book} class is \wi{double sided} by default. Note that this
-  option concerns the style of the document only. The option
-  \texttt{twoside} does \emph{not} tell the printer you use that it
-  should actually make a two-sided printout.
+\item[\normalfont\texttt{twoside, oneside}] \quad indique si la sortie
+se fera en \wi{recto-verso} ou en \wi{recto simple}. Par défaut, les classes
+\texttt{article} et \texttt{report} sont en \wi{simple face} 
+alors que la classe \texttt{book} est en \wi{double-face}.
+\index{twoside@\texttt{twoside}}
+\index{oneside@\texttt{oneside}}
 
-\item[\normalfont\texttt{openright, openany}] \quad Makes chapters begin either
-  only on right hand pages or on the next page available. This does
-  not work with the \texttt{article} class, as it does not know about
-  chapters. The \texttt{report} class by default starts chapters on
-  the next page available and the \texttt{book} class starts them on
-  right hand pages.
+\item[\normalfont\texttt{openright, openany}] \quad fait commencer un
+chapitre sur la page de droite ou sur la prochaine page. Cette option
+n'a pas de sens avec la classe \texttt{article} qui ne connaît pas la
+notion de chapitre. Par défaut, la classe \texttt{report} commence les
+chapitres sur la prochaine page vierge alors que la classe
+\texttt{book} les commence toujours sur une page de droite.
+\index{openright@\texttt{openright}}
+\index{openany@\texttt{openany}}
 
 \end{description}
 \end{flushleft}
 \end{lined}
 \end{table}
 
-Example: An input file for a \LaTeX{} document could start with the
-line
+Exemple : un fichier source pour un document \LaTeX{} pourrait
+commencer par la ligne
 \begin{code}
 \ci{documentclass}\verb|[11pt,twoside,a4paper]{article}|
 \end{code}
-which instructs \LaTeX{} to typeset the document as an \emph{article}
-with a base font size of \emph{eleven points}, and to produce a
-layout suitable for \emph{double sided} printing on \emph{A4 paper}.
-\pagebreak[2]
-\subsection{Packages}
-\index{package} While writing your document, you will probably find
-that there are some areas where basic \LaTeX{} cannot solve your
-problem. If you want to include \wi{graphics}, \wi{coloured text} or
-source code from a file into your document, you need to enhance the
-capabilities of \LaTeX.  Such enhancements are called packages.
-Packages are activated with the
-\begin{lscommand}
-\ci{usepackage}\verb|[|\emph{options}\verb|]{|\emph{package}\verb|}|
-\end{lscommand}
-\noindent command where \emph{package} is the name of the package and
-\emph{options} is a list of keywords which trigger special features in
-the package. Some packages come with the \LaTeXe{} base distribution
-(See Table~\ref{packages}). Others are provided separately. You may
-find more information on the packages installed at your site in your
-\guide. The prime source for information about \LaTeX{} packages is \companion.
-It contains descriptions of hundreds of packages along with
-information of how to write your own extensions to \LaTeXe.
+elle informe \LaTeX{} qu'il doit composer ce document comme un
+\emph{article} avec une taille de caractère de base de \emph{onze
+points} et qu'il devra produire une mise en page pour une impression
+\emph{double face} sur du papier au format \emph{A4}%
+\,\footnote{Sans l'option \texttt{a4paper}, le format de papier sera
+américain : 8,5~$\times$~11 pouces, soit 216~$\times$~280 mm.}.
 
-\begin{table}[!hbp]
-\caption{Some of the Packages Distributed with \LaTeX.} \label{packages}
+%\clearpage
+\subsection{Extensions}
+
+\begin{table}[!tbp]
+\caption{Quelques extensions fournies avec \LaTeX} \label{extensions}
 \begin{lined}{11cm}
 \begin{description}
-\item[\normalfont\pai{doc}] Allows the documentation of \LaTeX{} programs.\\
- Described in \texttt{doc.dtx}\footnote{This file should be installed
-   on your system, and you should be able to get a \texttt{dvi} file
-   by typing \texttt{latex doc.dtx} in any directory where you have
-   write permission. The same is true for all the
-   other files mentioned in this table.}  and in \companion.
+\item[\normalfont\texttt{doc}] permet de documenter des programmes
+ pour  \LaTeX{}.\\
+ Décrite dans \texttt{doc.dtx}\,\footnote{Ce fichier devrait être intallé
+ sur votre système et vous devriez être capable de le formater avec
+ la commande \texttt{latex doc.dtx}. Il en est de même pour les autres
+ fichiers cités dans ce tableau.} et dans \companion.
 
-\item[\normalfont\pai{exscale}] Provides scaled versions of the
-  math extension  font.\\ 
-  Described in \texttt{ltexscale.dtx}.
+\item[\normalfont\pai{exscale}] fournit des versions de taille
+  paramétrable des polices mathématiques étendues.\\ 
+  Décrite dans \texttt{ltexscale.dtx}.
 
-\item[\normalfont\pai{fontenc}] Specifies which \wi{font encoding}
-  \LaTeX{} should use.\\
-  Described in \texttt{ltoutenc.dtx}.
+\item[\normalfont\pai{fontenc}] spécifie le \wi{codage} des polices
+  de caractère que \LaTeX{} va utiliser.\\
+  Décrite dans \texttt{ltoutenc.dtx}.
 
-\item[\normalfont\pai{ifthen}] Provides commands of the form\\ 
-  `if\ldots then do\ldots otherwise do\ldots.'\\ Described in
-  \texttt{ifthen.dtx} and \companion.
+\item[\normalfont\pai{ifthen}] fournit des commandes de la forme\\
+  `if\dots then do\dots otherwise do\dots.'\\ 
+  Décrite dans \texttt{ifthen.dtx}, dans \companion{} et dans
+  \desgraupes{}. 
 
-\item[\normalfont\pai{latexsym}] To access the \LaTeX{} symbol
-  font, you should use the \texttt{latexsym} package. Described in
-  \texttt{latexsym.dtx} and in \companion.
+\item[\normalfont\pai{latexsym}] permet l'utilisation de la police des
+  symboles \LaTeX{}.\\
+  Décrite dans \texttt{latexsym.dtx}, dans \companion{} et dans
+  \desgraupes{}. 
  
-\item[\normalfont\pai{makeidx}] Provides commands for producing
-  indexes.  Described in section~\ref{sec:indexing} and in \companion.
+\item[\normalfont\pai{makeidx}] fournit des commandes pour réaliser
+  un index.\\
+  Décrite dans ce document, section~\ref{sec:indexing}, dans
+  \companion{} et dans \desgraupes{}.
 
-\item[\normalfont\pai{syntonly}] Processes a document without
-  typesetting it.
+\item[\normalfont\pai{syntonly}] analyse un document sans le
+  formater.\\
+  Décrite dans \texttt{syntonly.dtx} et dans \companion. Utile pour une
+  vérification rapide de la syntaxe.
   
-\item[\normalfont\pai{inputenc}] Allows the specification of an
-  input encoding such as ASCII, ISO Latin-1, ISO Latin-2, 437/850 IBM
-  code pages,  Apple Macintosh, Next, ANSI-Windows or user-defined one.
-  Described in \texttt{inputenc.dtx}. 
+\item[\normalfont\pai{inputenc}] permet de spécifier le codage des
+  caractères utilisé dans le fichier source, parmi ASCII, ISO Latin-1,
+  ISO Latin-2, 437/850 IBM code pages,  Apple Macintosh, Next,
+  ANSI-Windows ou un codage défini par l'utilisateur.\\
+  Décrite dans \texttt{inputenc.dtx}. 
 \end{description}
 \end{lined}
 \end{table}
 
-\section{Files you might encounter}
+\index{extension} 
+En rédigeant votre document, vous remarquerez peut-être qu'il y a des
+domaines où les commandes de base de \LaTeX{} ne permettent pas
+d'exprimer ce que vous voudriez. Si vous voulez inclure des
+graphiques, du texte en couleur ou du code d'un programme dans votre
+document, il faut augmenter les possibilités de \LaTeX{} grâce à des
+extensions. 
+Une extension est chargée par la commande
+\begin{lscommand}
+\ci{usepackage}\verb|[|\emph{options}\verb|]{|\emph{extension}\verb|}|
+\end{lscommand}
+\emph{extension} est le nom de l'extension et \emph{options} une liste
+de mots-clés qui déclenchent certaines fonctions de
+l'extension. Certaines extensions font partie de la distribution
+standard de \LaTeXe{} (reportez-vous au
+tableau~\ref{extensions}). D'autres sont distribuées à part. Le
+\guide{} peut vous fournir plus d'informations sur les extensions
+installées sur votre site. \companion{} est la principale source
+d'information au sujet de \LaTeXe{}. Ce livre contient la description
+de centaines d'extensions ainsi que les informations nécessaires pour
+écrire vos propres extensions à \LaTeXe.
 
-When you work with \LaTeX{} you will soon find yourself in a maze of
-files with various \wi{extension}s and probably no clue. Below there is a
-list telling about the various \wi{file types} you might encounter when
-working with \TeX{}. Please note that this table does not claim to be
-a complete list of extensions, but if you find one missing which you
-think is important, please drop a line.
+\subsection{Styles de page}
 
-\begin{description}
-  
-\item[\wi{.tex}] \LaTeX{} or \TeX{} input file. Can be compiled with
-  \texttt{latex}.
-\item[\wi{.sty}] \LaTeX{} Macro package. This is a file you can load
-  into your \LaTeX{} document using the \ci{usepackage} command.
-\item[\wi{.dtx}] Documented \TeX{}. This is the main distribution
-  format for \LaTeX{} style files. If you process a .dtx file you get
-  documented macro code of the \LaTeX{} package contained in the .dtx
-  file.
-\item[\wi{.ins}] Is the installer for the files contained in the
-  matching .dtx file. If you download a \LaTeX{} package from the net,
-  you will normally get a .dtx and a .ins file. Run \LaTeX{} on the
-  .ins file to unpack the .dtx file.
-\item[\wi{.cls}] Class files define what your document looks
-  like. They are selected with the \ci{documentclass} command.
-\end{description}
-The following files are generated when you run \LaTeX{} on your input
-file:
-
-\begin{description}
-\item[\wi{.dvi}] Device Independent file. This is the main result of a \LaTeX{}
-  compile run. You can look at its content with a DVI previewer
-  program or you can send it to a printer with \texttt{dvips} or a
-  similar application.
-\item[\wi{.log}] Gives a detailed account of what happened during the
-  last compiler run.
-\item[\wi{.toc}] Stores all your section headers. It gets read in for the
-  next compiler run and is used to produce the table of content.
-\item[\wi{.lof}] This is like .toc but for the list of figures.
-\item[\wi{.lot}] And again the same for the list of tables.
-\item[\wi{.aux}] Another file which transports information from one
-  compiler run to the next. Among other things, the .aux file is used
-  to store information associated with crossreferences.
-\item[\wi{.idx}] If your document contains an index. \LaTeX{} stores all
-  the words which go into the index in this file. Process this file with
-  \texttt{makeindex}. Refer to section \ref{sec:indexing} on
-  page \pageref{sec:indexing} for more information on indexing.
-\item[\wi{.ind}] Is the processed .idx file, ready for inclusion into your
-  document on the next compile cycle.
-\item[\wi{.ilg}] Logfile telling about what \texttt{makeindex} did.
-\end{description}
-
-
-% Package Info pointer
-%
-%
-
-\subsection{Page Styles}
- 
-\LaTeX{} supports three predefined \wi{header}/\wi{footer}
-combinations---so-called \wi{page style}s. The \emph{style} parameter
-of the \index{page style!plain@\texttt{plain}}\index{plain@\texttt{plain}}
-\index{page style!headings@\texttt{headings}}\index{headings@texttt{headings}}
-\index{page style!empty@\texttt{empty}}\index{empty@\texttt{empty}}
+\LaTeX{} propose trois combinaisons d'\wi{en-tête}s et de \wi{pieds de
+page}, appelées styles de page et définies par le paramètre \emph{style} de la
+commande :
+\index{style de page!plain@\texttt{plain}}\index{plain@\texttt{plain}}
+\index{style de page!headings@\texttt{headings}}
+\index{headings@\texttt{headings}}
+\index{style de page!empty@\texttt{empty}}\index{empty@\texttt{empty}}
 \begin{lscommand}
 \ci{pagestyle}\verb|{|\emph{style}\verb|}|
 \end{lscommand}
-\noindent command defines which one to use. 
-Table~\ref{pagestyle}
-lists the predefined page styles.
+Le tableau~\ref{pagestyle}
+donne la liste des styles prédéfinis.
 
 \begin{table}[!hbp]
-\caption{The Predefined Page Styles of \LaTeX.} \label{pagestyle}
+\caption{Les styles de page de \LaTeX} \label{pagestyle}
 \begin{lined}{12cm}
 \begin{description}
 
-\item[\normalfont\texttt{plain}] prints the page numbers on the bottom
-  of the page, in the middle of the footer. This is the default page
-  style.
+\item[\normalfont\texttt{plain}] imprime le numéro de page au milieu
+du pied de page. C'est le style par défaut.
 
-\item[\normalfont\texttt{headings}] prints the current chapter heading
-  and the page number in the header on each page, while the footer
-  remains empty.  (This is the style used in this document)
-\item[\normalfont\texttt{empty}] sets both the header and the footer
-  to be empty.
+\item[\normalfont\texttt{headings}] imprime le titre du chapitre
+courant et le numéro de page dans l'en-tête de chaque page et laisse le
+pied de page vide. C'est à peu près le style utilisé dans ce document.
 
+\item[\normalfont\texttt{empty}] laisse l'en-tête et le pied de page
+vides. 
 \end{description}
 \end{lined}
 \end{table}
 
-It is possible to change the page style of the current page
-with the command
+On peut changer le style de la page en cours grâce à la commande
 \begin{lscommand}
 \ci{thispagestyle}\verb|{|\emph{style}\verb|}|
 \end{lscommand}
-A description how to create your own
-headers and footers can be found in \companion{} and in section~\ref{sec:fancy} on page~\pageref{sec:fancy}.
-%
-% Pointer to the Fancy headings Package description !
-%
 
+Au chapitre~\ref{chap:spec}, page~\pageref{sec:fancyhdr}, vous apprendrez
+comment créer vos propres en-têtes et pieds de pages.
 
 %
 % Add Info on page-numbering, ...
 % \pagenumbering
 
-\section{Big Projects}
-When working on big documents, you might want to split the input file
-into several parts. \LaTeX{} has two commands which help you to do
-that.
+\section{Les fichiers manipulés}
+L'utilisateur de \LaTeX{} est amené à cotoyer un grand nombre de fichiers
+aux suffixes divers, chaque suffixe renseigne sur le rôle du fichier,
+il est donc utile d'en connaître la signification, voici les suffixes
+les plus courants :
+\begin{description}
+\item[\wi{.tex}] fichier source \TeX{} ou \LaTeX{} ;
+\item[\wi{.sty}] fichier contenant des commandes, que l'on charge dans le
+  préambule d'un document grâce à une commande \verb+\usepackage+ ;
+\item[\wi{.dtx}] fichier contenant du code \LaTeX{} (commandes) documenté,
+  le lancement de \LaTeX{} sur un fichier \texttt{.dtx} en extrait la
+  documentation.
+\item[\wi{.ins}] fichier permettant d'installer le contenu du
+  fichier~\texttt{.dtx} de même nom. Une extension \LaTeX{}
+  téléchargée de l'Internet est composée d'un fichier \texttt{.dtx} et
+  d'un \texttt{.ins}. Exécuter \LaTeX{} sur le fichier \texttt{.ins}
+  pour extraire les fichiers à installer du \texttt{.dtx}.
+\item[\wi{.cls}] désigne un fichier de \emph{classe} contenant la
+  description d'un type de document, chargé par la commande
+  \ci{documentclass};
+\item[\wi{.fd}] fichier contenant des définitions pour les polices de
+  caractères ; 
+\end{description}
+
+\noindent Les fichiers suivants sont produits par \LaTeX{} à partir du fichier
+source (de suffixe~\texttt{.tex}) :
+\begin{description}
+\item[\wi{.dvi}] signifie \emph{DeVice Independent}, c'est le fichier que l'on
+  visualise à l'écran et qui servira à l'impression (par \texttt{dvips} par
+  exemple) ;
+\item[\wi{.log}] fichier contenant le compte-rendu détaillé de la
+  compilation du fichier source (avec les messages d'erreur éventuels), 
+\item[\wi{.toc}] contient le matériel nécessaire à la production de la
+  table des matières, si celle-ci a été demandée ;
+\item[\wi{.lof}] contient la liste numérotée des figures, si elle a été
+  demandée ;
+\item[\wi{.lot}] contient la liste numérotée des tableaux, si elle a été
+  demandée ;
+\item[\wi{.aux}] contient diverses informations utiles à \LaTeX, en
+  particulier ce qui est nécessaire au fonctionnement des références
+  croisées. Le fichier \texttt{.aux} produit lors d'une exécution de
+  \LaTeX{} est lu lors de l'exécution suivante ;
+\item[\wi{.idx}] fichier produit seulement si un index est demandé, il doit
+  être traité par \texttt{makeindex} (voir section~\ref{sec:indexing}
+  page~\pageref{sec:indexing}) ;
+\item[\wi{.ind}] fichier produit par \texttt{makeindex} à partir
+  du~\texttt{.idx}, il contient l'index prêt à être inclus dans le document ;
+\item[\wi{.ilg}] fichier contenant le compte-rendu du travail de
+  \texttt{makeindex}.
+\end{description}
+
+\section{Gros documents}
+
+Lorsque l'on travaille sur de gros documents, il peut être
+pratique de couper le fichier source en plusieurs morceaux. \LaTeX{} a
+deux commandes qui vous permettent de gérer plusieurs fichiers sources.
 
 \begin{lscommand}
-\ci{include}\verb|{|\emph{filename}\verb|}|
+\ci{include}\verb|{|\emph{fichier}\verb|}|
 \end{lscommand}
-\noindent you can use this command in the document body to insert the
-contents of another file named \emph{filename.tex}. Note that \LaTeX{}
-will start a new page
-before processing the material input from \emph{filename.tex}.
+Vous pouvez utiliser cette commande dans le corps de votre document
+pour insérer le contenu d'un autre fichier source. \LaTeX{} ajoute
+automatiquement le suffixe \texttt{.tex} au nom spécifié. Remarquez que
+\LaTeX{} va sauter une page pour traiter le contenu de
+\emph{fichier}\texttt{.tex}. 
 
-The second command can be used in the preamble. It allows you to
-instruct \LaTeX{} to only input some of the \verb|\include|d files.
+La seconde commande peut être utilisée dans le préambule. Elle permet
+de dire à \LaTeX{} de n'inclure que certains des fichiers désignés par
+les commandes \verb|\include|.
 \begin{lscommand}
-\ci{includeonly}\verb|{|\emph{filename}\verb|,|\emph{filename}%
+\ci{includeonly}\verb|{|\emph{fichier}\verb|,|\emph{fichier}%
 \verb|,|\ldots\verb|}|
 \end{lscommand}
-After this command is executed in the preamble of the document, only
-\ci{include} commands for the filenames which are listed in the
-argument of the \ci{includeonly} command will be executed. Note that
-there must be no spaces between the filenames and the commas.
+Après avoir rencontré cette commande dans le préambule d'un document,
+seules les commandes \ci{include} dont les fichiers sont cités en
+paramètre de la commande \ci{includeonly} seront exécutées. Attention,
+il ne doit pas y avoir d'espace entre les noms de fichiers et les
+virgules. 
 
-The \ci{include} command starts typesetting the included text on a new
-page. This is helpful when you use \ci{includeonly}, because the
-pagebreaks will not move, even when some included files are omitted.
-Sometimes this might not be desirable. In this case, you can use the
+La commande \ci{include} saute une page avant de commencer le
+formatage du texte inclus. Ceci est utile lorsqu'on utilise
+\ci{includeonly}, parce qu'ainsi les sauts de pages ne bougeront pas,
+même si certains morceaux ne sont pas inclus. Parfois ce comportement
+n'est pas souhaitable. Dans ce cas, vous pouvez utiliser la commande :
 \begin{lscommand}
-\ci{input}\verb|{|\emph{filename}\verb|}|
+\ci{input}\verb|{|\emph{fichier.tex}\verb|}|
 \end{lscommand}
-\noindent command. It simply includes the file specified. 
-No flashy suits, no strings attached.
+\noindent qui insère simplement le fichier indiqué sans aucun traitement
+sophistiqué. 
 
+\enlargethispage{\baselineskip}
 
-To make \LaTeX{} quickly check your document you can use the \pai{syntonly}
-package. This makes \LaTeX{} skim through your document only checking for
-proper syntax and usage of the commands, but doesn't produce any (DVI) output.
-As \LaTeX{} runs faster in this mode you may save yourself valuable time.
-Usage is very simple:
-
+Il est possible de demander à \LaTeX{} de simplement vérifier la syntaxe d'un
+document, sans produire de fichier~\texttt{.dvi} pour gagner du temps, 
+en  utilisant l'extension~\texttt{syntonly} :
 \begin{verbatim}
 \usepackage{syntonly}
 \syntaxonly
 \end{verbatim}
+La vérification terminée, il suffit de mettre ces deux lignes
+(ou simplement la seconde) en commentaire en plaçant un~\texttt{\%}
+en tête de ligne.
 
-When you want to produce pages, just comment out the second line
-(by adding a percent sign).
 
+% Cette remarque est-elle utile ?
+% Attention : certaines extensions redéfinissent parfois certains
+% caractères spéciaux\footnote{Par exemple le caractère \og souligné \fg{} :
+% \texttt{\_}.}. Ils ne peuvent plus alors être utilisés dans les
+% \emph{noms de fichiers}.
+
+\endinput
 
 %%% Local Variables: 
 %%% mode: latex
-%%% TeX-master: "lshort"
+%%% TeX-master: "flshort"
 %%% End: 

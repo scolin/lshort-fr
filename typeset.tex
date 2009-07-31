@@ -1,211 +1,216 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Typesetting Part of LaTeX2e Introduction
-% $Id: typeset.tex,v 1.4 1998/09/29 08:05:09 oetiker Exp oetiker $
+% $Id: typeset.tex,v 1.29 2001/11/25 17:43:58 matthieu Exp $
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Typesetting Text}
+\chapter{Mise en page}
+\thispagestyle{plain}
 
 \begin{intro}
-  After reading the previous chapter, you should know about the basic
-  stuff of which a \LaTeXe{} document is made. In this chapter I
-  will fill in the remaining structure you will need to know in order
-  to produce real world material.
+  Après la lecture du chapitre précédent vous connaissez maintenant
+  les éléments de base qui constituent un document \LaTeX{}. Dans ce
+  chapitre, nous allons compléter vos connaissances afin de vous
+  rendre capables de créer des documents réalistes.
 \end{intro}
 
-\section{The Structure of Text and Language}
+\section{La structure du document et le langage}
 
-The main point of writing a text (some modern DAAC\footnote{Different
-  At All Cost, a translation of the Swiss German UVA (Um's Verrecken
-  Anders).} literature excluded), is to convey ideas, information, or
-knowledge to the reader.  The reader will understand the text better
-if these ideas are well-structured, and will see and feel this
-structure much better if the typographical form reflects the logical
-and semantical structure of the content.
+La principale raison d'être d'un texte (à l'exception de certains textes
+de la littérature contemporaine) est de diffuser des idées, de
+l'information ou de la connaissance au lecteur. Celui-ci comprendra
+mieux le texte si ces idées sont bien structurées et il
+ressentira d'autant mieux cette structure si la typographie utilisée
+reflète la structure logique et sémantique du contenu.
 
-\LaTeX{} is different from other typesetting systems in that you just
-have to tell it the logical and semantical structure of a text.  It
-then derives the typographical form of the text according to the
-``rules'' given in the document class file and in various style files.
+Ce qui distingue \LaTeX{} des autres logiciels de traitement de texte
+c'est qu'il suffit d'indiquer à \LaTeX{} la structure logique et
+sémantique d'un texte. Il en déduit la forme typographique en fonction
+des \og règles \fg{} définies dans la classe de document et les différents
+fichiers de style.
 
-The most important text unit in \LaTeX{} (and in typography) is the
-\wi{paragraph}.  We call it ``text unit'' because a paragraph is the
-typographical form which should reflect one coherent thought, or one
-idea.  You will learn in the following sections, how you can force
-linebreaks with e.g.{} \texttt{\bs\bs} and paragraph breaks with e.g.{} 
-leaving an empty line in the source code.  Therefore, if a new thought
-begins, a new paragraph should begin, and if not, only linebreaks
-should be used.  If in doubt about paragraph breaks, think about your
-text as a conveyor of ideas and thoughts.  If you have a paragraph
-break, but the old thought continues, it should be removed.  If some
-totally new line of thought occurs in the same paragraph, then it
-should be broken.
+L'élément de texte le plus important pour \LaTeX{} (et en typographie)
+est le \wi{paragraphe}.  Le paragraphe est la forme typographique qui
+contient une pensée cohérente ou qui développe une idée. Vous allez
+apprendre dans les pages suivantes la différence entre un retour à la
+ligne (obtenu avec la commande \texttt{\bs\bs}) et un changement de
+paragraphe (obtenu en laissant une ligne vide dans le document
+source). Une nouvelle réflexion doit débuter sur un nouveau
+paragraphe, mais si vous poursuivez une réflexion déjà entamée, un
+simple retour à la ligne suffit.
 
-Most people completely underestimate the importance of well-placed
-paragraph breaks.  Many people do not even know what the meaning of
-a paragraph break is, or, especially in \LaTeX, introduce paragraph
-breaks without knowing it.  The latter mistake is especially easy to
-make if equations are used in the text.  Look at the following
-examples, and figure out why sometimes empty lines (paragraph breaks)
-are used before and after the equation, and sometimes not.  (If you
-don't yet understand all commands well enough to understand these
-examples, please read this and the following chapter, and then read
-this section again.)
+En général, on sous-estime complètement l'importance du découpage en
+paragraphes. Certains ignorent même la signification d'un changement
+de paragraphe ou bien, notamment avec \LaTeX{}, coupent des paragraphes
+sans le savoir. Cette erreur est particulièrement fréquente lorsque
+des équations sont présentes au milieu du texte. Étudiez les exemples
+suivants et essayez de comprendre pourquoi des lignes vides
+(changements de paragraphe) sont parfois utilisées avant et après
+l'équation et parfois non. (Si vous ne comprenez pas suffisamment les
+commandes utilisées, lisez d'abord la suite du chapitre puis revenez à
+cette section.)
 
 \begin{code}
 \begin{verbatim}
-% Example 1
-\ldots when Einstein introduced his formula 
-\begin{equation} 
-  e = m \cdot c^2 \; , 
-\end{equation} 
-which is at the same time the most widely known 
-and the least well understood physical formula. 
+% Exemple 1
+\dots{} lorsqu'Einstein introduit sa formule
+\begin{equation}
+  e = m \cdot c^2 \; ,
+\end{equation}
+qui est en même temps la formule la plus connue et la 
+moins comprise de la physique. 
 
+% Exemple 2
+\dots{} d'où vient la loi des courants de Kirchhoff :
+\begin{equation}
+  \sum_{k=1}{n} I_k = 0 \; .
+\end{equation}
 
-% Example 2
-\ldots from which follows Kirchoff's current law:
-\begin{equation} 
-  \sum_{k=1}^{n} I_k = 0 \; .
-\end{equation} 
+La loi des tensions de Kirchhof s'en déduit\dots
 
-Kirchhoff's voltage law can be derived \ldots
+% Exemple 3
+\dots{} qui a plusieurs avantages.
 
-
-% Example 3
-\ldots which has several advantages.
-
-\begin{equation} 
+\begin{equation}
   I_D = I_F - I_R
 \end{equation} 
-is the core of a very different transistor model. \ldots
+est le c\oe{}ur d'un modèle de transistor très 
+différent\dots
 \end{verbatim}
-\end{code} 
+\end{code}
 
-The next smaller text unit is a sentence.  In English texts, there is
-a larger space after a period which ends a sentence than after one
-which ends an abbreviation.  \LaTeX{} tries to figure out which one
-you wanted to have.  If \LaTeX{} gets it wrong, you must tell it what
-you want.  This is explained later in this chapter.
+L'unité de texte immédiatement inférieure est la phrase. Dans les
+documents anglo-saxons, l'espace après le point terminant une phrase
+est plus grande que celle qui suit un point après une
+abréviation. (Ceci n'est pas vrai dans les règles de la typographie
+française). En général, \LaTeX{} se débrouille pour déterminer la
+bonne largeur des espaces. S'il n'y arrive pas, vous verrez dans la
+suite comment le forcer à faire quelquechose de correct.
 
-The structuring of text even extends to parts of sentences.  Most
-languages have very complicated punctuation rules, but in many
-languages (including German and English), you will get almost every
-comma right if you remember what it represents: a short stop in the
-flow of language.  If you are not sure about where to put a comma,
-read the sentence aloud, and take a short breath at every comma.  If
-this feels awkward at some place, delete that comma, if you feel the
-urge to breathe (or make a short stop) at some other place, insert a
-comma.
+La structure du texte s'étend même aux morceaux d'une phrase. Les
+règles grammaticales de chaque langue gèrent la ponctuation de
+manière très précise. Dans la plupart des langues, la virgule
+représente une courte respiration dans le flux du langage. Si vous ne
+savez pas trop où placer une virgule, lisez la phrase à voix haute en
+respirant à chaque virgule. Si cela ne sonne pas naturellement à
+certains endroits, supprimez la virgule. Au contraire, si vous
+ressentez le besoin de respirer (ou de marquer une courte pause),
+insérez un virgule à cet endroit. 
 
-Finally, the paragraphs of a text should also be structured logically
-at a higher level, by putting them into chapters, sections,
-subsections, and so on.  However, the typographical effect of writing
-e.g.{} \verb|\section{The| \texttt{Structure of Text and Language}\verb|}| is
-so obvious that it is almost self-evident how these high-level
-structures should be used.
+Enfin, les paragraphes d'un texte sont également structurés au niveau
+supérieur, en les regroupant en sections, chapitres, etc. L'effet
+typographique d'une commande telle que 
 
-\section{Linebreaking and Pagebreaking}
+\begin{center}
+\verb|\section{La structure du texte et du langage}| 
+\end{center}
+
+\noindent est suffisament évident pour 
+comprendre comment utiliser ces structures de haut niveau.
+
+\section{Sauts de ligne et de page}
  
-\subsection{Justified Paragraphs}
+\subsection{Paragraphes justifiés}
 
-Often books are typeset with each line having the same length.
-\LaTeX{} inserts the necessary \wi{linebreak}s and spaces between words
-by optimizing the contents of a whole paragraph. If necessary, it
-also hyphenates words that would not fit comfortably on a line.
-How the paragraphs are typeset depends on the document class.
-Normally the first line of a paragraph is indented, and there is no
-additional space between two paragraphs. Refer to section~\ref{parsp}
-for more information.
+\index{justification}
+Bien souvent les livres sont composés de lignes qui ont toutes la même
+longueur ; on dit qu'elles sont justifiées à droite. \LaTeX{} insère
+des retours à la ligne et des espacements entre les mots de manière à
+optimiser la présentation de l'ensemble d'un paragraphe. En cas de
+besoin, il coupe les mots qui ne tiennent pas en entier sur une
+ligne. La présentation exacte d'un paragraphe dépend de la classe de
+document\,\footnote{et des règles typographiques propres de chaque pays
+\emph{NdT.}}. Normalement la première ligne d'un paragraphe est
+en retrait par rapport à la marge gauche  
+et il n'y a pas d'espace vertical particulière entre deux
+paragraphes (cf. section~\ref{parsp}).
 
-In special cases it might be necessary to order \LaTeX{} to break a
-line: 
+Dans certains cas particuliers, il peut être nécessaire de demander à
+\LaTeX{} de couper une ligne :
 \begin{lscommand}
-\ci{\bs} or \ci{newline} 
+\ci{\bs} ou \ci{newline} 
 \end{lscommand}
-\noindent starts a new line without starting a new paragraph. 
+\noindent commence une nouvelle ligne sans commencer un nouveau
+paragraphe.
 
 \begin{lscommand}
 \ci{\bs*}
 \end{lscommand}
-\noindent additionally prohibits a pagebreak after the forced
-linebreak. 
+\noindent empêche un saut de page après le saut de ligne demandé.
 
 \begin{lscommand}
 \ci{newpage}
 \end{lscommand}
-\noindent starts a new page. 
+\noindent provoque un saut de page.
 
 \begin{lscommand}
 \ci{linebreak}\verb|[|\emph{n}\verb|]|,
 \ci{nolinebreak}\verb|[|\emph{n}\verb|]|, 
-\ci{pagebreak}\verb|[|\emph{n}\verb|]| and
+\ci{pagebreak}\verb|[|\emph{n}\verb|]| et
 \ci{nopagebreak}\verb|[|\emph{n}\verb|]|
 \end{lscommand}
-\noindent do what their names say. They enable the author to influence their
-actions with the optional argument \emph{n}. It can be set to a number
-between zero to four. By setting \emph{n} to a value below 4 you leave
-\LaTeX{} the option of ignoring your command if the result would look very
-bad. Do not confuse these ``break'' commands with the ``new'' commands. Even
-when you give a ``break'' command, \LaTeX{} still tries to even out the
-right border of the page and the total length of the page as described in
-the next section. If you really want to start a ``new line'', then use the
-corresponding command. Guess its name!
+\noindent font ce que suggère leur nom anglais. Ces commandes permettent à
+l'auteur de paramétrer leur action par l'intermédiaire du paramètre
+optionnel \emph{n}. Il peut prendre une valeur entre zéro et
+quatre. En donnant à \emph{n} une valeur inférieure à quatre, vous
+laissez à \LaTeX{} la possibilité de ne pas tenir compte de votre
+commande si cela devait rendre le résultat  réellement laid.
+Ne confondez pas ces commandes \og break \fg{} avec les commandes \og new \fg{}. 
+Même lorsque vous utilisez une commande \og break \fg{}, \LaTeX{} essaye de
+justifier le bord droit du texte et d'ajuster la longueur totale de la 
+page, comme expliqué plus loin. Si vous voulez réellement commencer
+une \og nouvelle \fg{} ligne, utilisez la commande \og new \fg{} correspondante. 
 
-\LaTeX{} always tries to produce the best linebreaks possible. If it
-cannot find a way to break the lines in a manner which meets its high
-standards, it lets one line stick out on the right of the paragraph.
-\LaTeX{} then complains (``\wi{overfull hbox}'') while processing the
-input file. This happens most often when \LaTeX{} cannot find a
-suitable place to hyphenate a word.\footnote{Although \LaTeX{} gives
-  you a warning when that happens (Overfull hbox) and displays the
-  offending line, such lines are not always easy to find. If you use
-  the option \texttt{draft} in the \ci{documentclass} command, these
-  lines will be marked with a thick black line on the right margin.}
-You can instruct \LaTeX{} to lower its standards a little by giving
-the \ci{sloppy} command. It prevents such over-long lines by
-increasing the inter-word spacing --- even if the final output is not
-optimal.  In this case a warning (``\wi{underfull hbox}'') is given to
-the user.  In most such cases the result doesn't look very good. The
-command \ci{fussy} brings \LaTeX{} back to its default behaviour.
+\LaTeX{} essaye toujours de trouver les meilleurs endroits pour les
+retours à la ligne.
+S'il ne trouve pas de solution pour couper les lignes de
+manière conforme à ses normes de qualité, il laisse dépasser un bout
+de ligne sur la marge droite du paragraphe. \LaTeX{} émet alors le
+message d'erreur \og \wi{overfull hbox}\,\footnote{débordement
+horizontal} \fg{}. Cela se produit surtout quand \LaTeX{} ne trouve pas
+de point de césure dans un mot. En utilisant alors la commande \ci{sloppy},
+vous pouvez demander à \LaTeX{} d'être moins exigeant. Il ne produira
+ plus de lignes trop longues en ajoutant de l'espace entre les
+mots du paragraphe, même si ceux-ci finissent trop espacés selon ses
+critères. Dans ce cas le message \og \wi{underfull hbox}\,\footnote{boîte
+horizontale pas assez pleine} \fg{} est produit. Souvent, malgré tout, le
+résultat est acceptable. La commande \ci{fussy} agit dans l'autre
+sens, au cas où vous voudriez voir \LaTeX{} revenir à ses exigences
+normales. 
 
-\subsection{Hyphenation} \label{hyph}
+\subsection{Césure} \label{hyph}
+\index{cesure@césure}
+\LaTeX{} coupe les mots en fin de ligne si nécessaire. Si l'algorithme de
+césure\footnote{\emph{\wi{Hyphenation}} en anglais} ne trouve pas
+l'endroit correct pour couper un mot\,\footnote{Ce qui est normalement
+plutôt rare. Si vous observez de nombreuses erreurs de césure, c'est
+probablement un problème de spécification de la langue du document ou
+du codage de sortie. Voir le paragraphe sur le support multilingue,
+page~\pageref{international}.}, vous pouvez utiliser les 
+commandes suivantes pour informer \TeX{} de l'exception.
 
-\LaTeX{} hyphenates words whenever necessary. If the hyphenation
-algorithm does not find the correct hyphenation points, you can
-remedy the situation by using the following commands to tell \TeX{}
-about the exception.
-
-The command
+La commande :
 \begin{lscommand}
-\ci{hyphenation}\verb|{|\emph{word list}\verb|}|
+\ci{hyphenation}\verb|{|\emph{liste de mots}\verb|}|
 \end{lscommand}
-\noindent causes the words listed in the argument to be hyphenated only at
-the points marked by ``\verb|-|''.  The argument of the command should only
-contain words built from normal letters or rather signes which are regarded
-as normal letters in the active context. The hyphenation hints are
-stored for the language which is active when the hyphenation command
-occurs. This means that if you place a hyphenation command into the preamble
-of your document it will influence the english language hyphenation. If you
-place the command after the \verb|\begin{document}| and you are using some
-package for national language support like \pai{babel}, then the hyphenation
-hints will be active in the language activated through \pai{babel}.
+\noindent permet de ne couper les mots cités en argument qu'aux
+endroits indiqués par \og \verb|-| \fg{}. Cette commande doit être placée
+dans le préambule et ne doit contenir que des mots composés de lettres
+normales. La casse des caractères n'est pas prise en compte. L'exemple
+ci-dessous permet à \og anticonstitutionnellement \fg{} d'être coupé,
+ainsi qu'à \og Anticonstitutionnellement \fg{}. Mais il empêche toute
+césure de \og FORTRAN \fg{}, \og Fortran \fg{} ou \og fortran \fg{}. Ni les
+caractères spéciaux ni les symboles ne sont autorisés dans cette commande.
 
-The example below will allow ``hyphenation'' to be hyphenated as well as
-``Hyphenation'', and it prevents ``FORTRAN'', ``Fortran'' and ``fortran''
-from being hyphenated at all.  No special characters or symbols are allowed
-in the argument.
-
-Example:
 \begin{code}
-\verb|\hyphenation{FORTRAN Hy-phen-a-tion}|
+\verb|\hyphenation{FORTRAN}|\\
+\verb|\hyphenation{Anti-cons-ti-tu-tion-nel-le-ment}|
 \end{code}
 
-The command \ci{-} inserts a discretionary hyphen into a word. This
-also becomes the only point hyphenation is allowed in this word. This
-command is especially useful for words containing special characters
-(e.g.{} accented characters), because \LaTeX{} does not automatically
-hyphenate words containing special characters.
-%\footnote{Unless you are using the new
-%\wi{DC fonts}.}.
+La commande \verb|\hyphenation{|\emph{liste de mots}\verb|}| a un effet
+\emph{global} sur toutes les occurrences des mots de la liste.
+Si l'exception ne concerne qu'une occurrence d'un mot on utilise
+la commande \ci{-} qui insère un point de  césure potentiel dans un
+mot. Ces positions deviennent alors les \emph{seuls} points de césure
+possibles pour cette occurrence du mot. 
 
 \begin{example}
 I think this is: su\-per\-cal\-%
@@ -213,141 +218,178 @@ i\-frag\-i\-lis\-tic\-ex\-pi\-%
 al\-i\-do\-cious
 \end{example}
 
-Several words can be kept together on one line with the command
+Normalement, en français, on ne coupe pas  
+la dernière syllabe d'un mot si elle est muette, mais il arrive qu'on
+soit obligé de le faire, par exemple si on travaille sur des textes
+étroits (cas de colonnes multiples).
+
+Exemple: on pourra coder \verb+ils ex\-pri\-ment+
+pour autoriser \emph{exceptionnellement} le rejet à la ligne suivante de
+la syllabe muette \texttt{ment}.
+
+Plusieurs mots peuvent être maintenus ensemble sur une ligne avec la
+commande :
 \begin{lscommand}
-\ci{mbox}\verb|{|\emph{text}\verb|}|
+\ci{mbox}\verb|{|\emph{texte}\verb|}|
 \end{lscommand}
-\noindent It causes its argument to be kept together under all circumstances.
+Elle a pour effet d'interdire toute coupure de ligne dans \emph{texte}.
 
 \begin{example}
-My phone number will change soon.
-It will be \mbox{0116 291 2319}.
+Mon num\'ero de t\'el\'ephone va  
+changer. \`A partir du 18 octobre,
+ce sera le  \mbox{0561 336 330}.
 
-The parameter 
-\mbox{\emph{filename}} should 
-contain the name of the file.
+Le param\`etre 
+\mbox{\emph{nom du fichier}}
+de la commande \texttt{input} 
+contient le nom du fichier
+\`a lire.
 \end{example}
 
-\ci{fbox} is similar to mbox, but in addition there will
-be a visible box drawn around the content.
+\section{Chaînes prêtes à l'emploi}
 
-
-\section{Ready made Strings}
-
-In some of the examples on the previous pages you have seen
-some very simple \LaTeX{} commands for typesetting special
-text strings:
+Dans les exemples précédents, vous avez découvert certaines commandes
+permettant de produire le logo \LaTeX{} et quelques autres chaînes de
+caractères spécifiques. Voici une liste de quelques-unes de ces
+commandes :
 
 \vspace{2ex}
 
 \noindent
 \begin{tabular}{@{}lll@{}}
-Command&Example&Description\\
+Commande&Résultat&Description\\
 \hline
-\ci{today} & \today   &  Current date in the current language\\
-\ci{TeX} & \TeX       & The name of your favorite typesetter\\
-\ci{LaTeX} & \LaTeX   & The name of the Game\\
-\ci{LaTeXe} & \LaTeXe & The current incarnation of \LaTeX\\
+\ci{today} & \today   & Date du jour dans la langue courante\\
+\ci{TeX} & \TeX       & Logo TeX\\
+\ci{LaTeX} & \LaTeX   & Logo LaTeX\\
+\ci{LaTeXe} & \LaTeXe & Version actuelle de \LaTeX\\
 \end{tabular}
 
-\section{Special Characters and Symbols}
+\section{Caractères spéciaux et symboles}
  
-\subsection{Quotation Marks}
+\subsection{Guillemets}
 
-You should \emph{not} use the \verb|"| for \wi{quotation marks}
-\index{""@\texttt{""}} as you would on a typewriter.  In publishing
-there are special opening and closing quotation marks.  In \LaTeX{},
-use two~\verb|`|s (grace accent) for opening quotation marks and
-two~\verb|'|s (apostrophe) for closing quotation marks. For single
-quotes you use just one of each.
+Pour insérer des \wi{guillemets} n'utilisez pas le caractère \verb|"|
+\index{""@\texttt{""}} comme sur une machine à écrire. En typographie,
+il y a des guillemets ouvrants et fermants spécifiques. En anglais,
+utilisez deux~\verb|`| pour les guillemets ouvrants et deux~\verb|'|
+pour les guillemets fermants.
+En français, avec l'option \pai{francais} de l'extension \pai{babel},
+utilisez \ci{og} et \ci{fg} ou bien utilisez directement 
+\texttt{«} et \texttt{»} si vous disposez d'un moyen de saisir ces
+caractères. 
+
+
 \begin{example}
 ``Please press the `x' key.''
+
+«~Appuyez sur la touche `x'.~»
 \end{example}
  
-\subsection{Dashes and Hyphens}
+\subsection{Tirets}
 
-\LaTeX{} knows four kinds of \wi{dash}es. You can access three of
-them with different numbers of consecutive dashes. The fourth sign
-is actually not a dash at all: It is the mathematical minus sign: \index{-}
-\index{--} \index{---} \index{-@$-$} \index{mathematical!minus}
+\LaTeX{} connaît quatre types de \wi{tiret}s. Trois d'entre eux sont
+obtenus en juxtaposant un nombre variable de tirets simples. Le
+quatrième n'est  pas réellement un tiret, il s'agit du signe
+mathématique moins. \index{-} \index{--} \index{---} \index{-@$-$}
+\index{moins (signe)}
 
 \begin{example}
-daughter-in-law, X-rated\\
-pages 13--67\\
-yes---or no? \\
-$0$, $1$ and $-1$
+belle-fille, pages 13-67\\
+il parle ---~en vain~--- 
+du passé.\\
+oui~---~ou non ? \\
+$0$, $1$ et $-1$
 \end{example}
-The names for these dashes are: 
-`-' \wi{hyphen}, `--' \wi{en-dash}, `---' \wi{em-dash} and
-`$-$' \wi{minus sign}.
 
-\subsection{Tilde ($\sim$)}
-\index{www}\index{URL}\index{tilde}
-A character, often seen with web addresses is the tilde. To generate
-this in \LaTeX{} you can use \verb|\~| but the result: \~{} is not really
-what you want. Try this instead:
+Notez que les exemples ci-dessus respectent les règles de la
+typographie française concernant l'usage des tirets, qui diffèrent
+des habitudes anglo-saxonnes, en particulier le double tiret n'est pas
+utilisé en français.
+
+\subsection{Tilde (\texorpdfstring{$\sim$}{\string~})}
+
+\index{www}\index{URL}\index{tilde} \index{~@$\sim$}
+
+Un caractère souvent utilisé dans les adresses sur le web est le
+tilde. Pour produire ce caractère avec \LaTeX{}, on peut utiliser 
+\verb|\~|, mais le résultat : \~{} n'est pas tout à fait le symbole
+attendu. Essayez ceci à la place :
+\cih{sim}
 
 \begin{example}
 http://www.rich.edu/\~{}bush \\
 http://www.clever.edu/$\sim$demo
 \end{example}  
- 
-\subsection{Degree Symbol ($\circ$)}
 
-How to print a \wi{degree symbol} in \LaTeX{}?
+Voir aussi l'extension \pai{hyperref} qui inclut une commande
+\ci{url}. 
+
+\subsection{Symbole degré (\texorpdfstring{\degres}{\string°})}
+
+Comment obtenir un symbole \wi{degré} avec \LaTeX{} ? 
 
 \begin{example}
-Its $-30\,^{\circ}\mathrm{C}$,
-I will soon start to
-super-conduct.
+Il fait $-30\,^{\circ}\mathrm{C}$,
+je vais bient\^ot devenir 
+supra-conducteur.
 \end{example}
 
-\subsection{Ellipsis ( \ldots )}
+L'extension \pai{babel} avec l'option \pai{francais} introduit la commande
+\ci{degres} qui donne un meilleur résultat :
+\begin{example}
+Il fait -30~\degres C,
+je vais bient\^ot devenir 
+supra-conducteur.
+\end{example}
 
-On a typewriter a \wi{comma} or a \wi{period} takes the same amount of
-space as any other letter. In book printing these characters occupy
-only a little space and are set very close to the preceding letter.
-Therefore you cannot enter `\wi{ellipsis}' by just typing three
-dots, as the spacing would be wrong. Besides that there is a special
-command for these dots. It is called
+\subsection{Points de suspension (\texorpdfstring{\dots}{...})}
 
+Sur une machine à écrire, une \wi{virgule} ou un \wi{point} occupent la
+même largeur que les autres lettres. En typographie professionnelle,
+le point occupe très peu de place et il est placé tout près du caractère
+qui le précède. Il n'est donc pas possible d'utiliser trois points
+consécutifs pour créer des \wi{points de suspension}. À la place on
+utilise la commande spécifique : 
 \begin{lscommand}
-\ci{ldots}
+\ci{dots}
 \end{lscommand}
-\index{...@\ldots}
-
-
+\index{...@\dots}
+\nonfrenchspacing
 \begin{example}
-Not like this ... but like this:\\
-New York, Tokyo, Budapest, \ldots
+Non pas comme \c{c}a... 
+mais ainsi :\\
+New York, Tokyo, Budapest\dots
 \end{example}
- 
+\frenchspacing
+
 \subsection{Ligatures}
 
-Some letter combinations are typeset not just by setting the
-different letters one after the other, but by actually using special
-symbols.
+Certaines séquences de lettres ne sont pas composées simplement en
+juxtaposant les différentes lettres les unes à la suite des autres,
+mais en utilisant des symboles spéciaux.
 \begin{code}
-{\large ff fi fl ffi\ldots}\quad
-instead of\quad {\large f{}f f{}i f{}l f{}f{}i \ldots}
+{\large ff fi fl ffi\dots}\quad
+\`a la place de\quad {\large f{}f f{}i f{}l f{}f{}i\dots}
 \end{code}
-These so-called \wi{ligature}s can be prohibited by inserting an \ci{mbox}\verb|{}|
-between the two letters in question. This might be necessary with
-words built from two words.
-
+Ces \wi{ligature}s peuvent être désactivées en insérant un
+\ci{mbox}\verb|{}| entre les lettres en question. Cela peut s'avérer
+utile pour certains mots composés\,\footnote{Il n'existe pas d'exemple en
+français. \emph{NdT.}}.
 \begin{example}
 Not shelfful\\
 but shelf\mbox{}ful
 \end{example}
  
-\subsection{Accents and Special Characters}
- 
-\LaTeX{} supports the use of \wi{accent}s and \wi{special character}s
-from many languages. Table~\ref{accents} shows all sorts of accents
-being applied to the letter o. Naturally other letters work too.
+\subsection{Accents et caractères spéciaux}
 
-To place an accent on top of an i or a j, its dots have to be
-removed. This is accomplished by typing \verb|\i| and \verb|\j|.
+\LaTeX{} permet l'utilisation d'\wi{accent}s et de \wi{caractères
+spéciaux} issus de nombreuses langues. Le tableau~\ref{accents} montre
+tous les accents que l'on peut ajouter à la lettre o. Ils s'appliquent
+naturellement aux autres lettres.
+
+Pour placer un accent sur un i ou un j, il faut supprimer leur
+point. Ceci s'obtient en tapant \verb|\i| et \verb|\j|.
 
 \begin{example}
 H\^otel, na\"\i ve, \'el\`eve,\\ 
@@ -357,7 +399,7 @@ Stra\ss e
 \end{example}
 
 \begin{table}[!hbp]
-\caption{Accents and Special Characters.} \label{accents}
+\caption{Accents et caractères spéciaux} \label{accents}
 \begin{lined}{10cm}
 \begin{tabular}{*4{cl}}
 \A{\`o} & \A{\'o} & \A{\^o} & \A{\~o} \\
@@ -367,490 +409,632 @@ Stra\ss e
 \A{\oe}  &  \A{\OE} & \A{\ae} & \A{\AE} \\
 \A{\aa} &  \A{\AA} \\[6pt]
 \A{\o}  & \A{\O} & \A{\l} & \A{\L} \\
-\A{\i}  & \A{\j} & !` & \verb|!`| & ?` & \verb|?`| 
+\A{\i}  & \A{\j} & !` & \verb|!|\verb|`| & ?` & \verb|?|\verb|`| 
 \end{tabular}
-\index{dotless \i{} and \j}\index{Scandinavian letters}
-\index{ae@\ae}\index{umlaut}\index{grave}\index{acute}
+\index{i et j@\i{} et \j{} sans points}\index{scandinaves (caractères)}
+\index{ae@\ae}\index{umlaut}\index{accent!grave}\index{accent!aigu}
+\index{accent!circonflexe}
 \index{oe@\oe}
+\index{cédille}
 
 \bigskip
 \end{lined}
 \end{table}
+ 
+%\clearpage
+\section{Support multilingue\label{international}}
+\index{international} 
 
-\section{International Language Support}
-\index{international} If you need to write documents in \wi{language}s
-other than English, there are two areas where \LaTeX{} has to be
-configured appropriately:
-
+Pour composer des documents dans des langues autres que l'anglais,
+\LaTeX{} doit pouvoir s'adapter aux règles typographiques et aux
+règles de césure propres à chaque langue. Il y a plusieurs
+domaines pour lesquels il faut configurer \LaTeX{} pour chaque
+langue : 
 \begin{enumerate}
-\item All automatically generated text strings\footnote{Table of
-    Contents, List of Figures, \ldots} have to be adapted to the new
-  language.  For many languages, these changes can be accomplished by
-  using the \pai{babel} package by Johannes Braams.
-\item \LaTeX{} needs to know the hyphenation rules for the new
-  language. Getting hyphenation rules into \LaTeX{} is a bit more
-  tricky. It means rebuilding the format file with different
-  hyphenation patterns enabled. Your \guide{} should give more
-  information on this.
+\item Toutes les chaînes de caractères générées automatiquement
+  \footnote{\og Table des matières \fg{}, \og Liste des figures \fg{},...} 
+  doivent être traduites. Pour de nombreuses langues, ces adaptations
+  peuvent être réalisées par l'extension \pai{babel} de Johannes
+  Braams.
+\item \LaTeX{} doit connaître les règles de césure de la nouvelle
+      langue. Définir les règles de césure utilisées par \LaTeX{} est
+      une tâche assez complexe, qui impose la construction de formats
+      spécifiques. Votre \guide{} devrait vous indiquer 
+      quelles sont les langues supportées par votre installation de
+      \LaTeX{} et comment configurer les règles de césure.
+\item Certaines règles typographiques changent en fonction de la
+      langue ou de la région géographique. Ces changements peuvent
+      être supportés par l'extension \pai{babel} ou par des extensions 
+      spécifiques (telles que \pai{french}~\cite{french} pour le
+      français).  
 \end{enumerate}
 
-If your system is already configured appropriately, you can activate
-the \pai{babel} package by adding the command
+Si votre système est configuré correctement, vous pouvez sélectionner
+la langue utilisée par l'extension \pai{babel} 
+avec la commande : 
 \begin{lscommand}
-\ci{usepackage}\verb|[|\emph{language}\verb|]{babel}| 
+\ci{usepackage}\verb|[|\emph{langue}\verb|]{babel}| 
 \end{lscommand}
-\noindent after the \verb|\documentclass| command. The \emph{language}s your
-system supports should also be listed in the Local Guide. Babel will
-automatically activate the apropriate hyphenation rules for the
-language you choose. If your \LaTeX{} format does not support
-hyphenation in the language of your choice, babel will still work but
-it will disable hyphenation which has quite a negative effect on the
-visual appearance of the typeset document.
+\noindent après la commande \verb|\documentclass|. Les \emph{langue}s
+supportées par votre système sont normalement listées dans votre \guide.
+Lorsque la césure d'une langue n'est pas supportée par votre moteur
+\LaTeX{}, celle-ci peut être utilisée avec l'extension \pai{babel}
+mais à cause des césures incorrectes le résultat ne sera pas
+satisfaisant.
 
-For some languages, \textsf{babel} also specifies new commands which
-simplify the input of special characters. The \wi{German} language, for
-example, contains a lot of umlauts (\"a\"o\"u).  With \textsf{babel},
-you can enter an \"o by typing \verb|"o| instead of~\verb|\"o|.
+Pour certaines langues \textsf{babel} définit également de nouvelles
+commandes qui simplifient la saisie des caractères spéciaux.
 
-Some computer systems allow you to input special characters directly
-from the keyboard. \LaTeX{} can handle such characters. Since the
-December 1994 release of \LaTeXe{}, support for several input
-encodings is included in the basic distribution of \LaTeXe. Check the
-\pai{inputenc} package:
+Les systèmes informatiques modernes vous permettent de saisir
+directement les caractères accentués ou les symboles spécifiques d'une
+langue. Depuis la version de décembre 1994, \LaTeXe{} sait gérer ce
+type de codage grâce à l'extension \pai{inputenc} :
+\label{inputenc}
 \begin{lscommand}
-\ci{usepackage}\verb|[|\emph{encoding}\verb|]{inputenc}| 
+\ci{usepackage}\verb|[|\textit{codage}\verb|]{inputenc}| 
 \end{lscommand}
 
-When using this package, you should consider
-that other people might not be able to display your input files on
-their computer, because they use a different encoding. For example,
-the German umlaut \"a on a PC is encoded as 132, but on some Unix
-systems using ISO-LATIN~1 it is encoded as 228. Therefore you should
-use this feature with care. The following encodings may come handy,
-depending on the type of system you are working on: 
-
+Les codages suivants sont utilisés en fonction du système
+d'exploitation pour les langues d'Europe de l'Ouest :
 \begin{center}
 \begin{tabular}{l | r}
-Operating system & encoding\\
+Système & Codage \\
 \hline
-Mac     &  \texttt{applemac} \\
+Mac OS  &  \texttt{applemac} \\
 Unix    &  \texttt{latin1} \\ 
 Windows &  \texttt{ansinew} \\
 OS/2    &  \texttt{cp850}
 \end{tabular}
 \end{center}
 
-Font encoding is a different matter. It defines at which position inside
-a \TeX-font each letter is stored. The original Computer Modern
-\TeX{} font does only contain the 128 characters of the old 7-bit ASCII
-character set. When accented characters are required, \TeX{} creates
-them by combining a normal character with an accent. While the
-resulting output looks perfect, this approach stops the automatic
-hyphenation from working inside words containing accented characters.
+Pour faciliter la lecture, cette extension est utilisée dans la suite
+du document pour représenter les caractères accentués dans les
+exemples.
 
-Fortunately, most modern \TeX{} distributions contain a copy of the EC
-fonts. These fonts look like the Computer Modern fonts, but contain
-special characters for most of the accented characters used in
-European languages. By using these fonts you can improve hyphenation
-in non-English documents. The EC fonts are activated by including the
-\pai{fontenc} package in the preamble of your document.
+En utilisant cette extension, il faut prendre garde au fait que les
+systèmes informatiques n'utilisent pas tous le même codage des
+caractères spéciaux.  Le caractère \textit{é} par exemple, est
+codé~142 sur Mac et 233 sur PC Windows ou sous Unix (codage latin-1).
+D'autres personnes risquent donc de ne pas pouvoir lire votre document
+source, parce que leur système utilise un codage différent.
+
+Lorsqu'un document source \LaTeX{} doit être transmis vers un autre
+système, il est recommandé de convertir les caractères accentués et
+spéciaux en séquences du type \verb|\'|\verb|e| préalablement au
+transfert.  Il existe de nombreux utilitaires pour faire la conversion
+automatique dans les deux sens : \texttt{recode} sous Unix,
+\texttt{Tower of Babel} sur Macintosh, etc.
+
+Le codage des polices de caractères est une autre histoire.
+Celui-ci définit à quelle position dans une police de \TeX{} se
+trouve chaque caractère. La police originale de \TeX{}, Computer
+Modern, ne contient que les 128 caractères du jeu de caractères
+ASCII. Pour produire un caractère accentué, \TeX{} combine un
+caractère normal avec un accent. Bien que le résultat obtenu ainsi
+soit presque parfait, cette approche empêche la césure automatique des
+mots contenant des accents.
+
+Heureusement, dans la plupart des installations modernes de \TeX{} on
+trouve la police EC. Cette police à la même apparence que la police
+Computer Modern, mais elle contient également les caractères accentués
+pour la plupart des langues européeenes. L'utilisation de cette 
+police permet donc la  césure des mots contenant
+des caractères accentués. L'utilisation de la  police EC est activée par
+l'extension \pai{fontenc}, avec la commande suivante dans le
+préambule :
+\begin{lscommand}
+\verb|\usepackage[T1]{fontenc}|
+\end{lscommand}
+
+\subsection{Support de la langue française} 
+
+% Pour le français, l'extension \pai{french} a été 
+% développée par Bernard Gaulle~\cite{french}. 
+% Mais le traducteur boycotte les versions récentes (frenchpro) 
+
+Pour le français, l'option \pai{francais} de l'extension \pai{babel}
+applique les règles de césure spécifiques du français et adapte
+\LaTeX{} à la plupart des règles spécifiques de la typographie
+française~\cite{ftypo} : présentation des listes, insertion
+automatique de l'espacement avant les signes de ponctuation doubles, etc.
 
 \begin{lscommand}
-\ci{usepackage}\verb|[T1]{fontenc}| 
+\verb|\usepackage[francais]{babel}|
 \end{lscommand}
-\newpage
 
-\subsection{Support for German}
+\begin{table}[!htbp]
+\caption{Commandes de saisie en français.} \label{cmd-french}
+\begin{lined}{9cm}
+\begin{tabular}{ll}
+\verb+\og guillemets \fg{}+         \quad &\og guillemets \fg \\[1ex]
+\verb+M\up{me}, D\up{r}+            \quad &M\up{me}, D\up{r}  \\[1ex]
+\verb+1\ier{}, 1\iere{}, 1\ieres{}+ \quad &1\ier{}, 1\iere{}, 1\ieres{}\\[1ex]
+\verb+2\ieme{} 4\iemes{}+           \quad &2\ieme{} 4\iemes{}\\[1ex]
+\verb+\No 1, \no 2+                 \quad &\No 1, \no 2   \\[1ex]
+\verb+20~\degres C, 45\degres+      \quad &20~\degres C, 45\degres \\[1ex]
+\verb+\bsc{M. Durand}+              \quad &\bsc{M.~Durand} \\[1ex]
+\verb+\nombre{1234,56789}+          \quad &\nombre{1234,56789}
+\end{tabular}
+\bigskip
+\end{lined}
+\end{table}
 
-Some hints for those creating \wi{German}\index{Deutsch}
-documents with \LaTeX{}. You can load German language support with the
-command:
+Les mots générés automatiquement par \LaTeX{} sont traduits en
+français et certaines commandes supplémentaires (cf.
+table~\ref{cmd-french}) sont disponibles. 
+
+% -- ca serait bien d'ajouter ça --mh
+% L'extension \pai{aeguill} active l'utilisation du mécanisme des polices
+% virtuelles permettant d'utiliser les versions PostScript Type 1 des
+% polices de caractère \TeX avec le codage T1 (nécessaire pour la césure
+% correcte des mots contenant des caractères accentués). 
+
+Dans cette traduction, un certain nombre d'ajouts présentent ces
+spécificités de la typographie française tout au long du texte.
+
+\subsection{Support de la langue allemande}
+
+Voici quelques conseils pour créer des documents en
+\wi{allemand}\index{deutsch} à l'aide de \LaTeX{}. Le support de la
+langue allemande est activé par la commande :
 
 \begin{lscommand}
 \verb|\usepackage[german]{babel}|
 \end{lscommand}
 
-This enables German hyphenation, if you have configured your
-LaTeX system accordingly. It also changes all automatic text into
-German. Eg. ``Chapter'' becomes ``Kapitel''. Further a set of new commands
-becomes available which allows you to write German input files more
-quickly. Check out table \ref{german} for inspiration. 
+La césure allemande est alors activée, si votre système a été
+configuré pour cela. Le texte produit automatiquement par \LaTeX{} est
+traduit en allemand (par ex. ``Kapitel'' pour un chapitre). De
+nouvelles commandes (listées dans la table~\ref{german}) permettent la
+saisie simplifiée des caractères spéciaux. 
 
 \begin{table}[!hbp]
-\caption{German Special Characters.} \label{german}
+\caption{Caractères spéciaux en allemand.} \label{german}
 \begin{lined}{5cm}
-\begin{tabular}{*2{cl}}
-\verb|"a| & \"a \hspace*{1ex} & \verb|"s| & \ss \\[1ex]
-\verb|"`| & \glqq & \verb|"'| & \grqq \\[1ex]
-\verb|"<| & \flqq  & \verb|">| & \frqq \\[1ex]
+\begin{tabular}{*3{cl}}
+\verb|"a| & \"a \hspace*{1ex} & \verb|"s| & \ss & \verb|"`| & \glqq \\[1ex]
+ \verb|"'| & \grqq & \verb|"<| & \flqq  & \verb|">| & \frqq \\[1ex]
 \ci{dq} & " \\
 \end{tabular}
 \bigskip
 \end{lined}
 \end{table}
 
+\section{L'espace entre les mots}
 
-\section{The Space between Words}
+Pour obtenir une marge droite alignée, \LaTeX{} insère des espaces
+plus ou moins larges entre les mots. 
 
-To get a straight right margin in the output, \LaTeX{} inserts varying
-amounts of space between the words. It inserts slightly more space at
-the end of a sentence, as this makes the text more readable.  \LaTeX{}
-assumes that sentences end with periods, question marks or exclamation
-marks. If a period follows an uppercase letter, this is not taken as a
-sentence ending, since periods after uppercase letters normally occur in
-abbreviations.
+Un tilde \og \verb|~| \fg{}  produit une espace interdisant tout saut
+de ligne (dit espace \emph{insécable}).
+\verb|~| est à utiliser pour éviter les coupures indésirables :
+on code \verb|M.~Dupont|, \verb|cf.~Fig.~5|, etc.
+\index{espace insécable}
+\index{~@$\sim$} \index{tilde}
 
-Any exception from these assumptions has to be specified by the
-author. A backslash in front of a space generates a space which will
-not be enlarged. A tilde~`\verb|~|' character generates a space which cannot be
-enlarged and which additionally prohibits a linebreak. The command
-\verb|\@| in front of a period specifies that this period terminates a
-sentence even when it follows an uppercase letter.
-\cih{"@} \index{~@ \verb.~.} \index{tilde@tilde ( \verb.~.)}
-\index{., space after}
+La commande \verb|\,| permet d'insérer une demi-espace insécable.
 
 \begin{example}
-Mr.~Smith was happy to see her\\
-cf.~Fig.~5\\
-I like BASIC\@. What about you?
+1\,234\,567
 \end{example}
 
-The additional space after periods can be disabled with the command
+Signalons enfin une subtilité  : après la
+ponctuation finale d'une phrase, les règles de la typographie
+anglo-saxonne veulent que l'on insère une espace plus large.  Mais si
+un point suit une lettre majuscule, \LaTeX{} considère qu'il s'agit
+d'une abréviation et insère alors une espace normale. La commande
+\verb|\@| avant un point indique que celui-ci termine une phrase, même
+lorsqu'il suit une lettre majuscule.
+\cih{"@}
+\index{., espace après}
+
+\nonfrenchspacing
+\begin{example}
+M.~Dupont vous remercie\\
+R.E.M.\\
+I like BASIC\@. Do you?
+\end{example}
+\frenchspacing
+
+L'ajout d'espace supplémentaire à la fin d'une phrase peut être
+supprimé par la commande :
 \begin{lscommand}
 \ci{frenchspacing}
 \end{lscommand}
-\noindent which tells \LaTeX{} \emph{not} to insert more space after a
-period than after ordinary character. This is very common in
-non-English languages, except bibliographies. If you use
-\ci{frenchspacing}, the command \verb|\@| is not necessary.
-    
-\section{Titles, Chapters, and Sections}
+\noindent qui est active par défaut avec l'option \pai{francais} de
+l'extension \pai{babel}. Dans ce cas, la commande \verb|\@| n'est pas
+nécessaire. 
 
-To help the reader find his or her way through your work, you should
-divide it into chapters, sections, and subsections.  \LaTeX{} supports
-this with special commands which take the section title as their
-argument.  It is up to you to use them in the correct order.
 
-The following sectioning commands are available for the
-\texttt{article} class: \nopagebreak
+
+\section{Titres, chapitres et sections}
+
+Pour aider le lecteur à suivre votre pensée, vous souhaitez séparer
+vos documents en chapitres, sections ou sous-sections. \LaTeX{}
+utilise pour cela des commandes qui prennent en argument le titre de
+chaque élément. C'est à vous de les utiliser dans l'ordre.
+
+Dans la classe de document \texttt{article}, les commandes de
+sectionnement suivantes sont disponibles :
+\nopagebreak
 \begin{code}
+\ci{part}\verb|{...}|\\
 \ci{section}\verb|{...}           |\ci{paragraph}\verb|{...}|\\
-\ci{subsection}\verb|{...}        |\ci{subparagraph}\verb|{...}|\\
-\ci{subsubsection}\verb|{...}|
+\ci{subsection}\verb|{...}        |\ci{subparagraph}\verb|{...} |\\
+\ci{subsubsection}\verb|{...}     |\ci{appendix}
 \end{code}
 
-You can use two additional sectioning commands for the \texttt{report}
-and the \texttt{book} class:
+Dans les classes \texttt{report} et \texttt{book}, la commande
 \begin{code}
-\ci{part}\verb|{...}              |\ci{chapter}\verb|{...}|
+\ci{chapter}\verb|{...}|
 \end{code}
 
-As the \texttt{article} class does not know about chapters, it is quite easy
-to add articles as chapters to a book.
-The spacing between sections, the numbering and the font size of the
-titles will be set automatically by \LaTeX. 
+est également reconnue,  (elle s'intercale entre \verb|\part| et 
+\verb|\section|)%
+\,\footnote{Puisque la classe \texttt{article} ne connaît pas les chapitres, il
+est facile par exemple de regrouper des articles en tant que chapitres
+d'un livre en remplacant le \texttt{\bs title} de chaque article par
+\texttt{\bs chapter}.}.
 
-\pagebreak[3]
-Two of the sectioning commands are a bit special: 
+L'espacement entre les sections, la numérotation et le
+choix de la police et de la taille des titres sont gérés
+automatiquement par \LaTeX{}.
+
+% \pagebreak[3]
+Deux commandes de sectionnement ont un comportement spécial :
 \begin{itemize}
-\item The \ci{part} command does
-  not influence the numbering sequence of chapters.  
-\item The \ci{appendix} command does not take an argument. It just
-  changes the chapter numbering to letters.\footnote{For the article
-    style it changes the section numbering.}
+\item la commande \ci{part} ne change pas la numérotation des
+      chapitres ;
+\item la commande \ci{appendix} ne prend pas d'argument. Elle bascule
+      simplement la numérotation des chapitres\,\footnote{Pour la classe
+      article, elle change la numérotation des sections} en lettres.
 \end{itemize}
 
-
-
-\LaTeX{} creates a table of contents by taking the section headings
-and page numbers from the last compile cycle of the document. The command 
-\begin{lscommand} 
+\LaTeX{} peut ensuite créer la table des matières en récupérant la
+liste des titres et de leur numéro de page d'une exécution précédente
+(fichier \texttt{.toc}). La commande :
+\begin{lscommand}
 \ci{tableofcontents}
-\end{lscommand} 
-\noindent expands to a table of contents at the place where it
-is issued. A new
-document has to be compiled (``\LaTeX ed'') twice to get a
-correct \wi{table of contents}. Sometimes it might be
-necessary to compile the document a third time. \LaTeX{} will tell you
-when this is necessary.
+\end{lscommand}
+\noindent imprime la table des matières. Un document doit
+être traité (on dit aussi \og compilé \fg{}) deux fois par \LaTeX{} pour avoir une
+table des matières correcte. Dans certains cas, un troisième passage
+est même nécessaire. \LaTeX{} vous indique quand cela est nécessaire.
 
-All sectioning commands listed above also exist as ``starred''
-versions.  A ``starred'' version of a command is built by adding a
-star \verb|*| after the command name.  They generate section headings
-which do not show up in the table of contents and which are not
-numbered. The command \verb|\section{Help}|, for example, would become
-\verb|\section*{Help}|.
+Toutes les commandes citées ci-dessus existent dans une forme
+\og étoilée \fg{} obtenue en ajoutant une étoile \verb|*| au nom de la
+commande. Ces commandes produisent des titres de sections qui
+n'apparaissent pas dans la table des matières et qui ne sont pas
+numérotés. On peut ainsi remplacer la commande
+\verb|\section{Introduction}| par
+\verb|\section*{Introduction}|.
 
-Normally the section headings show up in the table of contents exactly
-as they are entered in the text. Sometimes this is not possible,
-because the heading is too long to fit into the table of contents. The
-entry for the table of contents can then be specified as an
-optional argument in front of the actual heading.
-
+Par défaut, les titres de section apparaissent dans la table des
+matières exactement comme ils sont dans le texte. Parfois il n'est pas
+possible de faire tenir un titre trop long dans la table des
+matières. On peut donner un titre spécifique pour la table des
+matières en argument optionnel avant le titre principal :
 \begin{code}
-\verb|\chapter[Title for the table of contents]{A long|\\
-\verb|    and especially boring title, shown in the text}|
+\verb|\chapter[Le LAAS du CNRS]{Le Laboratoire|\\
+\verb|         d'Analyse et d'Architecture|\\
+\verb|        des Systèmes du Centre National|\\
+\verb|        de la Recherche Scientifique}|
 \end{code} 
 
-The \wi{title} of the whole document is generated by issuing a 
+Le \wi{titre du document} est obtenu par la commande :
 \begin{lscommand}
 \ci{maketitle}
 \end{lscommand}
-\noindent command. The contents of the title have to be defined by the commands
+Les éléments de ce titre sont définis par les commandes :
 \begin{lscommand}
 \ci{title}\verb|{...}|, \ci{author}\verb|{...}| 
-and optionally \ci{date}\verb|{...}| 
+et éventuellement \ci{date}\verb|{...}| 
 \end{lscommand}
-\noindent before calling \verb|\maketitle|. In the argument of \ci{author}, you can
-supply several names separated by \ci{and} commands. 
+\noindent qui doivent être appelées avant \verb|\maketitle|. Dans
+l'argument de la commande \ci{author}, vous pouvez citer plusieurs
+auteurs en séparant leurs noms par des commandes \ci{and}.
 
-An example of some of the commands mentioned above can be found in
-Figure~\ref{document} on page~\pageref{document}.
+Vous trouverez un exemple des commandes citées ci-dessus sur la
+figure~\ref{document}, page~\pageref{document}.
 
-Apart from the sectioning commands explained above, \LaTeXe{}
-introduced three additional commands for use with the \verb|book| class. 
-They are useful for dividing your publication. The commands alter
-chapter headings and page numbering to work as you would expect it in
-a book:
+En plus des commandes de sectionnement expliquées ci-dessus, \LaTeXe{}
+a introduit trois nouvelles commandes destinées à être utilisées avec
+la classe \texttt{book} :
 \begin{description}
-\item[\ci{frontmatter}] should be the very first command after
-  \verb|\begin{document}|. It will switch page numbering to Roman
-    numerals. It is common to use the starred sectioning commands (eg
-    \verb|\chapter*{Preface}|) for
-    frontmatter as this stopps \LaTeX{} from
-    enumerating them.
-\item[\ci{mainmatter}] comes after right befor the first chapter of
-  the book. It turns on Arabic page numbering and restarts the page
-  counter.
-\item[\ci{appendix}] marks the start of additional material in your
-  book. After this command chapters will be numbered with letters.
-\item[\ci{backmatter}] should be inserted before the very last items
-  in your book like the bibliography and the index. In the standard
-  document classes, this has no visual effect.
+\item[\ci{frontmatter}] doit être la première commande après le
+  \verb|\begin{document}|, elle introduit le préambule du document. 
+  Les numéros de pages sont alors en romain (i, ii, iii, etc.). 
+  En général on ne numérote pas les parties d'un préambule, ceci
+  se fait en utilisant les variantes étoilées des commandes de
+  sectionnement comme  \verb|\chapter*{Preface}|.
+\item[\ci{mainmatter}] se place juste avant le début du premier
+  (vrai) chapitre du livre,  la numérotation des pages se fait alors 
+  en chiffres arabes et le compteur de pages est remis à~1.
+\item[\ci{appendix}] indique le début des appendices, les numéros
+  des chapitres sont alors remplacés par des lettres majuscules (A, B, etc.).
+\item[\ci{backmatter}] se place juste avant la bibliographie et les index.
 \end{description}
 
+\section{Références croisées}
 
-\section{Cross References}
+Dans les livres, rapports ou articles, on trouve souvent des
+\wi{références croisées} vers des figures, des tableaux ou des passages
+particuliers du texte. \LaTeX{} dispose des commandes suivantes pour
+faire des références croisées :
 
-In books, reports and articles, there are often 
-\wi{cross-references} to figures, tables and special segments of text.
-\LaTeX{} provides the following commands for cross referencing
 \begin{lscommand}
-\ci{label}\verb|{|\emph{marker}\verb|}|, \ci{ref}\verb|{|\emph{marker}\verb|}| 
-and \ci{pageref}\verb|{|\emph{marker}\verb|}|
+\ci{label}\verb|{|\emph{marque}\verb|}|, \ci{ref}\verb|{|\emph{marque}\verb|}| 
+et \ci{pageref}\verb|{|\emph{marque}\verb|}|
 \end{lscommand}
-\noindent where \emph{marker} is an identifier chosen by the user. \LaTeX{}
-replaces \verb|\ref| by the number of the section, subsection, figure,
-table, or theorem after which the corresponding \verb|\label| command
-was issued. \verb|\pageref| prints the page number of the
-page where the \verb|\label| command occurred.\footnote{Note that these commands
-  are not aware of what they refer to. \ci{label} just saves the last
-  automatically generated number.} Just as the section titles, the
-numbers from the previous run are used.
+\noindent où \emph{marque} est un identificateur choisi par
+l'utilisateur. \LaTeX{} remplace \verb|\ref| par le numéro de la
+section, de la sous-section, de la figure, du tableau, ou du théorème
+où la commande \verb|\label| correspondante a été placée. 
+L'utilisation de références croisées rend nécessaire de compiler deux fois le
+document : à la première compilation les numéros correspondant aux étiquettes
+\verb|\label{}| sont inscrits dans le fichier \texttt{.aux} et, à la
+compilation suivante, \verb|\ref{}| et \verb|\pageref{}| peuvent imprimer
+ces numéros%
+\,\footnote{Ces commandes ne connaissent pas le type du numéro auquel
+elles se réfèrent, elles utilisent le dernier numéro généré
+automatiquement.}. 
 
 \begin{example}
-A reference to this subsection
-\label{sec:this} looks like:
-``see section~\ref{sec:this} on 
-page~\pageref{sec:this}.''
+Une référence à cette 
+section\label{ma-section}
+ressemble à :
+«~voir section~\ref{ma-section},
+page~\pageref{ma-section}.~»
 \end{example}
  
-\section{Footnotes}
-With the command
+\section{Notes de bas de page}
+La commande :
 \begin{lscommand}
-\ci{footnote}\verb|{|\emph{footnote text}\verb|}|
+\ci{footnote}\verb|{|\emph{texte}\verb|}|
 \end{lscommand}
-\noindent a footnote is printed at the foot of the current page.  Footnotes
-should always be put\footnote{``put'' is one of the most common
-  English words.} after the word or sentence they refer to. Footnotes
-referring to a sentence or part of it should therefore be put after
-the comma or period.\footnote{Note, that footnotes are
-  distracting the reader from the main body of your document. After all
-  everybody reads the footnotes, we are a curious species. So why not
-  just integrate everything you want to say into the body of the
-  document.\footnotemark}
-\footnotetext{A guidepost doesn't necessarily go where it's pointing to :-).}
+\noindent imprime une note de bas de page en bas de la page en cours.
+Les notes de bas de page doivent être placées après le mot où la
+phrase auquel elles se réfèrent%
+\,\footnote{La typographie française demande une espace fine avant la
+marque de renvoi à la note.}.
+\nopagebreak[2]
 
 \begin{example}
-Footnotes\footnote{This is 
-  a footnote.} are often used 
-by people using \LaTeX.
+Les notes de bas de page%
+\,\footnote{ceci est une note
+	  de bas de page.}
+sont très prisées par les 
+utilisateurs de \LaTeX{}.
+\end{example}
+
+\section{Souligner l'importance d'un mot}
+
+Dans un manuscrit réalisé sur une machine à écrire, les mots
+importants sont \underline{soulignés}, ce qui peut être obtenu par la
+commande: 
+\begin{lscommand}
+\ci{underline}\verb|{|\textit{texte}\verb|}|
+\end{lscommand}
+
+Dans un ouvrage
+imprimé, on préfère les \emph{mettre en valeur}%
+\,\footnote{\emph{Emphasized} en anglais.}. 
+La commande de mise en valeur est :
+\begin{lscommand}
+\ci{emph}\verb|{|\emph{texte}\verb|}|
+\end{lscommand}
+
+Son argument est le texte à mettre en valeur. En général, la police
+\emph{italique} est utilisée pour la mise en valeur, sauf si le texte
+est déja en italique, auquel cas on utilise une police romaine (droite).
+
+\begin{example}
+\emph{Pour \emph{insister}
+dans un passage déjà 
+mis en valeur, \LaTeX{} 
+utilise une police droite.}
 \end{example}
  
-\section{Emphasized Words}
-
-If a text is typed using a typewriter, \texttt{important words are
-  emphasized by \underline{underlining} them.}
-\begin{lscommand}
-\ci{underline}\verb|{|\emph{text}\verb|}|
-\end{lscommand}
-In printed books,
-however, words are emphasized by typesetting them in an \emph{italic}
-font.  \LaTeX{} provides the command
-\begin{lscommand}
-\ci{emph}\verb|{|\emph{text}\verb|}|
-\end{lscommand}
-\noindent to emphasize text.  What the command actually does with 
-its argument depends on the context:
+Remarquez la différence entre demander à \LaTeX{} de \emph{mettre en
+valeur} un mot et lui demander de changer de \emph{police de
+caractères} :
 
 \begin{example}
-\emph{If you use 
-  emphasizing inside a piece
-  of emphasized text, then 
-  \LaTeX{} uses the
-  \emph{normal} font for 
-  emphasizing.}
+\textit{Vous pouvez aussi
+  \emph{mettre en valeur} du
+ texte en italique,}
+\textsf{ou dans une police
+  \emph{sans-serif},} 
+\texttt{ou dans une police
+  \emph{machine à écrire}.}
 \end{example}
 
-Please note the difference between telling \LaTeX{} to
-\emph{emphasize} something and telling it to use a different
-\emph{font}:
+%\clearpage
+\section{Environnements} \label{env}
 
-\begin{example}
-\textit{You can also
-  \emph{emphasize} text if 
-  it is set in italics,} 
-\textsf{in a 
-  \emph{sans-serif} font,}
-\texttt{or in 
-  \emph{typewriter} style.}
-\end{example}
+Pour composer du texte dans des contextes spécifiques, \LaTeX{}
+définit des \wi{environnement}s différents pour divers types de mise
+en page :
 
-\section{Environments} \label{env}
-
-% To typeset special purpose text, \LaTeX{} defines many different
-% \wi{environment}s for all sorts of formatting:
 \begin{lscommand}
-\ci{begin}\verb|{|\emph{environment}\verb|}|\quad
-   \emph{text}\quad
-\ci{end}\verb|{|\emph{environment}\verb|}|
+\ci{begin}\verb|{|\emph{nom}\verb|}|\quad
+   \emph{texte}\quad
+\ci{end}\verb|{|\emph{nom}\verb|}|
 \end{lscommand}
-\noindent Where \emph{environment} is the name of the environment. Environments can be
-called several times within each other as long as the calling order is
-maintained.
+\noindent 
+\emph{nom} est le nom de l'environnement. Les environnements peuvent
+être imbriqués .
 \begin{code}
 \verb|\begin{aaa}...\begin{bbb}...\end{bbb}...\end{aaa}|
 \end{code}
 
-\noindent In the following sections all important environments are explained.
+\noindent Dans les sections suivantes tous les environnements
+importants sont présentés.
 
-\subsection{Itemize, Enumerate, and Description}
+\subsection{Listes, énumérations et descriptions}
 
-The \ei{itemize} environment is suitable for simple lists, the
-\ei{enumerate} environment for enumerated lists, and the
-\ei{description} environment for descriptions.
+L'environnement \ei{itemize} est utilisé pour des listes simples,
+\ei{enumerate} est utilisé pour des énumérations (listes
+numérotées) et \ei{description} est utilisé pour des descriptions. 
 \cih{item}
 
+% \begin{example}
+% Les différents types de liste :
+% \begin{itemize}
+% \item \texttt{itemize}
+% \item \texttt{enumerate}
+% \item \texttt{description}
+% \end{itemize}
+% \end{example}
+
+\begin{otherlanguage}{english}
 \begin{example}
-\flushleft
 \begin{enumerate}
-\item You can mix the list
-environments to your taste:
+\item Il est possible d'imbriquer
+les environnements à sa guise :
 \begin{itemize}
-\item But it might start to
-look silly. 
-\item[-] With a dash.
+\item mais cela peut ne pas 
+  être  très beau,
+\item ni facile à suivre.
 \end{itemize}
-\item Therefore remember:
+\item Souvenez-vous :
 \begin{description}
-\item[Stupid] things will not
-become smart because they are
-in a list.
-\item[Smart] things, though, can be
-presented beautifully in a list.
+\item[Clarté :] les faits ne 
+vont pas devenir plus sensés 
+parce  qu'ils sont dans une liste,
+\item[Synthèse :] cependant une 
+liste peut très bien 
+résumer des faits.
 \end{description}
 \end{enumerate}
 \end{example}
- 
-\subsection{Flushleft, Flushright, and Center}
+\end{otherlanguage}
 
-The environments \ei{flushleft} and \ei{flushright} generate
-paragraphs which are either left- or \wi{right-aligned}. \index{left
-  aligned} The \ei{center} environment generates centred text. If you
-do not issue \ci{\bs} to specify linebreaks, \LaTeX{} will
-automatically determine linebreaks.
+Notez que l'option \pai{francais} de l'extension \pai{babel} utilise
+une présentation des 
+listes simples qui respecte les règles typographiques françaises :
+
+\begin{example}
+Une liste simple française :
+\begin{itemize}
+\item voici un élément ;
+\item puis un autre.
+\end{itemize}
+\end{example}
+
+\begin{otherlanguage}{english}
+\begin{example}
+An english list:
+\begin{itemize}
+\item one item
+\item an other one
+\end{itemize}
+\end{example}
+\end{otherlanguage}
+
+\subsection{Alignements à gauche, à droite et centrage}
+
+Les environnements \ei{flushleft} et \ei{flushright} produisent des
+textes alignés à gauche ou à droite. L'environnement \ei{center}
+produit un texte centré. Si vous n'utilisez pas la commande \ci{\bs}
+pour indiquer les sauts de ligne, ceux-ci sont calculés
+automatiquement par \LaTeX{}.
 
 \begin{example}
 \begin{flushleft}
-This text is\\ left-aligned. 
-\LaTeX{} is not trying to make 
-each line the same length.
+Ce texte est\\
+aligné à gauche.
+\LaTeX{} n'essaye pas 
+d'aligner la marge droite. 
 \end{flushleft}
 \end{example}
 
 \begin{example}
 \begin{flushright}
-This text is right-\\aligned. 
-\LaTeX{} is not trying to make
-each line the same length.
+Ce texte est\\
+aligné à droite.
+\LaTeX{} n'essaye pas 
+d'aligner la marge gauche. 
 \end{flushright}
 \end{example}
 
 \begin{example}
 \begin{center}
-At the centre\\of the earth
+Au centre de la terre.
 \end{center}
 \end{example}
 
-\subsection{Quote, Quotation, and Verse}
+\subsection{Citations et vers}
 
-The \ei{quote} environment is useful for quotes, important phrases and
-examples.
+L'environnement \ei{quote} est utile pour les citations, les phrases
+importantes ou les exemples.
 
 \begin{example}
-A typographical rule of thumb
-for the line length is:
+Une règle typographique 
+simple pour la longueur
+des lignes :
 \begin{quote}
-On average, no line should
-be longer than 66 characters.
+Une ligne ne devrait pas comporter
+plus de 66~caractères.
+
+C'est pourquoi les pages 
+composées par \LaTeX{} ont des 
+marges importantes.
 \end{quote}
-This is why \LaTeX{} pages have 
-such large borders by default and
-also why multicolumn print is
-used in newspapers.
+Cela explique pourquoi les 
+journaux utilisent souvent 
+plusieurs colonnes.
 \end{example}
 
-There are two similar environments: the \ei{quotation} and the
-\ei{verse} environments. The \texttt{quotation} environment is useful
-for longer quotes going over several paragraphs, because it does
-indent paragraphs. The \texttt{verse} environment is useful for poems
-where the line breaks are important. The lines are separated by
-issuing a \ci{\bs} at the end of a line and a empty line after each
-verse.
+Il existe deux autres environnements comparables : \ei{quotation} et
+\ei{verse}. L'environnement \ei{quotation} est utile pour des
+citations plus longues, couvrant plusieurs
+paragraphes parce qu'il indente les paragraphes.
+L'environnement \ei{verse} est utilisé pour la poésie, là
+où les retours à la ligne sont importants. Les vers sont séparés par
+des commandes \ci{\bs} et les strophes par une ligne vide\footnote{Les
+puristes constateront que l'environnement \ei{verse} ne respecte pas
+les règles de la typographie française : les rejets devraient être
+préfixés par \emph{[} et alignés à droite sur le vers précédent.}.
 
 
 \begin{example}
-I know only one English poem by 
-heart. It is about Humpty Dumpty.
+Voici le début d'une 
+fugue de Boris Vian :
 \begin{flushleft}
 \begin{verse}
-Humpty Dumpty sat on a wall:\\
-Humpty Dumpty had a great fall.\\ 
-All the King's horses and all
-the King's men\\
-Couldn't put Humpty together
-again.
+Les gens qui n'ont plus 
+  rien à faire\\
+Se suivent dans la rue comme\\
+Des wagons de chemin de fer.
+
+Fer fer fer\\
+Fer fer fer\\
+Fer quoi faire\\
+Fer coiffeur.\\
 \end{verse}
 \end{flushleft}
 \end{example}
 
-\subsection{Printing Verbatim}
+\subsection{Impression \emph{verbatim}}
 
-Text which is enclosed between \verb|\begin{|\ei{verbatim}\verb|}| and
-\verb|\end{verbatim}| will be directly printed, as if it was typed on a
-typewriter, with all linebreaks and spaces, without any \LaTeX{}
-command being executed.
+Tout texte inclus entre \verb|\begin{|\ei{verbatim}\verb|}| et
+\verb|\end{verbatim}| est imprimé tel quel, comme s'il avait été tapé
+à la machine, avec tous les retours à la ligne et les espaces, sans
+qu'aucune commande \LaTeX{} ne soit exécutée.
 
-Within a paragraph, similar behavior can be accessed with
+À l'intérieur d'un paragraphe, une fonctionnalité équivalente peut
+être obtenue par
 \begin{lscommand}
-\ci{verb}\verb|+|\emph{text}\verb|+|
+\ci{verb}\verb|+|\emph{texte}\verb|+|
 \end{lscommand}
-\noindent The \verb|+| is just an example of a delimiter character. You can use any
-character except letters, \verb|*| or space. Many \LaTeX{} examples in this
-booklet are typeset with this command.
+\noindent Le caractère \verb|+| est seulement un exemple de caractère
+séparateur. Vous pouvez utiliser n'importe quel caractère, sauf les
+lettres, \verb|*| ou l'espace. La plupart des exemples de commandes
+\LaTeX{} dans ce document sont réalisés avec cette commande.
 
 \begin{example}
-The \verb|\ldots| command \ldots
+La commande \verb|\dots| \dots
 
 \begin{verbatim}
 10 PRINT "HELLO WORLD ";
@@ -860,53 +1044,54 @@ The \verb|\ldots| command \ldots
 
 \begin{example}
 \begin{verbatim*}
-the starred version of
-the      verbatim   
-environment emphasizes
-the spaces   in the text
+La version étoilée de 
+l'environnement  verbatim
+met    les   espaces   en 
+évidence
 \end{verbatim*}
 \end{example}
 
-The \ci{verb} command can be used in a similar fashion with a star:
-
+La commande \ci{verb} peut également être utilisée avec une étoile :
 \begin{example}
-\verb*|like   this :-) |
+\verb*|comme ceci :-) |
 \end{example}
 
-The \texttt{verbatim} environment and the \verb|\verb| command may not be used
-within parameters of other commands.
+L'environnement \texttt{verbatim} et la commande \verb|\verb| ne
+peuvent être utilisés à l'intérieur d'autres commandes comme
+\verb|\footnote{}|.
 
 
-\subsection{Tabular}
+\subsection{Tableaux}
 
-The \ei{tabular} environment can be used to typeset beautiful
-\wi{table}s with optional horizontal and vertical lines. \LaTeX{}
-determines the width of the columns automatically.
+L'environnement \ei{tabular} permet de réaliser des tableaux avec ou
+sans lignes de séparation horizontales ou verticales. \LaTeX{}
+ajuste automatiquement la largeur des colonnes.
 
-The \emph{table spec} argument of the 
+L'argument \emph{description du tableau} de la commande :
 \begin{lscommand}
-\verb|\begin{tabular}{|\emph{table spec}\verb|}|
+\verb|\begin{tabular}{|\emph{description du tableau}\verb|}|
 \end{lscommand} 
-\noindent command defines the format of the table. Use an \texttt{l} for a column of
-left-aligned text, \texttt{r} for right-aligned text, and \texttt{c} for
-centred text; \verb|p{|\emph{width}\verb|}| for a column containing justified
-text with linebreaks, and \verb.|. for a vertical line.
- 
-Within a \texttt{tabular} environment, \verb|&| jumps to the next column, \ci{\bs}
-starts a new line and \ci{hline} inserts a horizontal line.
-You can add partial Lines by using the \ci{cline}\verb|{j-i}| whereby
-j and i are the column numbers the line should extend over.
+\noindent définit le format des colonnes du tableau. Utilisez un
+\texttt{l} pour une colonne alignée à gauche, \texttt{r} pour
+une colonne alignée à droite et \texttt{c} pour une colonne
+centrée. \verb|p{|\emph{largeur}\verb|}| permet de réaliser une colonne
+justifiée à droite sur plusieurs lignes et enfin
+\verb.|. permet d'obtenir une ligne verticale.
+\index{"|@ \verb."|.} 
 
-\index{"|@ \verb."|.}
+À l'intérieur de l'environnement \texttt{tabular}, le caractère
+\verb|&| est le séparateur de colonnes, \ci{\bs} commence une nouvelle
+ligne et \ci{hline} insère une ligne horizontale.
+\index{\&}
 
 \begin{example}
 \begin{tabular}{|r|l|}
 \hline
-7C0 & hexadecimal \\
-3700 & octal \\ \cline{2-2}
-11111000000 & binary \\
+7C0 & hexadécimal \\
+3700 & octal \\
+11111000000 & binaire \\
 \hline \hline
-1984 & decimal \\
+1984 & décimal \\
 \hline
 \end{tabular}
 \end{example}
@@ -914,32 +1099,32 @@ j and i are the column numbers the line should extend over.
 \begin{example}
 \begin{tabular}{|p{4.7cm}|}
 \hline
-Welcome to Boxy's paragraph.
-We sincerely hope you'll 
-all enjoy the show.\\
+Bienvenue dans ce 
+cadre.\\
+Merci de votre visite.\\
 \hline 
 \end{tabular}
+
 \end{example}
 
-The column separator can be specified with the \verb|@{...}|
-construct. This command kills the inter-column space and replaces it
-with whatever is between the curly braces.  One common use for
-this command is explained below in the decimal alignment problem.
-Another possible application is to suppress leading space in a table with
+La construction \verb|@{...}| permet d'imposer le séparateur de
+colonnes. Cette commande supprime l'espacement inter-colonnes et le
+remplace par ce qui est indiqué entre les crochets. Une utilisation
+courante de cette commande est présentée plus loin comme solution au
+problème de l'alignement des nombres décimaux. Une autre utilisation
+possible est de supprimer l'espacement dans un tableau avec
 \verb|@{}|.
 
 \begin{example}
 \begin{tabular}{@{} l @{}}
 \hline 
-no leading space\\
-\hline
+sans espace\\\hline
 \end{tabular}
 \end{example}
-
 \begin{example}
 \begin{tabular}{l}
 \hline
-leading space left and right\\
+avec espaces\\
 \hline
 \end{tabular}
 \end{example}
@@ -948,228 +1133,260 @@ leading space left and right\\
 % This part by Mike Ressler
 %
 
-\index{decimal alignment} Since there is no built-in way to align
-numeric columns to a decimal point,\footnote{If the `tools' bundle is
-  installed on your system, have a look at the \pai{dcolumn} package.}
-we can ``cheat'' and do it by using two columns: a right-aligned
-integer and a left-aligned fraction. The \verb|@{.}| command in the
-\verb|\begin{tabular}| line replaces the normal inter-column spacing with
-just a ``.'', giving the appearance of a single,
-decimal-point-justified column.  Don't forget to replace the decimal
-point in your numbers with a column separator (\verb|&|)! A column label
-can be placed above our numeric ``column'' by using the
-\ci{multicolumn} command.
- 
+\index{alignement décimal} S'il n'y a pas de commande prévue%
+\,\footnote{Si les extensions de l'ensemble \og tools \fg{} sont installées
+          sur votre système, jetez un \oe il sur l'extension
+          \pai{dcolumn} faite pour résoudre ce problème.} 
+pour aligner les nombres sur le point décimal (ou la virgule si on
+respecte les règles françaises) nous pouvons \og tricher \fg{} et
+réaliser cet alignement en utilisant deux colonnes : la première
+alignée à droite contient la partie entière et la seconde alignée à
+gauche contient la partie décimale. La commande \verb|\@{,}| dans la
+description du tableau remplace l'espace normale entre les colonnes par
+une simple virgule, donnant l'impression d'une seule colonne alignée
+sur le séparateur décimal. N'oubliez pas de remplacer dans votre
+tableau le point ou la virgule 
+par un séparateur de colonnes (\verb|&|) ! Un label peut être
+placé au-dessus de cette colonne en utilisant la commande
+\ci{multicolumn}. 
+
 \begin{example}
-\begin{tabular}{c r @{.} l}
-Pi expression       &
-\multicolumn{2}{c}{Value} \\
+\begin{tabular}{c r @{,} l}
+Expression       &
+\multicolumn{2}{c}{Valeur} \\
 \hline
 $\pi$               & 3&1416  \\
 $\pi^{\pi}$         & 36&46   \\
 $(\pi^{\pi})^{\pi}$ & 80662&7 \\
 \end{tabular}
 \end{example}
-
+Autre exemple d'utilisation de \verb+\multicolumn+ :
 \begin{example}
-\begin{tabular}{|c|c|}
+\begin{tabular}{|l|l|}
 \hline
-\multicolumn{2}{|c|}{Ene} \\
+\multicolumn{2}{|c|}{\textbf{Nom}}\\
 \hline
-Mene & Muh! \\
+Dupont & Jules \\
 \hline
 \end{tabular}
 \end{example}
 
-Material typeset with the tabular environment always stays together on
-one page. If you want to typeset long tables you might want to have a
-look at the \pai{supertabular} and the \pai{longtabular} environments.
+\LaTeX{} traite le contenu d'un environnement \texttt{tabular}
+comme une boîte indivisible, en particulier il ne peut y avoir de coupure
+de page. Pour réaliser de longs tableaux s'étendant sur plusieurs pages
+il faut avoir recours aux extensions \pai{supertabular} ou \pai{longtabular}.
 
-\section{Floating Bodies}
-Today most publications contain a lot of figures and tables. These
-elements need special treatment, because they cannot be broken across
-pages.  One method would be to start a new page every time a figure or
-a table is too large to fit on the present page. This approach would
-leave pages partially empty, which looks very bad.
+\section{Objets flottants}
 
-The solution to this problem is to `float' any figure or table which
-does not fit on the current page to a later page, while filling the
-current page with body text. \LaTeX{} offers two environments for
-\wi{floating bodies}; one for tables and  one for figures.  To
-take full advantage of these two environments it is important to
-understand approximately how \LaTeX{} handles floats internally.
-Otherwise floats may become a major source of frustration, because
-\LaTeX{} never puts them where you want them to be.
+De nos jours, la plupart des publications contiennent un nombre
+important de figures et de tableaux. Ces éléments nécessitent un
+traitement particulier car ils ne peuvent être coupés par un
+changement de page. On pourrait imaginer de commencer une nouvelle
+page chaque fois qu'une figure ou un tableau ne rentrerait pas dans la
+page en cours. Cette façon de faire laisserait de nombreuses pages à moitié
+blanches, ce qui ne serait réellement pas beau.
+\index{tableau}
+\index{figure}
+
+La solution est de laisser \og flotter \fg{} les figures et les tableaux
+qui ne rentrent pas sur la page en cours, vers une page suivante et de
+compléter la page avec le texte qui suit l'objet \og flottant \fg{}. 
+\LaTeX{} fournit deux
+environnements pour les \wi{objets flottants} adaptés respectivement
+aux figures (\ei{figure}) et aux tableaux (\ei{table}). Pour
+faire le meilleur usage de ces deux environnements, il est important
+de comprendre comment \LaTeX{} traite ces objets flottants de manière
+interne. Dans le cas contraire ces objets deviendront une cause de
+frustration intense 
+car \LaTeX{} ne les placera jamais à l'endroit où vous souhaitiez les
+voir. 
 
 \bigskip
-Let's first have a look at the commands \LaTeX{} supplies
-for floats:
+Commençons par regarder les commandes que \LaTeX{} propose pour les
+objets flottants :
 
-Any material enclosed in a \ei{figure} or \ei{table} environment will
-be treated as floating matter. Both float environments support an optional
-parameter
+Tout objet inclus dans un environnement \ei{figure} ou \ei{table} est
+traité comme un objet flottant. Les deux environnements flottants ont
+un paramètre optionnel :
 \begin{lscommand}
-\verb|\begin{figure}[|\emph{placement specifier}\verb|]| or
-\verb|\begin{table}[|\emph{placement specifier}\verb|]|
+\verb|\begin{figure}[|\emph{placement}\verb|]| ou
+\verb|\begin{table}[|\emph{placement}\verb|]|
 \end{lscommand}
-\noindent called the \emph{placement specifier}. This parameter
-is used to tell \LaTeX{} about the locations to which the float
-is allowed to be moved.  A \emph{placement specifier} is constructed by building a string
-of \emph{float-placing permissions}. See Table~\ref{tab:permiss}.
+\noindent 
+appelé \emph{placement}. Ce paramètre permet de dire à \LaTeX{} où
+vous autorisez l'objet à flotter. Un \emph{placement} est composé
+d'une chaîne de caractères représentant des \emph{placements
+possibles}. Reportez-vous au tableau~\ref{tab:permiss}.
 
-\begin{table}[!bp]
-\caption{Float Placing Permissions.}\label{tab:permiss}
+
+\begin{table}[!htbp]
+\caption{Placements possibles}\label{tab:permiss}
 \noindent \begin{minipage}{\textwidth}
 \medskip
 \begin{center}
 \begin{tabular}{@{}cp{10cm}@{}}
-Spec&Permission to place the float \ldots\\
+Caractère & Emplacement pour l'objet flottant\dots\\
 \hline
-\rule{0pt}{1.05em}\texttt{h} & \emph{here} at the very place in the text
-  where it occurred.  This is useful mainly for small floats.\\[0.3ex]
-\texttt{t} & at the \emph{top} of a page\\[0.3ex]
-\texttt{b} & at the \emph{bottom} of a page\\[0.3ex]
-\texttt{p} & on a special \emph{page} containing only floats.\\[0.3ex]
-\texttt{!} & without considering most of the  internal parameters\footnote{Such as the
-    maximum number of floats allowed  on one page.} which could stop this
-  float from being placed.
+\rule{0pt}{1.05em}%
+\texttt{h} & \emph{here}, ici, à l'emplacement dans
+	     le texte où la commande se trouve. Utile pour les petits
+	     objets.\\[0.3ex] 
+\texttt{t} & \emph{top}, en haut d'une page\\[0.3ex]
+\texttt{b} & \emph{bottom}, en bas d'une page\\[0.3ex]
+\texttt{p} & \emph{page}, sur une page à part ne contenant que des
+             objets flottants.\\[0.3ex]
+\texttt{!} & ici, sans prendre en compte les paramètres
+             internes\,\footnote{tels que le nombre maximum d'objets
+             flottants sur une page} qui pourraient empêcher ce
+             placement. 
 \end{tabular}
 \end{center}
 \end{minipage}
 \end{table}
-Note: The \texttt{0pt} and \texttt{1.05em} are \TeX{} units. Read more
-on this in table \ref{units} on page \pageref{units}.
 
-\pagebreak[3]
-A table could be started with the following line e.g.{}
+%\pagebreak[3]
+Un tableau peut commencer par exemple par la ligne suivante :
 \begin{code}
 \verb|\begin{table}[!hbp]|
 \end{code}
-\noindent The \wi{placement specifier} \verb|[!hbp]| allows \LaTeX{} to 
-place the table right here (\texttt{h}) or at the bottom (\texttt{b}) 
-of some page
-or on a special floats page (\texttt{p}), and all this even if it does not
-look that good (\texttt{!}). If no placement specifier is given, the standard
-classes assume \verb|[tbp]|.
+\noindent L'\wi{emplacement} \verb|[!hbp]| permet à \LaTeX{} de placer
+le tableau soit sur place (\texttt{h}), soit en bas de page
+(\texttt{b}) soit enfin sur une page à part (\texttt{p}), et
+tout cela même si les règles internes de \LaTeX{} ne sont pas toutes
+respectées (\texttt{!}). Si aucun placement n'est indiqué, les
+classes standard utilisent \verb|[tbp]| par défaut.
 
-\LaTeX{} will place every float it encounters, according to the
-placement specifier supplied by the author. If a float cannot be
-placed on the current page it is deferred either to the
-\emph{figures} or the \emph{tables} queue\footnote{These are fifo -
-  `first in first out' queues!}.  When a new page is started,
-\LaTeX{} first checks if it is possible to fill a special `float'
-page with floats from the queues. If this is not possible, the first
-float on each queue is treated as if it had just occurred in the
-text: \LaTeX{} tries again to place it according to its
-respective placement specifiers (except `h' which is no longer
-possible).  Any new floats occurring in the text get placed into the
-appropriate queues. \LaTeX{} strictly maintains the original order of
-appearance for each type of float. That's why a figure which cannot
-be placed pushes all further figures to the end of the document.
-Therefore:
+\LaTeX{} place tous les objets flottants qu'il rencontre dans l'ordre
+en suivant les indications fournies par l'auteur. Si un objet ne peut
+être placé sur la page en cours, il est placé soit dans la file des
+figures soit dans la file des tableaux\,\footnote{Il s'agit de files
+FIFO (\emph{First In, First Out}) : premier arrivé, premier servi.}. 
+Quand une nouvelle page est
+entamée, \LaTeX{} essaye d'abord de voir si les objets en tête des
+deux files pourraient être placés sur une page spéciale, à part.  Si
+cela n'est pas possible, les objets en tête des deux files sont
+traités comme s'ils venaient d'être trouvés dans le texte : \LaTeX{}
+essaye de les placer selon les placements possibles restants. Tous les
+nouveaux objets flottants rencontrés dans la suite du texte sont
+ajoutés à la queue des files. \LaTeX{} respecte scrupuleusement
+l'ordre d'apparition des objets flottants. C'est pourquoi un objet
+flottant qui ne peut être placé dans le texte repousse tous les
+autres à la fin du document.
 
+D'où la règle :
 \begin{quote}
-If \LaTeX{} is not placing the floats as you expected,
-it is often only one float jamming one of the two float queues.
+Si \LaTeX{} ne place pas les objets flottants comme vous le souhaitez,
+c'est souvent à cause d'un seul objet trop grand qui bouche l'une des
+deux files d'objets flottants.
 \end{quote}                 
 
-While it is possible to give LaTeX single-location placement
-specifiers, this causes problems.  If the float does not fit in the
-location specified, then it becomes stuck, blocking subsequent floats.
-In particular, you should never ever use the [h] option, it is so bad
-that in more recent versions of LaTeX, it is automatically replaced by
-[ht].
+%\bigskip
+Essayer d'imposer à \LaTeX{} un emplacement particulier en utilisant
+l'option \verb+[h]+ pour un flottant est une idée \emph{à proscrire}, 
+les versions modernes de \LaTeX{} changent d'ailleurs automatiquement
+l'option \verb+[h]+ en \verb+[ht]+.
 
-\bigskip
-\noindent Having explained the difficult bit, there are some more things to
-mention about the \ei{table} and \ei{figure} environments.
-With the 
+Voici quelques éléments supplémentaires qu'il est bon de connaître sur
+les environnements \ei{table} et \ei{figure}.
 
+Avec la commande :
 \begin{lscommand}
-\ci{caption}\verb|{|\emph{caption text}\verb|}|
+\ci{caption}\verb|{|\emph{texte de la légende}\verb|}|
 \end{lscommand}
+\noindent
+vous définissez une légende pour l'objet. Un numéro (incrémenté
+ automatiquement) et le mot \og Figure \fg{} ou
+ \og Table \fg{}\footnote{Avec l'extension \texttt{babel}, la
+ présentation des légendes est modifiée pour obéir aux règles
+ françaises.} sont ajoutés par \LaTeX.
 
-\noindent command, you can define a caption for the float. A running number and
-the string ``Figure'' or ``Table'' will be added by \LaTeX.
-
-The two commands
-
+Les deux commandes :
 \begin{lscommand}
-\ci{listoffigures} and \ci{listoftables} 
+\ci{listoffigures} et \ci{listoftables} 
 \end{lscommand}
-
-\noindent operate analogously to the \verb|\tableofcontents| command,
-printing a list of figures or tables, respectively.  In these lists,
-the whole caption will be repeated. If you tend to use long captions,
-you must have a shorter version of the caption going into the lists.
-This is accomplished by entering the short version in brackets after
-the \verb|\caption| command.
+\noindent fonctionnent de la même manière que la commande
+\verb|\tableofcontents| ; elles impriment respectivement la liste des
+figures et des tableaux. Dans ces listes, la légende est reprise en
+entier. Si vous désirez utiliser des légendes longues, vous pouvez
+en donner une version courte entre crochets qui sera utilisée pour la
+table :
 \begin{code}
-\verb|\caption[Short]{LLLLLoooooonnnnnggggg}| 
+\verb|\caption[courte]{LLLLLoooooonnnnnggggguuuueee}| 
 \end{code}
 
-With \verb|\label| and \verb|\ref|, you can create a reference to a float 
-within your text.
+Avec \verb|\label| et \verb|\ref| vous pouvez faire référence à votre
+objet à l'intérieur de votre texte.
 
-The following example draws a square and inserts it into the
-document. You could use this if you wanted to reserve space for images
-you are going to paste into the finished document.
+L'exemple suivant dessine un carré et l'insère dans le document. Vous
+pouvez utiliser cette commande pour réserver de la place pour une
+illustration que vous allez coller sur le document terminé.
 
 \begin{code}
 \begin{verbatim}
-Figure~\ref{white} is an example of Pop-Art.
+La figure~\ref{blanche} est un exemple de Pop-Art.
 \begin{figure}[!hbp]
 \makebox[\textwidth]{\framebox[5cm]{\rule{0pt}{5cm}}}
-\caption{Five by Five in Centimetres.} \label{white}
+\caption{Cinq centimètres sur cinq} \label{blanche}
 \end{figure}
 \end{verbatim}
 \end{code}
 
-\noindent In the example above, 
-\LaTeX{} will try \emph{really hard}~(\texttt{!}) to place the figure
-right \emph{here}~(\texttt{h}).\footnote{assuming the figure queue is
-  empty.} If this is not possible, it tries to place the figure at the
-\emph{bottom}~(\texttt{b}) of the page.  Failing to place the figure
-on the current page, it determines whether it is possible to create a float
-page containing this figure and maybe some tables from the tables
-queue. If there is not enough material for a special float page,
-\LaTeX{} starts a new page, and once more treats the figure as if it
-had just occurred in the text.
+Dans l'exemple ci-dessus\,\footnote{En supposant que la file
+des figures soit vide.} \LaTeX{} va s'acharner~(\texttt{!}) à
+placer la figure là où se trouve la commande~(\texttt{h}) dans le
+texte. S'il n'y arrive pas, il essayera de la placer en
+bas~(\texttt{b}) de la page. Enfin s'il ne peut la placer sur la
+page courante, il essayera de créer une page à part avec d'autres
+objets flottants. S'il n'y a pas suffisamment de tableaux en attente
+pour remplir une page spécifique, \LaTeX{} continue et, au début de la
+page suivante, réessayera de placer la figure comme si elle venait
+d'apparaître dans le texte.
 
-Under certain circumstances it might be necessary to use the 
-
+Dans certains cas il peut s'avérer nécessaire d'utiliser la commande :
 \begin{lscommand}
-\ci{clearpage} or even the \ci{cleardoublepage} 
+\ci{clearpage} ou même \ci{cleardoublepage} 
 \end{lscommand}
+Elle ordonne à \LaTeX{} de placer tous les objets en attente
+immédiatement puis de commencer une nouvelle
+page. \ci{cleardoublepage} commence une nouvelle page de droite.
 
-\noindent command. It orders \LaTeX{} to immediately place all 
-floats remaining in the queues and then start a new
-page. \ci{cleardoublepage} even goes to a new righthand page.
+À la section~\ref{eps}, vous apprendrez à inclure une figure
+\textsc{PostScript} dans vos documents.
 
-You will learn how to include PostScript
-drawings into your \LaTeXe{} documents later in this introduction.
+\ifx\pdfoutput\undefined % We're not running pdftex
+\section{Protection des commandes \og fragiles \fg}
+\else
+\section{Protection des commandes 
+         \texorpdfstring{\og fragiles \fg}{\string«fragiles \string»}}
+\fi
 
-\section{Protecting fragile commands}
+Les arguments de commandes telles que \ci{section} ou \ci{caption} etc.,
+peuvent apparaître plusieurs fois dans le document (par exemple aussi
+dans la table des matières, les hauts de pages\dots), on dit qu'il s'agit
+d'arguments \og mobiles \fg{} (\emph{moving arguments}).
+Certaines commandes, entre autres  \ci{footnote}, \ci{phantom} etc.,
+ne produisent pas le résultat escompté
+quand elles sont exécutées comme argument de commandes de type
+\ci{section}, on dit qu'elles sont \og fragiles \fg, ce qui signifie
+qu'elles ont besoin de la protection d'un \dots{} \ci{protect}.
 
-Text given as arguments of commands like \ci{caption} or \ci{section} may
-show up more than once in the document (e.g. in the table of contents as
-well as in the body of the document). Some commands fail when used in the
-argument of \ci{section}-like commands. These are called \wi{fragile commands}.
-Fragile commands are for example \ci{footnote} or \ci{phantom}. What these
-fragile commands need to work, is protection (don't we all?). You can
-protect them by putting the \ci{protect} command in front of them.
+La commande \ci{protect} n'a d'effet que sur la commande qui la suit
+immédiatement, mais \emph{pas ses arguments} éventuels.
+La plupart du temps un \ci{protect} de trop ne produira aucun effet pervers.
 
-\ci{protect} only refers to the command which follows right behind, not even
-to its arguments. In most cases a superfluous \ci{protect} won't hurt.
+Voici un exemple d'utilisation de \verb+\protect+ :
+\begin{center}
+\begin{verbatim}
+\section{Je suis prudent
+   \protect\footnote{Je protège ma note de bas de page.}}
+\end{verbatim}
+\end{center}
 
-\begin{code}
-\verb|\section{I am considerate|\\
-\verb|      \protect\footnote{and protect my footnotes}}|
-\end{code}
+\endinput
 
 
 %%% Local Variables: 
 %%% mode: latex
-%%% TeX-master: "lshort"
-%%% En
+%%% TeX-master: "flshort"
+%%% End:
 

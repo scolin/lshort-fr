@@ -1,45 +1,68 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: The title page
-% $Id: title.tex,v 1.6 1998/09/29 08:05:09 oetiker Exp oetiker $
+% $Id: title.tex,v 1.22 2001/11/25 17:43:58 matthieu Exp $
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\ifx\pdfoutput\undefined % We're not running pdftex
-\else
-\pdfbookmark{Title Page}{title}
-\fi
+
 \newlength{\centeroffset}
 \setlength{\centeroffset}{-0.5\oddsidemargin}
 \addtolength{\centeroffset}{0.5\evensidemargin}
-%\addtolength{\textwidth}{-\centeroffset}
+\addtolength{\textwidth}{-\centeroffset}
 \thispagestyle{empty}
 \vspace*{\stretch{1}}
-\noindent\hspace*{\centeroffset}\makebox[0pt][l]{\begin{minipage}{\textwidth}
+\noindent\hspace*{\centeroffset}%
+\begin{minipage}{\textwidth}
+\parindent=0pt
 \flushright
-{\Huge\bfseries The Not So Short\\ 
-Introduction to \LaTeXe
-
-}
-\noindent\rule[-1ex]{\textwidth}{5pt}\\[2.5ex]
-\hfill\emph{\Large Or \LaTeXe{} in \pageref{verylast} minutes}
-\end{minipage}}
+{\Huge\bfseries Une courte (?)\\ 
+introduction à \LaTeXe}\\
+\rule[-1ex]{\textwidth}{5pt}\\[2.5ex]
+\emph{\Large ou \LaTeX2e en \pageref{LastPage} minutes}\\[2ex]
+\end{minipage}
 
 \vspace{\stretch{1}}
-\noindent\hspace*{\centeroffset}\makebox[0pt][l]{\begin{minipage}{\textwidth}
+\noindent\hspace*{\centeroffset}\begin{minipage}{\textwidth}
 \flushright
 {\bfseries 
-by Tobias Oetiker\\[1.5ex]
-Hubert Partl, Irene Hyna and  Elisabeth Schlegl\\[3ex]} 
-Version~3.20, 09 August, 2001
-\end{minipage}}
-
-%\addtolength{\textwidth}{\centeroffset}
+par Tobias Oetiker\\[1.5ex]
+Hubert Partl, Irene Hyna et  Elisabeth Schlegl\\[1.5ex]
+traduit en français par Matthieu Herrb\\[3ex]} 
+Version~3.20\\
+Novembre 2001
+\end{minipage}
+\addtolength{\textwidth}{\centeroffset}
 \vspace{\stretch{2}}
 
 
 \pagebreak
 \begin{small} 
-  Copyright \copyright 2000 Tobias Oetiker and all the Contributers to
-  LShort.  All rights reserved.
+
+  Copyright \copyright{} 1998-2001 Tobias Oetiker et tous les contributeurs
+  de LShort.
+
+  Copyright \copyright{} 1998-2001 LAAS/CNRS pour la traduction.
+
+  Ce document est libre ; vous pouvez le redistribuer et/ou le
+  modifier selon les termes de la licence publique générale de GNU
+  publiée par la Free Software Foundation (version 2 ou tout autre
+  version ultérieure choisie par vous)
+
+  Ce document est diffusé en espérant qu'il sera utile, mais SANS
+  AUCUNE GARANTIE, ni explicite ni implicite, y compris les garanties
+  de commercialisation ou d'adaptation dans un but spécifique.
+  Reportez-vous à la licence publique générale de GNU pour plus de
+  détails.
+
+  Vous devez avoir reçu une copie de la licence publique générale de
+  GNU en même temps que ce document. Si ce n'est pas le cas, écrivez à
+  la Free Software Fundation, Inc., 59 Temple Place, Suite 330,
+  Boston, MA 02111-1307, États-Unis.
+
+
+\vspace{4ex}
+
+  Copyright \copyright{} 1998 Tobias Oetiker and all the Contributers
+  to LShort.  All rights reserved.
  
   This document is free; you can redistribute it and/or modify it
   under the terms of the GNU General Public License as published by
@@ -48,12 +71,13 @@ Version~3.20, 09 August, 2001
   
   This document is distributed in the hope that it will be useful, but
   WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE\@.  See the GNU
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
   General Public License for more details.
   
   You should have received a copy of the GNU General Public License
-  along with this document; if not, write to the Free Software
-  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+  along with this program; if not, write to the Free Software
+  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307,
+  USA.
 
 \end{small}
 
@@ -62,6 +86,6 @@ Version~3.20, 09 August, 2001
 
 %%% Local Variables: 
 %%% mode: latex
-%%% TeX-master: "lshort2e"
+%%% TeX-master: "fshort"
 %%% End: 
 

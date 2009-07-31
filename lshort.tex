@@ -1,63 +1,90 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Main Input File of the LaTeX2e Introduction
-% $Id: lshort.tex,v 1.5 1998/09/29 08:05:09 oetiker Exp oetiker $
+% $Id: flshort.tex,v 1.6 2001/11/25 17:43:58 matthieu Exp $
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% lshort.tex - The not so short introduction to LaTeX   
+% flshort.tex - Une courte (?) introduction a LaTeX2e
 %                                                      by Tobias Oetiker
 %                                                  tobias@ife.ee.ethz.ch
 %                                                      oetiker@dmu.ac.uk
 %
-%                           based on LKURTZ.TEX Uni Graz & TU Wien, 1987
+%                           based on LKURTZ.TEX Uni Graz & TU Wien,1987
+%                           traduit en français par Matthieu Herrb,1996
 %-----------------------------------------------------------------------
 %
-% To compile lshort, you need TeX 3.x, LaTeX and makeindex
+% To compile flshort, you need TeX 3.x, LaTeX2e with the babel frenchb
+% extension  and makeindex
 %
 % The sources files of the Intro are:
-%      lshort.tex (this file),
-%      titel.tex, contrib.tex, biblio.tex
+%      flshort.tex (this file),
+%      title.tex, contrib.tex, biblio.tex
 %      things.tes, typeset.tex, math.tex, lssym.tex, spec.tex,
-%      lshort.sty, fancyheadings.sty
+%      flshort.sty
 %
 % Further the  verbatim.sty and the layout.sty 
 % from the LaTeX Tools distribution is
 % required.
 %
-%
 % To print the AMS symbols you need the AMS fonts and the packages
 % amsfonts, eufrak and eucal from (AMS LaTeX 1.2)
 %
 % ---------------------------------------------------------------------
+\newif\ifpdf 
+\ifx\pdfoutput\undefined 
+  \pdffalse 
+\else \ifx \pdfoutput\relax 
+    \pdffalse 
+  \else 
+    \pdftrue 
+  \fi 
+\fi 
 
-\ifx\pdfoutput\undefined % We're not running pdftex
-\documentclass[11pt,a4paper,twoside]{book}
-\else
+\ifpdf
 \documentclass[pdftex,11pt,a4paper,twoside]{book}
 \usepackage{thumbpdf}
 \pdfcompresslevel=9
-\fi
-
-\usepackage{lshort}
-\usepackage{makeidx,shortvrb,latexsym}
-\usepackage{mylayout}
-% are we in pdftex ????
-\ifx\pdfoutput\undefined % We're not running pdftex
 \else
+\documentclass[11pt,a4paper,twoside]{book}
+\fi
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{flshort}
+\usepackage{shortvrb,latexsym}
+\usepackage[french]{mylayout}
+\usepackage{lettrine}
+\usepackage{makeidx}
+
+\ifpdf
 \RequirePackage[colorlinks,hyperindex,plainpages=false]{hyperref}
 \def\pdfBorderAttrs{/Border [0 0 0] } % No border arround Links
+\else
+\RequirePackage[colorlinks]{hyperref}
 \fi
+
+\usepackage[frenchb,english]{babel}
 %
-% This document is ``public domain''. It may be printed and
-% distributed free of charge in its original form (including the
-% list of authors). If it is changed or if parts of it are used
-% within another document, then the author list must include
-% all the original authors AND that author (those authors) who
-% has (have) made the changes.
+% Copyright \copyright{} 1998 Tobias Oetiker and all the Contributers
+% to LShort.  All rights reserved.
+% 
+% This document is free; you can redistribute it and/or modify it
+% under the terms of the GNU General Public License as published by
+% the Free Software Foundation; either version 2 of the License, or
+% (at your option) any later version.
+% 
+% This document is distributed in the hope that it will be useful, but
+% WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+% General Public License for more details.
+% 
+% You should have received a copy of the GNU General Public License
+% along with this program; if not, write to the Free Software
+% Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307,
+% USA.
 %
 % Original Copyright H.Partl, E.Schlegl, and I.Hyna (1987).
 % English Version Copyright by Tobias Oetiker (1994,1995),
 % 
 % ---------------------------------------------------------------------
-%
 %
 % Formats also with\textt{letterpaper} option, but the pagebreaks might not
 % fall as nicely.
@@ -68,8 +95,10 @@
 %
 \makeindex
 \typeout{Copyright T.Oetiker, H.Partl, E.Schlegl, I.Hyna}
- 
+%\includeonly{typeset,math} 
 \begin{document}
+\selectlanguage{frenchb}
+\NoAutoSpaceBeforeFDP
 \frontmatter
 \include{title}
 \include{contrib}
@@ -77,7 +106,6 @@
 \tableofcontents
 \listoffigures
 \listoftables
-\enlargethispage{\baselineskip}
 \mainmatter
 \include{things}
 \include{typeset}
@@ -87,13 +115,7 @@
 \include{custom}
 \backmatter
 \include{biblio}
+%\cleardoublepage
 \addcontentsline{toc}{chapter}{\numberline{}Index} 
 \printindex
-\label{verylast}
-\mbox{}
 \end{document}
-
-
-
-
-

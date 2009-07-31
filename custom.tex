@@ -1,32 +1,33 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Customising LaTeX output
-% $Id: custom.tex,v 1.2 1998/09/29 08:05:09 oetiker Exp oetiker $
+% $Id: custom.tex,v 1.15 2001/11/25 17:43:58 matthieu Exp $
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Customising \LaTeX}
+\chapter{Personnalisation de \LaTeX}
 
 \begin{intro}
-Documents produced by using the commands you have learned up to this
-point will look acceptable to a large audience. While they are not
-looking fancy, they obey all the established rules of good
-typesetting, which will make them easy to read and pleasant to look at.
+Les documents produits avec les commandes que vous avez apprises
+jusqu'ici sont de très bonne qualité aux yeux d'un vaste public. Même s'ils
+manquent de fantaisie, ils obéissent à toutes les règles de l'art de
+la typographie, ce qui les rend agréables à lire.
 
-However there are situations where \LaTeX{} does not provide a
-command or environment which matches your needs, or the output
-produced by some existing command may not meet your requirements.
+Mais il y a des situations où \LaTeX{} ne propose pas de commande ou
+d'environnement adapté à vos besoins, ou bien où le résultat obtenu par
+une commande existante peut ne pas répondre  à votre attente.
 
-In this chapter, I will try to give some hints on
-how to teach \LaTeX{} new tricks and how to make it produce output
-which looks different than what is provided by default.
+Dans ce chapitre, vous allez avoir un aperçu sur la manière
+d'enrichir les commandes de \LaTeX{} et de modifier la présentation
+par défaut.
 \end{intro}
 
+\section{Vos propres commandes, environnements et extensions}
 
-\section{New Commands, Environments and Packages}
-
-You may have noticed that all the commands I introduce in this
-book are typeset in a box, and that they show up in the index at the end
-of the book. Instead of directly using the necessary \LaTeX{} commands
-to achieve this, I have created a \wi{package} in which I defined new
-commands and environments for this purpose. Now I can simply write:
+Vous avez sûrement constaté que toutes les commandes décrites dans cet
+ouvrage sont présentées dans un cadre et sont référencées dans l'index
+qui se trouve à la fin. Au lieu d'utiliser à chaque fois l'ensemble
+des commandes \LaTeX{} nécessaires, nous avons créé une extension dans
+laquelle nous avons défini de nouvelles commandes et de nouveaux
+environnement adaptés à cet usage. Ainsi nous pouvons simplement
+écrire :
 
 \begin{example}
 \begin{lscommand}
@@ -34,99 +35,113 @@ commands and environments for this purpose. Now I can simply write:
 \end{lscommand}
 \end{example}
 
-In this example, I am using both a new environment called
-\ei{lscommand} which is responsible for drawing the box around the
-command and a new command named \ci{ci} which typesets the command
-name and also makes a corresponding entry in the index. You can check
-this out by looking up the \ci{dum} command in the index at the back
-of this book, where you'll find an entry for \ci{dum}, pointing to
-every page where I mentioned the \ci{dum} command.
+Dans cet exemple, nous utilisons à la fois un nouvel environnement
+appelé \ei{lscommand} qui est responsable du tracé du cadre et une
+nouvelle commande appelée \ci{ci} qui compose le nom de la commande et
+qui produit l'entrée correspondante dans l'index. Vous pouvez le
+vérifier en cherchant la commande \ci{dum} dans l'index à la fin de ce 
+document ; vous
+y trouverez une entrée pointant vers chaque page où la commande dum
+est mentionnée.
 
-If I ever decide that I do not like the commands to be typeset in
-a box any more, I can simply change the definition of the
-\texttt{lscommand} environment to create a new look. This is much
-easier than going through the whole document to hunt down all the
-places where I have used some generic \LaTeX{} commands to draw a
-box around some word. 
+Si nous décidons un jour que nous ne souhaitons plus voir de cadre
+autour du nom des commandes, il nous suffira de modifier la définition
+de l'environnement \ei{lscommand} pour définir un nouveau style.  C'est
+bien plus simple (et efficace) que de parcourir tout le document pour
+remplacer une à une toutes les commandes qui tracent les cadres.
 
+% Dans le premier chapitre, nous avons vu que \LaTeX{} avait besoin de
+% connaître la structure logique d'un document pour pouvoir le formater
+% correctement. Ceci est une idée intéressante, mais en pratique on
+% atteint assez vite ses limites quand on ne trouve pas dans \LaTeX{} la
+% commande spécialisée pour exprimer ce que l'on voudrait.
+% 
+% Une solution serait de combiner plusieurs commandes \LaTeX{} pour
+% obtenir le résultat désiré. Ponctuellement, cela ne pose pas de
+% problème ; mais si cela se reproduit, répéter chaque fois la même
+% combinaison peut devenir long et fastidieux. De plus, si vous souhaitez
+% plus tard modifier la présentation, il faudra aller modifier chaque
+% combinaison de commandes tout au long du texte.
+% 
+% Pour résoudre ce problème, \LaTeX{} vous permet de définir vos propres
+% commandes et vos propres environnements.
 
-\subsection{New Commands}
+\subsection{Nouvelles commandes}
 
-To add your own commands, use the
+Pour ajouter de nouvelles commandes, utilisez la commande :
 \begin{lscommand}
 \ci{newcommand}\verb|{|%
-       \emph{name}\verb|}[|\emph{num}\verb|]{|\emph{definition}\verb|}|
+       \emph{nom}\verb|}[|\emph{num}\verb|]{|\emph{définition}\verb|}|
 \end{lscommand}
-\noindent command. 
-Basically, the command requires two arguments: the \emph{name} of the
-command you want to create, and the \emph{definition} of the command.
-The \emph{num} argument in square brackets is optional and specifies the number
-of arguments the new command takes (up to 9 are possible).
-If missing it defaults to 0, i.e. no argument allowed.
+\noindent Cette commande prend principalement deux
+arguments : le \emph{nom} de la commande à créer et sa
+\emph{définition}. L'argument \emph{num} entre crochets est
+optionnel. Il indique le nombre de paramètres  qu'utilisera la
+nouvelle commande (jusqu'à 9).
 
-The following two examples should help you to get the idea.
-The first example defines a new command called \ci{tnss}. This is
-short for ``The Not So Short Introduction to \LaTeXe''. Such a command
-could come in handy if you had to write the title of this book over 
-and over again. 
+Les deux exemples ci-dessous vous aiderons à saisir le principe.
+Le premier exemple définit une nouvelle commande appelée \verb|\ucil|
+qui est une abréviation de \og une courte introduction à
+\LaTeXe \fg{}. Une telle commande pourrait être utile si vous aviez à
+citer de nombreuses fois le titre de ce livre.
 
 \begin{example}
-\newcommand{\tnss}{The not
-    so Short Introduction to
-    \LaTeXe}
-This is ``\tnss'' \ldots{} 
-``\tnss''
+\newcommand{\ucil}
+    {Une courte (?) 
+     introduction à \LaTeXe}
+% dans le document :
+Voici \og \ucil \fg\dots
 \end{example}
 
-The next example illustrates how to define a new
-command which takes one argument.
-The \verb|#1| tag gets replaced by the argument you specify.
-If you wanted to use more than one argument, use \verb|#2| and
-so on.
+L'exemple suivant montre comment utiliser l'argument \emph{num}. La
+séquence \verb|#1| est remplacée par le paramètre réel.
+Pour utiliser plus d'un paramètre, continuez avec \verb|#2|, etc.
 
 \begin{example}
-\newcommand{\txsit}[1]
- {This is the \emph{#1} Short 
-      Introduction to \LaTeXe}
-% in the document body: 
+\newcommand{\uxil}[1]
+    {Une \emph{#1}  
+     introduction à \LaTeXe}
+% dans le document :
 \begin{itemize}
-\item \txsit{not so}
-\item \txsit{very}
+\item \uxil{courte}
+\item \uxil{rapide}
 \end{itemize}
 \end{example}
 
-\LaTeX{} will not allow you to create a new command which would
-overwrite an existing one. But there is a special command in case you
-explicitly want this: \ci{renewcommand}.
-It uses the same syntax as the \verb|\newcommand|
-command.
+\LaTeX{} ne vous permet pas de créer une nouvelle commande si celle-ci
+existe déjà. Si vous voulez explicitement remplacer une commande
+existante, utilisez \ci{renewcommand}. Elle utilise la même syntaxe
+que \verb|\newcommand|. 
 
-In certain cases you might also want to use the \ci{providecommand}
-command. It works like \ci{newcommand}, but if the command is
-already defined, \LaTeXe{} will silently ignore it.
+Dans certains cas, vous pouvez avoir besoin de
+\ci{providecommand}. Cette commande fonctionne comme
+\verb|\newcommand|, mais si la nouvelle commande est déjà définie,
+\LaTeXe{} ignore  la nouvelle définition.
 
-There are some points to note about whitespace following \LaTeX{} commands. See
-page \pageref{whitespace} for more information.
+\LaTeX{} supprime en général les espaces qui suivent une commande
+(voir~\pageref{whitespace}).
 
-\subsection{New Environments}
-Similar to the \verb|\newcommand| command, there is also a command
-to create your own environments. The \ci{newenvironment} command uses the
-following syntax:
+\subsection{Nouveaux environnements}
+
+De manière analogue à la commande \verb|\newcommand|, il est possible
+de définir de nouveaux environnements.  La commande
+\ci{newenvironment} se présente de la manière suivante :
 
 \begin{lscommand}
 \ci{newenvironment}\verb|{|%
-       \emph{name}\verb|}[|\emph{num}\verb|]{|%
-       \emph{before}\verb|}{|\emph{after}\verb|}|
+       \emph{nom}\verb|}[|\emph{num}\verb|]{|%
+       \emph{avant}\verb|}{|\emph{après}\verb|}|
 \end{lscommand}
 
-Like the \verb|\newcommand| command, you can use \ci{newenvironment}
-with an optional argument or without. The material specified
-in the \emph{before} argument is processed before the text in the 
-environment gets processed. The material in the \emph{after} argument gets
-processed when the \verb|\end{|\emph{name}\verb|}| command is encountered.
+De même que pour \verb|\newcommand|, vous pouvez utiliser
+\ci{newenvironment} avec un paramètre optionnel ou sans. Le contenu de
+l'argument \emph{avant} est exécuté avant que le contenu de
+l'environnement ne soit traité. Le contenu de l'argument \emph{après}
+est traité lorsque l'on rencontre la commande
+\verb|\end{|\emph{nom}\verb|}|.
 
-The example below illustrates the usage of the \ci{newenvironment}
-command. 
+L'exemple ci-dessous illustre l'utilisation de \verb|\newenvironment|.
+
 \begin{example}
 \newenvironment{king}
  {\rule{1ex}{1ex}%
@@ -135,86 +150,94 @@ command.
       \rule{1ex}{1ex}}
 
 \begin{king} 
-My humble subjects \ldots
+Mes chers sujets, \dots
 \end{king}
 \end{example}
 
-The \emph{num} argument is used the same way as in the
-\verb|\newcommand| command. \LaTeX{} makes sure that you do not define
-an environment which already exists. If you ever want to change an
-existing command, you can use the \ci{renewenvironment} command. It
-uses the same syntax as the \ci{newenvironment} command.
+L'argument \emph{num} est utilisé de la même façon que pour la
+commande \verb|\newcommand|. \LaTeX{} vous empêche de redéfinir un
+environnement qui existe déjà. Si jamais vous vouliez redéfinir un
+environnement existant, utilisez \ci{renewenvironment} qui utilise la
+même syntaxe que \verb|\newenvironment|.
 
-The commands used in this example will be explained later: For the
-\ci{rule} command see page \pageref{sec:rule}, for \ci{stretch} go to
-page \pageref{cmd:stretch}, and more information on \ci{hspace} can be
-found on page \pageref{sec:hspace}.
+Les commandes utilisées dans l'exemple ci-dessus seront présentées
+plus loin : pour la commande \ci{rule}, voir page~\pageref{sec:rule},
+pour \ci{stretch}, voir page~\pageref{cmd:stretch} enfin, pour plus
+d'informations sur \ci{hspace}, voir page~\pageref{sec:hspace}.
 
-\subsection{Your own Package}
+\subsection{Votre propre extension}
 
-If you define a lot of new environments and commands, the preamble of
-your document will get quite long. In this situation, it is a good
-idea to create a \LaTeX{} package containing all your command and
-environment definitions. You can then use the \ci{usepackage}
-command to make the package available in your document.
+Si vous définissez plein de nouveaux environnements et de nouvelles
+commandes, le préambule de votre document va se rallonger
+dangereusement. Il peut alors devenir intéressant de créer une
+extension contenant toutes ces nouvelles définitions. Avec 
+la commande \ci{usepackage} vous pourrez rendre disponible votre
+extension dans votre document.
 
 \begin{figure}[!htbp]
 \begin{lined}{\textwidth}
 \begin{verbatim}
-% Demo Package by Tobias Oetiker
+% Exemple d'extension par Tobias Oetiker
 \ProvidesPackage{demopack}
-\newcommand{\tnss}{The not so Short Introduction to \LaTeXe}
-\newcommand{\txsit}[1]{The \emph{#1} Short 
-                       Introduction to \LaTeXe}
+\newcommand{\ucil}{Une courte (?) introduction à \LaTeXe}
+\newcommand{\uxil}[1]{Une \emph{#1}  
+                       introduction à \LaTeXe}
 \newenvironment{king}{\begin{quote}}{\end{quote}}
 \end{verbatim}
 \end{lined}
-\caption{Example Package.} \label{package}
+\caption{Exemple d'extension} \label{package}
 \end{figure}
 
-Writing a package consists  basically in copying the contents of
-your document preamble into a separate file with a name ending in
-\texttt{.sty}. There is one special command,
+Écrire une extension consiste principalement à copier le préambule de
+votre document dans un fichier à part, dont le nom se termine par
+\texttt{.sty}. Il y a une commande spécifique à utiliser sur la
+première ligne de votre extension :
+
 \begin{lscommand}
-\ci{ProvidesPackage}\verb|{|\emph{package name}\verb|}|
+\ci{ProvidesPackage}\verb|{|\emph{nom de l'extension}\verb|}|
 \end{lscommand}
-\noindent for use at the very beginning of your package
-file. \verb|\ProvidesPackage| tells \LaTeX{} the name of the package
-and will allow it to issue a sensible error message when you try to
-include a package twice. Figure~\ref{package} shows a small example
-package which contains the commands defined in the examples above.
 
-\section{Fonts and Sizes}
+\noindent  \ci{ProvidesPackage} indique à \LaTeXe{} le nom de
+l'extension afin notamment de lui permettre de produire des messages
+d'erreur significatifs. La figure~\ref{package} montre un exemple
+d'extension simple qui reprend les commandes définies dans les
+exemples précédents. 
 
-\subsection{Font changing Commands}
-\index{font}\index{font size} \LaTeX{} chooses the appropriate font
-and font size based on the logical structure of the document
-(sections, footnotes, \ldots).  In some cases, one might like to change
-fonts and sizes by hand. To do this, you can use the commands listed in
-Tables~\ref{fonts} and~\ref{sizes}. The actual size of each font
-is a design issue and depends on the document class and its options. 
-Table~\ref{tab:pointsizes} shows the absolute point size for these
-commands as implemented in the standard document classes.
+\section{Polices et tailles des caractères}
+\index{police}
+\index{taille!des polices}
+\subsection{Commandes de changement de police}
+\LaTeX{} choisit la police de caractères et sa taille en fonction de la
+structure logique du document (sections, notes de bas de
+page, etc. ). Dans certains cas, on voudrait pouvoir changer la taille
+de la police à la main. Pour cela, utilisez les commandes listées dans
+les tableaux~\ref{fonts} et~\ref{sizes}. La taille exacte de chaque
+police est un choix qui dépend de la classe de document et de ses
+options. La table~\ref{tab:pointsizes} donne les tailles absolues en
+points pour les commandes présentes dans les classes de document
+standard. 
 
 \begin{example}
-{\small The small and 
-\textbf{bold} Romans ruled}
-{\Large all of great big 
-\textit{Italy}.}
+{\small Les romains 
+petits et \textbf{gras}  
+régnèrent sur}
+{\Large toute la belle 
+et grande \textit{Italie}.}
 \end{example}
 
-One important feature of \LaTeXe{} is, that the font attributes are
-independent. This means, that you can issue size or even font
-changing commands and still keep the bold or slant attribute set
-earlier.
+Une caractéristique importante de \LaTeXe{} est que les différents
+attributs d'une police sont indépendants. Cela signifie que vous
+pouvez exécuter des commandes de changement de taille ou même de
+changement de police tout en conservant l'attribut gras ou
+italique. 
 
-In \emph{math mode} you can use the font changing \emph{commands} to
-temporarily exit \emph{math mode} and enter some normal text. If you want to
-switch to another font for math typesetting there exists another
-special set of commands. Refer to Table~\ref{mathfonts}.
+% Cela peut paraître évident à quelqu'un qui  débute avec
+% \LaTeXe{}, mais ça ne l'est certainement pas pour quelqu'un qui était
+% habitué à \LaTeX{}~2.09.
+
 
 \begin{table}[!bp]
-\caption{Fonts.} \label{fonts}
+\caption{Polices} \label{fonts}
 \begin{lined}{12cm}
 %
 % Alan suggested not to tell about the other form of the command
@@ -230,7 +253,7 @@ special set of commands. Refer to Table~\ref{mathfonts}.
 \ci{textit}\verb|{...}|        &       \textit{\wi{italic}}\\
 \ci{textsl}\verb|{...}|        &       \textsl{\wi{slanted}}&
 \ci{textsc}\verb|{...}|        &       \textsc{\wi{small caps}}\\[6pt]
-\ci{emph}\verb|{...}|          &            \emph{emphasized} &
+\ci{emph}\verb|{...}|          &            \emph{emphasised} &
 \ci{textnormal}\verb|{...}|    &    \textnormal{document} font
 \end{tabular}
 
@@ -240,22 +263,22 @@ special set of commands. Refer to Table~\ref{mathfonts}.
 
 
 \begin{table}[!bp]
-\index{font size}
-\caption{Font Sizes.} \label{sizes}
+\index{taille!prédéfinies}
+\caption{Tailles des polices} \label{sizes}
 \begin{lined}{12cm}
 \begin{tabular}{@{}ll}
-\ci{tiny}      & \tiny        tiny font \\
-\ci{scriptsize}   & \scriptsize  very small font\\
-\ci{footnotesize} & \footnotesize  quite small font \\
-\ci{small}        &  \small            small font \\
-\ci{normalsize}   &  \normalsize  normal font \\
-\ci{large}        &  \large       large font
+\ci{tiny}      & \tiny        minuscule \\
+\ci{scriptsize}   & \scriptsize  très petit\\
+\ci{footnotesize} & \footnotesize  assez petit \\
+\ci{small}        &  \small            petit \\
+\ci{normalsize}   &  \normalsize  normal  \\
+\ci{large}        &  \large       grand
 \end{tabular}%
 \qquad\begin{tabular}{ll@{}}
-\ci{Large}        &  \Large       larger font \\[5pt]
-\ci{LARGE}        &  \LARGE       very large font \\[5pt]
-\ci{huge}         &  \huge        huge \\[5pt]
-\ci{Huge}         &  \Huge        largest
+\ci{Large}        &  \Large       plus grand \\[5pt]
+\ci{LARGE}        &  \LARGE       très grand \\[5pt]
+\ci{huge}         &  \huge        énorme \\[5pt]
+\ci{Huge}         &  \Huge        géant
 \end{tabular}
 
 \bigskip
@@ -263,14 +286,14 @@ special set of commands. Refer to Table~\ref{mathfonts}.
 \end{table}
 
 \begin{table}[!tbp]
-\caption{Absolute Point Sizes in Standard Classes.}\label{tab:pointsizes}
+\caption{Tailles en points dans les classes standard}\label{tab:pointsizes}
 \label{tab:sizes}
 \begin{lined}{12cm}
 \begin{tabular}{lrrr}
-\multicolumn{1}{c}{size} &
-\multicolumn{1}{c}{10pt (default) } &
-           \multicolumn{1}{c}{11pt option}  &
-           \multicolumn{1}{c}{12pt option}\\
+\multicolumn{1}{c}{taille} &
+\multicolumn{1}{c}{10pt (défaut) } &
+           \multicolumn{1}{c}{option 11pt}  &
+           \multicolumn{1}{c}{option 12pt}\\
 \verb|\tiny|       & 5pt  & 6pt & 6pt\\
 \verb|\scriptsize| & 7pt  & 8pt & 8pt\\
 \verb|\footnotesize| & 8pt & 9pt & 10pt \\
@@ -287,19 +310,18 @@ special set of commands. Refer to Table~\ref{mathfonts}.
 \end{lined}
 \end{table}
 
-
-\begin{table}[!bp]
-\caption{Math Fonts.} \label{mathfonts}
-\begin{lined}{\textwidth}
+\begin{table}[!htbp]
+\caption{Polices mathématiques} \label{mathfonts}
+\begin{lined}{12.2cm}
 \begin{tabular}{@{}lll@{}}
-\textit{Command}&\textit{Example}&    \textit{Output}\\[6pt]
+\textit{Commande}&\textit{Exemple}&    \textit{Résultat}\\[6pt]
 \ci{mathcal}\verb|{...}|&    \verb|$\mathcal{B}=c$|&     $\mathcal{B}=c$\\
 \ci{mathrm}\verb|{...}|&     \verb|$\mathrm{K}_2$|&      $\mathrm{K}_2$\\
 \ci{mathbf}\verb|{...}|&     \verb|$\sum x=\mathbf{v}$|& $\sum x=\mathbf{v}$\\
 \ci{mathsf}\verb|{...}|&     \verb|$\mathsf{G\times R}$|&        $\mathsf{G\times R}$\\
 \ci{mathtt}\verb|{...}|&     \verb|$\mathtt{L}(b,c)$|&   $\mathtt{L}(b,c)$\\
-\ci{mathnormal}\verb|{...}|& \verb|$\mathnormal{R_{19}}\neq R_{19}$|&
-$\mathnormal{R_{19}}\neq R_{19}$\\
+\ci{mathnormal}\verb|{...}|& \verb|$\mathnormal{R_{19}}| &\\
+& \verb|    \neq R_{19}$|& $\mathnormal{R_{19}}\neq R_{19}$\\
 \ci{mathit}\verb|{...}|&     \verb|$\mathit{ffi}\neq ffi$|& $\mathit{ffi}\neq ffi$
 \end{tabular}
 
@@ -307,439 +329,476 @@ $\mathnormal{R_{19}}\neq R_{19}$\\
 \end{lined}
 \end{table}
 
-In connection with the font size commands, \wi{curly braces} play a
-significant role. They are used to build \emph{groups}.  Groups
-limit the scope of most \LaTeX{} commands.\index{grouping}
+En mode \emph{mathématique}, vous pouvez utiliser les commandes de
+changement de police pour quitter provisoirement le mode mathématique
+et saisir du texte normal. Pour changer les attributs de la police en
+mode mathématique, il existe un jeu de commandes
+spéciales. Reportez-vous au tableau~\ref{mathfonts}.
+
+En complément des commandes de changement de taille, les
+\wi{accolade}s jouent un rôle essentiel. Elles sont utilisées pour
+former des \emph{\wi{groupe}s} qui limitent la
+portée de la plupart des commandes de \LaTeX{}.
 
 \begin{example}
-He likes {\LARGE large and 
-{\small small} letters}. 
+Il aime les  {\LARGE grands et  
+{\small les petits} 
+caractères}. 
 \end{example}
- 
-The font size commands also change the line spacing, but only if the
-paragraph ends within the scope of the font size command. The closing curly
-brace \verb|}| should therefore not come too early.  Note the position of
-the \ci{par} command in the next two examples. \footnote{\texttt{\bs{}par}
-is equivalent to a blank line}
 
+Les commandes de changement de taille modifient également
+l'interligne, mais seulement si le paragraphe se termine dans la
+portée de la commande de changement de taille. L'accolade fermante
+\verb|}| ne
+doit donc pas être placée trop tôt. Remarquez la position de la
+commande \verb|\par| dans les deux exemples suivants 
+\,\footnote{\ci{par} est équivalent à une ligne vide} :
 
 \begin{example}
-{\Large Don't read this! It is not
-true. You can believe me!\par}
+{\Large Ne lisez pas ceci ! Ce
+n'est pas vrai ! Croyez-moi !\par}
 \end{example}
-
 \begin{example}
-{\Large This is not true either.
-But remember I am a liar.}\par
+{\Large Ce n'est pas vrai. Mais
+n'oubliez pas que je suis un
+menteur.}\par
 \end{example}
 
-If you want to activate a size changing command for a whole paragraph
-of text or even more, you might want to use the environment syntax for
-font changing commands.
+Si vous voulez utiliser une commande de modification de la taille pour
+tout un paragraphe ou même plus, vous pouvez utiliser la syntaxe des
+environnements à la place des commandes. 
 
 \begin{example}
 \begin{Large} 
-This is not true.
-But then again, what is these
-days \ldots
+Ceci n'est pas vrai
+Mais, qu'est-ce qui l'est
+de nos jours\dots
 \end{Large}
 \end{example}
 
-\noindent This will save you from counting lots of curly braces.
+\noindent Cela vous évitera d'avoir à compter les accolades
+fermantes. 
 
-\subsection{Danger, Will Robinson, Danger}
+\subsection{Attention danger}
 
-As noted at the beginning of this chapter, it is dangerous to clutter
-your document with explicit commands like this, because they work in
-opposition to the basic idea of \LaTeX{}, which is to separate the
-logical and visual markup of your document.  This means that if you
-use the same font changing command in several places in order to
-typeset a special kind of information, you should use
-\verb|\newcommand| to define a ``logical wrapper command'' for the font
-changing command.
+Il est dangereux d'utiliser de telles commandes de changement
+explicite de police tout au long de vos documents, en effet ces
+commandes vont à l'encontre de la philosophie de \LaTeX{} qui est de
+séparer les aspects logiques et visuels d'un document. Cela signifie
+que si vous voulez utiliser en plusieurs endroits la même commande de
+changement de style afin de mettre en valeur un type particulier
+d'information, vous devriez utiliser \ci{newcommand} pour définir une
+nouvelle commande en insérant ainsi la commande de changement de style
+dans une enveloppe logique.
 
 \begin{example}
-\newcommand{\oops}[1]{\textbf{#1}}
-Do not \oops{enter} this room,
-it's occupied by a \oops{machine}
-of unknown origin and purpose.
+% dans le préambule ou dans 
+% une extension :
+\newcommand{\danger}[1]
+  {\textbf{#1}}
+% dans le document :
+Défense d'\danger{entrer}.
+Cette pièce contient une 
+\danger{machine} d'origine 
+inconnue.
 \end{example}
 
-This approach has the advantage that you can decide at some later
-stage whether you want to use some other visual representation of danger
-than \verb|\textbf| without having to wade through your document,
-identifying all the occurrences of \verb|\textbf| and then figuring out
-for each one whether it was used for pointing out danger or for some other
-reason.
+Cette approche sera précieuse si vous décidez plus tard
+d'utiliser une autre représentation typographique du danger que
+\verb|\textbf|. Elle évitera d'avoir à rechercher et remplacer une à
+une toutes les occurrences de \verb|\textbf| correspondant à la notion
+de danger. 
 
+\subsection{Un conseil}
 
-\subsection{Advice}
-
-To conclude this journey into the land of fonts and font sizes,
-here is a little word of advice:\nopagebreak
-
+Pour conclure cette promenade au pays des commandes de changement de
+police, voici un (mauvais) conseil :
 \begin{quote}
-  \underline{\textbf{Remember\Huge!}} \textit{The}
-  \textsf{M\textbf{\LARGE O} \texttt{R}\textsl{E}} fonts \Huge you
-  \tiny use \footnotesize \textbf{in} a \small \texttt{document},
-  \large \textit{the} \normalsize more \textsc{readable} and
-  \textsl{\textsf{beautiful} it bec\large o\Large m\LARGE e\huge s}.
+  \underline{\textbf{N'oubliez pas\Huge!}} \textit{Plus}
+  \textsf{V\textbf{\LARGE O}\texttt{u}\textsl{s}} \Huge utilisez
+  \tiny de polices \footnotesize \textbf{dans} un \small \texttt{document}
+  \large \textit{Plus} \normalsize il \textsc{devient} 
+  \textsl{\textsf{lisible} et bien prés\large e\Large n\LARGE t\huge é}.
 \end{quote}
 
-\section{Spacing}
- 
-\subsection{Line Spacing}
 
-\index{line spacing} If you want to use larger inter-line spacing in a
-document, you can change its value by putting the
+\section{Espacement}
+ 
+\subsection{Entre les lignes}
+
+\index{interligne} Pour utiliser un interligne plus grand pour un
+document, vous pouvez utiliser la commande
 \begin{lscommand}
-\ci{linespread}\verb|{|\emph{factor}\verb|}|
+\ci{linespread}\verb|{|\emph{facteur}\verb|}|
 \end{lscommand}
-\noindent command into the preamble of your document.
-Use \verb|\linespread{1.3}| for ``one and a half'' line
-spacing, and \verb|\linespread{1.6}| for ``double'' line spacing.  Normally
-the lines are not spread, therefore the default line spread factor
-is~1.\index{double line spacing}
+\noindent dans le préambule de votre document. Utilisez
+\verb|\linespread{1.3}| pour un interligne \og un et demi \fg{} et
+\verb|\linespread{1.6}| pour un \og double \fg{}
+interligne. L'interligne par défaut est~1.
+\index{double interligne}
 
- 
-\subsection{Paragraph Formatting}\label{parsp}
+%Ce changement a souvent des effets indésirables dans les
+%notes de bas de page, les tableaux, etc.  C'est assez compliqué à
+%gérer, mais l'extension \pai{setspace} est prévue à cet effet.
 
-In \LaTeX{}, there are two parameters influencing paragraph layout.
-By placing a definition like
+\subsection{Mise en page d'un paragraphe}\label{parsp}
+
+Il y a deux paramètres qui jouent sur l'apparence d'un paragraphe. En
+insérant une définition telle que :
 \begin{code}
 \ci{setlength}\verb|{|\ci{parindent}\verb|}{0pt}| \\
 \verb|\setlength{|\ci{parskip}\verb|}{1ex plus 0.5ex minus 0.2ex}|
 \end{code}
-in the preamble of the input file, you can change the layout of
-paragraphs. These two commands increase the space between two paragraphs
-while setting the paragraph indent to zero.  
+dans le préambule, vous supprimez le retrait des débuts de paragraphe
+(1\iere{} définition) et vous augmentez l'espace entre deux paragraphes
+(2\ieme{} définition). 
+Attention, la deuxième définition a également une influence sur la
+table des matières : ses lignes deviennent également plus
+espacées. Pour éviter cela, vous pouvez déplacer ces commandes du
+préambule vers le corps du document, après la commande
+\ci{tableofcontents} (ou bien ne pas les utiliser du tout, car la
+typographie professionnelle préfère utiliser l'indentation plutôt que
+l'espacement pour séparer les paragraphes).
 
-The \texttt{plus} and \texttt{minus} parts of the length above tell
-\TeX{}, that it can compress and expand the inter paragraph skip by the
-amount specified if this is necessary to properly fit the paragraphs
-onto the page.
-
-In continental Europe,
-paragraphs are often separated by some space and not indented. But
-beware, this also has its effect on the table of contents. Its lines
-get spaced more loosely now as well. To avoid this, you might want to
-move the two commands from the preamble into your document to some
-place after the \verb|\tableofcontents| or to not use them at all,
-because you'll find that most professional books use indenting and not
-spacing to separate paragraphs.
-
-
-If you want to indent a paragraph which is not indented, you can use 
+Pour indenter un paragraphe qui ne l'est pas, utilisez la commande :
 \begin{lscommand}
 \ci{indent}
 \end{lscommand}
-\noindent at the beginning of the paragraph.\footnote{To indent the first paragraph after each section head, use
-  the \pai{indentfirst} package in the `tools' bundle.} Obviously,
-this will only have an effect when \verb|\parindent| is not set to
-zero.
+\noindent au début du paragraphe\,\footnote{Pour indenter
+ systématiquement le premier
+ paragraphe après le titre d'une section, utilisez l'extension
+ \pai{indentfirst} de l'ensemble \texttt{tools}.}. Bien sûr cela ne
+ marche que si \verb|\parindent| n'est pas nul.
 
-To create a non-indented paragraph, you can use 
+Pour créer un paragraphe sans indentation, utilisez :
 \begin{lscommand}
 \ci{noindent}
 \end{lscommand}
-\noindent as the first command of the paragraph. This might come in handy when
-you start a document with body text and not with a sectioning command.
+\noindent 
+en tête du paragraphe. 
 
-\subsection{Horizontal Space}
+L'option \pai{francais} de l'extension \pai{babel} modifie ici aussi
+les règles par défaut de 
+\LaTeX{} pour s'adapter aux règles françaises. 
 
-\label{sec:hspace}
-\LaTeX{} determines the spaces between words and sentences
-automatically. To add horizontal space, use: \index{horizontal!space}
+Il est possible de commencer un paragraphe par une lettrine en utilisant
+l'extension \pai{lettrine}%
+\,\footnote{\texttt{CTAN:/macros/latex/contrib/supported/lettrine/}} :
 \begin{lscommand}
-\ci{hspace}\verb|{|\emph{length}\verb|}|
+\ci{lettrine}\verb|[|\emph{options}\verb|]{|\emph{lettrine}\verb|}|\verb|{|\emph{texte}\verb|}|
+\end{lscommand} 
+La lettrine de la page~\pageref{lettrine} s'obtient par la commande :
+\begin{code}
+\verb|\lettrine{C}{e document}|
+\end{code}
+
+\subsection{Espacement horizontal}
+\label{sec:hspace}
+
+\LaTeX{} détermine l'espacement entre les mots et les phrases
+automatiquement. Pour ajouter de l'espacement horizontal, utilisez :
+\index{espacement!horizontal}
+\begin{lscommand}
+\ci{hspace}\verb|{|\emph{longueur}\verb|}|
 \end{lscommand}
-If such a space should be kept even if it falls at the end or the
-start of a line, use \verb|\hspace*| instead of \verb|\hspace|.  The
-\emph{length} in the simplest case just is a number plus a unit.  The
-most important units are listed in Table~\ref{units}. 
-\index{units}\index{dimensions}
+Si une telle espace doit être conservée, même lorsqu'elle tombe en début ou en
+fin de ligne, utilisez \verb|\hspace*|. Dans le cas le plus simple,
+\emph{longueur} est simplement un nombre suivi d'une unité. Les unités
+les plus importantes sont listées dans le tableau~\ref{units}.
+\index{unités}\index{dimensions}
 
 \begin{example}
-This\hspace{1.5cm}is a space 
-of 1.5 cm.
+Ceci\hspace{1.5cm}est une espace 
+de 1.5 cm.
 \end{example}
 \suppressfloats
 \begin{table}[tbp]
-\caption{\TeX{} Units.} \label{units}\index{units}
+\caption{Unités \TeX} \label{units}\index{unités}
 \begin{lined}{9.5cm} 
 \begin{tabular}{@{}ll@{}}
-\texttt{mm} &  millimetre $\approx 1/25$~inch \quad \demowidth{1mm} \\
-\texttt{cm} & centimetre = 10~mm  \quad \demowidth{1cm}                     \\
-\texttt{in} & inch $=$ 25.4~mm \quad \demowidth{1in}                    \\
-\texttt{pt} & point $\approx 1/72$~inch $\approx \frac{1}{3}$~mm  \quad\demowidth{1pt}\\
-\texttt{em} & approx width of an `M' in the current font \quad \demowidth{1em}\\
-\texttt{ex} & approx height of an `x' in the current font \quad \demowidth{1ex}
+\texttt{mm} &  millimètre \quad \demowidth{1mm} \\
+\texttt{cm} & centimètre = 10~mm  \quad \demowidth{1cm}                     \\
+\texttt{in} & pouce\,\footnote{\emph{Inch} en anglais. \emph{NdT}.}
+	      $=$ 25,4~mm \quad \demowidth{1in}                    \\
+\texttt{pt} & point $\approx 1/72$~pouce $\approx 0,35$~mm  \quad\demowidth{1pt}\\
+\texttt{em} & largeur d'un  ``M'' dans la police courante \quad \demowidth{1em}\\
+\texttt{ex} & hauteur d'un ``x'' dans la police courante \quad \demowidth{1ex}
 \end{tabular}
 
 \bigskip
 \end{lined}
 \end{table}
 
-\label{cmd:stretch} 
-The command
+La commande : 
 \begin{lscommand}
 \ci{stretch}\verb|{|\emph{n}\verb|}|
 \end{lscommand} 
-\noindent generates a special rubber space. It stretches until all the
-remaining space on a line is filled up. If two
-\verb|\hspace{\stretch{|\emph{n}\verb|}}| commands are issued on the
-same line, they grow according to the stretch factor.
-
+\label{cmd:stretch}
+\noindent produit une espace élastique. Elle s'étend jusqu'à ce que tout
+l'espace libre sur la ligne soit occupé. Si deux commandes
+\verb|\hspace{\stretch{|\emph{n}\verb|}}| sont exécutées sur la même
+ligne, les deux espaces s'étendent en fonction du facteur d'élasticité
+\emph{n}.
 \begin{example}
-x\hspace{\stretch{1}}
+x\hspace{\stretch{1}}%
 x\hspace{\stretch{3}}x
 \end{example}
 
-\subsection{Vertical Space}
-The space between paragraphs, sections, subsections, \ldots\ is
-determined automatically by \LaTeX. If necessary, additional vertical
-space \emph{between two paragraphs} can be added with the command:
+\subsection{Espacement vertical}
+
+L'espacement vertical entre les paragraphes, sections,
+sous-sections\dots{} est déterminé automatiquement par \LaTeX{}. 
+En cas de besoin, de l'espace supplémentaire 
+\emph{entre deux paragraphes} peut être inséré avec la commande :
 \begin{lscommand}
-\ci{vspace}\verb|{|\emph{length}\verb|}|
+\ci{vspace}\verb|{|\emph{longueur}\verb|}|
 \end{lscommand}
 
-This command should normally be used between two empty lines.  If the
-space should be preserved at the top or at the bottom of a page, use
-the starred version of the command \verb|\vspace*| instead of \verb|\vspace|.
-\index{vertical space}
+Cette commande doit normalement être utilisée entre deux lignes
+vides. Si l'espacement doit être conservé en haut ou en bas d'une
+page, utilisez la version étoilée de la commande \verb|\vspace*|.
+\index{espacement!vertical}
+\index{vertical!espacement}
 
-The \verb|\stretch| command in connection with \verb|\pagebreak| can
-be used to typeset text on the last line of a page, or to centre text
-vertically on a page.
+La commande \ci{stretch} en association avec \verb|\pagebreak| permet
+d'imprimer du texte sur la dernière ligne d'une page ou de centrer
+verticalement du texte sur une page.
 \begin{code}
 \begin{verbatim}
-Some text \ldots
+Du texte \dots
 
 \vspace{\stretch{1}}
-This goes onto the last line of the page.\pagebreak
+Ceci sera imprimé sur la dernière ligne.\pagebreak
 \end{verbatim}
 \end{code}
 
-Additional space between two lines of \emph{the same} paragraph or
-within a table is specified with the
+De l'espace supplémentaire entre deux lignes du \emph{même} paragraphe
+ou à l'intérieur d'une table peut être obtenu par la commande :
 \begin{lscommand}
-\ci{\bs}\verb|[|\emph{length}\verb|]|
+\ci{\bs}\verb|[|\emph{longueur}\verb|]|
 \end{lscommand}
-\noindent command. 
 
-With \ci{bigskip} and \ci{smallskip} you can skip a predefined amount of
-vertical space without having to worry about exact numbers.
+Les commandes \ci{bigskip} et \ci{smallskip} permettent de créer des
+espacements verticaux prédéfinis sans se préoccuper des dimensions
+exactes. 
 
-
-\section{Page Layout}
+\section{Disposition d'une page}
 
 \begin{figure}[!hp]
 \begin{center}
 \makeatletter\@layout\makeatother
 \end{center}
 \vspace*{1.8cm}
-\caption{Page Layout Parameters.}
+\caption{Paramètres de la disposition d'une page}
 \label{fig:layout}
 \end{figure}
 
-\index{page layout}
-\LaTeXe{} allows you to specify the \wi{paper size} in the
-\verb|\documentclass| command. It then automatically picks the right 
-text \wi{margins}. But sometimes you may not be happy with 
-the predefined values. Naturally, you can change them. 
+\index{disposition d'une page}
+\LaTeXe{} permet d'indiquer la taille du papier en paramètre de  la commande
+\verb|\documentclass|. Il définit ensuite automatiquement les
+\wi{marges} les mieux adaptées. Parfois, on peut ne pas être satisfait par les
+valeurs pré-définies et vouloir les modifier.
 %no idea why this is needed here ...
 \thispagestyle{fancyplain}
-Figure~\ref{fig:layout} shows all the parameters which can be changed.
-The figure was produced with the \pai{layout} package from the tools bundle%
-\footnote{\texttt{CTAN:/tex-archive/macros/latex/required/tools}}.
+La figure~\ref{fig:layout} montre tous les paramètres qui peuvent être
+modifiés. Cette figure a été réalisée avec l'extension \pai{layout} de
+l'ensemble tools.
 
-\textbf{WAIT!} \ldots before you launch into a ``Let's make that
-narrow page a bit wider'' frenzy, take a few seconds to think. As with
-most things in \LaTeX, there is a good reason for the page layout to
-be as it is.
+\textbf{Attendez !}\dots{} avant de vous lancer dans \og élargissons un peu
+ce texte \fg{}, prenez deux secondes pour réfléchir. Comme souvent avec
+\LaTeX{}, il y a de bonnes raisons pour disposer les pages de cette
+façon. 
 
-Sure, compared to your off-the-shelf MS Word page, it looks awfully
-narrow. But take a look at your favourite book\footnote{I mean a real
-  printed book produced by a reputable publisher.} and count the number
-of characters on a standard text line. You will find that there are no
-more than about 66 characters on each line. Now do the same on your
-\LaTeX{} page. You will find that there are also about 66 characters
-per line.  Experience shows that the reading gets difficult as soon as
-there are more characters on a single line. This is because it is
-difficult for the eyes to move from the end of one line to the start of the next one.
-This is also the reason why newspapers are typeset in multiple columns.
+Sans doute, comparé avec une page standard produite avec MS Word, une page de
+\LaTeX{} à l'air horriblement étroite. Mais regardez votre livre
+préféré\,\footnote{Un vrai livre, imprimé par un grand éditeur\dots} et
+comptez le nombre de caractères sur une ligne normale. Vous verrez
+qu'il n'y a guère plus de soixante-six caractères par
+ligne. L'expérience montre qu'un texte devient moins lisible si le
+nombre de caractères par ligne dépasse cette valeur, cela parce qu'il
+devient plus difficile pour les yeux de passer de la fin d'une ligne
+au début de la ligne suivante. Ceci explique aussi que les journaux
+utilisent plusieurs colonnes.
 
-So if you increase the width of your body text, keep in mind that you
-are making life difficult for the readers of your paper. But enough
-of the cautioning, I promised to tell you how you do it \ldots
- 
-\LaTeX{} provides two commands to change these parameters. They are
-usually used in the document preamble.
+Ainsi, si vous élargissez le corps du texte, ayez conscience que vous
+le rendez aussi moins lisible. Ceci dit, si vous tenez à modifier les
+paramètres qui contrôlent la 
+disposition d'une page, voici comment procéder :
 
-The first command assigns a fixed value to any of the parameters:
+\LaTeX{} dispose de deux commandes pour modifier ces paramètres. Elles
+sont généralement utilisées dans le préambule.
+
+La première commande affecte une valeur fixe  au paramètre spécifié :
 \begin{lscommand}
-\ci{setlength}\verb|{|\emph{parameter}\verb|}{|\emph{length}\verb|}|
+\ci{setlength}\verb|{|\emph{paramètre}\verb|}{|\emph{longueur}\verb|}|
 \end{lscommand}
 
-The second command adds a length to any of the parameters. 
+La deuxième commande ajoute une longueur à ce paramètre.
 \begin{lscommand}
-\ci{addtolength}\verb|{|\emph{parameter}\verb|}{|\emph{length}\verb|}|
+\ci{addtolength}\verb|{|\emph{paramètre}\verb|}{|\emph{longueur}\verb|}|
 \end{lscommand} 
 
-This second command is actually more useful than the \ci{setlength}
-command, because you can now work relative to the existing settings.
-To add one centimetre to the overall text width, I put the
-following commands into the document preamble:
+La deuxième commande est en pratique plus utile que \ci{setlength},
+parce qu'elle permet de travailler en relatif par rapport à la taille
+par défaut. Pour ajouter un centimètre à la largeur du texte, nous
+utiliserions les commandes suivantes dans le préambule :
 \begin{code}
 \verb|\addtolength{\hoffset}{-0.5cm}|\\
 \verb|\addtolength{\textwidth}{1cm}|
 \end{code}
 
-In this context, you might want to look at the \pai{calc} package,
-it allows you to use arithmetic operations in the argument of setlength
-and other places where you can enter numeric values into function
-arguments.
+Dans ce contexte, il peut être intéressant d'utiliser l'extension
+\pai{calc}, qui permet d'utiliser des expressions algébriques
+traditionnelles en argument de \verb|setlength| ainsi que partout où
+l'on utilise des valeurs numériques comme arguments de fonctions.
 
-\section{More fun with lengths}
+\section{Jouons un peu avec les dimensions}
 
-Whenever possible, I avoid using absolute lengths in
-\LaTeX{} documents. I rather try to base things on the width or height
-of other page elements. For the width of a figure this could
-be \verb|\textwidth| in order to make it fill the page.
+Autant que possible nous évitons d'utiliser des dimensions absolues
+dans des documents \LaTeX{}. Nous essayons plutôt de les définir
+relativement aux dimensions d'autres éléments de la page. La largeur
+d'une figure sera ainsi \verb|\textwidth| afin de lui faire occuper
+toute la largeur de la page.
 
-The following 3 commands allow you to determine the width, height and
-depth of a text string.
+Les trois commandes suivantes permettent de déterminer la largeur, la
+hauteur et la profondeur d'une chaîne de caractères.
 
 \begin{lscommand}
-\ci{settoheight}\verb|{|\emph{lscommand}\verb|}{|\emph{text}\verb|}|\\
-\ci{settodepth}\verb|{|\emph{lscommand}\verb|}{|\emph{text}\verb|}|\\
-\ci{settowidth}\verb|{|\emph{lscommand}\verb|}{|\emph{text}\verb|}|
+\ci{settoheight}\verb|{|\emph{commande}\verb|}{|\emph{texte}\verb|}|\\
+\ci{settodepth}\verb|{|\emph{commande}\verb|}{|\emph{texte}\verb|}|\\
+\ci{settowidth}\verb|{|\emph{commande}\verb|}{|\emph{texte}\verb|}|
 \end{lscommand}
 
-\noindent The example below shows a possible application of these commands.
+\bigbreak
+L'exemple ci-dessous montre une utilisation possible de ces 
+commandes : 
 
 \begin{example}
 \flushleft
 \newenvironment{vardesc}[1]{%
-  \settowidth{\parindent}{#1:\ }
-  \makebox[0pt][r]{#1:\ }}{}
-
+  \settowidth{\parindent}{#1\ }
+  \makebox[0pt][r]{#1\ }}{}
 \begin{displaymath}
 a^2+b^2=c^2
 \end{displaymath}
 
-\begin{vardesc}{Where}$a$, 
-$b$ -- are adjunct to the right 
-angle of a right-angled triangle.  
-
-$c$ -- is the hypotenuse of 
-the triangle and feels lonely.
-
-$d$ -- finally does not show up 
-here at all. Isn't that puzzling?
+\begin{vardesc}{Où :}$a$, 
+$b$ sont les cotés adjacents à
+l'angle droit d'un triangle 
+rectangle,\par
+$c$ est l'hypothénuse du 
+triangle,\par
+$d$ n'est pas utilisé ici. 
+\'Etonnant non ?
 \end{vardesc}
 \end{example}
 
-\section{Boxes}
-\LaTeX{} builds up its pages by pushing around boxes. At first, each
-letter is a little box, which is then glued to other letters to form
-words. These are again glued to other words, but with special glue,
-which is elastic so that a series of words can be squeezed or
-stretched as to exactly fill a line on the page. 
 
-I admit, this is a very simplistic version of what really happens, but
-the point is that \TeX{} operates on glue and boxes. Not only a letter
-can be a box. You can put virtually everything into a box including
-other boxes. Each box will then be handled by \LaTeX{} as if it was a
-single letter.
+\section{Boîtes}
+\index{boîte}
 
-In the past chapters you have already encountered some boxes, although
-I did not tell you. The \ei{tabular} environment and the
-\ci{includegraphics}, for example, both produce a box. This means that you can
-easily arrange two tables or images side by side. You just have to
-make sure that their combined width is not larger than the textwidth.
+\LaTeX{} construit ses pages en empilant des boîtes. Au commencement
+chaque caractère est une petite boîte qui est ensuite collée à
+d'autres boîtes-caractères pour former un mot. Ceux-ci sont alors
+assemblés à d'autres mots, avec une colle spéciale qui est élastique
+pour permettre de comprimer ou d'étirer des séries de mots afin de
+remplir exactement une ligne sur la page.
 
-You can also pack a paragraph of your choice into a box with either
-the
+Reconnaissons qu'il s'agit d'une description simpliste de ce
+qui se passe réellement, mais le fait est là : \TeX{} travaille avec
+des boîtes et de la colle. Les caractères ne sont pas les seuls à
+pouvoir former des boîtes. Virtuellement tout peut être mis dans des
+boîtes, y compris d'autres boîtes. Chaque boîte est ensuite traitée
+par \LaTeX{} comme s'il s'agissait d'un simple caractère. 
 
+Dans les chapitres précédents vous avez déjà rencontré quelques
+boîtes, même si nous ne l'avons pas signalé. L'environnement
+\verb|tabular| et la commande \verb|\includegraphics|, par exemple,
+produisent tous les deux des boîtes. Cela signifie que vous pouvez
+facilement aligner deux illustrations ou deux tables côte à côte. Il
+suffit de s'assurer que la somme de leurs largeurs ne dépasse pas la
+largeur du texte.
+
+Il est aussi possible d'emballer un paragraphe dans une boîte  :
 \begin{lscommand}
-\ci{parbox}\verb|[|\emph{pos}\verb|]{|\emph{width}\verb|}{|\emph{text}\verb|}|
+\ci{parbox}\verb|[|\emph{pos}\verb|]{|\emph{largeur}\verb|}{|\emph{texte}\verb|}|
 \end{lscommand}
 
-\noindent command or the
-
+\noindent on peut également utiliser un environnement :
 \begin{lscommand}
-\verb|\begin{|\ei{minipage}\verb|}[|\emph{pos}\verb|]{|\emph{width}\verb|}| text
+\verb|\begin{|\ei{minipage}\verb|}[|\emph{pos}\verb|]{|\emph{largeur}\verb|}| texte
 \verb|\end{|\ei{minipage}\verb|}|
 \end{lscommand}
 
-\noindent environment. The \texttt{pos} parameter can take one of the letters
-\texttt{c, t} or \texttt{b} to control the vertical alignment of the box,
-relative to the baseline of the surrounding text. \texttt{width} takes
-a length argument specifying the width of the box. The main difference
-between a \ei{minipage} and a \ei{parbox} is that you cannot use all commands
-and environments inside a \ei{parbox} while almost anything is possible in
-a \ei{minipage}.
+\noindent le paramètre \texttt{pos} peut être l'une des lettres
+\texttt{c}, \texttt{t} ou \texttt{b} pour contrôler l'alignement
+vertical de la boîte par rapport à la base du texte
+précédent. \texttt{largeur} est une dimension indiquant la largeur de la
+boîte.
 
-While \ci{parbox} packs up a whole paragraph doing line breaking and
-everything, there is also a class of boxing commands which operates
-only on horizontally aligned material. We already know one of them.
-It's called \ci{mbox}, it simply packs up a series of boxes into
-another one, and can be used to prevent \LaTeX{} from breaking two
-words. As you can put boxes inside boxes, these horizontal box packers
-give you ultimate flexibility.
+Alors que \ci{parbox} englobe tout un paragraphe en réalisant coupure
+des lignes et tout le reste, il existe également une catégorie de
+commandes de gestion des boîtes qui ne travaillent que sur des
+éléments alignés horizontalement. L'une d'elles nous est déjà
+connue. Il s'agit de \ci{mbox} qui combine simplement une série de
+boîtes pour en former une nouvelle; elle peut être utilisée pour
+empêcher \LaTeX{} de couper une ligne entre deux mots. Puisqu'il est
+possible de placer des boîtes dans d'autres boîtes, ces constructeurs de
+boîtes horizontales sont extrêmement flexibles.
 
 \begin{lscommand}
-\ci{makebox}\verb|[|\emph{width}\verb|][|\emph{pos}\verb|]{|\emph{text}\verb|}|
+\ci{makebox}\verb|[|\emph{largeur}\verb|][|\emph{pos}\verb|]{|\emph{texte}\verb|}|
 \end{lscommand}
 
-\noindent \texttt{width} defines the width of the resulting box as
-seen from the outside.\footnote{This means it can be smaller than the
-  material inside the box. You can even set the
-  width to 0pt so that the text inside the box will be typeset without
-  influencing the surrounding boxes.}  Apart from the length
-  expressions you can also use \ci{width}, \ci{height}, \ci{depth} and
-  \ci{totalheight} in the width parameter. They are set from values
-  obtained by measuring the typeset \emph{text}. The \emph{pos} parameter takes
-a one letter value: \textbf{c}enter, \textbf{l}eft flush,
-\textbf{r}ight flush or \textbf{s} which spreads the text inside the
-box to fill it.
+\noindent Le paramètre \texttt{largeur} définit la largeur de la boîte vue de
+l'extérieur\,\footnote{Cela signifie qu'elle peut être plus petite que
+la largeur du contenu de la boîte. Dans un cas extrême on peut même
+positionner la largeur à \texttt{0pt}; ainsi le texte dans la boîte
+sera placé sans influencer les boîtes adjacentes.}.  En plus des
+expressions exprimant une longueur vous pouvez également utiliser
+\ci{width}, \ci{height}, \ci{depth} et \ci{totalheight} à l'intérieur
+du paramètre \texttt{largeur}. Leurs valeurs sont obtenues à partir
+des dimensions réelles du \texttt{texte}. Le paramètre \texttt{pos}
+est une lettre parmi \texttt{c} (\textbf{c}enter) pour centrer le
+texte, \texttt{l} (\textbf{l}eft flush) pour l'aligner à gauche,
+\texttt{r} (\textbf{r}ight flush) pour l'aligner à droite, ou
+\texttt{s} (\textbf{s}pread) pour le répartir horizontalement dans la
+boîte.
 
-The command \ci{framebox} works exactly the same as \ci{makebox}, but
-it draws a box around the text.
+La commande \ci{framebox} fonctionne de la même façon que
+\verb|\makebox|, mais en plus elle dessine un cadre autour du texte. 
 
-The following example shows you some things you could do with
-the \ci{makebox} and \ci{framebox} commands.
+L'exemple suivant vous montre quelques choses que l'on peut faire avec
+les commandes \ci{makebox} et \ci{framebox} :
 
 \begin{example}
 \makebox[\textwidth]{%
-    c e n t r a l}\par
+    c e n t r \'e}\par
 \makebox[\textwidth][s]{%
-    s p r e a d}\par
-\framebox[1.1\width]{Guess I'm 
-    framed now!} \par
-\framebox[0.8\width][r]{Bummer, 
-    I am too wide} \par
-\framebox[1cm][l]{never 
-    mind, so am I} 
-Can you read this?
+é t i r é}\par
+\framebox[1.1\width]{Whoua 
+    le cadre !} \par
+\framebox[0.8\width][r]{Rat\'e, 
+    je suis trop large} \par
+\framebox[1cm][l]{c'est aussi 
+    mon cas.} 
+Pouvez-vous lire ceci ?
 \end{example}
 
-Now that we control the horizontal, the obvious next step is to go for
-  the vertical.\footnote{Total control is only to be obtained by
-  controlling both the horizontal and the vertical \ldots}
- No problem for \LaTeX{}. The
-
+Maintenant que nous savons contrôler l'alignement horizontal, la suite
+logique est de voir comment gérer l'alignement vertical\,\footnote{Le
+contrôle total est obtenu en contrôlant en même temps l'alignement
+horizontal et l'alignement vertical.}. Pas de problème avec
+\LaTeX{}. La commande :
 
 \begin{lscommand}
-\ci{raisebox}\verb|{|\emph{lift}\verb|}[|\emph{depth}\verb|][|\emph{height}\verb|]{|\emph{text}\verb|}|
+\ci{raisebox}\verb|{|\emph{élévation}\verb|}[|\emph{profondeur}\verb|][|\emph{hauteur}\verb|]{|\emph{texte}\verb|}|
 \end{lscommand}
 
-\noindent command lets you define the vertical properties of a
-box. You can use \ci{width}, \ci{height}, \ci{depth} and
-  \ci{totalheight} in the first three parameters, in order to act
-  upon the size of the box inside the \emph{text} argument.
-
+\noindent permet de définir les propriétés verticales d'une boîte. Vous
+pouvez utiliser \ci{width}, \ci{height}, \ci{depth} et
+\ci{totalheight} dans les trois premiers paramètres afin d'agir en
+fonction de la taille du texte contenu dans la boîte.
 
 \begin{example}
 \raisebox{0pt}[0pt][0pt]{\Large%
@@ -748,22 +807,27 @@ box. You can use \ci{width}, \ci{height}, \ci{depth} and
 \raisebox{-1.2ex}{r}%
 \raisebox{-2.2ex}{g}%
 \raisebox{-4.5ex}{h}}}
-he shouted but not even the next
-one in line noticed that something
-terrible had happened to him.
+cria-t-il, mais la ligne suivante
+ne remarqua pas qu'une chose
+horrible lui était arrivée.
 \end{example}
 
-\section{Rules and Struts}
+\section{Filets}
 \label{sec:rule}
 
-A few pages back you may have noticed the command
+\index{filet}
+
+%%% XXX Je ne sais pas quel est le terme technique exact pour 'strut'.
+
+Quelques pages plus haut vous avez peut-être remarqué la commande :
 
 \begin{lscommand}
-\ci{rule}\verb|[|\emph{lift}\verb|]{|\emph{width}\verb|}{|\emph{height}\verb|}|
+\ci{rule}\verb|[|\emph{élévation}\verb|]{|\emph{largeur}\verb|}{|\emph{hauteur}\verb|}|
 \end{lscommand}
 
-\noindent In normal use it produces a simple black box.
-\newpage
+\noindent En utilisation normale, elle produit une simple boîte
+noire. 
+
 \begin{example}
 \rule{3mm}{.1pt}%
 \rule[-1mm]{5mm}{1cm}%
@@ -772,28 +836,33 @@ A few pages back you may have noticed the command
 \rule{3mm}{.1pt}
 \end{example}
 
-\noindent This is useful for drawing vertical and horizontal
-lines. The line on the title page for example, has been created with a
-\ci{rule} command.
+\index{horizontal!filet}
+\noindent C'est utile pour produire des lignes horizontales et
+verticales. La ligne horizontale sur la page de titre par exemple a
+été tracée à l'aide d'une commande \ci{rule}.
 
-A special case is a rule with no width but a certain height. In
-professional typesetting, this is called a \wi{strut}. It is used to
-guarantee that an element on a page has a certain minimal height. You
-could use it in a \texttt{tabular} environment to make sure a row has
-a certain minimum height.
+Un cas particulier est un filet avec une largeur nulle mais une
+certaine hauteur. En typographie professionnelle ceci est appelé un
+\wi{montant}. Il sont utilisés pour s'assurer qu'un élément aura une
+hauteur donnée. Vous pouvez par exemple l'utiliser dans un
+environnement \verb|tabular| pour garantir la hauteur d'une ligne.
+\index{montant}
 
 \begin{example}
 \begin{tabular}{|c|}
 \hline
-\rule{1pt}{4ex}Pitprop \ldots\\
+\rule{1pt}{4ex}\'Etai\dots\\
 \hline
-\rule{0pt}{4ex}Strut\\
+\rule{0pt}{4ex} montant \\
 \hline
 \end{tabular}
 \end{example}
 
+\label{LastPage}
+
+\endinput
+
 %%% Local Variables: 
 %%% mode: latex
-%%% TeX-master: "lshort2e"
+%%% TeX-master: "flshort"
 %%% End: 
-

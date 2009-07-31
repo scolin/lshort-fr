@@ -1,100 +1,119 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Who contributed to this Document
-% $Id: overview.tex,v 1.6 1998/09/29 08:05:09 oetiker Exp oetiker $
+% $Id: overview.tex,v 1.13 2001/10/28 20:50:30 matthieu Exp $
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Preface}
+\chapter{Préface}
+\thispagestyle{plain}
 
-\LaTeX{} \cite{manual} is a typesetting system which is very 
-suitable for producing scientific and mathematical documents of high
-typographical quality. The system is also suitable for producing all
-sorts of other documents, from simple letters to complete books.
-\LaTeX{} uses \TeX{} \cite{texbook} as its formatting engine.
+\LaTeX{}\cite{manual} est un logiciel de composition typographique
+adapté à la production de documents scientifiques et mathématiques de
+grande qualité typographique. Il permet également de produire
+toutes sortes d'autres documents, qu'il s'agisse de simples lettres ou
+de livres entiers. \LaTeX{} utilise \TeX\cite{texbook} comme outil de
+mise en page. 
 
-This short introduction describes \LaTeXe{} and should be sufficient
-for most applications of \LaTeX. Refer to~\cite{manual,companion} for
-a complete description of the \LaTeX{} system.
+Cette introduction décrit \LaTeXe{} et devrait se montrer suffisante
+pour la plupart des applications de \LaTeX. Pour une description
+complète du système \LaTeX{}, reportez-vous
+à~\cite{manual,companion}. 
 
-\LaTeX{} is available for most computers, from the PC and Mac to large
-UNIX and VMS systems. On many university computer clusters, you will
-find that a \LaTeX{} installation is available, ready to use.
-Information on how to access
-the local \LaTeX{} installation should be provided in the \guide. If
-you have problems getting started, ask the person who gave you this
-booklet. The scope of this document is \emph{not} to tell you how to
-install and set up a \LaTeX{} system, but to teach you how to write
-your documents so that they can be processed by~\LaTeX{}.
+\LaTeX{} est disponible pour une vaste gamme de systèmes
+informatiques, des PCs et Macs aux systèmes UNIX
+\footnote{UNIX est une marque déposée de The Open Group}
+ et VMS. Dans de
+nombreuses universités, il est installé sur le réseau informatique,
+prêt à être utilisé. L'information nécessaire pour y accéder devrait
+être fournie dans le \guide. Si vous avez des difficultés pour
+commencer, demandez de l'aide à la personne qui vous a donné cette
+brochure.  Ce document \emph{n'est pas} un guide d'installation du
+système \LaTeX{}. Son but est de vous montrer comment écrire vos
+documents afin qu'ils puissent être traités par \LaTeX{}.
 
-\noindent This Introduction is split into 5 chapters:
+\noindent Cette introduction est composée de cinq chapitres :
 \begin{description}
-\item[Chapter 1] tells you about the basic structure of \LaTeXe{}
-  documents. You will also learn a bit about the history of \LaTeX{}.
-  After reading this chapter, you should have a rough picture of
-  \LaTeX{}. The picture will only be a framework, but it will enable
-  you to integrate the information provided in the other chapters into
-  the big picture.
-\item[Chapter 2] goes into the details of typesetting your
-  documents. It explains most of the essential \LaTeX{} commands and
-  environments. After reading this chapter, you will be able to write
-  your first documents. 
-\item[Chapter 3] explains how to typeset formulae with \LaTeX. Again, a
-  lot of examples help you to understand how to use one of \LaTeX{}'s
-  main strengths. At the end of this chapter, you will find tables, listing
-  all the mathematical symbols available in \LaTeX{}.
-\item[Chapter 4] explains index and  bibliography generation,
-  inclusion of EPS graphics, and some other useful extensions.
-\item[Chapter 5] contains some potentially dangerous information about
-  how to make alterations to the
-  standard document layout produced by \LaTeX{}. It will tell you how  to
-  change things such that the beautiful output of \LaTeX{}
-  begins looking quite bad.
+
+\item[Le chapitre 1] présente la structure élémentaire d'un document
+  \LaTeXe{}. Il vous apprendra également quelques éléments sur
+  l'histoire de \LaTeX{}. Après avoir lu ce chapitre, vous devriez
+  avoir une vue générale de ce qu'est \LaTeX{}, pour pouvoir assimiler
+   ce qui sera présenté dans les chapitres suivants.
+
+\item[Le chapitre 2] entre dans les détails de la mise en page d'un
+  document. Il explique les commandes et les environnements
+  essentiels de \LaTeX{}. Après avoir lu ce chapitre, vous serez
+  capables de rédiger vos premiers documents.
+
+\item[Le chapitre 3] explique comment coder des formules
+  mathématiques avec \LaTeX{}. De nombreux exemples sont donnés pour
+  montrer comment utiliser cet atout majeur de \LaTeX{}. À la fin de ce
+  chapitre, vous trouverez des tableaux qui listent tous les symboles
+  mathématiques disponibles.
+
+\item[Le chapitre 4] explique comment réaliser un index, une liste de
+  références bibliographiques ou l'insertion de figures PostScript
+  encapsulé.  Il présente aussi quelques autres extensions utiles.
+
+\item[Le chapitre 5] contient des informations potentiellement
+  dangeureuses. Il vous apprend à modifier la mise en page standard
+  produite par \LaTeX{} et vous  permet de transformer 
+  les présentations plutôt réussies de \LaTeX{} en quelque chose
+  d'assez laid.
 \end{description}
-\bigskip
-It is important to read the chapters in sequential order. The book is
-not that big after all. Make sure to carefully read the examples,
-because a great part of the information is contained in the various
-examples you will find all throughout the book.
 
 \bigskip
-\noindent If you need to get hold of any \LaTeX{} related material, 
-have a look at one of the Comprehensive \TeX{} Archive Network
-(\texttt{CTAN}) sites. The homesite is at
-\texttt{http://www.ctan.org}. All packages can also be retrieved from
-the ftp archive \texttt{ftp://www.ctan.org} and it's various mirror
-sites all over the world.  They can be found e.g.{} at
-\texttt{ftp://ctan.tug.org} (US), \texttt{ftp://ftp.dante.de}
-(Germany), \texttt{ftp://ftp.tex.ac.uk} (UK).  If you are not in one
-of these countries, choose the archive closest to you.
+Il est important de lire ces chapitres dans l'ordre. Après tout, ce
+document n'est pas si long. 
+L'étude attentive des exemples est indispensable à la compréhension de
+l'ensemble car ils contiennent une bonne partie de l'information que
+vous pourrez trouver ici.
 
-You will find other references to CTAN throughout the book. Especially
-pointers to software and documents you might want to download. Instead
-of writing down complete urls, I just wrote \texttt{CTAN:} followed by
-whatever location within the CTAN tree you should go to. 
+\bigskip
+\index{CTAN@\texttt{CTAN}}
+Si vous avez besoin de récupérer des fichiers relatifs à \LaTeX{},
+utilisez l'une des archives ftp \texttt{CTAN}\label{CTAN}.
+En France elles sont
+sur le site \url{ftp\string://ftp.lip6.fr/pub/TeX/CTAN/}. Aux
+États-Unis, il s'agit de \url{ftp\string://ctan.tug.org/}, en Allemagne de
+\url{ftp\string://ftp.dante.de/} et au Royaume-Uni de
+\url{ftp\string://ftp.tex.ac.uk/}. 
+Si vous n'êtes pas dans l'un de ces pays, choisissez le site le plus
+proche de chez vous.
 
-If you want to run \LaTeX{} on your own computer, take a look at what
-is available from \texttt{CTAN:/tex-archive/systems}.
+Vous verrez plusieurs références à CTAN au long de ce document, en
+particulier des pointeurs vers des logiciels ou des documents. Au lieu
+d'écrire des URL complets, nous avons simplement écrit \texttt{CTAN:}
+suivi du chemin d'accès à partir de l'un des sites CTAN ci-dessus.
+
+Si vous souhaitez installer \LaTeX{} sur votre ordinateur, vous
+trouverez sans doute une version adaptée à votre système sur
+sur \texttt{CTAN:/systems}.
 
 \vspace{\stretch{1}}
-\noindent If you have ideas for something to be
-added, removed or altered in this document, please let me know. I am
-especially interested in feedback from \LaTeX{} novices about which
-bits of this intro are easy to understand and which could be explained
-better.
+
+Si vous avez des suggestions concernant ce qui pourrait être ajouté,
+supprimé ou modifié dans ce document, contactez soit directement
+l'auteur de la version originale, soit moi-même, le traducteur.
+Nous sommes particulièrement intéressés par des retours d'utilisateurs
+débutants en \LaTeX{} au sujet des passages de ce livre qui devraient
+être mieux expliqués.
+
 
 \bigskip
 \begin{verse}
 \contrib{Tobias Oetiker}{oetiker@ee.ethz.ch}%
-\noindent{Department of Electrical Engineering,\\
-Swiss Federal Institute of Technology}
+{Department of Electrical Engineering,\\
+Swiss Federal Institute of Technology, Zürich.}
+
+\contrib{Matthieu Herrb}{matthieu.herrb@laas.fr}%
+{Laboratoire d'Analyse et d'Architecture des Systèmes,\\
+Centre National de la Recherche Scientifique, Toulouse.}
 \end{verse}
-\vspace{\stretch{1}}
-\noindent The current version of this document is available on\\
-\texttt{CTAN:/tex-archive/info/lshort}
+
+
 
 \endinput
 
-
-
 %%% Local Variables: 
 %%% mode: latex
-%%% TeX-master: "lshort2e"
+%%% TeX-master: "flshort"
 %%% End: 
