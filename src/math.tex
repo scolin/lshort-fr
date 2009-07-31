@@ -70,7 +70,8 @@ Vous pouvez aussi taper moins via:
 Si vous souhaitez que \LaTeX{} numérote vos équations, vous pouvez
 utiliser l'environnement \ei{equation}.
 Vous pouvez alors étiqueter une équation via \ci{label} et la
-référencer depuis un autre endroit via \ci{ref} ou \ci{eqref}:
+référencer depuis un autre endroit via les commandes \ci{ref} ou
+\ci{eqref} de l'extension \pai{amslatex} :
 \begin{example}
 \begin{equation} \label{eq}
 \epsilon > 0
@@ -318,7 +319,7 @@ commande \ci{prod}. Les limites
 inférieures et supérieures sont indiquées avec~\verb|_| et~\verb|^|
 comme pour les indices et les exposants.\index{exposant}
 \footnote{\AmS-\LaTeX{} dispose en plus de capacités de formattage
-  d'indices et d'exposants sur plusieurs lignes}
+  d'indices et d'exposants sur plusieurs lignes.}
 
 \begin{example}
 \begin{displaymath}
@@ -519,12 +520,10 @@ f'(x) & = & -\sin x   \\
  = & \sin x
 \end{eqnarray}
 \end{example}
-
-On peut considérer qu'il y a trop d'espace de part et
-d'autre de la colonne centrale, autour des signes égal. Il peut être
-réduit par la commande \verb|\setlength\arraycolsep{2pt}| comme dans
+On peut considérer qu'il y a trop d'espace de part et d'autre de la
+colonne centrale, autour des signes d'égalité.  Il peut être réduit
+par la commande \verb|\setlength\arraycolsep{2pt}| comme dans
 l'exemple suivant.
-
 
 \index{equations@équations!longues}
 Les \textbf{équations longues} ne sont pas découpées automatiquement
