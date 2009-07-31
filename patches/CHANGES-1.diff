@@ -1,0 +1,21 @@
+--- a/CHANGES
++++ b/CHANGES
+@@ -1,6 +1,17 @@
++4.12
++----
++* fixed order of hebrwe letters to be 'alphabetic'
++* fixed colons in table 3.7 (Rightarrow was captured by marovsym)
++* added cyrguide bibliogrphay entry back in ... 
++* table head in eurotable translated to english
++* remove kees.fig from Makefile
++* some wording fixes to the cirillic section.
++* added pdfstringdefDisableCommands to the preamble to fix some broken bookmarks -- Maksym Polyakov
++* reworded the paragraph on the positionargument of the newsavebox command.
++
+ 4.11
+ ---
+-* added graphics.tex file to source distro
++* added graphic.tex file to source distro
+ 
+ 4.10
+ ----

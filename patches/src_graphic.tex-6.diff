@@ -1,0 +1,16 @@
+--- a/src/graphic.tex
++++ b/src/graphic.tex
+@@ -583,9 +583,13 @@ arrows. This can be done by putting labels on them, or changing their appearance
+  \bullet\ar@{~)}[rr] && \bullet\\
+  \bullet\ar@{=(}[rr] && \bullet\\
+  \bullet\ar@{~/}[rr]  && \bullet\\
++ \bullet\ar@{^{(}->}[rr]  && \bullet\\
++ \bullet\ar@2{->}[rr]  && \bullet\\
++ \bullet\ar@3{->}[rr]  && \bullet\\
+  \bullet\ar@{=+}[rr]   && \bullet
+ }
+ \end{displaymath}
++\shorthandon{"}
+ \end{example}
+ 
+ Notice the difference between the following two diagrams:

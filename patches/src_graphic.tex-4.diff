@@ -1,0 +1,28 @@
+--- a/src/graphic.tex
++++ b/src/graphic.tex
+@@ -363,15 +363,20 @@ A picture box can be \emph{declared} by the command
+ \begin{lscommand}
+   \ci{put}\verb|(|$x,y$\verb|)|\ci{usebox}\verb|{|\emph{name}\verb|}|
+ \end{lscommand}
+-The optional \emph{position} parameter \texttt{l}, referring to ``left'', has the effect of positioning the (bottom)
+-left corner of the boxed picture at the \ci{put} argument. The \emph{name} argument refers to a \LaTeX{} storage bin
+-and therefore is of a command nature (which accounts for the backslashes in the current example). Boxed pictures can
+-be nested: In this example, \ci{foldera} is used within the definition of \ci{folderb}.
++
++The optional \emph{position} parameter has the effect of defining the
++`anchor point' of the savebox. In the example it is set to \texttt{bl} which
++puts the anchor point into the bottom left corner of the savebox. The other
++position specifiers are \texttt{t}op and \texttt{r}ight.
++
++The \emph{name} argument refers to a \LaTeX{} storage bin and therefore is
++of a command nature (which accounts for the backslashes in the current
++example). Boxed pictures can be nested: In this example, \ci{foldera} is
++used within the definition of \ci{folderb}.
+ 
+ The \ci{oval} command had to be used as the \ci{line} command does not work if the segment length is less than 
+ about 3\,mm.
+ 
+-
+ \subsection{Quadratic B\'ezier Curves}
+ 
+ \begin{example}

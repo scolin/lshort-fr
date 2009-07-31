@@ -1,0 +1,11 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -304,7 +304,7 @@ super-conduct.
+ 
+ \subsection{The Euro Currency Symbol \texorpdfstring{(\EUR)}{}}
+ 
+-When writing about money these days, you need the euro symbol. Many current
++When writing about money these days, you need the Euro symbol. Many current
+ fonts contain a Euro symbol. After loading the \pai{textcomp} package in the preamble of your document
+ \begin{lscommand}
+ \ci{usepackage}\verb|{textcomp}| 

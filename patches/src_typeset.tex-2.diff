@@ -1,0 +1,11 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -281,7 +281,7 @@ The names for these dashes are:
+ `-' \wi{hyphen}, `--' \wi{en-dash}, `---' \wi{em-dash} and
+ `$-$' \wi{minus sign}.
+ 
+-\subsection{Tilde (\texorpdfstring{$\sim$}{})}
++\subsection{Tilde ($\sim$)}
+ \index{www}\index{URL}\index{tilde}
+ A character often seen in web addresses is the tilde. To generate
+ this in \LaTeX{} you can use \verb|\~| but the result: \~{} is not really

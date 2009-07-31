@@ -1,0 +1,10 @@
+--- a/src/lshort.tex
++++ b/src/lshort.tex
+@@ -1,6 +1,6 @@
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ % Contents: Main Input File of the LaTeX2e Introduction
+-% $Id: lshort.tex,v 1.1.1.1 2002/02/26 10:04:21 oetiker Exp $
++% $Id: lshort.tex,v 1.2 2003/03/19 20:57:46 oetiker Exp $
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ % lshort.tex - The not so short introduction to LaTeX   
+ %                                                      by Tobias Oetiker

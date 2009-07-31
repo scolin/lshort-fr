@@ -1,0 +1,11 @@
+--- a/src/lssym.tex
++++ b/src/lssym.tex
+@@ -194,7 +194,7 @@ These symbols can also be used in text mode.
+ \begin{table}[!tbp]
+ \caption{AMS Greek and Hebrew.}
+ \begin{symbols}{*5{cl}}
+-\X{\digamma}     &\X{\varkappa} & \X{\beth}& \X{\daleth}     &\X{\gimel}
++\X{\digamma}     &\X{\varkappa} & \X{\beth} &\X{\gimel} & \X{\daleth}    
+ \end{symbols}
+ \end{table}
+ 

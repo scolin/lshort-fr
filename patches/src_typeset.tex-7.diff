@@ -1,0 +1,24 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -865,14 +865,13 @@ load them before \pai{fontenc} and \pai{babel} as well.}
+ \end{lscommand}
+ 
+ Generally, \pai{babel} will authomatically choose the default font encoding,
+-for the above three languages this is \fei{T2A}.  
+-However, documents are not restricted to a single font encoding.
+-For multi-lingual documents using Cyrillic and Latin-based languages
+-it makes sence to include latin font encoding explicitly. \pai{babel} 
+-will take care of switching to necessary font encoding when a different language 
+-is selected within the document.
+-
+-In adition to enabling hyphenations, translating automatically
++for the above three languages this is \fei{T2A}.  However, documents are not
++restricted to a single font encoding. For multi-lingual documents using
++Cyrillic and Latin-based languages it makes sence to include latin font
++encoding explicitly. \pai{babel} will take care of switching to the appropriate
++font encoding when a different language is selected within the document.
++
++In addition to enabling hyphenations, translating automatically
+ generated text strings, and activating some language specific 
+ typographic rules (like \ci{frenchspacing}), \pai{babel} provides some 
+ commands allowing typesetting according to the standards of 

@@ -1,0 +1,17 @@
+--- a/src/lshort.sty
++++ b/src/lshort.sty
+@@ -21,7 +21,13 @@
+ %\RequirePackage{aeguill}
+ % some packages which draw a euro
+ \RequirePackage{textcomp}
+-\RequirePackage{marvosym}
++% need some magic here to keep the original definition of rightarrow
++\newcommand{\org@Rightarrow}{}
++\let\org@Rightarrow\Rightarrow
++\usepackage{marvosym}
++\let\MVRightarrow\Rightarrow
++\let\Rightarrow\org@Rightarrow
++%%%%
+ \RequirePackage[gen]{eurosym}
+ \RequirePackage{eurosans}
+ \let\EUROSANS\euro

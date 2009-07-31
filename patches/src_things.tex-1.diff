@@ -1,0 +1,10 @@
+--- a/src/things.tex
++++ b/src/things.tex
+@@ -1,6 +1,6 @@
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ % Contents: Things you need to know
+-% $Id: things.tex,v 1.1.1.1 2002/02/26 10:04:20 oetiker Exp $
++% $Id: things.tex,v 1.2 2003/03/19 20:57:47 oetiker Exp $
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+ \chapter{Things You Need to Know}

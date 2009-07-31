@@ -1,0 +1,11 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -669,7 +669,7 @@ command
+ \end{lscommand}
+ 
+ This enables German hyphenation, if you have configured your
+-\LaTeX system accordingly. It also changes all automatic text into
++\LaTeX{} system accordingly. It also changes all automatic text into
+ German. Eg. ``Chapter'' becomes ``Kapitel.'' A set of new commands also
+ becomes available, which allows you to write German input files more quickly
+ even when you don't use the inputenc package. Check out table
