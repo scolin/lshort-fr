@@ -6,63 +6,63 @@
 \newcommand{\hoenig}{\emph{\TeX{} Unbound}~\cite{unbound}}
 \newcommand{\graphicsinlatex}{\emph{Graphics in \LaTeXe{}}~\cite{ursoswald}}
 
-\chapter{Produire des graphiques mathÃ©matiques}
+\chapter{Produire des graphiques mathématiques}
 
 \begin{intro}
 De nombreuses personnes utilisent \LaTeX{} pour mettre en page leur
-texte. Mais si l'approche \og orientÃ©e structure \fg{} est si
-commode, \LaTeX{} fournit Ã©galement des possibilitÃ©s de production
+texte. Mais si l'approche \og orientée structure \fg{} est si
+commode, \LaTeX{} fournit également des possibilités de production
 graphique sur la base de descriptions textuelles quelque peu
-limitÃ©es. De nombreuses extensions ont Ã©tÃ© crÃ©Ã©es pour surmonter ces
-limitations. Vous dÃ©couvrirez quelques-une d'entre elles dans cette
+limitées. De nombreuses extensions ont été créées pour surmonter ces
+limitations. Vous découvrirez quelques-une d'entre elles dans cette
 section.
 \end{intro}
 
 \section{Vue d'ensemble}
 
 L'environnement \ei{picture} permet la programmation directe d'images
-en \LaTeX. Vous pourrez en trouver une description dÃ©taillÃ©e dans le
-\manuel. D'un cÃ´tÃ©, cet environnement a des contraintes sÃ©rieuses,
-comme les pentes des segments ou les rayons des cercles restreints Ã 
-un choix limitÃ© de valeurs. D'un autre cÃ´tÃ©, l'environnement
-\ei{picture} de \LaTeXe{} amÃ¨ne la commande \ci{qbezier}, avec \og
-\texttt{q} \fg{} pour \og quadratique \fg{}. Des courbes frÃ©quemment
-utilisÃ©es comme des cercles, des ellipses ou des catÃ©naires peuvent
-Ãªtre approchÃ©s de maniÃ¨re satisfaisantes par des courbes de B\'ezier,
-bien que cela requiert quelques efforts mathÃ©matiques. Si en plus un
-langage de programmation comme Java est utilisÃ© pour gÃ©nÃ©rer des blocs
-\ci{qbezier} en fichiers d'entrÃ©e, l'environnement \ei{picture}
+en \LaTeX. Vous pourrez en trouver une description détaillée dans le
+\manual. D'un côté, cet environnement a des contraintes sérieuses,
+comme les pentes des segments ou les rayons des cercles restreints à
+un choix limité de valeurs. D'un autre côté, l'environnement
+\ei{picture} de \LaTeXe{} amène la commande \ci{qbezier}, avec \og
+\texttt{q} \fg{} pour \og quadratique \fg{}. Des courbes fréquemment
+utilisées comme des cercles, des ellipses ou des caténaires peuvent
+être approchés de manière satisfaisantes par des courbes de B\'ezier,
+bien que cela requiert quelques efforts mathématiques. Si en plus un
+langage de programmation comme Java est utilisé pour générer des blocs
+\ci{qbezier} en fichiers d'entrée, l'environnement \ei{picture}
 devient soudain plus puissant.
 
-Bien que programmer des images directement en \LaTeX{} est limitÃ© et
-souvent fatiguant, il reste des raisons pour continuer Ã  le faire : en
+Bien que programmer des images directement en \LaTeX{} est limité et
+souvent fatiguant, il reste des raisons pour continuer à le faire : en
 effet les documents produits ainsi sont de petite taille (en octets)
-et il n'y a pas de fichier graphique Ã  adjoindre.
+et il n'y a pas de fichier graphique à adjoindre.
 
-Des environnements comme \pai{epic} et \pai{eepic} (dÃ©crits dans
-\companion, par exemple), ou \pai{pstricks} aident Ã  Ã©liminer les
+Des environnements comme \pai{epic} et \pai{eepic} (décrits dans
+\companion, par exemple), ou \pai{pstricks} aident à éliminer les
 restrictions qui entravent l'environnement \ei{picture} originel. Ils
-renforcent ainsi les capacitÃ©s graphiques de \LaTeX.
+renforcent ainsi les capacités graphiques de \LaTeX.
 
-Alors que les deux premiÃ¨res extensions prÃ©citÃ©es se contentent
-d'amÃ©liorer \ei{picture}, l'environnement \pai{pstricks} fournit son
+Alors que les deux premières extensions précitées se contentent
+d'améliorer \ei{picture}, l'environnement \pai{pstricks} fournit son
 propre environnement de dessin, \ei{pspicture}. La puissance de
-\pai{pstricks} provient de son usage intensif des capacitÃ©s de
-\texttt{PostScript}. De plus, de nombreux environnements ont Ã©tÃ©
-Ã©crits avec des objectifs prÃ©cis en tÃªte. L'un d'entre eux est
-\texorpdfstring{\Xy}{Xy}-pic que nous prÃ©sentons Ã  la fin de ce
-chapitre. \graphicscompanion{} dÃ©crit en dÃ©tail une grande variÃ©tÃ© de
-ces environnements (Ã  ne pas confondre avec \companion).
+\pai{pstricks} provient de son usage intensif des capacités de
+\texttt{PostScript}. De plus, de nombreux environnements ont été
+écrits avec des objectifs précis en tête. L'un d'entre eux est
+\texorpdfstring{\Xy}{Xy}-pic que nous présentons à la fin de ce
+chapitre. \graphicscompanion{} décrit en détail une grande variété de
+ces environnements (à ne pas confondre avec \companion).
 
-Le plus puissant outil graphique liÃ© Ã  \LaTeX{} est \texttt{MetaPost},
-le frÃ¨re jumeau de \texttt{METAFONT} par Donald
-E. Knuth. \texttt{MetaPost} possÃ¨de le langage mathÃ©matique puissant
-et sophistiquÃ© de \texttt{METAFONT}. Ã€ la diffÃ©rence de
-\texttt{METAFONT} qui gÃ©nÃ¨re des bitmaps, \texttt{MetaPost} gÃ©nÃ¨re du
-\texttt{PostScript} encapsulÃ©, qui peut Ãªtre importÃ© dans \LaTeX. Pour
-une prÃ©sentation, voyez \hobby ou le tutoriel de \cite{ursoswald}.
+Le plus puissant outil graphique lié à \LaTeX{} est \texttt{MetaPost},
+le frère jumeau de \texttt{METAFONT} par Donald
+E. Knuth. \texttt{MetaPost} possède le langage mathématique puissant
+et sophistiqué de \texttt{METAFONT}. À la différence de
+\texttt{METAFONT} qui génère des bitmaps, \texttt{MetaPost} génère du
+\texttt{PostScript} encapsulé, qui peut être importé dans \LaTeX. Pour
+une présentation, voyez \hobby ou le tutoriel de \cite{ursoswald}.
 
-Vous pourrez trouver une discussion trÃ¨s dÃ©taillÃ© des stratÃ©gies
+Vous pourrez trouver une discussion très détaillé des stratégies
 \LaTeX{} et \TeX{} pour les images (et les polices) dans \hoenig.
 
 
@@ -71,7 +71,7 @@ Vous pourrez trouver une discussion trÃ¨s dÃ©taillÃ© des stratÃ©gies
 
 \subsection{Commandes de base}
 
-L'une des deux commandes suivantes crÃ©e un environnement
+L'une des deux commandes suivantes crée un environnement
 \ei{picture}~:
 \begin{lscommand}
 \ci{begin}\verb|{picture}(|$x,y$\verb|)|\ldots\ci{end}\verb|{picture}|
@@ -80,17 +80,17 @@ L'une des deux commandes suivantes crÃ©e un environnement
 \begin{lscommand}
 \ci{begin}\verb|{picture}(|$x,y$\verb|)(|$x_0,y_0$\verb|)|\ldots\ci{end}\verb|{picture}|
 \end{lscommand}
-Les nombres $x,\,y,\,x_0,\,y_0$ se rapportent Ã  une unitÃ© de longueur
-\ci{unitlength} qui peut Ãªtre rÃ©initialisÃ©e Ã  tout moment (sauf Ã 
-l'intÃ©rieur d'un environnement \ei{picture}) avec une commande telle
+Les nombres $x,\,y,\,x_0,\,y_0$ se rapportent à une unité de longueur
+\ci{unitlength} qui peut être réinitialisée à tout moment (sauf à
+l'intérieur d'un environnement \ei{picture}) avec une commande telle
 que
 \begin{lscommand}
 \ci{setlength}\verb|{|\ci{unitlength}\verb|}{1.2cm}|
 \end{lscommand}
-La valeur par dÃ©faut d'\ci{unitlength} est \texttt{1pt}. La premiÃ¨re
-paire $(x,y)$ rÃ©serve un espace rectangulaire pour l'image dans le
-document. La deuxiÃ¨me paire optionnelle associe des coordonnÃ©es
-arbitraires au coin infÃ©rieur gauche du rectangle rÃ©servÃ©.
+La valeur par défaut d'\ci{unitlength} est \texttt{1pt}. La première
+paire $(x,y)$ réserve un espace rectangulaire pour l'image dans le
+document. La deuxième paire optionnelle associe des coordonnées
+arbitraires au coin inférieur gauche du rectangle réservé.
 
 La plupart des commandes de dessin suivent l'une des deux formes
 suivantes :
@@ -101,7 +101,7 @@ suivantes :
 \begin{lscommand}
 \ci{multiput}\verb|(|$x,y$\verb|)(|$\Delta x,\Delta y$\verb|){|$n$\verb|}{|\emph{objet}\verb|}|
 \end{lscommand}
-Les courbes de B\'ezier font exception : elles sont dessinÃ©es avec la
+Les courbes de B\'ezier font exception : elles sont dessinées avec la
 commande
 \begin{lscommand}
 \ci{qbezier}\verb|(|$x_1,y_1$\verb|)(|$x_2,y_2$\verb|)(|$x_3,y_3$\verb|)|
@@ -139,7 +139,7 @@ commande
   \put(0,0){\line(6,5){1}}
 \end{picture}
 \end{example}
-Les segments sont dessinÃ©s via
+Les segments sont dessinés via
 \begin{lscommand}
 \ci{put}\verb|(|$x,y$\verb|){|\ci{line}\verb|(|$x_1,y_1$\verb|){|$longueur$\verb|}}|
 \end{lscommand}
@@ -152,14 +152,14 @@ Les composants du vecteur de direction sont restreints aux entiers
 \[
   -6,\,-5,\,\ldots,\,5,\,6,
 \]
-et doivent Ãªtre premiers entre eux (pas de diviseur en commun sauf
+et doivent être premiers entre eux (pas de diviseur en commun sauf
 1). La figure ci-dessus illustre les 25 valeurs possibles de pentes
-pour le premier quadrant. La longueur est relative Ã 
-\ci{unitlength}. L'argument de longueur est la coordonnÃ©e verticale
+pour le premier quadrant. La longueur est relative à
+\ci{unitlength}. L'argument de longueur est la coordonnée verticale
 dans le cas d'un segment vertical, horizontale dans tous les autres
 cas.
 
-\subsection{FlÃ¨ches}
+\subsection{Flèches}
 
 \begin{example}
 \setlength{\unitlength}{1mm}
@@ -177,18 +177,18 @@ cas.
   \put(30,20){\vector(-1,-4){5}}
 \end{picture}
 \end{example}
-Les flÃ¨ches sont dessinÃ©es via
+Les flèches sont dessinées via
 \begin{lscommand}
 \ci{put}\verb|(|$x,y$\verb|){|\ci{vector}\verb|(|$x_1,y_1$\verb|){|$longueur$\verb|}}|
 \end{lscommand}
-Pour les flÃ¨ches, les composants du vecteur de direction sont encore
+Pour les flèches, les composants du vecteur de direction sont encore
 plus restreints que pour les segments, aux entiers
 \[
   -4,\,-3,\,\ldots,\,3,\,4.
 \]
-qui doivent aussi Ãªtre premiers entre eux. Remarquez l'effet de la
-commande \ci{thicklines} sur les flÃ¨ches qui pointent vers le coin
-supÃ©rieur gauche.
+qui doivent aussi être premiers entre eux. Remarquez l'effet de la
+commande \ci{thicklines} sur les flèches qui pointent vers le coin
+supérieur gauche.
 
 \subsection{Cercles}
 
@@ -226,23 +226,23 @@ supÃ©rieur gauche.
 \end{example}
 La commande
 \begin{lscommand}
-  \ci{put}\verb|(|$x,y$\verb|){|\ci{circle}\verb|{|\emph{diamÃ¨tre}\verb|}}|
+  \ci{put}\verb|(|$x,y$\verb|){|\ci{circle}\verb|{|\emph{diamètre}\verb|}}|
 \end{lscommand}
-\noindent dessine un cercle de centre $(x,y)$ et de diamÃ¨tre
-\emph{diamÃ¨tre} (pas le rayon). L'environnement \ei{picture} admet
-seulement des cercles de moins de 14\,mm, et mÃªme en-dessous de cette
-limite tous les diamÃ¨tres ne sont pas autorisÃ©s. La commande
-\ci{circle*} produit quant Ã  elle des disques (i.e. des cercles
+\noindent dessine un cercle de centre $(x,y)$ et de diamètre
+\emph{diamètre} (pas le rayon). L'environnement \ei{picture} admet
+seulement des cercles de moins de 14\,mm, et même en-dessous de cette
+limite tous les diamètres ne sont pas autorisés. La commande
+\ci{circle*} produit quant à elle des disques (i.e. des cercles
 remplis).
 
-Comme pour les segments, il peut devenir nÃ©cessaire de recourir Ã  des
-extensions supplÃ©mentaires comme \pai{eepic} ou \pai{pstricks}. Pour
-une description dÃ©taillÃ©e de ces extensions, voyez \graphicscompanion.
+Comme pour les segments, il peut devenir nécessaire de recourir à des
+extensions supplémentaires comme \pai{eepic} ou \pai{pstricks}. Pour
+une description détaillée de ces extensions, voyez \graphicscompanion.
 
-Il existe aussi une possibilitÃ© dans l'environnement \ei{picture}. Ã€
-condition de ne pas Ãªtre effrayÃ© par les calculs requis (ou en les
-laissant Ã  un programme dÃ©diÃ©), des cercles et des ellipses de tailles
-arbitraires peuvent Ãªtre construits Ã  base de courbes de B\'ezier,
+Il existe aussi une possibilité dans l'environnement \ei{picture}. À
+condition de ne pas être effrayé par les calculs requis (ou en les
+laissant à un programme dédié), des cercles et des ellipses de tailles
+arbitraires peuvent être construits à base de courbes de B\'ezier,
 quadratiques. Voyez \graphicsinlatex{} pour des exemples et des
 fichiers source Java.
 
@@ -269,8 +269,8 @@ fichiers source Java.
 \end{picture}
 \end{example}
 Comme le montre l'exemple ci-dessus, la commande \ci{put} permet
-d'insÃ©rer du texte et des formules dans un environnement \ei{picture}
-comme Ã  l'accoutumÃ©e.
+d'insérer du texte et des formules dans un environnement \ei{picture}
+comme à l'accoutumée.
 
 \subsection{Les commandes \ci{multiput} et \ci{linethickness}}
 
@@ -298,8 +298,8 @@ La commande
 \begin{lscommand}
   \ci{multiput}\verb|(|$x,y$\verb|)(|$\Delta x,\Delta y$\verb|){|$n$\verb|}{|\emph{objet}\verb|}|
 \end{lscommand}
-\noindent possÃ¨de 4 paramÃ¨tres : le point de dÃ©part, le vecteur de
-translation d'un objet Ã  l'autre, le nombre d'objets et l'objet Ã 
+\noindent possède 4 paramètres : le point de départ, le vecteur de
+translation d'un objet à l'autre, le nombre d'objets et l'objet à
 dessiner. La commande \ci{linethickness} s'applique aux segments
 horizontaux et verticaux mais pas aux segments obliques ni aux
 cercles. Elle s'applique cependant aux courbes de B\'ezier.
@@ -333,24 +333,24 @@ La commande
 \begin{lscommand}
   \ci{put}\verb|(|$x,y$\verb|){|\ci{oval}\verb|(|$w,h$\verb|)[|\emph{position}\verb|]}|
 \end{lscommand}
-\noindent produit un ovale centrÃ© en $(x,y)$, de largeur $w$ et
-d'hauteur $h$. Les paramÃ¨tres optionnels de \emph{position}
-\texttt{b}, \texttt{t}, \texttt{l} et \texttt{r} se rapportent Ã  \og
+\noindent produit un ovale centré en $(x,y)$, de largeur $w$ et
+d'hauteur $h$. Les paramètres optionnels de \emph{position}
+\texttt{b}, \texttt{t}, \texttt{l} et \texttt{r} se rapportent à \og
 haut \fg{}, \og bas \fg{},\og gauche \fg{} et \og droite \fg{}
-respectivement. Ils peuvent Ãªtre combinÃ©s comme l'illustre l'exemple
+respectivement. Ils peuvent être combinés comme l'illustre l'exemple
 plus haut.
 
-L'Ã©paisseur de trait peut Ãªtre contrÃ´lÃ©es par deux sortes de
+L'épaisseur de trait peut être contrôlées par deux sortes de
 commandes : \\
 \ci{linethickness}\verb|{|\emph{longueur}\verb|}|
-d'un cÃ´tÃ©, \ci{thinlines} et \ci{thicklines} de l'autre. Alors que
+d'un côté, \ci{thinlines} et \ci{thicklines} de l'autre. Alors que
 \ci{linethickness}\verb|{|\emph{longueur}\verb|}| ne s'applique qu'aux
 lignes horizontales, verticales et aux courbes de B\'ezier,
 \ci{thinlines} et \ci{thicklines} s'appliquent aux segments obliques
 ainsi qu'aux cercles et aux ovales.
 
 
-\subsection{Usage multiple d'images prÃ©dÃ©finies}
+\subsection{Usage multiple d'images prédéfinies}
 
 \begin{example}
 \setlength{\unitlength}{0.5mm}
@@ -382,29 +382,29 @@ ainsi qu'aux cercles et aux ovales.
   {\usebox{\folderb}} 
 \end{picture}
 \end{example}
-Une boÃ®te d'image peut Ãªtre \emph{dÃ©clarÃ©e} par la commande
+Une boîte d'image peut être \emph{déclarée} par la commande
 \begin{lscommand}
   \ci{newsavebox}\verb|{|\emph{nom}\verb|}|
 \end{lscommand}
-\noindent puis \emph{dÃ©finie} par
+\noindent puis \emph{définie} par
 \begin{lscommand}
   \ci{savebox}\verb|{|\emph{nom}\verb|}(|\emph{largeur,hauteur}\verb|)[|\emph{position}\verb|]{|\emph{contenu}\verb|}|
 \end{lscommand}
-\noindent et enfin dessinÃ©e arbitrairement souvent via
+\noindent et enfin dessinée arbitrairement souvent via
 \begin{lscommand}
   \ci{put}\verb|(|$x,y$\verb|)|\ci{usebox}\verb|{|\emph{nom}\verb|}|
 \end{lscommand}
-Le paramÃ¨tre optionnel de \emph{position} \texttt{l} (pour \og gauche
+Le paramètre optionnel de \emph{position} \texttt{l} (pour \og gauche
 \fg{}, i.e. \og left \fg{}) a pour effet de positionner le coin
-(infÃ©rieur) gauche de l'image emboÃ®tÃ©e au niveau de l'argument de
-\ci{put}. Le paramÃ¨tre \emph{nom} se rapporte Ã  un registre de
+(inférieur) gauche de l'image emboîtée au niveau de l'argument de
+\ci{put}. Le paramètre \emph{nom} se rapporte à un registre de
 stockage \LaTeX{}: il s'agit donc d'une commande (ce qui explique
-l'usage d'antislashs dans l'exemple). Les images emboÃ®tÃ©es peuvent
-Ãªtre imbriquÃ©es : \ci{foldera} est utilisÃ©e Ã  l'intÃ©rieur de la
-dÃ©finition de \ci{folderb} dans l'exemple.
+l'usage d'antislashs dans l'exemple). Les images emboîtées peuvent
+être imbriquées : \ci{foldera} est utilisée à l'intérieur de la
+définition de \ci{folderb} dans l'exemple.
 
-La commande \ci{oval} a dÃ» Ãªtre utilisÃ©e car la commande \ci{line} ne
-fonctionne pas avec des segments dont la longueur est infÃ©rieure Ã 
+La commande \ci{oval} a dû être utilisée car la commande \ci{line} ne
+fonctionne pas avec des segments dont la longueur est inférieure à
 3\,mm.
 
 
@@ -434,17 +434,17 @@ fonctionne pas avec des segments dont la longueur est infÃ©rieure Ã 
   \qbezier(3,1)(4,1)(4,2)
 \end{picture}
 \end{example}
-Cet exemple illustre l'inadÃ©quation du dÃ©coupage d'un cercle en 4
+Cet exemple illustre l'inadéquation du découpage d'un cercle en 4
 courbes de B\'ezier. Au moins 8 d'entre elles sont requises. La figure
-montre Ã  nouveau l'effet de la commande \ci{linethickness} sur les
+montre à nouveau l'effet de la commande \ci{linethickness} sur les
 lignes horizontales et verticales, ainsi que des commandes
 \ci{thinlines} et \ci{thicklines} sur les segments obliques. Elle
 montre enfin l'effet des deux sortes de commandes sur les courbes de
-B\'ezier, chaque commande supplantant toutes les prÃ©cÃ©dentes.
+B\'ezier, chaque commande supplantant toutes les précédentes.
 
-Soient $P_1=(x_1,\,y_1),\,P_2=(x_2,\,y_2)$ les points de dÃ©but et fin
+Soient $P_1=(x_1,\,y_1),\,P_2=(x_2,\,y_2)$ les points de début et fin
 et $m_1,\,m_2$ leurs pentes respectives d'une courbe de B\'ezier. Le
-point de contrÃ´le intermÃ©diaire est donnÃ© par les Ã©quations
+point de contrôle intermédiaire est donné par les équations
 suivantes~:
 \begin{equation} \label{zwischenpunkt}
   \left\{
@@ -454,10 +454,10 @@ suivantes~:
     \end{array}
   \right.
 \end{equation}
-\noindent RÃ©fÃ©rez-vous Ã  \graphicsinlatex{} pour un programme Java qui
-gÃ©nÃ¨re les lignes de commandes \ci{qbezier} nÃ©cessaires.
+\noindent Référez-vous à \graphicsinlatex{} pour un programme Java qui
+génère les lignes de commandes \ci{qbezier} nécessaires.
 
-\subsection{CatÃ©naire}
+\subsection{Caténaire}
 
 \begin{example}
 \setlength{\unitlength}{1.3cm}
@@ -492,25 +492,25 @@ gÃ©nÃ¨re les lignes de commandes \ci{qbezier} nÃ©cessaires.
 \end{picture}
 \end{example}
 
-Dans cette figure, chaque moitiÃ© symmÃ©trique du catÃ©naire $y=\cosh x
--1$ est approchÃ©e par une courbe de B\'ezier. La moitiÃ© droite
-s'achÃ¨ve au point \((2,\,2.7622)\) avec une pente \(m=3.6269\). Ã€
-l'aide de l'Ã©quation (\ref{zwischenpunkt}) nous pouvons calculer les
-points de contrÃ´le intermÃ©diaires. Ils s'avÃ¨rent Ãªtre $(1.2384,\,0)$
-et $(-1.2384,\,0)$. Les croix indiquent les points du catÃ©naire
-\emph{rÃ©el}. L'erreur est nÃ©gligeable, de moins d'un pourcent.
+Dans cette figure, chaque moitié symmétrique du caténaire $y=\cosh x
+-1$ est approchée par une courbe de B\'ezier. La moitié droite
+s'achève au point \((2,\,2.7622)\) avec une pente \(m=3.6269\). À
+l'aide de l'équation (\ref{zwischenpunkt}) nous pouvons calculer les
+points de contrôle intermédiaires. Ils s'avèrent être $(1.2384,\,0)$
+et $(-1.2384,\,0)$. Les croix indiquent les points du caténaire
+\emph{réel}. L'erreur est négligeable, de moins d'un pourcent.
 
-Cet exemple signale l'usage du paramÃ¨tre optionel de la commande
-\verb|\begin{picture}|. L'image est dÃ©finie selon des coordonnÃ©es \og
-  mathÃ©matiques \fg{} commodes, tandis que par la commande
+Cet exemple signale l'usage du paramètre optionel de la commande
+\verb|\begin{picture}|. L'image est définie selon des coordonnées \og
+  mathématiques \fg{} commodes, tandis que par la commande
 \begin{lscommand} 
   \ci{begin}\verb|{picture}(4.3,3.6)(-2.5,-0.25)|
 \end{lscommand}
-\noindent son coin infÃ©rieur gauche (marquÃ© par une disque noir) est
-associÃ© aux coordonnÃ©es $(-2.5,-0.25)$.
+\noindent son coin inférieur gauche (marqué par une disque noir) est
+associé aux coordonnées $(-2.5,-0.25)$.
 
 %SC: not a physicist here, hope I got this one right :-P
-\subsection{La rapiditÃ© dans la thÃ©orie de la relativitÃ© restreinte}
+\subsection{La rapidité dans la théorie de la relativité restreinte}
 
 \begin{example}
 \setlength{\unitlength}{1cm}
@@ -531,27 +531,27 @@ associÃ© aux coordonnÃ©es $(-2.5,-0.25)$.
   \put(-3,-2){\circle*{0.2}}
 \end{picture}
 \end{example}
-Les points de contrÃ´le des deux courbes de B\'ezier ont Ã©tÃ© calculÃ©es
-grÃ¢ce aux formules (\ref{zwischenpunkt}). La branche positive est
-dÃ©terminÃ©e par $P_1=(0,\,0),\,m_1=1$ and $P_2=(2,\,\tanh
-2),\,m_2=1/\cosh^2 2$. L'image est Ã  nouveau dÃ©finie selon des
-coordonnÃ©es mathÃ©matiques commodes et le coin infÃ©rieur gauche est
-associÃ© aux coordonnÃ©es mathÃ©matiques $(-3,-2)$ (le disque noir).
+Les points de contrôle des deux courbes de B\'ezier ont été calculées
+grâce aux formules (\ref{zwischenpunkt}). La branche positive est
+déterminée par $P_1=(0,\,0),\,m_1=1$ and $P_2=(2,\,\tanh
+2),\,m_2=1/\cosh^2 2$. L'image est à nouveau définie selon des
+coordonnées mathématiques commodes et le coin inférieur gauche est
+associé aux coordonnées mathématiques $(-3,-2)$ (le disque noir).
 
 \section{\texorpdfstring{\Xy}{Xy}-pic}
 \secby{Alberto Manuel Brand\~ao Sim\~oes}{albie@alfarrabio.di.uminho.pt}
-\pai{xy} est une extension dÃ©diÃ©e au dessin de diagrammes. Elle est
-invoquÃ©e par l'ajout dans votre prÃ©ambule de la ligne :
+\pai{xy} est une extension dédiée au dessin de diagrammes. Elle est
+invoquée par l'ajout dans votre préambule de la ligne :
 \begin{lscommand}
 \verb|\usepackage[|\emph{options}\verb|]{xy}|
 \end{lscommand}
 \emph{options} est une liste des fonctions que vous voulez voir
-\Xy-pic charger. Ces options sont surtout utiles pour dÃ©boguer
-l'extension. Je vous suggÃ¨re d'utiliser l'option \verb!all! afin de
+\Xy-pic charger. Ces options sont surtout utiles pour déboguer
+l'extension. Je vous suggère d'utiliser l'option \verb!all! afin de
 faire charger toutes les commandes \Xy{} par \LaTeX{}.
 
-Les diagrammes \Xy-pic sont dessinÃ©s sur une trame basÃ©e sur un
-matrice, oÃ¹ chaque Ã©lÃ©ment de dessin correspond Ã  un Ã©lÃ©ment de la
+Les diagrammes \Xy-pic sont dessinés sur une trame basée sur un
+matrice, où chaque élément de dessin correspond à un élément de la
 matrice :
 \begin{example}
 \begin{displaymath}
@@ -559,9 +559,9 @@ matrice :
           C & D }
 \end{displaymath}
 \end{example}
-La commande \ci{xymatrix} requiert le mode mathÃ©matique. Ici nous
-avons spÃ©cifiÃ© deux lignes et deux colonnes. Pour faire de cette
-matrice un diagramme, nous ajoutons des flÃ¨ches via la commande
+La commande \ci{xymatrix} requiert le mode mathématique. Ici nous
+avons spécifié deux lignes et deux colonnes. Pour faire de cette
+matrice un diagramme, nous ajoutons des flèches via la commande
 \ci{ar}.
 \begin{example}
 \begin{displaymath}
@@ -569,8 +569,8 @@ matrice un diagramme, nous ajoutons des flÃ¨ches via la commande
            D \ar[u] & C \ar[l] }
 \end{displaymath}
 \end{example}
-La commande de flÃ¨che est placÃ©e sur la cellule d'origine de la
-flÃ¨che. Les arguments correspondent Ã  sa direction (\texttt{u}p vers
+La commande de flèche est placée sur la cellule d'origine de la
+flèche. Les arguments correspondent à sa direction (\texttt{u}p vers
 le haut, \texttt{d}own vers le bas, \texttt{r}ight vers la droite et
 \texttt{l}eft vers la gauche).
 
@@ -582,9 +582,9 @@ le haut, \texttt{d}own vers le bas, \texttt{r}ight vers la droite et
   D                       & C }
 \end{displaymath}
 \end{example}
-Les flÃ¨ches en diagonales sont obtenus en utilisant plus d'une
-direction. Vous pouvez aussi rÃ©pÃ©ter les directions pour avoir de plus
-grandes flÃ¨ches.
+Les flèches en diagonales sont obtenus en utilisant plus d'une
+direction. Vous pouvez aussi répéter les directions pour avoir de plus
+grandes flèches.
 \begin{example}
 \begin{displaymath}
 \xymatrix{
@@ -593,8 +593,8 @@ grandes flÃ¨ches.
 \end{displaymath}
 \end{example}
 
-Nous pouvons dessiner des diagrammes plus intÃ©ressants en ajoutant des
-Ã©tiquettes aux flÃ¨ches grÃ¢ce aux opÃ©rateurs d'indice et d'exposant.
+Nous pouvons dessiner des diagrammes plus intéressants en ajoutant des
+étiquettes aux flèches grâce aux opérateurs d'indice et d'exposant.
 \begin{example}
 \begin{displaymath}
 \xymatrix{
@@ -604,11 +604,11 @@ Nous pouvons dessiner des diagrammes plus intÃ©ressants en ajoutant des
 \end{displaymath}
 \end{example}
 
-Comme l'indique l'exemple, vous utilisez ces opÃ©rateurs en mode
-mathÃ©matique. La seule diffÃ©rence est que l'exposant signifie \og
-au-dessus de la flÃ¨che \fg{} et l'indice \og sous la flÃ¨che \fg{}. il
-existe un troisiÃ¨me opÃ©rateur, la barre verticale: \verb+|+. Elle fait
-se placer le texte \emph{dans} la flÃ¨che.
+Comme l'indique l'exemple, vous utilisez ces opérateurs en mode
+mathématique. La seule différence est que l'exposant signifie \og
+au-dessus de la flèche \fg{} et l'indice \og sous la flèche \fg{}. il
+existe un troisième opérateur, la barre verticale: \verb+|+. Elle fait
+se placer le texte \emph{dans} la flèche.
 \begin{example}
 \begin{displaymath}
 \xymatrix{
@@ -618,11 +618,11 @@ se placer le texte \emph{dans} la flÃ¨che.
 \end{displaymath}
 \end{example}
 
-Pour dessiner une flÃ¨che trouÃ©e, utilisez \verb!\ar[...]|\hole!.
+Pour dessiner une flèche trouée, utilisez \verb!\ar[...]|\hole!.
 
-Dans certaines circonstances, il peut Ãªtre important de distinguer les
-diffÃ©rents types de flÃ¨ches. Ceci peut Ãªtre obtenu en leur assignant
-des Ã©tiquettes ou en changeant leur apparence :
+Dans certaines circonstances, il peut être important de distinguer les
+différents types de flèches. Ceci peut être obtenu en leur assignant
+des étiquettes ou en changeant leur apparence :
 
 \begin{example}
 \begin{displaymath}
@@ -637,7 +637,7 @@ des Ã©tiquettes ou en changeant leur apparence :
 \end{displaymath}
 \end{example}
 
-Notez la diffÃ©rence entre les deux diagrammes suivants:
+Notez la différence entre les deux diagrammes suivants:
 
 \begin{example}
 \begin{displaymath}
@@ -659,8 +659,8 @@ Notez la diffÃ©rence entre les deux diagrammes suivants:
 \end{displaymath}
 \end{example}
 
-Les modifieurs entre les slashs dÃ©finissent la maniÃ¨re dont les
-courbes sont dessinÃ©es. \Xy-pic offre de nombreuses faÃ§ons
+Les modifieurs entre les slashs définissent la manière dont les
+courbes sont dessinées. \Xy-pic offre de nombreuses façons
 d'influencer le dessin des courbes. Pour plus d'informations, veuillez
 consultez la documentation d'\Xy-pic.
 
