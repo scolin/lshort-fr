@@ -332,8 +332,10 @@ If you prefer a Euro symbol that matches your font, use the option
 If the Adobe Eurofonts are installed on your system (they are available for
 free from \url{ftp://ftp.adobe.com/pub/adobe/type/win/all}) you can use
 either the package \pai{europs} and the command \ci{EUR} (for a Euro symbol
-that matches the current font) or the package
-\pai{eurosans} and the command \ci{euro} (for the ``official Euro'').
+that matches the current font).
+% does not work
+% or the package
+% \pai{eurosans} and the command \ci{euro} (for the ``official Euro'').
 
 The \pai{marvosym} package also provides many different symbols, including a
 Euro, under the name \ci{EUR}. Its disadvantage is that it does not provide
@@ -350,8 +352,9 @@ $[$gen$]$eurosym &\verb+\euro+ & \huge\geneuro  &\huge\sffamily\geneuro
                                                 & \huge\ttfamily\geneuro \\
 % En fait on appelle eurofont pour des conflits de noms...
 europs       &\verb+\EUR + & \huge\EURtm     &\huge\EURhv   & \huge\EURcr \\
-eurosans     &\verb+\euro+ & \huge\EUROSANS  &\huge\sffamily\EUROSANS
-                                                & \huge\ttfamily\EUROSANS \\
+% this does not seem to work ... 
+%eurosans     &\verb+\euro+ & \huge\EUROSANS  &\huge\sffamily\EUROSANS
+%                                                & \huge\ttfamily\EUROSANS \\
 marvosym     &\verb+\EUR+  & \huge\mvchr164  &\huge\mvchr164 & \huge\mvchr164
 \end{tabular}
 \medskip
@@ -509,7 +512,7 @@ When using this package, you should consider that other people might not
 be able to display your input files on their computer, because they use
 a different encoding. For example, the German umlaut \"a on OS/2 is
 encoded as 132, on Unix systems using ISO-LATIN~1 it is encoded as 228,
-while in cyrillic encoding cp1251 for Windows this letter does not exist
+while in Cyrillic encoding cp1251 for Windows this letter does not exist
 at all; therefore you should use this feature with care. The following
 encodings may come in handy, depending on the type of system you are
 working on\footnote{To learn more about supported  input
@@ -521,7 +524,7 @@ documentation.}
 \begin{center}
 \begin{tabular}{l | r | r }
 Operating & \multicolumn{2}{c}{encodings}\\
-system  & western latin      & cyrillic\\
+system  & western Latin      & Cyrillic\\
 \hline
 Mac     &  \iei{applemac} & \iei{macukr}  \\
 Unix    &  \iei{latin1}   & \iei{koi8-ru}  \\ 
@@ -559,9 +562,9 @@ characters of the 7-bit ASCII character set. When accented characters
 are required, \TeX{} creates them by combining a normal character with
 an accent. While the resulting output looks perfect, this approach stops
 the automatic hyphenation from working inside words containing accented
-characters. Besides, some of latin letters could not be created by
+characters. Besides, some of Latin letters could not be created by
 combining a normal character with an accent, to say nothing about letters of
-non-latin alphabets, such as Greek or Cyrillic.
+non-Latin alphabets, such as Greek or Cyrillic.
 
 To overcome these shortcomings, several 8-bit CM-like font sets were created.
 \emph{Extended Cork} (EC) fonts in \fei{T1} encoding contains 
@@ -731,7 +734,7 @@ In these encodings each US-ASCII character represents its normal ASCII
 character similar to other ASCII compatible encodings such as
 ISO-8859-\textit{x}, EUC-JP, Shift\_JIS, and Big5. On the other hand, Hangul
 syllables, Hanjas (Chinese characters as used in Korea), Hangul Jamos,
-Hirakanas, Katakanas, Greek and Cyrillic characters and other
+Hiraganas, Katakanas, Greek and Cyrillic characters and other
 symbols and letters drawn from KS~X~1001 are represented by two
 consecutive octets. The first has its MSB set.
 Until the mid-1990's, it took a considerable amount of time and effort to
@@ -871,7 +874,7 @@ load them before \pai{fontenc} and \pai{babel} as well.}
 Generally, \pai{babel} will authomatically choose the default font encoding,
 for the above three languages this is \fei{T2A}.  However, documents are not
 restricted to a single font encoding. For multi-lingual documents using
-Cyrillic and Latin-based languages it makes sense to include latin font
+Cyrillic and Latin-based languages it makes sense to include Latin font
 encoding explicitly. \pai{babel} will take care of switching to the appropriate
 font encoding when a different language is selected within the document.
 
@@ -883,7 +886,7 @@ Bulgarian, Russian, or Ukrainian languages.
 
 
 For all three languages, language specific punctuation is provided:
-The cyrillic dash for the text (it is little narrower than latin dash and
+The Cyrillic dash for the text (it is little narrower than Latin dash and
 surrounded by tiny spaces), a dash for direct speech, quotes, and
 commands to facilitate hyphenation, see Table~\ref{Cyrillic}.
 

@@ -18,10 +18,9 @@
 such as images or graphics, with the \texttt{figure} and
 \texttt{table} environments.
 
-There are also several ways to generate the actual
+There are several ways to generate the actual
 \wi{graphics} with basic \LaTeX{} or a \LaTeX{} extension package,
-but most users find them quite difficult to understand, so
-this manual will not explain them.
+a few of them are described in chapter \ref{chap:graphics}.
 Please refer to \companion{} and the \manual{} for more information on
 that subject.
 
@@ -555,9 +554,22 @@ that some font used in the document has not been found. You really have
 to fix these problems, as the resulting PDF document may 
 \emph{not display the pages with the missing characters at all}.
 
-This whole font business, especially the lack of a good EC fontset 
-equivalent in quality to the CM font in type~1 format,  is occupying the 
-minds of many people, so new solutions are cropping up all the time.
+As you can see this whole font business, especially the lack of a good EC
+fontset equivalent in quality to the CM font in type~1 format, has been
+occupying many peoples minds. Recently a new set of high quality outline
+fonts called Latin Modern (LM) has become available. It puts an end to the
+misery. If you have a recent \TeX{} installation, chances are that you
+already have a copy of them installed all you need todo is to add
+\begin{code}
+\begin{verbatim}  
+\userpackage{lmodern}
+\usepackage[T1]{fontenc} 
+\usepackage{textcomp}
+\end{verbatim}
+\end{code}
+to the preamble of your document and you are all set for creating excellent
+pdf output with full support for the full Latin character set.
+
 
 \subsection{Using Graphics}
 \label{ssec:pdfgraph}
@@ -579,9 +591,8 @@ format do not work with Pdf\LaTeX{}. If you don't define a file extension
 in the \ci{includegraphics} command, \pai{graphicx} will go
 looking for a suitable file on its own, depending on the setting of
 the \emph{driver} option. For \texttt{pdftex} this is
-formats \texttt{.png}, \texttt{.pdf}, \texttt{.jpg}, \texttt{.mps} (
-\MP\index{metapost@\MP}),
-and \texttt{.tif}---but \emph{not} \texttt{.eps}.
+formats \texttt{.png}, \texttt{.pdf}, \texttt{.jpg} and \texttt{.mps} (
+\MP\index{metapost@\MP})---but \emph{not} \texttt{.eps}.
 
 The simple way out of this problem is to just convert your EPS files
 into PDF format using the \texttt{epstopdf} utility found on many
@@ -814,10 +825,8 @@ If you use
 \end{code}
 the result will be much more legible.
 
-
 \subsubsection{Source Compatibility Between \LaTeX{} and pdf\LaTeX{}}
 \label{sec:pdfcompat}
-
 
 Ideally your document would compile equally well with \LaTeX{} and
 pdf\LaTeX{}. The main problem in this respect is the inclusion of
@@ -827,39 +836,36 @@ automatically look for a file of a suitable format in the current
 directory. All you have to do is create appropriate versions of the
 graphics files. \LaTeX{} will look for \texttt{.eps}, and pdf\LaTeX{}
 will try to include a file with the extension
-\texttt{.png}, \texttt{.pdf}, \texttt{.jpg}, \texttt{.mps} or \texttt{.tif}
+\texttt{.png}, \texttt{.pdf}, \texttt{.jpg} or \texttt{.mps}
 (in that order).
 
-
 For the cases where you want to use different code for the
-PDF version of your document, you can add:
+PDF version of your document, you can simply add the package \pai{ifpdf}%
+\footnote{If you want the whole story on why to use this package then
+   go to the \TeX{} FAQ under the item
+   \url{http://www.tex.ac.uk/cgi-bin/texfaq2html?label=ifpdf}.}  to
+your preamble. Chances are that you already have it installed; if not
+then you're probably using MiK\TeX{} which will install it for you
+automatically the first time you try to use it. This package defines
+the special command \ci{ifpdf} that will allow you to write
+conditional code easily. In this example, we want the PostScript
+version to be black and white due to the printing costs but we want
+the PDF version for online viewing to be colourful.
 \begin{code}
 \begin{verbatim}
-\newif\ifPDF
-\ifx\pdfoutput\undefined\PDFfalse
-\else\ifnum\pdfoutput > 0\PDFtrue
-     \else\PDFfalse
-     \fi
+\ifpdf
+   \usepackage[T1]{fontenc}
+   \usepackage{aeguill}
+   \usepackage[pdftex]{graphicx,color}
+   \usepackage[pdftex,colorlinks]{hyperref}
+\else
+   \usepackage[T1]{fontenc}
+   \usepackage[dvips]{graphicx}
+   \usepackage[dvips]{hyperref}
 \fi
 \end{verbatim}
 \end{code}
-as the very first few lines of your document. This defines a special
-command that will allow you to easily write conditional code:
-\begin{code}
-\begin{verbatim}
-\ifPDF
-  \usepackage[T1]{fontenc}
-  \usepackage{aeguill}
-  \usepackage[pdftex]{graphicx,color}
-  \usepackage[pdftex]{hyperref}
-\else    
-  \usepackage[T1]{fontenc}
-  \usepackage[dvips]{graphicx}
-  \usepackage[dvips]{hyperref}
-\fi
-\end{verbatim}
-\end{code}
-In the example above I have included the hyperref package even in the
+In the example above I have included the \pai{hyperref} package even in the
 non-PDF version. The effect of this is to make the \ci{href} command
 work in all cases, which saves me from wrapping every occurrence into a
 conditional statement.

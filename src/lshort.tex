@@ -27,10 +27,9 @@
 %
 % ---------------------------------------------------------------------
 
-\ifx\pdfoutput\undefined % We're not running pdftex
-\documentclass[dvips,11pt,a4paper,twoside]{book}
-\else
-\documentclass[pdftex,11pt,a4paper,twoside]{book}
+\documentclass[11pt,a4paper,twoside]{book}
+\usepackage{ifpdf}
+\ifpdf
 \usepackage{thumbpdf}
 \pdfcompresslevel=9
 \fi
