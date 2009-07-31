@@ -306,13 +306,15 @@ En français, avec l'option \pai{francais} de l'extension \pai{babel},
 utilisez \ci{og} et \ci{fg} ou bien utilisez directement 
 \texttt{«} et \texttt{»} si vous disposez d'un moyen de saisir ces
 caractères. 
-
-
 \begin{example}
 ``Please press the `x' key.''
 
 «~Appuyez sur la touche `x'.~»
 \end{example}
+Je suis conscient que le rendu ici n'est pas idéal, mais il s'agit
+effectivement d'un accent grave et d'une quote (i.e. pas une
+apostrophe au sens typographique du terme), et ce malgré ce que la
+police choisie semble indiquer.
  
 \subsection{Tirets}
 
@@ -370,6 +372,9 @@ Je vais bient\^ot devenir
 supra-conducteur.
 \end{example}
 
+L'extension \pai{texcomp} met aussi à disposition le symbole degré via
+les commandes \ci{textcelsius} et \ci{texdegree}.
+
 \subsection{Le symbole de l'euro \texorpdfstring{(\EUR{})}{}}
 
 Écrire sur tout sujet économique de nos jours requiert l'utilisation
@@ -391,7 +396,7 @@ ne l'aimez pas, il vous reste deux alternatives :
 Tout d'abord l'extension \pai{eurosym} qui fournit un symbol officiel
 de l'Euro :
 \begin{lscommand}
-\ci{usepackage}\verb|[|\emph{official}\verb|]{eurosym}| 
+\ci{usepackage}\verb|[|\emph{official}\verb|]{eurosym}|
 \end{lscommand}
 Si vous préférez un symbole qui correspond à votre police, utilisez
 plutôt \texttt{gen} à la place de \texttt{option}.
@@ -537,7 +542,7 @@ Si votre système est configuré correctement, vous pouvez sélectionner
 la langue utilisée par l'extension \pai{babel} 
 avec la commande : 
 \begin{lscommand}
-\ci{usepackage}\verb|[|\emph{langue}\verb|]{babel}| 
+\ci{usepackage}\verb|[|\emph{langue}\verb|]{babel}|
 \end{lscommand}
 \noindent après la commande \verb|\documentclass|. Une liste des
 \emph{langue}s prises en compte par votre système \LaTeX{} est
@@ -585,7 +590,7 @@ variété des codages d'entrée des différents langages et plateformes
 grâce à l'extension \pai{inputenc} :
 \label{inputenc}
 \begin{lscommand}
-\ci{usepackage}\verb|[|\textit{codage}\verb|]{inputenc}| 
+\ci{usepackage}\verb|[|\emph{codage}\verb|]{inputenc}|
 \end{lscommand}
 
 %SC: is this still true ?
@@ -730,7 +735,7 @@ simplement le codage adéquat.
 \secby{Daniel Flipo}{daniel.flipo@univ-lille1.fr}
 Voici quelques conseils pour créer des documents en
 \wi{français}\index{français} à l'aide de \LaTeX{}. Le support de la
-langue française est activé par la commande :
+langue française est activé par la commande suivante :
 
 \begin{lscommand}
 \verb|\usepackage[francais]{babel}|
@@ -780,7 +785,7 @@ spécificités de la typographie française tout au long du texte.
 
 Voici quelques conseils pour créer des documents en
 \wi{allemand}\index{deutsch} à l'aide de \LaTeX{}. Le support de la
-langue allemande est activé par la commande :
+langue allemande est activé par la commande suivante :
 
 \begin{lscommand}
 \verb|\usepackage[german]{babel}|
@@ -945,7 +950,7 @@ insérer la déclaration suivante en préambule :
 Cette commande active la localisation coréenne. Les textes
 automatiques (chapitres, sections,\dots) sont traduits en coréen et le
 format du document est modifié afin de suivre les conventions
-coréennes. Les extensions proposent également une \og sélection de
+coréennes. L' extension propose également une \og sélection de
 particules \fg{} automatique. En coréen, il y a des paires de
 particules postfixées équivalentes grammaticalement mais différentes
 d'apparence. La correction d'une paire dépend du fait que la syllabe
@@ -1220,16 +1225,21 @@ a introduit trois nouvelles commandes destinées à être utilisées avec
 la classe \texttt{book} :
 \begin{description}
 \item[\ci{frontmatter}] doit être la première commande après le
-  \verb|\begin{document}|, elle introduit le prologue du document. 
-  Les numéros de pages sont alors en romain (i, ii, iii, etc.). 
-  En général on ne numérote pas les parties d'un prologue, ceci
-  se fait en utilisant les variantes étoilées des commandes de
-  sectionnement comme  \verb|\chapter*{Preface}|.
+  \verb|\begin{document}|, elle introduit le prologue du document.
+    Les numéros de pages sont alors en romain (i, ii, iii, etc.) et
+    les sections non-numérotées, comme si vous utilisiez les variantes
+    étoilées des commandes de sectionnement
+    (p.e. \verb|\chapter*{Preface}|) mais que les sections
+    apparaissaient tout de même en table des matières ;
+
 \item[\ci{mainmatter}] se place juste avant le début du premier
   (vrai) chapitre du livre,  la numérotation des pages se fait alors 
-  en chiffres arabes et le compteur de pages est remis à~1.
+  en chiffres arabes et le compteur de pages est remis à~1 ;
+
 \item[\ci{appendix}] indique le début des appendices, les numéros
-  des chapitres sont alors remplacés par des lettres majuscules (A, B, etc.).
+  des chapitres sont alors remplacés par des lettres majuscules (A, B,
+  etc.) ;
+
 \item[\ci{backmatter}] se place juste avant la bibliographie et les
   index. Avec les classes standard de document, cette commmande n'a
   aucun effet visible.
@@ -1506,6 +1516,23 @@ Fer quoi faire\\
 Fer coiffeur.\\
 \end{verse}
 \end{flushleft}
+\end{example}
+
+\subsection{Abstract}
+
+Lors d'une publication scientifique il est usuel de démarrer celle-ci
+avec un \emph{abstract}, ou résumé, censé donner au lecteur une vue
+d'ensemble de ce qu'il doit attendre du document. \LaTeX{} fournit un
+environnement \ei{abstract} à cette fin. Normalement \ei{abstract} est
+utilisé dans les documents utilisant la classe article.
+
+\newenvironment{abstract}%
+        {\begin{center}\begin{small}\begin{minipage}{0.8\textwidth}}%
+        {\end{minipage}\end{small}\end{center}}
+\begin{example}
+\begin{abstract}
+L'abstrait abstract résumé.
+\end{abstract}
 \end{example}
 
 \subsection{Impression \emph{verbatim}}
