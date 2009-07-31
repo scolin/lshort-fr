@@ -16,7 +16,7 @@
   
 
 
-\section{The \AmS-\LaTeX{} bundle}
+\section{The \texorpdfstring{\AmS}{AMS}-\LaTeX{} bundle}
 
 If you want to typeset (advanced) \wi{mathematics}, you should
 use \AmS-\LaTeX{}. The \AmS-\LaTeX{} bundle is a collection of packages and classes for
@@ -54,14 +54,14 @@ This comes from my $\heartsuit$
 
 If you want your larger equations to be set apart
 from the rest of the paragraph, it is preferable to \emph{display} them
-rather than to breaking the paragraph apart.
+rather than to break the paragraph apart.
 To do this, you enclose them between \verb|\begin{|\ei{equation}\verb|}| and
-\verb|\end{equation}|.\footnote{This is a \textsf{amsmath} command. If you don't
+\verb|\end{equation}|.\footnote{This is an \textsf{amsmath} command. If you don't
 have access to the package for some obscure reason, you can use \LaTeX's own
 \ei{displaymath} environment instead.} You can then \ci{label} an equation number and refer to
 it somewhere else in the text by using the \ci{eqref} command. If you want to
 name the equation something specific, you \ci{tag} it instead. You can't use
-\ci{eqref} with\ci{tag}.
+\ci{eqref} with \ci{tag}.
 \begin{example}
 Add $a$ squared and $b$ squared
 to get $c$ squared. Or, using
@@ -81,13 +81,13 @@ This is a reference to
 \eqref{clever}. 
 \end{example}
 
-If you don't want \LaTeX{} to enumerate the equations, use the starred
+If you don't want \LaTeX{} to number the equations, use the starred
 version of \texttt{equation} using an asterisk, \ei{equation*}, or even easier, enclose the
 equation in \ci{[} and \ci{]}:\footnote{\index{equation!\textsf{amsmath}}
   \index{equation!\LaTeX{}}This is again from \textsf{amsmath}. If you 
-didn't load the package, use \LaTeX{}'a own \texttt{equation} environment
-instead. The naming of the \texttt{amsmath}/\LaTeX{} commands may seem a bit
-confusing, but it's really not a problem since everybody uses \texttt{amsmath} anyway.
+didn't load the package, use \LaTeX{}'s own \texttt{equation} environment
+instead. The naming of the \textsf{amsmath}/\LaTeX{} commands may seem a bit
+confusing, but it's really not a problem since everybody uses \textsf{amsmath} anyway.
 In general, it is best to load the package from the beginning because you might use it
 later on, and then \LaTeX's unnumbered \texttt{equation} clashes with
 \AmS-\LaTeX's numbered \texttt{equation}.}
@@ -118,7 +118,21 @@ And this is display style:
   = \frac{\pi^2}{6}
  \end{equation}
 \end{example}
- 
+
+In text style, enclose tall or deep math expressions or sub
+expressions in \ci{smash}. This makes \LaTeX{} ignore the height of
+these expressions. This keeps the line spacing even.
+
+\begin{example}
+A $d_{e_{e_p}}$ mathematical
+expression  followed by a
+$h^{i^{g^h}}$ expression. As
+opposed to a smashed 
+\smash{$d_{e_{e_p}}$} expression 
+followed by a
+\smash{$h^{i^{g^h}}$} expression.
+\end{example}
+
 \subsection{Math Mode}
 
 There are also differences between \emph{\wi{math mode}} and \emph{text mode}. For
@@ -180,7 +194,7 @@ typesetting. Most of the commands in this section will not require
  \verb|\beta|, \verb|\gamma|, \ldots, uppercase letters
 are entered as \verb|\Gamma|, \verb|\Delta|, \ldots\footnote{There is no
   uppercase Alpha, Beta etc. defined in \LaTeXe{} because it looks the same as a 
-  normal roman A, B\ldots Once the new math coding is done, things will
+  normal roman A, B\ldots{} Once the new math coding is done, things will
   change.} 
 
 Take a look at Table~\ref{greekletters} on page~\pageref{greekletters} for a
@@ -213,7 +227,7 @@ $n^\text{th}$ root is generated with \verb|\sqrt[|$n$\verb|]|. The size of
 the root sign is determined automatically by \LaTeX. If just the sign
 is needed, use \verb|\surd|.
 
-Se other kinds of arrows like $\hookrightarrow$ and $\rightleftharpoons$ on
+See other kinds of arrows like $\hookrightarrow$ and $\rightleftharpoons$ on
 Table~\ref{tab:arrows} on page \pageref{tab:arrows}. 
 \begin{example}
 $\sqrt{x} \Leftrightarrow x^{1/2}
@@ -287,7 +301,7 @@ $\vec{a} \qquad
 
 Names of log-like functions are often typeset in an upright
 font, and not in italics as variables are, so \LaTeX{} supplies the
-following commands to typeset the most important function names:\\
+following commands to typeset the most important function names:
 \index{mathematical!functions}
 
 \begin{tabular}{llllll}
@@ -304,6 +318,17 @@ following commands to typeset the most important function names:\\
  \frac{\sin x}{x}=1\]
 \end{example}
 
+For functions missing from the list, use the \ci{DeclareMathOperator}
+command. There is even a starred version for functions with limits.
+This command works only in the preamble so the commented lines in the
+example below must be put into the preamble.
+
+\begin{example}
+%\DeclareMathOperator{\argh}{argh}
+%\DeclareMathOperator*{\nut}{Nut}
+\[3\argh = 2\nut_{x=1}\]
+\end{example}
+
 For the \wi{modulo function}, there are two commands: \ci{bmod} for the
 binary operator ``$a \bmod b$'' and \ci{pmod}
 for expressions
@@ -316,7 +341,7 @@ $a\bmod b \\
 A built-up \textbf{\wi{fraction}} is typeset with the
 \ci{frac}\verb|{...}{...}| command. In in-line equations, the fraction is shrunk to
 fit the line. This style is obtainable in display style with \ci{tfrac}. The
-reverse, i.e. display style-fraction in text style, is made with \ci{dfrac}.
+reverse, i.e.\ display style fraction in text, is made with \ci{dfrac}.
 Often the slashed form $1/2$ is preferable, because it looks better
 for small amounts of `fraction material:'
 \begin{example}
@@ -350,7 +375,7 @@ Pascal's rule is
 \end{example}
 
 For \wi{binary relations} it may be useful to stack symbols over each other.
-\ci{stackrel}\verb|{#1}{#1}| puts the symbol given
+\ci{stackrel}\verb|{#1}{#2}| puts the symbol given
 in \verb|#1| in superscript-like size over \verb|#2| which
 is set in its usual position.
 \begin{example}
@@ -398,7 +423,7 @@ If you put \ci{left} in front of an opening delimiter and
 \ci{right} in front of a closing delimiter, \LaTeX{} will automatically
 determine the correct size of the delimiter. Note that you must close
 every \ci{left} with a corresponding \ci{right}. If you
-don't want anything on the right, use the invisible ``\ci{right.}:''
+don't want anything on the right, use the invisible ``\ci{right.}'':
 \begin{example}
 \begin{equation*}
 1 + \left(\frac{1}{1-x^{2}}
@@ -417,7 +442,7 @@ $\big( \Big( \bigg( \Bigg( \quad
 \big\} \Big\} \bigg\} \Bigg\} \quad
 \big\| \Big\| \bigg\| \Bigg\| \quad
 \big\Downarrow \Big\Downarrow 
-\bigg\Downarrow \Bigg\Downarrow $
+\bigg\Downarrow \Bigg\Downarrow$
 \end{example}
  For a list of all delimiters available, see Table~\ref{tab:delimiters} on page
 \pageref{tab:delimiters}. 
@@ -430,7 +455,7 @@ $\big( \Big( \bigg( \Bigg( \quad
 For formulae running over several lines or for \wi{equation system}s,
 you can use the environments \ei{align} and \verb|align*|
 instead of \texttt{equation} and \texttt{equation*}.\footnote{The \ei{align}
-  environment is from \textsf{amsmath}. A similar environment without \texttt{amsmath}
+  environment is from \textsf{amsmath}. A similar environment without \textsf{amsmath}
   from \LaTeX{} is \ei{eqnarray}, but it is generally not advised to use that
 because of spacing and label inconsistencies.} With \ei{align} each line gets an
 equation number. The \verb|align*| does not number anything.
@@ -440,11 +465,11 @@ sign. The \verb|\\| command breaks the lines. If you only want to enumerate some
 of equations, use \ci{nonumber} to remove the number. It has to be placed
 \emph{before} \verb|\\|:
 \begin{example}
- \begin{align}
-  f(x) &= (a+b)(a-b) \label{1}\\
-       &= a^2-ab+ba-b^2  \\ 
-       &= a^2+b^2 \tag{wrong}
- \end{align}
+\begin{align}
+f(x) &= (a+b)(a-b) \label{1}\\
+     &= a^2-ab+ba-b^2  \\ 
+     &= a^2+b^2 \tag{wrong}
+\end{align}
 This is a reference to \eqref{1}.
 \end{example}
 
@@ -452,14 +477,14 @@ This is a reference to \eqref{1}.
 automatically divided into neat bits.  The author has to specify
 where to break them and correct the indent:
 \begin{example}
- \begin{align}
-   f(x) ={}& 3x^5 + x^4 + 2x^3 
-                     \nonumber \\
-           & + 9x^2 + 12x + 23 \\
-        ={}& g(x) - h(x)
- \end{align}
+\begin{align}
+f(x) &= 3x^5 + x^4 + 2x^3 
+                \nonumber \\
+     &\qquad + 9x^2 + 12x + 23 \\
+     &= g(x) - h(x)
+\end{align}
 \end{example}
-The \pai{amsmath} package provides a couple of other useful environment: \verb|flalign|,
+The \pai{amsmath} package provides a couple of other useful environments: \verb|flalign|,
 \verb|gather|, \verb|multline| and \verb|split|. See the
 documentation for the package for a wide range of commands, environments and more.
 
@@ -483,7 +508,7 @@ used to break the lines:
 The \ei{array} environment can also be used to typeset \wi{piecewise function}s by
 using a ``\verb|.|'' as an invisible \ci{right} delimiter:\footnote{If you want
   to typeset a lot of constructions like these, the \ei{cases} environment from
-  \texttt{amsmath} simplifies the syntax, so it is worth a look.}  
+  \textsf{amsmath} simplifies the syntax, so it is worth a look.}  
 \begin{example}
 \begin{equation*}
 |x| = \left\{
@@ -537,21 +562,21 @@ negative space of $-\frac{3}{18}\:\textrm{quad}$ ($-$\demowidth{0.166em}).
 Note that `d' in the differential is conventionally set in roman:
 \begin{example}
 \begin{equation*}
- \int_1^2 \ln x \text{d}x \qquad
- \int_1^2 \ln x \,\text{d}x
+ \int_1^2 \ln x \mathrm{d}x \qquad
+ \int_1^2 \ln x \,\mathrm{d}x
 \end{equation*}
 \end{example}
 
 
 In the next example, we define a new command \ci{ud} which produces
-``$\,\text{d}$'' (notice the spacing \demowidth{0.166em} before the
+``$\,\mathrm{d}$'' (notice the spacing \demowidth{0.166em} before the
 $\text{d}$), so we don't have to write it every time. The \ci{newcommand} is
 placed in the preamble. %  More on
 % \ci{newcommand} in section~\ref{} on page \pageref{}. To Do: Add label and
 % reference to "Customising LaTeX" -> "New Commands, Environments and Packages"
 % -> "New Commands".
 \begin{example}
-\newcommand{\ud}{\,\text{d}}
+\newcommand{\ud}{\,\mathrm{d}}
 
 \begin{equation*}
  \int_a^b f(x)\ud x 
@@ -565,7 +590,7 @@ the spacing, namely the \ci{iint}, \ci{iiint}, \ci{iiiint}, and \ci{idotsint}
 commands.
 
 \begin{example}
-\newcommand{\ud}{\,\text{d}}
+\newcommand{\ud}{\,\mathrm{d}}
 
 \[ \int\int f(x)g(y) 
                   \ud x \ud y \]
@@ -590,7 +615,7 @@ The easiest way to understand this is to look at an example:
 {}^{14}_{\phantom{1}6}\text{C}
 \end{equation*}
 \end{example}
-If you want to typeset a lot of isotopes like in the example, the \pai{mhchem}
+If you want to typeset a lot of isotopes as in the example, the \pai{mhchem}
 package is very useful for typesetting isotopes and chemical formulae too.
 
 
@@ -669,13 +694,13 @@ structures.
          \emph{text}\verb|}[|\emph{section}\verb|]|
 \end{lscommand}
 The \emph{name} argument is a short keyword used to identify the
-``theorem.'' With the \emph{text} argument you define the actual name
-of the ``theorem,'' which will be printed in the final document.
+``theorem''. With the \emph{text} argument you define the actual name
+of the ``theorem'', which will be printed in the final document.
 
 The arguments in square brackets are optional. They are both used to
-specify the numbering used on the ``theorem.'' Use  the \emph{counter}
+specify the numbering used on the ``theorem''. Use  the \emph{counter}
 argument to specify the \emph{name} of a previously declared
-``theorem.'' The new ``theorem'' will then be numbered in the same
+``theorem''. The new ``theorem'' will then be numbered in the same
 sequence.  The \emph{section} argument allows you to specify the
 sectional unit within which the ``theorem'' should get its numbers.
 
@@ -687,7 +712,8 @@ This is my interesting theorem\\
 \verb|\end{|\emph{name}\verb|}|     
 \end{code}
 
-The \pai{amsthm} package (part of \AmS-\LaTeX) provides the \ci{newtheoremstyle}\verb|{|\emph{style}\verb|}|
+The \pai{amsthm} package (part of \AmS-\LaTeX) provides the 
+\ci{theoremstyle}\verb|{|\emph{style}\verb|}|
 command which lets you define what the theorem is all about by picking
 from three predefined styles: \texttt{definition} (fat title, roman body),
 \texttt{plain} (fat title, italic body) or \texttt{remark} (italic
@@ -722,7 +748,7 @@ see law~\ref{law:box}.\end{jury}
 
 The ``Jury'' theorem uses the same counter as the ``Law''
 theorem, so it gets a number that is in sequence with
-the other ``Laws.'' The argument in square brackets is used to specify 
+the other ``Laws''. The argument in square brackets is used to specify 
 a title or something similar for the theorem.
 \begin{example}
 \newtheorem{mur}{Murphy}[section]
@@ -738,7 +764,7 @@ The ``Murphy'' theorem gets a number that is linked to the number of
 the current section. You could also use another unit, for example chapter or
 subsection.
 
-The \pai{amsthm} also provides the \ei{proof} environment.
+The \pai{amsthm} package also provides the \ei{proof} environment.
 
 \begin{example}
 \begin{proof}
@@ -747,8 +773,8 @@ The \pai{amsthm} also provides the \ei{proof} environment.
 \end{proof}
 \end{example}
 
-With the command \ci{qedhere} you can move the `end of proof symbol'. symbol around for
-situations where it would end up alone on a line.
+With the command \ci{qedhere} you can move the `end of proof' symbol
+around for situations where it would end up alone on a line.
 
 \begin{example}
 \begin{proof}
@@ -757,14 +783,14 @@ situations where it would end up alone on a line.
 \end{proof}
 \end{example}
 
-If you want to customise you theorems down to the last dot, the \pai{ntheorem} package
-offers a plethora of options.
+If you want to customize your theorems down to the last dot, the
+\pai{ntheorem} package offers a plethora of options.
 
 
 %
 
 % Local Variables:
-% TeX-master: "lshort2e"
+% TeX-master: "lshort"
 % mode: latex
 % mode: flyspell
 % End:
