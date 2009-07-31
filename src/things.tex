@@ -33,7 +33,22 @@ virtuellement plus de \og bug \fg{}. Le numéro de version de \TeX{} tend
 vers $\pi$ et est actuellement $3.14159$.
 
 \TeX{} se prononce \og Tech \fg{}, avec un \og ch \fg{} comme dans le mot
-écossais \og Loch \fg{}. En alphabet phonétique cela donne
+écossais \og Loch \fg{}.
+\,\footnote{Il est à noter que l'orthographe particulière de \TeX{}
+  tend à laisser la prononciation suivre la façon dont les lettres qui
+  le composent sont prononcées dans le pays où il est utilisé. Les
+  allemands, plutôt que d'utiliser le \og ch \fg{} de \og Ach \fg{},
+  préfèrent celui de \og Pech \fg{}, ce qui donnerait comme
+  prononciation en français \og tèche \fg{}. À propos de ce point,
+  Knuth a écrit dans le Wikipedia allemand : \emph{Je ne m'offusque
+    pas que les gens prononcent \TeX{} de la manière qu'ils préfèrent
+    \ldots{} et en allemand, nombreux sont ceux qui utilisent le \og
+    ch \fg{} doux car le X suit la voyelle \og e \fg{}, pas comme le
+    \og ch \fg{} qui suit le \og a \fg{}. En Russie, \og tex \fg{} est
+    un mot commun qui se prononce \og tyekh \fg{}. Je crois cependant
+    que la meilleure prononciation est la grecque, où l'on a le \og ch
+    \fg{} dur de \og ach \fg{} et \og Loch \fg{}.}}
+En alphabet phonétique cela donne
 \textbf{[tex]}\dots Dans un environnement \texttt{ASCII}, \TeX{}
 devient \texttt{TeX}.
 
@@ -607,9 +622,35 @@ points} et qu'il devra produire une mise en page pour une impression
 \emph{double face} sur du papier au format \emph{A4}%
 \,\footnote{Sans l'option \texttt{a4paper}, le format de papier sera
 américain : 8,5~$\times$~11 pouces, soit 216~$\times$~280 mm.}.
+\pagebreak[2]
 
-%\clearpage
 \subsection{Extensions}
+\index{extension} 
+En rédigeant votre document, vous remarquerez peut-être qu'il y a des
+domaines où les commandes de base de \LaTeX{} ne permettent pas
+d'exprimer ce que vous voudriez. Si vous voulez inclure des
+graphiques, du texte en couleur ou du code d'un programme dans votre
+document, il faut augmenter les possibilités de \LaTeX{} grâce à des
+extensions. 
+Une extension est chargée par la commande
+\begin{lscommand}
+\ci{usepackage}\verb|[|\emph{options}\verb|]{|\emph{extension}\verb|}|
+\end{lscommand}
+\emph{extension} est le nom de l'extension et \emph{options} une liste
+de mots-clés qui déclenchent certaines fonctions de
+l'extension. Certaines extensions font partie de la distribution
+standard de \LaTeXe{} (reportez-vous au
+tableau~\ref{extensions}). D'autres sont distribuées à part. Le
+\guide{} peut vous fournir plus d'informations sur les extensions
+installées sur votre site. \companion{} est la principale source
+d'information au sujet de \LaTeXe{}. Ce livre contient la description
+de centaines d'extensions ainsi que les informations nécessaires pour
+écrire vos propres extensions à \LaTeXe.
+
+Les distributions \TeX{} modernes sont fournies avec un très grand
+nombre d'extensions préinstallées. Si vous travaillez sur un système
+de type Unix, utilisez la commande \texttt{texdoc} pour accéder à la
+documentation d'une extension.
 
 \begin{table}[!tbp]
 \caption{Quelques extensions fournies avec \LaTeX} \label{extensions}
@@ -659,27 +700,6 @@ américain : 8,5~$\times$~11 pouces, soit 216~$\times$~280 mm.}.
 \end{lined}
 \end{table}
 
-\index{extension} 
-En rédigeant votre document, vous remarquerez peut-être qu'il y a des
-domaines où les commandes de base de \LaTeX{} ne permettent pas
-d'exprimer ce que vous voudriez. Si vous voulez inclure des
-graphiques, du texte en couleur ou du code d'un programme dans votre
-document, il faut augmenter les possibilités de \LaTeX{} grâce à des
-extensions. 
-Une extension est chargée par la commande
-\begin{lscommand}
-\ci{usepackage}\verb|[|\emph{options}\verb|]{|\emph{extension}\verb|}|
-\end{lscommand}
-\emph{extension} est le nom de l'extension et \emph{options} une liste
-de mots-clés qui déclenchent certaines fonctions de
-l'extension. Certaines extensions font partie de la distribution
-standard de \LaTeXe{} (reportez-vous au
-tableau~\ref{extensions}). D'autres sont distribuées à part. Le
-\guide{} peut vous fournir plus d'informations sur les extensions
-installées sur votre site. \companion{} est la principale source
-d'information au sujet de \LaTeXe{}. Ce livre contient la description
-de centaines d'extensions ainsi que les informations nécessaires pour
-écrire vos propres extensions à \LaTeXe.
 
 \subsection{Styles de page}
 
