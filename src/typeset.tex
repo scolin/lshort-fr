@@ -140,15 +140,17 @@ line break.
 \ci{pagebreak}\verb|[|\emph{n}\verb|]|,
 \ci{nopagebreak}\verb|[|\emph{n}\verb|]|
 \end{lscommand}
-\noindent do what their names say. They enable the author to influence their
+\noindent suggest places where a break may (or may not happen). They enable the author to influence their
 actions with the optional argument \emph{n}, which can be set to a number
 between zero and four. By setting \emph{n} to a value below 4, you leave
 \LaTeX{} the option of ignoring your command if the result would look very
 bad. Do not confuse these ``break'' commands with the ``new'' commands. Even
 when you give a ``break'' command, \LaTeX{} still tries to even out the
-right border of the page and the total length of the page, as described in
-the next section. If you really want to start a ``new line'', then use the
-corresponding command. Guess its name!
+right border of the line and the total length of the page, as described in
+the next section; this can lead to unpleasant gaps in your text.
+If you really want to start a ``new line'' or a ``new page'', then use the
+corresponding command. Guess their names!
+
 
 \LaTeX{} always tries to produce the best line breaks possible. If it
 cannot find a way to break the lines in a manner that meets its high
@@ -338,9 +340,9 @@ If you prefer a Euro symbol that matches your font, use the option
 % or the package
 % \pai{eurosans} and the command \ci{euro} (for the ``official Euro'').
 
-The \pai{marvosym} package also provides many different symbols, including a
-Euro, under the name \ci{EURtm}. Its disadvantage is that it does not provide
-slanted and bold variants of the Euro symbol.
+%The \pai{marvosym} package also provides many different symbols, including a
+%Euro, under the name \ci{EURtm}. Its disadvantage is that it does not provide
+%slanted and bold variants of the Euro symbol.
 
 \begin{table}[!htbp]
 \caption{A bag full of Euro symbols} \label{eurosymb}
@@ -356,8 +358,8 @@ $[$gen$]$eurosym &\verb+\euro+ & \huge\geneuro  &\huge\sffamily\geneuro
 %                                                &\huge\EURcr\\
 %eurosans     &\verb+\euro+ & \huge\EUROSANS  &\huge\sffamily\EUROSANS
 %                                             & \huge\ttfamily\EUROSANS \\
-marvosym     &\verb+\EURtm+  & \huge\mvchr101  &\huge\mvchr101
-                                               &\huge\mvchr101
+%marvosym     &\verb+\EURtm+  & \huge\mvchr101  &\huge\mvchr101
+%                                               &\huge\mvchr101
 \end{tabular}
 \medskip
 \end{lined}
@@ -481,7 +483,7 @@ If you call babel with multiple languages
 \ci{usepackage}\verb|[|\emph{languageA}\verb|,|\emph{languageB}\verb|]{babel}| 
 \end{lscommand}
 \noindent then the last language in the option list will be active (i.e.
-languageB) you can to use the command
+languageB). You can to use the command
 \begin{lscommand}
 \ci{selectlanguage}\verb|{|\emph{languageA}\verb|}|
 \end{lscommand}
@@ -560,7 +562,7 @@ Font encodings are handled through
 encodings simultaneously.
 
 The default \LaTeX{} font encoding is \label{OT1} \fei{OT1}, the encoding of the
-original Computer Modern \TeX{} font. It containins only the 128
+original Computer Modern \TeX{} font. It contains only the 128
 characters of the 7-bit ASCII character set. When accented characters
 are required, \TeX{} creates them by combining a normal character with
 an accent. While the resulting output looks perfect, this approach stops
@@ -1544,7 +1546,7 @@ be treated as floating matter. Both float environments support an optional
 parameter
 \begin{lscommand}
 \verb|\begin{figure}[|\emph{placement specifier}\verb|]| or
-\verb|\begin{table}[|\ldots|]|
+\verb|\begin{table}[|\ldots\verb|]|
 \end{lscommand}
 \noindent called the \emph{placement specifier}. This parameter
 is used to tell \LaTeX{} about the locations to which the float
@@ -1640,8 +1642,10 @@ the \verb|\caption| command.
 \verb|\caption[Short]{LLLLLoooooonnnnnggggg}| 
 \end{code}
 
-With \verb|\label| and \verb|\ref|, you can create a reference to a float 
-within your text.
+With \ci{label} and \ci{ref}, you can create a reference to a float within
+your text. Note that the \ci{label} command must come \emph{after} the
+\ci{caption} command since you want it to reference the number of the
+caption.
 
 The following example draws a square and inserts it into the
 document. You could use this if you wanted to reserve space for images
@@ -1652,7 +1656,7 @@ you are going to paste into the finished document.
 Figure~\ref{white} is an example of Pop-Art.
 \begin{figure}[!hbp]
 \makebox[\textwidth]{\framebox[5cm]{\rule{0pt}{5cm}}}
-\caption{Five by Five in Centimetres.\label{white}}
+\caption{Five by Five in Centimetres.}\label{white}
 \end{figure}
 \end{verbatim}
 \end{code}
