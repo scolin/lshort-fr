@@ -4,6 +4,10 @@ Task List for lshort
 This is a file where things are to be listed which are missing
 from Lshort and might / should be added:
 
+* Explain tabbing environment,  \vline,  \hfill
+  -- Alexander Mai <st002279@hrzpub.tu-darmstadt.de>
+  ## not assigned yet
+ 
 * More verbose explanation on the differences between the default latex document classes.
   -- Alexander Mai <st002279@hrzpub.tu-darmstadt.de>
   ## not assigned yet
@@ -12,7 +16,7 @@ from Lshort and might / should be added:
   http://www.giss.nasa.gov/latex/ltx-43.html
   examples http://www.geom.umn.edu/~nien/talk/latex/p2.html
   -- Alexander Mai <st002279@hrzpub.tu-darmstadt.de>
-  ## not assigned yet
+  Alex Mai 2001/09/24
 
 * make sure symb.tex is realy complete ... especially in the AMS sections ... 
   -- Alexander Mai <st002279@hrzpub.tu-darmstadt.de>
@@ -20,7 +24,7 @@ from Lshort and might / should be added:
 
 * Information about using PDFTeX 
   -- Tobias Oetiker <oetiker@ee.ethz.ch>
-  ## not assigned yet
+  Tobi Oetiker (translate french version) 24.09.2001
 
 * A List of useful LaTeX packages with information on what they
   do, and how to get to them or even better, there documentation.

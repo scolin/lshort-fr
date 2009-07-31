@@ -1,9 +1,0 @@
---- a/src/custom.tex
-+++ b/src/custom.tex
-@@ -797,3 +797,6 @@ a certain minimum height.
- %%% TeX-master: "lshort2e"
- %%% End: 
- 
-+% Local Variables:
-+% mode: flyspell
-+% End:

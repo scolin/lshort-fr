@@ -1,9 +1,0 @@
---- a/src/contrib.tex
-+++ b/src/contrib.tex
-@@ -113,3 +113,6 @@ and Mikhail~Zotov.      %zotov@eas.npi.msu.su 3.1
- %%% mode: latex
- %%% TeX-master: "lshort"
- %%% End: 
-+% Local Variables:
-+% mode: flyspell
-+% End:
