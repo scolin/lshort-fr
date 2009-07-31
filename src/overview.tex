@@ -2,6 +2,14 @@
 % Contents: Who contributed to this Document
 % $Id: overview.tex,v 1.1.1.1 2002/02/26 10:04:21 oetiker Exp $
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Because this introduction is the reader's first impression, I have
+% edited very heavily to try to clarify and economize the language.
+% I hope you do not mind! I always try to ask "is this word needed?"
+% in my own writing but I don't want to impose my style on you... 
+% but here I think it may be more important than the rest of the book.
+% --baron
+
 \chapter{Préface}
 \thispagestyle{plain}
 
@@ -17,14 +25,16 @@ pour la plupart des applications de \LaTeX. Pour une description
 complète du système \LaTeX{}, reportez-vous
 à~\cite{manual,companion}. 
 
+\bigskip
 \noindent Cette introduction est composée de cinq chapitres :
 \begin{description}
 
 \item[Le chapitre 1] présente la structure élémentaire d'un document
   \LaTeXe{}. Il vous apprendra également quelques éléments sur
   l'histoire de \LaTeX{}. Après avoir lu ce chapitre, vous devriez
-  avoir une vue générale de ce qu'est \LaTeX{}, pour pouvoir assimiler
-   ce qui sera présenté dans les chapitres suivants.
+  avoir une vue générale de ce qu'est \LaTeX{}. Cette vue vous
+  permettra d'y intégrer par la suite les informations des chapitres
+  suivants.
 
 \item[Le chapitre 2] entre dans les détails de la mise en page d'un
   document. Il explique les commandes et les environnements
@@ -38,25 +48,27 @@ complète du système \LaTeX{}, reportez-vous
   mathématiques disponibles.
 
 \item[Le chapitre 4] explique comment réaliser un index, une liste de
-  références bibliographiques ou l'insertion de figures PostScript
-  encapsulé.  Il présente aussi quelques autres extensions utiles.
+  références bibliographiques ou l'insertion de figures en PostScript
+  encapsulé.  Il présente la création de documents PDF avec
+  pdf\LaTeX{} ainsi que quelques autres extensions utiles comme
+  XY-pic.
 
 \item[Le chapitre 5] contient des informations potentiellement
   dangeureuses. Il vous apprend à modifier la mise en page standard
   produite par \LaTeX{} et vous  permet de transformer 
   les présentations plutôt réussies de \LaTeX{} en quelque chose
+  de laid ou magnifique, selon votre habileté.
   d'assez laid.
 \end{description}
 
 \bigskip
-Il est important de lire ces chapitres dans l'ordre. Après tout, ce
-document n'est pas si long. 
-L'étude attentive des exemples est indispensable à la compréhension de
-l'ensemble car ils contiennent une bonne partie de l'information que
-vous pourrez trouver ici.
+\noindent Il est important de lire ces chapitres dans l'ordre. Après
+tout, ce livre n'est pas si long.  L'étude attentive des exemples
+est indispensable à la compréhension de l'ensemble car ils contiennent
+une bonne partie de l'information que vous pourrez trouver ici.
 
 \bigskip
-\LaTeX{} est disponible pour une vaste gamme de systèmes
+\noindent \LaTeX{} est disponible pour une vaste gamme de systèmes
 informatiques, des PCs et Macs aux systèmes UNIX
 \footnote{UNIX est une marque déposée de The Open Group}
  et VMS. Dans de
@@ -71,9 +83,12 @@ documents afin qu'ils puissent être traités par \LaTeX{}.
 \bigskip
 \index{CTAN@\texttt{CTAN}}
 Si vous avez besoin de récupérer des fichiers relatifs à \LaTeX{},
-utilisez l'une des archives ftp \texttt{CTAN}\label{CTAN}.
-En France elles sont
-sur le site \url{ftp\string://ftp.lip6.fr/pub/TeX/CTAN/}. Aux
+utilisez les sites \texttt{CTAN}(\emph{Comprehensive
+  \TeX{} Archive Network})\label{CTAN}.
+Le site principal est sur \url{http://www.ctan.org} et toutes les
+extensions peuvent être obtenues sur l'archive ftp
+\url{ftp://www.ctan.org} ou l'un de ses nombreux miroirs. En France un
+miroir se trouve sur \url{ftp\string://ftp.lip6.fr/pub/TeX/CTAN/}. Aux
 États-Unis, il s'agit de \url{ftp\string://ctan.tug.org/}, en Allemagne de
 \url{ftp\string://ftp.dante.de/} et au Royaume-Uni de
 \url{ftp\string://ftp.tex.ac.uk/}. 
@@ -117,8 +132,10 @@ Centre National de la Recherche Scientifique, Toulouse.}
 
 \endinput
 
-%%% Local Variables: 
-%%% mode: latex
-%%% TeX-master: "lshort"
+%
+
+% Local Variables:
+% TeX-master: "lshort2e"
+% mode: latex
 % mode: flyspell
 % End:
