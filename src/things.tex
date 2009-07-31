@@ -7,12 +7,12 @@
 \thispagestyle{plain}
 
 \begin{intro}
-Dans la première partie de ce chapitre vous trouverez une rapide
-présentation de la philosophie et de l'histoire de \LaTeXe{}. La
+La première partie de ce chapitre couvre rapidement la philosophie et
+l'histoire de \LaTeXe{}. La
 deuxième partie met l'accent sur les structures fondamentales d'un
 document \LaTeX{}. Après avoir lu ce chapitre, vous devriez avoir une
-idée d'ensemble du fonctionnement de \LaTeX{} qui vous aidera à mieux
-comprendre les chapitres suivants.
+idée d'ensemble du fonctionnement de \LaTeX{} qui vous permettra de
+mieux comprendre les chapitres suivants.
 \end{intro}
 
 \section{Le nom de la bête}
@@ -45,14 +45,14 @@ utilisant un format professionnel pré-défini. \LaTeX{} a été écrit par
 \index{Lamport, Leslie}Leslie Lamport~\cite{manual}. Il utilise \TeX{}
 comme outil de mise en page.
 
-En 1994, \LaTeX{} a été mis à jour par
-l'équipe \index{LaTeX3@\LaTeX 3}\LaTeX 3, menée par \index{Mittelbach,
-Frank}Frank Mittelbach, afin de réaliser certaines améliorations
-demandées depuis longtemps et de fusionner toutes les variantes qui
-s'étaient développées depuis la sortie de \index{LaTeX 2.09@\LaTeX{}
-2.09}\LaTeX{} 2.09 quelques années auparavent. Pour distinguer cette
-nouvelle version des précédentes, elle est appelée \index{LaTeX
-2e@\LaTeXe}\LaTeXe. Ce document est relatif à \LaTeXe.
+% En 1994, \LaTeX{} a été mis à jour par
+% l'équipe \index{LaTeX3@\LaTeX 3}\LaTeX 3, menée par \index{Mittelbach,
+% Frank}Frank Mittelbach, afin de réaliser certaines améliorations
+% demandées depuis longtemps et de fusionner toutes les variantes qui
+% s'étaient développées depuis la sortie de \index{LaTeX 2.09@\LaTeX{}
+% 2.09}\LaTeX{} 2.09 quelques années auparavent. Pour distinguer cette
+% nouvelle version des précédentes, elle est appelée \index{LaTeX
+% 2e@\LaTeXe}\LaTeXe. Ce document est relatif à \LaTeXe.
 
 \LaTeX{} se prononce \textbf{[latex]}. Si vous
 voulez faire référence à \LaTeX{} dans un environnement
@@ -63,18 +63,18 @@ voulez faire référence à \LaTeX{} dans un environnement
 En anglais, cela donne \textbf{[la\i{}tex]} et \textbf{[la\i{}tex tu:
 i:]}. 
 
-La figure~\ref{components}, page~\pageref{components} montre
-l'interaction entre les différents éléments d'un système \TeX{}. Cette
-figure est extraite de \texttt{wots.tex} de Kees van der Laan.
+% La figure~\ref{components}, page~\pageref{components} montre
+% l'interaction entre les différents éléments d'un système \TeX{}. Cette
+% figure est extraite de \texttt{wots.tex} de Kees van der Laan.
 
-\begin{figure}[btp]
-\begin{lined}{0.8\textwidth}
-\begin{center}
-\input{kees.fig}
-\end{center}
-\end{lined}
-\caption{Éléments d'un système \TeX{}} \label{components}
-\end{figure}
+% \begin{figure}[btp]
+% \begin{lined}{0.8\textwidth}
+% \begin{center}
+% \input{kees.fig}
+% \end{center}
+% \end{lined}
+% \caption{Éléments d'un système \TeX{}} \label{components}
+% \end{figure}
 
 \section{Les bases}
  
@@ -103,12 +103,11 @@ Cette approche est totalement différente de l'approche
 voyez est ce qui sera imprimé.}  utilisée par les traitements de texte
 modernes tels que \emph{Microsoft Word} ou \emph{Corel
 WordPerfect}. Avec ces programmes, l'auteur définit la mise en page du
-document de manière interactive pendant la saisie du texte. Tout au
-long de cette opération, il voit à l'écran à quoi ressemblera le
-document final une fois imprimé.
+document de manière interactive pendant la saisie du texte. Il voit à
+l'écran à quoi ressemblera le document final une fois imprimé.
 
 Avec \LaTeX{}, il n'est normalement pas possible de voir le résultat
-final durant la saisie du texte. Mais celui-ci peut être
+final durant la saisie du texte, mais celui-ci peut être
 pré-visualisé après traitement du fichier par \LaTeX{}. Des corrections
 peuvent alors être apportées avant d'envoyer la version définitive
 vers l'imprimante.
@@ -207,12 +206,12 @@ source}}.
 
 \subsection{Espaces}
 
-Les caractères d'espacement, tels que les blancs ou les tabulations
+Les caractères d'espacement, tels que les blancs ou les tabulations,
 sont traités de manière unique comme \og \wi{espace} \fg{} par
 \LaTeX{}. Plusieurs \wi{blancs} \emph{consécutifs} sont considérés
 comme \emph{une seule} espace\,\footnote{En langage typographique,
     \emph{espace} est un mot féminin. \emph{NdT.}}.  Les espaces en début
-d'une ligne sont en général ignorées et un seul retour à la ligne est
+d'une ligne sont en général ignorées et un retour à la ligne unique est
 traité comme une espace.  \index{espace!en début de ligne}
 
 Une ligne vide entre deux lignes de texte marque la fin d'un
@@ -255,13 +254,13 @@ dans vos documents en les préfixant par un antislash :
 Les autres et bien d'autres encore peuvent être obtenus avec des
 commandes spéciales à l'intérieur de formules mathématiques ou comme
 accents. L'antislash $\backslash$ ne peut pas être saisi en ajoutant
-un second antislash (\verb|\\|). Cette séquense est utilisée pour
+un second antislash (\verb|\\|) : cette séquense est utilisée pour
 indiquer les coupures de ligne\,\footnote{Utilisez la commande
 \texttt{\$}\ci{backslash}\texttt{\$}. Elle produit un $\backslash$.}.
 
 \subsection{Commandes \LaTeX{}}
 
-Les commandes \LaTeX{} sont sensibles à la casse des caractères
+Les \wi{commandes} \LaTeX{} sont sensibles à la casse des caractères
 (majuscules ou minuscules) et utilisent l'un des deux formats
 suivants :
 
@@ -296,7 +295,7 @@ gens qui utilisent \TeX{} en
 Aujourd'hui nous sommes le \today.
 \end{example}
 
-Certaines commandes sont suivies d'un \wi{paramètre} qui est mis entre
+Certaines commandes sont suivies d'un \wi{paramètre} fourni entre
 \wi{accolades} \verb|{ }|. Certaines commandes supportent des
 \wi{paramètres optionnels} qui suivent le nom de la commande entre
 \wi{crochets}~\verb|[ ]|. L'exemple suivant montre quelques commandes
@@ -316,8 +315,11 @@ Merci !
 \index{commentaires}
 
 Quand \LaTeX{} rencontre un caractère \verb|%| dans le fichier
-source, il ignore le reste de la ligne en cours. C'est utile pour
-ajouter des notes qui n'apparaîtront  pas dans la version imprimée.
+source, il ignore le reste de la ligne en cours, le retour à la ligne
+et les espaces au début de la ligne suivante.
+
+C'est utile pour ajouter des notes qui n'apparaîtront pas dans la
+version imprimée.
 
 \begin{example}
 % Demonstration :
@@ -326,9 +328,9 @@ exemple: anticonstitu%
        tionnellement
 \end{example}
 
-Le caractère \verb|%| 
-peut également être utilisé pour couper des lignes trop longues dans 
-le fichier d'entrée, lorsqu'aucun espace ou coupure n'est autorisé. 
+Le caractère \texttt{\%} peut également être utilisé pour couper des
+lignes trop longues dans le fichier d'entrée, lorsqu'aucun espace ou
+retour à la ligne n'est autorisé.
 
 Pour créer des commentaires plus longs, il vaut mieux utilier
 l'environnement \ei{comment} fourni par l'extension \pai{verbatim}. 
@@ -342,8 +344,9 @@ Limité mais demonstratif
 de commentaires. 
 \end{example}
 
-Cet environnement n'est pas utilisable à l'intérieur d'autres
-environnements complexes, tels que le mode mathématique par exemple. 
+Notez cependant que cet environnement n'est pas utilisable à
+l'intérieur d'autres environnements complexes, tels que le mode
+mathématique par exemple.
 
 \section{Structure du fichier source}
 
@@ -356,8 +359,8 @@ commencer par la commande :
 Elle indique quel type de document vous voulez écrire. Après cela vous
 pouvez insérer des commandes qui vont influencer le style du document
 ou vous pouvez charger des \wi{extension}s qui ajoutent de nouvelles
-fonctions au système \LaTeX{}. Pour charger une extension, utilisez la
-commande :
+fonctionnalités au système \LaTeX{}. Pour charger une extension,
+utilisez la commande :
 \begin{code}
 \verb|\usepackage{...}|
 \end{code}
@@ -405,11 +408,12 @@ Small is beautiful.
 \title{Le Minimalisme}
 \begin{document}
 \maketitle
+% insérer la table des matières
 \tableofcontents
-\section{D\'ebut}
-\`A \'ecrire\dots
-\section{Suite et fin}
-On verra plus tard.
+\section{Quelques mots descriptifs}
+Et bien, ici commence mon \oe uvre.
+\section{Au revoir, monde}
+\ldots{} Et ainsi s'achève mon ouvrage.
 \end{document}
 \end{verbatim}
 \end{lined}
@@ -419,18 +423,17 @@ On verra plus tard.
 \section{Utilisation typique en ligne de commande}
 
 Vous brûlez probablement d'envie d'essayer l'exemple présenté
-page~\pageref{mini}. Voici quelques informations :
-\LaTeX{} lui-même ne propose pas d'interface graphique ni de jolis
-boutons à 
-cliquer. Il s'agit simplement d'un programme qui \og digère \fg{} votre
-fichier source. Certaines installations de \LaTeX{} ajoutent une
-telle interface graphique permettant de cliquer pour lancer la
-mise en page de votre document. 
+page~\pageref{mini}. Voici quelques informations : \LaTeX{} lui-même
+ne propose pas d'interface graphique ni de jolis boutons à cliquer. Il
+s'agit simplement d'un programme qui \og digère \fg{} votre fichier
+source. Certaines installations de \LaTeX{} ajoutent une interface
+graphique permettant de cliquer pour lancer la mise en page de votre
+document.
 
-Mais les puristes ne cliquent pas ; voici donc comment demander à
-\LaTeX{} de traiter votre document sur un système avec une interface
+Cependant, les puristes ne cliquent pas ; voici donc comment demander
+à \LaTeX{} de traiter votre document sur un système avec une interface
 textuelle. Remarquez que ceci suppose que \LaTeX{} soit déjà installé
-sur votre ordinateur. 
+sur votre ordinateur (les puristes utilisent une déclinaison d'Unix).
 
 \begin{enumerate}
 \item Créez/éditez votre fichier source \LaTeX{}. Il s'agit d'un
@@ -447,25 +450,34 @@ obtiendrez un nouveau fichier avec le suffixe \texttt{.dvi}. Il peut
 être nécessaire d'exécuter \LaTeX{} plusieurs fois afin que la table
 des matières et les références internes soient à jour. S'il y a un
 bogue dans votre fichier, \LaTeX{} vous le signalera et s'arrêtera.
+Appuyez sur la combinaison \texttt{Ctrl-D} pour revenir à la ligne de
+commande.
+\begin{lscommand}
+\verb+latex document.tex+
+\end{lscommand}
 
+\item À présent, vous pouvez visualiser le résultat, le fichier
+  DVI. Il y a plusieurs façons de le faire. Vous pouvez par exemple
+  afficher le fichier à l'écran via
+\begin{lscommand}
+\verb+xdvi document.dvi+
+\end{lscommand}
+Cela ne fonctionne que sous un système Unix avec X11. Si vous utilisez
+Windows vous pouvez essayer via \texttt{yap} (\emph{yet another
+  previewer} -- NdT. \emph{encore un autre prévisualiseur}).
 
+Vous pouvez également transformer le résultat en PostScript pour
+impression ou affichage avec Ghostcript.
+\begin{lscommand}
+\verb+dvips -Pcmz -o document.ps document.dvi+
+\end{lscommand}
 
-\begin{verbatim}
-latex document.tex
-\end{verbatim}
-
-\item À présent, vous pouvez visualiser le résultat, le fichier DVI.
-\begin{verbatim}
-xdvi document.dvi
-\end{verbatim}
-ou encore transformer le résultat en PostScript
-\begin{verbatim}
-dvips -Pcmz -o document.ps document.dvi
-\end{verbatim}
-\texttt{\wi{xdvi}} et \texttt{\wi{dvips}} sont des logiciels libres
-qui manipulent les fichiers \eei{.dvi}. Ils sont disponibles sur la plupart
-des systèmes Unix. Sur les autres systèmes, d'autres outils de
-manipulation des fichiers \eei{.dvi} sont disponibles. 
+Avec un peu de chance, votre installation \LaTeX{} contient l'outil
+\texttt{\wi{dvipdf}}, qui permet de convertir les fichiers \eei{.dvi}
+directement en \eei{.pdf}.
+\begin{lscommand}
+\verb+dvipdf document.dvi+
+\end{lscommand}
 
 \end{enumerate}
 
@@ -552,8 +564,10 @@ la même page contrairement aux classes \texttt{report} et
 \texttt{book}.  \index{titlepage@\texttt{titlepage}}
 \index{notitlepage@\texttt{notitlepage}}
 
-\item[\normalfont\texttt{twocolumn}] \quad 
-demande à \LaTeX{} de formater le texte sur \wi{deux colonnes}.
+\item[\normalfont\texttt{onecolumn}, \texttt{twocolumn}] \quad 
+demandent à \LaTeX{} de formater le texte sur une seule colonne
+(\wi{deux colonnes}, respectivement).
+\index{onecolumn@\texttt{onecolumn}}
 \index{twocolumn@\texttt{twocolumn}}
 
 \item[\normalfont\texttt{twoside, oneside}] \quad indique si la sortie
@@ -562,6 +576,10 @@ se fera en \wi{recto-verso} ou en \wi{recto simple}. Par défaut, les classes
 alors que la classe \texttt{book} est en \wi{double-face}.
 \index{twoside@\texttt{twoside}}
 \index{oneside@\texttt{oneside}}
+
++\item[\normalfont\texttt{landscape}] \quad change la disposition du
+mode portrait au mode paysage.
+\index{landscape@\texttt{landscape}}
 
 \item[\normalfont\texttt{openright, openany}] \quad fait commencer un
 chapitre sur la page de droite ou sur la prochaine page. Cette option
@@ -735,27 +753,30 @@ Les fichiers suivants sont produits par \LaTeX{} à partir du fichier
 source :
 
 \begin{description}
-\item[\eei{.dvi}] signifie \emph{DeVice Independent}, c'est le fichier que l'on
-  visualise à l'écran et qui servira à l'impression (par \texttt{dvips} par
-  exemple) ;
+\item[\eei{.dvi}] signifie \emph{DeVice Independent}, c'est le fichier
+  que l'on visualise à l'écran et qui servira à l'impression (par
+  \texttt{dvips} par exemple) ;
 \item[\eei{.log}] fichier contenant le compte-rendu détaillé de la
-  compilation du fichier source (avec les messages d'erreur éventuels), 
-\item[\eei{.toc}] contient le matériel nécessaire à la production de la
-  table des matières, si celle-ci a été demandée. Ce fichier sera lu à
-  la prochaine exécution de \LaTeX{} ;
-\item[\eei{.lof}] contient la liste numérotée des figures, si elle a été
-  demandée ;
-\item[\eei{.lot}] contient la liste numérotée des tableaux, si elle a été
-  demandée ;
+  compilation du fichier source (avec les messages d'erreur
+  éventuels) ;
+\item[\eei{.toc}] contient le matériel nécessaire à la production de
+  la   table des matières, si celle-ci a été demandée. Ce fichier sera
+  lu à la prochaine exécution de \LaTeX{} ;
+\item[\eei{.lof}] contient la liste numérotée des figures, si elle a
+  été demandée ;
+\item[\eei{.lot}] contient la liste numérotée des tableaux, si elle a
+  été demandée ;
 \item[\eei{.aux}] contient diverses informations utiles à \LaTeX, en
   particulier ce qui est nécessaire au fonctionnement des références
   croisées. Le fichier \texttt{.aux} produit lors d'une exécution de
   \LaTeX{} est lu lors de l'exécution suivante ;
-\item[\eei{.idx}] fichier produit seulement si un index est demandé, il doit
-  être traité par \texttt{makeindex} (voir section~\ref{sec:indexing}
-  page~\pageref{sec:indexing}) ;
+\item[\eei{.idx}] fichier produit seulement si un index est demandé,
+  il doit être traité par \texttt{makeindex} (voir
+  section~\ref{sec:indexing} page~\pageref{sec:indexing}). \LaTeX{} y
+  stocke tous les mots qui iront en index ;
 \item[\eei{.ind}] fichier produit par \texttt{makeindex} à partir
-  du~\texttt{.idx}, il contient l'index prêt à être inclus dans le document ;
+  du~\texttt{.idx}, il contient l'index prêt à être inclus dans le
+  document ;
 \item[\eei{.ilg}] fichier contenant le compte-rendu du travail de
   \texttt{makeindex}.
 \end{description}
@@ -823,7 +844,6 @@ La vérification terminée, il suffit de mettre ces deux lignes
 (ou simplement la seconde) en commentaire en plaçant un~\texttt{\%}
 en tête de ligne.
 
-
 % Cette remarque est-elle utile ?
 % Attention : certaines extensions redéfinissent parfois certains
 % caractères spéciaux\footnote{Par exemple le caractère \og souligné \fg{} :
@@ -832,10 +852,10 @@ en tête de ligne.
 
 \endinput
 
-%%% Local Variables: 
-%%% mode: latex
-%%% TeX-master: "lshort"
-%%% End: 
+%
+
 % Local Variables:
+% TeX-master: "lshort2e"
+% mode: latex
 % mode: flyspell
 % End:
