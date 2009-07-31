@@ -12,16 +12,19 @@
   sufficient for many people, don't despair if you can't find a
   solution to your mathematical typesetting needs here. It is highly likely
   that your problem is addressed in \AmS-\LaTeX{}%
-  \footnote{\texttt{CTAN:/tex-archive/macros/latex/required/amslatex}}
-  or some other package.
+  \footnote{The \emph{American Mathematical Society} has produced a
+  powerful extension to \LaTeX{}. Many of the examples in this
+  chapter make use of this extension. It is provided with all recent
+  \TeX{} distributions. If yours is missing it, go to \texttt{CTAN:/tex-archive/macros/latex/required/amslatex}.}
 \end{intro}
   
 \section{General}
 
-\LaTeX{} has a special mode for typesetting \wi{mathematics}.
-Mathematical text within a paragraph is entered between \ci{(}
+\LaTeX{} has a special mode for typesetting \wi{mathematics}. Mathematics
+can be typeset inline within a paragraph, or the paragraph can be broken to
+typeset it separately. Mathematical text \emph{within} a paragraph is entered between \ci{(}
 and \ci{)}, \index{$@\texttt{\$}} %$
-between \texttt{\$} and \texttt{\$} or between %}
+between \texttt{\$} and \texttt{\$}, or between %}
 \verb|\begin{|\ei{math}\verb|}| and \verb|\end{math}|.\index{formulae}
 \begin{example}
 Add $a$ squared and $b$ squared 
@@ -31,38 +34,45 @@ $c^{2}=a^{2}+b^{2}$
 \end{example}
 \begin{example}
 \TeX{} is pronounced as 
-$\tau\epsilon\chi$.\\[6pt]
+\(\tau\epsilon\chi\).\\[6pt]
 100~m$^{3}$ of water\\[6pt]
-This comes from my $\heartsuit$
+This comes from my
+\begin{math}\heartsuit\end{math}
 \end{example}
 
-It is preferable to \emph{display} larger mathematical equations or formulae,
-rather than to typeset them on separate lines. This means you enclose them
-in \ci{[} and \ci{]} or between
+When you want your larger mathematical equations or formulae to be set apart
+from the rest of the paragraph, it is preferable to \emph{display} them,
+rather than to break the paragraph apart.
+To do this, you can either enclose them
+in \ci{[} and \ci{]}, or between
 \verb|\begin{|\ei{displaymath}\verb|}| and
-  \verb|\end{displaymath}|.  This produces formulae which are not
-numbered. If you want \LaTeX{} to number them, you can use the
-\ei{equation} environment.
+\verb|\end{displaymath}|.
 \begin{example}
-Add $a$ squared and $b$ squared 
-to get $c$ squared. Or, using 
+Add $a$ squared and $b$ squared
+to get $c$ squared. Or, using
 a more mathematical approach:
 \begin{displaymath}
 c^{2}=a^{2}+b^{2}
 \end{displaymath}
-And just one more line.
+or you can type less with:
+\[a+b=c\]
 \end{example}
-
-You can reference an equation with \ci{label} and \ci{ref}
+If you want \LaTeX{} to enumerate your equations, you can use the
+\ei{equation} environment.
+You can then \ci{label} an equation number and refer to it somewhere else in the
+text by using \ci{ref} or \ci{eqref}:
 \begin{example}
 \begin{equation} \label{eq:eps}
 \epsilon > 0
 \end{equation}
 From (\ref{eq:eps}), we gather 
-\ldots
+\ldots{}From \eqref{eq:eps} we
+do the same.
 \end{example}
 
-Note that expressions will be typeset in a different style if displayed:
+Note the difference in typesetting style between equations that are typeset and those
+that are displayed:
+
 \begin{example}
 $\lim_{n \to \infty} 
 \sum_{k=1}^n \frac{1}{k^2} 
@@ -79,13 +89,13 @@ $\lim_{n \to \infty}
 
 
 There are differences between \emph{math mode} and \emph{text mode}. For
-example in \emph{math mode}: 
+example, in \emph{math mode}: 
 
 \begin{enumerate}
 
-\item Most spaces and linebreaks do not have any significance, as all spaces
-either are derived logically from the mathematical expressions or
-have to be specified using special commands such as \ci{,}, \ci{quad} or
+\item Most spaces and line breaks do not have any significance, as all spaces
+are either derived logically from the mathematical expressions, or
+have to be specified with special commands such as \ci{,}, \ci{quad} or
 \ci{qquad}.
  
 \item Empty lines are not allowed. Only one paragraph per formula.
@@ -93,7 +103,7 @@ have to be specified using special commands such as \ci{,}, \ci{quad} or
 \item Each letter is considered to be the name of a variable and will be
 typeset as such. If you want to typeset normal text within a formula
 (normal upright font and normal spacing) then you have to enter the
-text using the \verb|\textrm{...}| commands.
+text using the \verb|\textrm{...}| commands (see also section \ref{sec:fontsz} on page \pageref{sec:fontsz}).
 \end{enumerate}
 \begin{example}
 \begin{equation}
@@ -128,7 +138,7 @@ x^{2} \geq 0\qquad
 
 \section{Grouping in Math Mode}
 
-Most math mode commands act only on the next character. So if you
+Most math mode commands act only on the next character, so if you
 want a command to affect several characters, you have to group them
 together using curly braces: \verb|{...}|.
 \begin{example}
@@ -139,8 +149,8 @@ a^x+y \neq a^{x+y}
  
 \section{Building Blocks of a Mathematical Formula}
 
-In this section, the most important commands used in mathematical
-typesetting will be described. Take a look at section~\ref{symbols} on
+This section describes the most important commands used in mathematical
+typesetting. Take a look at section~\ref{symbols} on
 page~\pageref{symbols} for a detailed list of commands for typesetting
 mathematical symbols.
 
@@ -153,8 +163,6 @@ are entered as \verb|\Gamma|, \verb|\Delta|, \ldots\footnote{There is no
 \begin{example}
 $\lambda,\xi,\pi,\mu,\Phi,\Omega$
 \end{example}
-\enlargethispage{\baselineskip}
-\pagebreak[4]
 
 \textbf{Exponents and Subscripts} can be specified using\index{exponent}\index{subscript}
 the \verb|^|\index{^@\verb"|^"|} and the \verb|_|\index{_@\verb"|_"|} character.
@@ -165,7 +173,7 @@ $a^{3}_{ij}$\\
 $e^{x^2} \neq {e^x}^2$
 \end{example}
 
-The \textbf{\wi{square root}} is entered as \ci{sqrt}, the
+The \textbf{\wi{square root}} is entered as \ci{sqrt}; the
 $n^\mathrm{th}$ root is generated with \verb|\sqrt[|$n$\verb|]|. The size of
 the root sign is determined automatically by \LaTeX. If just the sign
 is needed, use \verb|\surd|.
@@ -214,9 +222,9 @@ y=x^{2}\qquad y'=2x\qquad y''=2
 \end{example}
 
 Usually you don't typeset an explicit dot sign to indicate
-the multiplication operation. However sometimes it is written
+the multiplication operation; however sometimes it is written
 to help the reader's eyes in grouping a formula.
-Then you should use \ci{cdot}
+You should use \ci{cdot} in these cases:
 \begin{example}
 \begin{displaymath}
 v = {\sigma}_1 \cdot {\sigma}_2
@@ -226,7 +234,7 @@ v = {\sigma}_1 \cdot {\sigma}_2
 
 
 Names of log-like functions are often typeset in an upright
-font and not in italic like variables. Therefore \LaTeX{} supplies the
+font, and not in italics as variables are, so \LaTeX{} supplies the
 following commands to typeset the most important function names:
 \index{mathematical!functions}
 
@@ -247,6 +255,10 @@ For the \wi{modulo function}, there are two commands: \ci{bmod} for the
 binary operator ``$a \bmod b$'' and \ci{pmod}
 for expressions
 such as ``$x\equiv a \pmod{b}$.''
+\begin{example}
+$a\bmod b$\\
+$x\equiv a \pmod{b}$
+\end{example}
 
 A built-up \textbf{\wi{fraction}} is typeset with the
 \ci{frac}\verb|{...}{...}| command.
@@ -262,24 +274,17 @@ x^{ 1/2 }
 \end{example}
 
 To typeset binomial coefficients or similar structures, you can use
-either the command \verb|{... |\ci{choose}\verb| ...}| or 
-\verb|{... |\ci{atop}\verb| ...}|. The second command produces the
-same output as the first one, but without braces.
-\footnote{Note that the usage of these old-style commands is expressly forbidden
-by the \pai{amsmath} package. They are replaced by
-\ci{binom} and \ci{genfrac}. The latter is a superset of all related
-constructs, e.g. you may get a similar construct to \ci{atop}
-by \texttt{$\backslash$newcommand\{$\backslash$newatop\}[2]\{$\backslash$genfrac\{\}\{\}\{0pt\}\{1\}\{\#1\}\{\#2\}\}}.}
+the command \ci{binom} from the \pai{amsmath} package.
 
 \begin{example}
 \begin{displaymath}
-{n \choose k}\qquad {x \atop y+2}
+\binom{n}{k}\qquad\mathrm{C}_n^k
 \end{displaymath}
 \end{example}
 
 For binary relations it may be useful to stack symbols over each other.
 \ci{stackrel} puts the symbol given
-in the first argument in superscript-like size over the second which
+in the first argument in superscript-like size over the second, which
 is set in its usual position.
 \begin{example}
 \begin{displaymath}
@@ -288,10 +293,10 @@ is set in its usual position.
 \end{example}
 
 The \textbf{\wi{integral operator}} is generated with \ci{int}, the
-\textbf{\wi{sum operator}} with \ci{sum} and the \textbf{\wi{product operator}}
+\textbf{\wi{sum operator}} with \ci{sum}, and the \textbf{\wi{product operator}}
 with \ci{prod}. The upper and lower limits are specified with~\verb|^|
 and~\verb|_| like subscripts and superscripts.
-\footnote{\AmS-\LaTeX{} in addition has multiline super-/subscripts}
+\footnote{\AmS-\LaTeX{} in addition has multi-line super-/subscripts}
 \begin{example}
 \begin{displaymath}
 \sum_{i=1}^{n} \qquad
@@ -300,12 +305,28 @@ and~\verb|_| like subscripts and superscripts.
 \end{displaymath}
 \end{example}
 
-For \textbf{\wi{braces}} and other \wi{delimiters}, there exist all
-types of symbols in \TeX{} (e.g.~$[\;\langle\;\|\;\updownarrow$).
-Round and square braces can be entered with the corresponding keys,
-curly braces with \verb|\{|, all other delimiters are generated with
+To get more control over the placement of indices in complex
+expressions, \pai{amsmath} provides two additional tools:
+the \ci{substack} command and the \ei{subarray} environment:
+\begin{example}
+\begin{displaymath}
+\sum_{\substack{0<i<n \\ 1<j<m}}
+   P(i,j) =
+\sum_{\begin{subarray}{l} i\in I\\
+         1<j<m
+      \end{subarray}}     Q(i,j)
+\end{displaymath}
+\end{example}
+
+\medskip
+
+\TeX{} provides all sorts of symbols for
+\textbf{\wi{braces}} and other \wi{delimiters}
+(e.g.~$[\;\langle\;\|\;\updownarrow$).
+Round and square braces can be entered with the corresponding keys and
+curly braces with \verb|\{|, but all other delimiters are generated with
 special commands (e.g.~\verb|\updownarrow|). For a list of all
-delimiters available, check table~\ref{tab:delimiters} on page
+delimiters available, check Table~\ref{tab:delimiters} on page
 \pageref{tab:delimiters}.
 \begin{example}
 \begin{displaymath}
@@ -326,7 +347,6 @@ don't want anything on the right, use the invisible `\ci{right.}'!
 \end{displaymath}
 \end{example}
 
-\pagebreak[4]
 In some cases it is necessary to specify the correct size of a
 mathematical delimiter\index{mathematical!delimiter} by hand,
 which can be done using the commands \ci{big}, \ci{Big}, \ci{bigg} and
@@ -342,8 +362,8 @@ $\big\}\Big\}\bigg\}\Bigg\}$\quad
 $\big\|\Big\|\bigg\|\Bigg\|$
 \end{example}
 
-To enter \textbf{\wi{three dots}} into a formula, you can use several
-commands. \ci{ldots} typesets the dots on the baseline, \ci{cdots}
+There are several commands to enter \textbf{\wi{three dots}} into a formula.
+\ci{ldots} typesets the dots on the baseline and \ci{cdots}
 sets them centred. Besides that, there are the commands \ci{vdots} for
 vertical and \ci{ddots} for \wi{diagonal dots}.\index{vertical
   dots}\index{horizontal!dots} You can find another example in section~\ref{sec:vert}.
@@ -380,7 +400,7 @@ instead of
 \end{example}
 Note that `d' in the differential is conventionally set in roman.
 
-\AmS-\LaTeX{} provides another way for finetuning
+\AmS-\LaTeX{} provides another way for fine-tuning
 the spacing between multiple integral signs,
 namely the \ci{iint}, \ci{iiint}, \ci{iiiint}, and \ci{idotsint} commands.
 With the \pai{amsmath} package loaded, the above example can be
@@ -393,7 +413,7 @@ typeset this way:
 \end{example}
 
 See the electronic document testmath.tex (distributed with
-\AmS-\LaTeX) or Chapter 8 of ``The LaTeX Companion'' for further details.
+\AmS-\LaTeX) or Chapter 8 of \companion{} for further details.
 
 \section{Vertically Aligned Material}
 \label{sec:vert}
@@ -412,7 +432,7 @@ x_{21} & x_{22} & \ldots \\
 \end{displaymath}
 \end{example}
 
-The \ei{array} environment can also be used to typeset expressions which have one
+The \ei{array} environment can also be used to typeset expressions that have one
 big delimiter by using a ``\verb|.|'' as an invisible \ci{right} 
 delimiter:
 \begin{example}
@@ -425,7 +445,7 @@ y = \left\{ \begin{array}{ll}
 \end{displaymath}
 \end{example}
 
-As within the \verb|tabular| environment you can also
+Just as with the \verb|tabular| environment, you can also
 draw lines in the \ei{array} environment, e.g. separating the entries of
 a matrix:
 \begin{example}
@@ -447,7 +467,7 @@ equation number. The \verb|eqnarray*| does not number anything.
 
 The \texttt{eqnarray} and the \verb|eqnarray*| environments work like
 a 3-column table of the form \verb|{rcl}|, where the middle column can
-be used for the equal sign or the not-equal sign. Or any other sign
+be used for the equal sign, the not-equal sign, or any other sign
 you see fit. The \verb|\\| command breaks the lines.
 \begin{example}
 \begin{eqnarray}
@@ -464,7 +484,7 @@ the equal signs is rather large. It can be reduced by setting
 \index{long equations} \textbf{Long equations} will not be
 automatically divided into neat bits.  The author has to specify
 where to break them and how much to indent. The following two methods
-are the most common ones used to achieve this.
+are the most common ways to achieve this.
 \begin{example}
 {\setlength\arraycolsep{2pt}
 \begin{eqnarray}
@@ -485,7 +505,7 @@ are the most common ones used to achieve this.
 \end{example}
 
 %\enlargethispage{\baselineskip}
-\noindent The \ci{nonumber} command causes \LaTeX{} to not generate a number for
+\noindent The \ci{nonumber} command tells \LaTeX{} not to generate a number for
 this equation.
 
 It can be difficult to get vertically aligned equations to look right
@@ -493,16 +513,16 @@ with these methods; the package \pai{amsmath} provides a more
 powerful set of alternatives. (see \verb|align|, \verb|flalign|,
 \verb|gather|, \verb|multline| and \verb|split| environments).
 
-\section{Phantom}
+\section{Phantoms}
 
-We can't see phantoms, but they still occupy some space in the minds of a
-lot of people. \LaTeX{} is no different. We can use this for
+We can't see phantoms, but they still occupy some space in many people's minds.
+\LaTeX{} is no different. We can use this for
 some interesting spacing tricks.
 
-When vertically aligning text using \verb|^| and \verb|_| \LaTeX{} sometimes
-is just a little bit too helpful. Using the \ci{phantom} command you can
-reserve space for characters which do not show up in the final output. Best
-is to look at the following examples.
+When vertically aligning text using \verb|^| and \verb|_| \LaTeX{} is sometimes
+just a little bit too helpful. Using the \ci{phantom} command you can
+reserve space for characters that do not show up in the final output.
+The easiest way to understand this is to look at the following examples.
 \begin{example}
 \begin{displaymath}
 {}^{12}_{\phantom{1}6}\textrm{C}
@@ -518,7 +538,7 @@ is to look at the following examples.
 \end{displaymath}  
 \end{example}
 
-\section{Math Font Size}
+\section{Math Font Size}\label{sec:fontsz}
 
 \index{math font size} In math mode, \TeX{} selects the font size
 according to the context. Superscripts, for example, get typeset in a
@@ -528,7 +548,7 @@ mechanism will not work, as \verb|\textrm| temporarily escapes to text
 mode. Use \verb|\mathrm| instead to keep the size switching mechanism
 active. But pay attention, \ci{mathrm} will only work well on short
 items. Spaces are still not active and accented characters do not
-work.\footnote{The \AmS-\LaTeX{} package makes the \ci{textrm} command
+work.\footnote{The \AmS-\LaTeX{} (\pai{amsmath}) package makes the \ci{textrm} command
   work with size changing.}
 \begin{example}
 \begin{equation}
@@ -537,8 +557,8 @@ work.\footnote{The \AmS-\LaTeX{} package makes the \ci{textrm} command
 \end{equation}
 \end{example}
 
-Nevertheless, sometimes you need to tell \LaTeX{} the correct font
-size. In math mode, the fontsize is set with the four commands:
+Sometimes you still need to tell \LaTeX{} the correct font
+size. In math mode, this is set with the following four commands:
 \begin{flushleft}
 \ci{displaystyle}~($\displaystyle 123$),
  \ci{textstyle}~($\textstyle 123$), 
@@ -576,13 +596,13 @@ structures. \LaTeX{} supports this with the command
          \emph{text}\verb|}[|\emph{section}\verb|]|
 \end{lscommand}
 The \emph{name} argument is a short keyword used to identify the
-``theorem''. With the \emph{text} argument you define the actual name
-of the ``theorem'' which will be printed in the final document.
+``theorem.'' With the \emph{text} argument you define the actual name
+of the ``theorem,'' which will be printed in the final document.
 
 The arguments in square brackets are optional. They are both used to
-specify the numbering used on the ``theorem''. With the \emph{counter}
-argument you can specify the \emph{name} of a previously declared
-``theorem''. The new ``theorem'' will then be numbered in the same
+specify the numbering used on the ``theorem.'' Use  the \emph{counter}
+argument to specify the \emph{name} of a previously declared
+``theorem.'' The new ``theorem'' will then be numbered in the same
 sequence.  The \emph{section} argument allows you to specify the
 sectional unit within which the ``theorem'' should get its numbers.
 
@@ -594,8 +614,8 @@ This is my interesting theorem\\
 \verb|\end{|\emph{name}\verb|}|     
 \end{code}
 
-This should be enough theory. The following examples will hopefully
-remove the final remains of doubt and make it clear that the
+This should be enough theory. The following examples should
+remove any remaining doubt, and make it clear that the
 \verb|\newtheorem| environment is way too complex to understand.
 \begin{example}
 % definitions for the document
@@ -613,8 +633,8 @@ see law~\ref{law:box}\end{jury}
 \end{example}
 
 The ``Jury'' theorem uses the same counter as the ``Law''
-theorem. Therefore it gets a number which is in sequence with
-the other ``Laws''. The argument in square brackets is used to specify 
+theorem, so it gets a number that is in sequence with
+the other ``Laws.'' The argument in square brackets is used to specify 
 a title or something similar for the theorem.
 \begin{example}
 \flushleft
@@ -627,11 +647,11 @@ in a catastrophe, then
 someone will do it.\end{mur}
 \end{example}
 
-The ``Murphy'' theorem gets a number which is linked to the number of
+The ``Murphy'' theorem gets a number that is linked to the number of
 the current section.You could also use another unit, for example chapter or
 subsection.
 
-\section{Bold symbols}
+\section{Bold Symbols}
 \index{bold symbols}
 
 It is quite difficult to get bold symbols in \LaTeX{}; this is
@@ -663,12 +683,10 @@ a \ci{boldsymbol} command.
 \fi
 
 
-%%% Local Variables: 
-%%% mode: latex
-%%% TeX-master: "lshort"
-%%% End: 
-
+%
 
 % Local Variables:
+% TeX-master: "lshort2e"
+% mode: latex
 % mode: flyspell
 % End:

@@ -12,7 +12,7 @@
 \end{intro}
 
 \section{The Structure of Text and Language}
-
+\secby{Hanspeter Schmid}{hanspi@schmid-werren.ch}
 The main point of writing a text (some modern DAAC\footnote{Different
   At All Cost, a translation of the Swiss German UVA (Um's Verrecken
   Anders).} literature excluded), is to convey ideas, information, or
@@ -28,11 +28,11 @@ then derives the typographical form of the text according to the
 
 The most important text unit in \LaTeX{} (and in typography) is the
 \wi{paragraph}.  We call it ``text unit'' because a paragraph is the
-typographical form which should reflect one coherent thought, or one
-idea.  You will learn in the following sections, how you can force
-linebreaks with e.g.{} \texttt{\bs\bs} and paragraph breaks with e.g.{} 
+typographical form that should reflect one coherent thought, or one
+idea.  You will learn in the following sections how you can force
+line breaks with e.g.{} \texttt{\bs\bs}, and paragraph breaks with e.g.{} 
 leaving an empty line in the source code.  Therefore, if a new thought
-begins, a new paragraph should begin, and if not, only linebreaks
+begins, a new paragraph should begin, and if not, only line breaks
 should be used.  If in doubt about paragraph breaks, think about your
 text as a conveyor of ideas and thoughts.  If you have a paragraph
 break, but the old thought continues, it should be removed.  If some
@@ -62,7 +62,7 @@ and the least well understood physical formula.
 
 
 % Example 2
-\ldots from which follows Kirchoff's current law:
+\ldots from which follows Kirchhoff's current law:
 \begin{equation} 
   \sum_{k=1}^{n} I_k = 0 \; .
 \end{equation} 
@@ -81,8 +81,8 @@ is the core of a very different transistor model. \ldots
 \end{code} 
 
 The next smaller text unit is a sentence.  In English texts, there is
-a larger space after a period which ends a sentence than after one
-which ends an abbreviation.  \LaTeX{} tries to figure out which one
+a larger space after a period that ends a sentence than after one
+that ends an abbreviation.  \LaTeX{} tries to figure out which one
 you wanted to have.  If \LaTeX{} gets it wrong, you must tell it what
 you want.  This is explained later in this chapter.
 
@@ -92,7 +92,7 @@ languages (including German and English), you will get almost every
 comma right if you remember what it represents: a short stop in the
 flow of language.  If you are not sure about where to put a comma,
 read the sentence aloud and take a short breath at every comma.  If
-this feels awkward at some place, delete that comma, if you feel the
+this feels awkward at some place, delete that comma; if you feel the
 urge to breathe (or make a short stop) at some other place, insert a
 comma.
 
@@ -103,12 +103,12 @@ e.g.{} \verb|\section{The| \texttt{Structure of Text and Language}\verb|}| is
 so obvious that it is almost self-evident how these high-level
 structures should be used.
 
-\section{Linebreaking and Pagebreaking}
+\section{Line Breaking and Page Breaking}
  
 \subsection{Justified Paragraphs}
 
-Often books are typeset with each line having the same length.
-\LaTeX{} inserts the necessary \wi{linebreak}s and spaces between words
+Books are often typeset with each line having the same length.
+\LaTeX{} inserts the necessary \wi{line break}s and spaces between words
 by optimizing the contents of a whole paragraph. If necessary, it
 also hyphenates words that would not fit comfortably on a line.
 How the paragraphs are typeset depends on the document class.
@@ -126,8 +126,8 @@ line:
 \begin{lscommand}
 \ci{\bs*}
 \end{lscommand}
-\noindent additionally prohibits a pagebreak after the forced
-linebreak. 
+\noindent additionally prohibits a page break after the forced
+line break. 
 
 \begin{lscommand}
 \ci{newpage}
@@ -141,17 +141,17 @@ linebreak.
 \ci{nopagebreak}\verb|[|\emph{n}\verb|]|
 \end{lscommand}
 \noindent do what their names say. They enable the author to influence their
-actions with the optional argument \emph{n}. It can be set to a number
-between zero to four. By setting \emph{n} to a value below 4 you leave
+actions with the optional argument \emph{n}, which can be set to a number
+between zero and four. By setting \emph{n} to a value below 4, you leave
 \LaTeX{} the option of ignoring your command if the result would look very
 bad. Do not confuse these ``break'' commands with the ``new'' commands. Even
 when you give a ``break'' command, \LaTeX{} still tries to even out the
-right border of the page and the total length of the page as described in
+right border of the page and the total length of the page, as described in
 the next section. If you really want to start a ``new line'', then use the
 corresponding command. Guess its name!
 
-\LaTeX{} always tries to produce the best linebreaks possible. If it
-cannot find a way to break the lines in a manner which meets its high
+\LaTeX{} always tries to produce the best line breaks possible. If it
+cannot find a way to break the lines in a manner that meets its high
 standards, it lets one line stick out on the right of the paragraph.
 \LaTeX{} then complains (``\wi{overfull hbox}'') while processing the
 input file. This happens most often when \LaTeX{} cannot find a
@@ -162,7 +162,7 @@ suitable place to hyphenate a word.\footnote{Although \LaTeX{} gives
   lines will be marked with a thick black line on the right margin.}
 You can instruct \LaTeX{} to lower its standards a little by giving
 the \ci{sloppy} command. It prevents such over-long lines by
-increasing the inter-word spacing --- even if the final output is not
+increasing the inter-word spacing---even if the final output is not
 optimal.  In this case a warning (``\wi{underfull hbox}'') is given to
 the user.  In most such cases the result doesn't look very good. The
 command \ci{fussy} brings \LaTeX{} back to its default behaviour.
@@ -180,11 +180,11 @@ The command
 \end{lscommand}
 \noindent causes the words listed in the argument to be hyphenated only at
 the points marked by ``\verb|-|''.  The argument of the command should only
-contain words built from normal letters or rather signs which are considered
+contain words built from normal letters, or rather signs that are considered
 to be normal letters by \LaTeX{}. The hyphenation hints are
-stored for the language which is active when the hyphenation command
+stored for the language that is active when the hyphenation command
 occurs. This means that if you place a hyphenation command into the preamble
-of your document it will influence the english language hyphenation. If you
+of your document it will influence the English language hyphenation. If you
 place the command after the \verb|\begin{document}| and you are using some
 package for national language support like \pai{babel}, then the hyphenation
 hints will be active in the language activated through \pai{babel}.
@@ -232,9 +232,9 @@ contain the name of the file.
 be a visible box drawn around the content.
 
 
-\section{Ready made Strings}
+\section{Ready-Made Strings}
 
-In some of the examples on the previous pages you have seen
+In some of the examples on the previous pages, you have seen
 some very simple \LaTeX{} commands for typesetting special
 text strings:
 
@@ -246,7 +246,7 @@ Command&Example&Description\\
 \hline
 \ci{today} & \today   &  Current date in the current language\\
 \ci{TeX} & \TeX       & The name of your favorite typesetter\\
-\ci{LaTeX} & \LaTeX   & The name of the Game\\
+\ci{LaTeX} & \LaTeX   & The Name of the Game\\
 \ci{LaTeXe} & \LaTeXe & The current incarnation of \LaTeX\\
 \end{tabular}
 
@@ -257,7 +257,7 @@ Command&Example&Description\\
 You should \emph{not} use the \verb|"| for \wi{quotation marks}
 \index{""@\texttt{""}} as you would on a typewriter.  In publishing
 there are special opening and closing quotation marks.  In \LaTeX{},
-use two~\verb|`|s (grace accent) for opening quotation marks and
+use two~\verb|`|s (grave accent) for opening quotation marks and
 two~\verb|'|s (apostrophe) for closing quotation marks. For single
 quotes you use just one of each.
 \begin{example}
@@ -268,7 +268,7 @@ quotes you use just one of each.
 
 \LaTeX{} knows four kinds of \wi{dash}es. You can access three of
 them with different numbers of consecutive dashes. The fourth sign
-is actually not a dash at all: It is the mathematical minus sign: \index{-}
+is actually not a dash at all---it is the mathematical minus sign: \index{-}
 \index{--} \index{---} \index{-@$-$} \index{mathematical!minus}
 
 \begin{example}
@@ -281,9 +281,9 @@ The names for these dashes are:
 `-' \wi{hyphen}, `--' \wi{en-dash}, `---' \wi{em-dash} and
 `$-$' \wi{minus sign}.
 
-\subsection{Tilde ($\sim$)}
+\subsection{Tilde (\texorpdfstring{$\sim$}{~})}
 \index{www}\index{URL}\index{tilde}
-A character, often seen with web addresses is the tilde. To generate
+A character often seen in web addresses is the tilde. To generate
 this in \LaTeX{} you can use \verb|\~| but the result: \~{} is not really
 what you want. Try this instead:
 
@@ -292,9 +292,9 @@ http://www.rich.edu/\~{}bush \\
 http://www.clever.edu/$\sim$demo
 \end{example}  
  
-\subsection{Degree Symbol ($\circ$)}
+\subsection{Degree Symbol \texorpdfstring{($\circ$)}{}}
 
-How to print a \wi{degree symbol} in \LaTeX{}?
+The following example shows how to print a \wi{degree symbol} in \LaTeX{}:
 
 \begin{example}
 It's $-30\,^{\circ}\mathrm{C}$.
@@ -302,13 +302,47 @@ I will soon start to
 super-conduct.
 \end{example}
 
-\subsection{Ellipsis ( \ldots )}
+\subsection{The Euro Currency Symbol \texorpdfstring{(\EUR)}{}}
 
-On a typewriter a \wi{comma} or a \wi{period} takes the same amount of
-space as any other letter. In book printing these characters occupy
+When writing about money these days, you need the euro symbol. Many current
+fonts contain a Euro symbol. After loading the \pai{textcomp} package in the preamble of your document
+\begin{lscommand}
+\ci{usepackage}\verb|{textcomp}| 
+\end{lscommand}
+you can use the command
+\begin{lscommand}
+\ci{texteuro}
+\end{lscommand}
+to access it.
+
+If your font does not provide its own Euro symbol or if you do not like the font's Euro symbol, you have two more choices:
+
+First the \pai{eurosym} package. It provides the official Euro symbol:
+\begin{lscommand}
+\ci{usepackage}\verb|[|\emph{official}\verb|]{eurosym}| 
+\end{lscommand}
+If you prefer a euro symbol that matches your font, use the option
+\texttt{gen} in place of the \texttt{official} option.
+
+The \pai{marvosym} package also provides many different symbols,
+including a Euro, under the name:
+\begin{lscommand}
+\ci{EUR}
+\end{lscommand}
+
+\begin{example}
+The \texteuro{}, the \euro{}
+and the \EUR{} all look
+different.
+\end{example} 
+
+\subsection{Ellipsis (\texorpdfstring{\ldots}{...})}
+
+On a typewriter, a \wi{comma} or a \wi{period} takes the same amount of
+space as any other letter. In book printing, these characters occupy
 only a little space and are set very close to the preceding letter.
-Therefore you cannot enter `\wi{ellipsis}' by just typing three
-dots, as the spacing would be wrong. Besides that there is a special
+Therefore, you cannot enter `\wi{ellipsis}' by just typing three
+dots, as the spacing would be wrong. Instead, there is a special
 command for these dots. It is called
 
 \begin{lscommand}
@@ -336,7 +370,7 @@ between the two letters in question. This might be necessary with
 words built from two words.
 
 \begin{example}
-Not shelfful\\
+\Large Not shelfful\\
 but shelf\mbox{}ful
 \end{example}
  
@@ -378,8 +412,8 @@ Stra\ss e
 \end{table}
 
 \section{International Language Support}
-\index{international} If you need to write documents in \wi{language}s
-other than English, there are two areas where \LaTeX{} has to be
+\index{international} When you write documents in \wi{language}s
+other than English, there are three areas where \LaTeX{} has to be
 configured appropriately:
 
 \begin{enumerate}
@@ -392,36 +426,41 @@ configured appropriately:
   tricky. It means rebuilding the format file with different
   hyphenation patterns enabled. Your \guide{} should give more
   information on this.
+\item Language specific typographic rules. In French for example, there is a
+  mandatory space before each colon character (:).
 \end{enumerate}
 
 If your system is already configured appropriately, you can activate
 the \pai{babel} package by adding the command
 \begin{lscommand}
-\ci{usepackage}\verb|[|\emph{language},\emph{language}\verb|]{babel}| 
+\ci{usepackage}\verb|[|\emph{language}\verb|]{babel}| 
 \end{lscommand}
-\noindent after the \verb|\documentclass| command. The \emph{language}s your
-system supports should also be listed in the Local Guide. Babel will
-automatically activate the apropriate hyphenation rules for the
+\noindent after the \verb|\documentclass| command. A list of the
+\emph{language}s built into your \LaTeX{} system will be displayed
+every time the compiler is started. Babel will
+automatically activate the appropriate hyphenation rules for the
 language you choose. If your \LaTeX{} format does not support
 hyphenation in the language of your choice, babel will still work but
-it will disable hyphenation which has quite a negative effect on the
-visual appearance of the typeset document.
+will disable hyphenation, which has quite a negative effect on the
+appearance of the typeset document.
 
-For some languages, \textsf{babel} also specifies new commands which
+\textsf{Babel} also specifies new commands for some languages, which
 simplify the input of special characters. The \wi{German} language, for
 example, contains a lot of umlauts (\"a\"o\"u).  With \textsf{babel},
 you can enter an \"o by typing \verb|"o| instead of~\verb|\"o|.
 
-If you call babel with multiple languages you can use the command 
+If you call babel with multiple languages
 \begin{lscommand}
-\ci{selectlanguage}\verb|{|\emph{language}\verb|}|
+\ci{usepackage}\verb|[|\emph{languageA}\verb|,|\emph{languageB}\verb|]{babel}| 
 \end{lscommand}
-to define the current language.
+\noindent you have to use the command
+\begin{lscommand}
+\ci{selectlanguage}\verb|{|\emph{languageA}\verb|}|
+\end{lscommand}
+\noindent to set the current language.
 
-Some computer systems allow you to input special characters directly
-from the keyboard. \LaTeX{} can handle such characters. Since the
-December 1994 release of \LaTeXe{}, support for several input
-encodings is included in the basic distribution of \LaTeXe. Check the
+Most modern computer systems allow you to input some special characters
+directly from the keyboard. \LaTeX{} can handle such characters through the
 \pai{inputenc} package:
 \begin{lscommand}
 \ci{usepackage}\verb|[|\emph{encoding}\verb|]{inputenc}| 
@@ -430,9 +469,9 @@ encodings is included in the basic distribution of \LaTeXe. Check the
 When using this package, you should consider
 that other people might not be able to display your input files on
 their computer, because they use a different encoding. For example,
-the German umlaut \"a on a PC is encoded as 132, but on some Unix
-systems using ISO-LATIN~1 it is encoded as 228. Therefore you should
-use this feature with care. The following encodings may come handy,
+the German umlaut \"a on OS/2 is encoded as 132, but on Unix
+systems using ISO-LATIN~1 it is encoded as 228; therefore you should
+use this feature with care. The following encodings may come in handy,
 depending on the type of system you are working on: 
 
 \begin{center}
@@ -442,13 +481,13 @@ Operating system & encoding\\
 Mac     &  \texttt{applemac} \\
 Unix    &  \texttt{latin1} \\ 
 Windows &  \texttt{ansinew} \\
-OS/2    &  \texttt{cp850}
+DOS, OS/2    &  \texttt{cp850}
 \end{tabular}
 \end{center}
 
 Font encoding is a different matter. It defines at which position inside
 a \TeX-font each letter is stored. The original Computer Modern
-\TeX{} font does only contain the 128 characters of the old 7-bit ASCII
+\TeX{} font only contains the 128 characters of the old 7-bit ASCII
 character set. When accented characters are required, \TeX{} creates
 them by combining a normal character with an accent. While the
 resulting output looks perfect, this approach stops the automatic
@@ -459,45 +498,52 @@ fonts. These fonts look like the Computer Modern fonts, but contain
 special characters for most of the accented characters used in
 European languages. By using these fonts you can improve hyphenation
 in non-English documents. The EC fonts are activated by including the
-\pai{fontenc} package in the preamble of your document.
+\pai{fontenc} package in the preamble of your document. \label{fontenc}
 
 \begin{lscommand}
 \ci{usepackage}\verb|[T1]{fontenc}| 
 \end{lscommand}
 
-Unfortunately, there are no Postscript versions of the EC fonts available
-which can cause problems when generating PDF versions of your documents. If
-this is a problem for you you might want to have a look at the \pai{ae}
-package aka \emph{Almost European Computer Modern} which still uses the
-characters from the original Computer Modern font, but rearanges them in the
-EC order.
-
-\pagebreak[4]
+As of this writing, no free, high quality \textsc{PostScript} versions of the EC fonts are
+available.\footnote{Vladimir Volovich has created the cm-super font bundle
+which covers the entire EC/TC, EC Concrete, EC Bright and LH fonts. It is avalable from \texttt{CTAN:/fonts/ps-type1/cm-super} and is
+included with \TeX{}Live7 and Mik\TeX. Unfortunately these fonts are not
+of the same typographic quality as the normal Type1 renderings of the CM fonts} This causes problems when generating PDF versions of your
+documents---the resulting PDF file will look abysmal on screen. You might
+want to have a look at the \pai{aeguill} package, aka \emph{Almost European
+Computer Modern with Guillemets}, which uses the characters from the original Computer
+Modern font, but rearranges them in the EC order and can thus use the
+excellent type 1 format CM fonts available on most systems. There is also an \pai{ae} package, but it
+does not provide proper rendering of French quotes, aka guillemets (see the section
+on pdf\LaTeX{} on page \pageref{sec:pdftex}).
 
 \subsection{Support for Portuguese}
 
 \secby{Demerson Andre Polli}{polli@linux.ime.usp.br}
-To enable the hyphenation and change all automatic text to \wi{Portuguese}
+To enable hyphenation and change all automatic text to \wi{Portuguese},
 \index{Portugu\^es} use the command:
 \begin{lscommand}
-\verb|\usepackage[portuges]{babel}|
+\verb|\usepackage[portuguese]{babel}|
 \end{lscommand}
+Or if you are in Brazil, substitute the language for \wi{brazilian}.
 
-However, it's necessary to enable the accents used in portuguese, with the
-commands
+As there are a lot of accents in Portuguese you might want to use
 \begin{lscommand}
 \verb|\usepackage[latin1]{inputenc}|
 \end{lscommand}
-and
+to be able to input them correctly as well as 
 \begin{lscommand}
 \verb|\usepackage[T1]{fontenc}|
 \end{lscommand}
+to get the hyphenation right.
 
-Now, you can type normally all the accents used in the portuguese language.
-See the table~\ref{portuguese} to the preamble to write in portuguese language.
+See table~\ref{portuguese} for the preamble you need to write in the
+Portuguese language. Note that we are using the latin1 input encoding here,
+so this will not work on a Mac or on DOS. Just use
+the appropriate encoding for your system.
 
-\begin{table}[!hbp]
-\caption{Preamble to Write in Portuguese.} \label{portuguese}
+\begin{table}[btp]
+\caption{Preamble forPortuguese documents.} \label{portuguese}
 \begin{lined}{5cm}
 \begin{verbatim}
 \usepackage[portuges]{babel}
@@ -508,24 +554,26 @@ See the table~\ref{portuguese} to the preamble to write in portuguese language.
 \end{lined}
 \end{table}
 
+\newpage
+
 \subsection{Support for French}
 
 \secby{Daniel Flipo}{daniel.flipo@univ-lille1.fr}
-Some hints for those creating \wi{French} documents with \LaTeX{}. 
-You can load French language support with the command:
+Some hints for those creating \wi{French} documents with \LaTeX{}:
+you can load French language support with the command
 
 \begin{lscommand}
 \verb|\usepackage[frenchb]{babel}|
 \end{lscommand}
 
-Mind that, for historical reasons, the name of \textsf{babel}'s option 
+Note that, for historical reasons, the name of \textsf{babel}'s option 
 for French is either \emph{frenchb} or \emph{francais} but not \emph{french}.
 
 This enables French hyphenation, if you have configured your
 LaTeX system accordingly. It also changes all automatic text into
 French: \verb+\chapter+ prints Chapitre, \verb+\today+ prints the current
-date in French and so on. Further a set of new commands
-becomes available which allows you to write French input files more
+date in French and so on. A set of new commands also
+becomes available, which allows you to write French input files more
 easily. Check out table \ref{cmd-french} for inspiration. 
 
 \begin{table}[!htbp]
@@ -548,16 +596,16 @@ easily. Check out table \ref{cmd-french} for inspiration.
 \end{table}
 
 You will also notice that the layout of lists changes when switching to the
-French language. To get a full knowledge of what the \texttt{frenchb}
-option of \textsf{babel} does and how you can customize it's behaviour, run
+French language. For more information on what the \texttt{frenchb}
+option of \textsf{babel} does and how you can customize its behaviour, run
 \LaTeX{} on file \texttt{frenchb.dtx} and read the produced file
 \texttt{frenchb.dvi}.
 
 \subsection{Support for German}
 
 Some hints for those creating \wi{German}\index{Deutsch}
-documents with \LaTeX{}. You can load German language support with the
-command:
+documents with \LaTeX{}: you can load German language support with the
+command
 
 \begin{lscommand}
 \verb|\usepackage[german]{babel}|
@@ -565,25 +613,181 @@ command:
 
 This enables German hyphenation, if you have configured your
 \LaTeX system accordingly. It also changes all automatic text into
-German. Eg. ``Chapter'' becomes ``Kapitel''. Further a set of new commands
-becomes available which allows you to write German input files more
-quickly. Check out table \ref{german} for inspiration. 
+German. Eg. ``Chapter'' becomes ``Kapitel.'' A set of new commands also
+becomes available, which allows you to write German input files more quickly
+even when you don't use the inputenc package. Check out table
+\ref{german} for inspiration. With inputenc, all this become mute, but your 
+text also is locked in a particular encoding world.
 
-\begin{table}[!hbp]
+\begin{table}[!htbp]
 \caption{German Special Characters.} \label{german}
-\begin{lined}{5cm}
-\begin{tabular}{*2{cl}}
-\verb|"a| & \"a \hspace*{1ex} & \verb|"s| & \ss \\[1ex]
-\verb|"`| & \glqq & \verb|"'| & \grqq \\[1ex]
-\verb|"<| & \flqq  & \verb|">| & \frqq \\[1ex]
+\begin{lined}{8cm}
+\selectlanguage{german}
+\begin{tabular}{*2{ll}}
+\verb|"a| & "a \hspace*{1ex} & \verb|"s| & "s \\[1ex]
+\verb|"`| & "` & \verb|"'| & "' \\[1ex]
+\verb|"<| or \ci{flqq} & "<  & \verb|">| or \ci{frqq} & "> \\[1ex]
+\ci{flq} & \flq & \ci{frq} & \frq \\[1ex]
 \ci{dq} & " \\
 \end{tabular}
+\selectlanguage{english}
 \bigskip
 \end{lined}
 \end{table}
 
+In German books you often find French quotation marks (\flqq guillemets\frqq).
+German typesetters, however, use them differently. A quote in a German book
+would look like \frqq this\flqq. In the German speaking part of Switzerland,
+typesetters use \flqq guillemets\frqq~the same way the French do.
 
-\section{The Space between Words}
+A major problem arises from the use of commands
+like \verb+\flq+: If you use the OT1 font (which is the default font) the  
+guillemets will look like the math symbol ``$\ll$'', which turns a typesetter's stomach.
+T1 encoded fonts, on the other hand, do contain the required symbols. So if you are using this type
+of quote, make sure you use the T1 encoding. (\verb|\usepackage[T1]{fontenc}|)
+
+\subsection[Support for Korean]{Support for Korean\footnotemark}\label{support_korean}%
+\footnotetext{%
+Considering a number of issues  Korean \LaTeX{} users
+have to cope with.
+This section was written by Karnes KIM on behalf of the
+Korean lshort translation team. It  was translated into English
+by SHIN Jungshik and shortened by Tobi Oetiker}
+
+To use \LaTeX{} for typesetting  \wi{Korean}, 
+we need to solve three problems: 
+
+\begin{enumerate}
+\item 
+We must be able to 
+edit \wi{Korean input files}.
+Korean input files must be in plain text format, but because Korean
+uses its own character set outside the
+repertoire of US-ASCII, they will look rather strange with a normal ASCII editor.  The two most widely used encodings for
+Korean text files are  EUC-KR and its upward compatible
+extension used in Korean MS-Windows, CP949/Windows-949/UHC.
+In these encodings each US-ASCII character represents its normal ASCII
+character similar to other ASCII compatible encodings such as
+ISO-8859-\textit{x}, EUC-JP,Shift\_JIS, and Big5. On the other hand, Hangul
+syllables, Hanjas (Chinese characters as used in Korea), Hangul Jamos,
+Hirakanas, Katakanas, Greek and Cyrillic characters and other
+symbols and letters drawn from KS~X~1001 are represented by two
+consecutive octets. The first has its MSB set.
+Until mid the 1990's, it took a considerable amount of time and effort to
+set up a Korean-capable environment under a non-localized (non-Korean)
+operating system. 
+You can skim through the now much-outdated \url{http://jshin.net/faq} to get 
+a glimpse of what it was like to use Korean under non-Korean OS in mid-1990's.
+These days all three major operating systems (Mac OS, Unix, Windows) come equipped
+with pretty decent multilingual support and internationalization features
+so that editing Korean text file is not so much of a problem anymore, even
+on non-Korean operating systems.
+
+\item \TeX{} and \LaTeX{} were originally written for
+scripts with no more than 256 characters in their alphabet.
+To make them work for languages with considerably 
+more characters such as
+Korean%,
+ \footnote{Korean Hangul is an alphabetic script with 14 basic consonants
+ and 10 basic vowels (Jamos). Unlike Latin or Cyrillic scripts, the
+ individual characters have to be arranged in rectangular
+ clusters about the same size as Chinese characters. Each cluster
+ represents a syllable. An unlimited number of syllables can be
+ formed out of this finite set of vowels and consonants. Modern Korean
+ orthographic standards (both in South Korea and  North Korea), however,
+ put some restriction on the formation of these clusters.
+ Therefore only a finite the number of  orthographically correct syllables exist.
+ The Korean Character encoding defines individual code points for each of these syllables (KS~X~1001:1998 and KS~X~1002:1992). So Hangul, albeit alphabetic, is
+ treated like the Chinese and Japanese writing systems with tens of thousands of
+ ideographic/logographic characters.  ISO~10646/Unicode offers both ways of
+ representing Hangul used for \emph{modern} Korean by encoding Conjoining
+ Hangul Jamos (alphabets: \url{http://www.unicode.org/charts/PDF/U1100.pdf})
+ in addition to encoding all the orthographically allowed Hangul syllables in
+ \emph{modern} Korean (\url{http://www.unicode.org/charts/PDF/UAC00.pdf}).
+ One of the most daunting challenges in Korean typesetting with
+ \LaTeX{} and related typesetting system is supporting Middle Korean---and possibly future Korean---syllables that can be only represented
+ by conjoining Jamos in Unicode. It is hoped that future \TeX{} engines like $\Omega$ and
+ $\Lambda$ will eventually provide solutions to this
+ so that some Korean linguists and historians
+ will defect from MS Word that already has  a pretty good support 
+ for Middle Korean.}
+or Chinese, a subfont mechanism was developed.
+It divides a single CJK fonts with  thousands or tens of thousands of
+glyphs into a set of subfonts with 256 glyphs each. 
+For Korean, there are three widely used packages;  \wi{H\LaTeX}
+by UN~Koaunghi, \wi{h\LaTeX{}p} by CHA~Jaechoon and the \wi{CJK package}
+by Werner~Lemberg.\footnote{% 
+They can be obtained at \texttt{CTAN:/tex-archive/language/korean/HLaTeX/}\\
+   \texttt{CTAN:/tex-archive/language/korean/CJK/} and
+   \texttt{http://knot.kaist.ac.kr/htex/}}
+H\LaTeX{} and h\LaTeX{}p are specific to Korean and provide
+Korean localization on top of the font support.
+They both can process Korean input text files encoded in EUC-KR. H\LaTeX{} can
+even process input files encoded in CP949/Windows-949/UHC and UTF-8
+when used along with $\Lambda$, $\Omega$.
+
+The CJK package is not specific to Korean. It can
+process input files in UTF-8 as well as in various CJK encodings
+including EUC-KR and CP949/Windows-949/UHC, it can be used to typeset documents with
+multilingual content (especially Chinese, Japanese and Korean).
+The CJK package has no Korean localization such as the one offered by H\LaTeX{} and it
+does not come with as many special Korean fonts as H\LaTeX.
+
+\item The ultimate purpose of using typesetting programs like \TeX{}
+and \LaTeX{} is to get documents typeset in an `aesthetically' satisfying way.
+Arguably the most important element in typesetting is  a set of
+well-designed fonts. The H\LaTeX{} distribution
+includes \index{Korean font!UHC font}UHC \textsc{PostScript} fonts 
+of 10
+different families and
+Munhwabu\footnote{Korean Ministry of Culture}
+fonts (TrueType) of 5 different families.
+The CJK package works with a set of fonts used by earlier versions
+of H\LaTeX{} and it can use Bitstream's cyberbit TrueType
+font.
+\end{enumerate}
+
+To use the  H\LaTeX{} package for typesetting your Korean text, put the following
+declaration into the preamble of your document:
+\begin{lscommand}
+\verb+\usepackage{hangul}+
+\end{lscommand}
+
+This command turns the Korean localization on. The headings
+of chapters, sections, subsections, table of content and table of
+figures are all translated into Korean and the formatting of the document
+is changed to follow Korean conventions. 
+The packages also provides automatic ``particle selection.''
+In Korean, there are pairs of post-fix particles 
+grammatically equivalent but different in form. Which 
+of any given pair is correct depends on 
+whether the preceding syllable ends with a  vowel or a consonant.
+(It is a bit more complex than this, but this should give you
+a good picture.)
+Native Korean speakers have no problem picking the right particle, but
+it cannot be determined which particle to use for references and other automatic
+text that will change while you edit the document.
+It 
+takes a painstaking effort to place appropriate particles manually
+every time you add/remove references or simply shuffle  parts
+of your document around.
+H\LaTeX{} relieves its users from this boring and error-prone process.
+
+In case you don't need Korean localization features
+but just want 
+to  typeset Korean text, you can put the following line in the 
+preamble, instead.
+\begin{lscommand}
+\verb+\usepackage{hfont}+
+\end{lscommand}
+
+For more details on typesetting  Korean with H\LaTeX{}, refer to
+the \emph{H\LaTeX{} Guide}.  Check out the web site of the Korean
+\TeX{} User Group (KTUG) at  \url{http://www.ktug.or.kr/}.
+There is also a Korean translation
+of this manual available.
+
+\section{The Space Between Words}
 
 To get a straight right margin in the output, \LaTeX{} inserts varying
 amounts of space between the words. It inserts slightly more space at
@@ -594,9 +798,9 @@ sentence ending, since periods after uppercase letters normally occur in
 abbreviations.
 
 Any exception from these assumptions has to be specified by the
-author. A backslash in front of a space generates a space which will
-not be enlarged. A tilde~`\verb|~|' character generates a space which cannot be
-enlarged and which additionally prohibits a linebreak. The command
+author. A backslash in front of a space generates a space that will
+not be enlarged. A tilde~`\verb|~|' character generates a space that cannot be
+enlarged and additionally prohibits a line break. The command
 \verb|\@| in front of a period specifies that this period terminates a
 sentence even when it follows an uppercase letter.
 \cih{"@} \index{~@ \verb.~.} \index{tilde@tilde ( \verb.~.)}
@@ -616,34 +820,43 @@ The additional space after periods can be disabled with the command
 period than after ordinary character. This is very common in
 non-English languages, except bibliographies. If you use
 \ci{frenchspacing}, the command \verb|\@| is not necessary.
-    
+
+\newpage    
 \section{Titles, Chapters, and Sections}
 
 To help the reader find his or her way through your work, you should
 divide it into chapters, sections, and subsections.  \LaTeX{} supports
-this with special commands which take the section title as their
+this with special commands that take the section title as their
 argument.  It is up to you to use them in the correct order.
 
 The following sectioning commands are available for the
 \texttt{article} class: \nopagebreak
-\begin{code}
-\ci{section}\verb|{...}           |\ci{paragraph}\verb|{...}|\\
-\ci{subsection}\verb|{...}        |\ci{subparagraph}\verb|{...}|\\
-\ci{subsubsection}\verb|{...}|
-\end{code}
 
-You can use an additional sectioning command for the \texttt{report}
-and the \texttt{book} class: \ci{chapter}\verb|{...}|
+\begin{lscommand}
+\ci{section}\verb|{...}|\\
+\ci{subsection}\verb|{...}|\\
+\ci{subsubsection}\verb|{...}|\\
+\ci{paragraph}\verb|{...}|\\
+\ci{subparagraph}\verb|{...}|
+\end{lscommand}
 
-If you want to split your document in parts without influencing the section
-/ chapter numbering you can use \ci{part}\verb|{...}|.
+If you want to split your document in parts without influencing the
+section or chapter numbering you can use
+\begin{lscommand}
+\ci{part}\verb|{...}|
+\end{lscommand}
+
+When you work with the \texttt{report} or \texttt{book} class,
+an additional top-level sectioning command becomes available
+\begin{lscommand}
+\ci{chapter}\verb|{...}|
+\end{lscommand}
 
 As the \texttt{article} class does not know about chapters, it is quite easy
 to add articles as chapters to a book.
 The spacing between sections, the numbering and the font size of the
 titles will be set automatically by \LaTeX. 
 
-\pagebreak[3]
 Two of the sectioning commands are a bit special: 
 \begin{itemize}
 \item The \ci{part} command does
@@ -660,7 +873,7 @@ and page numbers from the last compile cycle of the document. The command
 \begin{lscommand} 
 \ci{tableofcontents}
 \end{lscommand} 
-\noindent expands to a table of contents at the place where it
+\noindent expands to a table of contents at the place it
 is issued. A new
 document has to be compiled (``\LaTeX ed'') twice to get a
 correct \wi{table of contents}. Sometimes it might be
@@ -669,8 +882,8 @@ when this is necessary.
 
 All sectioning commands listed above also exist as ``starred''
 versions.  A ``starred'' version of a command is built by adding a
-star \verb|*| after the command name.  They generate section headings
-which do not show up in the table of contents and which are not
+star \verb|*| after the command name.  This generates section headings
+that do not show up in the table of contents and are not
 numbered. The command \verb|\section{Help}|, for example, would become
 \verb|\section*{Help}|.
 
@@ -694,7 +907,7 @@ The \wi{title} of the whole document is generated by issuing a
 \ci{title}\verb|{...}|, \ci{author}\verb|{...}| 
 and optionally \ci{date}\verb|{...}| 
 \end{lscommand}
-\noindent before calling \verb|\maketitle|. In the argument of \ci{author}, you can
+\noindent before calling \verb|\maketitle|. In the argument to \ci{author}, you can
 supply several names separated by \ci{and} commands. 
 
 An example of some of the commands mentioned above can be found in
@@ -710,15 +923,15 @@ a book:
   \verb|\begin{document}|. It will switch page numbering to Roman
     numerals. It is common to use the starred sectioning commands (eg
     \verb|\chapter*{Preface}|) for
-    frontmatter as this stops \LaTeX{} from
+    front matter as this stops \LaTeX{} from
     enumerating them.
-\item[\ci{mainmatter}] comes after right before the first chapter of
+\item[\ci{mainmatter}] comes right before the first chapter of
   the book. It turns on Arabic page numbering and restarts the page
   counter.
 \item[\ci{appendix}] marks the start of additional material in your
   book. After this command chapters will be numbered with letters.
 \item[\ci{backmatter}] should be inserted before the very last items
-  in your book like the bibliography and the index. In the standard
+  in your book, such as the bibliography and the index. In the standard
   document classes, this has no visual effect.
 \end{description}
 
@@ -738,7 +951,7 @@ table, or theorem after which the corresponding \verb|\label| command
 was issued. \verb|\pageref| prints the page number of the
 page where the \verb|\label| command occurred.\footnote{Note that these commands
   are not aware of what they refer to. \ci{label} just saves the last
-  automatically generated number.} Just as the section titles, the
+  automatically generated number.} As with the section titles, the
 numbers from the previous run are used.
 
 \begin{example}
@@ -757,11 +970,11 @@ With the command
 should always be put\footnote{``put'' is one of the most common
   English words.} after the word or sentence they refer to. Footnotes
 referring to a sentence or part of it should therefore be put after
-the comma or period.\footnote{Note, that footnotes are
-  distracting the reader from the main body of your document. After all
-  everybody reads the footnotes, we are a curious species. So why not
+the comma or period.\footnote{Note that footnotes
+  distract the reader from the main body of your document. After all,
+  everybody reads the footnotes---we are a curious species, so why not
   just integrate everything you want to say into the body of the
-  document.\footnotemark}
+  document?\footnotemark}
 \footnotetext{A guidepost doesn't necessarily go where it's pointing to :-).}
 
 \begin{example}
@@ -819,7 +1032,7 @@ Please note the difference between telling \LaTeX{} to
 \ci{end}\verb|{|\emph{environment}\verb|}|
 \end{lscommand}
 \noindent Where \emph{environment} is the name of the environment. Environments can be
-called several times within each other as long as the calling order is
+nested within each other as long as the correct nesting order is
 maintained.
 \begin{code}
 \verb|\begin{aaa}...\begin{bbb}...\end{bbb}...\end{aaa}|
@@ -858,10 +1071,10 @@ presented beautifully in a list.
 \subsection{Flushleft, Flushright, and Center}
 
 The environments \ei{flushleft} and \ei{flushright} generate
-paragraphs which are either left- or \wi{right-aligned}. \index{left
+paragraphs that are either left- or \wi{right-aligned}. \index{left
   aligned} The \ei{center} environment generates centred text. If you
-do not issue \ci{\bs} to specify linebreaks, \LaTeX{} will
-automatically determine linebreaks.
+do not issue \ci{\bs} to specify line breaks, \LaTeX{} will
+automatically determine line breaks.
 
 \begin{example}
 \begin{flushleft}
@@ -905,10 +1118,10 @@ used in newspapers.
 
 There are two similar environments: the \ei{quotation} and the
 \ei{verse} environments. The \texttt{quotation} environment is useful
-for longer quotes going over several paragraphs, because it does
-indent paragraphs. The \texttt{verse} environment is useful for poems
+for longer quotes going over several paragraphs, because it indents the
+first line of each paragraph. The \texttt{verse} environment is useful for poems
 where the line breaks are important. The lines are separated by
-issuing a \ci{\bs} at the end of a line and a empty line after each
+issuing a \ci{\bs} at the end of a line and an empty line after each
 verse.
 
 
@@ -929,9 +1142,9 @@ again.
 
 \subsection{Printing Verbatim}
 
-Text which is enclosed between \verb|\begin{|\ei{verbatim}\verb|}| and
-\verb|\end{verbatim}| will be directly printed, as if it was typed on a
-typewriter, with all linebreaks and spaces, without any \LaTeX{}
+Text that is enclosed between \verb|\begin{|\ei{verbatim}\verb|}| and
+\verb|\end{verbatim}| will be directly printed, as if typed on a
+typewriter, with all line breaks and spaces, without any \LaTeX{}
 command being executed.
 
 Within a paragraph, similar behavior can be accessed with
@@ -972,6 +1185,8 @@ within parameters of other commands.
 
 \subsection{Tabular}
 
+\newcommand{\mfr}[1]{\framebox{\rule{0pt}{0.7em}\texttt{#1}}}
+
 The \ei{tabular} environment can be used to typeset beautiful
 \wi{table}s with optional horizontal and vertical lines. \LaTeX{}
 determines the width of the columns automatically.
@@ -980,18 +1195,20 @@ The \emph{table spec} argument of the
 \begin{lscommand}
 \verb|\begin{tabular}[|\emph{pos}\verb|]{|\emph{table spec}\verb|}|
 \end{lscommand} 
-\noindent command defines the format of the table. Use an \texttt{l} for a column of
-left-aligned text, \texttt{r} for right-aligned text, and \texttt{c} for
-centred text; \verb|p{|\emph{width}\verb|}| for a column containing justified
-text with linebreaks, and \verb.|. for a vertical line.
-\emph{pos} specifies the vertical position of the whole tabular environment,
-\texttt{t}, \texttt{b} and \texttt{c} indicate to align at the
-top, bottom or center of the environment.
+\noindent command defines the format of the table. Use an \mfr{l} for a column of
+left-aligned text, \mfr{r} for right-aligned text, and \mfr{c} for
+centred text; \mfr{p\{\emph{width}\}} for a column containing justified
+text with line breaks, and \mfr{|} for a vertical line.
+
+The \emph{pos} argument specifies the vertical position of the table
+relative to the baseline of the surrounding text.  Use either of the
+letters \texttt{t}, \texttt{b} and \texttt{c} to specify table
+alignment at the top, bottom or center.
  
-Within a \texttt{tabular} environment, \verb|&| jumps to the next column,
-\ci{\bs} starts a new line and \ci{hline} inserts a horizontal line.
-You can add partial Lines by using the \ci{cline}\verb|{j-i}| whereby
-j and i are the column numbers the line should extend over.
+Within a \texttt{tabular} environment, \texttt{\&} jumps to the next
+column, \ci{\bs} starts a new line and \ci{hline} inserts a horizontal
+line.  You can add partial lines by using the \ci{cline}\texttt{\{}\emph{j}\texttt{-}\emph{i}\texttt{\}},
+where j and i are the column numbers the line should extend over.
 
 \index{"|@ \verb."|.}
 
@@ -1017,12 +1234,12 @@ all enjoy the show.\\
 \end{tabular}
 \end{example}
 
-The column separator can be specified with the \verb|@{...}|
+The column separator can be specified with the \mfr{@\{...\}}
 construct. This command kills the inter-column space and replaces it
 with whatever is between the curly braces.  One common use for
 this command is explained below in the decimal alignment problem.
 Another possible application is to suppress leading space in a table with
-\verb|@{}|.
+\mfr{@\{\}}.
 
 \begin{example}
 \begin{tabular}{@{} l @{}}
@@ -1078,7 +1295,7 @@ Mene & Muh! \\
 \end{example}
 
 Material typeset with the tabular environment always stays together on
-one page. If you want to typeset long tables you might want to have a
+one page. If you want to typeset long tables, you might want to have a
 look at the \pai{supertabular} and the \pai{longtabular} environments.
 
 \section{Floating Bodies}
@@ -1088,7 +1305,7 @@ pages.  One method would be to start a new page every time a figure or
 a table is too large to fit on the present page. This approach would
 leave pages partially empty, which looks very bad.
 
-The solution to this problem is to `float' any figure or table which
+The solution to this problem is to `float' any figure or table that
 does not fit on the current page to a later page, while filling the
 current page with body text. \LaTeX{} offers two environments for
 \wi{floating bodies}; one for tables and  one for figures.  To
@@ -1127,16 +1344,15 @@ Spec&Permission to place the float \ldots\\
 \texttt{b} & at the \emph{bottom} of a page\\[0.3ex]
 \texttt{p} & on a special \emph{page} containing only floats.\\[0.3ex]
 \texttt{!} & without considering most of the  internal parameters\footnote{Such as the
-    maximum number of floats allowed  on one page.} which could stop this
+    maximum number of floats allowed  on one page.}, which could stop this
   float from being placed.
 \end{tabular}
 \end{center}
+Note that \texttt{pt} and \texttt{em} are \TeX{} units. Read more
+on this in table \ref{units} on page \pageref{units}.
 \end{minipage}
 \end{table}
-Note: The \texttt{0pt} and \texttt{1.05em} are \TeX{} units. Read more
-on this in table \ref{units} on page \pageref{units}.
 
-\pagebreak[3]
 A table could be started with the following line e.g.{}
 \begin{code}
 \verb|\begin{table}[!hbp]|
@@ -1148,19 +1364,18 @@ or on a special floats page (\texttt{p}), and all this even if it does not
 look that good (\texttt{!}). If no placement specifier is given, the standard
 classes assume \verb|[tbp]|.
 
-\LaTeX{} will place every float it encounters, according to the
+\LaTeX{} will place every float it encounters according to the
 placement specifier supplied by the author. If a float cannot be
 placed on the current page it is deferred either to the
-\emph{figures} or the \emph{tables} queue\footnote{These are fifo -
-  `first in first out' queues!}.  When a new page is started,
+\emph{figures} or the \emph{tables} queue.\footnote{These are FIFO---`first in first out'---queues!}  When a new page is started,
 \LaTeX{} first checks if it is possible to fill a special `float'
 page with floats from the queues. If this is not possible, the first
 float on each queue is treated as if it had just occurred in the
 text: \LaTeX{} tries again to place it according to its
-respective placement specifiers (except `h' which is no longer
+respective placement specifiers (except `h,' which is no longer
 possible).  Any new floats occurring in the text get placed into the
 appropriate queues. \LaTeX{} strictly maintains the original order of
-appearance for each type of float. That's why a figure which cannot
+appearance for each type of float. That's why a figure that cannot
 be placed pushes all further figures to the end of the document.
 Therefore:
 
@@ -1169,11 +1384,11 @@ If \LaTeX{} is not placing the floats as you expected,
 it is often only one float jamming one of the two float queues.
 \end{quote}                 
 
-While it is possible to give LaTeX single-location placement
+While it is possible to give \LaTeX{}  single-location placement
 specifiers, this causes problems.  If the float does not fit in the
-location specified, then it becomes stuck, blocking subsequent floats.
-In particular, you should never ever use the [h] option, it is so bad
-that in more recent versions of LaTeX, it is automatically replaced by
+location specified it becomes stuck, blocking subsequent floats.
+In particular, you should never, ever use the [h] option---it is so bad
+that in more recent versions of \LaTeX, it is automatically replaced by
 [ht].
 
 \bigskip
@@ -1195,9 +1410,9 @@ The two commands
 \end{lscommand}
 
 \noindent operate analogously to the \verb|\tableofcontents| command,
-printing a list of figures or tables, respectively.  In these lists,
-the whole caption will be repeated. If you tend to use long captions,
-you must have a shorter version of the caption going into the lists.
+printing a list of figures or tables, respectively.  These lists will
+display the whole caption, so if you tend to use long captions
+you must have a shorter version of the caption for the lists.
 This is accomplished by entering the short version in brackets after
 the \verb|\caption| command.
 \begin{code}
@@ -1222,7 +1437,7 @@ Figure~\ref{white} is an example of Pop-Art.
 \end{code}
 
 \noindent In the example above, 
-\LaTeX{} will try \emph{really hard}~(\texttt{!}) to place the figure
+\LaTeX{} will try \emph{really hard}~(\texttt{!})\ to place the figure
 right \emph{here}~(\texttt{h}).\footnote{assuming the figure queue is
   empty.} If this is not possible, it tries to place the figure at the
 \emph{bottom}~(\texttt{b}) of the page.  Failing to place the figure
@@ -1240,22 +1455,22 @@ Under certain circumstances it might be necessary to use the
 
 \noindent command. It orders \LaTeX{} to immediately place all 
 floats remaining in the queues and then start a new
-page. \ci{cleardoublepage} even goes to a new righthand page.
+page. \ci{cleardoublepage} even goes to a new right-hand page.
 
-You will learn how to include PostScript
+You will learn how to include \textsc{PostScript}
 drawings into your \LaTeXe{} documents later in this introduction.
 
-\section{Protecting fragile commands}
+\section{Protecting Fragile Commands}
 
 Text given as arguments of commands like \ci{caption} or \ci{section} may
 show up more than once in the document (e.g. in the table of contents as
 well as in the body of the document). Some commands fail when used in the
-argument of \ci{section}-like commands. These are called \wi{fragile commands}.
-Fragile commands are for example \ci{footnote} or \ci{phantom}. What these
-fragile commands need to work, is protection (don't we all?). You can
+argument of \ci{section}-like commands. These commands are called 
+\wi{fragile commands}---for example, \ci{footnote} or \ci{phantom}. These
+fragile commands need protection (don't we all?). You can
 protect them by putting the \ci{protect} command in front of them.
 
-\ci{protect} only refers to the command which follows right behind, not even
+\ci{protect} only refers to the command that follows right behind, not even
 to its arguments. In most cases a superfluous \ci{protect} won't hurt.
 
 \begin{code}
@@ -1263,9 +1478,8 @@ to its arguments. In most cases a superfluous \ci{protect} won't hurt.
 \verb|      \protect\footnote{and protect my footnotes}}|
 \end{code}
 
-
-% Local Variables: 
+% Local Variables:
+% TeX-master: "lshort2e"
 % mode: latex
-% TeX-master: "lshort"
-% mode: flyspell-prog
+% mode: flyspell
 % End:

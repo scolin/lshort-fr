@@ -29,7 +29,7 @@
 % ---------------------------------------------------------------------
 
 \ifx\pdfoutput\undefined % We're not running pdftex
-\documentclass[11pt,a4paper,twoside]{book}
+\documentclass[dvips,11pt,a4paper,twoside]{book}
 \else
 \documentclass[pdftex,11pt,a4paper,twoside]{book}
 \usepackage{thumbpdf}
@@ -39,10 +39,10 @@
 \usepackage{lshort}
 \usepackage{makeidx,shortvrb,latexsym}
 \usepackage{mylayout}
+\RequirePackage[colorlinks,hyperindex,plainpages=false]{hyperref}
 % are we in pdftex ????
 \ifx\pdfoutput\undefined % We're not running pdftex
 \else
-\RequirePackage[colorlinks,hyperindex,plainpages=false]{hyperref}
 \def\pdfBorderAttrs{/Border [0 0 0] } % No border arround Links
 \fi
 %
@@ -88,8 +88,10 @@
 \include{custom}
 \backmatter
 \include{biblio}
-\addcontentsline{toc}{chapter}{\numberline{}Index} 
+\refstepcounter{chapter}
+\addcontentsline{toc}{chapter}{Index} 
 \printindex
+\refstepcounter{chapter}
 \label{verylast}
 \mbox{}
 \end{document}
@@ -98,6 +100,10 @@
 
 
 
+%
+
 % Local Variables:
+% TeX-master: "lshort2e"
+% mode: latex
 % mode: flyspell
 % End:

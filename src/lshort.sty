@@ -9,12 +9,17 @@
 %save pageref an label
 \let\lsspageref\pageref
 \ProvidesPackage{lshort}
-\RequirePackage[english,frenchb]{babel}
+\RequirePackage[english,frenchb,german]{babel}
 \RequirePackage{verbatim}
 \RequirePackage{fancyhea}
 \RequirePackage{calc}
-\RequirePackage{amsmath}
-% 
+\RequirePackage[official]{eurosym}
+\RequirePackage{amsmath,amsfonts,amssymb}
+\RequirePackage[all]{xy}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{aeguill}
+\RequirePackage{textcomp}
+\RequirePackage{marvosym}% 
 % Lets have some nice headings
 %
 \pagestyle{fancyplain}
@@ -43,25 +48,22 @@
 \newcommand{\bs}{\symbol{'134}}%Print backslash
 %\newcommand{\bs}{\ensuremath{\mathtt{\backslash}}}%Print backslash
 % Index entry for a command (\cih for hidden command index
-
 \newcommand{\eei}[1]{%
 \index{extension!\texttt{#1}}\texttt{#1}}
-
+% probably add handling of period like handling of \ in \ci 
 \newcommand{\fni}[1]{%
 \index{font!#1@\texttt{\bs#1}}%
-\index{#1@\texttt{\hspace*{-1.2ex}\bs #1}}\texttt{\bs#1}}    
-
+\index{#1@\texttt{\hspace*{-1.2ex}\bs #1}}\texttt{\bs #1}}
 \newcommand{\cih}[1]{%
 \index{commands!#1@\texttt{\bs#1}}%
 \index{#1@\texttt{\hspace*{-1.2ex}\bs #1}}}
-
-\newcommand{\ci}[1]{\cih{#1}\texttt{\bs#1}}
+\newcommand{\ci}[1]{\cih{#1}\texttt{\bs #1}}
 %Package
-
-\newcommand{\pai}[1]{%
+\newcommand{\paih}[1]{%
 \index{packages!#1@\textsf{#1}}%
-\index{#1@\textsf{#1}}%
-\textsf{#1}}
+\index{#1@\textsf{#1}}}
+\newcommand{\pai}[1]{%
+\paih{#1}\textsf{#1}}
 % Index entry for an environment
 \newcommand{\ei}[1]{%
 \index{environments!\texttt{#1}}%
@@ -88,7 +90,10 @@
 % Intro Environment
 \newenvironment{intro}{\sffamily}{\vspace*{2ex minus 1.5ex}}
 %
-\newcommand{\secby}[2]{{\tiny #1 $<$\texttt{#2}$>$}\par\addvspace{2ex}\ignorespaces\noindent}
+\newcommand{\secby}[2]{\nopagebreak\par\addvspace{-1.5ex}%
+     \vskip -\parskip\noindent{\tiny By #1 $<$\texttt{#2}$>$}\par\nopagebreak%
+     \addvspace{1ex plus 0.8ex minus 0.2ex}% 
+     \vskip -\parskip\noindent\ignorespaces}
 
 %\noindent\addvspace{1ex}\small #1 $<$\texttt{#2}$>$\par\addvspace{2ex}\noindnet\ignorespaces}
 %
@@ -118,25 +123,12 @@
 % Should work if AMS is not available
 %
 
-% we have no PS versions of the rsfs fonts ... so this is a nogo for pdf
-\ifx\HyPsd@pageref\undefined
-%\ifx\pdfoutput\undefined % We're not running pdftex
-\IfFileExists{mathrsfs.sty}
-  {\RequirePackage{mathrsfs}\let\MathRSFS\mathscr\let\mathscr\relax}{}
-\fi
-\IfFileExists{amssymb.sty}
-  {\let\noAMS\relax \RequirePackage{amssymb}}
-  {\def\noAMS{\endinput}\RequirePackage{latexsym}}
-\IfFileExists{eucal.sty}
-  {\RequirePackage[mathscr]{eucal}}
-  {\IfFileExists{euscript.sty}
-  {\RequirePackage{euscript}}{}}
-%\IfFileExists{eufrak.sty}
-%  {\RequirePackage{eufrak}}{}
-\IfFileExists{amsbsy.sty}
-  {\RequirePackage{amsbsy}}{}
-
-
+%% we have no PS versions of the rsfs fonts ... so this is a nogo for pdf
+%\ifx\HyPsd@pageref\undefined
+\RequirePackage{mathrsfs}
+%\fi
+\RequirePackage{latexsym}
+\RequirePackage[mathcal]{euscript}
 %
 % Print |--| to show a distance
 %
@@ -179,12 +171,12 @@
   \par\addvspace{3.0ex plus 0.8ex minus 0.5ex}\vskip -\parskip
 %  Page \lsspageref{exa:\theexacnt}
 \expandafter\ifx\csname r@exa\theexacnt\endcsname\relax\else
-\ifx\pdfoutput\undefined % We're not running pdftex
-  \ifodd\lsspageref{exa\theexacnt}\hspace*{0pt}\else\hspace*{-\outdent}\fi%
-\else
-% HyPsd@pageref internal hyperref command v6.69c
+%\ifx\pdfoutput\undefined % We're not running pdftex
+%  \ifodd\lsspageref{exa\theexacnt}\hspace*{0pt}\else\hspace*{-\outdent}\fi%
+%\else
+%% HyPsd@pageref internal hyperref command v6.69c
   \ifodd\HyPsd@pageref{exa\theexacnt}\hspace*{0pt}\else\hspace*{-\outdent}\fi%
-\fi
+%\fi
 \fi
 \makebox[\textwidth][l]{%
 %\raisebox{-\height}[0pt][\totalheight]{%

@@ -5,18 +5,18 @@
 \chapter{Customising \LaTeX}
 
 \begin{intro}
-Documents produced by using the commands you have learned up to this
+Documents produced with the commands you have learned up to this
 point will look acceptable to a large audience. While they are not
-looking fancy, they obey all the established rules of good
+fancy-looking, they obey all the established rules of good
 typesetting, which will make them easy to read and pleasant to look at.
 
-However there are situations where \LaTeX{} does not provide a
-command or environment which matches your needs, or the output
+However, there are situations where \LaTeX{} does not provide a
+command or environment that matches your needs, or the output
 produced by some existing command may not meet your requirements.
 
 In this chapter, I will try to give some hints on
 how to teach \LaTeX{} new tricks and how to make it produce output
-which looks different than what is provided by default.
+that looks different from what is provided by default.
 \end{intro}
 
 
@@ -35,9 +35,9 @@ commands and environments for this purpose. Now I can simply write:
 \end{example}
 
 In this example, I am using both a new environment called
-\ei{lscommand} which is responsible for drawing the box around the
-command and a new command named \ci{ci} which typesets the command
-name and also makes a corresponding entry in the index. You can check
+\ei{lscommand}, which is responsible for drawing the box around the
+command, and a new command named \ci{ci}, which typesets the command
+name and makes a corresponding entry in the index. You can check
 this out by looking up the \ci{dum} command in the index at the back
 of this book, where you'll find an entry for \ci{dum}, pointing to
 every page where I mentioned the \ci{dum} command.
@@ -66,7 +66,7 @@ If missing it defaults to 0, i.e. no argument allowed.
 
 The following two examples should help you to get the idea.
 The first example defines a new command called \ci{tnss}. This is
-short for ``The Not So Short Introduction to \LaTeXe''. Such a command
+short for ``The Not So Short Introduction to \LaTeXe.'' Such a command
 could come in handy if you had to write the title of this book over 
 and over again. 
 
@@ -79,7 +79,7 @@ This is ``\tnss'' \ldots{}
 \end{example}
 
 The next example illustrates how to define a new
-command which takes one argument.
+command that takes one argument.
 The \verb|#1| tag gets replaced by the argument you specify.
 If you wanted to use more than one argument, use \verb|#2| and
 so on.
@@ -95,7 +95,7 @@ so on.
 \end{itemize}
 \end{example}
 
-\LaTeX{} will not allow you to create a new command which would
+\LaTeX{} will not allow you to create a new command that would
 overwrite an existing one. But there is a special command in case you
 explicitly want this: \ci{renewcommand}.
 It uses the same syntax as the \verb|\newcommand|
@@ -109,7 +109,7 @@ There are some points to note about whitespace following \LaTeX{} commands. See
 page \pageref{whitespace} for more information.
 
 \subsection{New Environments}
-Similar to the \verb|\newcommand| command, there is also a command
+Just as with the \verb|\newcommand| command, there is a command
 to create your own environments. The \ci{newenvironment} command uses the
 following syntax:
 
@@ -119,8 +119,8 @@ following syntax:
        \emph{before}\verb|}{|\emph{after}\verb|}|
 \end{lscommand}
 
-Like the \verb|\newcommand| command, you can use \ci{newenvironment}
-with an optional argument or without. The material specified
+Again \ci{newenvironment} can have
+an optional argument. The material specified
 in the \emph{before} argument is processed before the text in the 
 environment gets processed. The material in the \emph{after} argument gets
 processed when the \verb|\end{|\emph{name}\verb|}| command is encountered.
@@ -141,16 +141,16 @@ My humble subjects \ldots
 
 The \emph{num} argument is used the same way as in the
 \verb|\newcommand| command. \LaTeX{} makes sure that you do not define
-an environment which already exists. If you ever want to change an
+an environment that already exists. If you ever want to change an
 existing command, you can use the \ci{renewenvironment} command. It
 uses the same syntax as the \ci{newenvironment} command.
 
-The commands used in this example will be explained later: For the
+The commands used in this example will be explained later. For the
 \ci{rule} command see page \pageref{sec:rule}, for \ci{stretch} go to
 page \pageref{cmd:stretch}, and more information on \ci{hspace} can be
 found on page \pageref{sec:hspace}.
 
-\subsection{Your own Package}
+\subsection{Your Own Package}
 
 If you define a lot of new environments and commands, the preamble of
 your document will get quite long. In this situation, it is a good
@@ -172,7 +172,7 @@ command to make the package available in your document.
 \caption{Example Package.} \label{package}
 \end{figure}
 
-Writing a package consists  basically in copying the contents of
+Writing a package basically consists of copying the contents of
 your document preamble into a separate file with a name ending in
 \texttt{.sty}. There is one special command,
 \begin{lscommand}
@@ -182,11 +182,11 @@ your document preamble into a separate file with a name ending in
 file. \verb|\ProvidesPackage| tells \LaTeX{} the name of the package
 and will allow it to issue a sensible error message when you try to
 include a package twice. Figure~\ref{package} shows a small example
-package which contains the commands defined in the examples above.
+package that contains the commands defined in the examples above.
 
 \section{Fonts and Sizes}
 
-\subsection{Font changing Commands}
+\subsection{Font Changing Commands}
 \index{font}\index{font size} \LaTeX{} chooses the appropriate font
 and font size based on the logical structure of the document
 (sections, footnotes, \ldots).  In some cases, one might like to change
@@ -203,15 +203,15 @@ commands as implemented in the standard document classes.
 \textit{Italy}.}
 \end{example}
 
-One important feature of \LaTeXe{} is, that the font attributes are
-independent. This means, that you can issue size or even font
-changing commands and still keep the bold or slant attribute set
+One important feature of \LaTeXe{} is that the font attributes are
+independent. This means that you can issue size or even font
+changing commands, and still keep the bold or slant attribute set
 earlier.
 
 In \emph{math mode} you can use the font changing \emph{commands} to
 temporarily exit \emph{math mode} and enter some normal text. If you want to
-switch to another font for math typesetting there exists another
-special set of commands. Refer to Table~\ref{mathfonts}.
+switch to another font for math typesetting you need another
+special set of commands; refer to Table~\ref{mathfonts}.
 
 \begin{table}[!bp]
 \caption{Fonts.} \label{fonts}
@@ -366,8 +366,8 @@ of unknown origin and purpose.
 \end{example}
 
 This approach has the advantage that you can decide at some later
-stage whether you want to use some other visual representation of danger
-than \verb|\textbf| without having to wade through your document,
+stage that you want to use some visual representation of danger other
+than \verb|\textbf|, without having to wade through your document,
 identifying all the occurrences of \verb|\textbf| and then figuring out
 for each one whether it was used for pointing out danger or for some other
 reason.
@@ -398,7 +398,7 @@ document, you can change its value by putting the
 \noindent command into the preamble of your document.
 Use \verb|\linespread{1.3}| for ``one and a half'' line
 spacing, and \verb|\linespread{1.6}| for ``double'' line spacing.  Normally
-the lines are not spread, therefore the default line spread factor
+the lines are not spread, so the default line spread factor
 is~1.\index{double line spacing}
 
  
@@ -415,8 +415,8 @@ paragraphs. These two commands increase the space between two paragraphs
 while setting the paragraph indent to zero.  
 
 The \texttt{plus} and \texttt{minus} parts of the length above tell
-\TeX{}, that it can compress and expand the inter paragraph skip by the
-amount specified if this is necessary to properly fit the paragraphs
+\TeX{} that it can compress and expand the inter paragraph skip by the
+amount specified, if this is necessary to properly fit the paragraphs
 onto the page.
 
 In continental Europe,
@@ -429,7 +429,7 @@ because you'll find that most professional books use indenting and not
 spacing to separate paragraphs.
 
 
-If you want to indent a paragraph which is not indented, you can use 
+If you want to indent a paragraph that is not indented, you can use 
 \begin{lscommand}
 \ci{indent}
 \end{lscommand}
@@ -455,20 +455,20 @@ automatically. To add horizontal space, use: \index{horizontal!space}
 \end{lscommand}
 If such a space should be kept even if it falls at the end or the
 start of a line, use \verb|\hspace*| instead of \verb|\hspace|.  The
-\emph{length} in the simplest case just is a number plus a unit.  The
+\emph{length} in the simplest case is just a number plus a unit.  The
 most important units are listed in Table~\ref{units}. 
 \index{units}\index{dimensions}
 
 \begin{example}
 This\hspace{1.5cm}is a space 
-of 1.5 cm.
+of 1.5 cm. 
 \end{example}
 \suppressfloats
 \begin{table}[tbp]
 \caption{\TeX{} Units.} \label{units}\index{units}
 \begin{lined}{9.5cm} 
 \begin{tabular}{@{}ll@{}}
-\texttt{mm} &  millimetre $\approx 1/25$~inch \quad \demowidth{1mm} \\
+\texttt{mm} & millimetre $\approx 1/25$~inch \quad \demowidth{1mm} \\
 \texttt{cm} & centimetre = 10~mm  \quad \demowidth{1cm}                     \\
 \texttt{in} & inch $=$ 25.4~mm \quad \demowidth{1in}                    \\
 \texttt{pt} & point $\approx 1/72$~inch $\approx \frac{1}{3}$~mm  \quad\demowidth{1pt}\\
@@ -495,6 +495,16 @@ x\hspace{\stretch{1}}
 x\hspace{\stretch{3}}x
 \end{example}
 
+When using horizontal space together with text, it may make sense to make
+the space adjust its size relative to the size of the current font.
+This can be done by using the text-relative units \texttt{em} and
+\texttt{en}:
+
+\begin{example}
+{\Large{}big\hspace{1em}y}\\
+{\tiny{}tin\hspace{1em}y}
+\end{example}
+ 
 \subsection{Vertical Space}
 The space between paragraphs, sections, subsections, \ldots\ is
 determined automatically by \LaTeX. If necessary, additional vertical
@@ -505,10 +515,10 @@ space \emph{between two paragraphs} can be added with the command:
 
 This command should normally be used between two empty lines.  If the
 space should be preserved at the top or at the bottom of a page, use
-the starred version of the command \verb|\vspace*| instead of \verb|\vspace|.
+the starred version of the command, \verb|\vspace*|, instead of \verb|\vspace|.
 \index{vertical space}
 
-The \verb|\stretch| command in connection with \verb|\pagebreak| can
+The \verb|\stretch| command, in connection with \verb|\pagebreak|, can
 be used to typeset text on the last line of a page, or to centre text
 vertically on a page.
 \begin{code}
@@ -545,13 +555,13 @@ vertical space without having to worry about exact numbers.
 \index{page layout}
 \LaTeXe{} allows you to specify the \wi{paper size} in the
 \verb|\documentclass| command. It then automatically picks the right 
-text \wi{margins}. But sometimes you may not be happy with 
+text \wi{margins}, but sometimes you may not be happy with 
 the predefined values. Naturally, you can change them. 
 %no idea why this is needed here ...
 \thispagestyle{fancyplain}
-Figure~\ref{fig:layout} shows all the parameters which can be changed.
-The figure was produced with the \pai{layout} package from the tools bundle%
-\footnote{\texttt{CTAN:/tex-archive/macros/latex/required/tools}}.
+Figure~\ref{fig:layout} shows all the parameters that can be changed.
+The figure was produced with the \pai{layout} package from the tools bundle.%
+\footnote{\texttt{CTAN:/tex-archive/macros/latex/required/tools}}
 
 \textbf{WAIT!} \ldots before you launch into a ``Let's make that
 narrow page a bit wider'' frenzy, take a few seconds to think. As with
@@ -567,7 +577,7 @@ more than about 66 characters on each line. Now do the same on your
 per line.  Experience shows that the reading gets difficult as soon as
 there are more characters on a single line. This is because it is
 difficult for the eyes to move from the end of one line to the start of the next one.
-This is also the reason why newspapers are typeset in multiple columns.
+This is also why newspapers are typeset in multiple columns.
 
 So if you increase the width of your body text, keep in mind that you
 are making life difficult for the readers of your paper. But enough
@@ -581,7 +591,7 @@ The first command assigns a fixed value to any of the parameters:
 \ci{setlength}\verb|{|\emph{parameter}\verb|}{|\emph{length}\verb|}|
 \end{lscommand}
 
-The second command adds a length to any of the parameters. 
+The second command adds a length to any of the parameters:
 \begin{lscommand}
 \ci{addtolength}\verb|{|\emph{parameter}\verb|}{|\emph{length}\verb|}|
 \end{lscommand} 
@@ -595,12 +605,12 @@ following commands into the document preamble:
 \verb|\addtolength{\textwidth}{1cm}|
 \end{code}
 
-In this context, you might want to look at the \pai{calc} package,
-it allows you to use arithmetic operations in the argument of setlength
+In this context, you might want to look at the \pai{calc} package.
+It allows you to use arithmetic operations in the argument of \ci{setlength}
 and other places where you can enter numeric values into function
 arguments.
 
-\section{More fun with lengths}
+\section{More Fun With Lengths}
 
 Whenever possible, I avoid using absolute lengths in
 \LaTeX{} documents. I rather try to base things on the width or height
@@ -611,9 +621,9 @@ The following 3 commands allow you to determine the width, height and
 depth of a text string.
 
 \begin{lscommand}
-\ci{settoheight}\verb|{|\emph{lscommand}\verb|}{|\emph{text}\verb|}|\\
-\ci{settodepth}\verb|{|\emph{lscommand}\verb|}{|\emph{text}\verb|}|\\
-\ci{settowidth}\verb|{|\emph{lscommand}\verb|}{|\emph{text}\verb|}|
+\ci{settoheight}\verb|{|\emph{variable}\verb|}{|\emph{text}\verb|}|\\
+\ci{settodepth}\verb|{|\emph{variable}\verb|}{|\emph{text}\verb|}|\\
+\ci{settowidth}\verb|{|\emph{variable}\verb|}{|\emph{text}\verb|}|
 \end{lscommand}
 
 \noindent The example below shows a possible application of these commands.
@@ -648,9 +658,9 @@ which is elastic so that a series of words can be squeezed or
 stretched as to exactly fill a line on the page. 
 
 I admit, this is a very simplistic version of what really happens, but
-the point is that \TeX{} operates on glue and boxes. Not only a letter
-can be a box. You can put virtually everything into a box including
-other boxes. Each box will then be handled by \LaTeX{} as if it was a
+the point is that \TeX{} operates on glue and boxes. Letters are not the only things that
+can be boxes. You can put virtually everything into a box, including
+other boxes. Each box will then be handled by \LaTeX{} as if it were a
 single letter.
 
 In the past chapters you have already encountered some boxes, although
@@ -678,13 +688,13 @@ the
 relative to the baseline of the surrounding text. \texttt{width} takes
 a length argument specifying the width of the box. The main difference
 between a \ei{minipage} and a \ci{parbox} is that you cannot use all commands
-and environments inside a \ei{parbox} while almost anything is possible in
+and environments inside a \ei{parbox}, while almost anything is possible in
 a \ei{minipage}.
 
 While \ci{parbox} packs up a whole paragraph doing line breaking and
-everything, there is also a class of boxing commands which operates
-only on horizontally aligned material. We already know one of them.
-It's called \ci{mbox}, it simply packs up a series of boxes into
+everything, there is also a class of boxing commands that operates
+only on horizontally aligned material. We already know one of them;
+it's called \ci{mbox}. It simply packs up a series of boxes into
 another one, and can be used to prevent \LaTeX{} from breaking two
 words. As you can put boxes inside boxes, these horizontal box packers
 give you ultimate flexibility.
@@ -697,12 +707,12 @@ give you ultimate flexibility.
 seen from the outside.\footnote{This means it can be smaller than the
   material inside the box. You can even set the
   width to 0pt so that the text inside the box will be typeset without
-  influencing the surrounding boxes.}  Apart from the length
-  expressions you can also use \ci{width}, \ci{height}, \ci{depth} and
+  influencing the surrounding boxes.}  Besides the length
+  expressions, you can also use \ci{width}, \ci{height}, \ci{depth}, and
   \ci{totalheight} in the width parameter. They are set from values
   obtained by measuring the typeset \emph{text}. The \emph{pos} parameter takes
 a one letter value: \textbf{c}enter, \textbf{l}eft flush,
-\textbf{r}ight flush or \textbf{s} which spreads the text inside the
+\textbf{r}ight, flush, or \textbf{s}, which spreads the text inside the
 box to fill it.
 
 The command \ci{framebox} works exactly the same as \ci{makebox}, but
@@ -736,7 +746,7 @@ Now that we control the horizontal, the obvious next step is to go for
 \end{lscommand}
 
 \noindent command lets you define the vertical properties of a
-box. You can use \ci{width}, \ci{height}, \ci{depth} and
+box. You can use \ci{width}, \ci{height}, \ci{depth}, and
   \ci{totalheight} in the first three parameters, in order to act
   upon the size of the box inside the \emph{text} argument.
 
@@ -773,7 +783,7 @@ A few pages back you may have noticed the command
 \end{example}
 
 \noindent This is useful for drawing vertical and horizontal
-lines. The line on the title page for example, has been created with a
+lines. The line on the title page, for example, has been created with a
 \ci{rule} command.
 
 A special case is a rule with no width but a certain height. In
@@ -792,11 +802,13 @@ a certain minimum height.
 \end{tabular}
 \end{example}
 
-%%% Local Variables: 
-%%% mode: latex
-%%% TeX-master: "lshort2e"
-%%% End: 
+\bigskip
+{\flushright The End.\par}
+
+%
 
 % Local Variables:
+% TeX-master: "lshort2e"
+% mode: latex
 % mode: flyspell
 % End:
