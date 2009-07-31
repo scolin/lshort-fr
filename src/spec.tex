@@ -23,7 +23,7 @@ dans le {\normalfont\manual{}},dans {\normalfont\companion{}}
 et dans {\normalfont\desgraupes{}}. 
 \end{intro}
 
-\section{Figures PostScript} \label{eps}
+\section{Inclure des figures \EPSi{}} \label{eps}
 
 Avec les environnements \ei{figure} et \texttt{table}, \LaTeX{}
 fournit les mécanismes de base pour travailler avec des objets tels que
@@ -41,29 +41,30 @@ est de les produire à l'aide d'un logiciel spécialisé%
 \footnote{Tel que XFig, CorelDraw!, FreeHand, Gnuplot...} 
 puis d'inclure le résultat dans
 le document. Ici encore \LaTeX{} offre de nombreuses solutions. Dans
-cette introduction, seule l'utilisation de graphiques \wi{PostScript
-Encapsulé} (EPS) sera traitée. En effet, c'est la solution la plus
+cette introduction, seule l'utilisation de graphiques \EPSi{} (EPS)
+sera traitée. En effet, c'est la solution la plus
 simple et la plus utilisée. Pour pouvoir utiliser des graphiques au
-format EPS, il faut disposer d'une imprimante acceptant les documents
-PostScript%
-\,\footnote{Une autre possibilité pour imprimer du PostScript
+format EPS, il faut disposer d'une imprimante \PSi{}%
+\,\footnote{Une autre possibilité pour imprimer du \PSi{}
           est d'utiliser le logiciel \textsc{Ghost\-Script}, disponible
-          sur \texttt{CTAN:/support/ghostscript}}.
+          sur \CTANref|support/ghostscript|. Les utilisateurs de
+          Windows et OS/2 peuvent se tourner vers \textsc{GSview}.} 
+vers laquelle envoyer le résultat.
 
 Un ensemble de commandes bien adaptées à l'insertion de graphiques est
 fourni par l'extension \pai{graphicx}, développée par D.~P.~Carlisle. Elle
 fait partie d'un ensemble d'extensions appelé \og graphics \fg{}.
-\,\footnote{\texttt{CTAN:/macros/latex/packages/graphics}}.
+\,\footnote{\CTANref|macros/latex/required/graphics|}.
 
 En supposant maintenant que vous travaillez sur un système où
 l'extension \textsf{graphicx} est installée et qui dispose d'une
-imprimante PostScript, voici la marche à suivre pour inclure une
+imprimante \PSi{}, voici la marche à suivre pour inclure une
 figure dans un document :
 
 \begin{enumerate}
 \item exportez la figure de votre logiciel graphique au format EPS
   \footnote{Si votre logiciel ne sait pas exporter au format EPS, vous
-    pouvez essayer d'utiliser un pilote d'impression PostScript (tel
+    pouvez essayer d'utiliser un pilote d'impression \PSi{} (tel
     que Apple LaserWriter, par exemple) puis imprimer vers un fichier
     à l'aide de ce pilote. Avec de la chance ce fichier sera au format
     EPS. Notez cependant qu'un fichier EPS ne doit pas faire plus
@@ -74,20 +75,20 @@ figure dans un document :
 \begin{lscommand}
 \verb|\usepackage[|\emph{pilote}\verb|]{graphicx}|
 \end{lscommand}
-\emph{pilote} est le nom du programme de conversion \og DVI vers
- PostScript \fg{} que vous utilisez. Le programme le plus répandu
- est \texttt{dvips}. Cette information est nécessaire car
- il n'y a pas de standard pour l'insertion de figures en \TeX{} ;
- celle-ci est réalisée par le pilote au moment de
- l'impression. Connaître le nom du pilote permet à l'extension
- \textsf{graphicx} d'inclure les bonnes commandes dans le
- fichier \eei{.dvi} pour réaliser l'insertion correcte du fichier
- \eei{.eps};
+\noindent \emph{pilote} est le nom du programme de conversion \og DVI vers
+PostScript \fg{} que vous utilisez. Le programme le plus répandu
+est \texttt{dvips}. Cette information est nécessaire car
+il n'y a pas de standard pour l'insertion de figures en \TeX{} ;
+celle-ci est réalisée par le pilote au moment de
+l'impression. Connaître le nom du pilote permet à l'extension
+\textsf{graphicx} d'inclure les bonnes commandes dans le
+fichier \eei{.dvi} pour réaliser l'insertion correcte du fichier
+\eei{.eps} ;
 \item utilisez la commande :
 \begin{lscommand}
 \ci{includegraphics}\verb|[|\emph{clef}=\emph{valeur}, ... \verb|]{|\emph{fichier}\verb|}|
 \end{lscommand}
-pour insérer \emph{fichier} dans votre document. Le paramètre
+\noindent pour insérer \emph{fichier} dans votre document. Le paramètre
 optionnel est une liste de paires de \emph{clefs} et de \emph{valeurs}
 séparées par des virgules. Les \emph{clefs} permettent de modifier la
 largeur, la hauteur, ou l'angle de rotation de la figure. Le
@@ -246,6 +247,15 @@ L'extension \pai{showidx} fournie avec \LaTeXe{} permet de visualiser
 les entrées de l'index dans la marge gauche du texte. Cela permet la
 relecture et la mise au point de l'index.
 
+Remarquez également que la command \ci{index} peut affecter votre mise
+en page si vous n'y prenez pas garde.
+
+\begin{example}
+Mon Mot \index{Word}. En opposition
+à Mot\index{Word}. Notez la position
+du point final.
+\end{example}
+
 Le programme \texttt{makeindex} standard ne traite malheureusement pas
 correctement les caractères accentués dans les clefs : il les place
 systématiquement en tête de l'ordre alphabétique.
@@ -256,12 +266,13 @@ le caractère \texttt{@} : la dernière ligne du tableau~\ref{index}
 produira une entrée \og éolienne \fg{} dans l'index, classée comme s'il s'agissait
 de \og eolienne \fg{}.
 
+
 \section{En-têtes améliorés}
 \label{sec:fancyhdr}
 
 L'extension \pai{fancyhdr}%
 \,\footnote{disponible sur 
-          \texttt{CTAN:/macros/latex/contrib/supported/fancyhdr/}.},
+          \CTANref|macros/latex/contrib/supported/fancyhdr|.},
 développée par Piet van Oostrum, offre quelques commandes simples
 permettant de personnaliser les en-têtes et les pieds de page de votre
 document. Si vous regardez en haut de cette page, vous verrez un
@@ -345,7 +356,7 @@ des systèmes. Pour en savoir plus au sujet de cette extension,
 reportez-vous à~\cite{verbatim}.
 
 \section{Téléchargement et installation d'extensions}
-\label{downloading}
+\label{sec:Packages}
 
 La plupart des  installations \LaTeX{} fournissent en standard un grand
 nombre d'extensions, mais il arrive que justement celle dont on aurait
@@ -359,11 +370,6 @@ de suffixe \texttt{.dtx}, l'autre de suffixe \texttt{.ins}.  Souvent
 un fichier \texttt{readme.txt} leur est joint et donne une brève
 description de l'extension. Le mieux est alors de commencer par la
 lecture de ce fichier.
-
- In any event, once you have copied the package files onto your
-machine, you still have to process them in a way that (a) tells your
-\TeX\ distribution about the new style package and (b) gives you
- the documentation.  Here's how you do the first part:
 
 Quoi qu'il en soit, une fois que vous avez copié les fichiers de
 l'extension sur votre machine, vous dever les manipuler de manière à
@@ -471,11 +477,12 @@ le Web, se tournent vers le format PDF \emph{(Portable Document
 navigation hypertextuelle. La plupart des navigateurs disposent de
 plus d'extensions pour l'affichage direct de documents PDF.
 
-À la différence des formats DVI et PS, les documents PDF peuvent être
-affichés et imprimés sur la plupart des plateformes (Unix, Mac,
-Windows) grâce au logiciel Acrobat Reader d'Adobe qui peut être
-téléchargé gratuitement depuis le site d'Adobe. Sur de nombreux
-ordinateurs ce logiciel est même pré-installé sur le système de base.
+
+Bien qu'il y ait des visualiseurs DVI et PS pour presque toutes les
+plateformes, vous constaterez qu'\wi{Acrobat Reader} et \wi{xpdf}, qui
+servent à lire des documents PDF, sont encore plus fréquemment
+déployés. Fournir des versions PDF de vos documents les rendra donc
+d'autant plus accessibles à vos lecteurs potentiels.
 
 \subsection{Des documents PDF pour le Web}
 
@@ -522,57 +529,80 @@ la configuration manuelle des hyperliens.
 \subsection{Les polices}
 
 \wi{pdf\LaTeX} est capable de gérer toutes sortes de polices (PK
-bitmaps, TrueType, PostScript type~1\dots) mais le format de police
+bitmaps, TrueType, \PSi{} type~1\dots) mais le format de police
 primaire de \LaTeX{}, les polices bitmap PK, produisent des résultats
 exécrables lorsqu'ils sont affichés avec Acrobat Reader. Il est
-préférable d'utiliser des polices PostScript de Type~1 pour produire
+préférable d'utiliser des polices \PSi{} de Type~1 pour produire
 des documents au rendu correct.
 
-Nous n'avons pas encore abordé les polices dans cet ouvrage parce qui
-\LaTeX{} gère cela très bien tout seul, puisqu'il utilise son propre
-jeu de polices adaptées pour la publication scientifique. En fait, il
-y a de jeux de polices \TeX{} : \emph{Computer Modern} (CM) qui
-consiste en 128 caractères et qui constitue le jeu de polices de base
-et \emph{Extended Cork} (EC) constitué de 256 caractères. La
-spécialité des polices EC est qu'elles comprennent les caractères
-spéciaux pour tous les caractères accentués spécifiques aux langues
-européennes, comme \"a ou \`e. Cela permet à la césure de fonctionner
-correctement avec des mots qui contiennent des caractères comme
-ceux-là. Vous pouvez activer les polices EC via la commande
-\verb+\usepackage[T1]{fontenc}+ en préambule (voir page
-\pageref{fontenc}). Malheureusement il n'y a pas de jeu libre/gratuit
-de polices PostScript type~1 pour l'ensemble EC. Par chance, il y a
-deux façons de tricher.
+L'implantation PSi{} Type 1 des polices Computer Modern et AMSFonts
+furent produites par Blue Sky Research and Y\&Y, Inc. qui
+transférèrent par la suite les droits à l'American Mathematical
+Society. Les polices furent diffusées au début de 1997 et sont
+désormais fournies avec la plupart des distributions \TeX{}.
+
+Si cependant vous utiliser \LaTeX{} dans d'autres documents que
+l'anglais, vous pouvez utiliser les polices EC, LH ou CB (voir la
+discussion sur les polices \texttt{OT1} en
+page~\pageref{OT1}). Vladimir Volovich a produit le paquet de polices
+cm-super qui couvre l'ensemble des polices EC/TC, EC Concrete, EC
+Bright et LH. Ce paquet est disponible sur
+\texttt{CTAN:/fonts/ps-type1/cm-super} et est fourni avec \TeX{}Live7
+et Mik\TeX. Des polices grecques type~1 CB similaires créées par
+Apostolos Syropoulos sont disponibles sur
+\texttt{CTAN:/tex-archive/fonts/greek/cb}.
+Malheureusement ces jeux de polices ne sont pas de la même
+  qualité typographique que les polices Type1 CM faites par Blue
+  Sky/Y\&Y. Elles ont été affinées automatiquement et le document
+%SC: see the translation of hinting (affinage ?)
+  final peut être aussi agréable à l'\oe il sur l'écran que les
+  documents qui utilisent les polices type 1 CM Blue Sky/Y\&Y. Sur des
+  périphériques de sortie à haute résolution elles produisent des
+  résultats identiques aux polices bitmap EC/LH/CB d'origine.
+
+Si vous créez un document dans un langage latin ou basé sur le
+l'alphabet latin, vous disposez de plusieurs autres alternatives.
 \begin{itemize}
-\item Vous pouvez ajouter en préambule la ligne
-  \verb+\usepackage{aeguill}+\paih{aeguill} pour utiliser les polices
-  virtuelles AE ;
-\item Vous pouvez utiliser \verb+\usepackage{mltex}+ à la condition
-  que votre version de pdf\TeX{} a été compilée avec l'option
-  \wi{mltex}.
+\item Vous pouvez utiliser l'extension \pai{aeguill} (\emph{Almost
+    European Computer Modern with Guillemets}). Ajoutez simplement en
+  préambule la ligne \verb+\usepackage{aeguill}+\paih{aeguill} pour
+  utiliser les polices virtuelles AE au lieu des polices EC.
+\item Autrement vous pouvez utiliser l'extension \pai{mltex} à la
+  condition que votre version de pdf\TeX{} a été compilée avec
+  l'option \wi{mltex}
 \end{itemize}
 La police virtuelle AE comme le système {Ml\TeX} font croire à \TeX{}
 qu'il a un jeu de polices complet de 256 caractères à disposition. Ils
 créent pour ce faire les lettres manquantes à partir de caractères
-disponibles dans la police CM qui existe sous une variante PostScript
-type~1. Ceci a l'avantage de faire bien fonctionner les césures avec
-les langues européennes. Le seul défaut de cette approche est que les
-caractères AE artificiels ne fonctionnent pas avec la fonction de
-recherche d'Acrobat Reader (\texttt{Find}) : vous ne pourrez donc pas
-rechercher des mots avec des caractères accentués dans votre fichier
-PDF final.
+disponibles dans la police CM et les réarrangent dans l'ordre EC. Cela
+permet d'utiliser les excellentes polices CM de format type 1
+disponibles sur la plupart des systèmes. Comme la police est alors
+dans un codage T1, ceci a l'avantage de faire bien fonctionner les
+césures avec les langues européennes basées sur l'alphabet latin. Le
+seul défaut de cette approche est que les caractères AE artificiels ne
+fonctionnent pas avec la fonction de recherche d'Acrobat Reader
+(\texttt{Find}) : vous ne pourrez donc pas rechercher des mots avec
+des caractères accentués dans votre fichier PDF final.
 
-Une autre solution est de ne pas utiliser la police CM mais de passer
-à d'autres polices Postscript type~1. Certaines d'entre elles sont
-même fournies avec chaque copie d'Acrobat Reader. Celles-ci ayant des
-tailles de caractères différentes, l'aspect de votre texte sur vos
-pages sera différent. Généralement il utilisera plus d'espace que les
-polices CM qui sont très efficaces en terme d'occupation
-d'espace. De plus la cohérence visuelle de votre document en souffrira
-car les polices Times, Helvetica et Courier (les premières candidates
-en lice pour un tel changement) n'ont pas été conçues pour fonctionner
-en harmonie dans un seul document comme cela avait été fait pour les
-polices Computer Modern.
+Pour la langue russe, une solution similaire est d'utiliser des
+polices C1 virtuelles disponibles sur
+\texttt{ftp://ftp.vsu.ru/pub/tex/font-packs/c1fonts}. Ces polices
+combinent les polices standard CM type~1 de Bluesky aux polices type~1
+CMCYR des collections Paradissa et BaKoMa, toutes disponibles sur le
+CTAN. Comme les polices Paradissa ne contiennent que des lettres
+russes, il manque aux polices C1 les autres glyphes cyrilliques.
+
+Une autre solution est de passer à d'autres polices \PSi{}
+type~1. Certaines d'entre elles sont même fournies avec chaque copie
+d'Acrobat Reader. Celles-ci ayant des tailles de caractères
+différentes, l'aspect de votre texte sur vos pages sera
+différent. Généralement il utilisera plus d'espace que les polices CM
+qui sont très efficaces en terme d'occupation d'espace. De plus la
+cohérence visuelle de votre document en souffrira car les polices
+Times, Helvetica et Courier (les premières candidates en lice pour un
+tel changement) n'ont pas été conçues pour fonctionner en harmonie
+dans un seul document comme cela avait été fait pour les polices
+Computer Modern.
 
 Deux polices prêtes à l'emploi sont disponibles dans cette optique :
 \pai{pxfonts}, basée sur \emph{Palatino} pour la police du texte
@@ -614,15 +644,14 @@ pilote \texttt{pdftex} l'extension fonctionnera avec pdf\LaTeX{} :
 L'example ci-dessus inclus l'option \texttt{color}, puisqu'utiliser de
 la couleur dans les documents affichés sur le Web vient naturellement.
 
-Voilà pour les bonnes nouvelles. La mauvaise nouvelle est que le
-format EPS (Encapsulated PostScript), votre format favori sous
-\LaTeX{}, ne fonctionne \emph{pas} pour les fichiers PDF. Si vous ne
-définissez pas d'extension de fichier dans la commande
+Voilà pour les bonnes nouvelles. La mauvaise nouvelle est que les
+figures au format \EPSi{} ne fonctionnent \emph{pas} avec pdf\LaTeX{}.
+Si vous ne définissez pas d'extension de fichier dans la commande
 \ci{includegraphics}, \pai{graphicx} cherchera lui-même la bonne en
 fonction de l'option de pilote qui lui est passée. Pour
 \texttt{pdftex} ce seront les formats \texttt{.png}, \texttt{.pdf},
-\texttt{.jpg}, \texttt{.mps} (MetaPost) et \texttt{.tif}, mais
-\emph{sûrement pas} \texttt{.eps}.
+\texttt{.jpg}, \texttt{.mps} (\MP\index{metapost@\MP}) et
+\texttt{.tif}, mais \emph{sûrement pas} \texttt{.eps}.
 
 La manière la plus simple de résoudre le problème est de convertir
 vos fichiers EPS au format PDF en utilisant l'utilitaire
@@ -635,9 +664,9 @@ couleurs. JPEG est très bien pour les photos de par l'efficacité de sa
 compression pour ce type d'images.
 
 Pour certaines figures géométriques, il peut même être préférable
-d'utiliser un langage de commandes spécialisé comme \wi{MetaPost}, qui
-se trouve dans la plupart des distributions \TeX{} et est livré avec
-son manuel détaillé.
+d'utiliser un langage de commandes spécialisé comme
+\MP\index{metapost@\MP}, qui se trouve dans la plupart des
+distributions \TeX{} et est livré avec son manuel détaillé.
 
 \subsection{Liens hypertextuels}
 \label{ssec:pdfhyperref}
@@ -671,8 +700,10 @@ Dans la liste suivante, les valeurs par défaut des options sont
 affichées avec une police droite.
 
 \begin{description}
-  \item[\texttt{bookmarks (=true,\textit{false})}] montrer ou cacher
+  \item [\texttt{bookmarks (=true,\textit{false})}] montrer ou cacher
     le marque-pages lors de l'affichage du document ;
+  \item [\texttt{unicode (=false,\textit{true})}] permettre d'utiliser
+    des caractères non-latins dans les marque-pages d'Acrobat ;
   \item [\texttt{pdftoolbar (=true,\textit{false})}] montrer ou cacher
     la barre d'outils d'Acrobat ;
   \item [\texttt{pdfmenubar (=true,\textit{false})}] montrer ou cacher
@@ -685,18 +716,20 @@ affichées avec une police droite.
   \item [\texttt{pdfnewwindow (=true,\textit{false})}] définir si une
     nouvelle fenêtre doit être ouverte lorsqu'un lien conduit hors du
     document courant ;
-  \item [\texttt{colorlinks (=true,\textit{false})}] montrer les \og
-    zones \fg{} des liens en couleur. La couleur de ces liens peut
-    être configurée via les options suivantes :
+  \item [\texttt{colorlinks (=false,\textit{true})}] entourer les
+    liens par des liserés colorés (\texttt{false}) ou colorer le texte
+    des liens (\texttt{true}). La couleur de ces liens peut
+    être configurée via les options suivantes (les couleurs par défaut
+    sont indiquées) :
     \begin{description}
-    \item [\texttt{linkcolor (=color,\textit{red})}] couleur des liens
+    \item [\texttt{linkcolor (=red)}] couleur des liens
       internes (sections, pages, etc) ;
-    \item [\texttt{citecolor (=color,\textit{green})}] couleur des
+    \item [\texttt{citecolor (=green)}] couleur des
       liens de citations bibliographiques ;
-    \item [\texttt{filecolor (=color,\textit{magenta})}] couleur des
+    \item [\texttt{filecolor (=magenta)}] couleur des
       liens vers des fichiers ;
-    \item [\texttt{urlcolor (=color,\textit{cyan})}] couleur des liens
-      url (adresse électronique, adresse web).
+    \item [\texttt{urlcolor (=cyan)}] couleur des liens
+      URL (adresse électronique, adresse web).
     \end{description}
 \end{description}
 
@@ -719,7 +752,15 @@ Pour avoir la liste des marque-pages ouverte et des liens en couleur
 
 Lors de la création de fichiers PDFs en vue d'impression, les liens
 colorés peuvent finir grisés dans le résultat final, ce qui les rend
-difficiles à lire :
+difficiles à lire. Vous pouvez utiliser des liserés colorés qui ne
+seront pas imprimés :
+\begin{code}
+\begin{verbatim}
+\usepackage{hyperref}
+\hypersetup{colorlinks=false}
+\end{verbatim}
+\end{code}
+\noindent ou noircir les liens :
 \begin{code}
 \begin{verbatim}
 \usepackage{hyperref}
@@ -981,10 +1022,14 @@ exemple de fichier d'entrée. En premier lieu vous devez charger
   \texttt{print} pour obtenir une version imprimable ;
 \item[\texttt{panelright}] ajoute un panneau de navigation à droite de
   l'écran. Si le panneau devrait être à gauche, utilisez
-  \texttt{panelleft} ;
+  \texttt{panelleft}. Si vous voulez vous passer de panneaux utilisez
+  \texttt{nopanel} ;
 \item[\texttt{french}] ou tout autre langage pris en compte modifiera
   le texte sur les boutons de navigation de manière appropriée. Cette
-  option est indépendante des options de l'extension babel ;
+  option est indépendante des options de l'extension babel. Si votre
+  langage n'est pas géré par \pai{pdfscreen}, vous pouvez tout de même
+  localiser le panneau via le fichier \texttt{pdfscreen.cfg}, voyez
+  \texttt{pdfscreen.cfg..specimen} pour un exemple ;
 \item[\texttt{chocolate}] schéma de couleurs pour le panneau de
   navigation. D'autres choix possibles incluent \texttt{gray},
   \texttt{orange}, \texttt{palegreen}, \texttt{bluelace} et
@@ -995,10 +1040,10 @@ passera à la vraie taille de l'écran lors de l'affichage, vous pouvez
 exploiter cela pour configurer la taille de la police :
 \begin{description}
 \item[\ci{panelwidth}] définit la largeur du panneau de navigation ;
-\item[\ci{screensize}\texttt{\{}\emph{largeur}\texttt{\}\{}\emph{hauteur}\texttt{\}}]
+\item[\ci{screensize}\textmd{\texttt{\{}\emph{largeur}\texttt{\}\{}\emph{hauteur}\texttt{\}}}]
   définit la largeur et la hauteur de l'écran, le panneau de
   navigation inclus ;
-\item[\ci{marginsize}\texttt{\{}\emph{left}\texttt{\}\{}\emph{right}\texttt{\}\{}\emph{top}\texttt{\}\{}\emph{bottom}\texttt{\}}]
+\item[\ci{marginsize}\textmd{\texttt{\{}\emph{left}\texttt{\}\{}\emph{right}\texttt{\}\{}\emph{top}\texttt{\}\{}\emph{bottom}\texttt{\}}}]
   définit les marges du document. Dans l'exemple, le document n'est
   pas centré à cause des numéros de section dans la marge de gauche.
 \end{description}
@@ -1008,7 +1053,8 @@ lequel des formats reconnus par pdf\TeX{} à l'aide de la commande
 \begin{lscommand}
 \ci{overlay}\verb|{|\emph{image}\verb|}|
 \end{lscommand}
-ou si vous préférez un fond uni, vous pouvez définir sa couleur avec
+\noindent ou si vous préférez un fond uni, vous pouvez définir sa
+couleur avec
 \begin{lscommand}
 \ci{background}\verb|{|\emph{couleur}\verb|}|
 \end{lscommand}
@@ -1027,17 +1073,17 @@ document. L'extension \pai{pause} fait partie du système
 \texttt{ppower4} ($P^4$: \emph{Pdf Presentation Post-Processor} ou
 Post-processeur de présentations Pdf). Ce système peut recompiler
 après coup une sortie pdf de pdf\TeX{} et la faire danser, chanter et
-mendier sa pitance. Vous pouvez traiter la sortie de pdf\TeX{} en la
-passant au post-processeur. En ligne de commande, cela ressemble à :
+mendier sa pitance. En ligne de commande, cela ressemble à :
+%SC: sing and dance and beg for food. Need better translation
 \begin{lscommand}
 \verb+ppower4 xy.pdf xyz.pdf+
 \end{lscommand}
 
-Pour contrôler le contenu d'un seul transparent, vous utiliserez
+Pour maîtriser le contenu d'un seul transparent, utilisez
 l'environnement \verb+\begin{slide}+ \ldots \verb+\end{slide}+. Le
 contenu de chaque transparent sera centré verticalement sur sa page.
 
-Si vous compilez l'exemple plus haut, vous obtiendrez un message
+Une compilation de l'exemple plus haut s'achèvera par un message
 d'erreur :
 \begin{verbatim}
 ! pdfTeX warning (dest): name{contents} has been
@@ -1059,136 +1105,6 @@ Cette courte introduction ne fait que gratter la surface de ce qu'il
 est possible de réaliser avec \pai{pdfscreen} et \texttt{PPower4}. Ces
 deux extensions sont fournies avec leur propre documentation abondante.
 
-
-\section{\texorpdfstring{\Xy}{Xy}-pic}
-\secby{Alberto Manuel Brand\~ao Sim\~oes}{albie@alfarrabio.di.uminho.pt}
-\pai{xy} est une extension dédiée au dessin de diagrammes. Elle est
-invoquée par l'ajout dans votre préambule de la ligne :
-\begin{lscommand}
-\verb|\usepackage[|\emph{options}\verb|]{xy}|
-\end{lscommand}
-\emph{options} est une liste des fonctions que vous voulez voir
-\Xy-pic charger. Ces options sont surtout utiles pour déboguer
-l'extension. Je vous suggère d'utiliser l'option \verb!all! afin de
-faire charger toutes les commandes \Xy{} par \LaTeX{}.
-
-Les diagrammes \Xy-pic sont dessinés sur une trame basée sur un
-matrice, où chaque élément de dessin correspond à un élément de la
-matrice :
-\begin{example}
-\begin{displaymath}
-\xymatrix{A & B \\
-          C & D }
-\end{displaymath}
-\end{example}
-La commande \ci{xymatrix} requiert le mode mathématique. Ici nous
-avons spécifié deux lignes et deux colonnes. Pour faire de cette
-matrice un diagramme, nous ajoutons des flèches via la commande
-\ci{ar}.
-\begin{example}
-\begin{displaymath}
-\xymatrix{ A \ar[r] & B \ar[d] \\
-           D \ar[u] & C \ar[l] }
-\end{displaymath}
-\end{example}
-La commande de flèche est placée sur la cellule d'origine de la
-flèche. Les arguments correspondent à sa direction (\texttt{u}p vers
-le haut, \texttt{d}own vers le bas, \texttt{r}ight vers la droite et
-\texttt{l}eft vers la gauche).
-
-
-\begin{example}
-\begin{displaymath}
-\xymatrix{
-  A \ar[d] \ar[dr] \ar[r] & B \\
-  D                       & C }
-\end{displaymath}
-\end{example}
-Les flèches en diagonales sont obtenus en utilisant plus d'une
-direction. Vous pouvez aussi répéter les directions pour avoir de plus
-grandes flèches.
-\begin{example}
-\begin{displaymath}
-\xymatrix{
-  A \ar[d] \ar[dr] \ar[drr] & & \\
-  B                      & C & D }
-\end{displaymath}
-\end{example}
-
-Nous pouvons dessiner des diagrammes plus intéressants en ajoutant des
-étiquettes aux flèches grâce aux opérateurs d'indice et d'exposant.
-\begin{example}
-\begin{displaymath}
-\xymatrix{
-  A \ar[r]^f \ar[d]_g &
-             B \ar[d]^{g'} \\
-  D \ar[r]_{f'}       & C }
-\end{displaymath}
-\end{example}
-
-Comme l'indique l'exemple, vous utilisez ces opérateurs en mode
-mathématique. La seule différence est que l'exposant signifie \og
-au-dessus de la flèche \fg{} et l'indice \og sous la flèche \fg{}. il
-existe un troisième opérateur, la barre verticale: \verb+|+. Elle fait
-se placer le texte \emph{dans} la flèche.
-\begin{example}
-\begin{displaymath}
-\xymatrix{
-  A \ar[r]|f \ar[d]|g &
-             B \ar[d]|{g'} \\
-  D \ar[r]|{f'}       & C }
-\end{displaymath}
-\end{example}
-
-Pour dessiner une flèche trouée, utilisez \verb!\ar[...]|\hole!.
-
-Dans certaines circonstances, il peut être important de distinguer les
-différents types de flèches. Ceci peut être obtenu en leur assignant
-des étiquettes ou en changeant leur apparence :
-
-\begin{example}
-\begin{displaymath}
-\xymatrix{
- \bullet\ar@{->}[rr] && \bullet\\
- \bullet\ar@{.<}[rr] && \bullet\\
- \bullet\ar@{~)}[rr] && \bullet\\
- \bullet\ar@{=(}[rr] && \bullet\\
- \bullet\ar@{~/}[rr]  && \bullet\\
- \bullet\ar@{=+}[rr]   && \bullet
-}
-\end{displaymath}
-\end{example}
-
-Notez la différence entre les deux diagrammes suivants:
-
-\begin{example}
-\begin{displaymath}
-\xymatrix{
- \bullet \ar[r] 
-         \ar@{.>}[r] & 
- \bullet
-}
-\end{displaymath}
-\end{example}
-
-\begin{example}
-\begin{displaymath}
-\xymatrix{
- \bullet \ar@/^/[r] 
-         \ar@/_/@{.>}[r] &
- \bullet
-}
-\end{displaymath}
-\end{example}
-
-Les modifieurs entre les slashs définissent la manière dont les
-courbes sont dessinées. \Xy-pic offre de nombreuses façons
-d'influencer le dessin des courbes. Pour plus d'informations, veuillez
-consultez la documentation d'\Xy-pic.
-
-\endinput
-
-%
 
 % Local Variables:
 % TeX-master: "lshort2e"
