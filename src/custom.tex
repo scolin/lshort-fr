@@ -442,6 +442,26 @@ interligne. L'interligne par défaut est~1.
 %notes de bas de page, les tableaux, etc.  C'est assez compliqué à
 %gérer, mais l'extension \pai{setspace} est prévue à cet effet.
 
+Notez que l'effet de la commande \ci{linespread} est drastique et
+inapproprié pour la publication. Si vous avez une bonne raison de
+changer l'interligne, vous pouvez utiliser la commande :
+\begin{lscommand}
+\verb|\setlength{\baselineskip}{1.5\baselineskip}|
+\end{lscommand}
+
+\begin{example}
+{\setlength{\baselineskip}%
+           {1.5\baselineskip}
+Ce paragraphe est formatté avec un
+interligne fixé à 1,5 de ce qu'il
+était avant. Remarquez la commande
+par à la fin du paragraphe.\par}
+
+Ce paragraphe a un objet précis et
+montre qu'après l'accolade fermante
+tout redevient normal.
+\end{example}
+
 \subsection{Mise en page d'un paragraphe}\label{parsp}
 
 Il y a deux paramètres qui jouent sur l'apparence d'un paragraphe. En
@@ -554,7 +574,7 @@ x\hspace{\stretch{3}}x
 Lors que l'espacement horizontal est utilisé en conjonction avec du
 texte, il est préférable de faire que l'espace soit ajusté en fonction
 de la taille de la police courante. Ceci peut être réalisé en
-utilisant les unités relatives \texttt{em} et \texttt{en}:
+utilisant les unités relatives \texttt{em} et \texttt{ex}:
 
 \begin{example}
 {\Large{}plus gr\hspace{1em}and}\\
@@ -620,7 +640,7 @@ valeurs prédéfinies et vouloir les modifier.
 La figure~\ref{fig:layout} montre tous les paramètres qui peuvent être
 modifiés. Cette figure a été réalisée avec l'extension \pai{layout} de
 l'ensemble tools
-\footnote{\texttt{CTAN:/tex-archive/macros/latex/required/tools}}.
+\footnote{\CTANref|macros/latex/required/tools|}.
 
 \textbf{Attendez !}\dots{} avant de vous lancer dans \og élargissons un peu
 ce texte \fg{}, prenez deux secondes pour réfléchir. Comme souvent avec
