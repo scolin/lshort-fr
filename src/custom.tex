@@ -231,7 +231,7 @@ produite.
 
 \subsection{Votre propre extension}
 
-Si vous définissez plein de nouveaux environnements et de nouvelles
+Si vous définissez beaucoup de nouveaux environnements et de nouvelles
 commandes, le préambule de votre document va se rallonger
 dangereusement. Il peut alors devenir intéressant de créer une
 extension contenant toutes ces nouvelles définitions. Avec 
@@ -383,18 +383,28 @@ spéciales. Reportez-vous au tableau~\ref{mathfonts}.
 
 \begin{table}[!htbp]
 \caption{Polices mathématiques} \label{mathfonts}
-\begin{lined}{12.2cm}
-\begin{tabular}{@{}lll@{}}
-\textit{Commande}&\textit{Exemple}&    \textit{Résultat}\\[6pt]
-\fni{mathcal}\verb|{...}|&    \verb|$\mathcal{B}=c$|&     $\mathcal{B}=c$\\
-\fni{mathrm}\verb|{...}|&     \verb|$\mathrm{K}_2$|&      $\mathrm{K}_2$\\
-\fni{mathbf}\verb|{...}|&     \verb|$\sum x=\mathbf{v}$|& $\sum x=\mathbf{v}$\\
-\fni{mathsf}\verb|{...}|&     \verb|$\mathsf{G\times R}$|&        $\mathsf{G\times R}$\\
-\fni{mathtt}\verb|{...}|&     \verb|$\mathtt{L}(b,c)$|&   $\mathtt{L}(b,c)$\\
-\fni{mathnormal}\verb|{...}|& \verb|$\mathnormal{R_{19}}| &\\
-& \verb|    \neq R_{19}$|& $\mathnormal{R_{19}}\neq R_{19}$\\
-\fni{mathit}\verb|{...}|&     \verb|$\mathit{ffi}\neq ffi$|& $\mathit{ffi}\neq ffi$
+\begin{lined}{0.8\textwidth}
+\begin{tabular}{@{}ll@{}}
+\fni{mathrm}\verb|{...}|&     $\mathrm{Police\ romaine}$\\
+\fni{mathbf}\verb|{...}|&     $\mathbf{Police\ grasse}$\\
+\fni{mathsf}\verb|{...}|&     $\mathsf{Police\ sans\ serif}$\\
+\fni{mathtt}\verb|{...}|&     $\mathtt{Police\ machine\ à\ écrire}$\\
+\fni{mathit}\verb|{...}|&     $\mathit{Police\ italique}$\\
+\fni{mathcal}\verb|{...}|&    $\mathcal{Police\ cursive}$\\
+\fni{mathnormal}\verb|{...}|& $\mathnormal{Police\ normale}$\\
 \end{tabular}
+
+% \begin{tabular}{@{}lll@{}}
+% \textit{Commande}&\textit{Exemple}&    \textit{Résultat}\\[6pt]
+% \fni{mathcal}\verb|{...}|&    \verb|$\mathcal{B}=c$|&     $\mathcal{B}=c$\\
+% \fni{mathrm}\verb|{...}|&     \verb|$\mathrm{K}_2$|&      $\mathrm{K}_2$\\
+% \fni{mathbf}\verb|{...}|&     \verb|$\sum x=\mathbf{v}$|& $\sum x=\mathbf{v}$\\
+% \fni{mathsf}\verb|{...}|&     \verb|$\mathsf{G\times R}$|&        $\mathsf{G\times R}$\\
+% \fni{mathtt}\verb|{...}|&     \verb|$\mathtt{L}(b,c)$|&   $\mathtt{L}(b,c)$\\
+% \fni{mathnormal}\verb|{...}|& \verb|$\mathnormal{R_{19}}| &\\
+% & \verb|    \neq R_{19}$|& $\mathnormal{R_{19}}\neq R_{19}$\\
+% \fni{mathit}\verb|{...}|&     \verb|$\mathit{ffi}\neq ffi$|& $\mathit{ffi}\neq ffi$
+% \end{tabular}
 
 \bigskip
 \end{lined}
@@ -522,7 +532,7 @@ interligne fixé à 1,5 de ce qu'il
 par à la fin du paragraphe.\par}
 
 Ce paragraphe a un objet précis et
-montre qu'après l'accolade fermante
+montre qu'après l'accolade, fermante
 tout redevient normal.
 \end{example}
 
@@ -692,8 +702,19 @@ exactes.
 \vspace*{1.8cm}
 \caption{Paramètres de la disposition d'une page}
 \label{fig:layout}
+\cih{footskip}
+\cih{headheight}
+\cih{headsep}
+\cih{marginparpush}
+\cih{marginparsep}
+\cih{marginparwidth}
+\cih{oddsidemargin}
+\cih{paperheight}
+\cih{paperwidth}
+\cih{textheight}
+\cih{textwidth}
+\cih{topmargin}
 \end{figure}
-
 \index{disposition d'une page}
 \LaTeXe{} permet d'indiquer la taille du papier en paramètre de  la commande
 \verb|\documentclass|. Il définit ensuite automatiquement les
@@ -865,8 +886,8 @@ expressions exprimant une longueur vous pouvez également utiliser
 du paramètre \texttt{largeur}. Leurs valeurs sont obtenues à partir
 des dimensions réelles du \texttt{texte}. Le paramètre \texttt{pos}
 est une lettre parmi \texttt{c} (\textbf{c}enter) pour centrer le
-texte, \texttt{l} (\textbf{l}eft flush) pour l'aligner à gauche,
-\texttt{r} (\textbf{r}ight flush) pour l'aligner à droite, ou
+texte, \texttt{l} (flush\textbf{l}eft) pour l'aligner à gauche,
+\texttt{r} (flush\textbf{r}ight) pour l'aligner à droite, ou
 \texttt{s} (\textbf{s}pread) pour le répartir horizontalement dans la
 boîte.
 
@@ -900,9 +921,11 @@ horizontal et l'alignement vertical.}. Pas de problème avec
 \ci{raisebox}\verb|{|\emph{élévation}\verb|}[|\emph{profondeur}\verb|][|\emph{hauteur}\verb|]{|\emph{texte}\verb|}|
 \end{lscommand}
 
-\noindent permet de définir les propriétés verticales d'une boîte. Vous
-pouvez utiliser \ci{width}, \ci{height}, \ci{depth} et
-\ci{totalheight} dans les trois premiers paramètres afin d'agir en
+\noindent permet de définir les propriétés verticales d'une boîte. La
+\emph{profondeur} correspond à une extension \emph{sous} la ligne de
+base du texte, la \emph{hauteur} à une extension \emph{au-dessus} de
+cette ligne. Vous pouvez utiliser \ci{width}, \ci{height}, \ci{depth}
+et \ci{totalheight} dans les trois premiers paramètres afin d'agir en
 fonction de la taille du texte contenu dans la boîte.
 
 \begin{example}
