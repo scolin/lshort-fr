@@ -61,7 +61,14 @@ imprimante PostScript, voici la marche à suivre pour inclure une
 figure dans un document :
 
 \begin{enumerate}
-\item exportez la figure de votre logiciel graphique au format EPS ;
+\item exportez la figure de votre logiciel graphique au format EPS
+  \footnote{Si votre logiciel ne sait pas exporter au format EPS, vous
+    pouvez essayer d'utiliser un pilote d'impression PostScript (tel
+    que Apple LaserWriter, par exemple) puis imprimer vers un fichier
+    à l'aide de ce pilote. Avec de la chance ce fichier sera au format
+    EPS. Notez cependant qu'un fichier EPS ne doit pas faire plus
+    d'une page. Certains pilotes d'impression peuvent même être
+    configurés pour produire explicitement un format EPS.};
 \item chargez l'extension \textsf{graphicx} dans le préambule de votre
       fichier source avec :
 \begin{lscommand}
@@ -103,7 +110,8 @@ tableau~\ref{keyvals} présente les clefs les plus importantes.
 \end{lined}
 \end{table}
 
-L'exemple suivant devrait illustrer le fonctionnement de la commande :
+L'exemple suivant devrait aider à illustrer le fonctionnement de la
+commande :
 \begin{code}
 \begin{verbatim}
 \begin{figure}
@@ -157,6 +165,9 @@ TUGboat Vol.~9, No.~1 ('88)
                            %bibliography example.
 \thispagestyle{fancyplain}
 
+% SC: just following the upstream changes, here
+\newpage
+
 Pour des projets plus importants, il est recommandé d'utiliser l'outil
 BiB\TeX{}. Celui-ci est fourni avec la plupart des installations de
 \TeX{}. Il permet de maintenir une base de données de références
@@ -171,8 +182,8 @@ ouvrages. \LaTeX{} et le programme associé
 \texttt{makeindex}\,\footnote{sur les systèmes qui ne supportent pas les
 noms de fichiers de plus de huit caractères, ce programme s'appelle
 \texttt{makeidx}.} permettent de créer des index assez
-facilement. Dans cette introduction, seules les commandes élémentaires
-de gestion d'un index sont présentées. Pour une description plus
+facilement. Cette introduction présente seulement les commandes
+élémentaires de gestion d'un index. Pour une description plus
 détaillée, reportez-vous à~\companion ou à \desgraupes{}. 
 
 Pour utiliser cette fonctionnalité, l'extension \pai{makeidx} doit être
@@ -231,9 +242,9 @@ inclus à l'endroit où \LaTeX{} rencontrera la commande :
   \ci{printindex}
 \end{lscommand}
 
-L'extension \pai{showidx} permet de visualiser les entrées de l'index
-dans la marge gauche du texte. Cela permet la relecture et la mise au
-point de l'index.
+L'extension \pai{showidx} fournie avec \LaTeXe{} permet de visualiser
+les entrées de l'index dans la marge gauche du texte. Cela permet la
+relecture et la mise au point de l'index.
 
 Le programme \texttt{makeindex} standard ne traite malheureusement pas
 correctement les caractères accentués dans les clefs : il les place
@@ -251,7 +262,7 @@ de \og eolienne \fg{}.
 L'extension \pai{fancyhdr}%
 \,\footnote{disponible sur 
           \texttt{CTAN:/macros/latex/contrib/supported/fancyhdr/}.},
-développée par P.~van Oostrum, offre quelques commandes simples
+développée par Piet van Oostrum, offre quelques commandes simples
 permettant de personnaliser les en-têtes et les pieds de page de votre
 document. Si vous regardez en haut de cette page, vous verrez un
 résultat possible de cette extension.
@@ -266,15 +277,20 @@ La valeur de ces commandes est redéfinie chaque fois
 qu'un nouveau chapitre ou une nouvelle section commence.
 
 Pour plus de souplesse, la commande \verb|\chapter| et ses collègues
-ne redéfinissent pas \verb|\leftmark| et \verb|\rightmark|
+ne redéfinissent pas \ci{leftmark} et \ci{rightmark}
 directement. Elles appellent les commandes appelées \ci{chaptermark},
 \ci{sectionmark} et \ci{subsectionmark} qui sont chargées de redéfinir
-\verb|\leftmark| et/ou \verb|\rightmark|, selon la présentation
+\ci{leftmark} et/ou \ci{rightmark}, selon la présentation
 désirée. 
 
 Ainsi, si vous voulez modifier la présentation du nom du chapitre
-courant dans l'en-tête, vous devrez redéfinir la commande
-\verb|\chaptermark|. 
+courant dans l'en-tête, vous n'aurez qu'à redéfinir la commande
+\ci{chaptermark}. \cih{sectionmark}\cih{subsectionmark}
+
+La figure~\ref{fancyhdr} montre un exemple de configuration de l'extension
+\pai{fancyhdr} qui se rapproche de la présentation utilisée pour ce
+document. La documentation complète de cette extension se trouve à
+l'adresse mentionnée dans la note de bas de page. 
 
 \begin{figure}[!htbp]
 \begin{lined}{\textwidth}
@@ -303,11 +319,6 @@ courant dans l'en-tête, vous devrez redéfinir la commande
 \label{fancyhdr}
 \end{figure}
 
-La figure~\ref{fancyhdr} montre un exemple de configuration de l'extension
-\pai{fancyhdr} qui se rapproche de la présentation utilisée pour ce
-document. La documentation complète de cette extension se trouve à
-l'adresse mentionnée dans la note de bas de page. 
-
 
 \section{L'extension verbatim}
 
@@ -316,8 +327,8 @@ l'\emph{environnement} \ei{verbatim}. Dans cette section vous allez découvrir
 l'\emph{extension} \pai{verbatim}. L'extension \pai{verbatim} est une
 nouvelle implémentation de l'environnement du même nom qui corrige
 certaines de ses limitations. En soi cela n'est pas spectaculaire,
-mais en plus, une fonctionnalité nouvelle a été ajoutée, et c'est elle
-qui justifie que cette extension soit citée ici. L'extension
+mais ce package s'adjoint de nouvelles fonctionnalités
+qui justifient que cette extension soit citée ici. L'extension
 \pai{verbatim} propose la commande :
 
 \begin{lscommand}
@@ -328,9 +339,9 @@ qui justifie que cette extension soit citée ici. L'extension
 document, comme s'il se trouvait à l'intérieur d'un environnement
 \ei{verbatim}. 
 
-Puisque l'extension \pai{verbatim} fait partie de l'ensemble 
-\og \texttt{tools} \fg{}, elle devrait être installée sur la plupart des
-systèmes. Pour en savoir plus au sujet de cette extension,
+Puisque l'extension \pai{verbatim} fait partie de l'ensemble \og
+\texttt{tools} \fg{}, elle devrait être déjà disponible sur la plupart
+des systèmes. Pour en savoir plus au sujet de cette extension,
 reportez-vous à~\cite{verbatim}.
 
 \section{Téléchargement et installation d'extensions}
@@ -340,17 +351,24 @@ La plupart des  installations \LaTeX{} fournissent en standard un grand
 nombre d'extensions, mais il arrive que justement celle dont on aurait
 besoin manque, ou qu'une extension nécessite une mise à jour.
 L'endroit le plus adéquat pour rechercher les versions officielles
-des  extensions \LaTeX{} est
-\url{http\string://www.tex.ac.uk/CTANfind.html}
+des  extensions est le CTAN (\verb|http://www.ctan.org/|).
 
-Les extensions sont en général fournies sous la forme de deux fichiers,
-l'un de suffixe \texttt{.dtx}, l'autre de suffixe \texttt{.ins}.
-Souvent un fichier \texttt{readme.txt} est joint et donne une brève
-description de l'extension, le mieux est de commencer par la lecture de ce
-fichier. 
+Les extensions, tels \pai{geometry}, \pai{hyphenat} et beaucoup
+d'autres, sont en général fournis sous la forme de deux fichiers, l'un
+de suffixe \texttt{.dtx}, l'autre de suffixe \texttt{.ins}.  Souvent
+un fichier \texttt{readme.txt} leur est joint et donne une brève
+description de l'extension. Le mieux est alors de commencer par la
+lecture de ce fichier.
 
-Ensuite, il faut, d'une part installer l'extension et
-d'autre part extraire la documentation, voici la manière de procéder :
+ In any event, once you have copied the package files onto your
+machine, you still have to process them in a way that (a) tells your
+\TeX\ distribution about the new style package and (b) gives you
+ the documentation.  Here's how you do the first part:
+
+Quoi qu'il en soit, une fois que vous avez copié les fichiers de
+l'extension sur votre machine, vous dever les manipuler de manière à
+(a) informer votre distribution \TeX\ de cette nouvelle extension et
+(b) obtenir sa documentation. Voici la manière de procéder :
 
 \begin{enumerate}
 \item exécuter \LaTeX{} sur le fichier \texttt{.ins}. Ceci produira les
@@ -359,8 +377,10 @@ d'autre part extraire la documentation, voici la manière de procéder :
   c'est dans \texttt{\ldots/texmf/tex/latex} ou dans
   \texttt{\ldots/\emph{localtexmf}/tex/latex}.
 \item mettre à jour la base de données des noms de fichiers, la commande
-  dépend de votre distribution \LaTeX{}, c'est en général \texttt{mktexlsr}
-  \texttt{texhash}, ou encore \texttt{texconfig rehash}.
+  dépend de votre distribution \LaTeX{} :
+  teTeX, fpTeX -- \texttt{texhash}; web2c -- \texttt{mktexlsr};
+  MikTeX -- \texttt{initexmf -update-fndb} ou via l'interface
+  graphique; la commande peut également être \texttt{texconfig rehash}.
 \end{enumerate}
 
 \noindent Il faut ensuite  extraire la documentation du fichier
