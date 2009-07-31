@@ -335,10 +335,8 @@ typographie française concernant l'usage des tirets, qui diffèrent
 des habitudes anglo-saxonnes, en particulier le double tiret n'est pas
 utilisé en français.
 
-\subsection{Tilde (\texorpdfstring{$\sim$}{\string~})}
-
-\index{www}\index{URL}\index{tilde} \index{~@$\sim$}
-
+\subsection{Tilde (\texorpdfstring{$\sim$}{})}
+\index{www}\index{URL}\index{tilde}
 Un caractère souvent utilisé dans les adresses sur le web est le
 tilde. Pour produire ce caractère avec \LaTeX{}, on peut utiliser 
 \verb|\~|, mais le résultat : \~{} n'est pas tout à fait le symbole
@@ -372,11 +370,11 @@ Je vais bient\^ot devenir
 supra-conducteur.
 \end{example}
 
-\subsection{Le symbole de l'Euro \texorpdfstring{(\EUR{})}{}}
+\subsection{Le symbole de l'euro \texorpdfstring{(\EUR{})}{}}
 
 Écrire sur tout sujet économique de nos jours requiert l'utilisation
 du symbole de l'euro. De nombreuses polices de caractères contiennent
-un symbole Euro. Après avoir chargé l'extension \pai{textcomp} dans le
+un symbole euro. Après avoir chargé l'extension \pai{textcomp} dans le
 préambule
 \begin{lscommand}
 \ci{usepackage}\verb|{textcomp}| 
@@ -387,29 +385,47 @@ vous pouvez utiliser la commande
 \end{lscommand}
 pour y accéder.
 
-Si votre police ne fournit pas son propre symbole de l'Euro ou si vous
+Si votre police ne fournit pas son propre symbole de l'euro ou si vous
 ne l'aimez pas, il vous reste deux alternatives :
 
 Tout d'abord l'extension \pai{eurosym} qui fournit un symbol officiel
-de l'Euro :
+de l'euro :
 \begin{lscommand}
 \ci{usepackage}\verb|[|\emph{official}\verb|]{eurosym}| 
 \end{lscommand}
 Si vous préférez un symbole qui correspond à votre police, utilisez
 plutôt \texttt{gen} à la place de \texttt{option}.
 
-L'extension \pai{marvosym} fournit des symboles nombreux et variés,
-parmi lesquels celui de l'Euro sous le nom :
-\begin{lscommand}
-\ci{EUR}
-\end{lscommand}
+Si les polices Adobe Eurofonts sont installées sur votre système (vous
+pouvez les obtenir gratuitement sur
+\url{ftp://ftp.adobe.com/pub/adobe/type/win/all}), vous pouvez
+utiliser soit l'extension \pai{europs} et la commande \ci{EUR} (pour
+un symbole de l'euro qui correspond à la police courante) soit
+l'extension \pai{eurosans} et la commande \ci{euro} (pour l'\og euro
+officiel \fg{}).
 
-\begin{example}
-L'\texteuro{}, l'\euro{}
-et l'\EUR{} semblent tous
-différents.
-\end{example} 
+L'extension \pai{marvosym} fournit également des symboles variés, y
+compris celui de l'euro, sous le nom \ci{EUR}. Son défaut est de ne
+pas proposer des versions italiques et grasses de ce symbole.
 
+\begin{table}[!htbp]
+\caption{Un sac plein d'euros} \label{eurosymb}
+\begin{lined}{10cm}
+\begin{tabular}{llccc}
+extension    & codage      & romain       & sans-serif      & chasse fixe \\
+eurosym      &\verb+\euro+ & \huge\officialeuro &\huge\sffamily\officialeuro
+                                             & \huge\ttfamily\officialeuro\\
+$[$gen$]$eurosym &\verb+\euro+ & \huge\geneuro  &\huge\sffamily\geneuro
+                                                & \huge\ttfamily\geneuro \\
+% En fait on appelle eurofont pour des conflits de noms...
+europs       &\verb+\EUR + & \huge\EURtm     &\huge\EURhv   & \huge\EURcr \\
+eurosans     &\verb+\euro+ & \huge\EUROSANS  &\huge\sffamily\EUROSANS
+                                                & \huge\ttfamily\EUROSANS \\
+marvosym     &\verb+\EUR+  & \huge\mvchr164  &\huge\mvchr164 & \huge\mvchr164
+\end{tabular}
+\medskip
+\end{lined}
+\end{table}
 
 \subsection{Points de suspension (\texorpdfstring{\dots}{...})}
 
@@ -547,89 +563,122 @@ Si vous appelez babel avec plusieurs langues,
 \end{lscommand}
 \noindent pour définir la langue courante.
 
+%Input Encoding
+\newcommand{\ieih}[1]{%
+\index{encodings!input!#1@\texttt{#1}}%
+\index{input encodings!#1@\texttt{#1}}%
+\index{#1@\texttt{#1}}}
+\newcommand{\iei}[1]{%
+\ieih{#1}\texttt{#1}}
+%Font Encoding
+\newcommand{\feih}[1]{%
+\index{encodings!font!#1@\texttt{#1}}%
+\index{font encodings!#1@\texttt{#1}}%
+\index{#1@\texttt{#1}}}
+\newcommand{\fei}[1]{%
+\feih{#1}\texttt{#1}}
+
 La plupart des systèmes informatiques modernes vous permettent de
 saisir directement depuis le clavier les caractères accentués ou les
-symboles spécifiques d'une langue. \LaTeXe{} sait gérer ce type de
-codage grâce à l'extension \pai{inputenc} :
+symboles spécifiques de l'alphabet d'une langue. \LaTeXe{} gère la
+variété des codages d'entrée des différents langages et plateformes
+grâce à l'extension \pai{inputenc} :
 \label{inputenc}
 \begin{lscommand}
 \ci{usepackage}\verb|[|\textit{codage}\verb|]{inputenc}| 
 \end{lscommand}
 
+%SC: is this still true ?
 Pour faciliter la lecture, cette extension est utilisée dans la suite
 du document pour représenter les caractères accentués dans les
 exemples.
 
 En utilisant cette extension, il faut prendre garde au fait que les
 systèmes informatiques n'utilisent pas tous le même codage des
-caractères spéciaux.  Le caractère \textit{é} par exemple, est
-codé~142 sur Mac et 233 sur PC Windows ou sous Unix (codage latin-1).
-D'autres personnes risquent donc de ne pas pouvoir lire votre document
-source, parce que leur système utilise un codage différent.
+caractères spéciaux. Par exemple, l'umlaut allemand \"a est codé 132
+sous OS/2, sous les systèmes Unix utilisant ISO-LATIN~1 il est codé
+228 et sous le codage cyrillique cp1251 pour Windows cette lettre
+n'existe même pas; c'est pourquoi vous devez exploiter cette
+fonctionnalité avec soin. Les codages suivants peuvent s'avérer utiles
+en fonction du type de système sous lequel vous travaillez.
+\footnote{Pour en savoir plus sur les codages d'entrée reconnus par
+  \LaTeX{} pour les alphabets latins et cyrilliques, lisez la
+  documentation de \texttt{inputenc.dtx} et \texttt{cyinpenc.dtx},
+  respectivement. La section~\ref{sec:Packages} indique comment
+  produire cette documentation.}
 
-Les codages suivants sont utilisés en fonction du système
-d'exploitation pour les langues d'Europe de l'Ouest :
 \begin{center}
-\begin{tabular}{l | r}
-Système & Codage \\
-\hline
-Mac OS  &  \texttt{applemac} \\
-Unix    &  \texttt{latin1} \\ 
-Windows &  \texttt{ansinew} \\
-DOS, OS/2    &  \texttt{cp850}
+\begin{tabular}{l | r | r }
+Operating & \multicolumn{2}{c}{encodings}\\
+system  & Alphabet latin & Alphabet cyrillique\\
+ \hline
+Mac     &  \iei{applemac} & \iei{macukr}  \\
+Unix    &  \iei{latin1}   & \iei{koi8-ru}  \\ 
+Windows &  \iei{ansinew}  & \iei{cp1251}    \\
+DOS, OS/2  &  \iei{cp850} & \iei{cp866nav}
 \end{tabular}
 \end{center}
 
-Lorsqu'un document source \LaTeX{} doit être transmis vers un autre
-système, il est recommandé de convertir les caractères accentués et
-spéciaux en séquences du type \verb|\'|\verb|e| préalablement au
-transfert.  Il existe de nombreux utilitaires pour faire la conversion
-automatique dans les deux sens : \texttt{recode} sous Unix,
-\texttt{Tower of Babel} sur Macintosh, etc.
+Si vous utilisez un document multilingue qui cause des conflits entre
+codages d'entrée, vous devriez considérer l'utilisation d'unicode à
+l'aide de l'extension \pai{ucs}.
+
+\begin{lscommand}
+\ci{usepackage}\verb|{ucs}|\\ 
+\ci{usepackage}\verb|[|\iei{utf8}\verb|]{inputenc}| 
+\end{lscommand}
+\noindent vous permettra de créer des fichiers d'entrée \LaTeX{} en
+\iei{utf8}, un codage multi-octets où chaque caractère peut nécessiter
+entre un et quatre octets pour être codé.
+\footnote{NdT. D'anciennes versions de ce document préconisent la
+  conversion des caractères accentués et spéciaux en séquences du type
+  \verb|\'|\verb|e| pour l'échange de documents \LaTeX{}. Cette
+  pratique tend à être de moins en moins nécessaire grâce à
+  Unicode. Il existe cependant des utilitaires pour faire la
+  conversion automatique dans les deux sens  : \texttt{recode} sous Unix,
+\texttt{Tower of Babel} sur Macintosh, etc. y compris de et vers
+Unicode.}
 
 Le codage des polices de caractères est une autre histoire.
 Celui-ci définit à quelle position dans une police de \TeX{} se
-trouve chaque caractère. La police originale de \TeX{}, Computer
-Modern, ne contient que les 128 caractères du jeu de caractères
-ASCII. Pour produire un caractère accentué, \TeX{} combine un
-caractère normal avec un accent. Bien que le résultat obtenu ainsi
-soit presque parfait, cette approche empêche la césure automatique des
-mots contenant des accents.
-
-Heureusement, dans la plupart des installations modernes de \TeX{} on
-trouve la police EC. Cette police à la même apparence que la police
-Computer Modern, mais elle contient également les caractères accentués
-pour la plupart des langues européeenes. L'utilisation de cette 
-police permet donc la  césure des mots contenant
-des caractères accentués. L'utilisation de la  police EC est activée par
-l'extension \pai{fontenc}, avec la commande suivante dans le
-préambule :\label{fontenc}
-
+trouve chaque caractère. Des codages multiples pourraient être mis en
+correspondance avec un codage unique, ce qui réduit le nombre
+d'ensembles de polices requis. Les codages de polices sont manipulés
+via l'extension \pai{fontenc}: \label{fontenc}
 \begin{lscommand}
-\ci{usepackage}\verb|[T1]{fontenc}|
+\ci{usepackage}\verb|[|\emph{codage}\verb|]{fontenc}| \index{codages des polices}
 \end{lscommand}
+\noindent où \emph{codage} est le codage de la police. Il est possible
+d'en charger plusieurs simultanément.
 
-À l'heure où ces lignes sont écrites, il n'existe pas de version
-\textsc{Postscript} libre/gratuite de haute qualité de la police EC.
-\footnote{Vladimir Volovich a créé le paquet de police cm-super qui
-  couvre l'ensemble des polices EC/TC, EC Concrete, EC Bright et
-  LH. Ce paquet est disponible depuis
-  \texttt{CTAN:/fonts/ps-type1/cm-super} et est livré avec \TeX{}Live7
-  et Mik\TeX. Malheureusement ces polices ne sont pas de la même
-  qualité typographique que les rendus usuels de Type1 de la police
-  CM.}
-Cela peut provoquer des problèmes lors de la génération de versions
-PDF de vos documents~---~le fichier PDF résultant aura un rendu
-épouvantable sur l'écran. Une solution à cela est l'utilisation de
-l'extension \pai{aeguill} (\emph{Almost European Computer Modern with
-  Guillemets}) qui utilise les caractères de la police Computer Modern
-d'origine, mais les réarrange dans le même ordre que ceux de la police
-EC. Ainsi ce sera l'excellente police CM au format type 1 disponible
-sur la plupart des systèmes qui sera utilisée pour l'affichage. Il
-existe aussi l'extension \pai{ae} mais celle-ci ne propose pas un
-rendu correct des guillemets français (voir la section à propos de
-pdf\LaTeX{} en page \pageref{sec:pdftex}).
+Le codage de police par défaut de \LaTeX{} est \label{OT1} \fei{OT1},
+celui de la police \TeX{} Computer Modern originelle. Celui-ci
+contient seulement les 128 caractères de l'ensemble ASCII sur 7
+bits. Au besoin, \TeX{} fabrique des caractères accentués en combinant
+un caractère normal avec un accent. Bien que le résultat soit
+visuellement parfait, cette approche empêche le système de césure de
+fonctionner pour les mots contenant des caractères accentués. De plus,
+certaines lettres latines ne peuvent être fabriquées de cette façon,
+sans parler des alphabets non-latins, comme le grec ou le cyrillique.
 
+Pour surpasser ces limitations, plusieurs ensembles de polices 8 bits
+proches de CM furent proposées. Les polices \emph{Extended Cork} (EC)
+dans le codage \fei{T1} contiennent les lettres et caractères de
+ponctuation pour la plupart des langues européennes basées sur un
+alphabet latin. L'ensemble de polices LH contient les lettres pour
+formatter les langages à l'alphabet cyrillique. À cause du nombre
+imposant de glyphes cyrilliques, ils sont organisés en quatre codages
+de police : \fei{T2A}, \fei{T2B}, \fei{T2C} et \fei{X2}.
+\footnote{La liste des langages pris en compte par chacun de ces
+  codages peut être consultée dans \cite{cyrguide}.}
+Le paquet CB contient des polices dans le codage \fei{LGR} pour la
+composition de textes en grec.
+
+L'usage de ces polices activera ou améliorera les césures dans les
+documents non-anglophones. L'autre avantage des polices proches de CM
+est qu'elles fournissent les polices des familles CM dans tous les
+poids, formes et tailles optiquement échelonnables de polices.
+%SC: I hate the translation of scalable
 
 \subsection{Support de la langue portugaise}
 
@@ -639,7 +688,7 @@ portugais\index{Portugu\^es} utilisez la commande :
 \begin{lscommand}
 \verb|\usepackage[portuguese]{babel}|
 \end{lscommand}
-Si vous êtes au Brésil, remplacez le langage par \wi{brazilian}.
+Si vous êtes au Brésil, remplacez le langage par \texttt{\wi{brazilian}}.
 
 Au vu du nombre conséquent d'accents en portugais, vous devriez
 utiliser
@@ -742,8 +791,8 @@ configuré pour cela. Le texte produit automatiquement par \LaTeX{} est
 traduit en allemand (par ex. ``Kapitel'' pour un chapitre). De
 nouvelles commandes (listées dans la table~\ref{german}) permettent la
 saisie simplifiée des caractères spéciaux même sans utiliser
-l'extension inputenc. Avec inputenc cette capacité devient \og muette
-\fg{} mais votre texte est alors limité au codage utilisé.
+l'extension inputenc. Avec inputenc cette capacité devient un peu vaine
+mais votre texte est alors limité au codage utilisé.
 
 \begin{table}[!htbp]
 \caption{Caractères spéciaux en allemand.} \label{german}
@@ -796,7 +845,7 @@ trois problèmes :
   dans la version coréenne de Windows, CP949/Windows-949/UHC. Dans ces
   codages, chaque caractère US-ASCII représente son caractère usuel,
   comme dans d'autres codages compatibles avec US-ASCII
-  (ISO-8859-\textit{x}, EUC-JP,Shift\_JIS, Big5,\dots). En revanche
+  (ISO-8859-\textit{x}, EUC-JP, Shift\_JIS, Big5,\dots). En revanche
   les caractères hangul, hanjas (des caractères chinois utilisées en
   Corée), hangul jamos, hirakanas, katakanas, grecs et cyrilliques,
   les symboles et les lettres dérivée de KS~X~1001 sont représentés
@@ -854,10 +903,10 @@ glyphes en un ensemble de sous-polices ayant chacune 256 glyphes. Pour
 le coréen, il y a déjà 3 extensions couramment utilisées : \wi{H\LaTeX}
 par UN~Koaunghi, \wi{h\LaTeX{}p} par CHA~Jaechoon et l'extension \wi{CJK}
 par Werner~Lemberg.\footnote{%
-Elles peuvent être obtenues depuis
-\texttt{CTAN:/tex-archive/language/korean/HLaTeX/},
-\texttt{CTAN:/tex-archive/language/korean/CJK/} et
-\texttt{http://knot.kaist.ac.kr/htex/}
+  Elles peuvent être obtenues depuis
+  \CTANref|language/korean/HLaTeX/|,
+  \CTANref|language/korean/CJK/| et
+  \texttt{http://knot.kaist.ac.kr/htex/}
 }
   H\LaTeX{} et h\LaTeX{}p sont spécifique au coréen et fournissent une
   localisation coréenne au-delà du support de police. Elles peuvent
@@ -879,7 +928,7 @@ Elles peuvent être obtenues depuis
   typographiés d'une manière \og esthétiquement \fg{}
   satisfaisante. En conséquence l'élément le plus important en
   typographie est un ensemble de polices bien conçues. La distribution
-  H\LaTeX{} inclut les polices \textsc{PostScript} UHC
+  H\LaTeX{} inclut les polices \PSi{} UHC
   \index{Police coréenne!police UHC} de 10 familles différentes et des
   polices TrueType Munhwabu\footnote{Ministère coréen de la culture}
   de 5 différentes familles. L'extension CJK fonctionne avec un
@@ -922,6 +971,104 @@ référez-vous au \emph{H\LaTeX{} Guide}. Consultez également le site
 web des utilisateurs coréens de \TeX{} (KTUG) sur
 \url{http://www.ktug.or.kr/}. Il existe aussi une traduction coréenne
 de ce manuel.
+
+
+\subsection{Support du cyrillique}
+
+\secby{Maksym Polyakov}{polyama@myrealbox.com}
+La version~3.7h de \pai{babel} comprend un support pour les codages
+\fei{T2*} et pour le formatage des textes bulgares, russes et
+ukrainiens à base de letters cyrilliques.
+
+Le support du cyrillique se base sur des mécanismes \LaTeX{} standards
+via les extensions \pai{fontenc} et \pai{inputenc}. Si cependant vous
+voulez utiliser du cyrillique en mode mathématique, vous devrez
+charger \pai{mathtext} avant \pai{fontenc} :
+\footnote{
+Si vous utilisez les extensions \AmS-\LaTeX{}, chargez-les aussi avant
+\pai{fontenc} et \pai{babel}.
+}
+\begin{lscommand}
+\verb+\usepackage{mathtext}+\\
+\verb+\usepackage[+\fei{T1}\verb+,+\fei{T2A}\verb+]{fontenc}+\\
+\verb+\usepackage[+\iei{koi8-ru}\verb+]{inputenc}+\\
+\verb+\usepackage[english,bulgarian,russian,ukranian]{babel}+
+\end{lscommand}
+
+En général, \pai{babel} choisira lui-même le codage de police par
+défaut : pour les trois langues précitées il s'agit de \fei{T2A}. Les
+documents ne sont cependant pas limités à un seule codage de
+police. Pour les documents multilingues avec des alphabets cyrillique
+et latin, il est raisonnable d'inclure les codages de polices latines
+explicitement. \pai{babel} prendra en charge le changement de codage
+de fonte lorsqu'un autre langage est sélectionné dans le document.
+
+En plus d'activer les césures, de traduire les textes automatiques et
+d'activer certaines règles typographiques (comme \ci{frenchspacing}),
+\pai{babel} fournit des commandes additionnelles pour permettre un
+formatage conforme aux conventions bulgare, russe ou ukrainienne.
+
+
+Pour ces trois langues, une ponctuation spéciale est fournie : le
+tiret cyrillique pour le texte (plus étroit que le tiret latin et
+entouré d'espaces fines), le tiret pour le dialogue, des marques de
+citation et des commandes pour faciliter les césures, voyez le
+tableau~\ref{Cyrillic}.
+
+
+% Table borrowed from Ukrainian.dtx
+%SC: please, some french specialist of cyrillic typography could help ?
+\begin{table}[htb]
+  \begin{center}
+  \index{""-@\texttt{""}\texttt{-}} 
+  \index{""---@\texttt{""}\texttt{-}\texttt{-}\texttt{-}} 
+  \index{""=@\texttt{""}\texttt{=}} 
+  \index{""`@\texttt{""}\texttt{`}} 
+  \index{""'@\texttt{""}\texttt{'}} 
+  \index{"">@\texttt{""}\texttt{>}} 
+  \index{""<@\texttt{""}\texttt{<}} 
+  \caption[Bulgare, russe et ukrainien]{Les définitions additionnelles
+    de \pai{babel} pour le bulgare, le russe et l'ukrainien}\label{Cyrillic}
+  \begin{tabular}{@{}p{.1\hsize}@{}p{.9\hsize}@{}}
+   \hline
+   \verb="|= & Désactiver la ligature ici.               \\
+   \verb|"-| & Un tiret explicit autorisant la césure dans
+               le reste du mot.                             \\
+   \verb|"---| & Tiret long cyrillique pour le texte.        \\
+   \verb|"--~| & Tiret long cyrillique pour les noms composés.       \\
+   \verb|"--*| & Tiret long cyrillique pour le dialogue.         \\
+   \verb|""| & comme |"-|, mais n'affiche pas le tiret
+               (pour les mots composés avec tiret, p.e. \ |x-""y|
+                ou d'autres signes comme \og disable/enable \fg{}). \\
+   \verb|"~| & pour une marque de mot composé sans rupture.        \\
+   \verb|"=| & pour une marque de mot composé avec rupture, pour
+               autoriser les césures dans les mots le composant. \\
+   \verb|",| & espace fine pour les initiales avec rupture possible
+               pour le nom qui suit.                            \\
+   \verb|"`| & pour les marques doubles allemandes de citation
+               (ressemble à ,\kern-0.08em,).                     \\
+   \verb|"'| & Pour les marques doubles allemandes de citation,
+               à droite (ressemble à ``).                        \\%''
+   \verb|"<| & Pour les guillemets à gauche (comme $<\!\!<$).  \\
+   \verb|">| & Pour les guillemets à droite (comme $>\!\!>$). \\
+   \hline
+  \end{tabular}
+  \end{center}
+\end{table}
+
+
+Les options \pai{babel} pour le russe et l'ukrainien définissent les
+commandes \ci{Asbuk} et \ci{asbuk} qui agissent comme \ci{Alph} et
+\ci{alph}, mais produisent des majuscules et des minuscules des
+alphabets russe et ukrainien (en fonction duquel est la langue active
+du document). L'option bulgare de \pai{babel} fournit les commandes
+\ci{enumBul} et \ci{enumLat} (\ci{enumEng}) qui font produire à
+\ci{Alph} et \ci{alph} des lettres des alphabets bulgare ou latin
+(anglais, resp.). Le comportement par défaut de \ci{Alph} et \ci{alph}
+pour le bulgare est de produire des lettres de l'alphabet bulgare.
+
+%Finally, math alphabets are redefined and  as well as the commands for math
+%operators according to Cyrillic typesetting traditions. 
 
 \section{L'espace entre les mots}
 
@@ -1422,12 +1569,18 @@ L'argument \emph{description} de la commande :
 une colonne alignée à droite et \mfr{c} pour une colonne
 centrée. \mfr{p{\{\emph{largeur}\}}} permet de réaliser une colonne
 justifiée à droite sur plusieurs lignes et enfin
-\verb.|. permet d'obtenir une ligne verticale.
+\mfr{|} permet d'obtenir une ligne verticale.
 \index{"|@ \verb."|.} 
 
+Si le texte d'une colonne est trop large pour la page, \LaTeX{}
+n'insèrera pas automatiquement de saut de ligne. Grâce à
+\mfr{p\{\emph{largeur}\}} vous pouvez définir un type spécial de
+colonne qui fera passer le texte à la ligne comme pour un paragraph
+usuel.
+
 L'argument \emph{position} définit la position verticale du tableau
-par rapport au texte environnant. Utilisez les lettres \texttt{t},
-\texttt{b} et \texttt{c} pour l'aligner en haut (\emph{top}), en bas
+par rapport au texte environnant. Utilisez les lettres \mfr{t},
+\mfr{b} et \mfr{c} pour l'aligner en haut (\emph{top}), en bas
 (\emph{bottom}) ou au centre (\emph{center}) respectivement.
 
 À l'intérieur de l'environnement \texttt{tabular}, le caractère
@@ -1706,8 +1859,8 @@ Elle ordonne à \LaTeX{} de placer tous les objets en attente
 immédiatement puis de commencer une nouvelle
 page. \ci{cleardoublepage} commence une nouvelle page de droite.
 
-À la section~\ref{eps}, vous apprendrez à inclure une figure
-\textsc{PostScript} dans vos documents.
+En section~\ref{eps}, vous apprendrez à inclure une figure
+\PSi{} dans vos documents.
 
 \section{Protection des commandes 
          \texorpdfstring{\og fragiles \fg}{\string«fragiles \string»}}
