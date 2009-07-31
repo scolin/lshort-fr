@@ -1,0 +1,13 @@
+--- a/src/spec.tex
++++ b/src/spec.tex
+@@ -329,8 +329,8 @@ the documentation.  Here's how you do the first part:
+ 
+ \begin{enumerate}
+ \item Run \LaTeX{} on the \texttt{.ins} file. This will
+-  extract a \texttt{.sty} file.
+-\item Move the \texttt{.sty} file to a place where your distribution
++  extract a \eei{.sty} file.
++\item Move the \eei{.sty} file to a place where your distribution
+   can find it. Usually this is in your \texttt{\ldots/\emph{localtexmf}/tex/latex}
+   subdirectory (Windows or OS/2 users should feel free to change the
+   direction of the slashes).

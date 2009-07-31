@@ -1,0 +1,10 @@
+--- a/src/lssym.tex
++++ b/src/lssym.tex
+@@ -1,6 +1,6 @@
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ % Contents: TeX and LaTeX and AMS symbols for Maths
+-% $Id: lssym.tex,v 1.4 1998/09/29 08:05:09 oetiker Exp oetiker $
++% $Id: lssym.tex,v 1.1.1.1 2002/02/26 10:04:21 oetiker Exp $
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+ 

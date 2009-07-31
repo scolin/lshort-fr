@@ -1,0 +1,19 @@
+--- a/src/overview.tex
++++ b/src/overview.tex
+@@ -14,16 +14,6 @@ This short introduction describes \LaTeXe{} and should be sufficient
+ for most applications of \LaTeX. Refer to~\cite{manual,companion} for
+ a complete description of the \LaTeX{} system.
+ 
+-\LaTeX{} is available for most computers, from the PC and Mac to large
+-UNIX and VMS systems. On many university computer clusters, you will
+-find that a \LaTeX{} installation is available, ready to use.
+-Information on how to access
+-the local \LaTeX{} installation should be provided in the \guide. If
+-you have problems getting started, ask the person who gave you this
+-booklet. The scope of this document is \emph{not} to tell you how to
+-install and set up a \LaTeX{} system, but to teach you how to write
+-your documents so that they can be processed by~\LaTeX{}.
+-
+ \noindent This Introduction is split into 5 chapters:
+ \begin{description}
+ \item[Chapter 1] tells you about the basic structure of \LaTeXe{}

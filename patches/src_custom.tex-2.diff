@@ -1,0 +1,30 @@
+--- a/src/custom.tex
++++ b/src/custom.tex
+@@ -221,17 +221,17 @@ special set of commands. Refer to Table~\ref{mathfonts}.
+ % eg \verb|\sffamily| or \verb|\bfseries|. This seems a good thing to me.
+ %
+ \begin{tabular}{@{}rl@{\qquad}rl@{}}
+-\ci{textrm}\verb|{...}|        &      \textrm{\wi{roman}}&
+-\ci{textsf}\verb|{...}|        &      \textsf{\wi{sans serif}}\\
+-\ci{texttt}\verb|{...}|        &      \texttt{typewriter}\\[6pt]
+-\ci{textmd}\verb|{...}|        &      \textmd{medium}&
+-\ci{textbf}\verb|{...}|        &      \textbf{\wi{bold face}}\\[6pt]
+-\ci{textup}\verb|{...}|        &       \textup{\wi{upright}}&
+-\ci{textit}\verb|{...}|        &       \textit{\wi{italic}}\\
+-\ci{textsl}\verb|{...}|        &       \textsl{\wi{slanted}}&
+-\ci{textsc}\verb|{...}|        &       \textsc{\wi{small caps}}\\[6pt]
++\fni{textrm}\verb|{...}|        &      \textrm{\wi{roman}}&
++\fni{textsf}\verb|{...}|        &      \textsf{\wi{sans serif}}\\
++\fni{texttt}\verb|{...}|        &      \texttt{typewriter}\\[6pt]
++\fni{textmd}\verb|{...}|        &      \textmd{medium}&
++\fni{textbf}\verb|{...}|        &      \textbf{\wi{bold face}}\\[6pt]
++\fni{textup}\verb|{...}|        &       \textup{\wi{upright}}&
++\fni{textit}\verb|{...}|        &       \textit{\wi{italic}}\\
++\fni{textsl}\verb|{...}|        &       \textsl{\wi{slanted}}&
++\fni{textsc}\verb|{...}|        &       \textsc{\wi{small caps}}\\[6pt]
+ \ci{emph}\verb|{...}|          &            \emph{emphasized} &
+-\ci{textnormal}\verb|{...}|    &    \textnormal{document} font
++\fni{textnormal}\verb|{...}|    &    \textnormal{document} font
+ \end{tabular}
+ 
+ \bigskip

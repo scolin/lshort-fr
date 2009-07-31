@@ -1,0 +1,13 @@
+--- a/src/lshort.sty
++++ b/src/lshort.sty
+@@ -77,7 +77,10 @@
+ %
+ % Intro Environment
+ \newenvironment{intro}{\sffamily}{\vspace*{2ex minus 1.5ex}}
++%
++\newcommand{\secby}[2]{{\tiny #1 $<$\texttt{#2}$>$}\par\addvspace{2ex}\ignorespaces\noindent}
+ 
++%\noindent\addvspace{1ex}\small #1 $<$\texttt{#2}$>$\par\addvspace{2ex}\noindnet\ignorespaces}
+ %
+ %
+ % Symbol Entry for Math Symbol Tables

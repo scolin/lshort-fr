@@ -1,0 +1,9 @@
+--- a/src/math.tex
++++ b/src/math.tex
+@@ -668,3 +668,6 @@ a \ci{boldsymbol} command.
+ %%% End: 
+ 
+ 
++% Local Variables:
++% mode: flyspell
++% End:

@@ -1,0 +1,11 @@
+--- a/src/overview.tex
++++ b/src/overview.tex
+@@ -83,7 +83,7 @@ better.
+ \bigskip
+ \begin{verse}
+ \contrib{Tobias Oetiker}{oetiker@ee.ethz.ch}%
+-\noindent{Department of Electrical Engineering,\\
++\noindent{Department of Information Technology and\\ Electrical Engineering,
+ Swiss Federal Institute of Technology}
+ \end{verse}
+ \vspace{\stretch{1}}

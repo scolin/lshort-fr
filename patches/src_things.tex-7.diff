@@ -1,0 +1,66 @@
+--- a/src/things.tex
++++ b/src/things.tex
+@@ -604,63 +604,6 @@ information of how to write your own extensions to \LaTeXe.
+ \end{lined}
+ \end{table}
+ 
+-\section{Files you might encounter}
+-
+-When you work with \LaTeX{} you will soon find yourself in a maze of
+-files with various \wi{extension}s and probably no clue. Below there is a
+-list telling about the various \wi{file types} you might encounter when
+-working with \TeX{}. Please note that this table does not claim to be
+-a complete list of extensions, but if you find one missing which you
+-think is important, please drop a line.
+-
+-\begin{description}
+-  
+-\item[\wi{.tex}] \LaTeX{} or \TeX{} input file. Can be compiled with
+-  \texttt{latex}.
+-\item[\wi{.sty}] \LaTeX{} Macro package. This is a file you can load
+-  into your \LaTeX{} document using the \ci{usepackage} command.
+-\item[\wi{.dtx}] Documented \TeX{}. This is the main distribution
+-  format for \LaTeX{} style files. If you process a .dtx file you get
+-  documented macro code of the \LaTeX{} package contained in the .dtx
+-  file.
+-\item[\wi{.ins}] Is the installer for the files contained in the
+-  matching .dtx file. If you download a \LaTeX{} package from the net,
+-  you will normally get a .dtx and a .ins file. Run \LaTeX{} on the
+-  .ins file to unpack the .dtx file.
+-\item[\wi{.cls}] Class files define what your document looks
+-  like. They are selected with the \ci{documentclass} command.
+-\end{description}
+-The following files are generated when you run \LaTeX{} on your input
+-file:
+-
+-\begin{description}
+-\item[\wi{.dvi}] Device Independent file. This is the main result of a \LaTeX{}
+-  compile run. You can look at its content with a DVI previewer
+-  program or you can send it to a printer with \texttt{dvips} or a
+-  similar application.
+-\item[\wi{.log}] Gives a detailed account of what happened during the
+-  last compiler run.
+-\item[\wi{.toc}] Stores all your section headers. It gets read in for the
+-  next compiler run and is used to produce the table of content.
+-\item[\wi{.lof}] This is like .toc but for the list of figures.
+-\item[\wi{.lot}] And again the same for the list of tables.
+-\item[\wi{.aux}] Another file which transports information from one
+-  compiler run to the next. Among other things, the .aux file is used
+-  to store information associated with crossreferences.
+-\item[\wi{.idx}] If your document contains an index. \LaTeX{} stores all
+-  the words which go into the index in this file. Process this file with
+-  \texttt{makeindex}. Refer to section \ref{sec:indexing} on
+-  page \pageref{sec:indexing} for more information on indexing.
+-\item[\wi{.ind}] Is the processed .idx file, ready for inclusion into your
+-  document on the next compile cycle.
+-\item[\wi{.ilg}] Logfile telling about what \texttt{makeindex} did.
+-\end{description}
+-
+-
+-% Package Info pointer
+-%
+-%
+-
+ \subsection{Page Styles}
+  
+ \LaTeX{} supports three predefined \wi{header}/\wi{footer}

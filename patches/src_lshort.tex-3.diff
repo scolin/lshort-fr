@@ -1,0 +1,9 @@
+--- a/src/lshort.tex
++++ b/src/lshort.tex
+@@ -97,3 +97,6 @@
+ 
+ 
+ 
++% Local Variables:
++% mode: flyspell
++% End:

@@ -1,0 +1,24 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -885,15 +885,18 @@ determines the width of the columns automatically.
+ 
+ The \emph{table spec} argument of the 
+ \begin{lscommand}
+-\verb|\begin{tabular}{|\emph{table spec}\verb|}|
++\verb|\begin{tabular}[|\emph{pos}\verb|]{|\emph{table spec}\verb|}|
+ \end{lscommand} 
+ \noindent command defines the format of the table. Use an \texttt{l} for a column of
+ left-aligned text, \texttt{r} for right-aligned text, and \texttt{c} for
+ centred text; \verb|p{|\emph{width}\verb|}| for a column containing justified
+ text with linebreaks, and \verb.|. for a vertical line.
++\emph{pos} specifies the vertical position of the whole tabular environment,
++\texttt{t}, \texttt{b} and \texttt{c} indicate to align at the
++top, bottom or center of the environment.
+  
+-Within a \texttt{tabular} environment, \verb|&| jumps to the next column, \ci{\bs}
+-starts a new line and \ci{hline} inserts a horizontal line.
++Within a \texttt{tabular} environment, \verb|&| jumps to the next column,
++\ci{\bs} starts a new line and \ci{hline} inserts a horizontal line.
+ You can add partial Lines by using the \ci{cline}\verb|{j-i}| whereby
+ j and i are the column numbers the line should extend over.
+ 

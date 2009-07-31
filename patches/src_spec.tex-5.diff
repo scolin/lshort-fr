@@ -1,0 +1,19 @@
+--- a/src/spec.tex
++++ b/src/spec.tex
+@@ -208,14 +208,14 @@ When the input file is processed with \LaTeX{}, each \verb|\index|
+ command writes an appropriate index entry together with the current
+ page number to a special file. The file has the same name as the
+ \LaTeX{} input file, but a different extension (\verb|.idx|). This
+-\texttt{.idx} file can then be processed with the \texttt{makeindex}
++\eei{.idx} file can then be processed with the \texttt{makeindex}
+ program.
+ 
+ \begin{lscommand}
+   \texttt{makeindex} \emph{filename}
+ \end{lscommand}
+ The \texttt{makeindex} program generates a sorted index with the same base
+-file name, but this time with the extension \texttt{.ind}. If now the
++file name, but this time with the extension \eei{.ind}. If now the
+ \LaTeX{} input file is processed again, this sorted index gets
+ included into the document at the point where \LaTeX{} finds
+ \begin{lscommand}

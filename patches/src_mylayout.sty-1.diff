@@ -1,0 +1,21 @@
+--- a/src/mylayout.sty
++++ b/src/mylayout.sty
+@@ -332,15 +332,9 @@
+   \vtop to 0pt{%
+     \@minipagerestore\footnotesize\ttfamily
+     \begin{tabular}{@{}rl@{\hspace{20pt}}rl}
+-      1 & \oneinchtext\ + \bs\texttt{hoffset}
+-        & 2 & \oneinchtext\ + \bs\texttt{voffset} \\
+-      3 & \if@twoside
+-            \ifodd\count\z@ \Show{cnt}{oddsidemargin}
+-            \else \Show{cnt}{evensidemargin}
+-            \fi
+-          \else
+-            \Show{cnt}{oddsidemargin}
+-          \fi                    & 4 & \Show{cnt}{topmargin} \\
++      1 & \oneinchtext\ + \bs\texttt{hoffset}   & 2 & \oneinchtext\ + \bs\texttt{voffset} \\
++      3 & \Show{cnt}{oddsidemargin} &  4 & \Show{cnt}{topmargin} \\
++        & or \bs\texttt{evensidemargin} & & \\ 
+       5 & \Show{cnt}{headheight} & 6 & \Show{cnt}{headsep} \\
+       7 & \Show{cnt}{textheight} & 8 & \Show{cnt}{textwidth} \\
+       9 & \Show{cnt}{marginparsep}&10& \Show{cnt}{marginparwidth} \\

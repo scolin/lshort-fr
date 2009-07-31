@@ -1,0 +1,15 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -412,6 +412,12 @@ simplify the input of special characters. The \wi{German} language, for
+ example, contains a lot of umlauts (\"a\"o\"u).  With \textsf{babel},
+ you can enter an \"o by typing \verb|"o| instead of~\verb|\"o|.
+ 
++If you call babel with multiple languages you can use the command 
++\begin{lscommand}
++\ci{selectlanguage}\verb|{|\emph{language}\verb|}|
++\end{lscommand}
++to define the current language.
++
+ Some computer systems allow you to input special characters directly
+ from the keyboard. \LaTeX{} can handle such characters. Since the
+ December 1994 release of \LaTeXe{}, support for several input

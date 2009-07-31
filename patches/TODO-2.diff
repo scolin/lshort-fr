@@ -1,0 +1,11 @@
+--- a/TODO
++++ b/TODO
+@@ -12,7 +12,7 @@ from Lshort and might / should be added:
+   http://www.giss.nasa.gov/latex/ltx-43.html
+   examples http://www.geom.umn.edu/~nien/talk/latex/p2.html
+   -- Alexander Mai <st002279@hrzpub.tu-darmstadt.de>
+-  ## not assigned yet
++  Alex Mai 2001/09/24
+ 
+ * make sure symb.tex is realy complete ... especially in the AMS sections ... 
+   -- Alexander Mai <st002279@hrzpub.tu-darmstadt.de>

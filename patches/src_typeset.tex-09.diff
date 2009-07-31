@@ -1,0 +1,98 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -458,7 +458,94 @@ in non-English documents. The EC fonts are activated by including the
+ \begin{lscommand}
+ \ci{usepackage}\verb|[T1]{fontenc}| 
+ \end{lscommand}
+-\newpage
++
++Unfortunately, there are no Postscript versions of the EC fonts available
++which can cause problems when generating PDF versions of your documents. If
++this is a problem for you you might want to have a look at the \pai{ae}
++package aka \emph{Almost European Computer Modern} which still uses the
++characters from the original Computer Modern font, but rearanges them in the
++EC order.
++
++\pagebreak[4]
++
++\subsection{Support for Portuguese}
++
++\secby{Demerson Andre Polli}{polli@linux.ime.usp.br}
++To enable the hyphenation and change all automatic text to \wi{Portuguese}
++\index{Portugu\^es} use the command:
++\begin{lscommand}
++\verb|\usepackage[portuges]{babel}|
++\end{lscommand}
++
++However, it's necessary to enable the accents used in portuguese, with the
++commands
++\begin{lscommand}
++\verb|\usepackage[latin1]{inputenc}|
++\end{lscommand}
++and
++\begin{lscommand}
++\verb|\usepackage[T1]{fontenc}|
++\end{lscommand}
++
++Now, you can type normally all the accents used in the portuguese language.
++See the table~\ref{portuguese} to the preamble to write in portuguese language.
++
++\begin{table}[!hbp]
++\caption{Preamble to Write in Portuguese.} \label{portuguese}
++\begin{lined}{5cm}
++\begin{verbatim}
++\usepackage[portuges]{babel}
++\usepackage[latin1]{inputenc}
++\usepackage[T1]{fontenc}
++\end{verbatim}
++\bigskip
++\end{lined}
++\end{table}
++
++\subsection{Support for French}
++
++\secby{Daniel Flipo}{daniel.flipo@univ-lille1.fr}
++Some hints for those creating \wi{French} documents with \LaTeX{}. 
++You can load French language support with the command:
++
++\begin{lscommand}
++\verb|\usepackage[frenchb]{babel}|
++\end{lscommand}
++
++Mind that, for historical reasons, the name of \textsf{babel}'s option 
++for French is either \emph{frenchb} or \emph{francais} but not \emph{french}.
++
++This enables French hyphenation, if you have configured your
++LaTeX system accordingly. It also changes all automatic text into
++French: \verb+\chapter+ prints Chapitre, \verb+\today+ prints the current
++date in French and so on. Further a set of new commands
++becomes available which allows you to write French input files more
++easily. Check out table \ref{cmd-french} for inspiration. 
++
++\begin{table}[!htbp]
++\caption{Special commands for French.} \label{cmd-french}
++\begin{lined}{9cm}
++\selectlanguage{french}
++\begin{tabular}{ll}
++\verb+\og guillemets \fg{}+         \quad &\og guillemets \fg \\[1ex]
++\verb+M\up{me}, D\up{r}+            \quad &M\up{me}, D\up{r}  \\[1ex]
++\verb+1\ier{}, 1\iere{}, 1\ieres{}+ \quad &1\ier{}, 1\iere{}, 1\ieres{}\\[1ex]
++\verb+2\ieme{} 4\iemes{}+           \quad &2\ieme{} 4\iemes{}\\[1ex]
++\verb+\No 1, \no 2+                 \quad &\No 1, \no 2   \\[1ex]
++\verb+20~\degres C, 45\degres+      \quad &20~\degres C, 45\degres \\[1ex]
++\verb+\bsc{M. Durand}+              \quad &\bsc{M.~Durand} \\[1ex]
++\verb+\nombre{1234,56789}+          \quad &\nombre{1234,56789}
++\end{tabular}
++\selectlanguage{english}
++\bigskip
++\end{lined}
++\end{table}
++
++You will also notice that the layout of lists changes when switching to the
++French language. To get a full knowledge of what the \texttt{frenchb}
++option of \textsf{babel} does and how you can customize it's behaviour, run
++\LaTeX{} on file \texttt{frenchb.dtx} and read the produced file
++\texttt{frenchb.dvi}.
+ 
+ \subsection{Support for German}
+ 

@@ -1,0 +1,19 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -539,11 +539,11 @@ The following sectioning commands are available for the
+ \ci{subsubsection}\verb|{...}|
+ \end{code}
+ 
+-You can use two additional sectioning commands for the \texttt{report}
+-and the \texttt{book} class:
+-\begin{code}
+-\ci{part}\verb|{...}              |\ci{chapter}\verb|{...}|
+-\end{code}
++You can use an additional sectioning command for the \texttt{report}
++and the \texttt{book} class: \ci{chapter}\verb|{...}|
++
++If you want to split your document in parts without influencing the section
++/ chapter numbering you can use \ci{part}\verb|{...}|.
+ 
+ As the \texttt{article} class does not know about chapters, it is quite easy
+ to add articles as chapters to a book.

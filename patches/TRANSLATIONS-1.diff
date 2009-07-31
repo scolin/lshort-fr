@@ -1,0 +1,11 @@
+--- a/TRANSLATIONS
++++ b/TRANSLATIONS
+@@ -2,7 +2,7 @@ If you prefere a Language different from English, these people
+ may be your friends. They have translated lshort to their
+ native languages.
+ 
+-Finish          Timo Hellgren <timo.hellgren@helsinki.fi>
++Finish          Timo Hellgren <timo.hellgren@vtt.fi>
+         --> CTAN:info/lshort/finish
+ 
+ French          Matthieu Herrb <matthieu@laas.fr>

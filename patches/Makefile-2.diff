@@ -1,0 +1,30 @@
+--- a/Makefile
++++ b/Makefile
+@@ -25,19 +25,23 @@ lshort-book.ps: lshort.ps
+ 			out.ps lshort-book.ps
+ 	rm out.ps
+ 
+-
+ lshort.pdf: $(FILES)
+ 	-mkdir pdfbuild
+ 	(TEXINPUTS=.:`pwd`/src:${TEXINPUTS:-:};export TEXINPUTS; cd pdfbuild; \
+-	pdflatex lshort; pdflatex lshort; \
+-	makeindex -s ../src/lshort.ist lshort;pdflatex lshort; \
+-	(thumbpdf lshort.pdf && pdflatex lshort); \
++	$(PDFLATEX) lshort; $(PDFLATEX) lshort; \
++	$(MAKEINDEX) -s ../src/lshort.ist lshort;$(PDFLATEX) lshort; \
++	(thumbpdf lshort.pdf && $(PDFLATEX) lshort); \
+ 	mv lshort.pdf .. )
+ 	rm pdfbuild/*
+ 
+ src/title.tex: Makefile
+ 	perl fixdate.pl $(VERS) < src/title.tex > src/title.tex2 && mv src/title.tex2 src/title.tex
+ 
++quick: $(FILES)
++	(TEXINPUTS=`pwd`/src:$(TEXINPUTS); export TEXINPUTS; cd texbuild; \
++      $(LATEX) lshort; mv lshort.dvi ..)
++
++
+ dist:	
+ 	ln -s . lshort-$(VERS)
+ 	gtar -zcvf lshort-$(VERS).src.tar.gz `awk -e '{print "lshort-$(VERS)/"$$1}' MANIFEST`

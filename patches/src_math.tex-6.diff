@@ -1,0 +1,11 @@
+--- a/src/math.tex
++++ b/src/math.tex
+@@ -583,7 +583,7 @@ specify the numbering used on the ``theorem''. With the \emph{counter}
+ argument you can specify the \emph{name} of a previously declared
+ ``theorem''. The new ``theorem'' will then be numbered in the same
+ sequence.  The \emph{section} argument allows you to specify the
+-sectional unit within which you want your ``theorem'' to be numbered.
++sectional unit within which the ``theorem'' should get its numbers.
+ 
+ After executing the \ci{newtheorem} command in the preamble of your
+ document, you can use the following command within the document.

@@ -1,0 +1,12 @@
+--- a/src/lshort.sty
++++ b/src/lshort.sty
+@@ -106,7 +106,8 @@
+ %
+ 
+ % we have no PS versions of the rsfs fonts ... so this is a nogo for pdf
+-\ifx\pdfoutput\undefined % We're not running pdftex
++\ifx\HyPsd@pageref\undefined
++%\ifx\pdfoutput\undefined % We're not running pdftex
+ \IfFileExists{mathrsfs.sty}
+   {\RequirePackage{mathrsfs}\let\MathRSFS\mathscr\let\mathscr\relax}{}
+ \fi

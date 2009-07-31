@@ -1,0 +1,33 @@
+--- a/Makefile
++++ b/Makefile
+@@ -1,19 +1,26 @@
+ #	pstops "4:0L@0.8(22.5cm,-0.6cm)+1L@0.8(22.5cm,13.3cm),2L@0.8(22.5cm,-0.6cm)+3L@0.8(22.5cm,13.3cm)" \
+ SHELL = /bin/sh
+-VERS = 3.20
++VERS = 3.21
+ 
+ OTHER = README CHANGES
+ FILES = src/biblio.tex src/kees.fig src/math.tex src/things.tex src/contrib.tex src/lshort.sty src/mylayout.sty src/title.tex \
+ 	src/custom.tex src/lshort.tex src/overview.tex src/typeset.tex src/fancyhea.sty src/lssym.tex src/spec.tex
+ 
++# Define some variables
++LATEX=latex
++PDFLATEX=pdflatex
++MAKEINDEX=makeindex
++
++
++# The default targets
+ all: lshort.dvi lshort.ps lshort-book.ps lshort.pdf
+ 
+ 
+ lshort.dvi: $(FILES)
+ 	-mkdir texbuild
+-	(TEXINPUTS=.:`pwd`/src:${TEXINPUTS:-:};export TEXINPUTS; cd texbuild;\
+-	latex lshort; latex lshort; makeindex -s ../src/lshort.ist lshort;\
+-	latex lshort; latex lshort; mv lshort.dvi ..)
++	(TEXINPUTS=.:`pwd`/src:${TEXINPUTS:-:}; export TEXINPUTS; cd texbuild; \
++	$(LATEX) lshort; $(LATEX) lshort; $(MAKEINDEX) -s ../src/lshort.ist lshort; \
++	$(LATEX) lshort; $(LATEX) lshort; mv lshort.dvi ..)
+ 
+ lshort.ps: lshort.dvi
+ 	dvips -Pcmz -olshort.ps lshort.dvi

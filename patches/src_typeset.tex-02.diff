@@ -1,0 +1,11 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -91,7 +91,7 @@ languages have very complicated punctuation rules, but in many
+ languages (including German and English), you will get almost every
+ comma right if you remember what it represents: a short stop in the
+ flow of language.  If you are not sure about where to put a comma,
+-read the sentence aloud, and take a short breath at every comma.  If
++read the sentence aloud and take a short breath at every comma.  If
+ this feels awkward at some place, delete that comma, if you feel the
+ urge to breathe (or make a short stop) at some other place, insert a
+ comma.

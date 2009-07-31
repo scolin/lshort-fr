@@ -1,0 +1,9 @@
+--- a/src/biblio.tex
++++ b/src/biblio.tex
+@@ -65,3 +65,6 @@
+ %%% mode: latex
+ %%% TeX-master: "lshort2e"
+ %%% End: 
++% Local Variables:
++% mode: flyspell
++% End:

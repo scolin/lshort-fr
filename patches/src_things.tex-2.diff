@@ -1,0 +1,12 @@
+--- a/src/things.tex
++++ b/src/things.tex
+@@ -245,8 +245,7 @@ two formats:
+ \item They start with a \wi{backslash} \verb|\| and then have a name
+  consisting of letters only. Command names are terminated by a
+  space, a number or any other `non-letter'.
+-\item They consist of a backslash and exactly one % numerical or
+- special character.
++\item They consist of a backslash and exactly one non-letter.
+ \end{itemize}
+ 
+ %

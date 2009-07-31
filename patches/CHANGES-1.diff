@@ -1,0 +1,29 @@
+--- a/CHANGES
++++ b/CHANGES
+@@ -1,3 +1,26 @@
++3.21
++----
++From Tobi
++* Added some notes on problems when running latex to section 1.5
++* added oddsidemargin to layout graphics 
++* added note on the AE package
++* added extension and font indexes
++* mention optional label in bibitem
++* rephrase hyphenation explanation
++* added \aa to index
++* rearranged PageLayout section
++From Alexander Mai <mai@migdal.ikp.physik.tu-darmstadt.de>
++* mini rewrites for math explanations
++* improved makefile
++* improved table environment spec
++
++From Daniel Flipo <daniel.flipo@univ-lille1.fr>
++* section on french language support
++
++From Maksym Polyakov <polyama@myrealbox.com>
++* parbox is not an evironment
++* line 248 rephrasing
++
+ 3.20
+ ----
+ From Alexander Mai <st002279@hrzpub.tu-darmstadt.de>

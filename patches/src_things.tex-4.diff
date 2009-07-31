@@ -1,0 +1,11 @@
+--- a/src/things.tex
++++ b/src/things.tex
+@@ -407,7 +407,7 @@ on your input file. Some \LaTeX{} installations feature a graphical
+ front end where you can click \LaTeX{} into compiling your input file.
+ But Real Men don't Click, so here is how to coax \LaTeX{} into
+ compiling your input file on a text based system. Please note, this
+-description assumes that a working \LaTeX{} installation already sitts
++description assumes that a working \LaTeX{} installation already sits
+ on your computer.
+ 
+ \begin{enumerate}

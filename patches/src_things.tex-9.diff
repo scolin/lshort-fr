@@ -1,0 +1,9 @@
+--- a/src/things.tex
++++ b/src/things.tex
+@@ -764,3 +764,6 @@ When you want to produce pages, just comment out the second line
+ %%% mode: latex
+ %%% TeX-master: "lshort"
+ %%% End: 
++% Local Variables:
++% mode: flyspell
++% End:

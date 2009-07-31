@@ -1,0 +1,12 @@
+--- a/src/math.tex
++++ b/src/math.tex
+@@ -490,7 +490,8 @@ this equation.
+ 
+ It can be difficult to get vertically aligned equations to look right
+ with these methods; the package \pai{amsmath} provides a more
+-powerful set of alternatives. (see \verb|split| and \verb|align| environments).
++powerful set of alternatives. (see \verb|align|, \verb|flalign|,
++\verb|gather|, \verb|multline| and \verb|split| environments).
+ 
+ \section{Phantom}
+ 

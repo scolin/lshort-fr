@@ -1,0 +1,11 @@
+--- a/TODO
++++ b/TODO
+@@ -20,7 +20,7 @@ from Lshort and might / should be added:
+ 
+ * Information about using PDFTeX 
+   -- Tobias Oetiker <oetiker@ee.ethz.ch>
+-  ## not assigned yet
++  Tobi Oetiker (translate french version) 24.09.2001
+ 
+ * A List of useful LaTeX packages with information on what they
+   do, and how to get to them or even better, there documentation.

@@ -1,0 +1,11 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -297,7 +297,7 @@ http://www.clever.edu/$\sim$demo
+ How to print a \wi{degree symbol} in \LaTeX{}?
+ 
+ \begin{example}
+-Its $-30\,^{\circ}\mathrm{C}$,
++It's $-30\,^{\circ}\mathrm{C}$.
+ I will soon start to
+ super-conduct.
+ \end{example}
