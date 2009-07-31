@@ -1,0 +1,11 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -713,7 +713,7 @@ Considering a number of issues  Korean \LaTeX{} users
+ have to cope with.
+ This section was written by Karnes KIM on behalf of the
+ Korean lshort translation team. It  was translated into English
+-by SHIN Jungshik and shortened by Tobi Oetiker}
++by SHIN Jungshik and shortened by Tobi Oetiker.}
+ 
+ To use \LaTeX{} for typesetting  \wi{Korean}, 
+ we need to solve three problems: 

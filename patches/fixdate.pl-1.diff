@@ -1,0 +1,8 @@
+--- a/fixdate.pl
++++ b/fixdate.pl
+@@ -1,4 +1,4 @@
+-chomp ($d = `date +"%d %B, %Y"`);
++chomp ($d = `date +"%B %d, %Y"`);
+ $v = pop @ARGV;
+ while (<>) {
+  s/^Version.+/Version~$v, $d/;

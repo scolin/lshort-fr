@@ -1,0 +1,10 @@
+--- a/src/things.tex
++++ b/src/things.tex
+@@ -552,6 +552,7 @@ which instructs \LaTeX{} to typeset the document as an \emph{article}
+ with a base font size of \emph{eleven points}, and to produce a
+ layout suitable for \emph{double sided} printing on \emph{A4 paper}.
+ \pagebreak[2]
++
+ \subsection{Packages}
+ \index{package} While writing your document, you will probably find
+ that there are some areas where basic \LaTeX{} cannot solve your

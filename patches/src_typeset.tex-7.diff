@@ -1,0 +1,13 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -907,8 +907,8 @@ commands to facilitate hyphenation, see Table~\ref{Cyrillic}.
+    \verb|"---| & Cyrillic emdash in plain text.                      \\
+    \verb|"--~| & Cyrillic emdash in compound names (surnames).       \\
+    \verb|"--*| & Cyrillic emdash for denoting direct speech.         \\
+-   \verb|""| & like |"-|, but producing no hyphen sign
+-               (for compound words with hyphen, e.g.\ |x-""y|
++   \verb|""| & like \verb|"-|, but producing no hyphen sign
++               (for compound words with hyphen, e.g.\verb|x-""y|
+                or some other signs  as ``disable/enable'').     \\
+    \verb|"~| & for a compound word mark without a breakpoint.        \\
+    \verb|"=| & for a compound word mark with a breakpoint, allowing

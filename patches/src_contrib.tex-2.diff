@@ -1,0 +1,10 @@
+--- a/src/contrib.tex
++++ b/src/contrib.tex
+@@ -101,6 +101,7 @@ Philipp~Nagele,         % Philipp.Nagele@t-systems.com
+ Lenimar~Nunes~de~Andrade, % <lenimar@mat.ufpb.br> Fri, 12 Nov 1999
+ Manuel~Oetiker,         % manuel@oetiker.ch
+ Urs~Oswald,             % osurs@bluewin.ch
++Martin~Pfister,		% m@rtinpfister.ch
+ Demerson~Andre~Polli,   % polli@linux.ime.usp.br
+ Maksym~Polyakov         % <polyama@myrealbox.com>
+ Hubert~Partl,           %partl@mail.boku.ac.at 0.2 1.1

@@ -1,0 +1,11 @@
+--- a/src/spec.tex
++++ b/src/spec.tex
+@@ -386,7 +386,7 @@ time before moving on to step~\ref{step:final}.
+ 
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ % Contents: Chapter on pdfLaTeX
+-% French original by Daniel Flipo 14/07/2001
++% French original by Daniel Flipo 14/07/2004
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+ \section{Working with pdf\LaTeX} \label{sec:pdftex}\index{PDF}

@@ -1,0 +1,11 @@
+--- a/src/spec.tex
++++ b/src/spec.tex
+@@ -700,7 +700,7 @@ When you just want to provide information for the
+   \texttt{Document Info} section of the PDF file:
+ \begin{code}
+ \begin{verbatim}
+-\usepackage[pdfauthor={Pierre Desproges}%
++\usepackage[pdfauthor={Pierre Desproges},%
+             pdftitle={Des femmes qui tombent},%
+             pdftex]{hyperref}
+ \end{verbatim}

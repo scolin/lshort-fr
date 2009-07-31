@@ -1,0 +1,10 @@
+--- a/src/things.tex
++++ b/src/things.tex
+@@ -612,6 +612,7 @@ information of how to write your own extensions to \LaTeXe.
+ \end{lined}
+ \end{table}
+ 
++
+ \subsection{Page Styles}
+  
+ \LaTeX{} supports three predefined \wi{header}/\wi{footer}

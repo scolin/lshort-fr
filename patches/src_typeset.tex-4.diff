@@ -1,0 +1,10 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -615,7 +615,6 @@ the appropriate encoding for your system.
+ \end{lined}
+ \end{table}
+ 
+-\newpage
+ 
+ \subsection{Support for French}
+ 

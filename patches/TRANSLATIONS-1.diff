@@ -1,0 +1,12 @@
+--- a/TRANSLATIONS
++++ b/TRANSLATIONS
+@@ -43,6 +43,9 @@ Thai            Chakkapas Visavakul <c.visavakul@ic.ac.uk>
+ Czech           Michal Ko\v{c}er and Pavel S\'ykora (kocer@ipex.cz) 
+         --> http://ftp.cstug.cz/pub/tex/local/cstex/doc/
+ 
++Bulgarian       Stefka Romanova Karakoleva <skarakoleva@ru.acad.bg>
++        --> CTAN:info/lshort/bulgarian
++
+ Slovak          Jan Busa <busaj@ccsun.tuke.sk>
+         --> not published
+ 

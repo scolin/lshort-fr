@@ -1,0 +1,19 @@
+--- a/CHANGES
++++ b/CHANGES
+@@ -1,3 +1,16 @@
++4.15 2005.05.08
++----
++* replced pdfscreen with beamer for presentations. Used text from the french
++  lshort by Daniel Flipo as a basis for this.
++* eqref requires amslatex 
++* use \centering to  put figure into the center as begin/end{center} adds
++  extra vertical space as suggested in http://www.ctan.org/tex-archive/info/l2tabu/english/l2tabuen.pdf
++* fixed missing , after pdfauthor on page 77
++* added note on texdoc 
++* renames longtabular to longtable
++* added notes on greek TeX -- Dimitrios 'sehh' Michelinakis <dimitrios@michelinakis.gr>
++* added notes about pronounciation of ch in ach
++
+ 4.14 2004.04.04
+ ----
+ * improved explaination of raisebox paramteres

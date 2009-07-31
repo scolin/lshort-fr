@@ -1,0 +1,20 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -1634,11 +1634,12 @@ drawings into your \LaTeXe{} documents later in this introduction.
+ 
+ Text given as arguments of commands like \ci{caption} or \ci{section} may
+ show up more than once in the document (e.g. in the table of contents as
+-well as in the body of the document). Some commands fail when used in the
+-argument of \ci{section}-like commands. These commands are called 
+-\wi{fragile commands}---for example, \ci{footnote} or \ci{phantom}. These
+-fragile commands need protection (don't we all?). You can
+-protect them by putting the \ci{protect} command in front of them.
++well as in the body of the document). Some commands will break when used in
++the argument of \ci{section}-like commands. Compilation of your document
++will fail. These commands are called \wi{fragile commands}---for example,
++\ci{footnote} or \ci{phantom}. These fragile commands need protection (don't
++we all?). You can protect them by putting the \ci{protect} command in front
++of them.
+ 
+ \ci{protect} only refers to the command that follows right behind, not even
+ to its arguments. In most cases a superfluous \ci{protect} won't hurt.

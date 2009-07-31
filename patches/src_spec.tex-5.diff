@@ -1,0 +1,31 @@
+--- a/src/spec.tex
++++ b/src/spec.tex
+@@ -871,20 +871,20 @@ choice between \texttt{pdftex} and \texttt{dvips} when calling
+ the settings made automatically in the configuration files
+ \texttt{graphics.cfg} and \texttt{color.cfg}.
+ 
+-\section{Creating Presentations with \pai{pdfscreen}}
+-\label{sec:pdfscreen}
++\section{Creating Presentations with the \pai{beamer} class}
++\label{sec:beamer}
+ \secby{Daniel Flipo}{Daniel.Flipo@univ-lille1.fr}
+ You can present the results of your scientific work on a blackboard,
+ with transparencies, or directly from your laptop using some
+ presentation software. 
+ 
+-\wi{pdf\LaTeX} combined with the \pai{pdfscreen} package allows you to
+-create presentations in PDF, equally as colorful and lively as
+-is possible with \emph{PowerPoint}, but much more portable because
+-Acrobat Reader is available on many more systems.
++\wi{pdf\LaTeX} combined with the \pai{beamer} class allows you to
++create presentations in PDF, looking much like something you might be
++able to generate with PowerPoint if you had a very good day, but much
++more portable because Acrobat Reader is available on many more
++systems.
+ 
+-
+-The \pai{pdfscreen} class uses \pai{graphicx}, \pai{color} and
++The \pai{beamer} class uses \pai{graphicx}, \pai{color} and
+ \pai{hyperref} with options adapted to screen presentations.
+ %La figure~\ref{fig:pdfscr} contient un exemple de fichier minimal à
+ %compiler avec \wi{pdf\LaTeX} et le 
