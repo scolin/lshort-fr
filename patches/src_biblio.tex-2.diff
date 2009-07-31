@@ -1,0 +1,39 @@
+--- a/src/biblio.tex
++++ b/src/biblio.tex
+@@ -50,17 +50,33 @@
+ \bibitem{catalogue} Graham~Williams.  \newblock \emph{The TeX
+     Catalogue} is a very complete listing of many \TeX{} and \LaTeX{}
+     related packages.
+-  \newblock Available online from \texttt{CTAN:/tex-archive/help/Catalogue/catalogue.html}
++  \newblock Available online from \CTAN|help/Catalogue/catalogue.html|
+   
+ \bibitem{eps} Keith~Reckdahl.  \newblock \emph{Using EPS Graphics in
+     \LaTeXe{} Documents}, which explains everything and much more than
+   you ever wanted to know about EPS files and their use in \LaTeX{}
+   documents.  \newblock Available online from
+-  \texttt{CTAN:/tex-archive/info/epslatex.ps}
++  \CTAN|info/epslatex.ps|
+ 
+-\bibitem{xy-pic} Kristoffer H. Rose
++\bibitem{xy-pic} Kristoffer H. Rose.
+   \newblock \emph{\Xy-pic User's Guide}.  \newblock
+   Downloadable from CTAN with \Xy-pic distribution 
++  
++\bibitem{metapost} John D. Hobby.
++  \newblock \emph{A User's Manual for MetaPost}. \newblock
++  Downloadable from \url{http://cm.bell-labs.com/who/hobby/} 
++  
++\bibitem{unbound} Alan Hoenig.
++  \newblock \emph{\TeX{} Unbound}. \newblock Oxford University Press, 1998,
++    ISBN 0-19-509685-1; 0-19-509686-X (pbk.) 
++  
++\bibitem{ursoswald} Urs Oswald.  
++    \newblock \emph{Graphics in \LaTeXe{}}, containing some Java source files for 
++    generating arbitrary circles and ellipses within the \texttt{picture} environment,
++    and \emph{MetaPost - A Tutorial}.
++  \newblock Both downloadable from \url{http://www.ursoswald.ch}
++  
++  
+ 
+ \end{thebibliography}
+ 

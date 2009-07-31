@@ -1,0 +1,11 @@
+--- a/src/spec.tex
++++ b/src/spec.tex
+@@ -932,7 +932,7 @@ supported by pdf\TeX{} using the command
+ \begin{lscommand}
+ \ci{overlay}\verb|{|\emph{image}\verb|}|
+ \end{lscommand}
+-or if you prefer a plain background you can define its color using
++\noindent or if you prefer a plain background you can define its color using
+ \begin{lscommand}
+ \ci{background}\verb|{|\emph{color}\verb|}|
+ \end{lscommand}

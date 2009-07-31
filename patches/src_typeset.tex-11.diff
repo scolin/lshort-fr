@@ -1,0 +1,101 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -787,6 +787,98 @@ the \emph{H\LaTeX{} Guide}.  Check out the web site of the Korean
+ There is also a Korean translation
+ of this manual available.
+ 
++
++\subsection{Support for Cyrillic}
++
++\secby{Maksym Polyakov}{polyama@myrealbox.com}
++Version~3.7h of \pai{babel} includes support for the
++\fei{T2*}~encodings and for typesetting Bulgarian, Russian and
++Ukrainian texts using Cyrillic letters.  
++
++Support for Cyrillic is based on standard \LaTeX{} mechanisms through 
++the \pai{fontenc} and \pai{inputenc} packages. But, if you are going to
++use Cyrillics in math mode, you need to load \pai{mathtext} package
++before \pai{fontenc}:\footnote{If you use \AmS-\LaTeX{} packages, 
++load them before \pai{fontenc} and \pai{babel} as well.}
++\begin{lscommand}
++\verb+\usepackage{mathtext}+\\
++\verb+\usepackage[+\fei{T1}\verb+,+\fei{T2A}\verb+]{fontenc}+\\
++\verb+\usepackage[+\iei{koi8-ru}\verb+]{inputenc}+\\
++\verb+\usepackage[english,bulgarian,russian,ukranian]{babel}+
++\end{lscommand}
++
++Generally, \pai{babel} will authomatically choose the default font encoding,
++for the above three languages this is \fei{T2A}.  
++However, documents are not restricted to a single font encoding.
++For multi-lingual documents using Cyrillic and Latin-based languages
++it makes sence to include latin font encoding explicitly. \pai{babel} 
++will take care of switching to necessary font encoding when a different language 
++is selected within the document.
++
++In adition to enabling hyphenations, translating automatically
++generated text strings, and activating some language specific 
++typographic rules (like \ci{frenchspacing}), \pai{babel} provides some 
++commands allowing typesetting according to the standards of 
++Bulgarian, Russian, or Ukrainian languages. 
++
++
++For all three languages, language specific punctuation is provided:
++cyrillic dash for the text (it is little narrower than latin dash and
++surrounded by thin spaces), dash for direct speech, quotes, and
++commands to facilitate hyphenation, see Table~\ref{Cyrillic}.
++
++% Table borrowed from Ukrainian.dtx
++\begin{table}[htb]
++  \begin{center}
++  \index{""-@\texttt{""}\texttt{-}} 
++  \index{""---@\texttt{""}\texttt{-}\texttt{-}\texttt{-}} 
++  \index{""=@\texttt{""}\texttt{=}} 
++  \index{""`@\texttt{""}\texttt{`}} 
++  \index{""'@\texttt{""}\texttt{'}} 
++  \index{"">@\texttt{""}\texttt{>}} 
++  \index{""<@\texttt{""}\texttt{<}} 
++  \caption[Bulgarian, Russian, and Ukrainian]{The extra definitions made
++           by Bulgarian, Russian, and Ukrainian options of \pai{babel}}\label{Cyrillic}
++  \begin{tabular}{@{}p{.1\hsize}@{}p{.9\hsize}@{}}
++   \hline
++   \verb="|= & disable ligature at this position.               \\
++   \verb|"-| & an explicit hyphen sign, allowing hyphenation
++               in the rest of the word.                         \\
++   \verb|"---| & Cyrillic emdash in plain text.                      \\
++   \verb|"--~| & Cyrillic emdash in compound names (surnames).       \\
++   \verb|"--*| & Cyrillic emdash for denoting direct speech.         \\
++   \verb|""| & like |"-|, but producing no hyphen sign
++               (for compound words with hyphen, e.g.\ |x-""y|
++               or some other signs  as ``disable/enable'').     \\
++   \verb|"~| & for a compound word mark without a breakpoint.        \\
++   \verb|"=| & for a compound word mark with a breakpoint, allowing
++          hyphenation in the composing words.                   \\
++   \verb|",| & thinspace for initials with a breakpoint
++           in following surname.                                \\
++   \verb|"`| & for German left double quotes
++               (looks like ,\kern-0.08em,).                     \\
++   \verb|"'| & for German right double quotes (looks like ``).       \\%''
++   \verb|"<| & for French left double quotes (looks like $<\!\!<$).  \\
++   \verb|">| & for French right double quotes (looks like $>\!\!>$). \\
++   \hline
++  \end{tabular}
++  \end{center}
++\end{table}
++
++
++The Russian and Ukrainian options of \pai{babel} define the commands \ci{Asbuk}
++and \ci{asbuk}, which act like \ci{Alph} and \ci{alph}, but produce capital
++and small letters of Russian or Ukrainian alphabets (whichever is the
++active language of the document). The Bulgarian option of \pai{babel} 
++provides the commands \ci{enumBul} and \ci{enumLat} (\ci{enumEng}), which
++make \ci{Alph} and \ci{alph} produce letters of either
++Bulgarian or Latin (English) alphabets. The default behaviour of
++\ci{Alph}  and \ci{alph} for the Bulgarian language option is to
++produce letters from the Bulgarian alphabet. 
++
++%Finally, math alphabets are redefined and  as well as the commands for math
++%operators according to Cyrillic typesetting traditions. 
++
+ \section{The Space Between Words}
+ 
+ To get a straight right margin in the output, \LaTeX{} inserts varying

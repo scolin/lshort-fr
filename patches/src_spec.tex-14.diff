@@ -1,0 +1,18 @@
+--- a/src/spec.tex
++++ b/src/spec.tex
+@@ -905,10 +905,13 @@ appropriate options:
+   create a printable version.
+ \item[\texttt{panelright}] put a navigation panel on the right side of
+   the screen. If the panel should be on the left side use
+-  \texttt{panelleft}.
++  \texttt{panelleft}. If you do not want panels use \texttt{nopanel}.
+ \item[\texttt{french}] or some other supported language will render
+   the text on the navigation buttons appropriately. This option is
+-  independent of the options set with the babel package.
++  independent of the options set with the babel package. If your language is not suppoted by \pai{pdfscreen}, 
++  you still can localize navigation panel buttons by using 
++  file \texttt{pdfscreen.cfg}, see \texttt{pdfscreen.cfg..specimen} for
++an example.
+ \item[\texttt{chocolate}] color scheme for the navigation panel. Other
+   choices are \texttt{gray}, \texttt{orange}, \texttt{palegreen},
+  \texttt{bluelace} and \texttt{blue}, which is the default.

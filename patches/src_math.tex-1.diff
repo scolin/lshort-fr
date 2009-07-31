@@ -1,0 +1,11 @@
+--- a/src/math.tex
++++ b/src/math.tex
+@@ -15,7 +15,7 @@
+   \footnote{The \emph{American Mathematical Society} has produced a
+   powerful extension to \LaTeX{}. Many of the examples in this
+   chapter make use of this extension. It is provided with all recent
+-  \TeX{} distributions. If yours is missing it, go to \texttt{CTAN:/tex-archive/macros/latex/required/amslatex}.}
++  \TeX{} distributions. If yours is missing it, go to \CTANref|macros/latex/required/amslatex|.}
+ \end{intro}
+   
+ \section{General}

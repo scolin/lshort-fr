@@ -1,0 +1,17 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -1200,9 +1200,13 @@ left-aligned text, \mfr{r} for right-aligned text, and \mfr{c} for
+ centred text; \mfr{p\{\emph{width}\}} for a column containing justified
+ text with line breaks, and \mfr{|} for a vertical line.
+ 
++If the text in a column is too wide for the page, \LaTeX{} won't
++automatically wrap it. Using \mfr{p\{\emph{width}\}} you can define
++a special type of column which will wrap-around the text as in a normal paragraph.
++
+ The \emph{pos} argument specifies the vertical position of the table
+ relative to the baseline of the surrounding text.  Use either of the
+-letters \texttt{t}, \texttt{b} and \texttt{c} to specify table
++letters \mfr{t}, \mfr{b} and \mfr{c} to specify table
+ alignment at the top, bottom or center.
+  
+ Within a \texttt{tabular} environment, \texttt{\&} jumps to the next

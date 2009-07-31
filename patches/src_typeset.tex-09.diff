@@ -1,0 +1,19 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -712,13 +712,13 @@ Korean%,
+  will defect from MS Word that already has  a pretty good support 
+  for Middle Korean.}
+ or Chinese, a subfont mechanism was developed.
+-It divides a single CJK fonts with  thousands or tens of thousands of
++It divides a single CJK font with  thousands or tens of thousands of
+ glyphs into a set of subfonts with 256 glyphs each. 
+ For Korean, there are three widely used packages;  \wi{H\LaTeX}
+ by UN~Koaunghi, \wi{h\LaTeX{}p} by CHA~Jaechoon and the \wi{CJK package}
+ by Werner~Lemberg.\footnote{% 
+-They can be obtained at \texttt{CTAN:/tex-archive/language/korean/HLaTeX/}\\
+-   \texttt{CTAN:/tex-archive/language/korean/CJK/} and
++They can be obtained at \CTANref|language/korean/HLaTeX/|\\
++   \CTANref|language/korean/CJK/| and
+    \texttt{http://knot.kaist.ac.kr/htex/}}
+ H\LaTeX{} and h\LaTeX{}p are specific to Korean and provide
+ Korean localization on top of the font support.

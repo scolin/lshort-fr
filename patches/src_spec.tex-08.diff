@@ -1,0 +1,109 @@
+--- a/src/spec.tex
++++ b/src/spec.tex
+@@ -463,51 +463,68 @@ manual configuration of hyperlinks.
+ \subsection{The Fonts}
+ 
+ \wi{pdf\LaTeX} can deal with all sorts of fonts (PK bitmaps, TrueType,
+-PostScript type~1\dots) but prime \LaTeX{} font format, the bitmap PK
++\PSi{} type~1\dots) but prime \LaTeX{} font format, the bitmap PK
+ fonts produce very ugly results when the document is displayed
+-with Acrobat Reader. It is best to use PostScript Type 1 fonts
++with Acrobat Reader. It is best to use \PSi{} Type 1 fonts
+ exclusively to produce documents that display well.
+ 
+-We have not yet talked about fonts in this book because \LaTeX{}
+-handles this on its own just fine, as it uses its own set of fonts well
+-adapted to the requirements of scientific publishing.
+-Actually, there are two sets of \TeX{} fonts: 
+-\emph{Computer Modern} (CM), consisting of 128 characters, which is the
+-default font set, and \emph{Extended Cork} (EC), made up from 256
+-characters. The speciality of the EC font set is that it contains
+-special characters for all the language-specific accented characters
+-used in European languages, such as
+-\"a or \`e. This allows hyphenation to work properly with words
+-that contain such special characters. You can enable the EC character
+-set by putting the command \verb+\usepackage[T1]{fontenc}+ into the
+-preamble of the document (see page \pageref{fontenc}).
+-Unfortunately, there is no free set of PostScript type~1 fonts
+-for the EC character set. Fortunately, there are two ways to cheat.
++The \PSi{} Type 1 implementation of the Computer Modern and AMSFonts
++was produced by Blue Sky Research and Y\&Y, Inc., who then transferred
++copyright to the American Mathematical Society. The fonts were made
++publicly available in early 1997 and currently come with most of \TeX{}
++distributions. 
++
++However, if you are using \LaTeX{} to create documents in languages 
++other than English, you might want to use EC, LH, or CB fonts (see the
++discussion about \texttt{OT1} fonts on the page~\pageref{OT1}). 
++Vladimir Volovich has created the cm-super font bundle which covers the
++entire EC/TC, EC Concrete, EC Bright and LH font sets. It is available from
++\texttt{CTAN:/fonts/ps-type1/cm-super} and is included with \TeX{}Live7
++and Mik\TeX. Similar type~1 CB Greek fonts created by Apostolos
++Syropoulos are available at \texttt{CTAN:/tex-archive/fonts/greek/cb}.
++Unfortunately, both of these font sets are not of the same typographic
++quality as the Type1 CM fonts by Blue Sky/Y\&Y. They were automatically
++hinted, and the document might look   as neat on  the screen as the ones using
++Blue Sky/Y\&Y type 1 CM fonts, on high resolution output devices they
++produce results identical to the original bitmap EC/LH/CB fonts. 
++
++If you are creating document in one of Latin-based languages, you have
++several other options. 
+ \begin{itemize}
+-\item You can put the line \verb+\usepackage{aeguill}+\paih{aeguill} into the
+-  preamble of your document, to use AE virtual fonts. 
+-\item You can use \verb+\usepackage{mltex}+, but this only works when
++\item You might want to use \pai{aeguill} package, aka
++  \emph{Almost European Computer Modern with Guillemets}. Just put the
++  line \verb+\usepackage{aeguill}+\paih{aeguill}  into the preamble of  
++  your document, to enable AE virtual fonts instead of EC fonts.  
++\item Alternatively, you can use \pai{mltex} package, but this only works when  
+   your pdf\TeX{} has been compiled with the \wi{mltex} option.
+ \end{itemize}
+ The AE virtual fontset, like the {Ml\TeX} system, makes \TeX{} believe
+-it has a full 256 character fontset at its disposal by creating the
+-missing letters from characters available in the normal CM font, which
+-exists in a PostScript type~1 variant. This has the big advantage that
+-hyphenation works well in European languages. 
+-The only disadvantage of this approach is that the artificial AE
+-characters do not work with Acrobat Reader's 
+-\texttt{Find} function, so you cannot search for words with accented
+-characters in your final PDF file.
+-
+-Another solution is not to use the CM fontset, but to switch to other
+-Postscript type~1 fonts. Actually, some of them are even included with
+-every copy of Acrobat Reader. Because these fonts have different
+-character sizes, the text layout on your pages will change. Generally
+-it will use more space than the CM fonts, which are very space-efficient. 
+-Also, the overall visual coherence of your document will
+-suffer because Times, Helvetica and Courier (the primary candidates
+-for such a replacement job) have not been designed to work in harmony in
+-a single document as has been done for the Computer Modern fonts.
++it has a full 256 character fontset at its disposal by creating most of
++the missing letters from characters of the CM font and rearranging them
++in the EC order, this allows to use the excellent type 1 format CM
++fonts available on most systems. As the font now is in T1 encoding
++hyphenation will well in Latin-based European languages.  The only
++disadvantage of this approach is that the artificial AE characters do
++not work with Acrobat Reader's \texttt{Find} function, so you cannot
++search for words with accented characters in your final PDF file.
++
++For the Russian language a similar solution is to use C1 virtual fonts 
++available at \texttt{ftp://ftp.vsu.ru/pub/tex/font-packs/c1fonts}. 
++These fonts combine the standard CM type~1                                 
++fonts from Bluesky collection and CMCYR type~1 fonts from  Paradissa and
++BaKoMa collection, all available on CTAN. Because Paradissa fonts
++contain only Russian letters, C1 fonts are                                  
++missing other Cyrillic glyphs. 
++
++Another solution is to switch to other \PSi{} type~1 fonts.
++Actually, some of them are even included with every copy of Acrobat
++Reader. Because these fonts have different character sizes, the text
++layout on your pages will change. Generally it will use more space than
++the CM fonts, which are very space-efficient.  Also, the overall visual
++coherence of your document will suffer because Times, Helvetica and
++Courier (the primary candidates for such a replacement job) have not
++been designed to work in harmony in a single document as has been done
++for the Computer Modern fonts.
+  
+ Two ready-made font sets are available for this purpose:
+ \pai{pxfonts}, which is based on \emph{Palatino} as its main text body font,

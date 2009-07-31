@@ -1,0 +1,11 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -668,7 +668,7 @@ Korean text files are  EUC-KR and its upward compatible
+ extension used in Korean MS-Windows, CP949/Windows-949/UHC.
+ In these encodings each US-ASCII character represents its normal ASCII
+ character similar to other ASCII compatible encodings such as
+-ISO-8859-\textit{x}, EUC-JP,Shift\_JIS, and Big5. On the other hand, Hangul
++ISO-8859-\textit{x}, EUC-JP, Shift\_JIS, and Big5. On the other hand, Hangul
+ syllables, Hanjas (Chinese characters as used in Korea), Hangul Jamos,
+ Hirakanas, Katakanas, Greek and Cyrillic characters and other
+ symbols and letters drawn from KS~X~1001 are represented by two

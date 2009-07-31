@@ -1,0 +1,34 @@
+--- a/CHANGES
++++ b/CHANGES
+@@ -1,8 +1,30 @@
++4.11
++---
++* added graphics.tex file to source distro
++
++4.10
++----
++* Integrated EuroSymbol table from the french translation by Daniel Flipo
++* Created new chapter: graphics with description on the picture environment by Urs Oswald.
++* Moved Xy pics to the graphics chapter
++* compile with cm-super fonts for now
++* updates to the hyperref syntax table -- Maksym Polyakov
++* rewritten sectons on fontencoding, inputencoding -- Maksym Polyakov
++* section on cyrillic support -- Maksym Polyakov
++* turned CTAN references into URLs as suggested by Maksym Polyakov    
++* minor updates to pdfscreen section as suggested by Maksym Polyakov
++* other little spellers
++* get rid of color in ps output ... we do not need it ... tobi
++* added note on p{} to tabular section
++* minor fixes to pdf section --- Matthias Dreier
++* added note on changeing baselineskip instead of using linespread.
++* added example for using the index command.
++
+ 4.0
+ ---
+ * many minor fixes and edits in pagebreaks
+ * added note on cm-super
+-* punctuation, wording, big patch from Baron Schwartz <bps7j@cs.virginia.edu>
++* punctuation, wording, big patch from Baron Schwartz
+ * Translated and integreated the pdfTeX description from the 
+   franch version of lshort.
+ * Added descrion of the .fd files

@@ -1,0 +1,16 @@
+--- a/src/lshort.tex
++++ b/src/lshort.tex
+@@ -39,10 +39,12 @@
+ \usepackage{lshort}
+ \usepackage{makeidx,shortvrb,latexsym}
+ \usepackage{mylayout}
+-\RequirePackage[colorlinks,hyperindex,plainpages=false]{hyperref}
+ % are we in pdftex ????
+ \ifx\pdfoutput\undefined % We're not running pdftex
++\RequirePackage[plainpages=true]{hyperref}
++\usepackage{color}
+ \else
++\RequirePackage[colorlinks,hyperindex,plainpages=false]{hyperref}
+ \def\pdfBorderAttrs{/Border [0 0 0] } % No border arround Links
+ \fi
+ %

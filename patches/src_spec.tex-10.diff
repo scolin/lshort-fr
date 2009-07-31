@@ -1,0 +1,20 @@
+--- a/src/spec.tex
++++ b/src/spec.tex
+@@ -548,13 +548,13 @@ package will work with pdf\LaTeX{} as well:
+ In the sample above I have included the color option, as using color in
+ documents displayed on the web comes quite naturally.
+ 
+-So much for the good news. The bad news is that EPS (Encapsulated Postscript), your favorite format
+-for graphics in \LaTeX{}, does
+-\emph{not} work for PDF files. If you do not define a file extension
++So much for the good news. The bad news is that graphics in \EPSi{}
++format do not work with Pdf\LaTeX{}. If you don't define a file extension
+ in the \ci{includegraphics} command, \pai{graphicx} will go
+ looking for a suitable file on its own, depending on the setting of
+ the \emph{driver} option. For \texttt{pdftex} this is
+-formats \texttt{.png}, \texttt{.pdf}, \texttt{.jpg}, \texttt{.mps} (MetaPost),
++formats \texttt{.png}, \texttt{.pdf}, \texttt{.jpg}, \texttt{.mps} (
++\MP\index{metapost@\MP}),
+ and \texttt{.tif}---but \emph{not} \texttt{.eps}.
+ 
+ The simple way out of this problem is to just convert your EPS files

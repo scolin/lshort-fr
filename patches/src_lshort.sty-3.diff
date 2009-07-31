@@ -1,0 +1,11 @@
+--- a/src/lshort.sty
++++ b/src/lshort.sty
+@@ -41,7 +41,7 @@
+ \newcommand{\manual}{\emph{\LaTeX{} Manual}~\cite{manual}} 
+ \newcommand{\companion}{\emph{The \LaTeX{} Companion}~\cite{companion}} 
+ \newcommand{\guide}{\emph{Local Guide}~\cite{local}}
+-\newcommand{\contrib}[3]{#1\quad\texttt{<#2>}{\small\\\quad\textit{#3}}\\[1ex]}
++\newcommand{\contrib}[3]{#1\quad\mailto|#2|{\small\\\quad\textit{#3}}\\[1ex]}
+ %
+ % Some commands for helping with INDEX creation
+ %

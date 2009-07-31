@@ -1,0 +1,18 @@
+--- a/src/spec.tex
++++ b/src/spec.tex
+@@ -415,11 +415,10 @@ layout of the document and permits hypertext
+ navigation. Most modern browsers come with plugins that allow the
+ direct display of PDF documents.
+ 
+-In contrast to the DVI and PS format, PDF documents can be displayed
+-and printed on most computer platforms (Unix, Mac, Windows), thanks to
+-the Adobe Acrobat Reader software, which can be downloaded freely from
+-Adobe's website. On many computers it even comes pre-installed with the base
+-OS distribution.
++Even though there are DVI and PS viewers for almost every platform, you will find that
++\wi{acrobat reader} and \wi{xpdf} for viewing PDF documents 
++are more widely deployed. So providing PDF versions of your documents will
++make them much more accessible to your potential readers.
+ 
+ \subsection{PDF Documents for the Web}
+ 

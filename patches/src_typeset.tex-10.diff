@@ -1,0 +1,11 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -737,7 +737,7 @@ does not come with as many special Korean fonts as H\LaTeX.
+ and \LaTeX{} is to get documents typeset in an `aesthetically' satisfying way.
+ Arguably the most important element in typesetting is  a set of
+ well-designed fonts. The H\LaTeX{} distribution
+-includes \index{Korean font!UHC font}UHC \textsc{PostScript} fonts 
++includes \index{Korean font!UHC font}UHC \PSi{} fonts 
+ of 10
+ different families and
+ Munhwabu\footnote{Korean Ministry of Culture}

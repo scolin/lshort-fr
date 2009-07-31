@@ -1,0 +1,11 @@
+--- a/src/custom.tex
++++ b/src/custom.tex
+@@ -498,7 +498,7 @@ x\hspace{\stretch{3}}x
+ When using horizontal space together with text, it may make sense to make
+ the space adjust its size relative to the size of the current font.
+ This can be done by using the text-relative units \texttt{em} and
+-\texttt{en}:
++\texttt{ex}:
+ 
+ \begin{example}
+ {\Large{}big\hspace{1em}y}\\

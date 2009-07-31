@@ -1,0 +1,52 @@
+--- a/src/spec.tex
++++ b/src/spec.tex
+@@ -594,35 +594,38 @@ is worth noting that the \pai{hyperref} package is not limited to
+ work with pdf\TeX{}. It can also be configured to embed PDF-specific
+ information into the DVI output of normal \LaTeX{}, which then gets put
+ into the PS file by \texttt{dvips} and is finally picked up by Adobe
+-Distiller when it is used to turn the PS file PDF.} In the following
++Distiller when it is used to turn the PS file into PDF.} In the following
+ list the default values are written in an upright font.
+ 
+ \begin{description}
+-  \item[\texttt{bookmarks (=true,\textit{false})}] show or hide the
++  \item [\texttt{bookmarks (=true,\textit{false})}] show or hide the
+     bookmarks bar when displaying the document
++  \item [\texttt{unicode (=false,\textit{true})}] allows to use 
++    characters of non-latin based languages in Acrobat's bookmarks
+   \item [\texttt{pdftoolbar (=true,\textit{false})}] show or hide
+     Acrobat's toolbar
+   \item [\texttt{pdfmenubar (=true,\textit{false})}] show or hide
+     Acrobat's menu
+   \item [\texttt{pdffitwindow (=true,\textit{false})}] adjust the
+     initial magnification of the pdf when displayed
+-  \item [\texttt{pdftitle (=\{texte\})}] define the title that gets
++  \item [\texttt{pdftitle (=\{text\})}] define the title that gets
+     displayed in the \texttt{Document Info} window of Acrobat
+-  \item [\texttt{pdfauthor (=\{texte\})}] the name of the PDF's author
++  \item [\texttt{pdfauthor (=\{text\})}] the name of the PDF's author
+   \item [\texttt{pdfnewwindow (=true,\textit{false})}] define if a new
+     window should get opened when a link leads out of the current
+     document
+-  \item [\texttt{colorlinks (=true,\textit{false})}] show link
+-    ``zones'' in color. The color of these links can be configured
+-    using the following options:
++  \item [\texttt{colorlinks (=false,\textit{true})}] surround the  
++    links by color frames (\texttt{false}) of colors the text of the links 
++    (\texttt{true}). The color of these links can be configured
++    using the following options (default colors are shown):
+     \begin{description}
+-    \item [\texttt{linkcolor (=color,\textit{red})}] color of internal
++    \item [\texttt{linkcolor (=red)}] color of internal
+       links (sections, pages, etc.),
+-    \item [\texttt{citecolor (=color,\textit{green})}] color of
++    \item [\texttt{citecolor (=green)}] color of
+       citation links (bibliography)
+-    \item [\texttt{filecolor (=color,\textit{magenta})}] color of file
++    \item [\texttt{filecolor (=magenta)}] color of file
+       links
+-    \item [\texttt{urlcolor (=color,\textit{cyan})}] color of url
++    \item [\texttt{urlcolor (=cyan)}] color of URL
+       links (mail, web)
+     \end{description}
+ \end{description}

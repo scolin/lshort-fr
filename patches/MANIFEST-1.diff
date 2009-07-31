@@ -1,0 +1,14 @@
+--- a/MANIFEST
++++ b/MANIFEST
+@@ -10,10 +10,10 @@ src/biblio.tex
+ src/contrib.tex 
+ src/custom.tex 
+ src/fancyhea.sty 
+-src/kees.fig 
+ src/lshort.sty 
+ src/lshort.tex 
+ src/lssym.tex 
++src/graphic.tex
+ src/math.tex 
+ src/mylayout.sty 
+ src/overview.tex 

@@ -1,0 +1,25 @@
+--- a/src/spec.tex
++++ b/src/spec.tex
+@@ -949,18 +949,17 @@ to make use of the \pai{pause} package. It provides the command
+ text wherever you want Acrobat to pause the display of your document.
+ The \pai{pause} package is part of the \texttt{ppower4} ($P^4$:
+ \emph{Pdf Presentation  Post-Processor}) system, which can post-process
+-pdf output from pdf\TeX{} and make it dance, sing and beg for
+-food. You can treat the output of pdf\TeX{} by passing it through the
+-post-processor. On the command line it looks like this:
++pdf output from pdf\TeX{} and make it sing and dance and beg for
++food. On the command line it looks like this:
+ \begin{lscommand}
+ \verb+ppower4 xy.pdf xyz.pdf+
+ \end{lscommand}
+ 
+-To control what goes onto a single slide, you can use the environment
++To control what goes onto a single slide, use the environment
+ \verb+\begin{slide}+ \ldots \verb+\end{slide}+. The content of each
+ slide will get displayed centered vertically on its page.
+ 
+-If you compile the example above you will get an error message:
++Compiling the example above, will end in an error message:
+ \begin{verbatim}
+ ! pdfTeX warning (dest): name{contents} has been
+   referenced but does not exist, replaced by a fixed one

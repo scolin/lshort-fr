@@ -1,0 +1,12 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -315,7 +315,8 @@ you can use the command
+ \end{lscommand}
+ to access it.
+ 
+-If your font does not provide its own Euro symbol or if you do not like the font's Euro symbol, you have two more choices:
++If your font does not provide its own Euro symbol or if you do not like the
++font's Euro symbol, you have two more choices:
+ 
+ First the \pai{eurosym} package. It provides the official Euro symbol:
+ \begin{lscommand}

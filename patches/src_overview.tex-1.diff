@@ -1,0 +1,13 @@
+--- a/src/overview.tex
++++ b/src/overview.tex
+@@ -28,9 +28,7 @@ a complete description of the \LaTeX{} system.
+ \item[Chapter 1] tells you about the basic structure of \LaTeXe{}
+   documents. You will also learn a bit about the history of \LaTeX{}.
+   After reading this chapter, you should have a roughly understand how
+-  \LaTeX{} works. This framework will enable
+-  you to integrate the information in the other chapters into
+-  the big picture.
++  \LaTeX{} works.
+ \item[Chapter 2] goes into the details of typesetting your
+   documents. It explains most of the essential \LaTeX{} commands and
+   environments. After reading this chapter, you will be able to write

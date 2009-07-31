@@ -1,0 +1,14 @@
+--- a/src/spec.tex
++++ b/src/spec.tex
+@@ -565,9 +565,9 @@ natively supports the inclusion of PNG and JPEG images. PNG is
+ good for screenshots and other images with few colors. JPEG is great
+ for photos, as it is very space-efficient.
+ 
+-It may even be desirable to not draw certain geometric figures, 
++It may even be desirable not to draw certain geometric figures, 
+ but rather describe the figure with a specialized command language, such as
+-\wi{MetaPost}, which can be found in most \TeX{} distributions, and
++ \MP\index{metapost@\MP}, which can be found in most \TeX{} distributions, and
+ comes with its own extensive manual.
+ 
+ \subsection{Hypertext Links}

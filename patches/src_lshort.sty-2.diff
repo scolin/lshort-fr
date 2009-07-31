@@ -1,0 +1,24 @@
+--- a/src/lshort.sty
++++ b/src/lshort.sty
+@@ -33,6 +33,21 @@
+ \addtolength{\headheight}{1.6pt}
+ %
+ %
++%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
++% Adapted from TeX FAQ
++\renewcommand{\Email}{\begingroup \def\UrlLeft{<}\def\UrlRight{>} \urlstyle{tt}\Url}     % email address
++\def\mailto|#1|{\href{mailto:#1}{\Email|#1|}}        % url to mail somewhere
++\newcommand{\CTANref}{\begingroup \urlstyle{tt}\Url}     % 
++\def\CTAN|#1|{\href{ftp://ftp.dante.de/tex-archive/#1}{\CTANref|CTAN:/tex-archive/#1|}}  
++\newcommand\Newsgroup{\begingroup \urlstyle{tt}\Url} % newsgroup
++\let\URL\url                                         % just a URL
++
++\newcommand{\PSi}{\textsc{PostScript}\index{PostScript@\textsc{PostScript}}}
++\newcommand{\EPSi}{Encapsulated \textsc{PostScript}%
++\index{Encapsulated PostScript@Encapsulated \textsc{PostScript}}%
++\index{PostScript@\textsc{PostScript}!Encapsulated}%
++}
++
+ % Earlier paragraphs were separated by some space
+ %
+ %\setlength{\parindent}{0pt}

@@ -1,0 +1,29 @@
+--- a/src/lshort.sty
++++ b/src/lshort.sty
+@@ -10,16 +10,23 @@
+ \let\lsspageref\pageref
+ \ProvidesPackage{lshort}
+ \RequirePackage[english,frenchb,german]{babel}
++\RequirePackage{mflogo}
+ \RequirePackage{verbatim}
+ \RequirePackage{fancyhea}
+ \RequirePackage{calc}
+-\RequirePackage[official]{eurosym}
+ \RequirePackage{amsmath,amsfonts,amssymb}
+ \RequirePackage[all]{xy}
+ \RequirePackage[T1]{fontenc}
+-\RequirePackage{aeguill}
++\RequirePackage{type1cm}% remove size restrictions
++%\RequirePackage{aeguill}
++% some packages which draw a euro
+ \RequirePackage{textcomp}
+-\RequirePackage{marvosym}% 
++\RequirePackage{marvosym}
++\RequirePackage[gen]{eurosym}
++\RequirePackage{eurosans}
++\let\EUROSANS\euro
++\RequirePackage{eurofont}% à la place d'europs (conflit de nom)
++\RequirePackage{url}
+ % Lets have some nice headings
+ %
+ \pagestyle{fancyplain}

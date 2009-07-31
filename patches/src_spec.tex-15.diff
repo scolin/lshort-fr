@@ -1,0 +1,15 @@
+--- a/src/spec.tex
++++ b/src/spec.tex
+@@ -918,10 +918,10 @@ always scale to the real size of the screen when displayed, this can
+ be used to configure the overall font size:
+ \begin{description}
+ \item[\ci{panelwidth}] defines the width of the navigation panel
+-\item[\ci{screensize}\texttt{\{}\emph{width}\texttt{\}\{}\emph{height}\texttt{\}}]
++\item[\ci{screensize}\textmd{\texttt{\{}\emph{width}\texttt{\}\{}\emph{height}\texttt{\}}}]
+   define the width and height of the screen including the navigation
+   panel.
+-\item[\ci{marginsize}\texttt{\{}\emph{left}\texttt{\}\{}\emph{right}\texttt{\}\{}\emph{top}\texttt{\}\{}\emph{bottom}\texttt{\}}]
++\item[\ci{marginsize}\textmd{\texttt{\{}\emph{left}\texttt{\}\{}\emph{right}\texttt{\}\{}\emph{top}\texttt{\}\{}\emph{bottom}\texttt{\}}}]
+   defines the margins of the document. In the example the document is
+   not centered because the section numbers are kept in the left
+   margin.

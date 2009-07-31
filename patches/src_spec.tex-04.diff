@@ -1,0 +1,11 @@
+--- a/src/spec.tex
++++ b/src/spec.tex
+@@ -74,7 +74,7 @@ printer understands it and can correctly include the \eei{.eps} file.
+ \begin{lscommand}
+ \ci{includegraphics}\verb|[|\emph{key}=\emph{value}, \ldots\verb|]{|\emph{file}\verb|}|
+ \end{lscommand}
+-to include \emph{file} into your document. The optional parameter
++\noindent to include \emph{file} into your document. The optional parameter
+ accepts a comma separated list of \emph{keys} and associated
+ \emph{values}. The \emph{keys} can be used to alter the width, height
+ and rotation of the included graphic. Table~\ref{keyvals} lists the

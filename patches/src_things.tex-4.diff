@@ -1,0 +1,11 @@
+--- a/src/things.tex
++++ b/src/things.tex
+@@ -486,7 +486,7 @@ Table~\ref{options}.
+ \item [\normalfont\texttt{book}] for real books \index{book class}
+ \item [\normalfont\texttt{slides}] for slides. The class uses big sans serif
+   letters. You might want to consider using Foil\TeX{}\footnote{%
+-        \texttt{CTAN:/tex-archive/macros/latex/contrib/supported/foiltex}} instead.
++        \CTANref|macros/latex/contrib/supported/foiltex|} instead.
+         \index{slides class}\index{foiltex}
+ \end{description}
+ \end{lined}
