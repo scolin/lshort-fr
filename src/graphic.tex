@@ -48,7 +48,7 @@ Alors que les deux premières extensions précitées se contentent
 d'améliorer \ei{picture}, l'environnement \pai{pstricks} fournit son
 propre environnement de dessin, \ei{pspicture}. La puissance de
 \pai{pstricks} provient de son usage intensif des capacités de
-\texttt{PostScript}. De plus, de nombreux environnements ont été
+\PSi{}. De plus, de nombreux environnements ont été
 écrits avec des objectifs précis en tête. L'un d'entre eux est
 \texorpdfstring{\Xy}{Xy}-pic que nous présentons à la fin de ce
 chapitre. \graphicscompanion{} décrit en détail une grande variété de
@@ -59,7 +59,7 @@ le frère jumeau de \texttt{METAFONT} par Donald
 E. Knuth. \texttt{MetaPost} possède le langage mathématique puissant
 et sophistiqué de \texttt{METAFONT}. À la différence de
 \texttt{METAFONT} qui génère des bitmaps, \texttt{MetaPost} génère du
-\texttt{PostScript} encapsulé, qui peut être importé dans \LaTeX. Pour
+\PSi{} encapsulé, qui peut être importé dans \LaTeX. Pour
 une présentation, voyez \hobby ou le tutoriel de \cite{ursoswald}.
 
 Vous pourrez trouver une discussion très détaillé des stratégies
@@ -357,7 +357,7 @@ ainsi qu'aux cercles et aux ovales.
 \begin{picture}(120,168)
 \newsavebox{\foldera}% declaration
 \savebox{\foldera}
-  (40,32)[l]{%         definition 
+  (40,32)[bl]{% definition 
   \multiput(0,0)(0,28){2}
     {\line(1,0){40}}
   \multiput(0,0)(40,0){2}
@@ -394,19 +394,22 @@ Une boîte d'image peut être \emph{déclarée} par la commande
 \begin{lscommand}
   \ci{put}\verb|(|$x,y$\verb|)|\ci{usebox}\verb|{|\emph{nom}\verb|}|
 \end{lscommand}
-Le paramètre optionnel de \emph{position} \texttt{l} (pour \og gauche
-\fg{}, i.e. \og left \fg{}) a pour effet de positionner le coin
-(inférieur) gauche de l'image emboîtée au niveau de l'argument de
-\ci{put}. Le paramètre \emph{nom} se rapporte à un registre de
-stockage \LaTeX{}: il s'agit donc d'une commande (ce qui explique
-l'usage d'antislashs dans l'exemple). Les images emboîtées peuvent
-être imbriquées : \ci{foldera} est utilisée à l'intérieur de la
-définition de \ci{folderb} dans l'exemple.
+
+Le paramètre optionnel de \emph{position} a pour effet de définir
+le \og point d'ancrage \fg{} de l'image emboîtée. Dans l'exemple il
+est défini comme \texttt{bl} qui met le point d'ancrage dans le coin
+inférieur gauche de l'image emboîtée. Les autres positions possibles
+sont \texttt{t}op (en haut) et \texttt{r}ight (à droite).
+
+Le paramètre \emph{nom} se rapporte à un registre de stockage
+\LaTeX{}: il s'agit donc d'une commande (ce qui explique l'usage
+d'antislashs dans l'exemple). Les images emboîtées peuvent être
+imbriquées : \ci{foldera} est utilisée à l'intérieur de la définition
+de \ci{folderb} dans l'exemple.
 
 La commande \ci{oval} a dû être utilisée car la commande \ci{line} ne
 fonctionne pas avec des segments dont la longueur est inférieure à
 3\,mm.
-
 
 \subsection{Courbes de B\'ezier}
 
@@ -625,6 +628,7 @@ différents types de flèches. Ceci peut être obtenu en leur assignant
 des étiquettes ou en changeant leur apparence :
 
 \begin{example}
+\shorthandoff{"}
 \begin{displaymath}
 \xymatrix{
  \bullet\ar@{->}[rr] && \bullet\\
@@ -632,9 +636,13 @@ des étiquettes ou en changeant leur apparence :
  \bullet\ar@{~)}[rr] && \bullet\\
  \bullet\ar@{=(}[rr] && \bullet\\
  \bullet\ar@{~/}[rr]  && \bullet\\
+ \bullet\ar@{^{(}->}[rr]  && \bullet\\
+ \bullet\ar@2{->}[rr]  && \bullet\\
+ \bullet\ar@3{->}[rr]  && \bullet\\
  \bullet\ar@{=+}[rr]   && \bullet
 }
 \end{displaymath}
+\shorthandon{"}
 \end{example}
 
 Notez la différence entre les deux diagrammes suivants:
