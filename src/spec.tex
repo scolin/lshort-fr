@@ -413,15 +413,785 @@ Parfois vous constaterez qu'un fichier \texttt{.glo} (glossaire) a
 \noindent Et n'oubliez pas de re-exécuter \LaTeX{} sur le fichier
 \texttt{.dtx} avant de passer à l'étape 5. 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Contents: Chapter on pdfLaTeX
+% French original by Daniel Flipo 14/07/2001
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% SC: I know there was some problem with the later french translations
+% of this manual, where the translator (mentioned above) withdrew its
+% translation because of GPL-compliancy problems, if I understood
+% well. Just to clarify, the following is my very own translation of
+% what appears in english in the 4.00 version (and later) and it is
+% _not_ the original french version made by Daniel Flipo. He gave an
+% english version, which is included in lshort, which complies with
+% the GPL. Hence I can derive my own translation from it and publish
+% it under the same terms.
+%
+% I nonetheless keep the name of the original author here because I am
+% not doing any really creative work here, and he deserves it for
+% having done all this work in the first place.
+
+\section{Travailler avec pdf\LaTeX} \label{sec:pdftex}\index{PDF}
+\secby{Daniel Flipo}{Daniel.Flipo@univ-lille1.fr}%
+
+PDF est un format de document \wi{hypertexte}. De la même manière que
+dans une page Web, certains mots sont marqués comme des
+hyperliens. Ils renvoient vers d'autres endroits du document voir vers
+d'autres documents. En cliquant sur un hyperlien vous
+serez transportés sur la destination de ce lien. Dans le contexte de
+\LaTeX{}, cela signifie que toute occurrence de \ci{ref} et de
+\ci{pageref} deviendra un hyperlien. De plus, la table des matières,
+l'index et d'autres structures similaires deviendront aussi des
+collections d'hyperliens.
+
+La plupart des pages Web de nos jours sont écrites en HTML
+\emph{(HyperText Markup Language)}. Ce format a deux défauts majeurs
+pour écrire des documents scientifiques :
+\begin{enumerate}
+\item L'inclusion de formules mathématiques n'est généralement pas
+  possible. Bien qu'il y ait un standard pour cela, la plupart des
+  navigateurs ne le prennent pas en compte ou n'ont pas les polices
+  requises;
+\item L'impression de documents HTML est possible mais les résultats
+  varient énormément selon la plateforme et le navigateur, et loin des
+  standards de qualité du monde \LaTeX{}.
+\end{enumerate}
+
+Il y a de nombreuses tentatives de création de traducteurs de \LaTeX{}
+vers HTML. Certaines rencontrèrent un certain succès dans le sens où
+elles peuvent produire des pages Web lisibles à partir d'un fichier
+d'entrée \LaTeX{} standard. Mais toutes évitent certaines parties
+délicates pour obtenir ce résultat. Dès que l'on utilise des
+fonctionnalités plus complexes de \LaTeX{} ou des extensions externes,
+les choses tendent à partir à vau-l'eau. Les auteurs qui souhaitent
+préserver la qualité typographique unique de leurs documents, même sur
+le Web, se tournent vers le format PDF \emph{(Portable Document
+  Format)} qui préserve la mise en page du document et autorise la
+navigation hypertextuelle. La plupart des navigateurs disposent de
+plus d'extensions pour l'affichage direct de documents PDF.
+
+À la différence des formats DVI et PS, les documents PDF peuvent être
+affichés et imprimés sur la plupart des plateformes (Unix, Mac,
+Windows) grâce au logiciel Acrobat Reader d'Adobe qui peut être
+téléchargé gratuitement depuis le site d'Adobe. Sur de nombreux
+ordinateurs ce logiciel est même pré-installé sur le système de base.
+
+\subsection{Des documents PDF pour le Web}
+
+La création d'un fichier PDF à partir d'une source \LaTeX{} est très
+simple, grâce au programme pdf\TeX{} développé par
+H\`an~Th\'{\^e}~Th\`anh. pdf\TeX{} produit une sortie PDF là où \TeX{}
+produisait une sortie DVI. Il existe aussi pdf\LaTeX{} qui produit une
+sortie PDF à partir de sources \LaTeX{}.
+\index{pdftex@pdf\TeX}
+\index{pdftex@pdf\LaTeX}
+
+pdf\TeX{} et pdf\LaTeX{} sont installés automatiquement par les
+distributions \TeX{} modernes majeures : te\TeX{}, fp\TeX{},
+Mik\TeX, \TeX{}Live and CMac\TeX{}.
+
+Pour produire un fichier PDF au lieu d'un fichier DVI, il suffit de
+remplacer la commande \texttt{latex document.tex} par \texttt{pdflatex
+  document.tex}. Sur les systèmes où \LaTeX{} n'est pas appelé depuis
+la ligne de commande, vous pourrez trouver un bouton à cette fin dans
+le centre de contrôle \TeX{}.
+
+Avec \LaTeX{} vous pouvez définir le format de papier via une option
+passée à \texttt{documentclass} comme \texttt{a4paper} ou
+\texttt{letterpaper}. Ceci fonctionne également avec pdf\LaTeX{}, mais
+en plus de cela pdf\TeX{} a besoin de connaître le format physique du
+papier, pas seulement l'aire de mise en page.
+\index{format de papier}
+Si vous utilisez l'extension \pai{hyperref} (voir page
+\pageref{ssec:pdfhyperref}), le format de papier sera ajusté
+automatiquement. Sinon vous devrez le spécifier manuellement en
+ajoutant les lignes suivantes en préambule :
+\begin{code}
+\begin{verbatim}
+\pdfpagewidth=\paperwidth
+\pdfpageheight=\paperheight
+\end{verbatim}
+\end{code}
+
+La section suivante précisera plus encore les différences entre
+\LaTeX{} et pdf\LaTeX{}. Les différences principales concernent trois
+domaines : les polices à utiliser, les formats d'images à inclure et
+la configuration manuelle des hyperliens.
+
+\subsection{Les polices}
+
+\wi{pdf\LaTeX} est capable de gérer toutes sortes de polices (PK
+bitmaps, TrueType, PostScript type~1\dots) mais le format de police
+primaire de \LaTeX{}, les polices bitmap PK, produisent des résultats
+exécrables lorsqu'ils sont affichés avec Acrobat Reader. Il est
+préférable d'utiliser des polices PostScript de Type~1 pour produire
+des documents au rendu correct.
+
+Nous n'avons pas encore abordé les polices dans cet ouvrage parce qui
+\LaTeX{} gère cela très bien tout seul, puisqu'il utilise son propre
+jeu de polices adaptées pour la publication scientifique. En fait, il
+y a de jeux de polices \TeX{} : \emph{Computer Modern} (CM) qui
+consiste en 128 caractères et qui constitue le jeu de polices de base
+et \emph{Extended Cork} (EC) constitué de 256 caractères. La
+spécialité des polices EC est qu'elles comprennent les caractères
+spéciaux pour tous les caractères accentués spécifiques aux langues
+européennes, comme \"a ou \`e. Cela permet à la césure de fonctionner
+correctement avec des mots qui contiennent des caractères comme
+ceux-là. Vous pouvez activer les polices EC via la commande
+\verb+\usepackage[T1]{fontenc}+ en préambule (voir page
+\pageref{fontenc}). Malheureusement il n'y a pas de jeu libre/gratuit
+de polices PostScript type~1 pour l'ensemble EC. Par chance, il y a
+deux façons de tricher.
+\begin{itemize}
+\item Vous pouvez ajouter en préambule la ligne
+  \verb+\usepackage{aeguill}+\paih{aeguill} pour utiliser les polices
+  virtuelles AE ;
+\item Vous pouvez utiliser \verb+\usepackage{mltex}+ à la condition
+  que votre version de pdf\TeX{} a été compilée avec l'option
+  \wi{mltex}.
+\end{itemize}
+La police virtuelle AE comme le système {Ml\TeX} font croire à \TeX{}
+qu'il a un jeu de polices complet de 256 caractères à disposition. Ils
+créent pour ce faire les lettres manquantes à partir de caractères
+disponibles dans la police CM qui existe sous une variante PostScript
+type~1. Ceci a l'avantage de faire bien fonctionner les césures avec
+les langues européennes. Le seul défaut de cette approche est que les
+caractères AE artificiels ne fonctionnent pas avec la fonction de
+recherche d'Acrobat Reader (\texttt{Find}) : vous ne pourrez donc pas
+rechercher des mots avec des caractères accentués dans votre fichier
+PDF final.
+
+Une autre solution est de ne pas utiliser la police CM mais de passer
+à d'autres polices Postscript type~1. Certaines d'entre elles sont
+même fournies avec chaque copie d'Acrobat Reader. Celles-ci ayant des
+tailles de caractères différentes, l'aspect de votre texte sur vos
+pages sera différent. Généralement il utilisera plus d'espace que les
+polices CM qui sont très efficaces en terme d'occupation
+d'espace. De plus la cohérence visuelle de votre document en souffrira
+car les polices Times, Helvetica et Courier (les premières candidates
+en lice pour un tel changement) n'ont pas été conçues pour fonctionner
+en harmonie dans un seul document comme cela avait été fait pour les
+polices Computer Modern.
+
+Deux polices prêtes à l'emploi sont disponibles dans cette optique :
+\pai{pxfonts}, basée sur \emph{Palatino} pour la police du texte
+principal et l'extension \pai{txfonts} basée sur \emph{Times}. Pour
+les utiliser il suffit d'ajouter les lignes suivantes en préambule :
+\begin{code}
+\begin{verbatim}
+\usepackage[T1]{fontenc}
+\usepackage{pxfonts}
+\end{verbatim}
+\end{code}
+
+Note : il se peut que vous voyiez des lignes comme
+\begin{verbatim}
+Warning: pdftex (file eurmo10): Font eurmo10 at ... not found
+\end{verbatim}
+dans le fichier \texttt{.log} après compilation de votre
+fichier. Elles signifient que l'une des polices utilisées par votre
+document est introuvable. Vous devez vraiment résoudre ces problèmes,
+car le document PDF résultant pourrait \emph{ne pas afficher du tout
+  les pages contenant les caractères manquants}.
+
+Toutes ces histoires de polices, en particulier le manque d'une bonne
+police EC de qualité équivalente à la police CM au format type~1,
+occupent les esprits de nombreuses personnes. De nouvelles solutions
+surviennent donc à un rythme régulier.
+
+\subsection{Images et graphiques}
+\label{ssec:pdfgraph}
+
+Inclure des images dans un document fonctionne mieux avec l'extension
+\pai{graphicx} (voir page~\pageref{eps}). Avec l'option spéciale de
+pilote \texttt{pdftex} l'extension fonctionnera avec pdf\LaTeX{} :
+\begin{code}
+\begin{verbatim}
+\usepackage[pdftex]{color,graphicx}
+\end{verbatim}
+\end{code}
+L'example ci-dessus inclus l'option \texttt{color}, puisqu'utiliser de
+la couleur dans les documents affichés sur le Web vient naturellement.
+
+Voilà pour les bonnes nouvelles. La mauvaise nouvelle est que le
+format EPS (Encapsulated PostScript), votre format favori sous
+\LaTeX{}, ne fonctionne \emph{pas} pour les fichiers PDF. Si vous ne
+définissez pas d'extension de fichier dans la commande
+\ci{includegraphics}, \pai{graphicx} cherchera lui-même la bonne en
+fonction de l'option de pilote qui lui est passée. Pour
+\texttt{pdftex} ce seront les formats \texttt{.png}, \texttt{.pdf},
+\texttt{.jpg}, \texttt{.mps} (MetaPost) et \texttt{.tif}, mais
+\emph{sûrement pas} \texttt{.eps}.
+
+La manière la plus simple de résoudre le problème est de convertir
+vos fichiers EPS au format PDF en utilisant l'utilitaire
+\texttt{epstopdf} disponible sur de nombreux systèmes. Pour les images
+vectorielles (dessins) c'est une bonne solution. Pour les formats
+bitmap (photos, numérisations) ce n'est pas l'idéal car le format PDF prend
+nativement en compte l'inclusion d'images PNG et JPEG. PNG est un
+bon format pour les captures d'écran et autres images contenant peu de
+couleurs. JPEG est très bien pour les photos de par l'efficacité de sa
+compression pour ce type d'images.
+
+Pour certaines figures géométriques, il peut même être préférable
+d'utiliser un langage de commandes spécialisé comme \wi{MetaPost}, qui
+se trouve dans la plupart des distributions \TeX{} et est livré avec
+son manuel détaillé.
+
+\subsection{Liens hypertextuels}
+\label{ssec:pdfhyperref}
+
+L'extension \pai{hyperref} prendra soin de transformer toutes les
+références internes de votre document en hyperliens. Pour que cela
+fonctionne, il faut faire appel à un peu de magie : vous devrez
+ajouter \verb+\usepackage[pdftex]{hyperref}+ en tant que
+\emph{dernière} commande de votre préambule.
+
+De nombreuses options modifient le comportement de l'extension
+\pai{hyperref} :
+\begin{itemize}
+\item soit en tant qu'une liste séparée par des virgules après
+  l'option pdftex\\
+  \verb+\usepackage[pdftex]{hyperref}+ ;
+\item soit sur des lignes individuelles avec la commande
+  \verb+\hypersetup{+\emph{options}\verb+}+.
+\end{itemize}
+
+La seule option requise est \texttt{pdftex}; les autres ne sont pas
+obligatoire et ne servent qu'à modifier le comportement par défaut
+d'hyperref.\footnote{
+Il est ici intéressant de noter que l'extension \pai{hyperref} n'est
+pas limitée à pdf\TeX{}. Elle peut aussi être configurée pour
+embarquer des informations spécifiques au format PDF dans la sortie
+DVI de \LaTeX{}, qui seront insérées dans le fichier PS via
+\texttt{dvips} et enfin reconnues par Adobe Distiller lors de la
+transformation du fichier PS en PDF.}
+Dans la liste suivante, les valeurs par défaut des options sont
+affichées avec une police droite.
+
+\begin{description}
+  \item[\texttt{bookmarks (=true,\textit{false})}] montrer ou cacher
+    le marque-pages lors de l'affichage du document ;
+  \item [\texttt{pdftoolbar (=true,\textit{false})}] montrer ou cacher
+    la barre d'outils d'Acrobat ;
+  \item [\texttt{pdfmenubar (=true,\textit{false})}] montrer ou cacher
+    le menu d'Acrobat ;
+  \item [\texttt{pdffitwindow (=true,\textit{false})}] ajuster le
+    grossissement initial lors de l'affichage du fichier PDF ;
+  \item [\texttt{pdftitle (=\{texte\})}] définir le titre affiché dans
+    la fenêtre \texttt{Document Info} d'Acrobat ;
+  \item [\texttt{pdfauthor (=\{texte\})}] le nom de l'auteur ;
+  \item [\texttt{pdfnewwindow (=true,\textit{false})}] définir si une
+    nouvelle fenêtre doit être ouverte lorsqu'un lien conduit hors du
+    document courant ;
+  \item [\texttt{colorlinks (=true,\textit{false})}] montrer les \og
+    zones \fg{} des liens en couleur. La couleur de ces liens peut
+    être configurée via les options suivantes :
+    \begin{description}
+    \item [\texttt{linkcolor (=color,\textit{red})}] couleur des liens
+      internes (sections, pages, etc) ;
+    \item [\texttt{citecolor (=color,\textit{green})}] couleur des
+      liens de citations bibliographiques ;
+    \item [\texttt{filecolor (=color,\textit{magenta})}] couleur des
+      liens vers des fichiers ;
+    \item [\texttt{urlcolor (=color,\textit{cyan})}] couleur des liens
+      url (adresse électronique, adresse web).
+    \end{description}
+\end{description}
+
+\vspace{\baselineskip}
+
+Si les valeurs par défaut vous plaisent, utilisez
+\begin{code}
+\begin{verbatim}
+\usepackage[pdftex]{hyperref}
+\end{verbatim}
+\end{code}
+
+Pour avoir la liste des marque-pages ouverte et des liens en couleur
+(les valeurs \texttt{=true} sont optionnelles) :
+\begin{code}
+\begin{verbatim}
+\usepackage[pdftex,bookmarks,colorlinks]{hyperref}
+\end{verbatim}
+\end{code}
+
+Lors de la création de fichiers PDFs en vue d'impression, les liens
+colorés peuvent finir grisés dans le résultat final, ce qui les rend
+difficiles à lire :
+\begin{code}
+\begin{verbatim}
+\usepackage{hyperref}
+\hypersetup{colorlinks,%
+            citecolor=black,%
+            filecolor=black,%
+            linkcolor=black,%
+            urlcolor=black,%
+            pdftex}
+\end{verbatim}
+\end{code}
+
+Lorsque vous souhaitez simplement fournir des informations en section
+\texttt{Document Info} pour le fichier PDF :
+\begin{code}
+\begin{verbatim}
+\usepackage[pdfauthor={Pierre Desproges}%
+            pdftitle={Des femmes qui tombent},%
+            pdftex]{hyperref}
+\end{verbatim}
+\end{code}
+
+\vspace{\baselineskip}
+
+En plus des hyperliens automatiques pour les références croisées, il
+est possible d'insérer des liens explicites via
+\begin{lscommand}
+\ci{href}\verb|{|\emph{url}\verb|}{|\emph{text}\verb|}|
+\end{lscommand}
+
+Le code
+\begin{code}
+\begin{verbatim}
+Le site web du \href{http://www.ctan.org}{CTAN}.
+\end{verbatim}
+\end{code}
+produit la sortie \og \href{http://www.ctan.org}{CTAN} \fg{}; cliquer
+sur le mot \og \textcolor{magenta}{CTAN} \fg{} vous amènera au site
+web du CTAN.
+
+Si la destination du lien n'est pas une URL mais un fichier local,
+vous pouvez utiliser la commande \ci{href} :
+\begin{verbatim}
+  Le document complet est \href{manuel.pdf}{ici}
+\end{verbatim}
+Elle produit le texte \og Le document complet est
+\textcolor{cyan}{ici} fg{}. Cliquer sur le mot \og
+\textcolor{cyan}{ici} \fg{} ouvrira le fichier \texttt{manuel.pdf} (le
+nom de fichier est relatif au document courant).
+
+L'auteur d'un article peut souhaiter que ses lecteurs puissent lui
+envoyer facilement des emails en utilisant la commande \ci{href} à
+l'intérieur de la commande \ci{author} sur la page de titre du
+document :
+\begin{code}
+\begin{verbatim}
+\author{Mary Oetiker $<$\href{mailto:mary@oetiker.ch}%
+       {mary@oetiker.ch}$>$
+\end{verbatim}
+\end{code}
+Remarquez que j'ai écrit le lien de manière à ce que mon adresse email
+apparaisse non seulement dans le lien mais aussi sur la page
+elle-même. J'ai fait cela parce que le lien\\
+\verb+\href{mailto:mary@oetiker.ch}{Mary Oetiker}+,\\
+s'il fonctionnerait bien avec Acrobat, ne serait plus visible une fois
+la page imprimée.
+
+\subsection{Problème de liens}
+
+Des messages tels que celui-ci :
+\begin{verbatim}
+! pdfTeX warning (ext4): destination with the same identifier
+  (name{page.1}) has been already used, duplicate ignored
+\end{verbatim}
+apparaissent lors de la réinitialisation d'un compteur, par exemple
+lors de l'utilisation de la commande \ci{mainmatter} fournie par la
+classe de document \texttt{book}. Elle remet à 1 le numéro de page
+page avant le premier chapitre du livre. Cependant, la préface du
+livre a aussi une page numérotée~1 : les liens vers la \og page~1
+\fg{} ne seraient alors plus uniques, d'où l'avertissement \og
+\verb+duplicate+ has been \verb+ignored+ \fg{}.
+
+La contre-mesure consiste en l'ajout de \texttt{plainpages=false} aux
+options d'hyperref. Ça ne résout le problème que pour le compteur de
+pages, malheureusement.
+Une solution encore plus radicale est d'utiliser l'option
+\texttt{hypertexnames=false} mais cela empêchera les liens de pages en
+index de fonctionner.
+
+\subsection{Problèmes de marque-pages}
+
+Le texte affiché par les marque-pages ne correspond pas toujours à vos
+attentes : comme ceux-ci sont \og juste du texte \fg{}, encore moins de
+caractères que pour \LaTeX{} sont disponibles. Hyperref remarquera ce
+type de problème et notifiera un avertissement :
+\begin{code}
+\begin{verbatim}
+Package hyperref Warning: 
+Token not allowed in a PDFDocEncoded string:
+\end{verbatim}
+\end{code}
+Vous pouvez contourner ce problème en fournissant une chaîne de
+caractères pour les marque-pages pour remplacer le texte à problèmes :
+\begin{lscommand}
+\ci{texorpdfstring}\verb|{|\emph{Texte \TeX{}}\verb|}{|\emph{Texte de marque-pages}\verb|}|
+\end{lscommand}
+
+
+Les expressions mathématiques sont les coupables idéales pour ce genre
+de problèmes :
+\begin{code}
+\begin{verbatim}
+\section{\texorpdfstring{$E=mc^2$}%
+        {E\ =\ mc\texttwosuperior}}
+\end{verbatim}
+\end{code}
+transforme \verb+\section{$E=mc^2$}+ en \og E=mc2 \fg{} dans la zone de
+marque-pages.
+
+Il en va de même pour les changements de couleur :
+\begin{code}
+\verb+\section{\textcolor{red}{Rouge !}}+
+\end{code}
+produit la chaîne \og redRouge! \fg{}. La commande \verb+textcolor+
+est ignorée mais son argument (red) est tout de même affiché.
+
+Si vous utilisez
+\begin{code}
+\verb+\section{\texorpdfstring{\textcolor{red}{Rouge !}}{Rouge\ !}}+
+\end{code}
+le résultat sera beaucoup plus lisible.
+
+
+\subsubsection{Compatibilité des sources entre \LaTeX{} et pdf\LaTeX{}}
+\label{sec:pdfcompat}
+
+
+Idéalement vos documents devraient se compiler aussi bien avec
+\LaTeX{} qu'avec pdf\LaTeX{}. Le problème principal ici est
+l'inclusion d'images. La solution simple est de \emph{systématiquement
+omettre} le suffixe de fichier des commandes \ci{includegraphics}. Ils
+chercheront alors un fichier dans un format pris en compte dans le
+répertoire courant. Tout ce que vous avez à faire est créer des
+versions appropriées des images. \LaTeX{} cherchera les fichiers
+\texttt{.eps} et pdf\LaTeX{} s'efforcera d'inclure un fichier au
+suffixe \texttt{.png}, \texttt{.pdf}, \texttt{.jpg}, \texttt{.mps} ou
+\texttt{.tif} (dans cet ordre).
+
+
+Pour les occasions où vous voulez utiliser un code différent pour la
+version PDF de votre document, vous pouvez ajouter :
+\begin{code}
+\begin{verbatim}
+\newif\ifPDF
+\ifx\pdfoutput\undefined\PDFfalse
+\else\ifnum\pdfoutput > 0\PDFtrue
+     \else\PDFfalse
+     \fi
+\fi
+\end{verbatim}
+\end{code}
+dans les toutes premières lignes de votre document. Cela définit une
+commande spéciale qui permettra d'écrire facilement des structures de
+contrôle conditionnelles :
+\begin{code}
+\begin{verbatim}
+\ifPDF
+  \usepackage[T1]{fontenc}
+  \usepackage{aeguill}
+  \usepackage[pdftex]{graphicx,color}
+  \usepackage[pdftex]{hyperref}
+\else    
+  \usepackage[T1]{fontenc}
+  \usepackage[dvips]{graphicx}
+  \usepackage[dvips]{hyperref}
+\fi
+\end{verbatim}
+\end{code}
+L'exemple ci-dessus fait inclure l'extension hyperref même dans la
+version non-PDF, ceci afin de faire fonctionner la commande \ci{href}
+dans tous les cas. Cela évite de devoir protéger chacune de ses
+occurrences par une structure conditionnelle.
+
+Remarquez que dans les distributions \TeX{} récentes (\TeX{}Live par
+exemple), le choix entre \texttt{pdftex} et \texttt{dvips} lors de
+l'appel à \pai{graphicx} et \pai{color} suivra automatiquement les
+réglages opérés dans les fichiers de configuration
+\texttt{graphics.cfg} et \texttt{color.cfg}.
+
+\section{Créer des présentations avec \pai{pdfscreen}}
+\label{sec:pdfscreen}
+\secby{Daniel Flipo}{Daniel.Flipo@univ-lille1.fr}
+Vous pouvez présenter les résultats de vos travaux sur un tableau
+noir, avec des transparents ou directement depuis votre ordinateur
+portable grâce à un logiciel de présentation.
+
+\wi{pdf\LaTeX} combiné à l'extension \pai{pdfscreen} permettent la
+création de présentations en PDF aussi colorées et vivantes que ce qui
+est fait avec \emph{PowerPoint}, mais bien plus portable
+puisqu'Acrobat Reader est disponible sur bien plus de systèmes.
+
+
+La classe \pai{pdfscreen} utilise \pai{graphicx}, \pai{color} et
+\pai{hyperref} avec des options adaptées aux présentations sur
+écrans.
+%La figure~\ref{fig:pdfscr} contient un exemple de fichier minimal à
+%compiler avec \wi{pdf\LaTeX} et le 
+%résultat produit.
+
+% Écran capturé par ImageMagick (man ImageMagick) fonction « import »
+% et convertie en jpg toujours par ImageMagick.
+\begin{figure}[htbp]
+\begin{verbatim}
+\documentclass[pdftex,12pt]{article}
+%%% misc extensions %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[latin1]{inputenc}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{aeguill}
+%%% pdfscreen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[screen,panelleft,chocolate]{pdfscreen}
+% Screen Format
+\panelwidth=25mm
+%%          height width
+\screensize{150mm}{200mm} 
+%%          left right top  bottom
+\marginsize{42mm}{8mm}{10mm}{10mm}
+% Color or image for background
+\overlayempty
+\definecolor{mybg}{rgb}{1,0.9,0.7}
+\backgroundcolor{mybg}
+% Logo
+\emblema{MyLogo}
+%%% For PPower4 (post-processor) %%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{pause}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\begin{slide}
+\begin{itemize}
+\item Bonnes nouvelles\dots \pause
+\item Mauvaises nouvelles
+\end{itemize}
+\end{slide}
+\end{document}
+\end{verbatim}
+%  \begin{center}
+%    \includegraphics[width=.8\textwidth]{pdfscr}
+    \caption{Exemple de fichier d'entrée pdfscreen}
+    \label{fig:pdfscr}   
+%  \end{center}
+\end{figure}
+
+Pour fabriquer ce type de document, vous travaillez normalement dans
+la classe \texttt{article}. La figure \ref{fig:pdfscr} montre un
+exemple de fichier d'entrée. En premier lieu vous devez charger
+\pai{pdfscreen} avec des options idoines :
+\begin{description}
+\item[\texttt{screen}] : présentation à l'écran. Utilisez
+  \texttt{print} pour obtenir une version imprimable ;
+\item[\texttt{panelright}] ajoute un panneau de navigation à droite de
+  l'écran. Si le panneau devrait être à gauche, utilisez
+  \texttt{panelleft} ;
+\item[\texttt{french}] ou tout autre langage pris en compte modifiera
+  le texte sur les boutons de navigation de manière appropriée. Cette
+  option est indépendante des options de l'extension babel ;
+\item[\texttt{chocolate}] schéma de couleurs pour le panneau de
+  navigation. D'autres choix possibles incluent \texttt{gray},
+  \texttt{orange}, \texttt{palegreen}, \texttt{bluelace} et
+  \texttt{blue}, le schéma par défaut.
+\end{description}
+Ensuite vous configurez le format d'affichage. Comme la présentation
+passera à la vraie taille de l'écran lors de l'affichage, vous pouvez
+exploiter cela pour configurer la taille de la police :
+\begin{description}
+\item[\ci{panelwidth}] définit la largeur du panneau de navigation ;
+\item[\ci{screensize}\texttt{\{}\emph{largeur}\texttt{\}\{}\emph{hauteur}\texttt{\}}]
+  définit la largeur et la hauteur de l'écran, le panneau de
+  navigation inclus ;
+\item[\ci{marginsize}\texttt{\{}\emph{left}\texttt{\}\{}\emph{right}\texttt{\}\{}\emph{top}\texttt{\}\{}\emph{bottom}\texttt{\}}]
+  définit les marges du document. Dans l'exemple, le document n'est
+  pas centré à cause des numéros de section dans la marge de gauche.
+\end{description}
+
+Il est possible d'utiliser une image en fond d'écran dans n'importe
+lequel des formats reconnus par pdf\TeX{} à l'aide de la commande
+\begin{lscommand}
+\ci{overlay}\verb|{|\emph{image}\verb|}|
+\end{lscommand}
+ou si vous préférez un fond uni, vous pouvez définir sa couleur avec
+\begin{lscommand}
+\ci{background}\verb|{|\emph{couleur}\verb|}|
+\end{lscommand}
+Enfin si vous voulez placer le logo de votre organisation dans le
+panneau de navigation, utilisez la commande
+\begin{lscommand}
+\ci{emblema}\verb|{|\emph{logo}\verb|}|
+\end{lscommand}
+
+Si vous êtes un fervent défenseur du pouvoir présentationnel de
+l'exposition d'une liste point par point, l'extension \pai{pause} peut
+vous intéresser. Elle fournit une commande \ci{pause}. Vous pouvez
+placer cette commande en plein c\oe ur de votre texte là où vous
+souhaitez qu'Acrobat se mette en pause sur l'affichage de votre
+document. L'extension \pai{pause} fait partie du système
+\texttt{ppower4} ($P^4$: \emph{Pdf Presentation Post-Processor} ou
+Post-processeur de présentations Pdf). Ce système peut recompiler
+après coup une sortie pdf de pdf\TeX{} et la faire danser, chanter et
+mendier sa pitance. Vous pouvez traiter la sortie de pdf\TeX{} en la
+passant au post-processeur. En ligne de commande, cela ressemble à :
+\begin{lscommand}
+\verb+ppower4 xy.pdf xyz.pdf+
+\end{lscommand}
+
+Pour contrôler le contenu d'un seul transparent, vous utiliserez
+l'environnement \verb+\begin{slide}+ \ldots \verb+\end{slide}+. Le
+contenu de chaque transparent sera centré verticalement sur sa page.
+
+Si vous compilez l'exemple plus haut, vous obtiendrez un message
+d'erreur :
+\begin{verbatim}
+! pdfTeX warning (dest): name{contents} has been
+  referenced but does not exist, replaced by a fixed one
+\end{verbatim}
+Cette erreur est due à un bouton du panneau de navigation vers la
+table des matières, qui n'existe pas à cause de l'absence de commande
+\ci{tableofcontents}.
+
+Pour afficher la table des matières à l'intérieur du panneau de
+navigation, vous pouvez utiliser l'option \texttt{paneltoc} lors de
+l'appel à \pai{pdfscreen}. Cela ne produira de résultat satisfaisant
+que si votre présentation possède une table des matières aux entrées
+courtes et peu nombreuses. Vous voudrez en conséquence fournir des
+titres courts entre crochets lors de la déclaration de vos titres de
+sections.
+
+Cette courte introduction ne fait que gratter la surface de ce qu'il
+est possible de réaliser avec \pai{pdfscreen} et \texttt{PPower4}. Ces
+deux extensions sont fournies avec leur propre documentation abondante.
+
+
+\section{\texorpdfstring{\Xy}{Xy}-pic}
+\secby{Alberto Manuel Brand\~ao Sim\~oes}{albie@alfarrabio.di.uminho.pt}
+\pai{xy} est une extension dédiée au dessin de diagrammes. Elle est
+invoquée par l'ajout dans votre préambule de la ligne :
+\begin{lscommand}
+\verb|\usepackage[|\emph{options}\verb|]{xy}|
+\end{lscommand}
+\emph{options} est une liste des fonctions que vous voulez voir
+\Xy-pic charger. Ces options sont surtout utiles pour déboguer
+l'extension. Je vous suggère d'utiliser l'option \verb!all! afin de
+faire charger toutes les commandes \Xy{} par \LaTeX{}.
+
+Les diagrammes \Xy-pic sont dessinés sur une trame basée sur un
+matrice, où chaque élément de dessin correspond à un élément de la
+matrice :
+\begin{example}
+\begin{displaymath}
+\xymatrix{A & B \\
+          C & D }
+\end{displaymath}
+\end{example}
+La commande \ci{xymatrix} requiert le mode mathématique. Ici nous
+avons spécifié deux lignes et deux colonnes. Pour faire de cette
+matrice un diagramme, nous ajoutons des flèches via la commande
+\ci{ar}.
+\begin{example}
+\begin{displaymath}
+\xymatrix{ A \ar[r] & B \ar[d] \\
+           D \ar[u] & C \ar[l] }
+\end{displaymath}
+\end{example}
+La commande de flèche est placée sur la cellule d'origine de la
+flèche. Les arguments correspondent à sa direction (\texttt{u}p vers
+le haut, \texttt{d}own vers le bas, \texttt{r}ight vers la droite et
+\texttt{l}eft vers la gauche).
+
+
+\begin{example}
+\begin{displaymath}
+\xymatrix{
+  A \ar[d] \ar[dr] \ar[r] & B \\
+  D                       & C }
+\end{displaymath}
+\end{example}
+Les flèches en diagonales sont obtenus en utilisant plus d'une
+direction. Vous pouvez aussi répéter les directions pour avoir de plus
+grandes flèches.
+\begin{example}
+\begin{displaymath}
+\xymatrix{
+  A \ar[d] \ar[dr] \ar[drr] & & \\
+  B                      & C & D }
+\end{displaymath}
+\end{example}
+
+Nous pouvons dessiner des diagrammes plus intéressants en ajoutant des
+étiquettes aux flèches grâce aux opérateurs d'indice et d'exposant.
+\begin{example}
+\begin{displaymath}
+\xymatrix{
+  A \ar[r]^f \ar[d]_g &
+             B \ar[d]^{g'} \\
+  D \ar[r]_{f'}       & C }
+\end{displaymath}
+\end{example}
+
+Comme l'indique l'exemple, vous utilisez ces opérateurs en mode
+mathématique. La seule différence est que l'exposant signifie \og
+au-dessus de la flèche \fg{} et l'indice \og sous la flèche \fg{}. il
+existe un troisième opérateur, la barre verticale: \verb+|+. Elle fait
+se placer le texte \emph{dans} la flèche.
+\begin{example}
+\begin{displaymath}
+\xymatrix{
+  A \ar[r]|f \ar[d]|g &
+             B \ar[d]|{g'} \\
+  D \ar[r]|{f'}       & C }
+\end{displaymath}
+\end{example}
+
+Pour dessiner une flèche trouée, utilisez \verb!\ar[...]|\hole!.
+
+Dans certaines circonstances, il peut être important de distinguer les
+différents types de flèches. Ceci peut être obtenu en leur assignant
+des étiquettes ou en changeant leur apparence :
+
+\begin{example}
+\begin{displaymath}
+\xymatrix{
+ \bullet\ar@{->}[rr] && \bullet\\
+ \bullet\ar@{.<}[rr] && \bullet\\
+ \bullet\ar@{~)}[rr] && \bullet\\
+ \bullet\ar@{=(}[rr] && \bullet\\
+ \bullet\ar@{~/}[rr]  && \bullet\\
+ \bullet\ar@{=+}[rr]   && \bullet
+}
+\end{displaymath}
+\end{example}
+
+Notez la différence entre les deux diagrammes suivants:
+
+\begin{example}
+\begin{displaymath}
+\xymatrix{
+ \bullet \ar[r] 
+         \ar@{.>}[r] & 
+ \bullet
+}
+\end{displaymath}
+\end{example}
+
+\begin{example}
+\begin{displaymath}
+\xymatrix{
+ \bullet \ar@/^/[r] 
+         \ar@/_/@{.>}[r] &
+ \bullet
+}
+\end{displaymath}
+\end{example}
+
+Les modifieurs entre les slashs définissent la manière dont les
+courbes sont dessinées. \Xy-pic offre de nombreuses façons
+d'influencer le dessin des courbes. Pour plus d'informations, veuillez
+consultez la documentation d'\Xy-pic.
+
 \endinput
 
-%%% Local Variables: 
-%%% mode: latex 
-%%% TeX-master: "lshort" 
-%%% End:  
-
-
+%
 
 % Local Variables:
+% TeX-master: "lshort2e"
+% mode: latex
 % mode: flyspell
 % End:
