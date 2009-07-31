@@ -10,6 +10,7 @@
 %save pageref an label
 \let\lsspageref=\pageref
 \ProvidesPackage{lshort}
+\RequirePackage[english,frenchb]{babel}
 \RequirePackage{verbatim}
 \RequirePackage{fancyhdr}
 \RequirePackage{calc}
@@ -46,6 +47,10 @@
 \newcommand{\bs}{\symbol{'134}}%Print backslash
 %\newcommand{\bs}{\ensuremath{\mathtt{\backslash}}}%Print backslash
 % Index entry for a command (\cih for hidden command index
+\newcommand{\eei}[1]{%
+\index{extension!\texttt{#1}}\texttt{#1}}
+% probably add handling of period like handling of \ in \ci 
+\newcommand{\fni}[1]{\index{font!#1}\index{#1}#1}    
 \newcommand{\cih}[1]{%
 \index{commandes!#1@\protect\texttt{\bs#1}}%
 \index{#1@\protect\texttt{\hspace*{-1.2ex}\bs #1}}}
@@ -80,7 +85,10 @@
 %
 % Intro Environment
 \newenvironment{intro}{\sffamily}{\vspace*{2ex minus 1.5ex}}
+%
+\newcommand{\secby}[2]{{\tiny #1 $<$\texttt{#2}$>$}\par\addvspace{2ex}\ignorespaces\noindent}
 
+%\noindent\addvspace{1ex}\small #1 $<$\texttt{#2}$>$\par\addvspace{2ex}\noindnet\ignorespaces}
 %
 %
 % Symbol Entry for Math Symbol Tables
@@ -109,7 +117,8 @@
 %
 
 % we have no PS versions of the rsfs fonts ... so this is a nogo for pdf
-\ifx\pdfoutput\undefined % We're not running pdftex
+\ifx\HyPsd@pageref\undefined
+%\ifx\pdfoutput\undefined % We're not running pdftex
 \IfFileExists{mathrsfs.sty}
   {\RequirePackage{mathrsfs}\let\MathRSFS\mathscr\let\mathscr\relax}{}
 \fi

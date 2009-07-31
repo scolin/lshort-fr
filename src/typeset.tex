@@ -523,8 +523,54 @@ des caractères accentués. L'utilisation de la  police EC est activée par
 l'extension \pai{fontenc}, avec la commande suivante dans le
 préambule :
 \begin{lscommand}
+\ci{usepackage}\verb|[T1]{fontenc}|
+\end{lscommand}
+
+Cependant, il n'y a malheureusement pas de version Postscript de la
+police EC, ce qui causera des problèmes lors de la génération de
+versions PDF de vos documents. Si cela vous pose effectivement
+problème, vous pouvez essayer d'utiliser le package \pai{ae}
+(\emph{Almost European Computer Modern}) qui utilise les caractères de
+la police Computer Modern d'origine, mais les réarrange dans le même
+ordre que ceux de la police EC.
+
+\pagebreak[4]
+
+\subsection{Support de la langue portugaise}
+
+\secby{Demerson Andre Polli}{polli@linux.ime.usp.br}
+Pour activer la césure et faire passer tous les textes automatisés en
+portugais\index{Portugu\^es} utilisez la commande :
+\begin{lscommand}
+\verb|\usepackage[portuges]{babel}|
+\end{lscommand}
+
+Il est cependant nécessaire d'activer les accents utilisés en
+portugais avec les commandes suivantes :
+\begin{lscommand}
+\verb|\usepackage[latin1]{inputenc}|
+\end{lscommand}
+et
+\begin{lscommand}
 \verb|\usepackage[T1]{fontenc}|
 \end{lscommand}
+
+Vous pouvez désormais utiliser normalement tous les accents de la
+langue portugaise. Voyez la table~\ref{portuguese} qui récapitule ce
+qu'il y a à ajouter en préambule pour écrire en langue portugaise.
+
+\begin{table}[!hbp]
+\caption{Préambule pour écrire en portugais.} \label{portuguese}
+\begin{lined}{5cm}
+\begin{verbatim}
+\usepackage[portuges]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\end{verbatim}
+\bigskip
+\end{lined}
+\end{table}
+
 
 \subsection{Support de la langue française} 
 
@@ -532,8 +578,11 @@ préambule :
 % développée par Bernard Gaulle~\cite{french}. 
 % Mais le traducteur boycotte les versions récentes (frenchpro) 
 
-Pour le français, l'option \pai{francais} de l'extension \pai{babel}
-applique les règles de césure spécifiques du français et adapte
+\secby{Daniel Flipo}{daniel.flipo@univ-lille1.fr}
+Pour le français, les options \pai{francais} ou \pai{frenchb}
+(équivalentes, pour des raisons historiques, mais \emph{pas} \pai{french})
+de l'extension \pai{babel}
+appliquent les règles de césure spécifiques du français et adaptent
 \LaTeX{} à la plupart des règles spécifiques de la typographie
 française~\cite{ftypo} : présentation des listes, insertion
 automatique de l'espacement avant les signes de ponctuation doubles, etc.
@@ -561,7 +610,14 @@ automatique de l'espacement avant les signes de ponctuation doubles, etc.
 
 Les mots générés automatiquement par \LaTeX{} sont traduits en
 français et certaines commandes supplémentaires (cf.
-table~\ref{cmd-french}) sont disponibles. 
+table~\ref{cmd-french}) sont disponibles.
+
+Vous remarquerez également que la mise en page des listes est changée
+lors du passage à la langue française. Pour obtenir toutes les
+informations sur l'option \pai{frenchb} de \pai{babel} et comment
+modifier son comportement, compilez le fichier \texttt{frenchb.dtx}
+avec \LaTeX{} et consultez le fichier \texttt{frenchb.dvi} ainsi
+produit.
 
 % -- ca serait bien d'ajouter ça --mh
 % L'extension \pai{aeguill} active l'utilisation du mécanisme des polices
@@ -569,7 +625,7 @@ table~\ref{cmd-french}) sont disponibles.
 % polices de caractère \TeX avec le codage T1 (nécessaire pour la césure
 % correcte des mots contenant des caractères accentués). 
 
-Dans cette traduction, un certain nombre d'ajouts présentent ces
+Dans cette traduction, un certain nombre d'ajouts présentent les
 spécificités de la typographie française tout au long du texte.
 
 \subsection{Support de la langue allemande}

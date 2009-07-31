@@ -438,10 +438,18 @@ sur votre ordinateur.
       créent ce type de fichier. Sous Windows, assurez-vous que le
       fichier est sauvegardé en texte seul (ASCII ou encore \og plain
       text \fg{}). Choisissez pour votre fichier un nom avec le suffixe
-      \texttt{.tex}. 
+      \eei{.tex}. 
 
-\item Exécutez \LaTeX{} sur votre fichier. Si tout se passe bien, vous
-      obtiendrez un nouveau fichier avec le suffixe \texttt{.dvi}. 
+\item 
+
+Exécutez \LaTeX{} sur votre fichier. Si tout se passe bien, vous
+obtiendrez un nouveau fichier avec le suffixe \texttt{.dvi}. Il peut
+être nécessaire d'exécuter \LaTeX{} plusieurs fois afin que la table
+des matières et les références internes soient à jour. S'il y a un
+bogue dans votre fichier, \LaTeX{} vous le signalera et s'arrêtera.
+
+
+
 \begin{verbatim}
 latex document.tex
 \end{verbatim}
@@ -454,10 +462,10 @@ ou encore transformer le résultat en PostScript
 \begin{verbatim}
 dvips -Pcmz -o document.ps document.dvi
 \end{verbatim}
-\texttt{\wi{xdvi}} et \texttt{\wi{dvips}} sont des logiciels %libres
-qui manipulent les fichiers DVI. Ils sont disponibles sur la plupart
+\texttt{\wi{xdvi}} et \texttt{\wi{dvips}} sont des logiciels libres
+qui manipulent les fichiers \eei{.dvi}. Ils sont disponibles sur la plupart
 des systèmes Unix. Sur les autres systèmes, d'autres outils de
-manipulation des fichiers DVI sont disponibles. 
+manipulation des fichiers \eei{.dvi} sont disponibles. 
 
 \end{enumerate}
 
@@ -695,60 +703,73 @@ On peut changer le style de la page en cours grâce à la commande
 Au chapitre~\ref{chap:spec}, page~\pageref{sec:fancyhdr}, vous apprendrez
 comment créer vos propres en-têtes et pieds de pages.
 
-%
-% Add Info on page-numbering, ...
-% \pagenumbering
 
 \section{Les fichiers manipulés}
-L'utilisateur de \LaTeX{} est amené à cotoyer un grand nombre de fichiers
-aux suffixes divers, chaque suffixe renseigne sur le rôle du fichier,
-il est donc utile d'en connaître la signification, voici les suffixes
-les plus courants :
+
+L'utilisateur de \LaTeX{} est amené à cotoyer un grand nombre de
+fichiers aux \wi{suffixe}s divers. Comme chaque suffixe renseigne sur
+le \wi{type de fichier} dont il s'agit, il est utile d'en connaître la
+signification, voici les suffixes les plus courants. Si vous pensez
+qu'il en manque, n'hésitez pas à contacter les auteurs:
+
 \begin{description}
-\item[\wi{.tex}] fichier source \TeX{} ou \LaTeX{} ;
-\item[\wi{.sty}] fichier contenant des commandes, que l'on charge dans le
-  préambule d'un document grâce à une commande \verb+\usepackage+ ;
-\item[\wi{.dtx}] fichier contenant du code \LaTeX{} (commandes) documenté,
+\item[\eei{.tex}] fichier source \TeX{} ou \LaTeX{} ;
+\item[\eei{.sty}] fichier contenant des commandes, que l'on charge dans le
+  préambule d'un document grâce à une commande \ci{usepackage} ;
+\item[\eei{.dtx}] fichier contenant du code \LaTeX{} (commandes) documenté,
   le lancement de \LaTeX{} sur un fichier \texttt{.dtx} en extrait la
   documentation.
-\item[\wi{.ins}] fichier permettant d'installer le contenu du
+\item[\eei{.ins}] fichier permettant d'installer le contenu du
   fichier~\texttt{.dtx} de même nom. Une extension \LaTeX{}
   téléchargée de l'Internet est composée d'un fichier \texttt{.dtx} et
   d'un \texttt{.ins}. Exécuter \LaTeX{} sur le fichier \texttt{.ins}
   pour extraire les fichiers à installer du \texttt{.dtx}.
-\item[\wi{.cls}] désigne un fichier de \emph{classe} contenant la
+\item[\eei{.cls}] désigne un fichier de \emph{classe} contenant la
   description d'un type de document, chargé par la commande
   \ci{documentclass};
-\item[\wi{.fd}] fichier contenant des définitions pour les polices de
-  caractères ; 
+\item[\eei{.fd}] fichier contenant des définitions pour les polices de
+  caractères ;
 \end{description}
 
-\noindent Les fichiers suivants sont produits par \LaTeX{} à partir du fichier
-source (de suffixe~\texttt{.tex}) :
+Les fichiers suivants sont produits par \LaTeX{} à partir du fichier
+source :
+
 \begin{description}
-\item[\wi{.dvi}] signifie \emph{DeVice Independent}, c'est le fichier que l'on
+\item[\eei{.dvi}] signifie \emph{DeVice Independent}, c'est le fichier que l'on
   visualise à l'écran et qui servira à l'impression (par \texttt{dvips} par
   exemple) ;
-\item[\wi{.log}] fichier contenant le compte-rendu détaillé de la
+\item[\eei{.log}] fichier contenant le compte-rendu détaillé de la
   compilation du fichier source (avec les messages d'erreur éventuels), 
-\item[\wi{.toc}] contient le matériel nécessaire à la production de la
-  table des matières, si celle-ci a été demandée ;
-\item[\wi{.lof}] contient la liste numérotée des figures, si elle a été
+\item[\eei{.toc}] contient le matériel nécessaire à la production de la
+  table des matières, si celle-ci a été demandée. Ce fichier sera lu à
+  la prochaine exécution de \LaTeX{} ;
+\item[\eei{.lof}] contient la liste numérotée des figures, si elle a été
   demandée ;
-\item[\wi{.lot}] contient la liste numérotée des tableaux, si elle a été
+\item[\eei{.lot}] contient la liste numérotée des tableaux, si elle a été
   demandée ;
-\item[\wi{.aux}] contient diverses informations utiles à \LaTeX, en
+\item[\eei{.aux}] contient diverses informations utiles à \LaTeX, en
   particulier ce qui est nécessaire au fonctionnement des références
   croisées. Le fichier \texttt{.aux} produit lors d'une exécution de
   \LaTeX{} est lu lors de l'exécution suivante ;
-\item[\wi{.idx}] fichier produit seulement si un index est demandé, il doit
+\item[\eei{.idx}] fichier produit seulement si un index est demandé, il doit
   être traité par \texttt{makeindex} (voir section~\ref{sec:indexing}
   page~\pageref{sec:indexing}) ;
-\item[\wi{.ind}] fichier produit par \texttt{makeindex} à partir
+\item[\eei{.ind}] fichier produit par \texttt{makeindex} à partir
   du~\texttt{.idx}, il contient l'index prêt à être inclus dans le document ;
-\item[\wi{.ilg}] fichier contenant le compte-rendu du travail de
+\item[\eei{.ilg}] fichier contenant le compte-rendu du travail de
   \texttt{makeindex}.
 \end{description}
+
+
+% Package Info pointer
+%
+%
+
+
+
+%
+% Add Info on page-numbering, ...
+% \pagenumbering
 
 \section{Gros documents}
 

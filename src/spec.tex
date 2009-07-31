@@ -72,9 +72,10 @@ figure dans un document :
  est \texttt{dvips}. Cette information est nécessaire car
  il n'y a pas de standard pour l'insertion de figures en \TeX{} ;
  celle-ci est réalisée par le pilote au moment de
- l'impression. Connaître le nom du pilote  permet à l'extension
- \pai{graphics} d'inclure les bonnes commandes dans le
- fichier \verb|.dvi| pour réaliser cette insertion ;
+ l'impression. Connaître le nom du pilote permet à l'extension
+ \textsf{graphicx} d'inclure les bonnes commandes dans le
+ fichier \eei{.dvi} pour réaliser l'insertion correcte du fichier
+ \eei{.eps};
 \item utilisez la commande :
 \begin{lscommand}
 \ci{includegraphics}\verb|[|\emph{clef}=\emph{valeur}, ... \verb|]{|\emph{fichier}\verb|}|
@@ -213,15 +214,15 @@ où \emph{clef} est un mot-clef de l'index. Vous insérez des commandes
 Quand le fichier source est traité par \LaTeX{}, chaque commande
 \verb|\index| crée une entrée adaptée contenant le numéro de la page
 en cours dans le fichier qui porte le même nom de base que le fichier
-source, mais avec le suffixe \verb|.idx|. Ce fichier est ensuite
-traité par le programme \texttt{makeindex}.
+source, mais avec le suffixe \eei{.idx}. Ce fichier est ensuite traité
+par le programme \texttt{makeindex}.
 \begin{lscommand}
   \texttt{makeindex} \emph{nom de fichier}
 \end{lscommand}
 \index{makeindex@\texttt{makeindex}}
 Le programme \texttt{makeindex} crée un index trié dans le fichier
-\verb|.ind|. Ensuite, la prochaine fois que  le fichier source sera
-traité, le contenu du fichier \verb|.ind| sera
+\eei{.ind}. Ensuite, la prochaine fois que  le fichier source sera
+traité, le contenu du fichier \texttt{.ind} sera
 inclus à l'endroit où \LaTeX{} rencontrera la commande :
 \begin{lscommand}
   \ci{printindex}
@@ -350,7 +351,7 @@ d'autre part extraire la documentation, voici la manière de procéder :
 
 \begin{enumerate}
 \item exécuter \LaTeX{} sur le fichier \texttt{.ins}. Ceci produira les
-  fichiers \texttt{.sty}, \texttt{.def}, etc., dont \LaTeX{} a besoin.
+  fichiers \eei{.sty}, \eei{.def}, etc., dont \LaTeX{} a besoin.
 \item déplacer ces fichiers dans un répertoire adéquat, en général 
   c'est dans \texttt{\ldots/texmf/tex/latex} ou dans
   \texttt{\ldots/\emph{localtexmf}/tex/latex}.
