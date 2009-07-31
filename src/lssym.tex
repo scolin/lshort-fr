@@ -8,13 +8,12 @@
 
 \index{symboles!mathématiques}
  
-Dans les tableaux suivants, vous trouverez tous les symboles
-accessibles en mode \emph{mathématique}.
+Les tableaux suivants montrent tous les symboles accessibles en mode
+\emph{mathématique}.
 
 %
 % Conditional Text in case the AMS Fonts are installed
 %
-\ifx\noAMS\relax 
 Pour utiliser des symboles présents dans les tables~\ref{AMSD}
 à~\ref{AMSNBR}\,\footnote{Ces tables sont dérivées du
 fichier \texttt{symbols.tex} de David~Carlisle et modifiées selon les
@@ -23,7 +22,9 @@ chargée dans le préambule du document et les polices mathématiques de
 l'AMS doivent être installées sur votre système. Si les extensions et
 les polices de l'AMS ne sont pas installées sur votre système, vous
 pouvez les récupérer sur\\
-\texttt{CTAN:/macros/latex/packages/amslatex}\fi
+\texttt{CTAN:/macros/latex/packages/amslatex}. Il existe une
+liste beaucoup plus complète de symboles sur
+\texttt{CTAN:info/symbols/comprehensive}.
  
 \begin{table}[!h]
 \caption{Accents en mode mathématique}  \label{mathacc}
@@ -61,8 +62,8 @@ pouvez les récupérer sur\\
 \begin{table}[!tbp]
 \caption{Relations binaires}
 \bigskip
-Vous pouvez produire la négation de ces relations en préfixant ces
-commandes par \verb|\not|.
+Vous pouvez produire la négation de ces symboles en les préfixant par
+la commande \ci{not}.
 \begin{symbols}{*3{cl}}
  \X{<}           & \X{>}           & \X{=}          \\
  \X{\leq}ou \verb|\le|   & \X{\geq}ou \verb|\ge|   & \X{\equiv}     \\
@@ -117,8 +118,8 @@ pour avoir accès à ces symboles}
 \begin{table}[!tbp]
 \caption{Flèches}
 \begin{symbols}{*3{cl}}
- \X{\leftarrow}ou \verb|\gets|& \X{\longleftarrow}     & \X{\uparrow}          \\
- \X{\rightarrow}ou \verb|\to|& \X{\longrightarrow}    & \X{\downarrow}        \\
+ \X{\leftarrow}ou \verb|\gets|& \X{\longleftarrow} & \X{\uparrow}          \\
+ \X{\rightarrow}ou \verb|\to|& \X{\longrightarrow} & \X{\downarrow}        \\
  \X{\leftrightarrow}    & \X{\longleftrightarrow}& \X{\updownarrow}      \\
  \X{\Leftarrow}         & \X{\Longleftarrow}     & \X{\Uparrow}          \\
  \X{\Rightarrow}        & \X{\Longrightarrow}    & \X{\Downarrow}        \\
@@ -177,9 +178,9 @@ pour obtenir ces symboles}
 \caption{Symboles non-mathématiques}
 \bigskip
 Ces symboles peuvent également être utilisés en mode \emph{texte}.
-\begin{symbols}{*3{cl}}
-\SC{\dag} & \SC{\S} & \SC{\copyright}  \\
-\SC{\ddag} & \SC{\P} & \SC{\pounds}  \\
+\begin{symbols}{*4{cl}}
+ \SC{\dag}  &  \SC{\S}  &  \SC{\copyright} &  \SC{\textregistered}  \\
+ \SC{\ddag} &  \SC{\P}  &  \SC{\pounds}    &  \SC{\%}               \\
 \end{symbols}
 \end{table}
 
@@ -187,7 +188,6 @@ Ces symboles peuvent également être utilisés en mode \emph{texte}.
 %
 % If the AMS Stuff is not available, we drop out right here :-)
 %
-\noAMS
 
 \begin{table}[!tbp]
 \caption{Délimiteurs de l'AMS}\label{AMSD}
@@ -301,7 +301,7 @@ Ces symboles peuvent également être utilisés en mode \emph{texte}.
  \X{\angle}            & \X{\measuredangle}    & \X{\sphericalangle}  \\
  \X{\diagup}           & \X{\diagdown}         & \X{\backprime}       \\
  \X{\nexists}          & \X{\Finv}             & \X{\varnothing}      \\
- \X{\eth}              & \X{\mho}       
+ \X{\eth}              & \X{\mho}              
 \end{symbols}
 \end{table}
 
@@ -323,22 +323,13 @@ $\mathnormal{ABCdef}$
         &       \\
 $\mathcal{ABC}$
         & \verb|\mathcal{ABC}|
-        &       \\
-\ifx\MathRSFS\undefined\else
-$\MathRSFS{ABC}$
-        &\verb|\mathcal{ABC}|
+        & \pai{euscript} avec l'option\,: \texttt{mathcal} \\
+$\mathscr{ABC}$
+        &\verb|\mathscr{ABC}|
         &\pai{mathrsfs}\\
-\fi
-\ifx\EuScript\undefined\else
-$\EuScript{ABC}$
-        & \verb|\mathcal{ABC}|
-        &\pai{eucal} avec l'option\,: \textsf{mathcal} \quad ou\\
-        & \verb|\mathscr{ABC}|
-        &\pai{eucal} avec l'option\,: \textsf{mathscr}\\
 $\mathfrak{ABCdef}$
         & \verb|\mathfrak{ABCdef}|
         &\pai{eufrak}                \\
-\fi
 $\mathbb{ABC}$
         & \verb|\mathbb{ABC}|
         &\pai{amsfonts} ou \pai{amssymb}        \\
