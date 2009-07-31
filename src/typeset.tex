@@ -311,10 +311,11 @@ caractères.
 
 «~Appuyez sur la touche `x'.~»
 \end{example}
-Je suis conscient que le rendu ici n'est pas idéal, mais il s'agit
-effectivement d'un accent grave et d'une quote (i.e. pas une
-apostrophe au sens typographique du terme), et ce malgré ce que la
-police choisie semble indiquer.
+%SC: Hmmm, I do not like much this translation
+Je suis conscient que le rendu n'est pas idéal, mais il s'agit
+effectivement d'un accent grave pour l'ouverture et d'une quote
+(i.e. pas une apostrophe au sens typographique du terme) pour la
+fermeture, et ce malgré ce que la police choisie semble indiquer.
  
 \subsection{Tirets}
 
@@ -372,8 +373,8 @@ Je vais bient\^ot devenir
 supra-conducteur.
 \end{example}
 
-L'extension \pai{texcomp} met aussi à disposition le symbole degré via
-les commandes \ci{textcelsius} et \ci{texdegree}.
+L'extension \pai{textcomp} met aussi à disposition le symbole degré
+via les commandes \ci{textcelsius}.
 
 \subsection{Le symbole de l'euro \texorpdfstring{(\EUR{})}{}}
 
@@ -606,8 +607,8 @@ sous OS/2, sous les systèmes Unix utilisant ISO-LATIN~1 il est codé
 n'existe même pas; c'est pourquoi vous devez exploiter cette
 fonctionnalité avec soin. Les codages suivants peuvent s'avérer utiles
 en fonction du type de système sous lequel vous travaillez.
-\footnote{Pour en savoir plus sur les codages d'entrée reconnus par
-  \LaTeX{} pour les alphabets latins et cyrilliques, lisez la
+\footnote{Pour en savoir plus sur les codages d'entrée reconnus
+  pour les alphabets latins et cyrilliques, lisez la
   documentation de \texttt{inputenc.dtx} et \texttt{cyinpenc.dtx},
   respectivement. La section~\ref{sec:Packages} indique comment
   produire cette documentation.}
@@ -1863,7 +1864,7 @@ illustration que vous allez coller sur le document terminé.
 La figure~\ref{blanche} est un exemple de Pop-Art.
 \begin{figure}[!hbp]
 \makebox[\textwidth]{\framebox[5cm]{\rule{0pt}{5cm}}}
-\caption{Cinq centimètres sur cinq} \label{blanche}
+\caption{Cinq centimètres sur cinq \label{blanche}}
 \end{figure}
 \end{verbatim}
 \end{code}
