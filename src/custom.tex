@@ -80,7 +80,7 @@ optionnel. Il indique le nombre de paramètres  qu'utilisera la
 nouvelle commande (jusqu'à 9).
 
 Les deux exemples ci-dessous vous aiderons à saisir le principe.
-Le premier exemple définit une nouvelle commande appelée \verb|\ucil|
+Le premier exemple définit une nouvelle commande appelée \ci{ucil}
 qui est une abréviation de \og une courte introduction à
 \LaTeXe \fg{}. Une telle commande pourrait être utile si vous aviez à
 citer de nombreuses fois le titre de ce livre.
@@ -94,7 +94,7 @@ Voici \og \ucil \fg\dots
 \end{example}
 
 L'exemple suivant montre comment utiliser l'argument \emph{num}. La
-séquence \verb|#1| est remplacée par le paramètre réel.
+balise \verb|#1| est remplacée par le paramètre réel.
 Pour utiliser plus d'un paramètre, continuez avec \verb|#2|, etc.
 
 \begin{example}
@@ -133,8 +133,8 @@ de définir de nouveaux environnements.  La commande
        \emph{avant}\verb|}{|\emph{après}\verb|}|
 \end{lscommand}
 
-De même que pour \verb|\newcommand|, vous pouvez utiliser
-\ci{newenvironment} avec un paramètre optionnel ou sans. Le contenu de
+Il est ici aussi possible d'utiliser
+\ci{newenvironment} avec un paramètre optionnel. Le contenu de
 l'argument \emph{avant} est exécuté avant que le contenu de
 l'environnement ne soit traité. Le contenu de l'argument \emph{après}
 est traité lorsque l'on rencontre la commande
@@ -161,9 +161,9 @@ environnement existant, utilisez \ci{renewenvironment} qui utilise la
 même syntaxe que \verb|\newenvironment|.
 
 Les commandes utilisées dans l'exemple ci-dessus seront présentées
-plus loin : pour la commande \ci{rule}, voir page~\pageref{sec:rule},
-pour \ci{stretch}, voir page~\pageref{cmd:stretch} enfin, pour plus
-d'informations sur \ci{hspace}, voir page~\pageref{sec:hspace}.
+plus loin. Pour la commande \ci{rule}, voyez page~\pageref{sec:rule},
+pour \ci{stretch}, voyez page~\pageref{cmd:stretch} enfin, pour plus
+d'informations sur \ci{hspace}, voyez page~\pageref{sec:hspace}.
 
 \subsection{Votre propre extension}
 
@@ -206,6 +206,7 @@ exemples précédents.
 \section{Polices et tailles des caractères}
 \index{police}
 \index{taille!des polices}
+
 \subsection{Commandes de changement de police}
 \LaTeX{} choisit la police de caractères et sa taille en fonction de la
 structure logique du document (sections, notes de bas de
@@ -234,6 +235,12 @@ italique.
 % Cela peut paraître évident à quelqu'un qui  débute avec
 % \LaTeXe{}, mais ça ne l'est certainement pas pour quelqu'un qui était
 % habitué à \LaTeX{}~2.09.
+
+En mode \emph{mathématique}, vous pouvez utiliser les commandes de
+changement de police pour quitter provisoirement le mode mathématique
+et saisir du texte normal. Pour changer les attributs de la police en
+mode mathématique, il existe un jeu de commandes
+spéciales. Reportez-vous au tableau~\ref{mathfonts}.
 
 
 \begin{table}[!bp]
@@ -328,12 +335,6 @@ italique.
 \bigskip
 \end{lined}
 \end{table}
-
-En mode \emph{mathématique}, vous pouvez utiliser les commandes de
-changement de police pour quitter provisoirement le mode mathématique
-et saisir du texte normal. Pour changer les attributs de la police en
-mode mathématique, il existe un jeu de commandes
-spéciales. Reportez-vous au tableau~\ref{mathfonts}.
 
 En complément des commandes de changement de taille, les
 \wi{accolade}s jouent un rôle essentiel. Elles sont utilisées pour
@@ -451,7 +452,13 @@ insérant une définition telle que :
 \end{code}
 dans le préambule, vous supprimez le retrait des débuts de paragraphe
 (1\iere{} définition) et vous augmentez l'espace entre deux paragraphes
-(2\ieme{} définition). 
+(2\ieme{} définition).
+
+Les arguments \emph{plus} et \emph{minus} de la deuxième définition
+indiquent à \TeX{} de quelle taille il est autorisé à étendre et
+rétrécir l'espace entre paragraphes, si cela lui est nécessaire pour
+faire tenir un paragraphe dans une même page.
+
 Attention, la deuxième définition a également une influence sur la
 table des matières : ses lignes deviennent également plus
 espacées. Pour éviter cela, vous pouvez déplacer ces commandes du
@@ -516,7 +523,7 @@ de 1.5 cm.
 \caption{Unités \TeX} \label{units}\index{unités}
 \begin{lined}{9.5cm} 
 \begin{tabular}{@{}ll@{}}
-\texttt{mm} &  millimètre \quad \demowidth{1mm} \\
+\texttt{mm} & millimètre \quad \demowidth{1mm} \\
 \texttt{cm} & centimètre = 10~mm  \quad \demowidth{1cm}                     \\
 \texttt{in} & pouce\,\footnote{\emph{Inch} en anglais. \emph{NdT}.}
 	      $=$ 25,4~mm \quad \demowidth{1in}                    \\
@@ -544,6 +551,16 @@ x\hspace{\stretch{1}}%
 x\hspace{\stretch{3}}x
 \end{example}
 
+Lors que l'espacement horizontal est utilisé en conjonction avec du
+texte, il est préférable de faire que l'espace soit ajusté en fonction
+de la taille de la police courante. Ceci peut être réalisé en
+utilisant les unités relatives \texttt{em} et \texttt{en}:
+
+\begin{example}
+{\Large{}plus gr\hspace{1em}and}\\
+{\tiny{}minuscu\hspace{1em}le}
+\end{example}
+
 \subsection{Espacement vertical}
 
 L'espacement vertical entre les paragraphes, sections,
@@ -556,7 +573,7 @@ En cas de besoin, de l'espace supplémentaire
 
 Cette commande doit normalement être utilisée entre deux lignes
 vides. Si l'espacement doit être conservé en haut ou en bas d'une
-page, utilisez la version étoilée de la commande \verb|\vspace*|.
+page, utilisez la version étoilée, i.e. \verb|\vspace*|.
 \index{espacement!vertical}
 \index{vertical!espacement}
 
@@ -597,12 +614,13 @@ exactes.
 \LaTeXe{} permet d'indiquer la taille du papier en paramètre de  la commande
 \verb|\documentclass|. Il définit ensuite automatiquement les
 \wi{marges} les mieux adaptées. Parfois, on peut ne pas être satisfait par les
-valeurs pré-définies et vouloir les modifier.
+valeurs prédéfinies et vouloir les modifier.
 %no idea why this is needed here ...
 \thispagestyle{fancyplain}
 La figure~\ref{fig:layout} montre tous les paramètres qui peuvent être
 modifiés. Cette figure a été réalisée avec l'extension \pai{layout} de
-l'ensemble tools.
+l'ensemble tools
+\footnote{\texttt{CTAN:/tex-archive/macros/latex/required/tools}}.
 
 \textbf{Attendez !}\dots{} avant de vous lancer dans \og élargissons un peu
 ce texte \fg{}, prenez deux secondes pour réfléchir. Comme souvent avec
@@ -633,7 +651,7 @@ La première commande affecte une valeur fixe  au paramètre spécifié :
 \ci{setlength}\verb|{|\emph{paramètre}\verb|}{|\emph{longueur}\verb|}|
 \end{lscommand}
 
-La deuxième commande ajoute une longueur à ce paramètre.
+La deuxième commande ajoute une longueur à ce paramètre :
 \begin{lscommand}
 \ci{addtolength}\verb|{|\emph{paramètre}\verb|}{|\emph{longueur}\verb|}|
 \end{lscommand} 
@@ -648,7 +666,7 @@ utiliserions les commandes suivantes dans le préambule :
 \end{code}
 
 Dans ce contexte, il peut être intéressant d'utiliser l'extension
-\pai{calc}, qui permet d'utiliser des expressions algébriques
+\pai{calc}. Elle permet d'utiliser des expressions algébriques
 traditionnelles en argument de \verb|setlength| ainsi que partout où
 l'on utilise des valeurs numériques comme arguments de fonctions.
 
@@ -664,9 +682,9 @@ Les trois commandes suivantes permettent de déterminer la largeur, la
 hauteur et la profondeur d'une chaîne de caractères.
 
 \begin{lscommand}
-\ci{settoheight}\verb|{|\emph{commande}\verb|}{|\emph{texte}\verb|}|\\
-\ci{settodepth}\verb|{|\emph{commande}\verb|}{|\emph{texte}\verb|}|\\
-\ci{settowidth}\verb|{|\emph{commande}\verb|}{|\emph{texte}\verb|}|
+\ci{settoheight}\verb|{|\emph{variable}\verb|}{|\emph{texte}\verb|}|\\
+\ci{settodepth}\verb|{|\emph{variable}\verb|}{|\emph{texte}\verb|}|\\
+\ci{settowidth}\verb|{|\emph{variable}\verb|}{|\emph{texte}\verb|}|
 \end{lscommand}
 
 \bigbreak
@@ -734,13 +752,16 @@ Il est aussi possible d'emballer un paragraphe dans une boîte  :
 \texttt{c}, \texttt{t} ou \texttt{b} pour contrôler l'alignement
 vertical de la boîte par rapport à la base du texte
 précédent. \texttt{largeur} est une dimension indiquant la largeur de la
-boîte.
+boîte. La différence majeure entre \ei{minipage} et \ci{parbox} est
+qu'il est possible d'utiliser quasiment n'importe quelle commande ou
+environnement dans \ei{minipage}, alors que ce n'est pas le cas avec
+\ci{parbox}.
 
 Alors que \ci{parbox} englobe tout un paragraphe en réalisant coupure
 des lignes et tout le reste, il existe également une catégorie de
 commandes de gestion des boîtes qui ne travaillent que sur des
 éléments alignés horizontalement. L'une d'elles nous est déjà
-connue. Il s'agit de \ci{mbox} qui combine simplement une série de
+connue : il s'agit de \ci{mbox}. Celle-ci combine simplement une série de
 boîtes pour en former une nouvelle; elle peut être utilisée pour
 empêcher \LaTeX{} de couper une ligne entre deux mots. Puisqu'il est
 possible de placer des boîtes dans d'autres boîtes, ces constructeurs de
@@ -839,7 +860,7 @@ noire.
 \index{horizontal!filet}
 \noindent C'est utile pour produire des lignes horizontales et
 verticales. La ligne horizontale sur la page de titre par exemple a
-été tracée à l'aide d'une commande \ci{rule}.
+été tracée à l'aide d'une commande \ci{rule}, par exemple.
 
 Un cas particulier est un filet avec une largeur nulle mais une
 certaine hauteur. En typographie professionnelle ceci est appelé un
@@ -858,15 +879,17 @@ environnement \verb|tabular| pour garantir la hauteur d'une ligne.
 \end{tabular}
 \end{example}
 
+\bigskip
+{\flushright Fin.\par}
+
 \label{LastPage}
 
 \endinput
 
-%%% Local Variables: 
-%%% mode: latex
-%%% TeX-master: "lshort"
-%%% End: 
+%
 
 % Local Variables:
+% TeX-master: "lshort2e"
+% mode: latex
 % mode: flyspell
 % End:
