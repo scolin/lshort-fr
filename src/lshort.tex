@@ -4,8 +4,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % lshort.tex - Une courte (?) introduction a LaTeX2e
 %                                                      by Tobias Oetiker
-%                                                  tobias@ife.ee.ethz.ch
-%                                                      oetiker@dmu.ac.uk
+%                                                     oetiker@ee.ethz.ch
 %
 %                           based on LKURTZ.TEX Uni Graz & TU Wien,1987
 %                           traduit en français par Matthieu Herrb,1996
@@ -51,12 +50,14 @@
 \usepackage{lshort}
 \usepackage{makeidx,shortvrb,latexsym}
 \usepackage[french]{mylayout}
-\RequirePackage[colorlinks,hyperindex,plainpages=false]{hyperref}
 \usepackage{lettrine}
 
 \ifpdf
+\RequirePackage[colorlinks,hyperindex,plainpages=false]{hyperref}
 \def\pdfBorderAttrs{/Border [0 0 0] } % No border arround Links
 \else
+\RequirePackage[plainpages=true]{hyperref}
+\usepackage{color}
 \fi
 
 \usepackage[frenchb,english]{babel}
@@ -110,6 +111,7 @@
 \include{math} 
 \include{lssym}
 \include{spec}
+\include{graphic}
 \include{custom}
 \backmatter
 \include{biblio}
