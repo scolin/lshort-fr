@@ -127,16 +127,19 @@ L'environnement \ei{thebibliography} permet de produire une liste de
 références bibliographiques.  Chaque référence
 commence par
 \begin{lscommand}
-\ci{bibitem}\verb|{|\emph{marque}\verb|}|
+\ci{bibitem}\verb|[|\emph{label}\verb|]{|\emph{marque}\verb|}|
 \end{lscommand}
 La \emph{marque} est utilisée pour citer la référence dans le
 document.
 \begin{lscommand}
 \ci{cite}\verb|{|\emph{marque}\verb|}|
 \end{lscommand}
-La numérotation des références est produite automatiquement. Le
-paramètre qui suit \verb|\begin{\thebibliography}| définit la largeur
-du décrochement utilisé pour placer ces numéros.
+Si vous n'utilisez pas l'option \emph{label}, la numérotation des
+références est produite automatiquement. Le paramètre qui suit
+\verb|\begin{\thebibliography}| définit la largeur du décrochement
+utilisé pour placer ces numéros. Dans l'exemple ci-après,
+\verb|{99}| indique à \LaTeX{} que le décrochement ne devrait jamais
+être plus large que le nombre 99.
 
 \begin{example}
 Partl~\cite{pa} 
