@@ -165,6 +165,70 @@ plus loin. Pour la commande \ci{rule}, voyez page~\pageref{sec:rule},
 pour \ci{stretch}, voyez page~\pageref{cmd:stretch} enfin, pour plus
 d'informations sur \ci{hspace}, voyez page~\pageref{sec:hspace}.
 
+\subsection{Espaces surnuméraires}
+
+La création d'un nouvel environnement est souvent accompagnée du
+problème récurrent d'espaces surnuméraires qui peuvent avoir des
+effets indésirables. Par exemple lorsque vous voulez créer un
+environnement de titre qui supprime sa propre indentation ainsi que
+celle du paragraphe qui le suit immédiatement. La commande
+\ci{ignorespaces} dans le bloc de début de l'environnement lui fera
+ignorer tout espace situé après l'exécution du bloc de début. Le bloc
+de fin est plus délicat car un processus spécifique se déroule à la
+fin d'un environnement. Avec la commande \ci{ignorespacesafterend}
+\LaTeX{} ajoutera un \ci{ignorespaces} qui ignorera les espaces après
+que le processus spécifique se soit déroulé.
+
+\begin{example}
+\newenvironment{simple}%
+ {\noindent}%
+ {\par\noindent}
+
+\begin{simple}
+Voyez l'espace\\à gauche.
+\end{simple}
+Ici\\aussi.
+\end{example}
+
+\begin{example}
+\newenvironment{correct}%
+ {\noindent\ignorespaces}%
+ {\par\noindent\ignorespacesafterend}
+
+\begin{correct}
+Plus d'espace\\à gauche.
+\end{correct}
+Ici\\non plus.
+\end{example}
+
+\subsection{\LaTeX{} en ligne de commande}
+
+Si vous travaillez sur un système de type Unix, il est probable que
+vous utilisiez des Makefiles pour compiler vos projets \LaTeX{}. Dans
+ce contexte il pourrait être intéressant de pouvoir produire des
+versions sensiblement différentes du même document par le simple
+changement de paramètres de ligne de commande lors de l'invocation de
+\LaTeX{}. Si vous ajoutez la structure suivante à votre document :
+
+\begin{verbatim}
+\usepackage{ifthen}
+\ifthenelse{\equal{\noiretblanc}{true}}{
+  % mode noir et blanc; faire ceci..
+}{
+  % mode couleur; faire cela..
+}
+\end{verbatim}
+
+Alors vous pouvez invoquer \LaTeX{} de la manière suivante:
+\begin{verbatim}
+latex '\newcommand{\noiretblanc}{true}\input{document.tex}'
+\end{verbatim}
+
+D'abord la commande \verb|\noiretblanc| est définie, puis le document
+est effectivement lu. En modifiant \verb|\noiretblanc| à
+\texttt{false} ce serait la version couleur du document qui serait
+produite.
+
 \subsection{Votre propre extension}
 
 Si vous définissez plein de nouveaux environnements et de nouvelles
