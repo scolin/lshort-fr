@@ -192,13 +192,15 @@ La commande :
 \ci{hyphenation}\verb|{|\emph{liste de mots}\verb|}|
 \end{lscommand}
 \noindent permet de ne couper les mots cités en argument qu'aux
-endroits indiqués par \og \verb|-| \fg{}. Cette commande doit être placée
-dans le préambule et ne doit contenir que des mots composés de lettres
-normales. La casse des caractères n'est pas prise en compte. L'exemple
-ci-dessous permet à \og anticonstitutionnellement \fg{} d'être coupé,
-ainsi qu'à \og Anticonstitutionnellement \fg{}. Mais il empêche toute
-césure de \og FORTRAN \fg{}, \og Fortran \fg{} ou \og fortran \fg{}. Ni les
-caractères spéciaux ni les symboles ne sont autorisés dans cette commande.
+endroits indiqués par \og \verb|-| \fg{}. Cette commande doit être
+placée dans le préambule et ne doit contenir que des mots composés de
+lettres ou signes considérés comme normaux par \LaTeX{}. La casse des
+caractères n'est pas prise en compte. L'exemple ci-dessous permet à
+\og anticonstitutionnellement \fg{} d'être coupé, ainsi qu'à \og
+Anticonstitutionnellement \fg{}. Mais il empêche toute césure de \og
+FORTRAN \fg{}, \og Fortran \fg{} ou \og fortran \fg{}. Ni les
+caractères spéciaux ni les symboles ne sont autorisés dans cette
+commande.
 
 \begin{code}
 \verb|\hyphenation{FORTRAN}|\\
@@ -245,6 +247,9 @@ de la commande \texttt{input}
 contient le nom du fichier
 \`a lire.
 \end{example}
+
+\ci{fbox} est similaire à \ci{mbox}, à la différence qu'un liseré
+visible sera dessiné autour du contenu.
 
 \section{Chaînes prêtes à l'emploi}
 
@@ -330,16 +335,16 @@ Voir aussi l'extension \pai{hyperref} qui inclut une commande
 Comment obtenir un symbole \wi{degré} avec \LaTeX{} ? 
 
 \begin{example}
-Il fait $-30\,^{\circ}\mathrm{C}$,
-je vais bient\^ot devenir 
+Il fait $-30\,^{\circ}\mathrm{C}$.
+Je vais bient\^ot devenir 
 supra-conducteur.
 \end{example}
 
 L'extension \pai{babel} avec l'option \pai{francais} introduit la commande
 \ci{degres} qui donne un meilleur résultat :
 \begin{example}
-Il fait -30~\degres C,
-je vais bient\^ot devenir 
+Il fait -30~\degres C.
+Je vais bient\^ot devenir 
 supra-conducteur.
 \end{example}
 
@@ -414,7 +419,7 @@ Stra\ss e
 \index{i et j@\i{} et \j{} sans points}\index{scandinaves (caractères)}
 \index{ae@\ae}\index{umlaut}\index{accent!grave}\index{accent!aigu}
 \index{accent!circonflexe}
-\index{oe@\oe}
+\index{oe@\oe}\index{aa@\aa}
 \index{cédille}
 
 \bigskip
@@ -453,7 +458,7 @@ Si votre système est configuré correctement, vous pouvez sélectionner
 la langue utilisée par l'extension \pai{babel} 
 avec la commande : 
 \begin{lscommand}
-\ci{usepackage}\verb|[|\emph{langue}\verb|]{babel}| 
+\ci{usepackage}\verb|[|\emph{langue},\emph{langue}\verb|]{babel}| 
 \end{lscommand}
 \noindent après la commande \verb|\documentclass|. Les \emph{langue}s
 supportées par votre système sont normalement listées dans votre \guide.
@@ -464,6 +469,13 @@ satisfaisant.
 
 Pour certaines langues \textsf{babel} définit également de nouvelles
 commandes qui simplifient la saisie des caractères spéciaux.
+
+Si vous appelez babel avec plusieurs langues, vous pouvez utiliser la
+commande
+\begin{lscommand}
+\ci{selectlanguage}\verb|{|\emph{langue}\verb|}|
+\end{lscommand}
+pour définir la langue courante.
 
 Les systèmes informatiques modernes vous permettent de saisir
 directement les caractères accentués ou les symboles spécifiques d'une
@@ -720,16 +732,17 @@ sectionnement suivantes sont disponibles :
 \end{code}
 
 Dans les classes \texttt{report} et \texttt{book}, la commande
-\begin{code}
-\ci{chapter}\verb|{...}|
-\end{code}
+\ci{chapter}\verb|{...}| est également reconnue, (elle s'intercale
+entre \verb|\part| et \verb|\section|).
 
-est également reconnue,  (elle s'intercale entre \verb|\part| et 
-\verb|\section|)%
-\,\footnote{Puisque la classe \texttt{article} ne connaît pas les chapitres, il
+Si vous souhaitez découper votre document sans influencer la
+numérotation des chapitres ou des sections vous pouvez utiliser la
+commande \ci{part}\verb|{...}|.
+
+Puisque la classe \texttt{article} ne connaît pas les chapitres, il
 est facile par exemple de regrouper des articles en tant que chapitres
 d'un livre en remplacant le \texttt{\bs title} de chaque article par
-\texttt{\bs chapter}.}.
+\texttt{\bs chapter}.
 
 L'espacement entre les sections, la numérotation et le
 choix de la police et de la taille des titres sont gérés
@@ -1122,9 +1135,9 @@ L'environnement \ei{tabular} permet de réaliser des tableaux avec ou
 sans lignes de séparation horizontales ou verticales. \LaTeX{}
 ajuste automatiquement la largeur des colonnes.
 
-L'argument \emph{description du tableau} de la commande :
+L'argument \emph{description} de la commande :
 \begin{lscommand}
-\verb|\begin{tabular}{|\emph{description du tableau}\verb|}|
+\verb|\begin{tabular}[|\emph{position}\verb|]{|\emph{description}\verb|}|
 \end{lscommand} 
 \noindent définit le format des colonnes du tableau. Utilisez un
 \texttt{l} pour une colonne alignée à gauche, \texttt{r} pour
@@ -1133,6 +1146,10 @@ centrée. \verb|p{|\emph{largeur}\verb|}| permet de réaliser une colonne
 justifiée à droite sur plusieurs lignes et enfin
 \verb.|. permet d'obtenir une ligne verticale.
 \index{"|@ \verb."|.} 
+L'argument \emph{position} définit la position verticale de
+l'environnement complet, avec \texttt{t}, \texttt{b} and \texttt{c}
+pour l'aligner en haut (\emph{top}), en bas (\emph{bottom}) ou au
+centre (\emph{center}) respectivement.
 
 À l'intérieur de l'environnement \texttt{tabular}, le caractère
 \verb|&| est le séparateur de colonnes, \ci{\bs} commence une nouvelle
