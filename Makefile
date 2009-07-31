@@ -1,6 +1,6 @@
 #	pstops "4:0L@0.8(22.5cm,-0.6cm)+1L@0.8(22.5cm,13.3cm),2L@0.8(22.5cm,-0.6cm)+3L@0.8(22.5cm,13.3cm)" \
 SHELL = /bin/sh
-VERS = 4.00
+VERS = 4.11
 
 OTHER = README CHANGES
 FILES = src/biblio.tex src/kees.fig src/math.tex src/things.tex src/contrib.tex src/lshort.sty src/mylayout.sty src/title.tex \
@@ -18,12 +18,12 @@ all: lshort.dvi lshort.ps lshort-book.ps lshort.pdf
 
 lshort.dvi: $(FILES)
 	-mkdir texbuild
-	(TEXINPUTS=.:`pwd`/src:${TEXINPUTS:-:}; export TEXINPUTS; cd texbuild; \
-	$(LATEX) lshort; $(LATEX) lshort; $(MAKEINDEX) -s ../src/lshort.ist lshort; \
-	$(LATEX) lshort; $(LATEX) lshort; mv lshort.dvi ..)
+	(TEXINPUTS=.:`pwd`/src:${TEXINPUTS:-:} && export TEXINPUTS && cd texbuild && \
+	$(LATEX) lshort && $(LATEX) lshort && $(MAKEINDEX) -s ../src/lshort.ist lshort; \
+	$(LATEX) lshort && $(LATEX) lshort && mv lshort.dvi ..)
 
 lshort.ps: lshort.dvi
-	dvips -Pcmz -olshort.ps lshort.dvi
+	(T1FONTS=.:`pwd`/eurofont: && export T1FONTS && dvips -Pcmz -olshort.ps lshort.dvi )
 	rm texbuild/*
 
 lshort-book.ps: lshort.ps
@@ -34,10 +34,10 @@ lshort-book.ps: lshort.ps
 
 lshort.pdf: $(FILES)
 	-mkdir pdfbuild
-	(TEXINPUTS=.:`pwd`/src:${TEXINPUTS:-:};export TEXINPUTS; cd pdfbuild; \
-	$(PDFLATEX) lshort; $(PDFLATEX) lshort; \
-	$(MAKEINDEX) -s ../src/lshort.ist lshort;$(PDFLATEX) lshort; \
-	(thumbpdf lshort.pdf && $(PDFLATEX) lshort); \
+	(T1FONTS=.:`pwd`/eurofont: && export T1FONTS && TEXINPUTS=.:`pwd`/src:${TEXINPUTS:-:}&&export TEXINPUTS&& cd pdfbuild&& \
+	$(PDFLATEX) lshort&& $(PDFLATEX) lshort&& \
+	$(MAKEINDEX) -s ../src/lshort.ist lshort&&$(PDFLATEX) lshort&& \
+	(thumbpdf --resolution 10 lshort.pdf && $(PDFLATEX) lshort)&& \
 	mv lshort.pdf .. )
 	rm pdfbuild/*
 
@@ -45,8 +45,8 @@ src/title.tex: Makefile
 	perl fixdate.pl $(VERS) < src/title.tex > src/title.tex2 && mv src/title.tex2 src/title.tex
 
 quick: $(FILES)
-	(TEXINPUTS=`pwd`/src:$(TEXINPUTS); export TEXINPUTS; cd texbuild; \
-      $(LATEX) lshort; mv lshort.dvi ..)
+	(TEXINPUTS=`pwd`/src:$(TEXINPUTS)&& export TEXINPUTS&& cd texbuild&& \
+        $(LATEX) lshort&& mv lshort.dvi ..)
 
 
 tar:	src/title.tex
