@@ -335,7 +335,7 @@ typographie française concernant l'usage des tirets, qui diffèrent
 des habitudes anglo-saxonnes, en particulier le double tiret n'est pas
 utilisé en français.
 
-\subsection{Tilde (\texorpdfstring{$\sim$}{})}
+\subsection{Tilde ($\sim$)}
 \index{www}\index{URL}\index{tilde}
 Un caractère souvent utilisé dans les adresses sur le web est le
 tilde. Pour produire ce caractère avec \LaTeX{}, on peut utiliser 
@@ -373,8 +373,8 @@ supra-conducteur.
 \subsection{Le symbole de l'euro \texorpdfstring{(\EUR{})}{}}
 
 Écrire sur tout sujet économique de nos jours requiert l'utilisation
-du symbole de l'euro. De nombreuses polices de caractères contiennent
-un symbole euro. Après avoir chargé l'extension \pai{textcomp} dans le
+du symbole de l'Euro. De nombreuses polices de caractères contiennent
+un symbole Euro. Après avoir chargé l'extension \pai{textcomp} dans le
 préambule
 \begin{lscommand}
 \ci{usepackage}\verb|{textcomp}| 
@@ -385,11 +385,11 @@ vous pouvez utiliser la commande
 \end{lscommand}
 pour y accéder.
 
-Si votre police ne fournit pas son propre symbole de l'euro ou si vous
+Si votre police ne fournit pas son propre symbole de l'Euro ou si vous
 ne l'aimez pas, il vous reste deux alternatives :
 
 Tout d'abord l'extension \pai{eurosym} qui fournit un symbol officiel
-de l'euro :
+de l'Euro :
 \begin{lscommand}
 \ci{usepackage}\verb|[|\emph{official}\verb|]{eurosym}| 
 \end{lscommand}
@@ -400,16 +400,16 @@ Si les polices Adobe Eurofonts sont installées sur votre système (vous
 pouvez les obtenir gratuitement sur
 \url{ftp://ftp.adobe.com/pub/adobe/type/win/all}), vous pouvez
 utiliser soit l'extension \pai{europs} et la commande \ci{EUR} (pour
-un symbole de l'euro qui correspond à la police courante) soit
-l'extension \pai{eurosans} et la commande \ci{euro} (pour l'\og euro
+un symbole de l'Euro qui correspond à la police courante) soit
+l'extension \pai{eurosans} et la commande \ci{euro} (pour l'\og Euro
 officiel \fg{}).
 
 L'extension \pai{marvosym} fournit également des symboles variés, y
-compris celui de l'euro, sous le nom \ci{EUR}. Son défaut est de ne
+compris celui de l'Euro, sous le nom \ci{EUR}. Son défaut est de ne
 pas proposer des versions italiques et grasses de ce symbole.
 
 \begin{table}[!htbp]
-\caption{Un sac plein d'euros} \label{eurosymb}
+\caption{Un sac plein d'Euros} \label{eurosymb}
 \begin{lined}{10cm}
 \begin{tabular}{llccc}
 extension    & codage      & romain       & sans-serif      & chasse fixe \\
@@ -1000,8 +1000,9 @@ défaut : pour les trois langues précitées il s'agit de \fei{T2A}. Les
 documents ne sont cependant pas limités à un seule codage de
 police. Pour les documents multilingues avec des alphabets cyrillique
 et latin, il est raisonnable d'inclure les codages de polices latines
-explicitement. \pai{babel} prendra en charge le changement de codage
-de fonte lorsqu'un autre langage est sélectionné dans le document.
+explicitement. \pai{babel} prendra en charge le changement vers un
+codage de fonte approprié lorsqu'un autre langage est sélectionné dans
+le document.
 
 En plus d'activer les césures, de traduire les textes automatiques et
 d'activer certaines règles typographiques (comme \ci{frenchspacing}),
@@ -1009,9 +1010,9 @@ d'activer certaines règles typographiques (comme \ci{frenchspacing}),
 formatage conforme aux conventions bulgare, russe ou ukrainienne.
 
 
-Pour ces trois langues, une ponctuation spéciale est fournie : le
+Pour ces trois langues, une ponctuation spéciale est fournie. Le
 tiret cyrillique pour le texte (plus étroit que le tiret latin et
-entouré d'espaces fines), le tiret pour le dialogue, des marques de
+entouré d'espaces fines), un tiret pour le dialogue, des marques de
 citation et des commandes pour faciliter les césures, voyez le
 tableau~\ref{Cyrillic}.
 
