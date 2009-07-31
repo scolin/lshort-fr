@@ -119,6 +119,7 @@ commande :
 \begin{center}
 \includegraphics[angle=90, width=10cm]{test.eps}
 \end{center}
+\caption{Une légende qui explique qu'il s'agit d'un test.}
 \end{figure}
 \end{verbatim}
 \end{code}
@@ -362,7 +363,7 @@ La plupart des  installations \LaTeX{} fournissent en standard un grand
 nombre d'extensions, mais il arrive que justement celle dont on aurait
 besoin manque, ou qu'une extension nécessite une mise à jour.
 L'endroit le plus adéquat pour rechercher les versions officielles
-des  extensions est le CTAN (\verb|http://www.ctan.org/|).
+des  extensions est le CTAN (\url{http://www.ctan.org/}).
 
 Les extensions, tels \pai{geometry}, \pai{hyphenat} et beaucoup
 d'autres, sont en général fournis sous la forme de deux fichiers, l'un
@@ -508,7 +509,7 @@ Avec \LaTeX{} vous pouvez définir le format de papier via une option
 passée à \texttt{documentclass} comme \texttt{a4paper} ou
 \texttt{letterpaper}. Ceci fonctionne également avec pdf\LaTeX{}, mais
 en plus de cela pdf\TeX{} a besoin de connaître le format physique du
-papier, pas seulement l'aire de mise en page.
+papier pour déterminer la taille réelle des pages dans le fichier pdf.
 \index{format de papier}
 Si vous utilisez l'extension \pai{hyperref} (voir page
 \pageref{ssec:pdfhyperref}), le format de papier sera ajusté
@@ -529,11 +530,14 @@ la configuration manuelle des hyperliens.
 \subsection{Les polices}
 
 \wi{pdf\LaTeX} est capable de gérer toutes sortes de polices (PK
-bitmaps, TrueType, \PSi{} type~1\dots) mais le format de police
-primaire de \LaTeX{}, les polices bitmap PK, produisent des résultats
+bitmaps, TrueType, \PSi{} type~1\dots) mais le format de police normal
+de \LaTeX{}, les polices bitmap PK, produisent des résultats
 exécrables lorsqu'ils sont affichés avec Acrobat Reader. Il est
-préférable d'utiliser des polices \PSi{} de Type~1 pour produire
-des documents au rendu correct.
+préférable d'utiliser des polices \PSi{} de Type~1 exclusivement pour
+produire des documents au rendu correct. \emph{Les installations
+  modernes de \TeX{} sont réglées pour que ce comportement soit activé
+  automatiquement. Le mieux est d'essayer. Si cela fonctionne pour
+  vous, passez directement à la section suivante.}
 
 L'implantation PSi{} Type 1 des polices Computer Modern et AMSFonts
 furent produites par Blue Sky Research and Y\&Y, Inc. qui
@@ -552,13 +556,13 @@ et Mik\TeX. Des polices grecques type~1 CB similaires créées par
 Apostolos Syropoulos sont disponibles sur
 \texttt{CTAN:/tex-archive/fonts/greek/cb}.
 Malheureusement ces jeux de polices ne sont pas de la même
-  qualité typographique que les polices Type1 CM faites par Blue
-  Sky/Y\&Y. Elles ont été affinées automatiquement et le document
+qualité typographique que les polices Type1 CM faites par Blue
+Sky/Y\&Y. Elles ont été affinées automatiquement et le document
 %SC: see the translation of hinting (affinage ?)
-  final peut être aussi agréable à l'\oe il sur l'écran que les
-  documents qui utilisent les polices type 1 CM Blue Sky/Y\&Y. Sur des
-  périphériques de sortie à haute résolution elles produisent des
-  résultats identiques aux polices bitmap EC/LH/CB d'origine.
+final peut ne pas être aussi agréable à l'\oe il sur l'écran que les
+documents qui utilisent les polices type 1 CM Blue Sky/Y\&Y. Sur des
+périphériques de sortie à haute résolution elles produisent des
+résultats identiques aux polices bitmap EC/LH/CB d'origine.
 
 Si vous créez un document dans un langage latin ou basé sur le
 l'alphabet latin, vous disposez de plusieurs autres alternatives.
@@ -596,13 +600,12 @@ Une autre solution est de passer à d'autres polices \PSi{}
 type~1. Certaines d'entre elles sont même fournies avec chaque copie
 d'Acrobat Reader. Celles-ci ayant des tailles de caractères
 différentes, l'aspect de votre texte sur vos pages sera
-différent. Généralement il utilisera plus d'espace que les polices CM
-qui sont très efficaces en terme d'occupation d'espace. De plus la
-cohérence visuelle de votre document en souffrira car les polices
-Times, Helvetica et Courier (les premières candidates en lice pour un
-tel changement) n'ont pas été conçues pour fonctionner en harmonie
-dans un seul document comme cela avait été fait pour les polices
-Computer Modern.
+différent. Généralement ces polices utiliseront plus d'espace que les
+polices CM qui sont très efficaces en terme d'occupation d'espace. De
+plus la cohérence visuelle de votre document en souffrira car les
+polices Times, Helvetica et Courier (les premières candidates en lice
+pour un tel changement) n'ont pas été conçues pour fonctionner en
+harmonie dans un seul document.
 
 Deux polices prêtes à l'emploi sont disponibles dans cette optique :
 \pai{pxfonts}, basée sur \emph{Palatino} pour la police du texte
@@ -1018,7 +1021,7 @@ la classe \texttt{article}. La figure \ref{fig:pdfscr} montre un
 exemple de fichier d'entrée. En premier lieu vous devez charger
 \pai{pdfscreen} avec des options idoines :
 \begin{description}
-\item[\texttt{screen}] : présentation à l'écran. Utilisez
+\item[\texttt{screen}] pour une présentation à l'écran. Utilisez
   \texttt{print} pour obtenir une version imprimable ;
 \item[\texttt{panelright}] ajoute un panneau de navigation à droite de
   l'écran. Si le panneau devrait être à gauche, utilisez
