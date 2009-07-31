@@ -42,7 +42,7 @@ environment, and greatly strengthen the graphical power of \LaTeX.
 
 While the former two packages just enhance the \ei{picture} environment, the \pai{pstricks}
 package has its own drawing environment, \ei{pspicture}. The power of \pai{pstricks} stems
-from the fact that this package makes extensive use of \texttt{PostScript} possibilities.
+from the fact that this package makes extensive use of \PSi{} possibilities.
 In addition, numerous packages have been written for specific purposes. One of them is
 \texorpdfstring{\Xy}{Xy}-pic, described at the end of this chapter. A wide variety of these
 packages is described in detail in \graphicscompanion{} (not to be confused with \companion).
@@ -50,7 +50,7 @@ packages is described in detail in \graphicscompanion{} (not to be confused with
 Perhaps the most powerful graphical tool related with \LaTeX\ is \texttt{MetaPost}, the twin of
 Donald E. Knuth's \texttt{METAFONT}. \texttt{MetaPost} has the very powerful and 
 mathematically sophisticated programming language of \texttt{METAFONT}. Contrary to \texttt{METAFONT},
-which generates bitmaps, \texttt{MetaPost} generates encapsulated \texttt{PostScript} files, 
+which generates bitmaps, \texttt{MetaPost} generates encapsulated \PSi{} files, 
 which can be imported in \LaTeX. For an introduction, see \hobby, or the tutorial on \cite{ursoswald}.
 
 A very thorough discussion of \LaTeX{} and \TeX{} strategies for graphics (and fonts) can 
@@ -326,7 +326,7 @@ apply to oblique line segments as well as to circles and ovals.
 \begin{picture}(120,168)
 \newsavebox{\foldera}% declaration
 \savebox{\foldera}
-  (40,32)[l]{%         definition 
+  (40,32)[bl]{% definition 
   \multiput(0,0)(0,28){2}
     {\line(1,0){40}}
   \multiput(0,0)(40,0){2}
@@ -363,14 +363,19 @@ A picture box can be \emph{declared} by the command
 \begin{lscommand}
   \ci{put}\verb|(|$x,y$\verb|)|\ci{usebox}\verb|{|\emph{name}\verb|}|
 \end{lscommand}
-The optional \emph{position} parameter \texttt{l}, referring to ``left'', has the effect of positioning the (bottom)
-left corner of the boxed picture at the \ci{put} argument. The \emph{name} argument refers to a \LaTeX{} storage bin
-and therefore is of a command nature (which accounts for the backslashes in the current example). Boxed pictures can
-be nested: In this example, \ci{foldera} is used within the definition of \ci{folderb}.
+
+The optional \emph{position} parameter has the effect of defining the
+`anchor point' of the savebox. In the example it is set to \texttt{bl} which
+puts the anchor point into the bottom left corner of the savebox. The other
+position specifiers are \texttt{t}op and \texttt{r}ight.
+
+The \emph{name} argument refers to a \LaTeX{} storage bin and therefore is
+of a command nature (which accounts for the backslashes in the current
+example). Boxed pictures can be nested: In this example, \ci{foldera} is
+used within the definition of \ci{folderb}.
 
 The \ci{oval} command had to be used as the \ci{line} command does not work if the segment length is less than 
 about 3\,mm.
-
 
 \subsection{Quadratic B\'ezier Curves}
 
@@ -576,6 +581,7 @@ In some situations, it is important to distinguish between different types of
 arrows. This can be done by putting labels on them, or changing their appearance:
 
 \begin{example}
+\shorthandoff{"}
 \begin{displaymath}
 \xymatrix{
  \bullet\ar@{->}[rr] && \bullet\\
@@ -583,9 +589,13 @@ arrows. This can be done by putting labels on them, or changing their appearance
  \bullet\ar@{~)}[rr] && \bullet\\
  \bullet\ar@{=(}[rr] && \bullet\\
  \bullet\ar@{~/}[rr]  && \bullet\\
+ \bullet\ar@{^{(}->}[rr]  && \bullet\\
+ \bullet\ar@2{->}[rr]  && \bullet\\
+ \bullet\ar@3{->}[rr]  && \bullet\\
  \bullet\ar@{=+}[rr]   && \bullet
 }
 \end{displaymath}
+\shorthandon{"}
 \end{example}
 
 Notice the difference between the following two diagrams:

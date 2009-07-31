@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Special Commands for the LShort2e Introduction
-% $Id: lshort.sty,v 1.1.1.1 2002/02/26 10:04:21 oetiker Exp $
+% $Id: lshort.sty,v 1.2 2003/03/19 20:57:45 oetiker Exp $
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % By Tobias Oetiker
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -21,7 +21,13 @@
 %\RequirePackage{aeguill}
 % some packages which draw a euro
 \RequirePackage{textcomp}
-\RequirePackage{marvosym}
+% need some magic here to keep the original definition of rightarrow
+\newcommand{\org@Rightarrow}{}
+\let\org@Rightarrow\Rightarrow
+\usepackage{marvosym}
+\let\MVRightarrow\Rightarrow
+\let\Rightarrow\org@Rightarrow
+%%%%
 \RequirePackage[gen]{eurosym}
 \RequirePackage{eurosans}
 \let\EUROSANS\euro
@@ -116,6 +122,15 @@
      \vskip -\parskip\noindent{\tiny By #1 \mailto|#2|}\par\nopagebreak%
      \addvspace{1ex plus 0.8ex minus 0.2ex}% 
      \vskip -\parskip\noindent\ignorespaces}
+%
+% propper bookmark entries in pdftex
+
+\ifx\hypersetup\undefined\else
+\pdfstringdefDisableCommands{\edef\ci{\textbackslash}}%
+\pdfstringdefDisableCommands{\edef\sim{\textasciitilde}}%
+\pdfstringdefDisableCommands{\edef\circ{\textdegree}}%
+\pdfstringdefDisableCommands{\edef\ldots{... }}%
+\fi
 
 %\noindent\addvspace{1ex}\small #1 $<$\texttt{#2}$>$\par\addvspace{2ex}\noindnet\ignorespaces}
 %
@@ -165,7 +180,6 @@
 % \begin{example}
 % \Large This is Large
 % \end{example}
-%
 % This Part is stolen from the verbaim.sty by FMi
 % 
 \newwrite\example@out

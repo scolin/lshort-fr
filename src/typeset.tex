@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Typesetting Part of LaTeX2e Introduction
-% $Id: typeset.tex,v 1.1.1.1 2002/02/26 10:04:21 oetiker Exp $
+% $Id: typeset.tex,v 1.2 2003/03/19 20:57:47 oetiker Exp $
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Typesetting Text}
 
@@ -281,7 +281,7 @@ The names for these dashes are:
 `-' \wi{hyphen}, `--' \wi{en-dash}, `---' \wi{em-dash} and
 `$-$' \wi{minus sign}.
 
-\subsection{Tilde (\texorpdfstring{$\sim$}{})}
+\subsection{Tilde ($\sim$)}
 \index{www}\index{URL}\index{tilde}
 A character often seen in web addresses is the tilde. To generate
 this in \LaTeX{} you can use \verb|\~| but the result: \~{} is not really
@@ -304,7 +304,7 @@ super-conduct.
 
 \subsection{The Euro Currency Symbol \texorpdfstring{(\EUR)}{}}
 
-When writing about money these days, you need the euro symbol. Many current
+When writing about money these days, you need the Euro symbol. Many current
 fonts contain a Euro symbol. After loading the \pai{textcomp} package in the preamble of your document
 \begin{lscommand}
 \ci{usepackage}\verb|{textcomp}| 
@@ -322,24 +322,24 @@ First the \pai{eurosym} package. It provides the official Euro symbol:
 \begin{lscommand}
 \ci{usepackage}\verb|[|\emph{official}\verb|]{eurosym}| 
 \end{lscommand}
-If you prefer a euro symbol that matches your font, use the option
+If you prefer a Euro symbol that matches your font, use the option
 \texttt{gen} in place of the \texttt{official} option.
 
 If the Adobe Eurofonts are installed on your system (they are available for
 free from \url{ftp://ftp.adobe.com/pub/adobe/type/win/all}) you can use
-either the package \pai{europs} and the command \ci{EUR} (for a euro symbol
+either the package \pai{europs} and the command \ci{EUR} (for a Euro symbol
 that matches the current font) or the package
-\pai{eurosans} and the command \ci{euro} (for the ``official euro'').
+\pai{eurosans} and the command \ci{euro} (for the ``official Euro'').
 
 The \pai{marvosym} package also provides many different symbols, including a
 Euro, under the name \ci{EUR}. It's disadvantag is that it does not provide
-slanted and bold variants of the euro symbol.
+slanted and bold variants of the Euro symbol.
 
 \begin{table}[!htbp]
-\caption{A bag full of euro symbols} \label{eurosymb}
+\caption{A bag full of Euro symbols} \label{eurosymb}
 \begin{lined}{10cm}
 \begin{tabular}{llccc}
-extension    & codage      & romain       & sans-serif      & chasse fixe \\
+package    & command     & roman       & sans-serif      & typewriter \\
 eurosym      &\verb+\euro+ & \huge\officialeuro &\huge\sffamily\officialeuro
                                              & \huge\ttfamily\officialeuro\\
 $[$gen$]$eurosym &\verb+\euro+ & \huge\geneuro  &\huge\sffamily\geneuro
@@ -627,7 +627,7 @@ Note that, for historical reasons, the name of \textsf{babel}'s option
 for French is either \emph{frenchb} or \emph{francais} but not \emph{french}.
 
 This enables French hyphenation, if you have configured your
-LaTeX system accordingly. It also changes all automatic text into
+\LaTeX{} system accordingly. It also changes all automatic text into
 French: \verb+\chapter+ prints Chapitre, \verb+\today+ prints the current
 date in French and so on. A set of new commands also
 becomes available, which allows you to write French input files more
@@ -669,7 +669,7 @@ command
 \end{lscommand}
 
 This enables German hyphenation, if you have configured your
-\LaTeX system accordingly. It also changes all automatic text into
+\LaTeX{} system accordingly. It also changes all automatic text into
 German. Eg. ``Chapter'' becomes ``Kapitel.'' A set of new commands also
 becomes available, which allows you to write German input files more quickly
 even when you don't use the inputenc package. Check out table
@@ -865,14 +865,13 @@ load them before \pai{fontenc} and \pai{babel} as well.}
 \end{lscommand}
 
 Generally, \pai{babel} will authomatically choose the default font encoding,
-for the above three languages this is \fei{T2A}.  
-However, documents are not restricted to a single font encoding.
-For multi-lingual documents using Cyrillic and Latin-based languages
-it makes sence to include latin font encoding explicitly. \pai{babel} 
-will take care of switching to necessary font encoding when a different language 
-is selected within the document.
+for the above three languages this is \fei{T2A}.  However, documents are not
+restricted to a single font encoding. For multi-lingual documents using
+Cyrillic and Latin-based languages it makes sence to include latin font
+encoding explicitly. \pai{babel} will take care of switching to the appropriate
+font encoding when a different language is selected within the document.
 
-In adition to enabling hyphenations, translating automatically
+In addition to enabling hyphenations, translating automatically
 generated text strings, and activating some language specific 
 typographic rules (like \ci{frenchspacing}), \pai{babel} provides some 
 commands allowing typesetting according to the standards of 
@@ -880,8 +879,8 @@ Bulgarian, Russian, or Ukrainian languages.
 
 
 For all three languages, language specific punctuation is provided:
-cyrillic dash for the text (it is little narrower than latin dash and
-surrounded by thin spaces), dash for direct speech, quotes, and
+The cyrillic dash for the text (it is little narrower than latin dash and
+surrounded by tiny spaces), a dash for direct speech, quotes, and
 commands to facilitate hyphenation, see Table~\ref{Cyrillic}.
 
 % Table borrowed from Ukrainian.dtx
