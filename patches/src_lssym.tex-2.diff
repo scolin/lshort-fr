@@ -1,9 +1,0 @@
---- a/src/lssym.tex
-+++ b/src/lssym.tex
-@@ -347,3 +347,6 @@ $\mathbb{ABC}$
- %%% mode: latex
- %%% TeX-master: "lshort2e"
- %%% End: 
-+% Local Variables:
-+% mode: flyspell
-+% End:
