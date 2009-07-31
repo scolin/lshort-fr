@@ -60,7 +60,7 @@ or you can type less with:
 If you want \LaTeX{} to enumerate your equations, you can use the
 \ei{equation} environment.
 You can then \ci{label} an equation number and refer to it somewhere else in the
-text by using \ci{ref} or \ci{eqref}:
+text by using \ci{ref} or the  \ci{eqref} command from the \pai{amslatex} package:
 \begin{example}
 \begin{equation} \label{eq:eps}
 \epsilon > 0
@@ -296,7 +296,7 @@ The \textbf{\wi{integral operator}} is generated with \ci{int}, the
 \textbf{\wi{sum operator}} with \ci{sum}, and the \textbf{\wi{product operator}}
 with \ci{prod}. The upper and lower limits are specified with~\verb|^|
 and~\verb|_| like subscripts and superscripts.\index{superscript}
-\footnote{\AmS-\LaTeX{} in addition has multi-line super-/subscripts}
+\footnote{\AmS-\LaTeX{} in addition has multi-line super-/subscripts.}
 \begin{example}
 \begin{displaymath}
 \sum_{i=1}^{n} \qquad
@@ -478,7 +478,7 @@ f'(x) & = & -\sin x   \\
 \end{eqnarray}
 \end{example}
 Notice that the space on either side of the 
-the equal signs is rather large. It can be reduced by setting
+equal signs is rather large. It can be reduced by setting
 \verb|\setlength\arraycolsep{2pt}|, as in the next example.
 
 \index{long equations} \textbf{Long equations} will not be

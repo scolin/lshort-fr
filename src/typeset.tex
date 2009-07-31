@@ -336,7 +336,7 @@ that matches the current font) or the package
 \pai{eurosans} and the command \ci{euro} (for the ``official Euro'').
 
 The \pai{marvosym} package also provides many different symbols, including a
-Euro, under the name \ci{EUR}. It's disadvantag is that it does not provide
+Euro, under the name \ci{EUR}. Its disadvantage is that it does not provide
 slanted and bold variants of the Euro symbol.
 
 \begin{table}[!htbp]
@@ -530,8 +530,9 @@ DOS, OS/2  &  \iei{cp850} & \iei{cp866nav}
 \end{tabular}                
 \end{center}                 
 
-If you use multilingual document with conflicting input encodings, 
-you might want to switch to unicode with the help of \pai{ucs} package. 
+If you have a multilingual document with conflicting input encodings,
+you might want to switch to unicode, using the \pai{ucs} package.
+
 
 \begin{lscommand}
 \ci{usepackage}\verb|{ucs}|\\ 
@@ -607,7 +608,7 @@ the appropriate encoding for your system.
 \caption{Preamble for Portuguese documents.} \label{portuguese}
 \begin{lined}{5cm}
 \begin{verbatim}
-\usepackage[portugese]{babel}
+\usepackage[portuguese]{babel}
 \usepackage[latin1]{inputenc}
 \usepackage[T1]{fontenc}
 \end{verbatim}
@@ -615,7 +616,6 @@ the appropriate encoding for your system.
 \end{lined}
 \end{table}
 
-\newpage
 
 \subsection{Support for French}
 
@@ -713,7 +713,7 @@ Considering a number of issues  Korean \LaTeX{} users
 have to cope with.
 This section was written by Karnes KIM on behalf of the
 Korean lshort translation team. It  was translated into English
-by SHIN Jungshik and shortened by Tobi Oetiker}
+by SHIN Jungshik and shortened by Tobi Oetiker.}
 
 To use \LaTeX{} for typesetting  \wi{Korean}, 
 we need to solve three problems: 
@@ -801,7 +801,7 @@ well-designed fonts. The H\LaTeX{} distribution
 includes \index{Korean font!UHC font}UHC \PSi{} fonts 
 of 10
 different families and
-Munhwabu\footnote{Korean Ministry of Culture}
+Munhwabu\footnote{Korean Ministry of Culture.}
 fonts (TrueType) of 5 different families.
 The CJK package works with a set of fonts used by earlier versions
 of H\LaTeX{} and it can use Bitstream's cyberbit TrueType
@@ -907,8 +907,8 @@ commands to facilitate hyphenation, see Table~\ref{Cyrillic}.
    \verb|"---| & Cyrillic emdash in plain text.                      \\
    \verb|"--~| & Cyrillic emdash in compound names (surnames).       \\
    \verb|"--*| & Cyrillic emdash for denoting direct speech.         \\
-   \verb|""| & like |"-|, but producing no hyphen sign
-               (for compound words with hyphen, e.g.\ |x-""y|
+   \verb|""| & like \verb|"-|, but producing no hyphen sign
+               (for compound words with hyphen, e.g.\verb|x-""y|
                or some other signs  as ``disable/enable'').     \\
    \verb|"~| & for a compound word mark without a breakpoint.        \\
    \verb|"=| & for a compound word mark with a breakpoint, allowing
@@ -1464,9 +1464,9 @@ Mene & Muh! \\
 \end{tabular}
 \end{example}
 
-Material typeset with the tabular environment always stays together on
-one page. If you want to typeset long tables, you might want to have a
-look at the \pai{supertabular} and the \pai{longtabular} environments.
+Material typeset with the tabular environment always stays together on one
+page. If you want to typeset long tables, you might want to use the
+\pai{longtable} environments.
 
 \section{Floating Bodies}
 Today most publications contain a lot of figures and tables. These
@@ -1634,11 +1634,12 @@ drawings into your \LaTeXe{} documents later in this introduction.
 
 Text given as arguments of commands like \ci{caption} or \ci{section} may
 show up more than once in the document (e.g. in the table of contents as
-well as in the body of the document). Some commands fail when used in the
-argument of \ci{section}-like commands. These commands are called 
-\wi{fragile commands}---for example, \ci{footnote} or \ci{phantom}. These
-fragile commands need protection (don't we all?). You can
-protect them by putting the \ci{protect} command in front of them.
+well as in the body of the document). Some commands will break when used in
+the argument of \ci{section}-like commands. Compilation of your document
+will fail. These commands are called \wi{fragile commands}---for example,
+\ci{footnote} or \ci{phantom}. These fragile commands need protection (don't
+we all?). You can protect them by putting the \ci{protect} command in front
+of them.
 
 \ci{protect} only refers to the command that follows right behind, not even
 to its arguments. In most cases a superfluous \ci{protect} won't hurt.

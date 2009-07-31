@@ -28,10 +28,22 @@ with some slight enhancements added in 1989 to better support 8-bit
 characters and multiple languages. \TeX{} is renowned for being
 extremely stable, for running on many different kinds of computers,
 and for being virtually bug free. The version number of \TeX{} is
-converging to $\pi$ and is now at $3.14159$.
+converging to $\pi$ and is now at $3.141592$.
                                                                        
 \TeX{} is pronounced ``Tech,'' with a ``ch'' as in the German word
-``Ach'' or in the Scottish ``Loch.'' In an ASCII environment, \TeX{}
+``Ach''\footnote{In german there are actually two pronounciations for ``ch''
+and one might assume that the soft ``ch'' sound from ``Pech'' would be a
+more appropriate. Asked about this, Knuth wrote in the German Wikipedia:
+\emph{I do not get angry when people pronounce \TeX{} in their favorite way
+\ldots{} and in Germany many use a soft ch because the X follows the vowel
+e, not the harder ch that follows the vowel a. In Russia, `tex' is a very
+common word, pronounced `tyekh'. But I believe the most proper pronunciation
+is heard in Greece, where you have the harsher ch of ach and Loch.}}
+
+ or in the Scottish ``Loch.'' The ``ch'' originates from the Greek
+
+alphabet where X is the letter ``ch'' or ``chi''. \TeX{} is also the first sylable
+of the Greek word texnologia (technology). In an ASCII environment, \TeX{}
 becomes \texttt{TeX}.
 
 \subsection{\LaTeX}
@@ -552,6 +564,7 @@ which instructs \LaTeX{} to typeset the document as an \emph{article}
 with a base font size of \emph{eleven points}, and to produce a
 layout suitable for \emph{double sided} printing on \emph{A4 paper}.
 \pagebreak[2]
+
 \subsection{Packages}
 \index{package} While writing your document, you will probably find
 that there are some areas where basic \LaTeX{} cannot solve your
@@ -570,6 +583,10 @@ find more information on the packages installed at your site in your
 \guide. The prime source for information about \LaTeX{} packages is \companion.
 It contains descriptions on hundreds of packages, along with
 information of how to write your own extensions to \LaTeXe.
+
+Modern \TeX{} distributions come with a large number of packages
+preinstalled. If you are working on a Unix system, use the command
+\texttt{texdoc} for accessing package documentation.
 
 \begin{table}[btp]
 \caption{Some of the Packages Distributed with \LaTeX.} \label{packages}
@@ -611,6 +628,7 @@ information of how to write your own extensions to \LaTeXe.
 \end{description}
 \end{lined}
 \end{table}
+
 
 \subsection{Page Styles}
  
