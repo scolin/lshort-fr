@@ -18,6 +18,9 @@ Spanish         Tom'as Bautista <bautista@cma.ulpgc.es>
 Russian         Boris Tobotras <tobotras@jet.msk.su>
         --> CTAN:info/lshort/russian
 
+Ukranian        Maksym Polyakov <polyama@myrealbox.com>
+        --> http://www.auburn.edu/~polayma/lshort
+
 Polish		Stanis/law Wawrykiewicz <staw@eti.pg.gda.pl>
 		Janusz Go{\l}dasz, Ryszard Kubiak and Tomasz Przechlewski
 	--> CTAN:info/lshort/polish
@@ -46,6 +49,11 @@ Slovak          Jan Busa <busaj@ccsun.tuke.sk>
 Japanese        NOMURA Masataka <nomura@cc.kshosen.ac.jp>
         --> CTAN:info/lshort/japanese
 
+
+Korean           Karnes Kim karnes@doeun.pe.kr
+        --> http://www.doeun.pe.kr/frames/lshort.html
+        --> CTAN:/tex-archive/info/lshort/korean/
+>
 
 If you know of other translations, please tell me. 
 

@@ -33,11 +33,11 @@
 
     The preformatted versions of the document are set for double sided
     printing on A4 paper. If you want a single sided version, you need to
-    remove "twoside" from the parameters of the \documentclass command in
-    lshort2e.tex. To produce a small booklet (A5) you can use the pre
-    generated ps file of you can use your dvi-driver to shrink the output
-    and then use pstops to paste the resulting pages together in the right
-    order.
+    replace "twoside" by "oneside" in the parameters list of the
+    \documentclass command in lshort2e.tex. To produce a small booklet (A5)
+    you can use the pre generated ps file of you can use your dvi-driver to
+    shrink the output and then use pstops to paste the resulting pages
+    together in the right order.
 
     To produce a A5 Booklet from source, I recommend the following procedure, 
     on the twoside lshort2e.dvi:
