@@ -22,7 +22,13 @@
 %\RequirePackage{aeguill}
 % some packages which draw a euro
 \RequirePackage{textcomp}
-\RequirePackage{marvosym}
+% need some magic here to keep the original definition of rightarrow
+\newcommand{\org@Rightarrow}{}
+\let\org@Rightarrow\Rightarrow
+\usepackage{marvosym}
+\let\MVRightarrow\Rightarrow
+\let\Rightarrow\org@Rightarrow
+%%%%
 \RequirePackage[gen]{eurosym}
 \RequirePackage{eurosans}
 \let\EUROSANS\euro
@@ -120,6 +126,15 @@
      \vskip -\parskip\noindent{\tiny Par #1 \mailto|#2|}\par\nopagebreak%
      \addvspace{1ex plus 0.8ex minus 0.2ex}% 
      \vskip -\parskip\noindent\ignorespaces}
+%
+% propper bookmark entries in pdftex
+
+\ifx\hypersetup\undefined\else
+\pdfstringdefDisableCommands{\edef\ci{\textbackslash}}%
+\pdfstringdefDisableCommands{\edef\sim{\textasciitilde}}%
+\pdfstringdefDisableCommands{\edef\circ{\textdegree}}%
+\pdfstringdefDisableCommands{\edef\ldots{... }}%
+\fi
 
 %\noindent\addvspace{1ex}\small #1 $<$\texttt{#2}$>$\par\addvspace{2ex}\noindnet\ignorespaces}
 %
@@ -176,7 +191,6 @@
 % \begin{example}
 % \Large This is Large
 % \end{example}
-%
 % This Part is stolen from the verbaim.sty by FMi
 % 
 \newwrite\example@out
