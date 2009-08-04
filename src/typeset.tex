@@ -1765,7 +1765,43 @@ Dupont & Jules \\
 une boîte indivisible, en particulier il ne peut y avoir de coupure de
 page. Pour réaliser de longs tableaux s'étendant sur plusieurs pages
 il faut avoir recours aux extensions \pai{supertabular} ou
-\pai{longtabular}.
+\pai{longtable}.
+
+Parfois les tableaux par défaut de \LaTeX{} donnent une impression
+d'étroitesse. Si vous voulez leur donner plus d'extension, vous pouvez
+le faire à l'aide des valeurs \ci{arraystretch} et \ci{tabcolsep}.
+
+\begin{example}
+\begin{tabular}{|l|}
+\hline
+Ces lignes sont\\\hline
+à l'étroit\\\hline
+\end{tabular}
+
+{\renewcommand{\arraystretch}{1.5}
+\renewcommand{\tabcolsep}{0.2cm}
+\begin{tabular}{|l|}
+\hline
+Un tableau\\\hline
+moins étroit\\\hline
+\end{tabular}}
+
+\end{example}
+
+Si vous voulez seulement augmenter la hauteur d'un ligne dans un
+tableau, vous pouvez utiliser un filet de largeur nulle%
+\footnote{En typographie professionnelle ceci est appelé un
+\wi{montant}.}. Donnez à ce filet \ci{rule} la hauteur voulue.
+
+\begin{example}
+\begin{tabular}{|c|}
+\hline
+\rule{1pt}{4ex}\'Etai\dots\\
+\hline
+\rule{0pt}{4ex} montant \\
+\hline
+\end{tabular}
+\end{example}
 
 \section{Objets flottants}
 
