@@ -1,0 +1,46 @@
+--- a/src/lssym.tex
++++ b/src/lssym.tex
+@@ -13,28 +13,32 @@ from \emph{math mode}.
+ % Conditional Text in case the AMS Fonts are installed
+ %
+ To use the symbols listed in
+-Tables~\ref{AMSD}--\ref{AMSNBR},\footnote{These tables were derived
++Tables~\ref{AMSD}--\ref{AMSmisc},\footnote{These tables were derived
+   from \texttt{symbols.tex} by David~Carlisle and subsequently changed
+ extensively as suggested by Josef~Tkadlec.} the package
+ \pai{amssymb} must be loaded in the preamble of the document and the
+-AMS math fonts must be installed on the system. If the AMS package and
+-fonts are not installed on your system, have a look at\\ 
+-\CTANref|macros/latex/required/amslatex|. An even more comprehensive list of
+-symbols can be found at  \CTANref|info/symbols/comprehensive|.
++\AmS math fonts must be installed on the system. If the \AmS package and
++fonts are not installed on your system, have a look at
++\CTANref|CTAN:macros/latex/required/amslatex|. An even more comprehensive list of
++symbols can be found at \CTANref|CTAN:info/symbols/comprehensive|.
+  
+ \begin{table}[!h]
+ \caption{Math Mode Accents.}  \label{mathacc}
+ \begin{symbols}{*3{cl}}
+-\W{\hat}{a}     & \W{\check}{a} & \W{\tilde}{a} \\
+-\W{\grave}{a} & \W{\dot}{a} & \W{\ddot}{a}     \\
+-\W{\bar}{a} &\W{\vec}{a} &\W{\widehat}{A}  \\  
+-\W{\acute}{a}  & \W{\breve}{a} &\W{\widetilde}{A} \\
+-\W{\mathring}{a}\\
++\W{\hat}{a}   & \W{\check}{a} & \W{\tilde}{a}       \\
++\W{\grave}{a} & \W{\dot}{a}   & \W{\ddot}{a}        \\
++\W{\bar}{a}   & \W{\vec}{a}   & \W{\widehat}{AAA}   \\  
++\W{\acute}{a} & \W{\breve}{a} & \W{\widetilde}{AAA} \\
++\W{\mathring}{a}
+ \end{symbols}
+ \end{table}
+  
++
+ \begin{table}[!h]
+-\caption{Greek Letters.}
++\caption{Greek Letters.} \label{greekletters}
++\bigskip
++There is no uppercase of some of the letters like \ci{Alpha}, \ci{Beta} and so
++on, because they look the same as normal roman letters: A, B\ldots
+ \begin{symbols}{*4{cl}}
+  \X{\alpha}     & \X{\theta}     & \X{o}          & \X{\upsilon}  \\
+  \X{\beta}      & \X{\vartheta}  & \X{\pi}        & \X{\phi}      \\

@@ -1,0 +1,31 @@
+--- a/src/math.tex
++++ b/src/math.tex
+@@ -657,21 +657,20 @@ theorem, so it gets a number that is in sequence with
+ the other ``Laws.'' The argument in square brackets is used to specify 
+ a title or something similar for the theorem.
+ \begin{example}
+-\flushleft
+ \newtheorem{mur}{Murphy}[section]
+-\begin{mur}
+-If there are two or more 
+-ways to do something, and 
+-one of those ways can result 
+-in a catastrophe, then 
+-someone will do it.\end{mur}
++
++\begin{mur} If there are two or 
++more ways to do something, and 
++one of those ways can result in
++a catastrophe, then someone 
++will do it.\end{mur}
+ \end{example}
+ 
+ The ``Murphy'' theorem gets a number that is linked to the number of
+ the current section. You could also use another unit, for example chapter or
+ subsection.
+ 
+-The \pai{amsthm} also provides the \ei{proof}.
++The \pai{amsthm} also provides the \ei{proof} environment.
+ 
+ \begin{example}
+ \begin{proof}

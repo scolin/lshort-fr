@@ -1,0 +1,27 @@
+--- a/src/lssym.tex
++++ b/src/lssym.tex
+@@ -281,22 +281,8 @@ These symbols can also be used in text mode.
+ \end{symbols}
+ \end{table}
+ 
+-\begin{table}[!tbp]
+-\caption{AMS Binary Operators.}
+-\begin{symbols}{*3{cl}}
+- \X{\dotplus}        & \X{\centerdot}      &       \\
+- \X{\ltimes}         & \X{\rtimes}         & \X{\divideontimes} \\
+- \X{\doublecup}      & \X{\doublecap}	   & \X{\smallsetminus} \\
+- \X{\veebar}         & \X{\barwedge}       & \X{\doublebarwedge}\\
+- \X{\boxplus}        & \X{\boxminus}       & \X{\circleddash}   \\
+- \X{\boxtimes}       & \X{\boxdot}         & \X{\circledcirc}   \\
+- \X{\intercal}       & \X{\circledast}     & \X{\rightthreetimes} \\
+- \X{\curlyvee}       & \X{\curlywedge}     & \X{\leftthreetimes}
+-\end{symbols}
+-\end{table}
+-
+-\begin{table}[!tbp]
+-\caption{AMS Miscellaneous.}
++\begin{table}[!tbp] \label{AMSmisc}
++\caption{\AmS{} Miscellaneous.}
+ \begin{symbols}{*3{cl}}
+  \X{\hbar}             & \X{\hslash}           & \X{\Bbbk}            \\
+  \X{\square}           & \X{\blacksquare}      & \X{\circledS}        \\

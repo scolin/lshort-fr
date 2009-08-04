@@ -1,0 +1,422 @@
+--- a/src/math.tex
++++ b/src/math.tex
+@@ -11,232 +11,283 @@
+   only scratches the surface. While the things explained here are
+   sufficient for many people, don't despair if you can't find a
+   solution to your mathematical typesetting needs here. It is highly likely
+-  that your problem is addressed in \AmS-\LaTeX{}%
+-  \footnote{The \emph{American Mathematical Society} has produced a
+-  powerful extension to \LaTeX{}. Many of the examples in this
+-  chapter make use of this extension. It is provided with all recent
+-  \TeX{} distributions. If yours is missing it, go to \CTANref|macros/latex/required/amslatex|.}
++  that your problem is addressed in \AmS-\LaTeX{}.
+ \end{intro}
+   
+-\section{General}
+ 
+-\LaTeX{} has a special mode for typesetting \wi{mathematics}. Mathematics
+-can be typeset inline within a paragraph, or the paragraph can be broken to
+-typeset it separately. Mathematical text \emph{within} a paragraph is entered between \ci{(}
+-and \ci{)}, \index{$@\texttt{\$}} %$
+-between \texttt{\$} and \texttt{\$}, or between %}
+-\verb|\begin{|\ei{math}\verb|}| and \verb|\end{math}|.\index{formulae}
++
++\section{The \AmS-\LaTeX{} bundle}
++
++If you want to typeset (advanced) \wi{mathematics}, you should
++use \AmS-\LaTeX{}. The \AmS-\LaTeX{} bundle is a collection of packages and classes for
++mathematical typesetting. We will mostly deal with the \pai{amsmath} package
++which is a part of the bundle. \AmS-\LaTeX{} is produced by The \emph{\wi{American Mathematical Society}} 
++and it is used extensively for mathematical typesetting. \LaTeX{} itself does provide
++some basic features and environments for mathematics, but they are limited (or
++maybe it's the other way around: \AmS-\LaTeX{} is \emph{unlimited}!) and
++in some cases inconsistent. 
++
++\AmS-\LaTeX{} is a part of the required distribution and is provided
++with all recent \LaTeX{} distributions.\footnote{If yours is missing it, go to
++  \texttt{CTAN:macros/latex/required/amslatex}.} In this chapter, we assume
++  \pai{amsmath} is loaded in the preamble; \verb|\usepackage{amsmath}|.
++
++\section{Single Equations}
++  
++There two ways to typeset mathematical \wi{formulae}: in-line within a paragraph
++(\emph{\wi{text style}}), or the paragraph can be broken to 
++typeset it separately (\textit{\wi{display style}}). Mathematical \wi{equation}s 
++\emph{within} a paragraph is entered between \index{$@\texttt{\$}} %$
++between \texttt{\$} and \texttt{\$}:
+ \begin{example}
+-Add $a$ squared and $b$ squared 
++Add $a$ squared and $b$ squared
+ to get $c$ squared. Or, using 
+ a more mathematical approach:
+-$c^{2}=a^{2}+b^{2}$
++$a^2 + b^2 = c^2$
+ \end{example}
+ \begin{example}
+ \TeX{} is pronounced as 
+-\(\tau\epsilon\chi\).\\[6pt]
+-100~m$^{3}$ of water\\[6pt]
+-This comes from my
+-\begin{math}\heartsuit\end{math}
+-\end{example}
+-
+-When you want your larger mathematical equations or formulae to be set apart
+-from the rest of the paragraph, it is preferable to \emph{display} them,
+-rather than to break the paragraph apart.
+-To do this, you can either enclose them
+-in \ci{[} and \ci{]}, or between
+-\verb|\begin{|\ei{displaymath}\verb|}| and
+-\verb|\end{displaymath}|.
++$\tau\epsilon\chi$\\[5pt]
++100~m$^{3}$ of water\\[5pt]
++This comes from my $\heartsuit$
++\end{example}
++
++If you want your larger equations to be set apart
++from the rest of the paragraph, it is preferable to \emph{display} them
++rather than to breaking the paragraph apart.
++To do this, you enclose them between \verb|\begin{|\ei{equation}\verb|}| and
++\verb|\end{equation}|.\footnote{This is a \textsf{amsmath} command. If you don't
++have access to the package for some obscure reason, you can use \LaTeX's own
++\ei{displaymath} environment instead.} You can then \ci{label} an equation number and refer to
++it somewhere else in the text by using the \ci{eqref} command. If you want to
++name the equation something specific, you \ci{tag} it instead. You can't use
++\ci{eqref} with\ci{tag}.
+ \begin{example}
+ Add $a$ squared and $b$ squared
+ to get $c$ squared. Or, using
+-a more mathematical approach:
+-\begin{displaymath}
+-c^{2}=a^{2}+b^{2}
+-\end{displaymath}
++a more mathematical approach
++ \begin{equation}
++   a^2 + b^2 = c^2
++ \end{equation}
++Einstein says
++ \begin{equation}
++   E = mc^2 \label{clever}
++ \end{equation}
++He didn't say
++ \begin{equation}
++  1 + 1 = 3 \tag{dumb}
++ \end{equation}
++This is a reference to 
++\eqref{clever}. 
++\end{example}
++
++If you don't want \LaTeX{} to enumerate the equations, use the starred
++version of \texttt{equation} using an asterisk, \ei{equation*}, or even easier, enclose the
++equation in \ci{[} and \ci{]}:\footnote{\index{equation!\textsf{amsmath}}
++  \index{equation!\LaTeX{}}This is again from \textsf{amsmath}. If you 
++didn't load the package, use \LaTeX{}'a own \texttt{equation} environment
++instead. The naming of the \texttt{amsmath}/\LaTeX{} commands may seem a bit
++confusing, but it's really not a problem since everybody uses \texttt{amsmath} anyway.
++In general, it is best to load the package from the beginning because you might use it
++later on, and then \LaTeX's unnumbered \texttt{equation} clashes with
++\AmS-\LaTeX's numbered \texttt{equation}.}
++\begin{example}
++Add $a$ squared and $b$ squared
++to get $c$ squared. Or, using
++a more mathematical approach
++ \begin{equation*}
++   a^2 + b^2 = c^2
++ \end{equation*}
+ or you can type less for the
+ same effect:
+-\[a^2+b^2=c^2\]
+-\end{example}
+-If you want \LaTeX{} to enumerate your equations, you can use the
+-\ei{equation} environment.
+-You can then \ci{label} an equation number and refer to it somewhere else in the
+-text by using \ci{ref} or the  \ci{eqref} command from the \pai{amsmath} package:
+-\begin{example}
+-\begin{equation} \label{eq:eps}
+-\epsilon > 0
+-\end{equation}
+-From (\ref{eq:eps}), we gather 
+-\ldots{}From \eqref{eq:eps} we
+-do the same.
++ \[ a^2 + b^2 = c^2 \]
+ \end{example}
+ 
+-Note the difference in typesetting style between equations that are typeset and those
+-that are displayed:
+ 
++Note the difference in typesetting style between \wi{text style} and \wi{display style}
++equations: 
+ \begin{example}
++This is text style: 
+ $\lim_{n \to \infty} 
+-\sum_{k=1}^n \frac{1}{k^2} 
+-= \frac{\pi^2}{6}$
+-\end{example}
+-\begin{example}
+-\begin{displaymath}
+-\lim_{n \to \infty} 
+-\sum_{k=1}^n \frac{1}{k^2} 
+-= \frac{\pi^2}{6}
+-\end{displaymath}
++ \sum_{k=1}^n \frac{1}{k^2} 
++ = \frac{\pi^2}{6}$.
++And this is display style:
++ \begin{equation}
++  \lim_{n \to \infty} 
++  \sum_{k=1}^n \frac{1}{k^2} 
++  = \frac{\pi^2}{6}
++ \end{equation}
+ \end{example}
++ 
++\subsection{Math Mode}
+ 
+-
+-
+-There are differences between \emph{math mode} and \emph{text mode}. For
++There are also differences between \emph{\wi{math mode}} and \emph{text mode}. For
+ example, in \emph{math mode}: 
+ 
+ \begin{enumerate}
+ 
+-\item Most spaces and line breaks do not have any significance, as all spaces
++\item \index{spacing!math mode} Most spaces and line breaks do not have any significance, as all spaces
+ are either derived logically from the mathematical expressions, or
+ have to be specified with special commands such as \ci{,}, \ci{quad} or
+-\ci{qquad}.
++\ci{qquad} (we'll get back to that later, see section~\ref{sec:math-spacing}).
+  
+ \item Empty lines are not allowed. Only one paragraph per formula.
+ 
+ \item Each letter is considered to be the name of a variable and will be
+ typeset as such. If you want to typeset normal text within a formula
+ (normal upright font and normal spacing) then you have to enter the
+-text using the \verb|\textrm{...}| commands (see also section \ref{sec:fontsz} on page \pageref{sec:fontsz}).
++text using the \verb|\text{...}| command (see also section \ref{sec:fontsz} on
++page \pageref{sec:fontsz}).
++
+ \end{enumerate}
+ \begin{example}
+-\begin{equation}
+-\forall x \in \mathbf{R}:
+-\qquad x^{2} \geq 0
+-\end{equation}
++$\forall x \in \mathbf{R}:
++ \qquad x^{2} \geq 0$
+ \end{example}
+ \begin{example}
+-\begin{equation}
+-x^{2} \geq 0\qquad
+-\textrm{for all }x\in\mathbf{R}
+-\end{equation}
++$x^{2} \geq 0\qquad
++ \text{for all }x\in\mathbf{R}$
+ \end{example}
+  
+-
+-%
+-% Add AMSSYB Package ... Blackboard bold .... R for realnumbers
+-%
+ Mathematicians can be very fussy about which symbols are used:
+-it would be conventional here to use `\wi{blackboard bold}',
++it would be conventional here to use the `\wi{blackboard bold}' font,
+ \index{bold symbols} which is obtained using \ci{mathbb} from the
+-package \pai{amsfonts} or \pai{amssymb}.
++package \pai{amssymb}.\footnote{\pai{amssymb} is not a part
++  of the \AmS-\LaTeX{} bundle, but it is perhaps still a part of your \LaTeX{}
++  distribution. Check your distribution
++  or go to \texttt{CTAN:/fonts/amsfonts/latex/} to obtain it.}
+ \ifx\mathbb\undefined\else
+ The last example becomes
+ \begin{example}
+-\begin{displaymath}
+-x^{2} \geq 0\qquad
+-\textrm{for all }x\in\mathbb{R}
+-\end{displaymath}
++$x^{2} \geq 0\qquad
++ \text{for all } x 
++ \in \mathbb{R}$
+ \end{example}
+ \fi
++See Table~\ref{mathalpha} on \pageref{mathalpha} and
++Table~\ref{mathfonts} on \pageref{mathfonts} for more math fonts.
++
+ 
+-\section{Grouping in Math Mode}
+ 
+-Most math mode commands act only on the next character, so if you
+-want a command to affect several characters, you have to group them
+-together using curly braces: \verb|{...}|.
+-\begin{example}
+-\begin{equation}
+-a^x+y \neq a^{x+y}
+-\end{equation}
+-\end{example}
+- 
+ \section{Building Blocks of a Mathematical Formula}
+ 
+-This section describes the most important commands used in mathematical
+-typesetting. Take a look at section~\ref{symbols} on
+-page~\pageref{symbols} for a detailed list of commands for typesetting
+-mathematical symbols.
++In this section, we describe the most important commands used in mathematical
++typesetting. Most of the commands in this section will not require
++\textsf{amsmath} (if they do, it will be stated clearly), but load it anyway.
++
+ 
+ \textbf{Lowercase \wi{Greek letters}} are entered as \verb|\alpha|,
+  \verb|\beta|, \verb|\gamma|, \ldots, uppercase letters
+ are entered as \verb|\Gamma|, \verb|\Delta|, \ldots\footnote{There is no
+-  uppercase Alpha defined in \LaTeXe{} because it looks the same as a
+-  normal roman A. Once the new math coding is done, things will
++  uppercase Alpha, Beta etc. defined in \LaTeXe{} because it looks the same as a 
++  normal roman A, B\ldots Once the new math coding is done, things will
+   change.} 
++
++Take a look at Table~\ref{greekletters} on page~\pageref{greekletters} for a
++list of Greek letters.
+ \begin{example}
+-$\lambda,\xi,\pi,\mu,\Phi,\Omega$
++$\lambda,\xi,\pi,\theta,
++ \mu,\Phi,\Omega,\Delta$
+ \end{example}
+ 
++
+ \textbf{Exponents and Subscripts} can be specified using\index{exponent}\index{subscript}
+ the \verb|^|\index{^@\verb"|^"|} and the \verb|_|\index{_@\verb"|_"|} character.
++Most math mode commands act only on the next character, so if you
++want a command to affect several characters, you have to group them
++together using curly braces: \verb|{...}|.
++
++Table~\ref{binaryrel} on page \pageref{binaryrel} lists a lot of other binary
++relations like $\subseteq$ and $\perp$.
++
+ \begin{example}
+-$a_{1}$ \qquad $x^{2}$ \qquad
+-$e^{-\alpha t}$ \qquad
+-$a^{3}_{ij}$\\
+-$e^{x^2} \neq {e^x}^2$
++$p^3_{ij} \qquad
++ m_\text{Knuth} \\[5pt]
++ a^x+y \neq a^{x+y}\qquad 
++ e^{x^2} \neq {e^x}^2$
+ \end{example}
+ 
++
+ The \textbf{\wi{square root}} is entered as \ci{sqrt}; the
+-$n^\mathrm{th}$ root is generated with \verb|\sqrt[|$n$\verb|]|. The size of
++$n^\text{th}$ root is generated with \verb|\sqrt[|$n$\verb|]|. The size of
+ the root sign is determined automatically by \LaTeX. If just the sign
+ is needed, use \verb|\surd|.
++
++Se other kinds of arrows like $\hookrightarrow$ and $\rightleftharpoons$ on
++Table~\ref{tab:arrows} on page \pageref{tab:arrows}. 
++\begin{example}
++$\sqrt{x} \Leftrightarrow x^{1/2}
++ \quad \sqrt[3]{2}
++ \quad \sqrt{x^{2} + \sqrt{y}}
++ \quad \surd[x^2 + y^2]$
++\end{example}
++
++
++\index{dots!three}
++\index{vertical!dots}
++\index{horizontal!dots}
++Usually you don't typeset an explicit \textbf{\wi{dot}} sign to indicate
++the multiplication operation when handling symbols; however sometimes it is written
++to help the reader's eyes in grouping a formula.
++You should use \ci{cdot} which typesets a single dot centered. \ci{cdots} is
++three centered \textbf{\wi{dots}} while \ci{ldots} sets the dots on the
++baseline. Besides that, there are \ci{vdots} for 
++vertical and \ci{ddots} for \wi{diagonal dots}. You can find another example in
++section~\ref{sec:arraymat}.
+ \begin{example}
+-$\sqrt{x}$ \qquad 
+-$\sqrt{ x^{2}+\sqrt{y} }$ 
+-\qquad $\sqrt[3]{2}$\\[3pt]
+-$\surd[x^2 + y^2]$
++$\Psi = v_1 \cdot v_2
++ \cdot \ldots \qquad 
++ n! = 1 \cdot 2 
++ \cdots (n-1) \cdot n$
+ \end{example}
+ 
+ The commands \ci{overline} and \ci{underline} create
+-\textbf{horizontal lines} directly over or under an expression.
+-\index{horizontal!line}
++\textbf{horizontal lines} directly over or under an expression:
++\index{horizontal!line} \index{line!horizontal}
+ \begin{example}
+-$\overline{m+n}$
++$0.\overline{3} = 
++ \underline{\underline{1/3}}$
+ \end{example}
+ 
+ The commands \ci{overbrace} and \ci{underbrace} create
+-long \textbf{horizontal braces} over or under an expression.
+-\index{horizontal!brace}
++long \textbf{horizontal braces} over or under an expression:
++\index{horizontal!brace} \index{brace!horizontal} 
+ \begin{example}
+-$\underbrace{a+b+\cdots+z}_{26}$
++$\underbrace{\overbrace{a+b+c}^6 
++ \cdot \overbrace{d+e+f}^9}
++ _\text{meaning of life} = 42$
+ \end{example}
+ 
+-\index{mathematical!accents} To add mathematical accents such as small
+-arrows or \wi{tilde} signs to variables, you can use the commands
+-given in Table~\ref{mathacc} on page \pageref{mathacc}.  Wide hats and
++\index{mathematical!accents} To add mathematical accents such as \textbf{small
++arrows} or \textbf{\wi{tilde}} signs to variables, the commands
++given in Table~\ref{mathacc} on page~\pageref{mathacc} might be useful.  Wide hats and
+ tildes covering several characters are generated with \ci{widetilde}
+-and \ci{widehat}.  The \verb|'|\index{'@\verb"|'"|} symbol gives a
+-\wi{prime}.
++and \ci{widehat}. Notice the difference between \ci{hat} and \ci{widehat} and the placement of
++\ci{bar} for a variable with subscript. The \wi{apostrophe} mark
++\verb|'|\index{'@\verb"|'"|} gives a \wi{prime}:
+ % a dash is --
+ \begin{example}
+-\begin{displaymath}
+-y=x^{2}\qquad y'=2x\qquad y''=2
+-\end{displaymath}
++$f(x) = x^2 \qquad f'(x) 
++ = 2x \qquad f''(x) = 2\\[5pt]
++ \hat{XY} \quad \widehat{XY}
++ \quad \bar{x_0} \quad \bar{x}_0$
+ \end{example}
+ 
+-\textbf{Vectors}\index{vectors} often are specified by adding small
++
++\textbf{Vectors}\index{vectors} are often specified by adding small
+ \wi{arrow symbols} on top of a variable. This is done with the
+ \ci{vec} command. The two commands \ci{overrightarrow} and
+-\ci{overleftarrow} are useful to denote the vector from $A$ to $B$.
++\ci{overleftarrow} are useful to denote the vector from $A$ to $B$:
+ \begin{example}
+-\begin{displaymath}
+-\vec a\quad\overrightarrow{AB}
+-\end{displaymath}
+-\end{example}
+-
+-Usually you don't typeset an explicit dot sign to indicate
+-the multiplication operation; however sometimes it is written
+-to help the reader's eyes in grouping a formula.
+-You should use \ci{cdot} in these cases:
+-\begin{example}
+-\begin{displaymath}
+-v = {\sigma}_1 \cdot {\sigma}_2
+-    {\tau}_1 \cdot {\tau}_2
+-\end{displaymath}
++$\vec{a} \qquad
++ \vec{AB} \qquad
++ \overrightarrow{AB}$
+ \end{example}
+ 
+ 
+ Names of log-like functions are often typeset in an upright
+ font, and not in italics as variables are, so \LaTeX{} supplies the
+-following commands to typeset the most important function names:
++following commands to typeset the most important function names:\\
+ \index{mathematical!functions}
+ 
+ \begin{tabular}{llllll}

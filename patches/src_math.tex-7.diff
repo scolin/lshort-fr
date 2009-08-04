@@ -1,0 +1,41 @@
+--- a/src/math.tex
++++ b/src/math.tex
+@@ -690,36 +690,8 @@ situations where it would end up alone on a line.
+ \end{proof}
+ \end{example}
+ 
+-\section{Bold Symbols}
+-\index{bold symbols}
+-
+-It is quite difficult to get bold symbols in \LaTeX{}; this is
+-probably intentional as amateur typesetters tend to overuse them.  The
+-font change command \verb|\mathbf| gives bold letters, but these are
+-roman (upright) whereas mathematical symbols are normally italic.
+-There is a \ci{boldmath} command, but \emph{this can only be used
+-outside mathematics mode}. It works for symbols too.
+-\begin{example}
+-\begin{displaymath}
+-\mu, M \qquad \mathbf{M} \qquad
+-\mbox{\boldmath $\mu, M$}
+-\end{displaymath}
+-\end{example}
+-
+-\noindent
+-Notice that the comma is bold too, which may not be what is required.
+-
+-The package \pai{amsbsy} (included by \pai{amsmath}) as well as the
+-\pai{bm} from the tools bundle make this much easier as they include
+-a \ci{boldsymbol} command.
+-\ifx\boldsymbol\undefined\else
+-\begin{example}
+-\begin{displaymath}
+-\mu, M \qquad
+-\boldsymbol{\mu}, \boldsymbol{M}
+-\end{displaymath}
+-\end{example}
+-\fi
++If you want to customise you theorems down to the last dot, the \pai{ntheorem} package
++offers a plethora of options.
+ 
+ 
+ %

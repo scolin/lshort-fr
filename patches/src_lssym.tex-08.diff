@@ -1,0 +1,11 @@
+--- a/src/lssym.tex
++++ b/src/lssym.tex
+@@ -234,7 +234,7 @@ These symbols can also be used in text mode.
+ \end{table}
+ 
+ \begin{table}[!tbp]
+-\caption{AMS Arrows.}
++\caption{\AmS{} Arrows.}
+ \begin{symbols}{*2{cl}}
+  \X{\dashleftarrow}      & \X{\dashrightarrow}     \\
+  \X{\leftleftarrows}     & \X{\rightrightarrows}   \\

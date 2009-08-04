@@ -1,0 +1,14 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -1654,9 +1654,9 @@ you are going to paste into the finished document.
+ \begin{code}
+ \begin{verbatim}
+ Figure~\ref{white} is an example of Pop-Art.
+-\begin{figure}[!hbp]
++\begin{figure}[!hbtp]
+ \makebox[\textwidth]{\framebox[5cm]{\rule{0pt}{5cm}}}
+-\caption{Five by Five in Centimetres.}\label{white}
++\caption{Five by Five in Centimetres.\label{white}}[A
+ \end{figure}
+ \end{verbatim}
+ \end{code}

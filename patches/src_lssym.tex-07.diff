@@ -1,0 +1,63 @@
+--- a/src/lssym.tex
++++ b/src/lssym.tex
+@@ -199,14 +199,58 @@ These symbols can also be used in text mode.
+ \end{table}
+ 
+ \begin{table}[!tbp]
+-\caption{AMS Greek and Hebrew.}
++\caption{\AmS{} Greek and Hebrew.}
+ \begin{symbols}{*5{cl}}
+ \X{\digamma}     &\X{\varkappa} & \X{\beth} &\X{\gimel} & \X{\daleth}    
+ \end{symbols}
+ \end{table}
+ 
++\begin{table}[tbp]
++  \caption{Math Alphabets.} \label{mathalpha}
++\bigskip See Table~\ref{mathfonts} on \pageref{mathfonts} for other math fonts.
++\begin{symbols}{@{}*3l@{}}
++Example& Command &Required package\\
++\hline
++\rule{0pt}{1.05em}$\mathrm{ABCDE abcde 1234}$
++        & \verb|\mathrm{ABCDE abcde 1234}|
++        &       \\
++$\mathit{ABCDE abcde 1234}$
++        & \verb|\mathit{ABCDE abcde 1234}|
++        &       \\
++$\mathnormal{ABCDE abcde 1234}$
++        & \verb|\mathnormal{ABCDE abcde 1234}|
++        &  \\
++$\mathcal{ABCDE abcde 1234}$
++        & \verb|\mathcal{ABCDE abcde 1234}|
++        &  \\
++$\mathscr{ABCDE abcde 1234}$
++        &\verb|\mathscr{ABCDE abcde 1234}|
++        &\pai{mathrsfs}\\
++$\mathfrak{ABCDE abcde 1234}$
++        & \verb|\mathfrak{ABCDE abcde 1234}|
++        &\pai{amsfonts}  or \textsf{amssymb}  \\
++$\mathbb{ABCDE abcde 1234}$
++        & \verb|\mathbb{ABCDE abcde 1234}|
++        &\pai{amsfonts}  or \textsf{amssymb} \\
++\end{symbols}
++\end{table}
++
++\begin{table}[!tbp]
++\caption{\AmS{} Binary Operators.}
++\begin{symbols}{*3{cl}}
++ \X{\dotplus}        & \X{\centerdot}      &       \\
++ \X{\ltimes}         & \X{\rtimes}         & \X{\divideontimes} \\
++ \X{\doublecup}      & \X{\doublecap}	   & \X{\smallsetminus} \\
++ \X{\veebar}         & \X{\barwedge}       & \X{\doublebarwedge}\\
++ \X{\boxplus}        & \X{\boxminus}       & \X{\circleddash}   \\
++ \X{\boxtimes}       & \X{\boxdot}         & \X{\circledcirc}   \\
++ \X{\intercal}       & \X{\circledast}     & \X{\rightthreetimes} \\
++ \X{\curlyvee}       & \X{\curlywedge}     & \X{\leftthreetimes}
++\end{symbols}
++\end{table}
++
+ \begin{table}[!tbp]
+-\caption{AMS Binary Relations.}
++\caption{\AmS{} Binary Relations.}
+ \begin{symbols}{*3{cl}}
+  \X{\lessdot}           & \X{\gtrdot}            & \X{\doteqdot} \\
+  \X{\leqslant}          & \X{\geqslant}          & \X{\risingdotseq}     \\
