@@ -1,3 +1,7 @@
+4.16 2005.05.08
+----
+* include propperly renderd PDF version with the distribution
+
 4.15 2005.05.08
 ----
 * replced pdfscreen with beamer for presentations. Used text from the french
