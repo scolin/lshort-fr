@@ -1,3 +1,5 @@
+-*- coding: iso-8859-1 -*-
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Specialties of the LaTeX system
 % $Id: spec.tex,v 1.2 2003/03/19 20:57:47 oetiker Exp $
@@ -29,12 +31,11 @@ Avec les environnements \ei{figure} et \texttt{table}, \LaTeX{}
 fournit les mécanismes de base pour travailler avec des objets tels que
 des images ou des graphiques.
 
-Il existe également plusieurs possibilités pour produire des
-\wi{graphiques} avec des commandes \LaTeX{} ou des extensions
-de \LaTeX{}. Malheureusement, la plupart des utilisateurs
-trouvent ces commandes difficiles à mettre en \oe uvre. Pour plus
-d'informations à leur  sujet, reportez-vous à~\desgraupes{} ou à
-\companion{}. 
+Il existe plusieurs façons de produire des \wi{graphiques} avec des
+commandes \LaTeX{} ou des extensions de \LaTeX{}. Certaines d'entre
+elles sont décrites au chapitre~\ref{chap:graphics}.  Pour plus
+d'informations à leur sujet, reportez-vous à~\desgraupes{} ou à
+\companion{}.
 
 Un moyen bien plus simple d'inclure des graphiques dans un document
 est de les produire à l'aide d'un logiciel spécialisé%
@@ -627,10 +628,24 @@ document est introuvable. Vous devez vraiment résoudre ces problèmes,
 car le document PDF résultant pourrait \emph{ne pas afficher du tout
   les pages contenant les caractères manquants}.
 
-Toutes ces histoires de polices, en particulier le manque d'une bonne
-police EC de qualité équivalente à la police CM au format type~1,
-occupent les esprits de nombreuses personnes. De nouvelles solutions
-surviennent donc à un rythme régulier.
+Comme vous le constatez, ces histoires de polices, en particulier le manque d'une bonne
+police EC de qualité équivalente à la police CM au format type~1, a
+occupé les esprits de nombreuses personnes. Depuis peu un nouvel
+ensemble de polices de haute qualité appelé Latin Modern (LM) est
+disponible, ce qui allège considérablement des manipulations décrites
+ci-avant. Si vous possédez une installation de \TeX{} récente, il est
+fort probable que vous possédiez déjà une copie de ces polices. Tout
+ce qu'il vous reste alors à faire est d'ajouter
+\begin{code}
+\begin{verbatim}  
+\userpackage{lmodern}
+\usepackage[T1]{fontenc} 
+\usepackage{textcomp}
+\end{verbatim}
+\end{code}
+au préambule et vous êtes parés pour créer de magnifiques documents
+pdf avec support complet de l'alphabet latin.
+
 
 \subsection{Images et graphiques}
 \label{ssec:pdfgraph}
@@ -652,8 +667,8 @@ Si vous ne définissez pas d'extension de fichier dans la commande
 \ci{includegraphics}, \pai{graphicx} cherchera lui-même la bonne en
 fonction de l'option de pilote qui lui est passée. Pour
 \texttt{pdftex} ce seront les formats \texttt{.png}, \texttt{.pdf},
-\texttt{.jpg}, \texttt{.mps} (\MP\index{metapost@\MP}) et
-\texttt{.tif}, mais \emph{sûrement pas} \texttt{.eps}.
+\texttt{.jpg} et \texttt{.mps} (\MP\index{metapost@\MP}), mais
+\emph{sûrement pas} \texttt{.eps}.
 
 La manière la plus simple de résoudre le problème est de convertir
 vos fichiers EPS au format PDF en utilisant l'utilitaire
@@ -895,10 +910,8 @@ Si vous utilisez
 \end{code}
 le résultat sera beaucoup plus lisible.
 
-
 \subsubsection{Compatibilité des sources entre \LaTeX{} et pdf\LaTeX{}}
 \label{sec:pdfcompat}
-
 
 Idéalement vos documents devraient se compiler aussi bien avec
 \LaTeX{} qu'avec pdf\LaTeX{}. Le problème principal ici est
@@ -908,40 +921,39 @@ chercheront alors un fichier dans un format pris en compte dans le
 répertoire courant. Tout ce que vous avez à faire est créer des
 versions appropriées des images. \LaTeX{} cherchera les fichiers
 \texttt{.eps} et pdf\LaTeX{} s'efforcera d'inclure un fichier au
-suffixe \texttt{.png}, \texttt{.pdf}, \texttt{.jpg}, \texttt{.mps} ou
-\texttt{.tif} (dans cet ordre).
+suffixe \texttt{.png}, \texttt{.pdf}, \texttt{.jpg} ou \texttt{.mps}
+(dans cet ordre).
 
 
 Pour les occasions où vous voulez utiliser un code différent pour la
-version PDF de votre document, vous pouvez ajouter :
+version PDF de votre document, vous pouvez ajouter l'extension
+\pai{ifpdf}%
+\footnote{Pour le pourquoi de l'utilisation de cette extension,
+  consultez la FAQ \TeX{} (en anglais) à la page
+  \url{http://www.tex.ac.uk/cgi-bin/texfaq2html?label=ifpdf}.}
+en préambule. Il y a des chances qu'elle soit déjà installée ; si ce
+n'est pas le cas alors vous utilisez probablement MiK\TeX{} qui
+l'installera de lui-même lorsque vous l'utiliserez pour la première
+fois. Cette extension définit la commande spéciale \ci{ifpdf} qui
+permet d'écrire du code conditionnel aisément. Dans l'exemple suivant,
+nous voulons que la version PostScript soit en noir et blanc à cause
+des coûts d'impression, mais nous voulons quand même que la version
+PDF en ligne soit colorée.
 \begin{code}
 \begin{verbatim}
-\newif\ifPDF
-\ifx\pdfoutput\undefined\PDFfalse
-\else\ifnum\pdfoutput > 0\PDFtrue
-     \else\PDFfalse
-     \fi
+\ifpdf
+   \usepackage[T1]{fontenc}
+   \usepackage{aeguill}
+   \usepackage[pdftex]{graphicx,color}
+   \usepackage[pdftex,colorlinks]{hyperref}
+\else
+   \usepackage[T1]{fontenc}
+   \usepackage[dvips]{graphicx}
+   \usepackage[dvips]{hyperref}
 \fi
 \end{verbatim}
 \end{code}
-dans les toutes premières lignes de votre document. Cela définit une
-commande spéciale qui permettra d'écrire facilement des structures de
-contrôle conditionnelles :
-\begin{code}
-\begin{verbatim}
-\ifPDF
-  \usepackage[T1]{fontenc}
-  \usepackage{aeguill}
-  \usepackage[pdftex]{graphicx,color}
-  \usepackage[pdftex]{hyperref}
-\else    
-  \usepackage[T1]{fontenc}
-  \usepackage[dvips]{graphicx}
-  \usepackage[dvips]{hyperref}
-\fi
-\end{verbatim}
-\end{code}
-L'exemple ci-dessus fait inclure l'extension hyperref même dans la
+L'exemple ci-dessus fait inclure l'extension \pai{hyperref} même dans la
 version non-PDF, ceci afin de faire fonctionner la commande \ci{href}
 dans tous les cas. Cela évite de devoir protéger chacune de ses
 occurrences par une structure conditionnelle.
