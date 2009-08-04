@@ -1,0 +1,11 @@
+--- a/Makefile
++++ b/Makefile
+@@ -14,7 +14,7 @@ MAKEINDEX=makeindex-20051102
+ DVIPS=dvips-20051102
+ 
+ # The default targets
+-all: lshort.dvi lshort.ps lshort-book.ps lshort.pdf
++all: lshort.ps lshort-book.ps lshort.pdf lshort-a5book.pdf
+ 
+ 
+ lshort.dvi: $(FILES)
