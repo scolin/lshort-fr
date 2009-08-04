@@ -17,7 +17,7 @@
   trouve dans l'extension \pai{amsmath} de \AmS-\LaTeX{}.% 
 \end{intro}
   
-\section{L'ensemble \AmS-\LaTeX{}}
+\section{L'ensemble \texorpdfstring{\AmS}{AMS}-\LaTeX{}}
 
 Si vous souhaitez saisir des textes \wi{mathématiques} (avancés), vous
 devriez utiliser \AmS-\LaTeX{}. Le paquet \AmS-\LaTeX{} est une
@@ -61,12 +61,13 @@ $\tau\epsilon\chi$\\[5pt]
 J'$\heartsuit$ \LaTeX{}
 \end{example}
 
-%SC: just to avoid bad emacs colorizing $
+% just to avoid bad emacs colorizing because of too many $
+%
 Il vaut mieux composer les équations ou les formules plus importantes
-\og \emph{hors-texte} \fg{} plutôt que de découper un paragraphe pour
+\og \emph{hors-texte} \fg{} plutôt que découper un paragraphe pour
 cela, c'est-à-dire sur des lignes à part. À cette fin, on les
 inclut entre \verb|\begin{|\ei{equation}\verb|}| et
-\verb|\end{equation}|.\footnote{Il s'agit d'une commande de
+\verb|\end{equation}|.\footnote{Il s'agit d'une commande d'
 \textsf{amsmath}. Si vous n'y avez pas accès pour quelque obscure
 raison, utilisez l'environnement \ei{displaymath} de \LaTeX{} à la
 place.}
@@ -138,6 +139,23 @@ Style hors-text :
   = \frac{\pi^2}{6}
  \end{equation}
 \end{example}
+
+En style en-ligne, utilisez la commande \ci{smash} sur des
+(sous-)expressions mathématiques à plusieurs niveaux, que ce soit vers
+le haut ou vers le bas. Cela incite \LaTeX{} à ne pas prendre en
+compte la hauteur de ces expressions et permet d'avoir un interligne
+régulier.
+
+\begin{example}
+Une expression mathématique
+$d_{e_{e_p}}$ suivie par une
+expression $h^{i^{g^h}}$. Par
+opposition à une expression
+avec smash \smash{$d_{e_{e_p}}$}
+suivie par une expression
+\smash{$h^{i^{g^h}}$}.
+\end{example}
+
 
 \subsection{Mode mathématique}
 
@@ -247,7 +265,7 @@ racine $n^\text{ieme}$ est produite par la commande
 \verb|\sqrt[|$n$\verb|]|. La taille du symbole racine est calculée par
 \LaTeX. Pour obtenir le symbole seul, utilisez \verb|\surd|.
 
-Vous pourrez d'autres sortes de flèches comme $\hookrightarrow$ et
+Voyez d'autres sortes de flèches comme $\hookrightarrow$ et
 $\rightleftharpoons$ dans le tableau~\ref{tab:arrows} en page
 \pageref{tab:arrows}.
 \begin{example}
@@ -344,6 +362,18 @@ les plus utilisées :
 \begin{example}
 \[\lim_{x \rightarrow 0}
  \frac{\sin x}{x}=1\]
+\end{example}
+
+Les fonctions n'apparaissant pas dans la liste peuvent être déclarées
+avec \ci{DeclareMathOperator}. Il y a même une version étoilée pour
+les fonctions avec des limites. Cette commande ne peut être utilisée
+qu'en préambule, aussi les lignes commentées de l'exemple doivent être
+ajoutées en préambule pour fonctionner.
+
+\begin{example}
+%\DeclareMathOperator{\argh}{argh}
+%\DeclareMathOperator*{\nut}{Nut}
+\[3\argh = 2\nut_{x=1}\]
 \end{example}
 
 Pour la fonction \wi{modulo}, il y a deux commandes possibles : 
@@ -446,7 +476,7 @@ automatiquement la taille appropriée pour ce caractère. Remarquez
 qu'il est nécessaire de fermer chaque délimiteur ouvrant
 (\ci{left}) avec un délimiteur fermant (\ci{right}). Si vous
 ne voulez pas de délimiteur fermant, utilisez le délimiteur invisible
-\ci{right.} :
+\og \ci{right.} \fg{} :
 \begin{example}
 \begin{equation*}
 1 + \left(\frac{1}{1-x^{2}}
@@ -465,7 +495,7 @@ $\big( \Big( \bigg( \Bigg( \quad
 \big\} \Big\} \bigg\} \Bigg\} \quad
 \big\| \Big\| \bigg\| \Bigg\| \quad
 \big\Downarrow \Big\Downarrow 
-\bigg\Downarrow \Bigg\Downarrow $
+\bigg\Downarrow \Bigg\Downarrow$
 \end{example}
 
 Pour une liste de tous les délimiteurs disponibles, reportez-vous au
@@ -486,7 +516,7 @@ utilisez les environnements \ei{align} et \verb|align*| plutôt que
 \texttt{equation} ou \texttt{equation*}.%
 \footnote{L'environnement \ei{align} provient
   d'\textsf{amsmath}. L'environnement similaire de \LaTeX{} sans
-  \texttt{amsmat} est \ei{eqnarray}, mais il est déconseillé de
+  \textsf{amsmath} est \ei{eqnarray}, mais il est déconseillé de
   l'utiliser pour des raisons d'incohérences d'espaces et de
   références.}
 Avec \ei{align} chaque ligne est numérotée, alors que la variante
@@ -498,11 +528,11 @@ seulement certaines équations particulières, utilisez \ci{nonumber}
 pour supprimer la numérotation en la plaçant avant le saut de ligne
 \verb|\\| :
 \begin{example}
- \begin{align}
-  f(x) &= (a+b)(a-b) \label{1}\\
-       &= a^2-ab+ba-b^2  \\ 
-       &= a^2+b^2 \tag{wrong}
- \end{align}
+\begin{align}
+f(x) &= (a+b)(a-b) \label{1}\\
+     &= a^2-ab+ba-b^2  \\ 
+     &= a^2+b^2 \tag{faux}
+\end{align}
 Ceci se réfère à \eqref{1}.
 \end{example}
 
@@ -511,12 +541,12 @@ Les \textbf{équations longues} ne sont pas découpées automatiquement
 en morceaux harmonieux. L'auteur doit indiquer où les couper et
 comment indenter la suite :
 \begin{example}
- \begin{align}
-   f(x) ={}& 3x^5 + x^4 + 2x^3 
-                     \nonumber \\
-           & + 9x^2 + 12x + 23 \\
-        ={}& g(x) - h(x)
- \end{align}
+\begin{align}
+f(x) &= 3x^5 + x^4 + 2x^3 
+                \nonumber \\
+     &\qquad + 9x^2 + 12x + 23 \\
+     &= g(x) - h(x)
+\end{align}
 \end{example}
 L'extension \pai{amsmath} propose d'autres environnements utiles :
 \verb|flalign|, \verb|gather|, \verb|multline| et
@@ -545,7 +575,7 @@ L'environnement \ei{array} peut également être utilisé pour imprimer
 des \wi{fonctions!par parties} en utilisant \og \verb|.| \fg{} comme
 délimiteur (invisible) de droite :%
 \footnote{Si vous avez de nombreuses constructions de ce genre,
-  essayer l'environnement \ei{cases} d'\texttt{amsmath} peut en valoir
+  essayer l'environnement \ei{cases} d'\textsf{amsmath} peut en valoir
   la peine, puisqu'il simplifie ce type de syntaxe.}
 \begin{example}
 \begin{equation*}
@@ -606,8 +636,26 @@ que dans l'exemple suivant, \og d \fg{} est imprimée en police romaine :
 
 \begin{example}
 \begin{equation*}
- \int_1^2 \ln x \text{d}x \qquad
- \int_1^2 \ln x \,\text{d}x
+ \int_1^2 \ln x \mathrm{d}x \qquad
+ \int_1^2 \ln x \,\mathrm{d}x
+\end{equation*}
+\end{example}
+
+
+Dans l'exemple suivant, nous définissons une commande \ci{ud} qui
+produit \og $\,\mathrm{d}$ \fg{} (remarquez l'espace
+\demowidth{0.166em} avant le $\text{d}$), de manière à ne pas avoir à
+le saisir à chaque fois. La commande  \ci{newcommand} est placée en
+préambule.
+%  More on
+% \ci{newcommand} in section~\ref{} on page \pageref{}. To Do: Add label and
+% reference to "Customising LaTeX" -> "New Commands, Environments and Packages"
+% -> "New Commands".
+\begin{example}
+\newcommand{\ud}{\,\mathrm{d}}
+
+\begin{equation*}
+ \int_a^b f(x)\ud x 
 \end{equation*}
 \end{example}
 
@@ -618,7 +666,7 @@ réaliser cet ajustement : \ci{iint}, \ci{iiint},
 \ci{iiiint} et \ci{idotsint}.
 
 \begin{example}
-\newcommand{\ud}{\,\text{d}}
+\newcommand{\ud}{\,\mathrm{d}}
 
 \[ \int\int f(x)g(y) 
                   \ud x \ud y \]
@@ -751,7 +799,8 @@ Ceci est mon premier théorème\\
 \verb|\end{|\emph{nom}\verb|}|     
 \end{code}
 
-L'extension \pai{amsthm} (qui fait partie d'\AmS-LaTeX) met à disposition la commande
+L'extension \pai{amsthm} (qui fait partie d'\AmS-LaTeX) met à
+disposition la commande
 \ci{newtheoremstyle}\verb|{|\emph{style}\verb|}| qui vous montrera que
 le choix de style pour les théorèmes se limite à trois styles
 préféfinis : \texttt{definition} (titre gras, corps romain),
@@ -835,7 +884,7 @@ besoin.
 %
 
 % Local Variables:
-% TeX-master: "lshort2e"
+% TeX-master: "lshort"
 % mode: latex
 % mode: flyspell
 % End:
