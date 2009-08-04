@@ -193,7 +193,8 @@ Ici\\aussi.
 \begin{example}
 \newenvironment{correct}%
  {\noindent\ignorespaces}%
- {\par\noindent\ignorespacesafterend}
+ {\par\noindent%
+   \ignorespacesafterend}
 
 \begin{correct}
 Plus d'espace\\à gauche.
@@ -243,7 +244,8 @@ extension dans votre document.
 \begin{verbatim}
 % Exemple d'extension par Tobias Oetiker
 \ProvidesPackage{demopack}
-\newcommand{\ucil}{Une courte (?) introduction à \LaTeXe}
+\newcommand{\ucil}{Une courte (?) introduction
+                   à \LaTeXe}
 \newcommand{\uxil}[1]{Une \emph{#1}  
                        introduction à \LaTeXe}
 \newenvironment{king}{\begin{quote}}{\end{quote}}
@@ -430,8 +432,9 @@ commande \verb|\par| dans les deux exemples suivants
 \,\footnote{\ci{par} est équivalent à une ligne vide} :
 
 \begin{example}
-{\Large Ne lisez pas ceci ! Ce
-n'est pas vrai ! Croyez-moi !\par}
+{\Large Ne lisez pas ceci !
+ Ce n'est pas vrai !
+ Croyez-moi !\par}
 \end{example}
 \begin{example}
 {\Large Ce n'est pas vrai. Mais
@@ -469,12 +472,12 @@ dans une enveloppe logique.
 \begin{example}
 % dans le préambule ou dans 
 % une extension :
-\newcommand{\danger}[1]
-  {\textbf{#1}}
+\newcommand{\danger}[1]{%
+ \textbf{#1}}
 % dans le document :
 Défense d'\danger{entrer}.
-Cette pièce contient une 
-\danger{machine} d'origine 
+Cette pièce contient des
+\danger{machines} d'origine 
 inconnue.
 \end{example}
 
@@ -516,6 +519,7 @@ interligne. L'interligne par défaut est~1.
 %notes de bas de page, les tableaux, etc.  C'est assez compliqué à
 %gérer, mais l'extension \pai{setspace} est prévue à cet effet.
 
+%SC: hmmm, good translation for drastic ?
 Notez que l'effet de la commande \ci{linespread} est drastique et
 inapproprié pour la publication. Si vous avez une bonne raison de
 changer l'interligne, vous pouvez utiliser la commande :
@@ -526,14 +530,15 @@ changer l'interligne, vous pouvez utiliser la commande :
 \begin{example}
 {\setlength{\baselineskip}%
            {1.5\baselineskip}
-Ce paragraphe est formatté avec un
-interligne fixé à 1,5 de ce qu'il
-était avant. Remarquez la commande
-par à la fin du paragraphe.\par}
+Ce paragraphe est formatté avec
+un interligne fixé à 1,5 de ce
+qu'il était avant. Remarquez la
+commande par à la fin du
+paragraphe.\par}
 
-Ce paragraphe a un objet précis et
-montre qu'après l'accolade, fermante
-tout redevient normal.
+Ce paragraphe a un objet précis
+et montre qu'après l'accolade
+fermante tout redevient normal.
 \end{example}
 
 \subsection{Mise en page d'un paragraphe}\label{parsp}
@@ -697,7 +702,7 @@ exactes.
 
 \begin{figure}[!hp]
 \begin{center}
-\makeatletter\@layout\makeatother
+\makeatletter\@mylayout\makeatother
 \end{center}
 \vspace*{1.8cm}
 \caption{Paramètres de la disposition d'une page}
