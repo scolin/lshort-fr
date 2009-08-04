@@ -6,68 +6,59 @@
 %                                                      by Tobias Oetiker
 %                                                     oetiker@ee.ethz.ch
 %
-%                           based on LKURTZ.TEX Uni Graz & TU Wien,1987
-%                           traduit en français par Matthieu Herrb,1996
+%                           based on LKURTZ.TEX Uni Graz & TU Wien, 1987
+%                           traduit en franÃ§ais par Matthieu Herrb,1996
+%                           puis par Samuel Colin, 2009
 %-----------------------------------------------------------------------
 %
-% To compile lshort, you need TeX 3.x, LaTeX2e with the babel frenchb
-% extension  and makeindex
+% To compile lshort, you need TeX 3.x, LaTeX and makeindex
 %
 % The sources files of the Intro are:
-%      lshort.tex (this file),
-%      title.tex, contrib.tex, biblio.tex
-%      things.tes, typeset.tex, math.tex, lssym.tex, spec.tex,
-%      lshort.sty
+%      lshort.tex, lshort-a5.tex,
+%      lshort-base.tex (this file),
+%      title.tex, contrib.tex, biblio.tex, graphic.tex
+%      things.tex, typeset.tex, math.tex, lssym.tex, spec.tex,
+%      lshort.sty, fancyheadings.sty, mylayout.sty
 %
 % Further the  verbatim.sty and the layout.sty 
 % from the LaTeX Tools distribution is
 % required.
+%
 %
 % To print the AMS symbols you need the AMS fonts and the packages
 % amsfonts, eufrak and eucal from (AMS LaTeX 1.2)
 %
 % ---------------------------------------------------------------------
 
+
 \usepackage{ifpdf}
 \ifpdf
 \usepackage{thumbpdf}
 \pdfcompresslevel=9
+\RequirePackage[colorlinks,hyperindex,plainpages=false]{hyperref}
+\def\pdfBorderAttrs{/Border [0 0 0] } % No border arround Links
+\else
+\RequirePackage[plainpages=true]{hyperref}
+\usepackage{color}
 \fi
 
 \usepackage{lshort}
 \usepackage{makeidx,shortvrb,latexsym}
 \usepackage{lettrine}
-% are we in pdftex ????
-\ifx\pdfoutput\undefined % We're not running pdftex
-\RequirePackage[plainpages=true]{hyperref}
-\usepackage{color}
-\else
-\RequirePackage[colorlinks,hyperindex,plainpages=false]{hyperref}
-\def\pdfBorderAttrs{/Border [0 0 0] } % No border arround Links
-\fi
+
 %
-% Copyright \copyright{} 1998 Tobias Oetiker and all the Contributers
-% to LShort.  All rights reserved.
-% 
-% This document is free; you can redistribute it and/or modify it
-% under the terms of the GNU General Public License as published by
-% the Free Software Foundation; either version 2 of the License, or
-% (at your option) any later version.
-% 
-% This document is distributed in the hope that it will be useful, but
-% WITHOUT ANY WARRANTY; without even the implied warranty of
-% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-% General Public License for more details.
-% 
-% You should have received a copy of the GNU General Public License
-% along with this program; if not, write to the Free Software
-% Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307,
-% USA.
+% This document is ``public domain''. It may be printed and
+% distributed free of charge in its original form (including the
+% list of authors). If it is changed or if parts of it are used
+% within another document, then the author list must include
+% all the original authors AND that author (those authors) who
+% has (have) made the changes.
 %
 % Original Copyright H.Partl, E.Schlegl, and I.Hyna (1987).
 % English Version Copyright by Tobias Oetiker (1994,1995),
 % 
 % ---------------------------------------------------------------------
+%
 %
 % Formats also with\textt{letterpaper} option, but the pagebreaks might not
 % fall as nicely.
@@ -78,7 +69,7 @@
 %
 \makeindex
 \typeout{Copyright T.Oetiker, H.Partl, E.Schlegl, I.Hyna}
-
+ 
 \begin{document}
 \selectlanguage{frenchb}
 \NoAutoSpaceBeforeFDP
