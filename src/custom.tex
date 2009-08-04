@@ -641,10 +641,12 @@ La commande :
 \end{lscommand} 
 \label{cmd:stretch}
 \noindent produit une espace élastique. Elle s'étend jusqu'à ce que tout
-l'espace libre sur la ligne soit occupé. Si deux commandes
+l'espace libre sur la ligne soit occupé. Si plusieurs commandes
 \verb|\hspace{\stretch{|\emph{n}\verb|}}| sont exécutées sur la même
-ligne, les deux espaces s'étendent en fonction du facteur d'élasticité
-\emph{n}.
+ligne, les espaces s'étendent proportionnellement à leurs facteurs
+d'élasticité \emph{n} respectifs.
+
+
 \begin{example}
 x\hspace{\stretch{1}}%
 x\hspace{\stretch{3}}x
