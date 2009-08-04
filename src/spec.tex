@@ -496,7 +496,7 @@ sortie PDF à partir de sources \LaTeX{}.
 
 pdf\TeX{} et pdf\LaTeX{} sont installés automatiquement par les
 distributions \TeX{} modernes majeures : te\TeX{}, fp\TeX{},
-Mik\TeX, \TeX{}Live and CMac\TeX{}.
+Mik\TeX, \TeX{}Live et CMac\TeX{}.
 
 Pour produire un fichier PDF au lieu d'un fichier DVI, il suffit de
 remplacer la commande \texttt{latex document.tex} par \texttt{pdflatex
@@ -952,20 +952,19 @@ l'appel à \pai{graphicx} et \pai{color} suivra automatiquement les
 réglages opérés dans les fichiers de configuration
 \texttt{graphics.cfg} et \texttt{color.cfg}.
 
-\section{Créer des présentations avec \pai{pdfscreen}}
-\label{sec:pdfscreen}
+\section{Créer des présentations avec la classe \pai{beamer}}
+\label{sec:beamer}
 \secby{Daniel Flipo}{Daniel.Flipo@univ-lille1.fr}
 Vous pouvez présenter les résultats de vos travaux sur un tableau
 noir, avec des transparents ou directement depuis votre ordinateur
 portable grâce à un logiciel de présentation.
 
-\wi{pdf\LaTeX} combiné à l'extension \pai{pdfscreen} permettent la
-création de présentations en PDF aussi colorées et vivantes que ce qui
-est fait avec \emph{PowerPoint}, mais bien plus portable
-puisqu'Acrobat Reader est disponible sur bien plus de systèmes.
+\wi{pdf\LaTeX} combiné à la classe \pai{beamer} permettent la création
+de présentations en PDF très semblables à ce que vous feriez avec
+PowerPoint dans un bon jour, mais bien plus portable puisqu'Acrobat
+Reader est disponible sur bien plus de systèmes.
 
-
-La classe \pai{pdfscreen} utilise \pai{graphicx}, \pai{color} et
+La classe \pai{beamer} utilise \pai{graphicx}, \pai{color} et
 \pai{hyperref} avec des options adaptées aux présentations sur
 écrans.
 %La figure~\ref{fig:pdfscr} contient un exemple de fichier minimal à
@@ -974,138 +973,137 @@ La classe \pai{pdfscreen} utilise \pai{graphicx}, \pai{color} et
 
 % Écran capturé par ImageMagick (man ImageMagick) fonction « import »
 % et convertie en jpg toujours par ImageMagick.
+
+
 \begin{figure}[htbp]
 \begin{verbatim}
-\documentclass[pdftex,12pt]{article}
-%%% misc extensions %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage[latin1]{inputenc}
-\usepackage[english]{babel}
-\usepackage[T1]{fontenc}
-\usepackage{aeguill}
-%%% pdfscreen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage[screen,panelleft,chocolate]{pdfscreen}
-% Screen Format
-\panelwidth=25mm
-%%          height width
-\screensize{150mm}{200mm} 
-%%          left right top  bottom
-\marginsize{42mm}{8mm}{10mm}{10mm}
-% Color or image for background
-\overlayempty
-\definecolor{mybg}{rgb}{1,0.9,0.7}
-\backgroundcolor{mybg}
-% Logo
-\emblema{MyLogo}
-%%% For PPower4 (post-processor) %%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{pause}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[10pt]{beamer}
+\usepackage[utf8x]{inputenc}
+\mode<beamer>{%
+  \usetheme[hideothersubsections,right,width=22mm]{Goettingen}
+}
+
+\title{Une simple présentation}
+\author[D. Flipo]{Daniel Flipo}
+\institute{U.S.T.L. \& GUTenberg}
+\titlegraphic{\includegraphics[width=20mm]{USTL}}
+\date{2005}
+
 \begin{document}
-\begin{slide}
-\begin{itemize}
-\item Bonnes nouvelles\dots \pause
-\item Mauvaises nouvelles
-\end{itemize}
-\end{slide}
+
+\begin{frame}<handout:0>
+  \titlepage
+\end{frame}
+
+\section{Un exemple}
+
+\begin{frame}
+  \frametitle{Choses à faire un dimanche après-midi}
+  \begin{block}{On peut \ldots}
+    \begin{itemize}
+      \item sortir le chien\dots \pause
+      \item lire un livre\pause
+      \item rendre fou un chat\pause
+    \end{itemize}
+  \end{block}
+  et bien d'autres choses
+\end{frame}
 \end{document}
 \end{verbatim}
-%  \begin{center}
-%    \includegraphics[width=.8\textwidth]{pdfscr}
-    \caption{Exemple de fichier d'entrée pdfscreen}
-    \label{fig:pdfscr}   
-%  \end{center}
+  \caption{Exemple de code pour la classe \pai{beamer}}
+  \label{fig:code-beamer}
 \end{figure}
 
-Pour fabriquer ce type de document, vous travaillez normalement dans
-la classe \texttt{article}. La figure \ref{fig:pdfscr} montre un
-exemple de fichier d'entrée. En premier lieu vous devez charger
-\pai{pdfscreen} avec des options idoines :
+À la compilation du code de la figure~\ref{fig:code-beamer}
+\,\footnote{NdT: attention, l'exemple suppose un codage d'entrée en
+  utf8, voyez la ligne d'appel de l'extension \texttt{inputenc}.}
+avec \wi{pdf\LaTeX}, vous obtiendrez un fichier avec une page de titre
+et une deuxième page dont les points seront révélés un à un lorsque
+vous avancez dans la présentation.
+
+Un avantage notable de la classe beamer est sa capacité à produire un
+fichier PDF utilisable directement sans avoir à passer par une étape
+PostScript comme avec \pai{prosper} ou sans demander un post-traitement
+comme les présentations créées avec l'extension \pai{ppower4}.
+
+Avec la classe \pai{beamer} vous pouvez produire plus versions (modes)
+de votre document à partir de votre fichier d'entrée. Celui-ci peut
+contenir des instructions spéciales pour les différents modes entre
+chevrons (crochets obliques \verb|<| et \verb|>|). Les modes suivants
+sont disponibles :
+
 \begin{description}
-\item[\texttt{screen}] pour une présentation à l'écran. Utilisez
-  \texttt{print} pour obtenir une version imprimable ;
-\item[\texttt{panelright}] ajoute un panneau de navigation à droite de
-  l'écran. Si le panneau devrait être à gauche, utilisez
-  \texttt{panelleft}. Si vous voulez vous passer de panneaux utilisez
-  \texttt{nopanel} ;
-\item[\texttt{french}] ou tout autre langage pris en compte modifiera
-  le texte sur les boutons de navigation de manière appropriée. Cette
-  option est indépendante des options de l'extension babel. Si votre
-  langage n'est pas géré par \pai{pdfscreen}, vous pouvez tout de même
-  localiser le panneau via le fichier \texttt{pdfscreen.cfg}, voyez
-  \texttt{pdfscreen.cfg..specimen} pour un exemple ;
-\item[\texttt{chocolate}] schéma de couleurs pour le panneau de
-  navigation. D'autres choix possibles incluent \texttt{gray},
-  \texttt{orange}, \texttt{palegreen}, \texttt{bluelace} et
-  \texttt{blue}, le schéma par défaut.
+\item[beamer] Pour une présentation PDF comme au-dessus
+\item[trans] Pour les transparents
+\item[handout] Pour la version imprimée.
 \end{description}
-Ensuite vous configurez le format d'affichage. Comme la présentation
-passera à la vraie taille de l'écran lors de l'affichage, vous pouvez
-exploiter cela pour configurer la taille de la police :
-\begin{description}
-\item[\ci{panelwidth}] définit la largeur du panneau de navigation ;
-\item[\ci{screensize}\textmd{\texttt{\{}\emph{largeur}\texttt{\}\{}\emph{hauteur}\texttt{\}}}]
-  définit la largeur et la hauteur de l'écran, le panneau de
-  navigation inclus ;
-\item[\ci{marginsize}\textmd{\texttt{\{}\emph{left}\texttt{\}\{}\emph{right}\texttt{\}\{}\emph{top}\texttt{\}\{}\emph{bottom}\texttt{\}}}]
-  définit les marges du document. Dans l'exemple, le document n'est
-  pas centré à cause des numéros de section dans la marge de gauche.
-\end{description}
+Le mode par défaut est \texttt{beamer}. Vous pouvez le changer via les
+options globales de la classe, comme
+\verb|\documentclass[10pt,handout]{beamer}| pour obtenir les notes
+associées.
 
-Il est possible d'utiliser une image en fond d'écran dans n'importe
-lequel des formats reconnus par pdf\TeX{} à l'aide de la commande
-\begin{lscommand}
-\ci{overlay}\verb|{|\emph{image}\verb|}|
-\end{lscommand}
-\noindent ou si vous préférez un fond uni, vous pouvez définir sa
-couleur avec
-\begin{lscommand}
-\ci{background}\verb|{|\emph{couleur}\verb|}|
-\end{lscommand}
-Enfin si vous voulez placer le logo de votre organisation dans le
-panneau de navigation, utilisez la commande
-\begin{lscommand}
-\ci{emblema}\verb|{|\emph{logo}\verb|}|
-\end{lscommand}
+L'aspect de la présentation dépend du thème choisi. Vous pouvez soit
+utiliser les thèmes livrés avec la classe beamer, soit en créer
+un. Pour plus d'information, voyez la documentation dans
+\texttt{beameruserguide.pdf}.
 
-Si vous êtes un fervent défenseur du pouvoir présentationnel de
-l'exposition d'une liste point par point, l'extension \pai{pause} peut
-vous intéresser. Elle fournit une commande \ci{pause}. Vous pouvez
-placer cette commande en plein c\oe ur de votre texte là où vous
-souhaitez qu'Acrobat se mette en pause sur l'affichage de votre
-document. L'extension \pai{pause} fait partie du système
-\texttt{ppower4} ($P^4$: \emph{Pdf Presentation Post-Processor} ou
-Post-processeur de présentations Pdf). Ce système peut recompiler
-après coup une sortie pdf de pdf\TeX{} et la faire danser, chanter et
-mendier sa pitance. En ligne de commande, cela ressemble à :
-%SC: sing and dance and beg for food. Need better translation
-\begin{lscommand}
-\verb+ppower4 xy.pdf xyz.pdf+
-\end{lscommand}
+Observons maintenant le code de la figure~\ref{fig:code-beamer} de
+plus près.
 
-Pour maîtriser le contenu d'un seul transparent, utilisez
-l'environnement \verb+\begin{slide}+ \ldots \verb+\end{slide}+. Le
-contenu de chaque transparent sera centré verticalement sur sa page.
+Pour la version à l'écran de la présentation \verb|\mode<beamer| nous
+avons choisi le thème \emph{Goettingen}. Celui-ci propose un panneau
+de navigation intégré à la table des matières. Les options permettent
+de choisir la taille de ce panneau (22~mm dans notre cas) et sa
+position (à droite du corps du texte). L'option
+\emph{hideothersubsections} montre les titres de sections, mais
+uniquement les sous-sections de la section en cours. Il n'y a pas
+d'autre réglage spécifique pour \verb|\mode<trans>| et
+\verb|\mode<handout>|, ils apparaîtront selon leur mise en page
+usuelle.
 
-Une compilation de l'exemple plus haut s'achèvera par un message
-d'erreur :
-\begin{verbatim}
-! pdfTeX warning (dest): name{contents} has been
-  referenced but does not exist, replaced by a fixed one
-\end{verbatim}
-Cette erreur est due à un bouton du panneau de navigation vers la
-table des matières, qui n'existe pas à cause de l'absence de commande
-\ci{tableofcontents}.
+Les commandes \verb|\title{}|, \verb|\author{}|, \verb|\institute{}|,
+et \verb|\titlegraphic{}| permettent de remplir la page de titre. Les
+arguments optionnels de \verb|\title[]{}| et \verb|\author[]{}|
+servent à spécifier une version spéciale du titre et de l'auteur
+(respectivement) qui apparaîtront sur le panneau fourni par le thème
+\emph{Goettingen}.
 
-Pour afficher la table des matières à l'intérieur du panneau de
-navigation, vous pouvez utiliser l'option \texttt{paneltoc} lors de
-l'appel à \pai{pdfscreen}. Cela ne produira de résultat satisfaisant
-que si votre présentation possède une table des matières aux entrées
-courtes et peu nombreuses. Vous voudrez en conséquence fournir des
-titres courts entre crochets lors de la déclaration de vos titres de
-sections.
+Les titres et sous-titres du panneau proviennent de l'utilisation des
+commandes usuelles \verb|\section{}| et
+\verb|\subsection{}|. Celles-ci doivent être placées \emph{en dehors}
+de l'environnement \ei{frame}.
 
-Cette courte introduction ne fait que gratter la surface de ce qu'il
-est possible de réaliser avec \pai{pdfscreen} et \texttt{PPower4}. Ces
-deux extensions sont fournies avec leur propre documentation abondante.
+Les petites icônes de navigation au bas de l'écran permettent elles
+aussi de naviguer dans le document. Leur présence n'est pas dépendante
+du thème choisi.
+
+Le contenu de chaque transparent ou chaque écran doit être placé dans
+un environnement \ei{frame}. L'option entre chevrons ((\verb|<| et
+\verb|>|) permet de supprimer un cadre en particulier de l'une des
+versions de la présentation. Dans notre exemple, la première page
+n'apparaîtra pas dans la version imprimée à cause de l'option
+\verb|<handout:0>|.
+
+Il est particulièrement recommandé de donner un titre à chaque
+transparent, en plus du transparent de titre. Ce titre est fourni via
+la commande \verb|\frametitle{}|. Si un sous-titre est requis,
+utilisez \verb|\framesubtitle{}| ou une commande \ei{block} comme dans
+l'exemple. Remarquez également que le contenu des commandes \verb|\section{}|
+et \verb|\subsection{}| n'apparaît pas sur le transparent.
+
+La commande \verb|\pause| dans l'environnement itemize fait se révéler
+chacun des points un à un. D'autres effets de présentations sont
+disponibles via les commandes \verb|\only|, \verb|\uncover|,
+\verb|\alt| et \verb|\temporal|. Vous pouvez aussi utiliser les
+chevrons à de nombreux endroits pour personnaliser encore plus votre
+présentation.
+
+Dans tous les cas, nous vous recommandons fortement de lire la
+documentation de la classe beamer \texttt{beameruserguide.pdf} pour
+tout savoir sur ce qu'il y a en réserve pour vous. Cette extension est
+développée activement, consultez son site
+\href{http://latex-beamer.sourceforge.net/}{http://latex-beamer.sourceforge.net/}
+pour plus d'informations fraîches.
 
 
 % Local Variables:
