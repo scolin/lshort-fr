@@ -1,0 +1,11 @@
+--- a/src/graphic.tex
++++ b/src/graphic.tex
+@@ -533,7 +533,7 @@ environment to wrap your instructions.
+          arc (0:30:3mm) -- cycle;
+ \end{tikzpicture}
+ \end{example}
+-If  you know other programming languages you
++If you know other programming languages you
+ may notice the familiar semicolon (\texttt{;}) character that is used
+ to separate the different commands. With the \ci{usetikzlibrary}
+ command in the preamble you can enable a wide variety of additional

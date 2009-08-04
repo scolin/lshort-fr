@@ -1,0 +1,11 @@
+--- a/src/graphic.tex
++++ b/src/graphic.tex
+@@ -516,7 +516,7 @@ section.
+ For high level access to 
+ the PGF functions you should load the \pai{tikz} package.
+ With the \pai{tikz} package you can use highly efficient commands to
+-draw graphics right from inside your document Use the \ei{tikzpicture}
++draw graphics right from inside your document. Use the \ei{tikzpicture}
+ environment to wrap your instructions.
+ \begin{example}
+ \begin{tikzpicture}[scale=3]
