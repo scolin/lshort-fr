@@ -28,15 +28,16 @@ liste beaucoup plus complète de symboles sur
  
 \begin{table}[!h]
 \caption{Accents en mode mathématique}  \label{mathacc}
-\begin{symbols}{*4{cl}}
-\W{\hat}{a}     & \W{\check}{a} & \W{\tilde}{a} & \W{\acute}{a} \\
-\W{\grave}{a} & \W{\dot}{a} & \W{\ddot}{a}    & \W{\breve}{a} \\
-\W{\bar}{a} &\W{\vec}{a} &\W{\widehat}{A}&\W{\widetilde}{A}\\  
+\begin{symbols}{*3{cl}}
+\W{\hat}{a}     & \W{\check}{a} & \W{\tilde}{a} \\
+\W{\grave}{a} & \W{\dot}{a} & \W{\ddot}{a}     \\
+\W{\bar}{a} &\W{\vec}{a} &\W{\widehat}{A}  \\  
+\W{\acute}{a}  & \W{\breve}{a} &\W{\widetilde}{A}
 \end{symbols}
 \end{table}
  
 \begin{table}[!h]
-\caption{Alphabet grec minuscule}
+\caption{Alphabet grec}
 \begin{symbols}{*4{cl}}
  \X{\alpha}     & \X{\theta}     & \X{o}          & \X{\upsilon}  \\
  \X{\beta}      & \X{\vartheta}  & \X{\pi}        & \X{\phi}      \\
@@ -44,20 +45,15 @@ liste beaucoup plus complète de symboles sur
  \X{\delta}     & \X{\kappa}     & \X{\rho}       & \X{\chi}      \\
  \X{\epsilon}   & \X{\lambda}    & \X{\varrho}    & \X{\psi}      \\
  \X{\varepsilon}& \X{\mu}        & \X{\sigma}     & \X{\omega}    \\
- \X{\zeta}      & \X{\nu}        & \X{\varsigma}  & &             \\
- \X{\eta}       & \X{\xi}        & \X{\tau} 
-\end{symbols}
-\end{table}
-
-\begin{table}[!h]
-\caption{Alphabet grec majuscule}
-\begin{symbols}{*4{cl}}
+ \X{\zeta}      & \X{\nu}        & \X{\varsigma}  &               \\
+ \X{\eta}       & \X{\xi}        & \X{\tau} & \\
  \X{\Gamma}     & \X{\Lambda}    & \X{\Sigma}     & \X{\Psi}      \\
  \X{\Delta}     & \X{\Xi}        & \X{\Upsilon}   & \X{\Omega}    \\
  \X{\Theta}     & \X{\Pi}        & \X{\Phi} 
 \end{symbols}
 \end{table}
-\clearpage 
+
+
 
 \begin{table}[!tbp]
 \caption{Relations binaires}
@@ -106,10 +102,11 @@ pour avoir accès à ces symboles}
 \begin{table}[!tbp]
 \caption{Opérateurs n-aires}
 \begin{symbols}{*4{cl}}
- \X{\sum}      & \X{\bigcup}   & \X{\bigvee}   & \X{\bigoplus}\\
- \X{\prod}     & \X{\bigcap}   & \X{\bigwedge} &\X{\bigotimes}\\
- \X{\coprod}   & \X{\bigsqcup} & &             & \X{\bigodot} \\
- \X{\int}      & \X{\oint}     & &             & \X{\biguplus}
+ \X{\sum}      & \X{\bigcup}   & \X{\bigvee}  \\
+ \X{\prod}     & \X{\bigcap}   & \X{\bigwedge} \\
+ \X{\coprod}   & \X{\bigsqcup} & \X{\biguplus} \\
+ \X{\int}      & \X{\oint}     & \X{\bigodot} \\
+ \X{\bigoplus} & &\X{\bigotimes} & \\
 \end{symbols}
  
 \end{table}
@@ -117,19 +114,24 @@ pour avoir accès à ces symboles}
 
 \begin{table}[!tbp]
 \caption{Flèches}
-\begin{symbols}{*3{cl}}
- \X{\leftarrow}ou \verb|\gets|& \X{\longleftarrow} & \X{\uparrow}          \\
- \X{\rightarrow}ou \verb|\to|& \X{\longrightarrow} & \X{\downarrow}        \\
- \X{\leftrightarrow}    & \X{\longleftrightarrow}& \X{\updownarrow}      \\
- \X{\Leftarrow}         & \X{\Longleftarrow}     & \X{\Uparrow}          \\
- \X{\Rightarrow}        & \X{\Longrightarrow}    & \X{\Downarrow}        \\
- \X{\Leftrightarrow}    & \X{\Longleftrightarrow}& \X{\Updownarrow}      \\
- \X{\mapsto}            & \X{\longmapsto}        & \X{\nearrow}          \\
- \X{\hookleftarrow}     & \X{\hookrightarrow}    & \X{\searrow}          \\
- \X{\leftharpoonup}     & \X{\rightharpoonup}    & \X{\swarrow}          \\
- \X{\leftharpoondown}   & \X{\rightharpoondown}  & \X{\nwarrow}          \\
- \X{\rightleftharpoons} & \X{\iff}(plus d'espace)& \X{\leadsto}$^a$
-
+\begin{symbols}{*2{cl}}
+ \X{\leftarrow}or \verb|\gets|& \X{\longleftarrow} \\
+ \X{\rightarrow}or \verb|\to|& \X{\longrightarrow} \\
+ \X{\leftrightarrow}    & \X{\longleftrightarrow} \\
+ \X{\Leftarrow}         & \X{\Longleftarrow}     \\
+ \X{\Rightarrow}        & \X{\Longrightarrow}    \\
+ \X{\Leftrightarrow}    & \X{\Longleftrightarrow}\\
+ \X{\mapsto}            & \X{\longmapsto}        \\
+ \X{\hookleftarrow}     & \X{\hookrightarrow}    \\
+ \X{\leftharpoonup}     & \X{\rightharpoonup}    \\
+ \X{\leftharpoondown}   & \X{\rightharpoondown}  \\
+ \X{\rightleftharpoons} & \X{\iff}(bigger spaces) \\
+ \X{\uparrow}   & \X{\downarrow} \\
+ \X{\updownarrow} & \X{\Uparrow} \\
+ \X{\Downarrow} &  \X{\Updownarrow} \\
+ \X{\nearrow} &  \X{\searrow} \\
+  \X{\swarrow} & \X{\nwarrow} \\
+ \X{\leadsto}$^a$
 \end{symbols}
 \centerline{\footnotesize $^a$Utilisez l'extension \textsf{latexsym}
 pour obtenir ces symboles}
@@ -137,21 +139,25 @@ pour obtenir ces symboles}
 
 \begin{table}[!tbp]
 \caption{Délimiteurs}\label{tab:delimiters}
-\begin{symbols}{*4{cl}}
- \X{(}            & \X{)}            & \X{\uparrow} & \X{\Uparrow}    \\
- \X{[}ou \verb|\lbrack|   & \X{]}ou \verb|\rbrack|  & \X{\downarrow}   & \X{\Downarrow}  \\
- \X{\{}ou \verb|\lbrace|  & \X{\}}ou \verb|\rbrace|  & \X{\updownarrow} & \X{\Updownarrow}\\
- \X{\langle}      & \X{\rangle}  & \X{|}ou \verb|\vert| &\X{\|}ou \verb|\Vert|\\
- \X{\lfloor}      & \X{\rfloor}      & \X{\lceil}       & \X{\rceil}      \\
- \X{/}            & \X{\backslash}   & &
+\begin{symbols}{*3{cl}}
+ \X{(}            & \X{)}            & \X{\uparrow} \\
+ \X{[}or \verb|\lbrack|   & \X{]}or \verb|\rbrack|  & \X{\downarrow}   \\
+ \X{\{}or \verb|\lbrace|  & \X{\}}or \verb|\rbrace|  & \X{\updownarrow} \\
+ \X{\langle}      & \X{\rangle}  & \X{|}or \verb|\vert| \\
+ \X{\lfloor}      & \X{\rfloor}      & \X{\lceil}       \\
+ \X{/}            & \X{\backslash}   & \X{\Updownarrow}\\ 
+ \X{\Uparrow}     &  \X{\Downarrow}  & \X{\|}or \verb|\Vert| \\
+  \X{\rceil}    
 \end{symbols}
 \end{table}
 
 \begin{table}[!tbp]
 \caption{Grands délimiteurs}
 \begin{symbols}{*4{cl}}
- \Y{\lgroup}      & \Y{\rgroup}      & \Y{\lmoustache}  & \Y{\rmoustache} \\
- \Y{\arrowvert}   & \Y{\Arrowvert}   & \Y{\bracevert} 
+\begin{symbols}{*3{cl}}
+ \Y{\lgroup}      & \Y{\rgroup}      & \Y{\lmoustache}  \\
+ \Y{\arrowvert}   & \Y{\Arrowvert}   & \Y{\bracevert} \\
+ \Y{\rmoustache} \\
 \end{symbols}
 \end{table}
 
@@ -173,6 +179,7 @@ pour obtenir ces symboles}
 \centerline{\footnotesize $^a$Utilisez l'extension \textsf{latexsym}
 pour obtenir ces symboles}
 \end{table}
+
 
 \begin{table}[!tbp]
 \caption{Symboles non-mathématiques}
@@ -207,11 +214,11 @@ Ces symboles peuvent également être utilisés en mode \emph{texte}.
 \begin{table}[!tbp]
 \caption{Relations binaires de l'AMS}
 \begin{symbols}{*3{cl}}
- \X{\lessdot}           & \X{\gtrdot}            & \X{\doteqdot}ou \verb|\Doteq| \\
+ \X{\lessdot}           & \X{\gtrdot}            & \X{\doteqdot} \\
  \X{\leqslant}          & \X{\geqslant}          & \X{\risingdotseq}     \\
  \X{\eqslantless}       & \X{\eqslantgtr}        & \X{\fallingdotseq}    \\
  \X{\leqq}              & \X{\geqq}              & \X{\eqcirc}           \\
- \X{\lll}ou \verb|\llless|      & \X{\ggg}ou \verb|\gggtr| & \X{\circeq}  \\
+ \X{\lll}ou \verb|\llless| & \X{\ggg}            & \X{\circeq}  \\
  \X{\lesssim}           & \X{\gtrsim}            & \X{\triangleq}        \\
  \X{\lessapprox}        & \X{\gtrapprox}         & \X{\bumpeq}           \\
  \X{\lessgtr}           & \X{\gtrless}           & \X{\Bumpeq}           \\
@@ -222,30 +229,34 @@ Ces symboles peuvent également être utilisés en mode \emph{texte}.
  \X{\precsim}           & \X{\succsim}           & \X{\backsimeq}        \\
  \X{\precapprox}        & \X{\succapprox}        & \X{\vDash}            \\
  \X{\subseteqq}         & \X{\supseteqq}         & \X{\Vdash}            \\
- \X{\Subset}            & \X{\Supset}            & \X{\Vvdash}           \\
- \X{\sqsubset}          & \X{\sqsupset}          & \X{\backepsilon}      \\
- \X{\therefore}         & \X{\because}           & \X{\varpropto}        \\
- \X{\shortmid}          & \X{\shortparallel}     & \X{\between}          \\
- \X{\smallsmile}        & \X{\smallfrown}        & \X{\pitchfork}        \\
- \X{\vartriangleleft}   & \X{\vartriangleright}  & \X{\blacktriangleleft}\\
- \X{\trianglelefteq}    & \X{\trianglerighteq}   &\X{\blacktriangleright}
+ \X{\shortparallel}     & \X{\Supset}            & \X{\Vvdash}           \\
+ \X{\blacktriangleleft} & \X{\sqsupset}          & \X{\backepsilon}      \\
+ \X{\vartriangleright}  & \X{\because}           & \X{\varpropto}        \\
+ \X{\blacktriangleright}& \X{\Subset}            & \X{\between}          \\
+ \X{\trianglerighteq}   & \X{\smallfrown}        & \X{\pitchfork}        \\
+ \X{\vartriangleleft}   & \X{\shortmid} 	 & \X{\smallsmile} 	\\
+ \X{\trianglelefteq}    & \X{\therefore} 	 & \X{\sqsubset}  
 \end{symbols}
 \end{table}
 
 \begin{table}[!tbp]
 \caption{Flèches de l'AMS}
-\begin{symbols}{*3{cl}}
- \X{\dashleftarrow}      & \X{\dashrightarrow}     & \X{\multimap}          \\
- \X{\leftleftarrows}     & \X{\rightrightarrows}   & \X{\upuparrows}        \\
- \X{\leftrightarrows}    & \X{\rightleftarrows}    & \X{\downdownarrows}    \\
- \X{\Lleftarrow}         & \X{\Rrightarrow}        & \X{\upharpoonleft}     \\
- \X{\twoheadleftarrow}   & \X{\twoheadrightarrow}  & \X{\upharpoonright}    \\
- \X{\leftarrowtail}      & \X{\rightarrowtail}     & \X{\downharpoonleft}   \\
- \X{\leftrightharpoons}  & \X{\rightleftharpoons}  & \X{\downharpoonright}  \\
- \X{\Lsh}                & \X{\Rsh}                & \X{\rightsquigarrow}   \\
- \X{\looparrowleft}      & \X{\looparrowright}     &\X{\leftrightsquigarrow}\\
- \X{\curvearrowleft}     & \X{\curvearrowright}    & &                      \\
- \X{\circlearrowleft}    & \X{\circlearrowright}   & &
+\begin{symbols}{*2{cl}}
+ \X{\dashleftarrow}      & \X{\dashrightarrow}     \\
+ \X{\leftleftarrows}     & \X{\rightrightarrows}   \\
+ \X{\leftrightarrows}    & \X{\rightleftarrows}    \\
+ \X{\Lleftarrow}         & \X{\Rrightarrow}        \\
+ \X{\twoheadleftarrow}   & \X{\twoheadrightarrow}  \\
+ \X{\leftarrowtail}      & \X{\rightarrowtail}     \\
+ \X{\leftrightharpoons}  & \X{\rightleftharpoons}  \\
+ \X{\Lsh}                & \X{\Rsh}                \\
+ \X{\looparrowleft}      & \X{\looparrowright}     \\
+ \X{\curvearrowleft}     & \X{\curvearrowright}    \\
+ \X{\circlearrowleft}    & \X{\circlearrowright}   \\
+ \X{\multimap}  &  \X{\upuparrows}  \\
+ \X{\downdownarrows} & \X{\upharpoonleft} \\
+ \X{\upharpoonright} & \X{\downharpoonright} \\
+ \X{\rightsquigarrow} & \X{\leftrightsquigarrow} \\
 \end{symbols}
 \end{table}
 
@@ -279,14 +290,14 @@ Ces symboles peuvent également être utilisés en mode \emph{texte}.
 \begin{table}[!tbp]
 \caption{Opérateurs binaires de l'AMS}
 \begin{symbols}{*3{cl}}
- \X{\dotplus}        & \X{\centerdot}      & \X{\intercal}      \\
+ \X{\dotplus}        & \X{\centerdot}      &       \\
  \X{\ltimes}         & \X{\rtimes}         & \X{\divideontimes} \\
- \X{\Cup}ou \verb|\doublecup|& \X{\Cap}ou \verb|\doublecap|& \X{\smallsetminus} \\
+ \X{\doublecup}      & \X{\doublecap}	   & \X{\smallsetminus} \\
  \X{\veebar}         & \X{\barwedge}       & \X{\doublebarwedge}\\
  \X{\boxplus}        & \X{\boxminus}       & \X{\circleddash}   \\
  \X{\boxtimes}       & \X{\boxdot}         & \X{\circledcirc}   \\
- \X{\leftthreetimes} & \X{\rightthreetimes}& \X{\circledast}    \\
- \X{\curlyvee}       & \X{\curlywedge}  
+ \X{\intercal}       & \X{\circledast}     & \X{\rightthreetimes} \\
+ \X{\curlyvee}       & \X{\curlywedge}     & \X{\leftthreetimes}
 \end{symbols}
 \end{table}
 
@@ -298,10 +309,10 @@ Ces symboles peuvent également être utilisés en mode \emph{texte}.
  \X{\vartriangle}      & \X{\blacktriangle}    & \X{\complement}      \\
  \X{\triangledown}     &\X{\blacktriangledown} & \X{\Game}            \\
  \X{\lozenge}          & \X{\blacklozenge}     & \X{\bigstar}         \\
- \X{\angle}            & \X{\measuredangle}    & \X{\sphericalangle}  \\
+ \X{\angle}            & \X{\measuredangle}    & \\
  \X{\diagup}           & \X{\diagdown}         & \X{\backprime}       \\
  \X{\nexists}          & \X{\Finv}             & \X{\varnothing}      \\
- \X{\eth}              & \X{\mho}              
+ \X{\eth}              & \X{\sphericalangle}   & \X{\mho}              
 \end{symbols}
 \end{table}
 
