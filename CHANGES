@@ -1,3 +1,16 @@
+4.18 2006.05.30
+---------------
+* section headings should be leftaligned
+* added notes on amsthm suggested by Daniel Flipo
+* improved explanation ifpdf package 
+* use  \textasciigrave for ` and \textquotesingle for ' by Tahir Hassan <tah16@leicester.ac.uk>
+* Reworde the mentioning of the preamble where I introduce the comment command.
+* updated eurofonts again based on Daniel Flipo's work for the french lshort
+* we should use utf8x for inputenc
+* mention unicode option for hyperref
+* mention active language after calling usepackage bable with multiple languages.
+* Added section on writing greek text by Nikolaos Pothitos <n.pothitos@di.uoa.gr>
+
 4.17 2005.09.27
 ---------------
 * removed eurosans package I did never get it to actually display a symbol with all the
