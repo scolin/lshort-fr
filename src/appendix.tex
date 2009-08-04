@@ -1,0 +1,133 @@
+\appendix
+\chapter{Installation de \LaTeX}
+\begin{intro}
+Knuth a diffusé les sources de \TeX{} à une époque où personne ne
+savait ce qu'étaient les concepts de logiciel libre ou à source
+ouvert. La licence fournie avec \TeX{} vous laisse faire tout ce que
+vous voulez avec les sources, mais vous ne pouvez appeler le résultat
+\TeX{} que si le programme passe une série de tests fournis aussi par
+Knuth. Ceci a mené à une situation où il existe une implantation libre
+de \TeX{} pour presque tous les systèmes d'exploitation
+existants. Dans ce chapitre nous donnerons quelques astuces sur ce
+dont vous avez besoin pour faire fonctionner \TeX{} sous Linux,
+Mac~OSX et Windows.
+\end{intro}
+
+\section{Ce qu'il faut installer}
+
+Pour installer \LaTeX{} sur un ordinateur, les logiciels suivants sont
+essentiels :
+
+\begin{enumerate}
+
+\item Un éditeur de texte pour éditer vos fichiers sources \LaTeX{} ;
+
+\item Le programme \TeX{}/\LaTeX{} pour compiler vos fichiers sources
+  \LaTeX{} en documents PDF ou DVI ;
+
+\item Un visualiseur PDF/DVI pour afficher et imprimer vos documents ;
+
+\item Un programme pour gérer les fichiers PostScript et les images
+  pour inclusion dans vos documents.
+
+\end{enumerate}
+
+Il y a tant de programmes qui rentrent dans les critères définis
+ci-dessus\ldots{} Nous discuterons ici seulement de ceux que nous
+connaissons, apprécions et pour lesquels nous avons quelque
+expérience.
+
+\section{\TeX{} sous Mac~OSX}
+
+\subsection{Choisir un éditeur}
+
+Basez votre environnement \LaTeX{} sur l'éditeur \wi{TextMate} ! Non
+seulement il s'agit d'un éditeur généraliste très facilement
+modifiable, mais il fournit en plus un très bon support \LaTeX{} et
+s'intègre étroitement avec le visualiseur PDFView. Cette combinaison
+d'outils vous laisse utiliser \LaTeX{} de manière agréable et conforme
+aux usages Mac. Vous pouvez télécharger une version gratuite d'essai
+depuis le site de TextMate \url{http://macromates.com/} et acheter la
+version complète pour 39 euros. Si vous connaissez un outil libre
+équivalent sous Mac, n'hésitez pas à nous le signaler.
+
+\subsection{Obtenir une distribution \TeX{}}
+
+Si vous utilisez déjà les Macports ou Fink pour installer des
+logiciels Unix sous OSX, utilisez-les aussi pour \LaTeX. Avec Macport
+la commande sera \framebox{\texttt{port install tetex}} et avec Fink
+\framebox{\texttt{fink install tetex}}.
+
+Si vous n'utilisez ni l'un ni l'autre, téléchargez \wi{MacTeX}, une
+distribution précompilée de \LaTeX{} pour OSX. \wi{MacTeX} met à
+disposition une installation complète de \LaTeX{} fournie avec des
+outils supplémentaires. Obtenez MacTex sur
+\url{http://www.tug.org/mactex/}.
+
+\subsection{Faites-vous plaisir avec \wi{PDFView}}
+
+Utilisez PDFView pour afficher des fichiers PDF générés par \LaTeX{},
+il s'intègre parfaitement avec votre éditeur. PDFView est une
+application libre qui peut être téléchargée depuis
+\url{http://pdfview.sourceforge.net/}. Une fois téléchargé et
+installé, ouvrez les préférences de PDFView et assurez-vous que
+l'option \emph{recharger/rafraîchir automatiquement les documents} est
+activée et que le support PDFSync est positionné sur le réglage \og
+TextMate \fg{}.
+
+\section{\TeX{} sous Windows}
+
+\subsection{Obtenir \TeX{}}
+
+En premier lieu, obtenez une copie de l'excellente distribution
+\wi{MiKTeX} sur \url{http://www.miktex.org/}. Elle contient tous les
+programmes et fichiers de base pour compiler des documents
+\LaTeX{}. La fonctionnalité la plus sympathique, à mes yeux, est que
+MiKTeX téléchargera les extensions \LaTeX{} manquantes à la volée et
+les installera lors de la compilation d'un document.
+
+\subsection{Un éditeur \LaTeX{}}
+
+\LaTeX{} est un langage de programmation pour
+documents. \wi{TeXnicCenter} fait appel à plusieurs concepts du monde
+de la programmation pour mettre à disposition un environnement
+\LaTeX{} agréable et efficace pour la saisie sous Windows. Obtenez une
+copie sur \url{http://www.toolscenter.org}. TeXnicCenter s'intègre
+bien avec MiKTeX.
+
+Un autre très bon choix est l'éditeur fourni par le projet LEd sur
+\url{http://www.latexeditor.org}.
+
+\subsection{Travailler avec des images}
+
+Travailler avec des images de haute qualité dans \LaTeX{} est synonyme
+d'utilisation de PostScript (eps) ou de PDF comme format d'image. Le
+programme qui vous aidera dans cette tâche s'appelle
+\wi{GhostScript}. Vous pouvez l'obtenir avec son interface
+graphique propre \wi{GhostView} sur \url{http://www.cs.wisc.edu/~ghost/}.
+
+Si vous utilisez plutôt des formats bitmap (photos et images
+numérisées), vous pouvez jeter un oeil à \wi{Gimp}, une alternative
+libre à PhotoShop, téléchargeable sur
+\url{http://gimp-win.sourceforge.net/}.
+
+\section{\TeX{} sous Linux}
+
+Si vous travaillez sous Linux, il est probable que \LaTeX{} soit déjà
+installé sur votre système, ou au moins disponible sur les dépôts que
+vous avez utilisés lors de son installation. Utilisez votre
+gestionnaire de paquets pour installer les applications suivantes :
+
+\begin{itemize}
+\item tetex or texlive -- l'installation \TeX{}/\LaTeX{} de base ;
+\item emacs (avec auctex) -- un éditeur Linux qui s'intègre
+  étroitement avec \LaTeX{} via une extension appelée AucTeX ;
+\item ghostscript -- un visualiseur PostScript ;
+\item xpdf et acrobat -- des visualiseurs PDF ;
+\item imagemagick -- un programme libre pour convertir des images
+  bitmap ;
+\item gimp -- un clone libre de PhotoShop ;
+\item inkscape -- un clone libre d'Illustrator/Corel Draw (dessin
+  vectoriel).
+\end{itemize}
+
