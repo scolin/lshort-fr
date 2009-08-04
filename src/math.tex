@@ -213,7 +213,7 @@ Les commandes \ci{overbrace} et \ci{underbrace} créent une grande
 expression. 
 \index{horizontal!accolade}
 \begin{example}
-$\underbrace{ a+b+\cdots+z }_{26}$
+$\underbrace{a+b+\cdots+z}_{26}$
 \end{example}
 
 \index{mathématiques!accents}
@@ -258,12 +258,14 @@ pourquoi \LaTeX{} fournit les commandes suivantes pour les fonctions
 les plus utilisées :
 \index{mathématiques!fonctions}
 
-\begin{verbatim}
-\arccos   \cos    \csc   \exp   \ker     \limsup  \min   \sinh
-\arcsin   \cosh   \deg   \gcd   \lg      \ln      \Pr    \sup
-\arctan   \cot    \det   \hom   \lim     \log     \sec   \tan
-\arg      \coth   \dim   \inf   \liminf  \max     \sin   \tanh
-\end{verbatim}
+\begin{tabular}{llllll}
+\ci{arccos} &  \ci{cos}  &  \ci{csc} &  \ci{exp} &  \ci{ker}    & \ci{limsup} \\
+\ci{arcsin} &  \ci{cosh} &  \ci{deg} &  \ci{gcd} &  \ci{lg}     & \ci{ln}     \\
+\ci{arctan} &  \ci{cot}  &  \ci{det} &  \ci{hom} &  \ci{lim}    & \ci{log}    \\
+\ci{arg}    &  \ci{coth} &  \ci{dim} &  \ci{inf} &  \ci{liminf} & \ci{max}    \\
+\ci{sinh}   & \ci{sup}   &  \ci{tan}  & \ci{tanh}&  \ci{min}    & \ci{Pr}     \\
+\ci{sec}    & \ci{sin} \\
+\end{tabular}
 
 \begin{example}
 \[\lim_{x \rightarrow 0}
@@ -337,7 +339,8 @@ d'aligner les indices à gauche  au lieu de les centrer.
 \begin{displaymath}
 \sum_{\substack{0<i<n \\ 1<j<m}}
    P(i,j) =
-\sum_{\begin{subarray}{l} i\in I\\
+\sum_{\begin{subarray}{l}
+         i\in I\\
          1<j<m
       \end{subarray}}     Q(i,j)
 \end{displaymath}
@@ -387,7 +390,8 @@ d'avoir le comportement attendu.}.
 \begin{example}
 $\Big( (x+1) (x-1) \Big) ^{2}$\\
 $\big(\Big(\bigg(\Bigg($\quad
-$\big\}\Big\}\bigg\}\Bigg\}$\quad
+$\big\}\Big\}\bigg\}\Bigg\}$
+\quad
 $\big\|\Big\|\bigg\|\Bigg\|$
 \end{example}
 
@@ -537,7 +541,7 @@ courantes pour obtenir le résultat attendu.
 \sin x & = & x -\frac{x^{3}}{3!}
      +\frac{x^{5}}{5!} %-{}
                     \nonumber\\
- & & {}-\frac{x^{7}}{7!}+{}\cdots
+&& {}-\frac{x^{7}}{7!}+{}\cdots
 \end{eqnarray}}
 \end{example}
 \pagebreak[1]
@@ -614,7 +618,6 @@ affichées.
 
 \begin{example}
 \begin{displaymath}
-\mathop{\mathrm{corr}}(X,Y)= 
  \frac{\displaystyle 
    \sum_{i=1}^n(x_i-\overline x)
    (y_i-\overline y)} 
@@ -669,8 +672,7 @@ pratique pour insérer du texte dans une équation.
 
 En rédigeant des documents mathématiques, on a besoin d'un moyen de
 présenter des lemmes, des définitions, des axiomes et d'autres
-structures similaires. \LaTeX{} prend cela en charge avec la
-commande : 
+structures similaires :
 \begin{lscommand}
 \ci{newtheorem}\verb|{|\emph{nom}\verb|}[|\emph{compteur}\verb|]{|%
          \emph{texte}\verb|}[|\emph{section}\verb|]|
@@ -695,27 +697,43 @@ Ceci est mon premier théorème\\
 \verb|\end{|\emph{nom}\verb|}|     
 \end{code}
 
-%SC: ah, the initial translation missed the subtle sarcasm here
+L'extension \pai{amsthm} met à disposition la commande
+\ci{newtheoremstyle}\verb|{|\emph{style}\verb|}| qui vous montrera que
+le choix de style pour les théorèmes se limite à trois styles
+préféfinis : \texttt{definition} (titre gras, corps romain),
+\texttt{plain} (titre gras, corps italique) or \texttt{remark} (titre
+italique, corps romain).
 
+%SC: ah, the initial translation missed the subtle sarcasm here
 Voilà pour la théorie. Les exemples qui suivent devraient lever tout
 doute et montrer clairement que l'environnement \verb|\newtheorem| est
 trop complexe à comprendre.
+
+% actually define things
+\theoremstyle{definition} \newtheorem{law}{loi}
+\theoremstyle{plain}      \newtheorem{decret}[loi]{Décret}
+\theoremstyle{remark}     \newtheorem*{lechef}{Le chef}
+
+D'abord définissez les théorèmes :
+
+\begin{verbatim}
+\theoremstyle{definition} \newtheorem{law}{loi}
+\theoremstyle{plain}      \newtheorem{decret}[loi]{Décret}
+\theoremstyle{remark}     \newtheorem*{lechef}{Le chef}
+\end{verbatim}
+
 \begin{example}
-% définitions dans le préambule
-\newtheorem{loi}{Loi}
-\newtheorem{decret}[loi]%
-{Décret}
-%dans le document
 \begin{loi} \label{chef}
 Le chef a raison.
 \end{loi}
 \begin{decret}[Important]
-Le chef a toujours raison.
+Le chef a toujours raison,
+voir la loi~\ref{chef}.
 \end{decret}
-\begin{loi}
-Si le chef a tort, voir 
-la loi~\ref{chef}.
-\end{loi}
+\begin{lechef}
+Et si le chef a tort, se référer
+à la loi~\ref{chef}.
+\end{lechef}
 \end{example}
 
 
@@ -733,6 +751,26 @@ aller mal ira mal.\end{mur}
 Le théorème \og Murphy \fg{} est numéroté à l'intérieur de la section en
 cours. On aurait pu utiliser un autre niveau tel que \texttt{chapter}
 ou \texttt{subsection}. 
+
+L'extension \pai{amsthm} fournit aussi l'environnement de preuve
+\ei{proof}.
+
+\begin{example}
+\begin{proof}
+ Trivial, utilisez
+\[E=mc^2\]
+\end{proof}
+\end{example}
+
+La commande \ci{qedhere} permet de déplacer le symbole de fin de
+preuve (CQFD) pour les cas où il finirait seul sur une ligne.
+
+\begin{example}
+\begin{proof}
+ Trivial, utilisez
+\[E=mc^2 \qedhere\]
+\end{proof}
+\end{example}
 
 \section{Symboles gras}
 \index{symboles!gras}
