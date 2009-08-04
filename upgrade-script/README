@@ -1,3 +1,5 @@
+This script assumes that the sources the script is in, are managed by git.
+
 Translation process:
 
 We will take the transition from v3.20 to v3.21 as an example. First,
