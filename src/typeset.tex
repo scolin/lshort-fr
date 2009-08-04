@@ -151,7 +151,7 @@ paragraphe.
 \begin{lscommand}
 \ci{linebreak}\verb|[|\emph{n}\verb|]|,
 \ci{nolinebreak}\verb|[|\emph{n}\verb|]|, 
-\ci{pagebreak}\verb|[|\emph{n}\verb|]| et
+\ci{pagebreak}\verb|[|\emph{n}\verb|]|,
 \ci{nopagebreak}\verb|[|\emph{n}\verb|]|
 \end{lscommand}
 \noindent font ce que suggère leur nom anglais. Ces commandes permettent à
@@ -287,10 +287,10 @@ commandes :
 \begin{tabular}{@{}lll@{}}
 Commande&Résultat&Description\\
 \hline
-\ci{today} & \today   & Date du jour dans la langue courante\\
+\ci{today} & \today   & Date du jour\\
 \ci{TeX} & \TeX       & Logo TeX\\
 \ci{LaTeX} & \LaTeX   & Logo LaTeX\\
-\ci{LaTeXe} & \LaTeXe & Version actuelle de \LaTeX\\
+\ci{LaTeXe} & \LaTeXe & Sa version actuelle\\
 \end{tabular}
 
 \section{Caractères spéciaux et symboles}
@@ -300,7 +300,7 @@ Commande&Résultat&Description\\
 Pour insérer des \wi{guillemets} n'utilisez pas le caractère \verb|"|
 \index{""@\texttt{""}} comme sur une machine à écrire. En typographie,
 il y a des guillemets ouvrants et fermants spécifiques. En anglais,
-utilisez deux~\verb|`| pour les guillemets ouvrants et deux~\verb|'|
+utilisez deux~\textasciigrave pour les guillemets ouvrants et deux~\textquotesingle
 pour les guillemets fermants.
 En français, avec l'option \pai{francais} de l'extension \pai{babel},
 utilisez \ci{og} et \ci{fg} ou bien utilisez directement 
@@ -313,9 +313,10 @@ caractères.
 \end{example}
 %SC: Hmmm, I do not like much this translation
 Je suis conscient que le rendu n'est pas idéal, mais il s'agit
-effectivement d'un accent grave pour l'ouverture et d'une quote
-(i.e. pas une apostrophe au sens typographique du terme) pour la
-fermeture, et ce malgré ce que la police choisie semble indiquer.
+effectivement d'un accent grave (\textasciigrave) pour l'ouverture et
+d'une quote (\textquotesingle) (i.e. pas une apostrophe au sens
+typographique du terme) pour la fermeture, et ce malgré ce que la
+police choisie semble indiquer.
  
 \subsection{Tirets}
 
@@ -376,7 +377,7 @@ supra-conducteur.
 L'extension \pai{textcomp} met aussi à disposition le symbole degré
 via les commandes \ci{textcelsius}.
 
-\subsection{Le symbole de l'euro \texorpdfstring{(\EUR{})}{}}
+\subsection{Le symbole de l'euro \texorpdfstring{(\officialeuro)}{}}
 
 Écrire sur tout sujet économique de nos jours requiert l'utilisation
 du symbole de l'Euro. De nombreuses polices de caractères contiennent
@@ -402,35 +403,36 @@ de l'Euro :
 Si vous préférez un symbole qui correspond à votre police, utilisez
 plutôt \texttt{gen} à la place de \texttt{option}.
 
-Si les polices Adobe Eurofonts sont installées sur votre système (vous
-pouvez les obtenir gratuitement sur
-\url{ftp://ftp.adobe.com/pub/adobe/type/win/all}), vous pouvez
-utiliser l'extension \pai{europs} et la commande \ci{EUR} (pour
-un symbole de l'Euro qui correspond à la police courante).
+% Si les polices Adobe Eurofonts sont installées sur votre système (vous
+% pouvez les obtenir gratuitement sur
+% \url{ftp://ftp.adobe.com/pub/adobe/type/win/all}), vous pouvez
+% utiliser l'extension \pai{europs} et la commande \ci{EUR} (pour
+% un symbole de l'Euro qui correspond à la police courante).
 % ne fonctionne pas
 % soit
 % l'extension \pai{eurosans} et la commande \ci{euro} (pour l'\og Euro
 % officiel \fg{}).
 
 L'extension \pai{marvosym} fournit également des symboles variés, y
-compris celui de l'Euro, sous le nom \ci{EUR}. Son défaut est de ne
+compris celui de l'Euro, sous le nom \ci{EURtm}. Son défaut est de ne
 pas proposer des versions italiques et grasses de ce symbole.
 
 \begin{table}[!htbp]
 \caption{Un sac plein d'Euros} \label{eurosymb}
 \begin{lined}{10cm}
 \begin{tabular}{llccc}
-extension    & codage      & romain       & sans-serif      & chasse fixe \\
+LM+textcomp  &\verb+\texteuro+ & \huge\texteuro &\huge\sffamily\texteuro
+                                                &\huge\ttfamily\texteuro\\
 eurosym      &\verb+\euro+ & \huge\officialeuro &\huge\sffamily\officialeuro
-                                             & \huge\ttfamily\officialeuro\\
+                                                &\huge\ttfamily\officialeuro\\
 $[$gen$]$eurosym &\verb+\euro+ & \huge\geneuro  &\huge\sffamily\geneuro
-                                                & \huge\ttfamily\geneuro \\
-% En fait on appelle eurofont pour des conflits de noms...
-europs       &\verb+\EUR + & \huge\EURtm     &\huge\EURhv   & \huge\EURcr \\
-% n'a pas l'air de fonctionner ...
+                                                &\huge\ttfamily\geneuro\\
+%europs       &\verb+\EUR + & \huge\EURtm        &\huge\EURhv
+%                                                &\huge\EURcr\\
 % eurosans     &\verb+\euro+ & \huge\EUROSANS  &\huge\sffamily\EUROSANS
-%                                                 & \huge\ttfamily\EUROSANS \\
-marvosym     &\verb+\EUR+  & \huge\mvchr164  &\huge\mvchr164 & \huge\mvchr164
+%                                             & \huge\ttfamily\EUROSANS \\
+marvosym     &\verb+\EURtm+  & \huge\mvchr101  &\huge\mvchr101
+                                               &\huge\mvchr101
 \end{tabular}
 \medskip
 \end{lined}
@@ -566,11 +568,12 @@ Si vous appelez babel avec plusieurs langues,
 \begin{lscommand}
 \ci{usepackage}\verb|[|\emph{langueA}\verb|,|\emph{langueB}\verb|]{babel}| 
 \end{lscommand}
-\noindent vous devez utiliser la commande
+\noindent alors la dernière langue dans la liste d'options sera active
+(i.e. langueB). Vous pouvez utiliser la commande
 \begin{lscommand}
 \ci{selectlanguage}\verb|{|\emph{langueA}\verb|}|
 \end{lscommand}
-\noindent pour définir la langue courante.
+\noindent pour changer la langue active.
 
 %Input Encoding
 \newcommand{\ieih}[1]{%
@@ -634,10 +637,10 @@ l'aide de l'extension \pai{ucs}.
 
 \begin{lscommand}
 \ci{usepackage}\verb|{ucs}|\\ 
-\ci{usepackage}\verb|[|\iei{utf8}\verb|]{inputenc}| 
+\ci{usepackage}\verb|[|\iei{utf8x}\verb|]{inputenc}| 
 \end{lscommand}
 \noindent vous permettra de créer des fichiers d'entrée \LaTeX{} en
-\iei{utf8}, un codage multi-octets où chaque caractère peut nécessiter
+\iei{utf8x}, un codage multi-octets où chaque caractère peut nécessiter
 entre un et quatre octets pour être codé.
 \footnote{NdT. D'anciennes versions de ce document préconisent la
   conversion des caractères accentués et spéciaux en séquences du type
@@ -817,7 +820,7 @@ mais votre texte est alors limité au codage utilisé.
 \end{table}
 
 Les livres allemands contiennent souvent des marques de citation
-françaises (\flqq guillemets\frqq). Les typographes allemands les
+françaises (\flqq guil\-le\-mets\frqq). Les typographes allemands les
 utilisent différemment, cependant. Une citation dans un livre allemand
 ressemblerait plutôt à \frqq ceci\flqq. En Suisse allemande, les
 typographes utilisent les \flqq guillemets\frqq~comme les français le font.
@@ -853,7 +856,7 @@ trois problèmes :
   dans la version coréenne de Windows, CP949/Windows-949/UHC. Dans ces
   codages, chaque caractère US-ASCII représente son caractère usuel,
   comme dans d'autres codages compatibles avec US-ASCII
-  (ISO-8859-\textit{x}, EUC-JP, Shift\_JIS, Big5,\dots). En revanche
+  (ISO-8859-\textit{x}, EUC-JP, Big5 ou Shift\_JIS). En revanche
   les caractères hangul, hanjas (des caractères chinois utilisées en
   Corée), hangul jamos, hirakanas, katakanas, grecs et cyrilliques,
   les symboles et les lettres dérivée de KS~X~1001 sont représentés
@@ -979,6 +982,53 @@ référez-vous au \emph{H\LaTeX{} Guide}. Consultez également le site
 web des utilisateurs coréens de \TeX{} (KTUG) sur
 \url{http://www.ktug.or.kr/}. Il existe aussi une traduction coréenne
 de ce manuel.
+
+\subsection{Support du grec}
+\secby{Nikolaos Pothitos}{pothitos@di.uoa.gr}
+Les commandes à insérer en préambule pour écrire en \wi{grec}
+\index{grec} se trouvent dans le tableau~\ref{preamble-greek}. Ce
+préambule active la césure et change le texte automatique en grec.%
+\,\footnote{Si vous ajoutez l'option \texttt{utf8x} à
+  \texttt{inputenc}, vous pourrez saisir du grec et des caractères
+  unicodes grecs polytoniques.}
+
+\begin{table}[btp]
+\caption{Préambule pour les documents grecs.} \label{preamble-greek}
+\begin{lined}{7cm}
+\begin{verbatim}
+\usepackage[english,greek]{babel}
+\usepackage[iso-8859-7]{inputenc}
+\end{verbatim}
+\bigskip
+\end{lined}
+\end{table}
+
+De nouvelles commandes pour une saisie simplifiée du grec devient
+aussi disponibles. Pour passer temporairement en alphabet latin et
+vice-versa, vous pouvez utiliser les commandes
+\verb|\textlatin{|\emph{texte latin}\verb|}| and
+\verb|\textgreek{|\emph{texte grec}\verb|}|. Elles prennent un
+argument qui sera formaté avec la police la plus pertinente.
+Sinon vous pouvez aussi utiliser la commande
+\verb|\selectlanguage{...}| présentée précédemment. Le
+tableau~\ref{sym-greek} présente quelques caractères de ponctuation
+grecs. Vous pouvez utiliser \verb|\euro| pour obtenir le symbole de
+l'Euro.
+
+\begin{table}[!htbp]
+\caption{Caractères spéciaux grecs.} \label{sym-greek}
+\begin{lined}{4cm}
+%SC: Nope, already in french :-P
+%\selectlanguage{french}
+\begin{tabular}{*2{ll}}
+\verb|;| \hspace*{1ex}  &  $\cdot$ \hspace*{1ex}  &  \verb|?| \hspace*{1ex}&  ;   \\[1ex]
+\verb|((|               &  \og                    &  \verb|))|&  \fg \\[1ex]
+\verb|``|               &  `                      &  \verb|''| &  '   \\
+\end{tabular}
+%\selectlanguage{english}
+\bigskip
+\end{lined}
+\end{table}
 
 
 \subsection{Support du cyrillique}
@@ -1228,7 +1278,8 @@ a introduit trois nouvelles commandes destinées à être utilisées avec
 la classe \texttt{book} :
 \begin{description}
 \item[\ci{frontmatter}] doit être la première commande après le
-  \verb|\begin{document}|, elle introduit le prologue du document.
+  début du corps du document (\verb|\begin{document}|),
+    elle introduit le prologue du document.
     Les numéros de pages sont alors en romain (i, ii, iii, etc.) et
     les sections non-numérotées, comme si vous utilisiez les variantes
     étoilées des commandes de sectionnement
@@ -1315,8 +1366,8 @@ utilisateurs de \LaTeX{}.
 \section{Souligner l'importance d'un mot}
 
 Dans un manuscrit réalisé sur une machine à écrire, les mots
-importants sont \underline{soulignés}, ce qui peut être obtenu par la
-commande: 
+importants sont \texttt{valorisés en les \underline{soulignant}},
+via la commande :
 \begin{lscommand}
 \ci{underline}\verb|{|\textit{texte}\verb|}|
 \end{lscommand}
@@ -1407,8 +1458,8 @@ les environnements à sa guise :
 \item[Clarté :] les faits ne 
 vont pas devenir plus sensés 
 parce  qu'ils sont dans une liste,
-\item[Synthèse :] cependant une 
-liste peut très bien 
+\item[Synthèse :] cependant,
+une liste peut très bien 
 résumer des faits.
 \end{description}
 \end{enumerate}
@@ -1481,14 +1532,12 @@ des lignes :
 \begin{quote}
 Une ligne ne devrait pas comporter
 plus de 66~caractères.
-
+\end{quote}
 C'est pourquoi les pages 
 composées par \LaTeX{} ont des 
-marges importantes.
-\end{quote}
-Cela explique pourquoi les 
-journaux utilisent souvent 
-plusieurs colonnes.
+marges importantes et
+pourquoi les journaux utilisent 
+souvent plusieurs colonnes.
 \end{example}
 
 Il existe deux autres environnements comparables : \ei{quotation} et
@@ -1749,7 +1798,7 @@ traité comme un objet flottant. Les deux environnements flottants ont
 un paramètre optionnel :
 \begin{lscommand}
 \verb|\begin{figure}[|\emph{placement}\verb|]| ou
-\verb|\begin{table}[|\emph{placement}\verb|]|
+\verb|\begin{table}[|\ldots\verb|]|
 \end{lscommand}
 \noindent 
 appelé \emph{placement}. Ce paramètre permet de dire à \LaTeX{} où
@@ -1763,7 +1812,7 @@ possibles}. Reportez-vous au tableau~\ref{tab:permiss}.
 \noindent \begin{minipage}{\textwidth}
 \medskip
 \begin{center}
-\begin{tabular}{@{}cp{10cm}@{}}
+\begin{tabular}{@{}cp{8cm}@{}}
 Caractère & Emplacement pour l'objet flottant\dots\\
 \hline
 \rule{0pt}{1.05em}%
