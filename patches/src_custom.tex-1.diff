@@ -1,0 +1,10 @@
+--- a/src/custom.tex
++++ b/src/custom.tex
+@@ -1,6 +1,6 @@
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ % Contents: Customising LaTeX output
+-% $Id: custom.tex,v 1.2 2003/03/19 20:57:45 oetiker Exp $
++% $Id: custom.tex 172 2008-09-25 05:26:50Z oetiker $
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \chapter{Customising \LaTeX}
+ 

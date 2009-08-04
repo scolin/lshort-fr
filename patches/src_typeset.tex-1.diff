@@ -1,0 +1,10 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -1,6 +1,6 @@
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ % Contents: Typesetting Part of LaTeX2e Introduction
+-% $Id: typeset.tex,v 1.2 2003/03/19 20:57:47 oetiker Exp $
++% $Id: typeset.tex 169 2008-09-24 07:32:13Z oetiker $
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \chapter{Typesetting Text}
+ 

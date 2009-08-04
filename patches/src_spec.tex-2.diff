@@ -1,0 +1,24 @@
+--- a/src/spec.tex
++++ b/src/spec.tex
+@@ -24,14 +24,13 @@ a few of them are described in chapter \ref{chap:graphics}.
+ Please refer to \companion{} and the \manual{} for more information on
+ that subject.
+ 
+-A much easier way to get graphics into a document is to generate them
+-with a specialised software package\footnote{Such as XFig, CorelDraw!,
+-  Freehand, Gnuplot, \ldots} and then include the finished graphics
+-into the document. Here again, \LaTeX{} packages offer many ways to do
+-this, but this introduction will only discuss the use of \EPSi{}
+-(EPS) graphics, because it is quite
+-easy to do and widely used.  In order to use pictures in the EPS
+-format, you must have a \PSi{} printer\footnote{Another
++A much easier way to get graphics into a document is to generate them with a
++specialised software package\footnote{Such as XFig, Gnuplot, Gimp, Xara X
++\ldots} and then include the finished graphics into the document. Here
++again, \LaTeX{} packages offer many ways to do this, but this introduction
++will only discuss the use of \EPSi{} (EPS) graphics, because it is quite
++easy to do and widely used.  In order to use pictures in the EPS format, you
++must have a \PSi{} printer\footnote{Another
+   possibility to output \PSi{} is the \textsc{\wi{GhostScript}}
+   program available from
+   \CTANref|support/ghostscript|. Windows and OS/2 users might

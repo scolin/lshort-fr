@@ -1,0 +1,13 @@
+--- a/src/biblio.tex
++++ b/src/biblio.tex
+@@ -84,6 +84,10 @@
+     generating arbitrary circles and ellipses within the \texttt{picture} environment,
+     and \emph{\MP{} - A Tutorial}.
+   \newblock Both downloadable from \url{http://www.ursoswald.ch}
++
++\bibitem{pgfplots} Till Tantau.
++  \newblock \emph{TikZ\&PGF Manual}.\newblock
++  Download from \CTAN|graphics/pgf/base/doc/generic/pgf/pgfmanual.pdf|
+   
+   
+ 

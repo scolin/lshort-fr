@@ -1,0 +1,25 @@
+--- a/src/custom.tex
++++ b/src/custom.tex
+@@ -892,22 +892,6 @@ A few pages back you may have noticed the command
+ lines. The line on the title page, for example, has been created with a
+ \ci{rule} command.
+ 
+-A special case is a rule with no width but a certain height. In
+-professional typesetting, this is called a \wi{strut}. It is used to
+-guarantee that an element on a page has a certain minimal height. You
+-could use it in a \texttt{tabular} environment to make sure a row has
+-a certain minimum height.
+-
+-\begin{example}
+-\begin{tabular}{|c|}
+-\hline
+-\rule{1pt}{4ex}Pitprop \ldots\\
+-\hline
+-\rule{0pt}{4ex}Strut\\
+-\hline
+-\end{tabular}
+-\end{example}
+-
+ \bigskip
+ {\flushright The End.\par}
+ 

@@ -1,0 +1,44 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -1521,6 +1521,41 @@ Material typeset with the tabular environment always stays together on one
+ page. If you want to typeset long tables, you might want to use the
+ \pai{longtable} environments.
+ 
++Sometimes the default \LaTeX{} tables to feel a bit cramped. So you may want
++to give them a bit more breathing space by setting a higher
++\ci{arraystretch} and \ci{tabcolsep} value.
++
++\begin{example}
++\begin{tabular}{|l|}
++\hline
++These lines\\\hline
++are tight\\\hline
++\end{tabular}
++
++{\renewcommand{\arraystretch}{1.5}
++\renewcommand{\tabcolsep}{0.2cm}
++\begin{tabular}{|l|}
++\hline
++less cramped\\\hline
++table layout\\\hline
++\end{tabular}}
++
++\end{example}
++
++If you just want to grow the height of a single row in your table you can do
++this with a invisible vertical bar\footnote{In professional typesetting,
++this is called a \wi{strut}.} Use a zero width \ci{rule} to implement this trick.
++
++\begin{example}
++\begin{tabular}{|c|}
++\hline
++\rule{1pt}{4ex}Pitprop \ldots\\
++\hline
++\rule{0pt}{4ex}Strut\\
++\hline
++\end{tabular}
++\end{example}
++
+ \section{Floating Bodies}
+ Today most publications contain a lot of figures and tables. These
+ elements need special treatment, because they cannot be broken across
