@@ -27,40 +27,26 @@
 % amsfonts, eufrak and eucal from (AMS LaTeX 1.2)
 %
 % ---------------------------------------------------------------------
-\newif\ifpdf 
-\ifx\pdfoutput\undefined 
-  \pdffalse 
-\else \ifx \pdfoutput\relax 
-    \pdffalse 
-  \else 
-    \pdftrue 
-  \fi 
-\fi 
 
+\documentclass[11pt,a4paper,twoside]{book}
+\usepackage{ifpdf}
 \ifpdf
-\documentclass[pdftex,11pt,a4paper,twoside]{book}
 \usepackage{thumbpdf}
 \pdfcompresslevel=9
-\else
-\documentclass[dvips,11pt,a4paper,twoside]{book}
 \fi
-\usepackage[T1]{fontenc}
-\usepackage[latin1]{inputenc}
-\usepackage{amsmath}
+
 \usepackage{lshort}
 \usepackage{makeidx,shortvrb,latexsym}
 \usepackage[french]{mylayout}
 \usepackage{lettrine}
-
-\ifpdf
-\RequirePackage[colorlinks,hyperindex,plainpages=false]{hyperref}
-\def\pdfBorderAttrs{/Border [0 0 0] } % No border arround Links
-\else
+% are we in pdftex ????
+\ifx\pdfoutput\undefined % We're not running pdftex
 \RequirePackage[plainpages=true]{hyperref}
 \usepackage{color}
+\else
+\RequirePackage[colorlinks,hyperindex,plainpages=false]{hyperref}
+\def\pdfBorderAttrs{/Border [0 0 0] } % No border arround Links
 \fi
-
-\usepackage[frenchb,english]{babel}
 %
 % Copyright \copyright{} 1998 Tobias Oetiker and all the Contributers
 % to LShort.  All rights reserved.
@@ -94,7 +80,7 @@
 %
 \makeindex
 \typeout{Copyright T.Oetiker, H.Partl, E.Schlegl, I.Hyna}
-%\includeonly{typeset,math} 
+
 \begin{document}
 \selectlanguage{frenchb}
 \NoAutoSpaceBeforeFDP
@@ -105,6 +91,7 @@
 \tableofcontents
 \listoffigures
 \listoftables
+\enlargethispage{\baselineskip}
 \mainmatter
 \include{things}
 \include{typeset}
@@ -122,6 +109,8 @@
 \label{verylast}
 \mbox{}
 \end{document}
+
+
 
 
 
