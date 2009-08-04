@@ -14,45 +14,66 @@
   majorité des utilisateurs, ne désespérez pas si vous n'y trouvez pas
   la solution à votre problème de mise en forme d'une équation
   mathématique. Il y a de fortes chances pour que la solution se
-  trouve dans l'extension \pai{amsmath} de \AmS-\LaTeX{}% 
-\,\footnote{L'\emph{American Mathematical Society} (NdT. la Société
-  Américaine de Mathématiques) a produit une extension puissante à
-  LaTeX{}. De nombreux exemples de ce chapitre font usage de cette
-  extension, fournie avec toute distribution \TeX{} récente. Si la
-  vôtre ne la contient pas, visitez
-  \CTANref|macros/latex/required/amslatex|.}
+  trouve dans l'extension \pai{amsmath} de \AmS-\LaTeX{}.% 
 \end{intro}
   
-\section{Généralités}
+\section{L'ensemble \AmS-\LaTeX{}}
 
-\LaTeX{} dispose d'un mode spécial pour la mise en page de formules
-\wi{mathématiques}. Celles-ci peuvent être insérées à l'intérieur d'un
-paragraphe, ou celui-ci peut être découpé pour qu'elles soient
-typographiées séparément. Des formules mathématiques à l'intérieur
-d'un paragraphe sont saisies entre
-\ci{(} et \ci{)}, \index{$@\texttt{\$}}
-entre \texttt{\$} et \texttt{\$} %$ ou entre
-\verb|\begin{|\ei{math}\verb|}| et \verb|\end{math}|.\index{formules}
+Si vous souhaitez saisir des textes \wi{mathématiques} (avancés), vous
+devriez utiliser \AmS-\LaTeX{}. Le paquet \AmS-\LaTeX{} est une
+collection d'extensions et de classes pour la saisie
+mathématique. Nous traiterons ici principalement de l'extension
+\pai{amsmath} qui fait partie de ce paquet. \AmS-\LaTeX{} est produit
+par l'\emph{American Mathematical Society} (NdT. la Société
+Américaine de Mathématiques) et est utilisée extensivement pour la
+mise en forme de mathématiques. \LaTeX{} seul fournit bien quelques
+fonctionnalités et environnements basiques, mais ils sont
+relativement limités (voire, la logique s'appliquerait plutôt dans
+l'autre sens : \AmS-\LaTeX{} est \emph{illimité} !) et parfois
+incohérents.
 
+\AmS-\LaTeX{} fait partie de la distribution de base et est fournie
+avec toutes les distributions récentes de \LaTeX{}.\footnote{Si la
+  vôtre ne l'a pas, visitez
+  \texttt{CTAN:macros/latex/required/amslatex}. Dans ce chapitre nous
+  supposerons qu'\pai{amsmath} est chargé en préambule, via
+  {\ci{usepackage}\{amsmath\}}}.
+
+\section{Équations simples}
+
+Il y a deux façons de mettre en forme des \wi{formules}
+mathématiques~: au fil du texte à l'intérieur d'un paragraph
+(\emph{\wi{style en-ligne}}) ou le paragraphe peut être découpé pour
+que la mise en forme soit séparée (\textit{\wi{style hors-texte}}). Les
+\wi{équation}s mathématiques \emph{dans} un paragraphe sont entrées
+entre deux signes \index{$@\texttt{\$}} \texttt{\$} :
 \begin{example}
 Ajoutez $a$ au carré 
 et $b$ au carré pour obtenir
 $c$ au carré. Ou, en 
 utilisant une approche plus
-matheuse : $c^{2}=a^{2}+b^{2}$
+matheuse : $a^2 + b^2 = c^2$
 \end{example}
 \begin{example}
  \TeX{} se prononce 
-\(\tau\epsilon\chi\).\\[6pt]
-100~m$^{3}$ d'eau\\[6pt]
-J'\begin{math}\heartsuit\end{math} \LaTeX{}
+$\tau\epsilon\chi$\\[5pt]
+100~m$^{3}$ d'eau\\[5pt]
+J'$\heartsuit$ \LaTeX{}
 \end{example}
 
+%SC: just to avoid bad emacs colorizing $
 Il vaut mieux composer les équations ou les formules plus importantes
 \og \emph{hors-texte} \fg{} plutôt que de découper un paragraphe pour
 cela, c'est-à-dire sur des lignes à part. À cette fin, on les
-inclut entre \ci{[} et \ci{]} ou entre
-\verb|\begin{|\ei{displaymath}\verb|}| et \verb|\end{displaymath}|.
+inclut entre \verb|\begin{|\ei{equation}\verb|}| et
+\verb|\end{equation}|.\footnote{Il s'agit d'une commande de
+\textsf{amsmath}. Si vous n'y avez pas accès pour quelque obscure
+raison, utilisez l'environnement \ei{displaymath} de \LaTeX{} à la
+place.}
+Vous pouvez ensuite utiliser  \ci{label} pour marquer un numéro
+d'équation et vous y référer ailleurs dans le texte via la commande
+\ci{eqref}. Si vous voulez plutôt nommer l'équation, utiliser \ci{tag}
+à la place. Vous ne pouvez pas utiliser \ci{eqref} avec \ci{tag}.
 
 \begin{example}
 Ajoutez $a$ au carré 
@@ -60,51 +81,78 @@ et $b$ au carré pour obtenir
 $c$ au carré. Ou, en 
 utilisant une approche plus
 matheuse :
-\begin{displaymath}
-c^{2}=a^{2}+b^{2}
-\end{displaymath}
-Ou avec moins de saisie
-pour le même résultat :
-\[a^2+b^2=c^2\]
+ \begin{equation}
+   a^2 + b^2 = c^2
+ \end{equation}
+Einstein a dit
+ \begin{equation}
+   E = mc^2 \label{intelligent}
+ \end{equation}
+Il n'a pas dit
+ \begin{equation}
+  1 + 1 = 3 \tag{idiot}
+ \end{equation}
+Voici une référence à
+\eqref{clever}.
 \end{example}
 
-Si vous souhaitez que \LaTeX{} numérote vos équations, vous pouvez
-utiliser l'environnement \ei{equation}.
-Vous pouvez alors étiqueter une équation via \ci{label} et la
-référencer depuis un autre endroit via les commandes \ci{ref} ou
-\ci{eqref} de l'extension \pai{amsmath} :
+Si vous ne voulez pas que \LaTeX{} numérote vos équations, utilisez la
+version étoilée d'\texttt{equation}, \ei{equation*}, ou mieux encore,
+entourez votre équation par \ci{[} et \ci{]} :
+\footnote{\index{equation!\textsf{amsmath}} \index{equation!\LaTeX{}}
+Cela provient encore d'\textsf{amsmath}. Si vous ne l'avez pas chargé,
+utilisez l'environnement \texttt{equation} de \LaTeX{} à la place. Les
+noms des commandes \texttt{amsmath}/\LaTeX{} peuvent prêter à
+confusion, mais ce n'est pas un vrai problème puisque tout le monde
+utilise \texttt{amsmath} de toute façon. Il vaut mieux en règle
+générale charger l'extension dès le départ parce que vous pourriez
+l'utiliser plus tard. De plus les \texttt{equation} non numérotées de
+\LaTeX{} entrent en conflit avec les \texttt{equation} numérotées
+d'\AmS-\LaTeX{}.}.
 \begin{example}
-\begin{equation} \label{eq}
-\epsilon > 0
-\end{equation}
-L'équation (\ref{eq}) nous donne
-\dots{}De \eqref{eq} nous déduisons la même chose.
+Ajoutez $a$ au carré 
+et $b$ au carré pour obtenir
+$c$ au carré. Ou, en 
+utilisant une approche plus
+matheuse :
+ \begin{equation*}
+   a^2 + b^2 = c^2
+ \end{equation*}
+ou plus parcimonieusement :
+ \[ a^2 + b^2 = c^2 \]
 \end{example}
+
 
 Remarquez que les expressions mathématiques sont formatées
-différemment selon qu'elles sont composées \og en ligne \fg{} ou \og
-hors texte \fg{} :
-\begin{example}
-$\lim_{n \to \infty} 
-\sum_{k=1}^n \frac{1}{k^2} 
-= \frac{\pi^2}{6}$
-\end{example}
-\begin{example}
-\begin{displaymath}
-\lim_{n \to \infty} 
-\sum_{k=1}^n \frac{1}{k^2} 
-= \frac{\pi^2}{6}
-\end{displaymath}
+différemment selon qu'elles sont composées \og \wi{en-ligne} \fg{} ou \og
+\wi{hors-texte} \fg{} :
+ \begin{example}
+Style en-ligne :
+ $\lim_{n \to \infty} 
+ \sum_{k=1}^n \frac{1}{k^2} 
+ = \frac{\pi^2}{6}$.
+Style hors-text :
+ \begin{equation}
+  \lim_{n \to \infty} 
+  \sum_{k=1}^n \frac{1}{k^2} 
+  = \frac{\pi^2}{6}
+ \end{equation}
 \end{example}
 
-Il y a des différences entre le mode \emph{mathématique} et le mode
-\emph{texte}. Par exemple, en mode \emph{mathématique} :
+\subsection{Mode mathématique}
+
+
+Il y a également des différences notables entre le \wi{mode
+  \emph{mathématique}} et le mode \emph{texte}. Par exemple, en mode
+\emph{mathématique} :
 
 \begin{enumerate}
-\item la plupart des espaces et des retours à la ligne n'ont aucune
+\item \index{espacement!mathématique}
+      la plupart des espaces et des retours à la ligne n'ont aucune
       signification. Les espaces sont déduites de la logique de la
       formule ou indiquées à l'aide de commandes spécifiques telles
-      que \ci{,}, \ci{quad} ou\ci{qquad} ;
+      que \ci{,}, \ci{quad} ou\ci{qquad} (nous reparlerons de cela en
+      section~\ref{sec:math-spacing}) ;
 \item les lignes vides ne sont pas autorisées. Un seul paragraphe par
       formule ;
 \item chaque lettre est considérée comme étant le nom d'une variable
@@ -115,142 +163,167 @@ Il y a des différences entre le mode \emph{mathématique} et le mode
 \end{enumerate}
 
 \begin{example}
-\begin{equation}
-\forall x \in \mathbf{R}:
-\qquad x^{2} \geq 0
-\end{equation}
+$\forall x \in \mathbf{R}:
+ \qquad x^{2} \geq 0$
 \end{example}
-% 
 \begin{example}
-\begin{equation}
-x^{2} \geq 0\qquad
-\textrm{pour tout }
-  x\in\mathbf{R}
-\end{equation}
-\end{example}
+$x^{2} \geq 0\qquad
+ \text{pour tout}x\in\mathbf{R}$
+ \end{example}
  
 Une mode récente et contestable pousse à utiliser la police 
 \og \wi{blackboard bold} \fg{} (Gras Tableau Noir, ainsi appelée car c'est par
 le doublement des verticales des lettres que l'on simule le gras
 typographique lorsqu'on ne peut faire autrement) qui est obtenue par
-la commande \ci{mathbb} de l'extension \pai{amsfonts} ou \pai{amssymb}
+la commande \ci{mathbb} de l'extension \pai{amssymb}
+\footnote{\pai{amssymb} ne fait pas partie du paquet \AmS-\LaTeX{},
+  mais fait peut-être partie de votre distribution \LaTeX{}. Vérifiez
+  celle-ci ou visitez \texttt{CTAN:/fonts/amsfonts/latex/} pour
+  l'obtenir.}
 pour désigner les ensembles de nombres entiers, réels, etc.
 \ifx\mathbb\undefined\else
 L'exemple précédent devient :
 \begin{example}
-\begin{displaymath}
-x^{2} \geq 0\qquad
-\textrm{pour tout }x\in\mathbb{R}
-\end{displaymath}
+$x^{2} \geq 0\qquad
+ \text{pour tout } x 
+ \in \mathbb{R}$
 \end{example}
 \fi
 
-\section{Groupements en mode mathématique}
+Référez-vous aux tableaux \ref{mathalpha} en page \pageref{mathalpha}
+et \ref{mathfonts} en page \pageref{mathfonts} pour plus de polices
+mathématiques.
+
+
+\section{Éléments d'une formule mathématique}
+
+
+Cette section décrit les commandes les plus importantes 
+du mode mathématique. La plupart des commandes de cette section ne
+nécessitent pas \textsf{amsmath}, sauf mention explicite, mais
+chargez-la tout de même.
+
+
+\index{grec!alphabet}
+Les lettres \textbf{grecques minuscules} sont saisies de la manière
+suivante :
+\verb|\alpha|, \verb|\beta|, \verb|\gamma|, etc. Les lettres
+\textbf{grecques majuscules} sont quant à elles saisies ainsi :
+\verb|\Gamma|, \verb|\Delta|, etc.
+\,\footnote{Il n'y a pas de Alpha, Beta\ldots{} majuscule dans \LaTeXe{}
+parce que c'est le même caractère que le A,B\ldots{} romain. Lorsque le nouveau
+codage mathématique sera terminé, cela changera.} sont saisies
+
+Référez-vous au tableau~\ref{greekletters} en
+page~\pageref{greekletters} pour une liste de lettres grecques.
+\begin{example}
+$\lambda,\xi,\pi,\theta,
+ \mu,\Phi,\Omega,\Delta$
+\end{example}
+ 
+
+Les \textbf{indices et exposants} sont
+\index{indice}\index{exposant} positionnés en utilisant les caractères
+\verb|_|\index{_@\verb"|_"|} et \verb|^|\index{^@\verb"|^"|}.
 
 La plupart des commandes du mode mathématique ne s'applique qu'au
 caractère suivant. Pour qu'une commande s'applique à un ensemble de
 caractères, il faut les grouper en utilisant des accolades :
 \verb|{...}|. 
 
-\begin{example}
-\begin{equation}
-a^x+y \neq a^{x+y}
-\end{equation}
-\end{example}
- 
-\section{Éléments d'une formule mathématique}
-\enlargethispage{\baselineskip}
-
-Cette section décrit les commandes les plus importantes 
-du mode mathématique. Pour une liste de tous les symboles disponibles,
-voyez la section~\ref{symbols}, page~\pageref{symbols}.
-
-\index{grec!alphabet}
-Les lettres \textbf{grecques minuscules} sont saisies de la manière
-suivante : 
-\verb|\alpha|, \verb|\beta|, \verb|\gamma|, etc. Les lettres
-\textbf{grecques majuscules}%
-\,\footnote{Il n'y a pas de Alpha majuscule dans \LaTeXe{}
-parce que c'est le même caractère que le A romain. Lorsque le nouveau
-codage mathématique sera terminé, cela changera.} sont saisies
-ainsi : \verb|\Gamma|, \verb|\Delta|, etc.
+Le tableau~\ref{binaryrel} en page \pageref{binaryrel}  liste de
+nombreuses autres relations binaires comme $\subseteq$ et $\perp$.
 
 \begin{example}
-$\lambda,\xi,\pi,\mu,\Phi,\Omega$
-\end{example}
- 
-Les \textbf{indices et exposants} sont
-\index{indice}\index{exposant} positionnés en utilisant les caractères
-\verb|_|\index{_@\verb"|_"|} et \verb|^|\index{^@\verb"|^"|}.
-
-\begin{example}
-$a_{1}$ \qquad $x^{2}$ \qquad
-$e^{-\alpha t}$ \qquad
-$a^{3}_{ij}$\\
-$e^{x^2} \neq ({e^x})^2$
+$p^3_{ij} \qquad
+ m_\text{Knuth} \\[5pt]
+ a^x+y \neq a^{x+y}\qquad 
+ e^{x^2} \neq {e^x}^2$
 \end{example}
 
+%SC: nth root with the accent
 La \textbf{\wi{racine carrée}} est saisie via \ci{sqrt}. La
-racine $n^\mathrm{i\grave{e}me}$ est produite par la commande
+racine $n^\text{ieme}$ est produite par la commande
 \verb|\sqrt[|$n$\verb|]|. La taille du symbole racine est calculée par
 \LaTeX. Pour obtenir le symbole seul, utilisez \verb|\surd|.
 
+Vous pourrez d'autres sortes de flèches comme $\hookrightarrow$ et
+$\rightleftharpoons$ dans le tableau~\ref{tab:arrows} en page
+\pageref{tab:arrows}.
 \begin{example}
-$\sqrt{x}$ \qquad 
-$\sqrt{ x^{2}+\sqrt{y} }$ 
-\qquad $\sqrt[3]{2}$\\[3pt]
-$\surd[x^2 + y^2]$
+$\sqrt{x} \Leftrightarrow x^{1/2}
+ \quad \sqrt[3]{2}
+ \quad \sqrt{x^{2} + \sqrt{y}}
+ \quad \surd[x^2 + y^2]$
+\end{example}
+
+
+\index{points de suspension!verticaux}
+\index{vertical!points de suspension}
+\index{points de suspension!diagonaux}
+En général, les \textbf{\wi{point}s} indiquant une opération de
+multiplication ne sont pas imprimés. Cependant, il arrive qu'il soit
+nécessaire de les faire apparaître pour aider la lecture. Utilisez
+alors \ci{cdot} qui imprime un seul point centré. \ci{cdots} imprime
+des \textbf{\wi{points de suspension}} centrés (à la manière de points
+de suspension situés plus haut sur la ligne). \ci{ldots} imprime des
+points de suspension normaux. En plus de ces commandes vous avez
+également \ci{vdots} pour des points alignés verticalement et
+\ci{ddots} qui imprime des \wi{points en diagonale}. Vous en trouverez
+un exemple en section~\ref{sec:arraymat}.
+\begin{example}
+$\Psi = v_1 \cdot v_2
+ \cdot \ldots \qquad 
+ n! = 1 \cdot 2 
+ \cdots (n-1) \cdot n$
 \end{example}
 
 Les commandes \ci{overline} et \ci{underline} créent un \textbf{trait
-horizontal} au-dessus ou au-dessous d'une expression.
+horizontal} au-dessus ou au-dessous d'une expression :
 \index{horizontal!trait}
+\index{trait!horizontal}
 \begin{example}
-$\overline{m+n}$
+$0.\overline{3} = 
+ \underline{\underline{1/3}}$
 \end{example}
 
 Les commandes \ci{overbrace} et \ci{underbrace} créent une grande
 \textbf{accolade horizontale} au-dessus ou au-dessous d'une
-expression. 
+expression :
 \index{horizontal!accolade}
+\index{accolade!horizontale}
 \begin{example}
-$\underbrace{a+b+\cdots+z}_{26}$
+$\underbrace{\overbrace{a+b+c}^6 
+ \cdot \overbrace{d+e+f}^9}
+ _\text{meaning of life} = 42$
 \end{example}
 
 \index{mathématiques!accents}
-Pour ajouter des accents mathématiques tels que des flèches ou des
-\wi{tilde}s, vous pouvez utiliser les commandes du
-tableau~\ref{mathacc} p.~\pageref{mathacc}. 
-Les chapeaux et les tildes larges, couvrant
-plusieurs caractères, sont produits par les commandes \ci{widetilde} et
-\ci{widehat}. La commande  \verb|'|\index{'@\verb"|'"|} produit un
-\wi{prime}. 
+Pour ajouter des accents mathématiques tels que des \textbf{flèches}
+ou des \textbf{\wi{tilde}s}, vous pouvez utiliser les commandes du
+tableau~\ref{mathacc} p.~\pageref{mathacc}.  Les chapeaux et les
+tildes larges, couvrant plusieurs caractères, sont produits par les
+commandes \ci{widetilde} et \ci{widehat}. Notez bien la différence
+entre \ci{hat} et \ci{widehat} ainsi que le placement de \ci{bar} pour
+une variable indicée.La commande \verb|'|\index{'@\verb"|'"|} produit
+un \wi{prime} :
 % a dash is --
-
 \begin{example}
-\begin{displaymath}
-y=x^{2}\qquad y'=2x\qquad y''=2
-\end{displaymath}
+$f(x) = x^2 \qquad f'(x) 
+ = 2x \qquad f''(x) = 2\\[5pt]
+ \hat{XY} \quad \widehat{XY}
+ \quad \bar{x_0} \quad \bar{x}_0$
 \end{example}
+
 
 Les \textbf{\wi{vecteurs}} sont en général marqués en ajoutant une
 flèche au-dessus du nom de la variable. Ceci est obtenu par la
 commande \ci{vec}. Pour coder le vecteur de $A$ à $B$, les commandes
-\ci{overrightarrow} et \ci{overleftarrow} sont bien utiles.
-
+\ci{overrightarrow} et \ci{overleftarrow} sont bien utiles :
 \begin{example}
-\begin{displaymath}
-\vec a\quad\overrightarrow{AB}
-\end{displaymath}
-\end{example}
-
-En général, les points indiquant une opération de multiplication ne
-sont pas imprimés. Cependant, il arrive qu'il soit nécessaire de les 
-faire apparaître pour aider la lecture. Utilisez alors \ci{cdot}.
-
-\begin{example}
-\[ v = \sigma{}_1 \cdot \sigma{}_2
-  \tau{}_1 \cdot \tau{}_2 \]
+$\vec{a} \qquad
+ \vec{AB} \qquad
+ \overrightarrow{AB}$
 \end{example}
 
 Les noms des fonctions telles que sinus doivent être imprimés à l'aide
@@ -270,339 +343,325 @@ les plus utilisées :
 
 \begin{example}
 \[\lim_{x \rightarrow 0}
-\frac{\sin x}{x}=1\]
+ \frac{\sin x}{x}=1\]
 \end{example}
 
 Pour la fonction \wi{modulo}, il y a deux commandes possibles : 
 \ci{bmod} pour l'opérateur binaire et 
 \ci{pmod} pour l'opérateur unaire :
 \begin{example}
-$a\bmod b$\\
-$x\equiv a \pmod{b}$
+$a\bmod b \\
+ x\equiv a \pmod{b}$
 \end{example}
 
-Un trait de \textbf{\wi{fraction}} est produit par la commande :
-\begin{lscommand}
-\ci{frac}\verb|{|\emph{numérateur}\verb|}{|\emph{dénominateur}\verb|}|
-\end{lscommand}
-La forme utilisant un \emph{slash} ($1/2$) est souvent préférable pour des
+Un trait de \textbf{\wi{fraction}} est produit par la commande
+\ci{frac}\verb|{|\emph{numérateur}\verb|}{|\emph{dénominateur}\verb|}|. Pour
+les équations en-ligne, la fraction est réduite pour tenir sur la
+ligne. Ce style peut aussi s'obtenir hors-text avec
+\ci{tfrac}. L'inverse, c'est-à-dire obtenir des fractions en-ligne
+selon le style hors-texte, est obtenu avec \ci{dfrac}.  La forme
+utilisant un \emph{slash} ($1/2$) est souvent préférable pour des
 petits éléments.
 \begin{example}
-$1\frac{1}{2}$~hours
-\begin{displaymath}
-\frac{ x^{2} }{ k+1 }\qquad
-x^{ \frac{2}{k+1} }\qquad
-x^{ 1/2 }
-\end{displaymath}
+En style hors-texte :
+\[3/8 \qquad \frac{3}{8} 
+ \qquad \tfrac{3}{8} \]
+\end{example}
+
+\begin{example}
+En style en-ligne :
+$1\frac{1}{2}$~heures \qquad
+$1\dfrac{1}{2}$~heures
+\end{example}
+
+Ici nous utilisons la commande \ci{partial} utilisée habituellement
+pour une \wi{dérivée partielle} :
+\begin{example}
+\[\sqrt{\frac{x^2}{k+1}}\qquad
+  x^\frac{2}{k+1}\qquad
+  \frac{\partial^2f}
+  {\partial x^2} \]
 \end{example}
 
 Pour imprimer des coefficients binomiaux (à l'américaine) ou d'autres
-structures semblables, on peut utiliser la commande \ci{binom} de
-l'extension \pai{amsmath} :
-
+structures semblables, utilisez la commande \ci{binom} d'\pai{amsmath} :
+%SC: maybe not the right translation for Pascal's rule
 \begin{example}
-\begin{displaymath}
-\binom{n}{k}\qquad \mathrm{C}_n^k
-\end{displaymath}
+La règle de Pascal est
+\begin{equation*}
+ \binom{n}{k} =\binom{n-1}{k}
+ + \binom{n-1}{k-1}
+\end{equation*}
 \end{example}
  
-Il est parfois utile de pouvoir superposer des symboles,
-la commande \ci{stackrel} place son premier argument en taille
-réduite au dessus du second, lui-même mis en position normale :
-
+Il est parfois utile, notamment pour des \wi{relations binaires}, de
+pouvoir superposer des symboles.  La commande
+\ci{stackrel}\verb|{#1}{#2}| place l'argument \verb|#1| en taille
+réduite au-dessus de l'argument \verb|#2|, lui-même mis en position
+normale :
 \begin{example}
-\begin{displaymath}
-X \stackrel{!}{=} 1
-\end{displaymath}
+\begin{equation*}
+ f_n(x) \stackrel{*}{\approx} 1
+\end{equation*}
 \end{example}
 
 Les \textbf{\wi{intégrale}s} sont produites par la commande \ci{int},
 les \textbf{\wi{somme}s} par la commande \ci{sum} et les produits par la
 commande \ci{prod}. Les limites
 inférieures et supérieures sont indiquées avec~\verb|_| et~\verb|^|
-comme pour les indices et les exposants.\index{exposant}
-\footnote{\AmS-\LaTeX{} dispose en plus de capacités de formattage
-  d'indices et d'exposants sur plusieurs lignes.}
-
+comme pour les indices et les exposants :
 \begin{example}
-\begin{displaymath}
-\sum_{i=1}^{n} \qquad
-\int_{0}^{\frac{\pi}{2}} \qquad
+\begin{equation*}
+\sum_{i=1}^n \qquad
+\int_0^{\frac{\pi}{2}} \qquad
 \prod_\epsilon
-\end{displaymath}
+\end{equation*}
 \end{example}
 
-% Ajout (df) : doubles indices
 Pour superposer des indices, l'extension \pai{amsmath} propose la
-commande \ci{substack} et l'environnement \ei{subarray} qui permettent
-d'aligner les indices à gauche  au lieu de les centrer.
+commande \ci{substack} :
 \begin{example}
-\begin{displaymath}
-\sum_{\substack{0<i<n \\ 1<j<m}}
-   P(i,j) =
-\sum_{\begin{subarray}{l}
-         i\in I\\
-         1<j<m
-      \end{subarray}}     Q(i,j)
-\end{displaymath}
+\begin{equation*}
+\sum^n_{\substack{0<i<n \\ 
+        j\subseteq i}}
+   P(i,j) = Q(i,j)
+\end{equation*}
 \end{example}
 
-\medskip
-
-\TeX{} fournit toutes sortes de symboles pour les
+\LaTeX{} fournit toutes sortes de symboles pour les
 \textbf{\wi{crochets} et autres \wi{délimiteurs}} (par exemple
 $[\;\langle\;\|\;\updownarrow$). Les \wi{parenthèses} et les crochets
 sont obtenus avec les caractères correspondants, les \wi{accolades}
-avec \verb|\{|, et tous les autres délimiteurs sont obtenus par des
-commandes spéciales (par exemple \verb|\updownarrow|). Pour une
-liste de tous les délimiteurs disponibles, reportez-vous au
-tableau~\ref{tab:delimiters}, page~\pageref{tab:delimiters}.
-
+avec \verb|\{|, mais les autres délimiteurs ne sont obtenus que par des
+commandes spéciales (par exemple \verb|\updownarrow|) :
 \begin{example}
-\begin{displaymath}
-{a,b,c}\neq\{a,b,c\}
-\end{displaymath}
+\begin{equation*}
+{a,b,c} \neq \{a,b,c\}
+\end{equation*}
 \end{example}
 
-Si vous ajoutez la commande \ci{left} avant un délimiteur ouvrant ou
-\ci{right} avant un délimiteur fermant, \TeX{} détermine
+Si vous ajoutez \ci{left} avant un délimiteur ouvrant ou
+\ci{right} avant un délimiteur fermant, \LaTeX{} détermine
 automatiquement la taille appropriée pour ce caractère. Remarquez
 qu'il est nécessaire de fermer chaque délimiteur ouvrant
 (\ci{left}) avec un délimiteur fermant (\ci{right}). Si vous
 ne voulez pas de délimiteur fermant, utilisez le délimiteur invisible
-\ci{right.} !
-
+\ci{right.} :
 \begin{example}
-\begin{displaymath}
-1 + \left( \frac{1}{ 1-x^{2} }
-    \right) ^3
-\end{displaymath}
+\begin{equation*}
+1 + \left(\frac{1}{1-x^{2}}
+    \right)^3 \qquad 
+\left. \ddagger \frac{~}{~}\right)
+\end{equation*}
 \end{example}
 
 Dans certains cas, il est nécessaire d'indiquer la taille exacte des
 délimiteurs mathématiques à la main. Vous pouvez alors utiliser les
 commandes \ci{big}, \ci{Big}, \ci{bigg} et \ci{Bigg} comme préfixes
-des commandes qui impriment les délimiteurs\,\footnote{Ces commandes ne
-fonctionnent pas correctement après une commande de changement de
-taille ou si les options \texttt{11pt} ou \texttt{12pt} sont
-utilisées. Les extensions \pai{exscale} ou \pai{amsmath} permettent
-d'avoir le comportement attendu.}.
-
+des commandes qui impriment les délimiteurs :
 \begin{example}
-$\Big( (x+1) (x-1) \Big) ^{2}$\\
-$\big(\Big(\bigg(\Bigg($\quad
-$\big\}\Big\}\bigg\}\Bigg\}$
-\quad
-$\big\|\Big\|\bigg\|\Bigg\|$
+$\Big((x+1)(x-1)\Big)^{2}$\\
+$\big( \Big( \bigg( \Bigg( \quad
+\big\} \Big\} \bigg\} \Bigg\} \quad
+\big\| \Big\| \bigg\| \Bigg\| \quad
+\big\Downarrow \Big\Downarrow 
+\bigg\Downarrow \Bigg\Downarrow $
 \end{example}
 
-Plusieurs commandes sont à disposition pour saisir des
-\textbf{\wi{points de suspension}} dans une formule.\ci{ldots} imprime
-les points sur la base de la ligne, \ci{cdots} les imprime au
-milieu. En plus il y a les commandes \ci{vdots} pour les imprimer
-verticalement et \ci{ddots} pour les imprimer en diagonale.
-\index{points de suspension!verticaux}
-\index{vertical!points de suspension}
-\index{points de suspension!diagonaux}
-Vous trouverez un autre exemple dans la section~\ref{sec:vert}.
+Pour une liste de tous les délimiteurs disponibles, reportez-vous au
+tableau~\ref{tab:delimiters}, page~\pageref{tab:delimiters}.
 
+
+
+\section{Alignements verticaux}
+\label{sec:vert}
+
+\subsection{Équations longues}
+\index{equation!longue}
+
+
+Pour les formules qui prennent plusieurs lignes ou pour des
+\wi{systèmes d'équations} \index{equations@équations!système d'},
+utilisez les environnements \ei{align} et \verb|align*| plutôt que
+\texttt{equation} ou \texttt{equation*}.%
+\footnote{L'environnement \ei{align} provient
+  d'\textsf{amsmath}. L'environnement similaire de \LaTeX{} sans
+  \texttt{amsmat} est \ei{eqnarray}, mais il est déconseillé de
+  l'utiliser pour des raisons d'incohérences d'espaces et de
+  références.}
+Avec \ei{align} chaque ligne est numérotée, alors que la variante
+\verb|align*| ne produit aucun numéro.
+
+Les environnements \ei{align} centrent l'équation par rapport au signe
+\verb|&|. La commande \verb|\\| sépare les lignes.  Pour énumérer
+seulement certaines équations particulières, utilisez \ci{nonumber}
+pour supprimer la numérotation en la plaçant avant le saut de ligne
+\verb|\\| :
 \begin{example}
-\begin{displaymath}
-x_{1},\ldots,x_{n} \qquad
-x_{1}+\cdots+x_{n}
-\end{displaymath}
+ \begin{align}
+  f(x) &= (a+b)(a-b) \label{1}\\
+       &= a^2-ab+ba-b^2  \\ 
+       &= a^2+b^2 \tag{wrong}
+ \end{align}
+Ceci se réfère à \eqref{1}.
 \end{example}
- 
-\section{Espacement en mode mathématique}
+
+\index{equations@équations!longues}
+Les \textbf{équations longues} ne sont pas découpées automatiquement
+en morceaux harmonieux. L'auteur doit indiquer où les couper et
+comment indenter la suite :
+\begin{example}
+ \begin{align}
+   f(x) ={}& 3x^5 + x^4 + 2x^3 
+                     \nonumber \\
+           & + 9x^2 + 12x + 23 \\
+        ={}& g(x) - h(x)
+ \end{align}
+\end{example}
+L'extension \pai{amsmath} propose d'autres environnements utiles :
+\verb|flalign|, \verb|gather|, \verb|multline| et
+\verb|split|. Consultez la documentation de l'extension pour en savoir
+plus.
+
+\subsection{Tableaux et matrices}
+\label{sec:arraymat}
+
+Pour imprimer des \textbf{matrices}, utilisez l'environnement
+\ei{array}. Il fonctionne de manière similaire à l'environnement
+\texttt{tabular}. La commande \verb|\\| est utilisée pour séparer les
+lignes :
+\begin{example}
+\begin{equation*}
+ \mathbf{X} = \left( 
+  \begin{array}{ccc}
+   x_1 & x_2 & \ldots \\
+   x_3 & x_4 & \ldots \\
+   \vdots & \vdots & \ddots
+  \end{array} \right)
+\end{equation*}
+\end{example}
+
+L'environnement \ei{array} peut également être utilisé pour imprimer
+des \wi{fonctions!par parties} en utilisant \og \verb|.| \fg{} comme
+délimiteur (invisible) de droite :%
+\footnote{Si vous avez de nombreuses constructions de ce genre,
+  essayer l'environnement \ei{cases} d'\texttt{amsmath} peut en valoir
+  la peine, puisqu'il simplifie ce type de syntaxe.}
+\begin{example}
+\begin{equation*}
+|x| = \left\{
+ \begin{array}{rl}
+  -x & \text{si } x < 0\\
+   0 & \text{si } x = 0\\
+   x & \text{si } x > 0
+ \end{array} \right.
+\end{equation*}
+\end{example}
+
+
+\ei{array} peut aussi servir à mettre en page des
+matrices\index{matrice}, mais \pai{amsmath} fournit une meilleure
+solution via les environnements \ei{matrix}. Il y en a six versions
+(avec des délimiteurs différents) : \ei{matrix} (aucun), \ei{pmatrix}
+$($, \ei{bmatrix} $[$, \ei{Bmatrix} $\{$, \ei{vmatrix} $\vert$ et
+\ei{Vmatrix} $\Vert$. Vous n'avez pas à spécifier le nombre de
+colonnes comme avec \ei{array}. Leur nombre maximal est de 10 mais il
+est modifiable (bien que ce ne soit pas fréquent d'avoir besoin de 10
+colonnes ou plus !) :
+\begin{example}
+\begin{equation*}
+ \begin{matrix} 
+   1 & 2 \\
+   3 & 4 
+ \end{matrix} \qquad
+ \begin{bmatrix} 
+   1 & 2 & 3 \\
+   4 & 5 & 6 \\ 
+   7 & 8 & 9
+ \end{bmatrix}
+\end{equation*}
+\end{example}
+
+\section{Espacement en mode math<E9>matique}
+\label{sec:math-spacing}
 
 \index{espacement!mathématique}
 \index{mathématiques!espaces}
-Si l'espacement choisi par \TeX{} dans une formule n'est pas
+
+Si l'espacement choisi par \LaTeX{} dans une formule n'est pas
 satisfaisant, il peut être ajusté en insérant des commandes
-d'espacement. Les plus importantes sont : \ci{,} pour une espace
-fine (\demowidth{0.166em}), \verb*|\ | pour une espace de taille
-moyenne (\verb*| | 
-représente le caractère \og espace \fg{}), \ci{quad} (\demowidth{1em}) et \ci{qquad}
-(\demowidth{2em}) pour des espaces plus larges. 
-La largeur d'un \ci{quad}
-%\,\footnote{cadratin} ?? A vérifier -mh
+d'espacement. Les plus importantes sont : \ci{,} pour une espace fine
+($\frac{3}{18}\:\textrm{quad}$, \demowidth{0.166em}), \ci{:} pour une
+espace moyenne ($\frac{4}{18}\:\textrm{quad}$, \demowidth{0.222em}) et
+\ci{;} pour une espace grande ($\frac{5}{18}\: \textrm{quad}$,
+\demowidth{0.277em}).  L'espace échappée \verb*|\ | crée une espace
+moyenne similaire à l'espace entre mots. and \ci{quad}
+(\demowidth{1em}) et \ci{qquad} (\demowidth{2em}) produisent des
+espaces plus larges.  La largeur d'un \ci{quad}
+%SC: \,\footnote{cadratin} ?? A vérifier -mh
 correspond à la largeur du caractère \og M \fg{} dans la police courante. 
 La commande \verb|\!|\cih{"!} produit une espace fine négative
-(\demowidth{0.166em}).
+de $-\frac{3}{18}\:\textrm{quad}$ ($-$\demowidth{0.166em}). Remarquez
+que dans l'exemple suivant, \og d \fg{} est imprimée en police romaine :
 
 \begin{example}
-\newcommand{\ud}{\mathrm{d}}
-\begin{displaymath}
-\int\!\!\!\int_{D} g(x,y)
-  \, \ud x\, \ud y 
-\end{displaymath}
-plutôt que
-\begin{displaymath}
-\int\int_{D} g(x,y)\ud x \ud y
-\end{displaymath}
+\begin{equation*}
+ \int_1^2 \ln x \text{d}x \qquad
+ \int_1^2 \ln x \,\text{d}x
+\end{equation*}
 \end{example}
-Remarquez que le `d' de l'élément différentiel est traditionnellement
-imprimé en caractères romains par la commande \ci{ud}.
- 
-\AmS-\LaTeX{} propose un ensemble de commandes pour ajuster finement
-l'espace entre les signes d'intégrale : \ci{iint}, \ci{iiint},
-\ci{iiiint} et \ci{idotsint}. Avec l'extension \pai{amsmath},
-l'exemple précédent peut se coder de cette manière :
+
+Lorsque vous utilisez des intégrales multiples, vous constatez que
+l'espace entre celles-ci est trop grand. Vous pouvez certes utiliser
+\ci{!}, mais \AmS-\LaTeX{} propose un ensemble de commandes pour
+réaliser cet ajustement : \ci{iint}, \ci{iiint},
+\ci{iiiint} et \ci{idotsint}.
 
 \begin{example}
-\newcommand{\ud}{\mathrm{d}}
-\begin{displaymath}
-\iint_{D} \, \ud x \, \ud y
-\end{displaymath}
+\newcommand{\ud}{\,\text{d}}
+
+\[ \int\int f(x)g(y) 
+                  \ud x \ud y \]
+\[ \int\!\!\!\int 
+         f(x)g(y) \ud x \ud y \]
+\[ \iint f(x)g(y) \ud x \ud y \]
 \end{example}
 
 Reportez-vous au document \texttt{testmath.tex} distribué avec
 \AmS-\LaTeX{}, au chapitre 8 de \companion{} ou au chapitre 9 de
 \desgraupes{} pour plus de détails.
 
-\section{Alignements verticaux}
-\label{sec:vert}
 
-Pour imprimer des \textbf{matrices}, utilisez l'environnement
-\ei{array}. Il fonctionne de manière similaire à l'environnement
-\texttt{tabular}. La commande \verb|\\| est utilisée pour séparer les
-lignes. 
+\subsection{Fantômes\texorpdfstring{\dots}{...}}
 
-\begin{example}
-\begin{displaymath}
-\mathbf{X} =
-\left( \begin{array}{ccc}
-x_{11} & x_{12} & \ldots \\
-x_{21} & x_{22} & \ldots \\
-\vdots & \vdots & \ddots
-\end{array} \right)
-\end{displaymath}
-\end{example}
-
-L'environnement \ei{array} peut également être utilisé pour imprimer
-des expressions qui ont un délimiteur invisible obtenu par la commande
-\ci{right.} :
-
-\begin{example}
-\begin{displaymath}
-y = \left\{ \begin{array}{ll}
- a & \textrm{si $d>c$}\\
- b+x & \textrm{le matin}\\
- l & \textrm{la journée}
-  \end{array} \right.
-\end{displaymath}
-\end{example}
-
-L'environnement \ei{array} permet, comme l'environnement \verb|tabular|,
-d'insérer des lignes horizontales ou verticales :
-\begin{example}
-\begin{displaymath}
-\left(\begin{array}{c|c}
- 1 & 2 \\
-\hline
-3 & 4
-\end{array}\right)
-\end{displaymath}
-\end{example}
-
-Pour les formules qui prennent plusieurs lignes ou pour des
-\wi{systèmes d'équations} \index{equations@équations!système d'},
-utilisez les environnements \ei{eqnarray} et \verb|eqnarray*| plutôt
-que \texttt{equation}. Avec \texttt{eqnarray} chaque ligne est
-numérotée, alors que la variante \texttt{eqnarray*} ne produit aucun
-numéro.
-
-Les environnements \texttt{eqnarray} et \verb|eqnarray*| se comportent
-comme un tableau à trois colonnes de la forme \verb|{rcl}|, où la
-colonne centrale peut être utilisée pour le signe égal, ou tout autre
-symbole de votre choix. La commande \verb|\\| sépare les lignes.
-
-\begin{example}
-\begin{eqnarray}
-f(x) & = & \cos x     \\
-f'(x) & = & -\sin x   \\
-\int_{0}^{x} f(y)\,dy &
- = & \sin x
-\end{eqnarray}
-\end{example}
-On peut considérer qu'il y a trop d'espace de part et d'autre de la
-colonne centrale, autour des signes d'égalité.  Il peut être réduit
-par la commande \verb|\setlength\arraycolsep{2pt}| comme dans
-l'exemple suivant.
-
-\index{equations@équations!longues}
-Les \textbf{équations longues} ne sont pas découpées automatiquement
-en morceaux harmonieux. L'auteur doit indiquer où les couper et
-comment indenter la suite. Les deux méthodes ci-dessous sont les plus
-courantes pour obtenir le résultat attendu.
-
-\begin{example}
-{\setlength\arraycolsep{2pt}
-\begin{eqnarray}
-\sin x & = & x -\frac{x^{3}}{3!}
-     +\frac{x^{5}}{5!} %-{}
-                    \nonumber\\
-&& {}-\frac{x^{7}}{7!}+{}\cdots
-\end{eqnarray}}
-\end{example}
-\pagebreak[1]
-
-\begin{example}
-\begin{eqnarray}
-\lefteqn{ \cos x = 1
-     -\frac{x^{2}}{2!}  }
-                    \nonumber\\
- & & {}+\frac{x^{4}}{4!}
-     -\frac{x^{6}}{6!}+{}\cdots
-\end{eqnarray}
-\end{example}
-
-%\enlargethispage{\baselineskip}
-La commande \ci{nonumber} empêche \LaTeX{} de produire un numéro pour
-cette équation.
-
-Il est parfois difficile d'obtenir des équations alignées
-verticalement correctement avec cette méthode. L'extension
-\pai{amsmath} offre d'autres possibilités plus puissantes : voir
-notamment les environnements \texttt{align}, \texttt{flalign},
-\texttt{gather}, \texttt{multline} et \texttt{split} décrits
-dans~\cite{amsguide},~\cite{companion} et~\cite{desgraupes}.
-
-\section{Fantômes\texorpdfstring{\dots}{...}}
-
-
-
-Les fantômes sont invisibles mais occupent cependant leur place dans
-l'esprit nombreuses personnes. \LaTeX{} n'est pas différent : les
-fantômes y permettent des ajustements intéressants.
 
 Il arrive que \LaTeX{} en fasse un peu trop dans des alignements
 verticaux d'indices ou d'exposants. La commande \ci{phantom} permet
-de réserver de l'espace pour des caractères invisibles, ce qui peut être
-utile comme le montrent les exemples suivants :
+de réserver de l'espace pour des caractères qui ne seront pas
+imprimés, comme le montrent les exemples suivants :
 \begin{example}
-\begin{displaymath}
-{}^{12}_{\phantom{1}6}\textrm{C}
-\qquad \textrm{à comparer à} \qquad
-{}^{12}_{6}\textrm{C}
-\end{displaymath}
+\begin{equation*}
+{}^{14}_{6}\text{C}
+\qquad \text{à comparer à} \qquad
+{}^{14}_{\phantom{1}6}\text{C}
+\end{equation*}
 \end{example}
 
+Si vous souhaitez mettre en forme des isotopes comme dans l'exemple
+ci-avant, l'extension \pai{mhchem} dédiée aux formules chimiques peut
+vous y aider.
+
+
+\section{Manipuler les polices mathématiques}\label{sec:fontsz}
+Plusieurs polices mathématiques sont listée au tableau~\ref{mathalpha}
+page \pageref{mathalpha}.
 \begin{example}
-\begin{displaymath} 
-\Gamma_{ij}^{\phantom{ij}k}
-\qquad \textrm{à comparer à} \qquad
-\Gamma_{ij}^{k}
-\end{displaymath}  
+ $\Re \qquad
+  \mathcal{R} \qquad
+  \mathfrak{R} \qquad
+  \mathbb{R} \qquad $  
 \end{example}
-
-\section{Taille des polices mathématiques}
-\label{sec:fontsz}
-
-\index{taille!des polices mathématiques}
-En mode mathématique \TeX{} choisit la taille de la police en fonction
-du contexte. Les exposants, par exemple, sont imprimés avec une police
-plus petite. 
+Ces deux dernières nécessitent \pai{amssymb} ou \pai{amsfonts}.
 
 Malgré tout, il peut être nécessaire d'indiquer à \LaTeX{} la taille
 exacte. En mode mathématique, la taille de la police est déterminée
@@ -614,62 +673,56 @@ par les quatre commandes :
 \ci{scriptscriptstyle}~($\scriptscriptstyle 123$).
 \end{flushleft}
 
-Changer de style modifie également la façon dont les limites sont
-affichées.
-
+Si $\sum$ est placé dans une fraction, il sera imprimé en-ligne à
+moins d'indiquer à \LaTeX{} le contraire :
 \begin{example}
-\begin{displaymath}
- \frac{\displaystyle 
-   \sum_{i=1}^n(x_i-\overline x)
-   (y_i-\overline y)} 
-  {\displaystyle\biggl[
- \sum_{i=1}^n(x_i-\overline x)^2
-\sum_{i=1}^n(y_i-\overline y)^2
-\biggr]^{1/2}}
-\end{displaymath}    
+\begin{equation*}
+ P = \frac{\displaystyle{ 
+   \sum_{i=1}^n (x_i- x)
+   (y_i- y)}} 
+   {\displaystyle{\left[
+   \sum_{i=1}^n(x_i-x)^2
+   \sum_{i=1}^n(y_i- y)^2
+   \right]^{1/2}}}
+\end{equation*}    
 \end{example}
+
+Changer de style modifie également la façon dont les limites et les
+grands opérateurs sont affichés.
+ 
 % This is not a math accent, and no maths book would be set this way.
 % mathop gets the spacing right.
 
-Cet exemple est un cas où on a besoin de crochets plus
-petits que ceux qui seraient produits par les commandes standards
-\verb|\left[  \right]|. Les versions plus grandes des crochets sont
-produits ici par les commandes \ci{biggl} and \ci{biggr} pour les
-crochets gauche et droit, respectivement.
 
+\section{Symboles gras}
+\index{symboles!gras}
 
-% Nouvelle section (df)
-%SC: new section to backport to lshort or suppress
-\section{Insertion de texte en mode mathématique}
-
-La commande \ci{mathrm} permet d'insérer du texte normal (en
-caractères romains) dans une formule. La taille du texte est ajustée
-automatiquement, mais ne fonctionnera bien que sur des entrées
-courtes. De plus les espaces ne sont toujours pas actives
-et les accents sont interdits. 
-La commande \ci{textrm} qui fait passer en mode \emph{texte} permet
-l'utilisation des lettres accentuées et respecte les espaces mais
-échappe à l'ajustement automatique de taille justement à cause du
-prassage en mode \emph{texte}.
-\footnote{L'extension \AmS-\LaTeX{} (\pai{amsmath}) rend la commande
-  \ci{textrm} sensible aux changements de taille.}
-
-L'extension \pai{amsmath} fournit une commande \ci{text} également très
-pratique pour insérer du texte dans une équation.
-
+Il est relativement ardu d'obtenir des symboles gras avec \LaTeX{} ;
+cela est sans doute fait exprès car les typographes amateurs ont
+tendance à en abuser. La commande de changement de graisse
+\verb|\mathbf| permet d'obtenir des caractères gras, mais romains
+(donc droits) alors que les symboles mathématiques sont normalement en
+italique. De plus elle ne fonctionne pas sur les minuscules
+grecques. Il y a bien une commande \ci{boldmath}, mais \emph{elle ne
+  peut être utilisée qu'en dehors du mode mathématique}. Cependant
+elle fonctionne aussi pour les symboles :
 \begin{example}
-\begin{eqnarray*}
-2^{\textrm{ième}} 
-&&\textrm{pour tout }x\\
-2^{\mathrm{nd}} 
-&&\mathrm{pour tout }x\\
-2^{\text{ième}} 
-&&\text{pour tout }x
-\end{eqnarray*}
+$\mu, M \qquad 
+\mathbf{\mu}, \mathbf{M}$
+\qquad \boldmath{$\mu, M$}
 \end{example}
 
- 
-\section{Théorèmes, propositions, etc.}
+L'extension \pai{amsbsy} (appelée par \pai{amsmath}) ainsi que
+\pai{bm} dans le paquet \texttt{tools} simplifient beaucoup ce
+problème puisqu'ils fournissent une commande \ci{boldsymbol} :
+
+\begin{example}
+$\mu, M \qquad
+\boldsymbol{\mu}, \boldsymbol{M}$
+\end{example}
+
+
+\section{Théorèmes, lemmes, etc.}
 
 En rédigeant des documents mathématiques, on a besoin d'un moyen de
 présenter des lemmes, des définitions, des axiomes et d'autres
@@ -698,7 +751,7 @@ Ceci est mon premier théorème\\
 \verb|\end{|\emph{nom}\verb|}|     
 \end{code}
 
-L'extension \pai{amsthm} met à disposition la commande
+L'extension \pai{amsthm} (qui fait partie d'\AmS-LaTeX) met à disposition la commande
 \ci{newtheoremstyle}\verb|{|\emph{style}\verb|}| qui vous montrera que
 le choix de style pour les théorèmes se limite à trois styles
 préféfinis : \texttt{definition} (titre gras, corps romain),
@@ -742,7 +795,6 @@ Le théorème \og decret \fg{} utilise le même compteur que le
 théorème \og loi \fg{}, donc il obtient un numéro dans la même
 séquence que les autres \og lois \fg{}. L'argument entre crochets permet
 de spécifier un titre ou quelque chose de ce genre pour le théorème.
-
 \begin{example}
 \newtheorem{mur}{Murphy}[section]
 \begin{mur} Tout ce qui peut 
@@ -773,45 +825,9 @@ preuve (CQFD) pour les cas où il finirait seul sur une ligne.
 \end{proof}
 \end{example}
 
-\section{Symboles gras}
-\index{symboles!gras}
-
-Il est relativement difficile d'obtenir des symboles gras avec
-\LaTeX{} ; cela est sans doute fait exprès car les typographes
-amateurs ont tendance à en abuser. La commande \verb|\mathbf| permet
-d'obtenir des caractères gras, mais ce sont des caractères romains
-(droits), alors que les caractères mathématiques sont normalement en
-italique. 
-
-Les commandes \verb|\mathversion{bold}|\cih{mathversion} et
-et \verb|\mathversion{normal}|, utilisables \emph{en mode texte
-uniquement} permettent de changer le style par défaut utilisé par
-le mode mathématique.
-
-\begin{example}
-\mathversion{bold}
-\begin{displaymath}
-\mu, M
-\end{displaymath}
-\mathversion{normal}
-\begin{displaymath}
-\mu, M \quad
-\mathbf{\mu},\mathbf{M}
-\end{displaymath}
-\end{example}
-
-
-L'extension \pai{amsmath} permet d'utiliser le gras pour un élément
-seulement dans une formule. Elle fournit la commande \ci{boldsymbol}.
-
-\ifx\boldsymbol\undefined\else
-\begin{example}
-\begin{displaymath}
-\mu, M \qquad 
-\boldsymbol{\mu}, \boldsymbol{M}
-\end{displaymath}
-\end{example}
-\fi
+Si vous voulez personnaliser vos théorèmes au point près, l'extension
+\pai{ntheorem} vous offrira la pléthore d'options dont vous avez
+besoin.
 
 
 \endinput
