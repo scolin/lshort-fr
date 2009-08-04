@@ -348,8 +348,9 @@ lignes trop longues dans le fichier d'entrée, lorsqu'aucun espace ou
 retour à la ligne n'est autorisé.
 
 Pour créer des commentaires plus longs, il vaut mieux utilier
-l'environnement \ei{comment} fourni par l'extension \pai{verbatim}. 
-Vous apprendrez plus loin à utiliser une extension. 
+l'environnement \ei{comment} fourni par l'extension \pai{verbatim} à
+ajouter en préambule.  Vous apprendrez plus loin à utiliser une
+extension.
 
 \begin{example}
 Voici un autre exemple
@@ -432,7 +433,9 @@ Et bien, ici commence mon \oe uvre.
 \end{document}
 \end{verbatim}
 \end{lined}
-\caption{Exemple d'un article de revue plus réaliste} \label{document}
+\caption[Exemple d'un article de revue plus réaliste.]{Exemple d'un
+  article de revue plus réaliste. Les commandes que vous voyez dans
+  cet exemple vous seront expliquées plus tard en introduction.} \label{document}
 \end{figure}
  
 \section{Utilisation typique en ligne de commande}
@@ -518,9 +521,9 @@ des virgules. Les principales options disponibles sont présentées dans
 le tableau~\ref{options}.
 
 
-\begin{table}[!thbp]
+\begin{table}[!bp]
 \caption{Classes de documents} \label{documentclasses}
-\begin{lined}{12cm}
+\begin{lined}{\textwidth}
 \begin{description}
  
 \item [\normalfont\texttt{article}] pour des articles dans des revues
@@ -551,9 +554,9 @@ le tableau~\ref{options}.
 \end{lined}
 \end{table}
 
-\begin{table}[!hbp]
+\begin{table}[!bp]
 \caption{Options de classes de document} \label{options}
-\begin{lined}{12cm}
+\begin{lined}{\textwidth}
 \begin{flushleft}
 \begin{description}
 \item[\normalfont\texttt{10pt}, \texttt{11pt}, \texttt{12pt}] \quad
@@ -661,7 +664,7 @@ documentation d'une extension.
 
 \begin{table}[!tbp]
 \caption{Quelques extensions fournies avec \LaTeX} \label{extensions}
-\begin{lined}{11cm}
+\begin{lined}{\textwidth}
 \begin{description}
 \item[\normalfont\texttt{doc}] permet de documenter des programmes
  pour  \LaTeX{}.\\
@@ -725,7 +728,7 @@ donne la liste des styles prédéfinis.
 
 \begin{table}[!hbp]
 \caption{Les styles de page de \LaTeX} \label{pagestyle}
-\begin{lined}{12cm}
+\begin{lined}{\textwidth}
 \begin{description}
 
 \item[\normalfont\texttt{plain}] imprime le numéro de page au milieu
