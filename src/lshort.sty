@@ -15,13 +15,15 @@
 \RequirePackage{verbatim}
 \RequirePackage{fancyhdr}
 \RequirePackage{calc}
-\RequirePackage{amsmath,amsfonts,amssymb}
+\RequirePackage{amsmath,latexsym,amsthm}
+\RequirePackage[psamsfonts]{amssymb}
+\RequirePackage{cmmib57}% Use blueSky cmmib5 cmmib7 cmsy
 \RequirePackage[all]{xy}
 \RequirePackage[T1]{fontenc}
 \RequirePackage[latin1]{inputenc}
 \RequirePackage{lmodern}
-\RequirePackage{textcomp}
-\RequirePackage{type1cm}% remove size restrictions
+%\RequirePackage{textcomp}
+%\RequirePackage{type1cm}% remove size restrictions
 %\RequirePackage{aeguill}
 % some packages which draw a euro
 \RequirePackage{textcomp}
@@ -32,10 +34,21 @@
 \let\MVRightarrow\Rightarrow
 \let\Rightarrow\org@Rightarrow
 %%%%
-\RequirePackage[gen]{eurosym}
-%\RequirePackage{eurosans}
-%\let\EUROSANS\euro
-\RequirePackage{eurofont}% à la place d'europs (conflit de nom)
+\RequirePackage[gen]{eurosym} % redefines \EUR
+\RequirePackage{eurosans}
+\let\EUROSANS\euro
+% marvosym defines \EUR, \EURtm, \EURhv and \EURcr (with \def), while europs
+% uses \providecommand to define them :-( so let's first undefine them:
+\let\EURtm\undefined
+\let\EURhv\undefined
+\let\EURcr\undefined
+\RequirePackage{europs}
+%\RequirePackage[mathcal]{euscript}
+%\IfFileExists{eucal.sty}
+%  {\RequirePackage[psamsfonts]{eucal}}
+%  {\IfFileExists{euscript.sty}
+%  {\RequirePackage[mathcal]{euscript}}{}}
+
 \RequirePackage{url}
 % Lets have some nice headings
 %
@@ -80,7 +93,7 @@
 %
 % \protect added because needed with french package. --mh
 %
-\newcommand{\bs}{\symbol{'134}}%Print backslash
+%\newcommand{\bs}{\symbol{'134}}%Print backslash
 %\newcommand{\bs}{\ensuremath{\mathtt{\backslash}}}%Print backslash
 % Index entry for a command (\cih for hidden command index
 \newcommand{\eei}[1]{%
@@ -203,7 +216,7 @@
 \newlength{\savefboxrule}
 \newlength{\savefboxsep}
 \newlength{\outdent}
-\setlength{\outdent}{2cm}
+\setlength{\outdent}{1cm}
 \addtolength{\headwidth}{\outdent}
 
 \newenvironment{example}%
@@ -265,6 +278,24 @@
 \renewcommand{\cleardoublepage}
     {\clearpage\if@twoside \ifodd\c@page\else
     \hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
+
+
+% section titles should be raggright ... since
+% this is not a trivial change I have to repeat the definitions here ...
+% taken from book.cls
+
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+                                   {-3.5ex \@plus -1ex \@minus -.2ex}%
+                                   {2.3ex \@plus.2ex}%
+                                   {\raggedright\normalfont\Large\bfseries}}
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {1.5ex \@plus .2ex}%
+                                     {\raggedright\normalfont\large\bfseries}}
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {1.5ex \@plus .2ex}%
+                                     {\raggedright\normalfont\normalsize\bfseries}}
 
 % French.sty redefined tilde. Grrr
 \ifx\@tildeORI\undefined
