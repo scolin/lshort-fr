@@ -1,0 +1,12 @@
+--- a/src/spec.tex
++++ b/src/spec.tex
+@@ -666,8 +666,7 @@ list the default values are written in an upright font.
+       links (mail, web)
+     \end{description}
+ \end{description}
+-
+-\vspace{\baselineskip}
++\end{flushleft}
+ 
+ If you are happy with the defaults, use
+ \begin{code}

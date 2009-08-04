@@ -1,0 +1,15 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -1264,9 +1264,9 @@ On average, no line should
+ be longer than 66 characters.
+ \end{quote}
+ This is why \LaTeX{} pages have 
+-such large borders by default and
+-also why multicolumn print is
+-used in newspapers.
++such large borders by default
++and also why multicolumn print
++is used in newspapers.
+ \end{example}
+ 
+ There are two similar environments: the \ei{quotation} and the

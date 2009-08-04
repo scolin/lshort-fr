@@ -1,0 +1,15 @@
+--- a/src/graphic.tex
++++ b/src/graphic.tex
+@@ -282,10 +282,10 @@ the number of objects, and the object to be drawn. The \ci{linethickness} comman
+ horizontal and vertical line segments, but neither to oblique line segments, nor to circles. 
+ It does, however, apply to quadratic B\'ezier curves!
+ 
+-\subsection{Ovals. The \ci{thinlines} and the \ci{thicklines} command}
++\subsection{Ovals}
+ 
+ \begin{example}
+-\setlength{\unitlength}{1cm}
++\setlength{\unitlength}{0.75cm}
+ \begin{picture}(6,4)
+   \linethickness{0.075mm}
+   \multiput(0,0)(1,0){7}%

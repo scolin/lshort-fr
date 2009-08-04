@@ -1,0 +1,11 @@
+--- a/src/spec.tex
++++ b/src/spec.tex
+@@ -562,7 +562,7 @@ misery. If you have a recent \TeX{} installation, chances are that you
+ already have a copy of them installed all you need todo is to add
+ \begin{code}
+ \begin{verbatim}  
+-\userpackage{lmodern}
++\usepackage{lmodern}
+ \usepackage[T1]{fontenc} 
+ \usepackage{textcomp}
+ \end{verbatim}

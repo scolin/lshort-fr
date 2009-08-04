@@ -1,0 +1,15 @@
+--- a/src/lssym.tex
++++ b/src/lssym.tex
+@@ -292,10 +292,10 @@ These symbols can also be used in text mode.
+  \X{\vartriangle}      & \X{\blacktriangle}    & \X{\complement}      \\
+  \X{\triangledown}     &\X{\blacktriangledown} & \X{\Game}            \\
+  \X{\lozenge}          & \X{\blacklozenge}     & \X{\bigstar}         \\
+- \X{\angle}            & \X{\measuredangle}    & \X{\sphericalangle}  \\
++ \X{\angle}            & \X{\measuredangle}    & \\
+  \X{\diagup}           & \X{\diagdown}         & \X{\backprime}       \\
+  \X{\nexists}          & \X{\Finv}             & \X{\varnothing}      \\
+- \X{\eth}              & \X{\mho}              
++ \X{\eth}              & \X{\sphericalangle}   & \X{\mho}              
+ \end{symbols}
+ \end{table}
+ 

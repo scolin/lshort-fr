@@ -1,0 +1,11 @@
+--- a/src/things.tex
++++ b/src/things.tex
+@@ -488,7 +488,7 @@ Table~\ref{options}.
+ 
+ \begin{table}[!bp]
+ \caption{Document Classes.} \label{documentclasses}
+-\begin{lined}{12cm}
++\begin{lined}{\textwidth}
+ \begin{description}
+  
+ \item [\normalfont\texttt{article}] for articles in scientific journals, presentations,

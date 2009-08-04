@@ -1,0 +1,11 @@
+--- a/src/spec.tex
++++ b/src/spec.tex
+@@ -200,7 +200,7 @@ entries to point to.  Table~\ref{index} explains the syntax of the
+ \verb|\index{Lin@\textbf{Lin}}|     &\textbf{Lin}, 7& Same as above\\ 
+ \verb.\index{Jenny|textbf}.     &Jenny, \textbf{3}& Formatted page number\\
+ \verb.\index{Joe|textit}.     &Joe, \textit{5}& Same as above\\
+-\verb.\index{eolienne@\'eolienne}.     &\'eolienne, 4& Handling of accents
++\verb.\index{ecole@\'ecole}.     &\'ecole, 4& Handling of accents
+ \end{tabular}
+ \end{center}
+ \end{table}

@@ -1,0 +1,22 @@
+--- a/src/math.tex
++++ b/src/math.tex
+@@ -238,12 +238,13 @@ font, and not in italics as variables are, so \LaTeX{} supplies the
+ following commands to typeset the most important function names:
+ \index{mathematical!functions}
+ 
+-\begin{tabular}{lllllll}
+-\ci{arccos} &  \ci{cos}  &  \ci{csc} &  \ci{exp} &  \ci{ker}    & \ci{limsup} & \ci{min} \\
+-\ci{arcsin} &  \ci{cosh} &  \ci{deg} &  \ci{gcd} &  \ci{lg}     & \ci{ln}     & \ci{Pr}  \\
+-\ci{arctan} &  \ci{cot}  &  \ci{det} &  \ci{hom} &  \ci{lim}    & \ci{log}    & \ci{sec} \\
+-\ci{arg}    &  \ci{coth} &  \ci{dim} &  \ci{inf} &  \ci{liminf} & \ci{max}    & \ci{sin} \\
+-\ci{sinh} & \ci{sup} & \ci{tan} & \ci{tanh}\\
++\begin{tabular}{llllll}
++\ci{arccos} &  \ci{cos}  &  \ci{csc} &  \ci{exp} &  \ci{ker}    & \ci{limsup} \\
++\ci{arcsin} &  \ci{cosh} &  \ci{deg} &  \ci{gcd} &  \ci{lg}     & \ci{ln}     \\
++\ci{arctan} &  \ci{cot}  &  \ci{det} &  \ci{hom} &  \ci{lim}    & \ci{log}    \\
++\ci{arg}    &  \ci{coth} &  \ci{dim} &  \ci{inf} &  \ci{liminf} & \ci{max}    \\
++\ci{sinh}   & \ci{sup}   &  \ci{tan}  & \ci{tanh}&  \ci{min}    & \ci{Pr}     \\
++\ci{sec}    & \ci{sin} \\
+ \end{tabular}
+ 
+ \begin{example}

@@ -1,0 +1,14 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -1215,8 +1215,9 @@ look silly.
+ \item[Stupid] things will not
+ become smart because they are
+ in a list.
+-\item[Smart] things, though, can be
+-presented beautifully in a list.
++\item[Smart] things, though,
++can be presented beautifully
++in a list.
+ \end{description}
+ \end{enumerate}
+ \end{example}

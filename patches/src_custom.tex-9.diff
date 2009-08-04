@@ -1,0 +1,11 @@
+--- a/src/custom.tex
++++ b/src/custom.tex
+@@ -634,7 +634,7 @@ vertical space without having to worry about exact numbers.
+ 
+ \begin{figure}[!hp]
+ \begin{center}
+-\makeatletter\@layout\makeatother
++\makeatletter\@mylayout\makeatother
+ \end{center}
+ \vspace*{1.8cm}
+ \caption{Page Layout Parameters.}

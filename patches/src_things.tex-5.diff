@@ -1,0 +1,11 @@
+--- a/src/things.tex
++++ b/src/things.tex
+@@ -513,7 +513,7 @@ purposes.
+ 
+ \begin{table}[!bp]
+ \caption{Document Class Options.} \label{options}
+-\begin{lined}{12cm}
++\begin{lined}{\textwidth}
+ \begin{flushleft}
+ \begin{description}
+ \item[\normalfont\texttt{10pt}, \texttt{11pt}, \texttt{12pt}] \quad Sets the size

@@ -1,0 +1,11 @@
+--- a/src/lshort.sty
++++ b/src/lshort.sty
+@@ -76,7 +76,7 @@
+ %
+ % Some commands for helping with INDEX creation
+ %
+-\newcommand{\bs}{\symbol{'134}}%Print backslash
++%\newcommand{\bs}{\symbol{'134}}%Print backslash
+ %\newcommand{\bs}{\ensuremath{\mathtt{\backslash}}}%Print backslash
+ % Index entry for a command (\cih for hidden command index
+ \newcommand{\eei}[1]{%

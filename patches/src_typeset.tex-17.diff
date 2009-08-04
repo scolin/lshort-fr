@@ -1,0 +1,11 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -1508,7 +1508,7 @@ of \emph{float-placing permissions}. See Table~\ref{tab:permiss}.
+ \noindent \begin{minipage}{\textwidth}
+ \medskip
+ \begin{center}
+-\begin{tabular}{@{}cp{10cm}@{}}
++\begin{tabular}{@{}cp{8cm}@{}}
+ Spec&Permission to place the float \ldots\\
+ \hline
+ \rule{0pt}{1.05em}\texttt{h} & \emph{here} at the very place in the text

@@ -1,0 +1,12 @@
+--- a/src/contrib.tex
++++ b/src/contrib.tex
+@@ -83,7 +83,8 @@ Michael~Koundouros,     % <mkoundouros@hotmail.com>
+ Andrzej~Kawalec,        %GONE akawalec@prz.rzeszow.pl 1.9.9
+ Sander~de~Kievit,       %Skievit@ucu.uu.nl
+ Alain~Kessi,            %ALAIN_KESSI@HOTMAIL.COM 2.2
+-Christian Kern,         %ck@unixen.hrz.uni-oldenburg.de 2.1
++Christian~Kern,         %ck@unixen.hrz.uni-oldenburg.de 2.1
++Tobias~Klauser,		%tklauser@access.unizh.ch 4.17
+ J\"org~Knappen,         %knappen@vkpmzd.kph.uni-mainz.de 0.1
+ Kjetil~Kjernsmo,        %<kjetil.kjernsmo@astro.uio.no> 3.2
+ Maik~Lehradt,           %greek@uni-paderborn.de 0.1

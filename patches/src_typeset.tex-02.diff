@@ -1,0 +1,16 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -244,10 +244,10 @@ text strings:
+ \begin{tabular}{@{}lll@{}}
+ Command&Example&Description\\
+ \hline
+-\ci{today} & \today   &  Current date in the current language\\
+-\ci{TeX} & \TeX       & The name of your favorite typesetter\\
++\ci{today} & \today   & Current date\\
++\ci{TeX} & \TeX       & Your favorite typesetter\\
+ \ci{LaTeX} & \LaTeX   & The Name of the Game\\
+-\ci{LaTeXe} & \LaTeXe & The current incarnation of \LaTeX\\
++\ci{LaTeXe} & \LaTeXe & The current incarnation\\
+ \end{tabular}
+ 
+ \section{Special Characters and Symbols}

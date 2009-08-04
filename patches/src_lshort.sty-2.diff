@@ -1,0 +1,28 @@
+--- a/src/lshort.sty
++++ b/src/lshort.sty
+@@ -31,10 +31,21 @@
+ \let\MVRightarrow\Rightarrow
+ \let\Rightarrow\org@Rightarrow
+ %%%%
+-\RequirePackage[gen]{eurosym}
+-%\RequirePackage{eurosans}
+-%\let\EUROSANS\euro
+-\RequirePackage{eurofont}% à la place d'europs (conflit de nom)
++\RequirePackage[gen]{eurosym} % redefines \EUR
++\RequirePackage{eurosans}
++\let\EUROSANS\euro
++% marvosym defines \EUR, \EURtm, \EURhv and \EURcr (with \def), while europs
++% uses \providecommand to define them :-( so let's first undefine them:
++\let\EURtm\undefined
++\let\EURhv\undefined
++\let\EURcr\undefined
++\RequirePackage{europs}
++%\RequirePackage[mathcal]{euscript}
++%\IfFileExists{eucal.sty}
++%  {\RequirePackage[psamsfonts]{eucal}}
++%  {\IfFileExists{euscript.sty}
++%  {\RequirePackage[mathcal]{euscript}}{}}
++
+ \RequirePackage{url}
+ % Lets have some nice headings
+ %

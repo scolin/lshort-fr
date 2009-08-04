@@ -1,0 +1,13 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -1138,8 +1138,8 @@ by people using \LaTeX.
+  
+ \section{Emphasized Words}
+ 
+-If a text is typed using a typewriter, \texttt{important words are
+-  emphasized by \underline{underlining} them.}
++If a text is typed using a typewriter, important words are
++  \texttt{emphasized by \underline{underlining} them.}
+ \begin{lscommand}
+ \ci{underline}\verb|{|\emph{text}\verb|}|
+ \end{lscommand}

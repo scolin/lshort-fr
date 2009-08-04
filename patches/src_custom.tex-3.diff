@@ -1,0 +1,12 @@
+--- a/src/custom.tex
++++ b/src/custom.tex
+@@ -221,7 +221,8 @@ command to make the package available in your document.
+ \begin{verbatim}
+ % Demo Package by Tobias Oetiker
+ \ProvidesPackage{demopack}
+-\newcommand{\tnss}{The not so Short Introduction to \LaTeXe}
++\newcommand{\tnss}{The not so Short Introduction 
++                   to \LaTeXe}
+ \newcommand{\txsit}[1]{The \emph{#1} Short 
+                        Introduction to \LaTeXe}
+ \newenvironment{king}{\begin{quote}}{\end{quote}}

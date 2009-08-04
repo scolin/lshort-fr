@@ -1,0 +1,10 @@
+--- a/src/lssym.tex
++++ b/src/lssym.tex
+@@ -167,6 +167,7 @@ You can negate the following symbols by prefixing them with a \ci{not} command.
+ \centerline{\footnotesize $^a$Use the \textsf{latexsym} package to access this symbol}
+ \end{table}
+ 
++
+ \begin{table}[!tbp]
+ \caption{Non-Mathematical Symbols.}
+ \bigskip

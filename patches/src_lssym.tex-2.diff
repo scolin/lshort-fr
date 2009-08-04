@@ -1,0 +1,27 @@
+--- a/src/lssym.tex
++++ b/src/lssym.tex
+@@ -40,20 +40,15 @@ symbols can be found at  \CTANref|info/symbols/comprehensive|.
+  \X{\delta}     & \X{\kappa}     & \X{\rho}       & \X{\chi}      \\
+  \X{\epsilon}   & \X{\lambda}    & \X{\varrho}    & \X{\psi}      \\
+  \X{\varepsilon}& \X{\mu}        & \X{\sigma}     & \X{\omega}    \\
+- \X{\zeta}      & \X{\nu}        & \X{\varsigma}  & &             \\
+- \X{\eta}       & \X{\xi}        & \X{\tau} 
+-\end{symbols}
+-\end{table}
+-
+-\begin{table}[!h]
+-\caption{Uppercase Greek Letters.}
+-\begin{symbols}{*4{cl}}
++ \X{\zeta}      & \X{\nu}        & \X{\varsigma}  &               \\
++ \X{\eta}       & \X{\xi}        & \X{\tau} & \\
+  \X{\Gamma}     & \X{\Lambda}    & \X{\Sigma}     & \X{\Psi}      \\
+  \X{\Delta}     & \X{\Xi}        & \X{\Upsilon}   & \X{\Omega}    \\
+  \X{\Theta}     & \X{\Pi}        & \X{\Phi} 
+ \end{symbols}
+ \end{table}
+-\clearpage 
++
++
+ 
+ \begin{table}[!tbp]
+ \caption{Binary Relations.}

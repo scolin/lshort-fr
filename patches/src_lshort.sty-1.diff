@@ -1,0 +1,21 @@
+--- a/src/lshort.sty
++++ b/src/lshort.sty
+@@ -14,13 +14,15 @@
+ \RequirePackage{verbatim}
+ \RequirePackage{fancyhea}
+ \RequirePackage{calc}
+-\RequirePackage{amsmath,amsfonts,amssymb}
++\RequirePackage{amsmath,latexsym,amsthm}
++\RequirePackage[psamsfonts]{amssymb}
++\RequirePackage{cmmib57}% Use blueSky cmmib5 cmmib7 cmsy
+ \RequirePackage[all]{xy}
+ \RequirePackage[T1]{fontenc}
+ \RequirePackage[latin1]{inputenc}
+ \RequirePackage{lmodern}
+-\RequirePackage{textcomp}
+-\RequirePackage{type1cm}% remove size restrictions
++%\RequirePackage{textcomp}
++%\RequirePackage{type1cm}% remove size restrictions
+ %\RequirePackage{aeguill}
+ % some packages which draw a euro
+ \RequirePackage{textcomp}

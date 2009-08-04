@@ -1,0 +1,11 @@
+--- a/src/custom.tex
++++ b/src/custom.tex
+@@ -470,7 +470,7 @@ spacing, and \verb|\linespread{1.6}| for ``double'' line spacing.  Normally
+ the lines are not spread, so the default line spread factor
+ is~1.\index{double line spacing}
+ 
+-Note that the effect of the \ci{linespread} command is rather drastic and
++Note that the effect of the \ci{linespread} command is rather drastic and     
+ not appropriate for published work. So if you have a good reason for
+ changing the line spacing you might want to use the command:
+ \begin{lscommand}

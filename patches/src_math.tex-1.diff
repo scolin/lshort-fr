@@ -1,0 +1,11 @@
+--- a/src/math.tex
++++ b/src/math.tex
+@@ -195,7 +195,7 @@ The commands \ci{overbrace} and \ci{underbrace} create
+ long \textbf{horizontal braces} over or under an expression.
+ \index{horizontal!brace}
+ \begin{example}
+-$\underbrace{ a+b+\cdots+z }_{26}$
++$\underbrace{a+b+\cdots+z}_{26}$
+ \end{example}
+ 
+ \index{mathematical!accents} To add mathematical accents such as small

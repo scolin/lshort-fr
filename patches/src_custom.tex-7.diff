@@ -1,0 +1,28 @@
+--- a/src/custom.tex
++++ b/src/custom.tex
+@@ -480,15 +480,16 @@ changing the line spacing you might want to use the command:
+ \begin{example}
+ {\setlength{\baselineskip}%
+            {1.5\baselineskip}
+-This paragraph is typeset with the
+-baseline skip set to 1.5 of what
+-it was before. Note the par command
+-at the end of the paragraph.\par}
+-
+-This paragraph has a clear purpose,
+-it shows that after the curly brace
+-has been closed, everything is back
+-to normal.
++This paragraph is typeset with
++the baseline skip set to 1.5 of
++what it was before. Note the par
++command at the end of the
++paragraph.\par}
++
++This paragraph has a clear
++purpose, it shows that after the
++curly brace has been closed,
++everything is back to normal.
+ \end{example}
+ 
+ \subsection{Paragraph Formatting}\label{parsp}

@@ -1,0 +1,10 @@
+--- a/src/spec.tex
++++ b/src/spec.tex
+@@ -42,7 +42,6 @@ A good set of commands for inclusion of graphics is provided in the
+ of packages called the ``graphics''
+ bundle.\footnote{\CTANref|macros/latex/required/graphics|}
+ 
+-\newpage
+ Assuming you are working on a system with a
+ \PSi{} printer available for output and with the \textsf{graphicx}
+ package installed, you can use the following step by step guide to

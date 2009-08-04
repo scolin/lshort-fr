@@ -1,0 +1,21 @@
+--- a/src/spec.tex
++++ b/src/spec.tex
+@@ -871,12 +871,13 @@ work in all cases, which saves me from wrapping every occurrence into a
+ conditional statement.
+ 
+ Note that in recent \TeX{} distributions (\TeX{}Live for example), the
+-choice between \texttt{pdftex} and \texttt{dvips} when calling
+-\pai{graphicx} and  \pai{color} will happen automatically according to
+-the settings made automatically in the configuration files
+-\texttt{graphics.cfg} and \texttt{color.cfg}.
++normal \TeX{} program is actually pdf\TeX{} it will automatically switch
++between producing pdf and dvi according to the settings in the document
++class. If you use the code above then you can still use the \verb|pdflatex|
++command to get pdf output and \verb|latex| for normal dvi output.
++
+ 
+-\section{Creating Presentations with the \pai{beamer} class}
++\section{Creating Presentations}
+ \label{sec:beamer}
+ \secby{Daniel Flipo}{Daniel.Flipo@univ-lille1.fr}
+ You can present the results of your scientific work on a blackboard,

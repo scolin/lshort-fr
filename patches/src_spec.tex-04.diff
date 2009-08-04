@@ -1,0 +1,10 @@
+--- a/src/spec.tex
++++ b/src/spec.tex
+@@ -147,7 +147,6 @@ TUGboat Volume~9, Issue~1 (1988)
+                            %bibliography example.
+ \thispagestyle{fancyplain}
+ 
+-\newpage
+ 
+ For larger projects, you might want to check out the Bib\TeX{}
+ program. Bib\TeX{} is included with most \TeX{} distributions. It

@@ -1,0 +1,50 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -329,33 +329,34 @@ First the \pai{eurosym} package. It provides the official Euro symbol:
+ If you prefer a Euro symbol that matches your font, use the option
+ \texttt{gen} in place of the \texttt{official} option.
+ 
+-If the Adobe Eurofonts are installed on your system (they are available for
+-free from \url{ftp://ftp.adobe.com/pub/adobe/type/win/all}) you can use
+-either the package \pai{europs} and the command \ci{EUR} (for a Euro symbol
+-that matches the current font).
++%If the Adobe Eurofonts are installed on your system (they are available for
++%free from \url{ftp://ftp.adobe.com/pub/adobe/type/win/all}) you can use
++%either the package \pai{europs} and the command \ci{EUR} (for a Euro symbol
++%that matches the current font).
+ % does not work
+ % or the package
+ % \pai{eurosans} and the command \ci{euro} (for the ``official Euro'').
+ 
+ The \pai{marvosym} package also provides many different symbols, including a
+-Euro, under the name \ci{EUR}. Its disadvantage is that it does not provide
++Euro, under the name \ci{EURtm}. Its disadvantage is that it does not provide
+ slanted and bold variants of the Euro symbol.
+ 
+ \begin{table}[!htbp]
+ \caption{A bag full of Euro symbols} \label{eurosymb}
+ \begin{lined}{10cm}
+ \begin{tabular}{llccc}
+-package    & command     & roman       & sans-serif      & typewriter \\
++LM+textcomp  &\verb+\texteuro+ & \huge\texteuro &\huge\sffamily\texteuro
++                                                &\huge\ttfamily\texteuro\\
+ eurosym      &\verb+\euro+ & \huge\officialeuro &\huge\sffamily\officialeuro
+-                                             & \huge\ttfamily\officialeuro\\
++                                                &\huge\ttfamily\officialeuro\\
+ $[$gen$]$eurosym &\verb+\euro+ & \huge\geneuro  &\huge\sffamily\geneuro
+-                                                & \huge\ttfamily\geneuro \\
+-% En fait on appelle eurofont pour des conflits de noms...
+-europs       &\verb+\EUR + & \huge\EURtm     &\huge\EURhv   & \huge\EURcr \\
+-% this does not seem to work ... 
++                                                &\huge\ttfamily\geneuro\\
++%europs       &\verb+\EUR + & \huge\EURtm        &\huge\EURhv
++%                                                &\huge\EURcr\\
+ %eurosans     &\verb+\euro+ & \huge\EUROSANS  &\huge\sffamily\EUROSANS
+-%                                                & \huge\ttfamily\EUROSANS \\
+-marvosym     &\verb+\EUR+  & \huge\mvchr164  &\huge\mvchr164 & \huge\mvchr164
++%                                             & \huge\ttfamily\EUROSANS \\
++marvosym     &\verb+\EURtm+  & \huge\mvchr101  &\huge\mvchr101
++                                               &\huge\mvchr101
+ \end{tabular}
+ \medskip
+ \end{lined}

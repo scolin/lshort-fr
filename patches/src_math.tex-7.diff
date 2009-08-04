@@ -1,0 +1,11 @@
+--- a/src/math.tex
++++ b/src/math.tex
+@@ -592,7 +592,7 @@ respectively.
+ 
+ When writing mathematical documents, you probably need a way to
+ typeset ``Lemmas'', ``Definitions'', ``Axioms'' and similar
+-structures. \LaTeX{} supports this with the command
++structures.
+ \begin{lscommand}
+ \ci{newtheorem}\verb|{|\emph{name}\verb|}[|\emph{counter}\verb|]{|%
+          \emph{text}\verb|}[|\emph{section}\verb|]|

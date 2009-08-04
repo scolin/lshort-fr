@@ -1,0 +1,16 @@
+--- a/src/lssym.tex
++++ b/src/lssym.tex
+@@ -201,11 +201,11 @@ These symbols can also be used in text mode.
+ \begin{table}[!tbp]
+ \caption{AMS Binary Relations.}
+ \begin{symbols}{*3{cl}}
+- \X{\lessdot}           & \X{\gtrdot}            & \X{\doteqdot}or \verb|\Doteq| \\
++ \X{\lessdot}           & \X{\gtrdot}            & \X{\doteqdot} \\
+  \X{\leqslant}          & \X{\geqslant}          & \X{\risingdotseq}     \\
+  \X{\eqslantless}       & \X{\eqslantgtr}        & \X{\fallingdotseq}    \\
+  \X{\leqq}              & \X{\geqq}              & \X{\eqcirc}           \\
+- \X{\lll}or \verb|\llless|      & \X{\ggg}or \verb|\gggtr| & \X{\circeq}  \\
++ \X{\lll}or \verb|\llless| & \X{\ggg}            & \X{\circeq}  \\
+  \X{\lesssim}           & \X{\gtrsim}            & \X{\triangleq}        \\
+  \X{\lessapprox}        & \X{\gtrapprox}         & \X{\bumpeq}           \\
+  \X{\lessgtr}           & \X{\gtrless}           & \X{\Bumpeq}           \\

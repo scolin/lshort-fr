@@ -1,0 +1,11 @@
+--- a/src/graphic.tex
++++ b/src/graphic.tex
+@@ -480,7 +480,7 @@ The picture is defined in convenient ``mathematical'' coordinates, whereas by th
+ \subsection{Rapidity in the Special Theory of Relativity}
+ 
+ \begin{example}
+-\setlength{\unitlength}{1cm}
++\setlength{\unitlength}{0.8cm}
+ \begin{picture}(6,4)(-3,-2)
+   \put(-2.5,0){\vector(1,0){5}}
+   \put(2.7,-0.1){$\chi$}

@@ -1,0 +1,11 @@
+--- a/src/things.tex
++++ b/src/things.tex
+@@ -652,7 +652,7 @@ lists the predefined page styles.
+ 
+ \begin{table}[!hbp]
+ \caption{The Predefined Page Styles of \LaTeX.} \label{pagestyle}
+-\begin{lined}{12cm}
++\begin{lined}{\textwidth}
+ \begin{description}
+ 
+ \item[\normalfont\texttt{plain}] prints the page numbers on the bottom

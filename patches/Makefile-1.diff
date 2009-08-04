@@ -1,0 +1,26 @@
+--- a/Makefile
++++ b/Makefile
+@@ -1,16 +1,17 @@
+ #	pstops "4:0L@0.8(22.5cm,-0.6cm)+1L@0.8(22.5cm,13.3cm),2L@0.8(22.5cm,-0.6cm)+3L@0.8(22.5cm,13.3cm)" \
+ SHELL = /bin/sh
+-VERS = 4.17
++VERS = 4.18
+ 
+ OTHER = README CHANGES
+ FILES = src/biblio.tex src/math.tex src/things.tex src/contrib.tex src/lshort.sty src/mylayout.sty src/title.tex \
+-	src/custom.tex src/lshort.tex src/overview.tex src/typeset.tex src/fancyhea.sty src/lssym.tex src/spec.tex
++	src/custom.tex src/lshort.tex src/overview.tex src/typeset.tex src/fancyhea.sty src/lssym.tex src/spec.tex \
++	src/lshort-base.tex src/lshort-a5.tex src/graphic.tex
+ 
+ # Define some variables
+-LATEX=latex
+-PDFLATEX=pdflatex
+-MAKEINDEX=makeindex
+-
++LATEX=latex-20051102
++PDFLATEX=pdflatex-20051102
++MAKEINDEX=makeindex-20051102
++DVIPS=dvips-20051102
+ 
+ # The default targets
+ all: lshort.dvi lshort.ps lshort-book.ps lshort.pdf

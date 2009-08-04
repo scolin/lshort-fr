@@ -1,0 +1,16 @@
+--- a/src/overview.tex
++++ b/src/overview.tex
+@@ -72,11 +72,8 @@ your documents so that they can be processed by~\LaTeX{}.
+ have a look at one of the Comprehensive \TeX{} Archive Network
+ (\texttt{CTAN}) sites. The homepage is at
+ \texttt{http://www.ctan.org}. All packages can also be retrieved from
+-the ftp archive \texttt{ftp://www.ctan.org} and its various mirror
+-sites all over the world.  They can be found e.g.{} at
+-\texttt{ftp://ctan.tug.org} (US), \texttt{ftp://ftp.dante.de}
+-(Germany), \texttt{ftp://ftp.tex.ac.uk} (UK).  If you are not in one
+-of these countries, choose the archive closest to you.
++the ftp archive \texttt{ftp://www.ctan.org} and its mirror
++sites all over the world.
+ 
+ You will find other references to CTAN throughout the book, especially
+ pointers to software and documents you might want to download. Instead

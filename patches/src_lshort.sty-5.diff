@@ -1,0 +1,23 @@
+--- a/src/lshort.sty
++++ b/src/lshort.sty
+@@ -253,3 +253,20 @@
+     {\clearpage\if@twoside \ifodd\c@page\else
+     \hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
+ 
++
++% section titles should be raggright ... since
++% this is not a trivial change I have to repeat the definitions here ...
++% taken from book.cls
++
++\renewcommand\section{\@startsection {section}{1}{\z@}%
++                                   {-3.5ex \@plus -1ex \@minus -.2ex}%
++                                   {2.3ex \@plus.2ex}%
++                                   {\raggedright\normalfont\Large\bfseries}}
++\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
++                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
++                                     {1.5ex \@plus .2ex}%
++                                     {\raggedright\normalfont\large\bfseries}}
++\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
++                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
++                                     {1.5ex \@plus .2ex}%
++                                     {\raggedright\normalfont\normalsize\bfseries}}

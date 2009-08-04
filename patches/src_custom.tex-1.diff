@@ -1,0 +1,11 @@
+--- a/src/custom.tex
++++ b/src/custom.tex
+@@ -34,7 +34,7 @@ commands and environments for this purpose. Now I can simply write:
+ \end{lscommand}
+ \end{example}
+ 
+-In this example, I am using both a new environment called
++In this example, I am using both a new environment called\\
+ \ei{lscommand}, which is responsible for drawing the box around the
+ command, and a new command named \ci{ci}, which typesets the command
+ name and makes a corresponding entry in the index. You can check

@@ -1,0 +1,11 @@
+--- a/src/spec.tex
++++ b/src/spec.tex
+@@ -13,7 +13,7 @@
+   {\normalfont\manual{}} and {\normalfont \companion}.
+ \end{intro}
+ 
+-\section{Including \EPSi{} Graphics}\label{eps}
++\section{Including \EPSi{}}\label{eps}
+ \LaTeX{} provides the basic facilities to work with floating bodies,
+ such as images or graphics, with the \texttt{figure} and
+ \texttt{table} environments.

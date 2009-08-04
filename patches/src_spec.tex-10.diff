@@ -1,0 +1,11 @@
+--- a/src/spec.tex
++++ b/src/spec.tex
+@@ -501,7 +501,7 @@ several other options.
+ \begin{itemize}
+ \item You might want to use \pai{aeguill} package, aka
+   \emph{Almost European Computer Modern with Guillemets}. Just put the
+-  line \verb+\usepackage{aeguill}+\paih{aeguill}  into the preamble of  
++  line\newline \verb+\usepackage{aeguill}+\paih{aeguill}  into the preamble of  
+   your document, to enable AE virtual fonts instead of EC fonts.  
+ \item Alternatively, you can use \pai{mltex} package, but this only works when  
+   your pdf\TeX{} has been compiled with the \wi{mltex} option.
