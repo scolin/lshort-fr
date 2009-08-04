@@ -1,10 +1,21 @@
+4.17 2005.09.27
+---------------
+* removed eurosans package I did never get it to actually display a symbol with all the
+  other euro packages loaded at the same time.
+* made mentions of Latin and Cyrillic consistently capitalized
+* added note on Latin modern outline fonts to replace EC in pdfs
+* added proc and minimal class
+* mention companion 2nd edition
+* update for ifpdf section from Morten Høgholm
+* print from 4.1 to chapter 5 for pure latex graphics
+
 4.16 2005.05.08
-----
-* include propperly renderd PDF version with the distribution
+---------------
+* include properly rendered PDF version with the distribution
 
 4.15 2005.05.08
 ----
-* replced pdfscreen with beamer for presentations. Used text from the french
+* replaced pdfscreen with beamer for presentations. Used text from the french
   lshort by Daniel Flipo as a basis for this.
 * eqref requires amslatex 
 * use \centering to  put figure into the center as begin/end{center} adds
@@ -13,11 +24,11 @@
 * added note on texdoc 
 * renames longtabular to longtable
 * added notes on greek TeX -- Dimitrios 'sehh' Michelinakis <dimitrios@michelinakis.gr>
-* added notes about pronounciation of ch in ach
+* added notes about pronunciation of ch in ach
 
 4.14 2004.04.04
 ----
-* improved explaination of raisebox paramteres
+* improved explanation of raisebox parameters
 * added pagelayout parameters to index
 * added caption to includegraphics example
 * better examples for math fonts -- Vadym Lepetyuk <lepetyuk@econ.umn.edu>
@@ -42,7 +53,7 @@
 * remove kees.fig from Makefile
 * some wording fixes to the cirillic section.
 * added pdfstringdefDisableCommands to the preamble to fix some broken bookmarks -- Maksym Polyakov
-* reworded the paragraph on the positionargument of the newsavebox command.
+* reworded the paragraph on the position argument of the newsavebox command.
 
 4.11
 ---
