@@ -110,9 +110,9 @@ commande
 \begin{lscommand}
 \ci{qbezier}\verb|(|$x_1,y_1$\verb|)(|$x_2,y_2$\verb|)(|$x_3,y_3$\verb|)|
 \end{lscommand}
+%\newpage
 
 \subsection{Segments}
-
 \begin{example}
 \setlength{\unitlength}{5cm}
 \begin{picture}(1,1)
@@ -166,7 +166,7 @@ cas.
 \subsection{Flèches}
 
 \begin{example}
-\setlength{\unitlength}{1mm}
+\setlength{\unitlength}{0.75mm}
 \begin{picture}(60,40)
   \put(30,20){\vector(1,0){30}}
   \put(30,20){\vector(4,1){20}}
@@ -254,7 +254,7 @@ fichiers source Java.
 \subsection{Texte et formules}
 
 \begin{example}
-\setlength{\unitlength}{1cm}
+\setlength{\unitlength}{0.8cm}
 \begin{picture}(6,5)
   \thicklines
   \put(1,0.5){\line(2,1){3}}
@@ -282,20 +282,20 @@ comme à l'accoutumée.
 \setlength{\unitlength}{2mm}
 \begin{picture}(30,20)
   \linethickness{0.075mm}
-  \multiput(0,0)(1,0){31}%
+  \multiput(0,0)(1,0){26}%
     {\line(0,1){20}}
   \multiput(0,0)(0,1){21}%
-    {\line(1,0){30}}
+    {\line(1,0){25}}
   \linethickness{0.15mm}    
-  \multiput(0,0)(5,0){7}%
+  \multiput(0,0)(5,0){6}%
     {\line(0,1){20}}
   \multiput(0,0)(0,5){5}%
-    {\line(1,0){30}}
+    {\line(1,0){25}}
   \linethickness{0.3mm}    
   \multiput(5,0)(10,0){3}%
     {\line(0,1){20}}
   \multiput(0,5)(0,10){2}%
-    {\line(1,0){30}}
+    {\line(1,0){25}}
 \end{picture}
 \end{example}
 La commande
@@ -311,7 +311,7 @@ cercles. Elle s'applique cependant aux courbes de B\'ezier.
 \subsection{Ovales. Les commandes \ci{thinlines} et \ci{thicklines}}
 
 \begin{example}
-\setlength{\unitlength}{1cm}
+\setlength{\unitlength}{0.75cm}
 \begin{picture}(6,4)
   \linethickness{0.075mm}
   \multiput(0,0)(1,0){7}%
@@ -359,7 +359,7 @@ ainsi qu'aux cercles et aux ovales.
 \begin{example}
 \setlength{\unitlength}{0.5mm}
 \begin{picture}(120,168)
-\newsavebox{\foldera}% declaration
+\newsavebox{\foldera}
 \savebox{\foldera}
   (40,32)[bl]{% definition 
   \multiput(0,0)(0,28){2}
@@ -374,7 +374,7 @@ ainsi qu'aux cercles et aux ovales.
   \put(20,29){\line(1,0){19}}
   \put(39,28){\oval(2,2)[tr]}  
 }
-\newsavebox{\folderb}% declaration
+\newsavebox{\folderb}
 \savebox{\folderb}
   (40,32)[l]{%         definition 
   \put(0,14){\line(1,0){8}}
@@ -418,7 +418,7 @@ fonctionne pas avec des segments dont la longueur est inférieure à
 \subsection{Courbes de B\'ezier}
 
 \begin{example}
-\setlength{\unitlength}{1cm}
+\setlength{\unitlength}{0.8cm}
 \begin{picture}(6,4)
   \linethickness{0.075mm}
   \multiput(0,0)(1,0){7}
@@ -467,35 +467,35 @@ génère les lignes de commandes \ci{qbezier} nécessaires.
 \subsection{Caténaire}
 
 \begin{example}
-\setlength{\unitlength}{1.3cm}
+\setlength{\unitlength}{1cm}
 \begin{picture}(4.3,3.6)(-2.5,-0.25)
-  \put(-2,0){\vector(1,0){4.4}}
-  \put(2.45,-.05){$x$}
-  \put(0,0){\vector(0,1){3.2}}
-  \put(0,3.35){\makebox(0,0){$y$}}
-  \qbezier(0.0,0.0)(1.2384,0.0)
-    (2.0,2.7622) 
-  \qbezier(0.0,0.0)(-1.2384,0.0)
-    (-2.0,2.7622)
-  \linethickness{.075mm}
-  \multiput(-2,0)(1,0){5}
-    {\line(0,1){3}}
-  \multiput(-2,0)(0,1){4}
-    {\line(1,0){4}}
-  \linethickness{.2mm}
-  \put( .3,.12763){\line(1,0){.4}}
-  \put(.5,-.07237){\line(0,1){.4}}
-  \put(-.7,.12763){\line(1,0){.4}}
-  \put(-.5,-.07237){\line(0,1){.4}}
-  \put(.8,.54308){\line(1,0){.4}}
-  \put(1,.34308){\line(0,1){.4}}
-  \put(-1.2,.54308){\line(1,0){.4}}
-  \put(-1,.34308){\line(0,1){.4}}
-  \put(1.3,1.35241){\line(1,0){.4}}
-  \put(1.5,1.15241){\line(0,1){.4}}
-  \put(-1.7,1.35241){\line(1,0){.4}}
-  \put(-1.5,1.15241){\line(0,1){.4}}
-  \put(-2.5,-0.25){\circle*{0.2}}
+\put(-2,0){\vector(1,0){4.4}}
+\put(2.45,-.05){$x$}
+\put(0,0){\vector(0,1){3.2}}
+\put(0,3.35){\makebox(0,0){$y$}}
+\qbezier(0.0,0.0)(1.2384,0.0)
+  (2.0,2.7622) 
+\qbezier(0.0,0.0)(-1.2384,0.0)
+  (-2.0,2.7622)
+\linethickness{.075mm}
+\multiput(-2,0)(1,0){5}
+  {\line(0,1){3}}
+\multiput(-2,0)(0,1){4}
+  {\line(1,0){4}}
+\linethickness{.2mm}
+\put( .3,.12763){\line(1,0){.4}}
+\put(.5,-.07237){\line(0,1){.4}}
+\put(-.7,.12763){\line(1,0){.4}}
+\put(-.5,-.07237){\line(0,1){.4}}
+\put(.8,.54308){\line(1,0){.4}}
+\put(1,.34308){\line(0,1){.4}}
+\put(-1.2,.54308){\line(1,0){.4}}
+\put(-1,.34308){\line(0,1){.4}}
+\put(1.3,1.35241){\line(1,0){.4}}
+\put(1.5,1.15241){\line(0,1){.4}}
+\put(-1.7,1.35241){\line(1,0){.4}}
+\put(-1.5,1.15241){\line(0,1){.4}}
+\put(-2.5,-0.25){\circle*{0.2}}
 \end{picture}
 \end{example}
 
@@ -520,7 +520,7 @@ associé aux coordonnées $(-2.5,-0.25)$.
 \subsection{La rapidité dans la théorie de la relativité restreinte}
 
 \begin{example}
-\setlength{\unitlength}{1cm}
+\setlength{\unitlength}{0.8cm}
 \begin{picture}(6,4)(-3,-2)
   \put(-2.5,0){\vector(1,0){5}}
   \put(2.7,-0.1){$\chi$}
@@ -635,15 +635,16 @@ des étiquettes ou en changeant leur apparence :
 \shorthandoff{"}
 \begin{displaymath}
 \xymatrix{
- \bullet\ar@{->}[rr] && \bullet\\
- \bullet\ar@{.<}[rr] && \bullet\\
- \bullet\ar@{~)}[rr] && \bullet\\
- \bullet\ar@{=(}[rr] && \bullet\\
- \bullet\ar@{~/}[rr]  && \bullet\\
- \bullet\ar@{^{(}->}[rr]  && \bullet\\
- \bullet\ar@2{->}[rr]  && \bullet\\
- \bullet\ar@3{->}[rr]  && \bullet\\
- \bullet\ar@{=+}[rr]   && \bullet
+\bullet\ar@{->}[rr] && \bullet\\
+\bullet\ar@{.<}[rr] && \bullet\\
+\bullet\ar@{~)}[rr] && \bullet\\
+\bullet\ar@{=(}[rr] && \bullet\\
+\bullet\ar@{~/}[rr] && \bullet\\
+\bullet\ar@{^{(}->}[rr] &&
+                       \bullet\\
+\bullet\ar@2{->}[rr] && \bullet\\
+\bullet\ar@3{->}[rr] && \bullet\\
+\bullet\ar@{=+}[rr]  && \bullet
 }
 \end{displaymath}
 \shorthandon{"}
