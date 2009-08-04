@@ -1,0 +1,12 @@
+--- a/TRANSLATIONS
++++ b/TRANSLATIONS
+@@ -25,6 +25,9 @@ Polish		Stanis/law Wawrykiewicz <staw@eti.pg.gda.pl>
+ 		Janusz Go{\l}dasz, Ryszard Kubiak and Tomasz Przechlewski
+ 	--> CTAN:info/lshort/polish
+ 
++Turkish         Bekir Karaoglu <bkaraoglu@ttnet.net.tr>
++        --> Expressed intent to start translating ...
++
+ Brasilian- Portugese  Demerson Andre Polli <polli@linux.ime.usp.br>
+         --> http://www.linux.ime.usp.br/~polli
+ 

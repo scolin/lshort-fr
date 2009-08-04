@@ -1,0 +1,17 @@
+--- a/src/graphic.tex
++++ b/src/graphic.tex
+@@ -49,10 +49,10 @@ In addition, numerous packages have been written for specific purposes. One of t
+ \texorpdfstring{\Xy}{Xy}-pic, described at the end of this chapter. A wide variety of these
+ packages is described in detail in \graphicscompanion{} (not to be confused with \companion).
+ 
+-Perhaps the most powerful graphical tool related with \LaTeX\ is \texttt{MetaPost}, the twin of
+-Donald E. Knuth's \texttt{METAFONT}. \texttt{MetaPost} has the very powerful and 
+-mathematically sophisticated programming language of \texttt{METAFONT}. Contrary to \texttt{METAFONT},
+-which generates bitmaps, \texttt{MetaPost} generates encapsulated \PSi{} files, 
++Perhaps the most powerful graphical tool related with \LaTeX\ is \MP, the twin of
++Donald E. Knuth's \MF. \MP{} has the very powerful and 
++mathematically sophisticated programming language of \MF. Contrary to \MF,
++which generates bitmaps, \MP{} generates encapsulated \PSi{} files, 
+ which can be imported in \LaTeX. For an introduction, see \hobby, or the tutorial on \cite{ursoswald}.
+ 
+ A very thorough discussion of \LaTeX{} and \TeX{} strategies for graphics (and fonts) can 

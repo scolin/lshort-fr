@@ -1,0 +1,10 @@
+--- a/src/lshort.sty
++++ b/src/lshort.sty
+@@ -14,6 +14,7 @@
+ \RequirePackage{verbatim}
+ \RequirePackage{fancyhea}
+ \RequirePackage{calc}
++\RequirePackage{lastpage}
+ \RequirePackage{amsmath,latexsym,amsthm}
+ \RequirePackage[psamsfonts]{amssymb}
+ \RequirePackage{cmmib57}% Use blueSky cmmib5 cmmib7 cmsy

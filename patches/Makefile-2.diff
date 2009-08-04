@@ -1,0 +1,17 @@
+--- a/Makefile
++++ b/Makefile
+@@ -8,10 +8,10 @@ FILES = src/biblio.tex src/math.tex src/things.tex src/contrib.tex src/lshort.st
+ 	src/lshort-base.tex src/lshort-a5.tex src/graphic.tex
+ 
+ # Define some variables
+-LATEX=latex-20051102
+-PDFLATEX=pdflatex-20051102
+-MAKEINDEX=makeindex-20051102
+-DVIPS=dvips-20051102
++LATEX=latex
++PDFLATEX=pdflatex
++MAKEINDEX=makeindex
++DVIPS=dvips
+ 
+ # The default targets
+ all: lshort.ps lshort-book.ps lshort.pdf lshort-a5book.pdf

@@ -1,0 +1,11 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -1544,7 +1544,7 @@ be treated as floating matter. Both float environments support an optional
+ parameter
+ \begin{lscommand}
+ \verb|\begin{figure}[|\emph{placement specifier}\verb|]| or
+-\verb|\begin{table}[|\ldots|]|
++\verb|\begin{table}[|\ldots\verb|]|
+ \end{lscommand}
+ \noindent called the \emph{placement specifier}. This parameter
+ is used to tell \LaTeX{} about the locations to which the float

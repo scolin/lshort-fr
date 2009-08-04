@@ -1,0 +1,13 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -356,8 +356,8 @@ $[$gen$]$eurosym &\verb+\euro+ & \huge\geneuro  &\huge\sffamily\geneuro
+ %                                                &\huge\EURcr\\
+ %eurosans     &\verb+\euro+ & \huge\EUROSANS  &\huge\sffamily\EUROSANS
+ %                                             & \huge\ttfamily\EUROSANS \\
+-marvosym     &\verb+\EURtm+  & \huge\mvchr101  &\huge\mvchr101
+-                                               &\huge\mvchr101
++%marvosym     &\verb+\EURtm+  & \huge\mvchr101  &\huge\mvchr101
++%                                               &\huge\mvchr101
+ \end{tabular}
+ \medskip
+ \end{lined}

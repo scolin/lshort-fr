@@ -1,0 +1,12 @@
+--- a/src/lshort-base.tex
++++ b/src/lshort-base.tex
+@@ -89,9 +89,6 @@
+ \refstepcounter{chapter}
+ \addcontentsline{toc}{chapter}{Index} 
+ \printindex
+-\refstepcounter{chapter}
+-\label{verylast}
+-\mbox{}
+ \end{document}
+ 
+ 

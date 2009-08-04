@@ -1,0 +1,11 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -560,7 +560,7 @@ Font encodings are handled through
+ encodings simultaneously.
+ 
+ The default \LaTeX{} font encoding is \label{OT1} \fei{OT1}, the encoding of the
+-original Computer Modern \TeX{} font. It containins only the 128
++original Computer Modern \TeX{} font. It contains only the 128
+ characters of the 7-bit ASCII character set. When accented characters
+ are required, \TeX{} creates them by combining a normal character with
+ an accent. While the resulting output looks perfect, this approach stops
