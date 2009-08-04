@@ -154,17 +154,20 @@ paragraphe.
 \ci{pagebreak}\verb|[|\emph{n}\verb|]|,
 \ci{nopagebreak}\verb|[|\emph{n}\verb|]|
 \end{lscommand}
-\noindent font ce que suggère leur nom anglais. Ces commandes permettent à
-l'auteur de paramétrer leur action par l'intermédiaire du paramètre
-optionnel \emph{n} pouvant prendre une valeur entre zéro et
-quatre. En donnant à \emph{n} une valeur inférieure à quatre, vous
-laissez à \LaTeX{} la possibilité de ne pas tenir compte de votre
-commande si cela devait rendre le résultat  réellement laid.
-Ne confondez pas ces commandes \og break \fg{} avec les commandes \og new \fg{}. 
-Même lorsque vous utilisez une commande \og break \fg{}, \LaTeX{} essaye de
-justifier le bord droit du texte et d'ajuster la longueur totale de la 
-page, comme expliqué plus loin. Si vous voulez réellement commencer
-une \og nouvelle \fg{} ligne, utilisez la commande \og new \fg{} correspondante. 
+\noindent suggèrent (en anglais) où un saut de ligne ou de page peut
+apparaître ou non. Ces commandes permettent à l'auteur de paramétrer
+leur action par l'intermédiaire du paramètre optionnel \emph{n}
+pouvant prendre une valeur entre zéro et quatre. En donnant à \emph{n}
+une valeur inférieure à quatre, vous laissez à \LaTeX{} la possibilité
+de ne pas tenir compte de votre commande si cela devait rendre le
+résultat réellement laid.  Ne confondez pas ces commandes \og break
+\fg{} avec les commandes \og new \fg{}.  Même lorsque vous utilisez
+une commande \og break \fg{}, \LaTeX{} essaye de justifier le bord
+droit du texte et d'ajuster la longueur totale de la page, comme
+expliqué plus loin ; cela peut mener à des blancs inesthétiques dans
+votre texte.  Si vous voulez réellement commencer une \og nouvelle
+\fg{} ligne ou une \og nouvelle \fg{} page, utilisez la commande \og
+new \fg{} correspondante.
 
 \LaTeX{} essaye toujours de trouver les meilleurs endroits pour les
 retours à la ligne.
@@ -413,9 +416,9 @@ plutôt \texttt{gen} à la place de \texttt{option}.
 % l'extension \pai{eurosans} et la commande \ci{euro} (pour l'\og Euro
 % officiel \fg{}).
 
-L'extension \pai{marvosym} fournit également des symboles variés, y
-compris celui de l'Euro, sous le nom \ci{EURtm}. Son défaut est de ne
-pas proposer des versions italiques et grasses de ce symbole.
+% L'extension \pai{marvosym} fournit également des symboles variés, y
+% compris celui de l'Euro, sous le nom \ci{EURtm}. Son défaut est de ne
+% pas proposer des versions italiques et grasses de ce symbole.
 
 \begin{table}[!htbp]
 \caption{Un sac plein d'Euros} \label{eurosymb}
@@ -431,8 +434,8 @@ $[$gen$]$eurosym &\verb+\euro+ & \huge\geneuro  &\huge\sffamily\geneuro
 %                                                &\huge\EURcr\\
 % eurosans     &\verb+\euro+ & \huge\EUROSANS  &\huge\sffamily\EUROSANS
 %                                             & \huge\ttfamily\EUROSANS \\
-marvosym     &\verb+\EURtm+  & \huge\mvchr101  &\huge\mvchr101
-                                               &\huge\mvchr101
+% marvosym     &\verb+\EURtm+  & \huge\mvchr101  &\huge\mvchr101
+%                                                &\huge\mvchr101
 \end{tabular}
 \medskip
 \end{lined}
@@ -1904,8 +1907,10 @@ table :
 \verb|\caption[courte]{LLLLLoooooonnnnnggggguuuueee}| 
 \end{code}
 
-Avec \verb|\label| et \verb|\ref| vous pouvez faire référence à votre
-objet à l'intérieur de votre texte.
+Avec \ci{label} et \ci{ref} vous pouvez faire référence à votre objet
+à l'intérieur de votre texte. La commande \ci{label} doit apparaître
+\emph{après} la commande \ci{caption} d'une légende si vous voulez
+référencer le numéro de cette légende.
 
 L'exemple suivant dessine un carré et l'insère dans le document. Vous
 pouvez utiliser cette commande pour réserver de la place pour une
@@ -1916,7 +1921,7 @@ illustration que vous allez coller sur le document terminé.
 La figure~\ref{blanche} est un exemple de Pop-Art.
 \begin{figure}[!hbp]
 \makebox[\textwidth]{\framebox[5cm]{\rule{0pt}{5cm}}}
-\caption{Cinq centimètres sur cinq \label{blanche}}
+\caption{Cinq centimètres sur cinq.}\label{blanche}
 \end{figure}
 \end{verbatim}
 \end{code}
