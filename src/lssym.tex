@@ -15,30 +15,35 @@ Les tableaux suivants montrent tous les symboles accessibles en mode
 % Conditional Text in case the AMS Fonts are installed
 %
 Pour utiliser des symboles présents dans les tables~\ref{AMSD}
-à~\ref{AMSNBR}\,\footnote{Ces tables sont dérivées du
+à~\ref{AMSmisc}\,\footnote{Ces tables sont dérivées du
 fichier \texttt{symbols.tex} de David~Carlisle et modifiées selon les
 suggestions de Josef~Tkadlec}, l'extension \pai{amssymb} doit être
 chargée dans le préambule du document et les polices mathématiques de
-l'AMS doivent être installées sur votre système. Si les extensions et
-les polices de l'AMS ne sont pas installées sur votre système, vous
+l'\AmS doivent être installées sur votre système. Si les extensions et
+les polices de l'\AmS ne sont pas installées sur votre système, vous
 pouvez les récupérer sur\\
 \CTANref|macros/latex/required/amslatex|. Il existe une
 liste beaucoup plus complète de symboles sur
  \CTANref|info/symbols/comprehensive|.
- 
+
 \begin{table}[!h]
 \caption{Accents en mode mathématique}  \label{mathacc}
 \begin{symbols}{*3{cl}}
-\W{\hat}{a}     & \W{\check}{a} & \W{\tilde}{a} \\
-\W{\grave}{a} & \W{\dot}{a} & \W{\ddot}{a}     \\
-\W{\bar}{a} &\W{\vec}{a} &\W{\widehat}{A}  \\  
-\W{\acute}{a}  & \W{\breve}{a} &\W{\widetilde}{A} \\
-\W{\mathring}{a}\\
+\W{\hat}{a}   & \W{\check}{a} & \W{\tilde}{a}       \\
+\W{\grave}{a} & \W{\dot}{a}   & \W{\ddot}{a}        \\
+\W{\bar}{a}   & \W{\vec}{a}   & \W{\widehat}{AAA}   \\  
+\W{\acute}{a} & \W{\breve}{a} & \W{\widetilde}{AAA} \\
+\W{\mathring}{a}
 \end{symbols}
 \end{table}
  
+
 \begin{table}[!h]
-\caption{Alphabet grec}
+\caption{Alphabet grec}\label{greekletters}
+\bigskip
+Certaines lettres n'ont pas leur équivalent en majuscule comme
+\ci{Alpha}, \ci{Beta}\ldots{} parce qu'elles ressemblent aux lettres
+romaines normales : A, B\ldots
 \begin{symbols}{*4{cl}}
  \X{\alpha}     & \X{\theta}     & \X{o}          & \X{\upsilon}  \\
  \X{\beta}      & \X{\vartheta}  & \X{\pi}        & \X{\phi}      \\
@@ -57,7 +62,7 @@ liste beaucoup plus complète de symboles sur
 
 
 \begin{table}[!tbp]
-\caption{Relations binaires}
+\caption{Relations binaires} \label{binaryrel}
 \bigskip
 Vous pouvez produire la négation de ces symboles en les préfixant par
 la commande \ci{not}.
@@ -114,7 +119,7 @@ pour avoir accès à ces symboles}
 
 
 \begin{table}[!tbp]
-\caption{Flèches}
+\caption{Flèches} \label{tab:arrows}
 \begin{symbols}{*2{cl}}
  \X{\leftarrow}or \verb|\gets|& \X{\longleftarrow} \\
  \X{\rightarrow}or \verb|\to|& \X{\longrightarrow} \\
@@ -139,16 +144,26 @@ pour obtenir ces symboles}
 \end{table}
 
 \begin{table}[!tbp]
+\caption{Flèches en tant qu'accents}  \label{arrowacc}
+\begin{symbols}{*2{cl}}
+\W{\overrightarrow}{AB}     & \W{\underrightarrow}{AB}     \\
+\W{\overleftarrow}{AB}      & \W{\underleftarrow}{AB}      \\
+\W{\overleftrightarrow}{AB} & \W{\underleftrightarrow}{AB} \\
+\end{symbols}
+\end{table}
+
+
+\begin{table}[!tbp]
 \caption{Délimiteurs}\label{tab:delimiters}
 \begin{symbols}{*3{cl}}
  \X{(}            & \X{)}            & \X{\uparrow} \\
- \X{[}or \verb|\lbrack|   & \X{]}or \verb|\rbrack|  & \X{\downarrow}   \\
- \X{\{}or \verb|\lbrace|  & \X{\}}or \verb|\rbrace|  & \X{\updownarrow} \\
- \X{\langle}      & \X{\rangle}  & \X{|}or \verb|\vert| \\
- \X{\lfloor}      & \X{\rfloor}      & \X{\lceil}       \\
- \X{/}            & \X{\backslash}   & \X{\Updownarrow}\\ 
- \X{\Uparrow}     &  \X{\Downarrow}  & \X{\|}or \verb|\Vert| \\
-  \X{\rceil}    
+ \X{[}ou \verb|\lbrack|   & \X{]}ou \verb|\rbrack|  & \X{\downarrow}   \\
+ \X{\{}ou \verb|\lbrace|  & \X{\}}ou \verb|\rbrace|  & \X{\updownarrow} \\
+ \X{\langle}      & \X{\rangle}      &  \X{\Uparrow} \\
+ \X{|}ou \verb|\vert| & \X{\|}ou \verb|\Vert| & \X{\Downarrow} \\
+  \X{/}            & \X{\backslash}   &   \X{\Updownarrow}  \\ 
+ \X{\lfloor}      & \X{\rfloor}      &  \\
+ \X{\rceil}       &  \X{\lceil}  &&\\
 \end{symbols}
 \end{table}
 
@@ -174,7 +189,6 @@ pour obtenir ces symboles}
  \X{\bot}        & \X{\top}        & \X{\angle}      & \X{\surd}      \\
 \X{\diamondsuit} & \X{\heartsuit}  & \X{\clubsuit}   & \X{\spadesuit} \\
  \X{\neg}ou \verb|\lnot| & \X{\flat}       & \X{\natural}    & \X{\sharp}
-
 \end{symbols}
 \centerline{\footnotesize $^a$Utilisez l'extension \textsf{latexsym}
 pour obtenir ces symboles}
@@ -197,7 +211,7 @@ Ces symboles peuvent également être utilisés en mode \emph{texte}.
 %
 
 \begin{table}[!tbp]
-\caption{Délimiteurs de l'AMS}\label{AMSD}
+\caption{Délimiteurs de l'\AmS}\label{AMSD}
 \bigskip
 \begin{symbols}{*4{cl}}
 \X{\ulcorner}&\X{\urcorner}&\X{\llcorner}&\X{\lrcorner}
@@ -205,14 +219,59 @@ Ces symboles peuvent également être utilisés en mode \emph{texte}.
 \end{table}
 
 \begin{table}[!tbp]
-\caption{Caractères grecs et hébreux de l'AMS}
+\caption{Caractères grecs et hébreux de l'AmS}
 \begin{symbols}{*5{cl}}
 \X{\digamma}     &\X{\varkappa} & \X{\beth} &\X{\gimel} & \X{\daleth}
 \end{symbols}
 \end{table}
 
+\begin{table}[tbp]
+  \caption{Alphabets mathématiques} \label{mathalpha}
+\bigskip Voir le tableau~\ref{mathfonts} page~\pageref{mathfonts} pour
+d'autres polices mathématiques.
+\begin{symbols}{@{}*3l@{}}
+Exemple& Commande & Extension à utiliser\\
+\hline
+\rule{0pt}{1.05em}$\mathrm{ABCDE abcde 1234}$
+        & \verb|\mathrm{ABCDE abcde 1234}|
+        &       \\
+$\mathit{ABCDE abcde 1234}$
+        & \verb|\mathit{ABCDE abcde 1234}|
+        &       \\
+$\mathnormal{ABCDE abcde 1234}$
+        & \verb|\mathnormal{ABCDE abcde 1234}|
+        &  \\
+$\mathcal{ABCDE abcde 1234}$
+        & \verb|\mathcal{ABCDE abcde 1234}|
+        &  \\
+$\mathscr{ABCDE abcde 1234}$
+        &\verb|\mathscr{ABCDE abcde 1234}|
+        &\pai{mathrsfs}\\
+$\mathfrak{ABCDE abcde 1234}$
+        & \verb|\mathfrak{ABCDE abcde 1234}|
+        &\pai{amsfonts}  ou \textsf{amssymb}  \\
+$\mathbb{ABCDE abcde 1234}$
+        & \verb|\mathbb{ABCDE abcde 1234}|
+        &\pai{amsfonts}  ou \textsf{amssymb} \\
+\end{symbols}
+\end{table}
+
 \begin{table}[!tbp]
-\caption{Relations binaires de l'AMS}
+\caption{Opérateurs binaires de l'\AmS}
+\begin{symbols}{*3{cl}}
+ \X{\dotplus}        & \X{\centerdot}      &       \\
+ \X{\ltimes}         & \X{\rtimes}         & \X{\divideontimes} \\
+ \X{\doublecup}      & \X{\doublecap}	   & \X{\smallsetminus} \\
+ \X{\veebar}         & \X{\barwedge}       & \X{\doublebarwedge}\\
+ \X{\boxplus}        & \X{\boxminus}       & \X{\circleddash}   \\
+ \X{\boxtimes}       & \X{\boxdot}         & \X{\circledcirc}   \\
+ \X{\intercal}       & \X{\circledast}     & \X{\rightthreetimes} \\
+ \X{\curlyvee}       & \X{\curlywedge}     & \X{\leftthreetimes}
+\end{symbols}
+\end{table}
+
+\begin{table}[!tbp]
+\caption{Relations binaires de l'\AmS}
 \begin{symbols}{*3{cl}}
  \X{\lessdot}           & \X{\gtrdot}            & \X{\doteqdot} \\
  \X{\leqslant}          & \X{\geqslant}          & \X{\risingdotseq}     \\
@@ -240,7 +299,7 @@ Ces symboles peuvent également être utilisés en mode \emph{texte}.
 \end{table}
 
 \begin{table}[!tbp]
-\caption{Flèches de l'AMS}
+\caption{Flèches de l'\AmS}
 \begin{symbols}{*2{cl}}
  \X{\dashleftarrow}      & \X{\dashrightarrow}     \\
  \X{\leftleftarrows}     & \X{\rightrightarrows}   \\
@@ -261,7 +320,7 @@ Ces symboles peuvent également être utilisés en mode \emph{texte}.
 \end{table}
 
 \begin{table}[!tbp]
-\caption{Négations des relations binaires et des flèches de l'AMS}\label{AMSNBR}
+\caption{Négations des relations binaires et des flèches de l'\AmS}\label{AMSNBR}
 \begin{symbols}{*3{cl}}
  \X{\nless}           & \X{\ngtr}            & \X{\varsubsetneqq}  \\
  \X{\lneq}            & \X{\gneq}            & \X{\varsupsetneqq}  \\
@@ -287,22 +346,8 @@ Ces symboles peuvent également être utilisés en mode \emph{texte}.
 \end{symbols}
 \end{table}
 
-\begin{table}[!tbp]
-\caption{Opérateurs binaires de l'AMS}
-\begin{symbols}{*3{cl}}
- \X{\dotplus}        & \X{\centerdot}      &       \\
- \X{\ltimes}         & \X{\rtimes}         & \X{\divideontimes} \\
- \X{\doublecup}      & \X{\doublecap}	   & \X{\smallsetminus} \\
- \X{\veebar}         & \X{\barwedge}       & \X{\doublebarwedge}\\
- \X{\boxplus}        & \X{\boxminus}       & \X{\circleddash}   \\
- \X{\boxtimes}       & \X{\boxdot}         & \X{\circledcirc}   \\
- \X{\intercal}       & \X{\circledast}     & \X{\rightthreetimes} \\
- \X{\curlyvee}       & \X{\curlywedge}     & \X{\leftthreetimes}
-\end{symbols}
-\end{table}
-
-\begin{table}[!tbp]
-\caption{Symboles divers de l'AMS}
+\begin{table}[!tbp] \label{AMSmisc}
+\caption{Symboles divers de l'\AmS}
 \begin{symbols}{*3{cl}}
  \X{\hbar}             & \X{\hslash}           & \X{\Bbbk}            \\
  \X{\square}           & \X{\blacksquare}      & \X{\circledS}        \\
@@ -318,38 +363,6 @@ Ces symboles peuvent également être utilisés en mode \emph{texte}.
 
 
 
-\begin{table}[!tbp]
-\caption{Polices mathématiques}
-\begin{symbols}{@{}*3l@{}}
-Exemple& Commande & Extension à utiliser\\
-\hline
-\rule{0pt}{1.05em}$\mathrm{ABCDE abcde 1234}$
-        & \verb|\mathrm{ABCDE abcde 1234}|
-        &       \\
-$\mathit{ABCDE abcde 1234}$
-        & \verb|\mathit{ABCDE abcde 1234}|
-        &       \\
-$\mathnormal{ABCDE abcde 1234}$
-        & \verb|\mathnormal{ABCDE abcde 1234}|
-        &  \\
-$\mathcal{ABCDE abcde 1234}$
-        & \verb|\mathcal{ABCDE abcde 1234}|
-%SC: to check
-%        & \pai{euscript} avec l'option\,: \texttt{mathcal} \\
-        &  \\
-$\mathscr{ABCDE abcde 1234}$
-        &\verb|\mathscr{ABCDE abcde 1234}|
-        &\pai{mathrsfs}\\
-$\mathfrak{ABCDE abcde 1234}$
-        & \verb|\mathfrak{ABCDE abcde 1234}|
-        &\pai{amsfonts} ou \textsf{amssymb}  \\
-%SC: to check
-%        &\pai{eufrak}                \\
-$\mathbb{ABCDE abcde 1234}$
-        & \verb|\mathbb{ABCDE abcde 1234}|
-        &\pai{amsfonts} ou \pai{amssymb} \\
-\end{symbols}
-\end{table}
 
 
 \endinput
