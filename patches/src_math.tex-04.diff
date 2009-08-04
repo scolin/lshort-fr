@@ -1,0 +1,25 @@
+--- a/src/math.tex
++++ b/src/math.tex
+@@ -118,7 +118,21 @@ And this is display style:
+   = \frac{\pi^2}{6}
+  \end{equation}
+ \end{example}
+- 
++
++In text style, enclose tall or deep math expressions or sub
++expressions in \ci{smash}. This makes \LaTeX{} ignore the height of
++these expressions. This keeps the line spacing even.
++
++\begin{example}
++A $d_{e_{e_p}}$ mathematical
++expression  followed by a
++$h^{i^{g^h}}$ expression. As
++opposed to a smashed 
++\smash{$d_{e_{e_p}}$} expression 
++followed by a
++\smash{$h^{i^{g^h}}$} expression.
++\end{example}
++
+ \subsection{Math Mode}
+ 
+ There are also differences between \emph{\wi{math mode}} and \emph{text mode}. For

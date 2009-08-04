@@ -1,0 +1,11 @@
+--- a/src/custom.tex
++++ b/src/custom.tex
+@@ -153,7 +153,7 @@ found on page \pageref{sec:hspace}.
+ \subsection{Extra Space}
+ 
+ When creating a new environment you may easily get bitten by extra spaces
+-creaping in, which can potentially have fatal effects. For example when you
++creeping in, which can potentially have fatal effects. For example when you
+ want to create a title environment which supresses its own indentation as
+ well as the one on the following paragraph. The \ci{ignorespaces} command in
+ the begin block of the environment will make it ignore any space after

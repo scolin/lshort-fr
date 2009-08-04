@@ -1,0 +1,13 @@
+--- a/src/math.tex
++++ b/src/math.tex
+@@ -747,8 +747,8 @@ The \pai{amsthm} also provides the \ei{proof} environment.
+ \end{proof}
+ \end{example}
+ 
+-With the command \ci{qedhere} you can move the `end of proof symbol'. symbol around for
+-situations where it would end up alone on a line.
++With the command \ci{qedhere} you can move the `end of proof' symbol
++around for situations where it would end up alone on a line.
+ 
+ \begin{example}
+ \begin{proof}

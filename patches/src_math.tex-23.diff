@@ -1,0 +1,11 @@
+--- a/src/math.tex
++++ b/src/math.tex
+@@ -738,7 +738,7 @@ The ``Murphy'' theorem gets a number that is linked to the number of
+ the current section. You could also use another unit, for example chapter or
+ subsection.
+ 
+-The \pai{amsthm} also provides the \ei{proof} environment.
++The \pai{amsthm} package also provides the \ei{proof} environment.
+ 
+ \begin{example}
+ \begin{proof}

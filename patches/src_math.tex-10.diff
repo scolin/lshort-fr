@@ -1,0 +1,11 @@
+--- a/src/math.tex
++++ b/src/math.tex
+@@ -350,7 +350,7 @@ Pascal's rule is
+ \end{example}
+ 
+ For \wi{binary relations} it may be useful to stack symbols over each other.
+-\ci{stackrel}\verb|{#1}{#1}| puts the symbol given
++\ci{stackrel}\verb|{#1}{#2}| puts the symbol given
+ in \verb|#1| in superscript-like size over \verb|#2| which
+ is set in its usual position.
+ \begin{example}

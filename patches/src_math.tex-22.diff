@@ -1,0 +1,11 @@
+--- a/src/math.tex
++++ b/src/math.tex
+@@ -722,7 +722,7 @@ see law~\ref{law:box}.\end{jury}
+ 
+ The ``Jury'' theorem uses the same counter as the ``Law''
+ theorem, so it gets a number that is in sequence with
+-the other ``Laws.'' The argument in square brackets is used to specify 
++the other ``Laws''. The argument in square brackets is used to specify 
+ a title or something similar for the theorem.
+ \begin{example}
+ \newtheorem{mur}{Murphy}[section]

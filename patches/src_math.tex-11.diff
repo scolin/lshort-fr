@@ -1,0 +1,11 @@
+--- a/src/math.tex
++++ b/src/math.tex
+@@ -398,7 +398,7 @@ If you put \ci{left} in front of an opening delimiter and
+ \ci{right} in front of a closing delimiter, \LaTeX{} will automatically
+ determine the correct size of the delimiter. Note that you must close
+ every \ci{left} with a corresponding \ci{right}. If you
+-don't want anything on the right, use the invisible ``\ci{right.}:''
++don't want anything on the right, use the invisible ``\ci{right.}'':
+ \begin{example}
+ \begin{equation*}
+ 1 + \left(\frac{1}{1-x^{2}}

@@ -1,0 +1,11 @@
+--- a/src/math.tex
++++ b/src/math.tex
+@@ -180,7 +180,7 @@ typesetting. Most of the commands in this section will not require
+  \verb|\beta|, \verb|\gamma|, \ldots, uppercase letters
+ are entered as \verb|\Gamma|, \verb|\Delta|, \ldots\footnote{There is no
+   uppercase Alpha, Beta etc. defined in \LaTeXe{} because it looks the same as a 
+-  normal roman A, B\ldots Once the new math coding is done, things will
++  normal roman A, B\ldots{} Once the new math coding is done, things will
+   change.} 
+ 
+ Take a look at Table~\ref{greekletters} on page~\pageref{greekletters} for a

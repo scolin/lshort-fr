@@ -1,0 +1,11 @@
+--- a/src/math.tex
++++ b/src/math.tex
+@@ -287,7 +287,7 @@ $\vec{a} \qquad
+ 
+ Names of log-like functions are often typeset in an upright
+ font, and not in italics as variables are, so \LaTeX{} supplies the
+-following commands to typeset the most important function names:\\
++following commands to typeset the most important function names:
+ \index{mathematical!functions}
+ 
+ \begin{tabular}{llllll}

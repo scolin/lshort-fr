@@ -1,0 +1,11 @@
+--- a/src/math.tex
++++ b/src/math.tex
+@@ -16,7 +16,7 @@
+   
+ 
+ 
+-\section{The \AmS-\LaTeX{} bundle}
++\section{The \texorpdfstring{\AmS}{AMS}-\LaTeX{} bundle}
+ 
+ If you want to typeset (advanced) \wi{mathematics}, you should
+ use \AmS-\LaTeX{}. The \AmS-\LaTeX{} bundle is a collection of packages and classes for

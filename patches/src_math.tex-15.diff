@@ -1,0 +1,24 @@
+--- a/src/math.tex
++++ b/src/math.tex
+@@ -452,14 +452,14 @@ This is a reference to \eqref{1}.
+ automatically divided into neat bits.  The author has to specify
+ where to break them and correct the indent:
+ \begin{example}
+- \begin{align}
+-   f(x) ={}& 3x^5 + x^4 + 2x^3 
+-                     \nonumber \\
+-           & + 9x^2 + 12x + 23 \\
+-        ={}& g(x) - h(x)
+- \end{align}
++\begin{align}
++f(x) &= 3x^5 + x^4 + 2x^3 
++                \nonumber \\
++     &\qquad + 9x^2 + 12x + 23 \\
++     &= g(x) - h(x)
++\end{align}
+ \end{example}
+-The \pai{amsmath} package provides a couple of other useful environment: \verb|flalign|,
++The \pai{amsmath} package provides a couple of other useful environments: \verb|flalign|,
+ \verb|gather|, \verb|multline| and \verb|split|. See the
+ documentation for the package for a wide range of commands, environments and more.
+ 

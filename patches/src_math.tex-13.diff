@@ -1,0 +1,11 @@
+--- a/src/math.tex
++++ b/src/math.tex
+@@ -430,7 +430,7 @@ $\big( \Big( \bigg( \Bigg( \quad
+ For formulae running over several lines or for \wi{equation system}s,
+ you can use the environments \ei{align} and \verb|align*|
+ instead of \texttt{equation} and \texttt{equation*}.\footnote{The \ei{align}
+-  environment is from \textsf{amsmath}. A similar environment without \texttt{amsmath}
++  environment is from \textsf{amsmath}. A similar environment without \textsf{amsmath}
+   from \LaTeX{} is \ei{eqnarray}, but it is generally not advised to use that
+ because of spacing and label inconsistencies.} With \ei{align} each line gets an
+ equation number. The \verb|align*| does not number anything.
