@@ -1,3 +1,5 @@
+-*- coding: iso-8859-1 -*-
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Specialties of the LaTeX system
 % $Id: spec.tex,v 1.2 2003/03/19 20:57:47 oetiker Exp $
@@ -23,7 +25,7 @@ dans le {\normalfont\manual{}},dans {\normalfont\companion{}}
 et dans {\normalfont\desgraupes{}}. 
 \end{intro}
 
-\section{Inclure des figures \EPSi{}} \label{eps}
+\section{Inclusion \EPSi{}} \label{eps}
 
 Avec les environnements \ei{figure} et \texttt{table}, \LaTeX{}
 fournit les mécanismes de base pour travailler avec des objets tels que
@@ -116,8 +118,9 @@ commande :
 \begin{verbatim}
 \begin{figure}
 \centering
-\includegraphics[angle=90, width=10cm]{test.eps}
-\caption{Une légende qui explique qu'il s'agit d'un test.}
+\includegraphics[angle=90,
+                 width=0.5\textwidth]{test}
+\caption{Ceci est un test.}
 \end{figure}
 \end{verbatim}
 \end{code}
@@ -165,8 +168,6 @@ TUGboat Vol.~9, No.~1 ('88)
                            %bibliography example.
 \thispagestyle{fancyplain}
 
-% SC: just following the upstream changes, here
-\newpage
 
 Pour des projets plus importants, il est recommandé d'utiliser l'outil
 BiB\TeX{}. Celui-ci est fourni avec la plupart des installations de
@@ -175,6 +176,9 @@ bibliographiques et d'en extraire la liste des références citées dans
 votre document. La génération des listes de références  par
 BiB\TeX{} utilise un mécanisme de feuilles de style qui permettent
 de réaliser tous les types de présentations habituellement demandés. 
+
+%SC: upstream change, maybe not appropriate
+\newpage
 
 \section{Index} \label{sec:indexing}
 L'\wi{index} est un élément fort utile de nombreux
@@ -220,7 +224,7 @@ où \emph{clef} est un mot-clef de l'index. Vous insérez des commandes
 \verb|\index{Lin@\textbf{Lin}}|     &\textbf{Lin}, 7& idem\\ 
 \verb.\index{Jenny|textbf}.     &Jenny, \textbf{3}& Numéro de page formaté\\
 \verb.\index{Joe|textit}.     &Joe, \textit{5}& idem\\
-\verb.\index{eolienne@éolienne}.     &éolienne, 4& clef accentuée
+\verb.\index{ecole@école}.     &école, 4& clef accentuée
 \end{tabular}
 \end{center}
 \end{table}
@@ -310,9 +314,11 @@ l'adresse mentionnée dans la note de bas de page.
 \pagestyle{fancy}
 % Ceci permet d'avoir les noms de chapitre et de section 
 % en minuscules
-\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
-\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
-\fancyhf{}     % supprime les en-têtes et pieds prédéfinis
+\renewcommand{\chaptermark}[1]{
+        \markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{
+        \markright{\thesection\ #1}}
+\fancyhf{}     % supprime les en-têtes et pieds
 \fancyhead[LE,RO]{\bfseries\thepage}% Left Even, Right Odd
 \fancyhead[LO]{\bfseries\rightmark} % Left Odd
 \fancyhead[RE]{\bfseries\leftmark}  % Right Even
@@ -354,7 +360,7 @@ Puisque l'extension \pai{verbatim} fait partie de l'ensemble \og
 des systèmes. Pour en savoir plus au sujet de cette extension,
 reportez-vous à~\cite{verbatim}.
 
-\section{Téléchargement et installation d'extensions}
+\section{Installation d'extensions}
 \label{sec:Packages}
 
 La plupart des  installations \LaTeX{} fournissent en standard un grand
@@ -478,7 +484,7 @@ plus d'extensions pour l'affichage direct de documents PDF.
 
 
 Bien qu'il y ait des visualiseurs DVI et PS pour presque toutes les
-plateformes, vous constaterez qu'\wi{Acrobat Reader} et \wi{xpdf}, qui
+plateformes, vous constaterez qu'\wi{Acrobat Reader} et \wi{Xpdf}, qui
 servent à lire des documents PDF, sont encore plus fréquemment
 déployés. Fournir des versions PDF de vos documents les rendra donc
 d'autant plus accessibles à vos lecteurs potentiels.
@@ -567,7 +573,8 @@ l'alphabet latin, vous disposez de plusieurs autres alternatives.
 \begin{itemize}
 \item Vous pouvez utiliser l'extension \pai{aeguill} (\emph{Almost
     European Computer Modern with Guillemets}). Ajoutez simplement en
-  préambule la ligne \verb+\usepackage{aeguill}+\paih{aeguill} pour
+  préambule la ligne\newline
+  \verb+\usepackage{aeguill}+\paih{aeguill} pour
   utiliser les polices virtuelles AE au lieu des polices EC.
 \item Autrement vous pouvez utiliser l'extension \pai{mltex} à la
   condition que votre version de pdf\TeX{} a été compilée avec
@@ -618,7 +625,7 @@ les utiliser il suffit d'ajouter les lignes suivantes en préambule :
 
 Note : il se peut que vous voyiez des lignes comme
 \begin{verbatim}
-Warning: pdftex (file eurmo10): Font eurmo10 at ... not found
+Warning: pdftex (file eurmo10): Font eur... not found
 \end{verbatim}
 dans le fichier \texttt{.log} après compilation de votre
 fichier. Elles signifient que l'une des polices utilisées par votre
@@ -636,7 +643,7 @@ fort probable que vous possédiez déjà une copie de ces polices. Tout
 ce qu'il vous reste alors à faire est d'ajouter
 \begin{code}
 \begin{verbatim}  
-\userpackage{lmodern}
+\usepackage{lmodern}
 \usepackage[T1]{fontenc} 
 \usepackage{textcomp}
 \end{verbatim}
@@ -714,6 +721,7 @@ transformation du fichier PS en PDF.}
 Dans la liste suivante, les valeurs par défaut des options sont
 affichées avec une police droite.
 
+\begin{flushleft}
 \begin{description}
   \item [\texttt{bookmarks (=true,\textit{false})}] montrer ou cacher
     le marque-pages lors de l'affichage du document ;
@@ -747,8 +755,7 @@ affichées avec une police droite.
       URL (adresse électronique, adresse web).
     \end{description}
 \end{description}
-
-\vspace{\baselineskip}
+\end{flushleft}
 
 Si les valeurs par défaut vous plaisent, utilisez
 \begin{code}
@@ -847,8 +854,9 @@ la page imprimée.
 
 Des messages tels que celui-ci :
 \begin{verbatim}
-! pdfTeX warning (ext4): destination with the same identifier
-  (name{page.1}) has been already used, duplicate ignored
+! pdfTeX warning (ext4): destination with the same
+  identifier (name{page.1}) has been already used,
+  duplicate ignored
 \end{verbatim}
 apparaissent lors de la réinitialisation d'un compteur, par exemple
 lors de l'utilisation de la commande \ci{mainmatter} fournie par la
@@ -861,7 +869,7 @@ livre a aussi une page numérotée~1 : les liens vers la \og page~1
 La contre-mesure consiste en l'ajout de \texttt{plainpages=false} aux
 options d'hyperref. Ça ne résout le problème que pour le compteur de
 pages, malheureusement.
-Une solution encore plus radicale est d'utiliser l'option
+Une solution encore plus radicale est d'utiliser l'option\\
 \texttt{hypertexnames=false} mais cela empêchera les liens de pages en
 index de fonctionner.
 
@@ -889,7 +897,7 @@ de problèmes :
 \begin{code}
 \begin{verbatim}
 \section{\texorpdfstring{$E=mc^2$}%
-        {E\ =\ mc\texttwosuperior}}
+        {E=mc^2}}
 \end{verbatim}
 \end{code}
 transforme \verb+\section{$E=mc^2$}+ en \og E=mc2 \fg{} dans la zone de
@@ -907,6 +915,12 @@ Si vous utilisez
 \verb+\section{\texorpdfstring{\textcolor{red}{Rouge !}}{Rouge\ !}}+
 \end{code}
 le résultat sera beaucoup plus lisible.
+
+Si votre document est codé en unicode et que vous utilisez l'option
+\verb+unicode+ de l'extension \pai{hyperref}, vous pouvez utiliser des
+caractères unicode dans les marque-pages. Vous aurez ainsi une bien
+plus grande sélection parmi les caractères utilisables avec
+\ci{texorpdfstring}.
 
 \subsubsection{Compatibilité des sources entre \LaTeX{} et pdf\LaTeX{}}
 \label{sec:pdfcompat}
@@ -927,7 +941,7 @@ Pour les occasions où vous voulez utiliser un code différent pour la
 version PDF de votre document, vous pouvez ajouter l'extension
 \pai{ifpdf}%
 \footnote{Pour le pourquoi de l'utilisation de cette extension,
-  consultez la FAQ \TeX{} (en anglais) à la page
+  consultez la FAQ \TeX{} (en anglais) à la page\\
   \url{http://www.tex.ac.uk/cgi-bin/texfaq2html?label=ifpdf}.}
 en préambule. Il y a des chances qu'elle soit déjà installée ; si ce
 n'est pas le cas alors vous utilisez probablement MiK\TeX{} qui
@@ -939,16 +953,24 @@ des coûts d'impression, mais nous voulons quand même que la version
 PDF en ligne soit colorée.
 \begin{code}
 \begin{verbatim}
+\RequirePackage{ifpdf} % utilisation de pdfTeX?
 \ifpdf
-   \usepackage[T1]{fontenc}
-   \usepackage{aeguill}
-   \usepackage[pdftex]{graphicx,color}
-   \usepackage[pdftex,colorlinks]{hyperref}
+  \documentclass[a4paper,12pt,pdftex]{book}
 \else
-   \usepackage[T1]{fontenc}
-   \usepackage[dvips]{graphicx}
-   \usepackage[dvips]{hyperref}
+  \documentclass[a4paper,12pt,dvips]{book}
 \fi
+
+\ifpdf
+  \usepackage{lmodern}
+\fi
+\usepackage[bookmarks, % ajout d'hyperliens
+            colorlinks,
+            plainpages=false]{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+...
 \end{verbatim}
 \end{code}
 L'exemple ci-dessus fait inclure l'extension \pai{hyperref} même dans la
@@ -957,12 +979,15 @@ dans tous les cas. Cela évite de devoir protéger chacune de ses
 occurrences par une structure conditionnelle.
 
 Remarquez que dans les distributions \TeX{} récentes (\TeX{}Live par
-exemple), le choix entre \texttt{pdftex} et \texttt{dvips} lors de
-l'appel à \pai{graphicx} et \pai{color} suivra automatiquement les
-réglages opérés dans les fichiers de configuration
-\texttt{graphics.cfg} et \texttt{color.cfg}.
+exemple), le programme \TeX{} par défaut est en fait pdf\TeX{}. Il
+s'adaptera automatiquement à la production de pdf ou de dvi en
+fonction des réglages de votre classe de document. Si vous utilisez le
+code ci-dessus, alors vous pouvez toujours utiliser la commande
+\verb|pdflatex| pour obtenir une sortie pdf et \verb|latex| pour une
+sortie dvi.
 
-\section{Créer des présentations avec la classe \pai{beamer}}
+
+\section{Créer des présentations}
 \label{sec:beamer}
 \secby{Daniel Flipo}{Daniel.Flipo@univ-lille1.fr}
 Vous pouvez présenter les résultats de vos travaux sur un tableau
@@ -990,7 +1015,8 @@ La classe \pai{beamer} utilise \pai{graphicx}, \pai{color} et
 \documentclass[10pt]{beamer}
 \usepackage[utf8x]{inputenc}
 \mode<beamer>{%
-  \usetheme[hideothersubsections,right,width=22mm]{Goettingen}
+  \usetheme[hideothersubsections,
+            right,width=22mm]{Goettingen}
 }
 
 \title{Une simple présentation}
@@ -1072,7 +1098,7 @@ d'autre réglage spécifique pour \verb|\mode<trans>| et
 usuelle.
 
 Les commandes \verb|\title{}|, \verb|\author{}|, \verb|\institute{}|,
-et \verb|\titlegraphic{}| permettent de remplir la page de titre. Les
+et\\ \verb|\titlegraphic{}| permettent de remplir la page de titre. Les
 arguments optionnels de \verb|\title[]{}| et \verb|\author[]{}|
 servent à spécifier une version spéciale du titre et de l'auteur
 (respectivement) qui apparaîtront sur le panneau fourni par le thème
