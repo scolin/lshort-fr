@@ -405,10 +405,12 @@ plutôt \texttt{gen} à la place de \texttt{option}.
 Si les polices Adobe Eurofonts sont installées sur votre système (vous
 pouvez les obtenir gratuitement sur
 \url{ftp://ftp.adobe.com/pub/adobe/type/win/all}), vous pouvez
-utiliser soit l'extension \pai{europs} et la commande \ci{EUR} (pour
-un symbole de l'Euro qui correspond à la police courante) soit
-l'extension \pai{eurosans} et la commande \ci{euro} (pour l'\og Euro
-officiel \fg{}).
+utiliser l'extension \pai{europs} et la commande \ci{EUR} (pour
+un symbole de l'Euro qui correspond à la police courante).
+% ne fonctionne pas
+% soit
+% l'extension \pai{eurosans} et la commande \ci{euro} (pour l'\og Euro
+% officiel \fg{}).
 
 L'extension \pai{marvosym} fournit également des symboles variés, y
 compris celui de l'Euro, sous le nom \ci{EUR}. Son défaut est de ne
@@ -425,8 +427,9 @@ $[$gen$]$eurosym &\verb+\euro+ & \huge\geneuro  &\huge\sffamily\geneuro
                                                 & \huge\ttfamily\geneuro \\
 % En fait on appelle eurofont pour des conflits de noms...
 europs       &\verb+\EUR + & \huge\EURtm     &\huge\EURhv   & \huge\EURcr \\
-eurosans     &\verb+\euro+ & \huge\EUROSANS  &\huge\sffamily\EUROSANS
-                                                & \huge\ttfamily\EUROSANS \\
+% n'a pas l'air de fonctionner ...
+% eurosans     &\verb+\euro+ & \huge\EUROSANS  &\huge\sffamily\EUROSANS
+%                                                 & \huge\ttfamily\EUROSANS \\
 marvosym     &\verb+\EUR+  & \huge\mvchr164  &\huge\mvchr164 & \huge\mvchr164
 \end{tabular}
 \medskip
@@ -615,8 +618,8 @@ en fonction du type de système sous lequel vous travaillez.
 
 \begin{center}
 \begin{tabular}{l | r | r }
-Operating & \multicolumn{2}{c}{encodings}\\
-system  & Alphabet latin & Alphabet cyrillique\\
+Système & \multicolumn{2}{c}{encodings}\\
+d'exploitation & Alphabet latin & Alphabet cyrillique\\
  \hline
 Mac     &  \iei{applemac} & \iei{macukr}  \\
 Unix    &  \iei{latin1}   & \iei{koi8-ru}  \\ 
