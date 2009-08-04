@@ -1,0 +1,11 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -871,7 +871,7 @@ load them before \pai{fontenc} and \pai{babel} as well.}
+ Generally, \pai{babel} will authomatically choose the default font encoding,
+ for the above three languages this is \fei{T2A}.  However, documents are not
+ restricted to a single font encoding. For multi-lingual documents using
+-Cyrillic and Latin-based languages it makes sense to include latin font
++Cyrillic and Latin-based languages it makes sense to include Latin font
+ encoding explicitly. \pai{babel} will take care of switching to the appropriate
+ font encoding when a different language is selected within the document.
+ 

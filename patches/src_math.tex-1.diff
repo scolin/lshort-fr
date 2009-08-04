@@ -1,0 +1,11 @@
+--- a/src/math.tex
++++ b/src/math.tex
+@@ -60,7 +60,7 @@ or you can type less with:
+ If you want \LaTeX{} to enumerate your equations, you can use the
+ \ei{equation} environment.
+ You can then \ci{label} an equation number and refer to it somewhere else in the
+-text by using \ci{ref} or the  \ci{eqref} command from the \pai{amslatex} package:
++text by using \ci{ref} or the  \ci{eqref} command from the \pai{amsmath} package:
+ \begin{example}
+ \begin{equation} \label{eq:eps}
+ \epsilon > 0

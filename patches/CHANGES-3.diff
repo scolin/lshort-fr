@@ -1,0 +1,11 @@
+--- a/CHANGES
++++ b/CHANGES
+@@ -42,7 +42,7 @@
+ * remove kees.fig from Makefile
+ * some wording fixes to the cirillic section.
+ * added pdfstringdefDisableCommands to the preamble to fix some broken bookmarks -- Maksym Polyakov
+-* reworded the paragraph on the positionargument of the newsavebox command.
++* reworded the paragraph on the position argument of the newsavebox command.
+ 
+ 4.11
+ ---

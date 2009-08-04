@@ -1,0 +1,11 @@
+--- a/src/things.tex
++++ b/src/things.tex
+@@ -42,7 +42,7 @@ is heard in Greece, where you have the harsher ch of ach and Loch.}}
+ 
+  or in the Scottish ``Loch.'' The ``ch'' originates from the Greek
+ 
+-alphabet where X is the letter ``ch'' or ``chi''. \TeX{} is also the first sylable
++alphabet where X is the letter ``ch'' or ``chi''. \TeX{} is also the first syllable
+ of the Greek word texnologia (technology). In an ASCII environment, \TeX{}
+ becomes \texttt{TeX}.
+ 

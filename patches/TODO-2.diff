@@ -1,0 +1,13 @@
+--- a/TODO
++++ b/TODO
+@@ -35,10 +35,6 @@ from Lshort and might / should be added:
+   -- Tobias Oetiker <oetiker@ee.ethz.ch> 
+   ## not assigned yet
+ 
+-* Add section on the Layouts Package
+-  -- Tobias Oetiker <oetiker@ee.ethz.ch> 
+-  ## not assigned yet
+-   
+ * Add a section about using (external) Fonts
+   -- Björn Hvittfeldt <bjorn@hvittfeldt.com>
+   ## not assigned yet

@@ -1,0 +1,15 @@
+--- a/src/biblio.tex
++++ b/src/biblio.tex
+@@ -13,9 +13,9 @@
+   Volume~A of \textit{Computers and Typesetting}, Addison-Wesley,
+   Reading, Massachusetts, second edition, 1984, ISBN~0-201-13448-9.
+ 
+-\bibitem{companion} Michel Goossens, Frank Mittelbach and Alexander
+-  Samarin.  \newblock \emph{The {\LaTeX} Companion}.  \newblock
+-  Addison-Wesley, Reading, Massachusetts, 1994, ISBN~0-201-54199-8.
++\bibitem{companion} Frank Mittelbach, Michel Goossens, Johannes Braams,
++  David Carlisle, Chris Rowley.  \newblock \emph{The {\LaTeX} Companion, (2nd Edition)}.  \newblock
++  Addison-Wesley, Reading, Massachusetts, 2004, ISBN~0-201-36299-6.
+ 
+ \bibitem{graphicscompanion} Michel Goossens, Sebastian Rahtz and Frank
+   Mittelbach.  \newblock \emph{The {\LaTeX} Graphics Companion}.  \newblock

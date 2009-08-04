@@ -1,0 +1,16 @@
+--- a/CHANGES
++++ b/CHANGES
+@@ -13,11 +13,11 @@
+ * added note on texdoc 
+ * renames longtabular to longtable
+ * added notes on greek TeX -- Dimitrios 'sehh' Michelinakis <dimitrios@michelinakis.gr>
+-* added notes about pronounciation of ch in ach
++* added notes about pronunciation of ch in ach
+ 
+ 4.14 2004.04.04
+ ----
+-* improved explaination of raisebox paramteres
++* improved explanation of raisebox parameters
+ * added pagelayout parameters to index
+ * added caption to includegraphics example
+ * better examples for math fonts -- Vadym Lepetyuk <lepetyuk@econ.umn.edu>

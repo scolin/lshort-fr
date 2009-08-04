@@ -1,0 +1,14 @@
+--- a/src/typeset.tex
++++ b/src/typeset.tex
+@@ -350,8 +350,9 @@ $[$gen$]$eurosym &\verb+\euro+ & \huge\geneuro  &\huge\sffamily\geneuro
+                                                 & \huge\ttfamily\geneuro \\
+ % En fait on appelle eurofont pour des conflits de noms...
+ europs       &\verb+\EUR + & \huge\EURtm     &\huge\EURhv   & \huge\EURcr \\
+-eurosans     &\verb+\euro+ & \huge\EUROSANS  &\huge\sffamily\EUROSANS
+-                                                & \huge\ttfamily\EUROSANS \\
++% this does not seem to work ... 
++%eurosans     &\verb+\euro+ & \huge\EUROSANS  &\huge\sffamily\EUROSANS
++%                                                & \huge\ttfamily\EUROSANS \\
+ marvosym     &\verb+\EUR+  & \huge\mvchr164  &\huge\mvchr164 & \huge\mvchr164
+ \end{tabular}
+ \medskip

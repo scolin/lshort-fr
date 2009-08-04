@@ -1,0 +1,14 @@
+--- a/src/spec.tex
++++ b/src/spec.tex
+@@ -579,9 +579,8 @@ format do not work with Pdf\LaTeX{}. If you don't define a file extension
+ in the \ci{includegraphics} command, \pai{graphicx} will go
+ looking for a suitable file on its own, depending on the setting of
+ the \emph{driver} option. For \texttt{pdftex} this is
+-formats \texttt{.png}, \texttt{.pdf}, \texttt{.jpg}, \texttt{.mps} (
+-\MP\index{metapost@\MP}),
+-and \texttt{.tif}---but \emph{not} \texttt{.eps}.
++formats \texttt{.png}, \texttt{.pdf}, \texttt{.jpg} and \texttt{.mps} (
++\MP\index{metapost@\MP})---but \emph{not} \texttt{.eps}.
+ 
+ The simple way out of this problem is to just convert your EPS files
+ into PDF format using the \texttt{epstopdf} utility found on many

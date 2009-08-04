@@ -1,0 +1,15 @@
+--- a/src/spec.tex
++++ b/src/spec.tex
+@@ -18,10 +18,9 @@
+ such as images or graphics, with the \texttt{figure} and
+ \texttt{table} environments.
+ 
+-There are also several ways to generate the actual
++There are several ways to generate the actual
+ \wi{graphics} with basic \LaTeX{} or a \LaTeX{} extension package,
+-but most users find them quite difficult to understand, so
+-this manual will not explain them.
++a few of them are described in chapter \ref{chap:graphics}.
+ Please refer to \companion{} and the \manual{} for more information on
+ that subject.
+ 
