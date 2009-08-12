@@ -1,0 +1,23 @@
+This branch contains previous work started a while ago by me (Manuel
+Pégourié-Gonnard) and imported from my private svn repo. Roughly speaking, I
+updated the translation up to section 2.4 included, to match v4.24, and made
+various updates to the macro files (sometimes not matching the upstream
+version).
+
+This branch is for reference only, it is NOT intended to be merged into the
+'french' branch (no common ancestor, different directory structure, etc.).
+
+I was using svn-multi, which is obviously pointless in a git context. Moreover,
+I was defining \svntoday, which was later included in svn-multi. Besides this
+error, the source still compiles fine using an up-to-date TL'08.
+
+Besides comparing the few things I had done with Samuel's complete an more
+up-to-date version (and perhaps importing a few interesting macro changes), the
+only interesting file in this branch will be 'remarks'. This files holds various
+remarks about things I changed (improved, I hope) in my French version.
+It was intended to be sent to Tobias when ready, so that he could take them into
+account for future upstream versions if he'd like to.
+
+Maybe I'll add a TODO.mpg with various ideas for improvements I already talk
+about with Samuel by private email some day.
+
