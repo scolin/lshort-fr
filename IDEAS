@@ -1,0 +1,9 @@
+Various ideas for improvements in the French version.
+
+- Include the table of symbols of textcomp as an appendix like in the German
+  version.
+
+- Check that every interesting bit of Daniel's version in /Cahiers GUTenberg/
+  years ago has been included in the upstream version since then. If not, ask
+Daniel if it would be ok for him that we include it in the revived French
+version.
