@@ -6,6 +6,7 @@ upstream.
 
 - ©\commande©
   Remplace \texttt{\bs{}commande}
+  ©\\© remplace aussi \texttt{\bs\bs}
 
 - \begin{verbatim}
   Remplacé par \begin{Verbatim}[gobble=6] pour \label{mini} et
@@ -30,6 +31,24 @@ upstream.
     ¡\documentclass¡[«options»]{«classe»}
   \end{lscommand}
   Le point d'exclamation inversé semble remplacer \ci
+  Autres exemples, tirés de typeset.tex:
+
+  \begin{lscommand}
+  \ci{\bs} ou \ci{newline} 
+  \end{lscommand}
+    remplacé par
+  \begin{lscommand}{2}
+    ¡\\¡ ¡\newline¡
+  \end{lscommand}
+
+  \begin{lscommand}
+  \ci{\bs*}
+  \end{lscommand}
+    remplacé par
+  \begin{lscommand}{2}
+    ¡\\*¡
+  \end{lscommand}
+
 
 - \tth{titlepage} \tti{notitlepage} pour remplacer
   \index{titlepage@\texttt{titlepage}}

@@ -325,3 +325,7 @@
 \newcommand\changelabels[2][]{%
   \renewcommand\makelabel[1]{%
     {\hspace\labelsep \normalfont#2##1#1}}}
+\newcommand\package[2][]{%
+  \@ifmtarg{#1}
+  {\href{http://ctan.org/pkg/#2}{\textsf{#2}}}
+  {\href{http://ctan.org/pkg/#1}{\textsf{#2}}}}

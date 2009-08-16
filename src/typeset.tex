@@ -22,9 +22,9 @@
 La principale raison d'être d'un texte (à l'exception de certains textes
 de la littérature contemporaine
 \footnote{
-NdT. \emph{Différente à tout prix}, traduction du \emph{Different at
+\emph{Différente à tout prix}, traduction du \emph{Different at
   all cost} du texte original, lui-même une traduction du
-suisse-allemand UVA (\emph{Um's Verrecken Anders}).
+suisse-allemand UVA (\emph{Um's Verrecken Anders}). NdT.
 }%
 ) est de diffuser des idées, de
 l'information ou de la connaissance au lecteur. Celui-ci comprendra
@@ -38,7 +38,7 @@ sémantique d'un texte. Il en déduit la forme typographique en fonction
 des \og règles \fg{} définies dans la classe de document et les différents
 fichiers de style.
 
-L'élément de texte le plus important pour \LaTeX{} (et en typographie)
+L'unité de texte la plus importante pour \LaTeX{} (et en typographie)
 est le \wi{paragraphe}.  Le paragraphe est la forme typographique qui
 contient une pensée cohérente ou qui développe une idée. Vous allez
 apprendre dans les pages suivantes la différence entre un retour à la
@@ -109,12 +109,10 @@ insérez un virgule à cet endroit.
 Enfin, les paragraphes d'un texte sont également structurés au niveau
 supérieur, en les regroupant en sections, chapitres, etc. L'effet
 typographique d'une commande telle que 
-
 \begin{center}
 \verb|\section{La structure du texte et du langage}| 
 \end{center}
-
-\noindent est suffisament évident pour 
+\noindent est suffisamment évident pour 
 comprendre comment utiliser ces structures de haut niveau.
 
 \section{Sauts de ligne et de page}
@@ -168,7 +166,7 @@ résultat réellement laid.  Ne confondez pas ces commandes \og break
 \fg{} avec les commandes \og new \fg{}.  Même lorsque vous utilisez
 une commande \og break \fg{}, \LaTeX{} essaye de justifier le bord
 droit du texte et d'ajuster la longueur totale de la page, comme
-expliqué plus loin ; cela peut mener à des blancs inesthétiques dans
+expliqué plus loin ; cela peut mener à des trous disgracieux dans
 votre texte.  Si vous voulez réellement commencer une \og nouvelle
 \fg{} ligne ou une \og nouvelle \fg{} page, utilisez la commande \og
 new \fg{} correspondante.
@@ -178,6 +176,7 @@ retours à la ligne.
 S'il ne trouve pas de solution pour couper les lignes de
 manière conforme à ses normes de qualité, il laisse dépasser un bout
 de ligne sur la marge droite du paragraphe. \LaTeX{} émet alors le
+%SC: suggestion de mpg: \eei au lieu de \wi pour overfull hbox ?
 message d'erreur \og \wi{overfull hbox}\,\footnote{débordement
 horizontal} \fg{}. Cela se produit surtout quand \LaTeX{} ne trouve pas
 de point de césure dans un mot.\footnote{Bien que \LaTeX{} signale un
@@ -278,8 +277,8 @@ contient le nom du fichier
 \`a lire.
 \end{example}
 
-\ci{fbox} est similaire à \ci{mbox}, à la différence qu'un liseré
-visible sera dessiné autour du contenu.
+\ci{fbox} est similaire à \ci{mbox}, à la différence qu'un cadre
+visible sera en plus dessiné autour du contenu.
 
 \section{Chaînes prêtes à l'emploi}
 
@@ -311,12 +310,13 @@ utilisez deux~\textasciigrave pour les guillemets ouvrants et deux~\textquotesin
 pour les guillemets fermants.
 En français, avec l'option \pai{francais} de l'extension \pai{babel},
 utilisez \ci{og} et \ci{fg} ou bien utilisez directement 
-\texttt{«} et \texttt{»} si vous disposez d'un moyen de saisir ces
-caractères. 
+\texttt{\guillemotleft} et
+\texttt{\guillemotright} si vous disposez d'un moyen de saisir ces caractères
+(voir la section~\ref{ss-frenchb} pour plus de détails).
 \begin{example}
 ``Please press the `x' key.''
 
-«~Appuyez sur la touche `x'.~»
+« Appuyez sur la touche `x'. »
 \end{example}
 %SC: Hmmm, I do not like much this translation
 Je suis conscient que le rendu n'est pas idéal, mais il s'agit
@@ -346,7 +346,7 @@ typographie française concernant l'usage des tirets, qui diffèrent
 des habitudes anglo-saxonnes, en particulier le double tiret n'est pas
 utilisé en français.
 
-\subsection{Tilde ($\sim$)}
+\subsection{Tilde (\textasciitilde)}
 \index{www}\index{URL}\index{tilde}
 Un caractère souvent utilisé dans les adresses sur le web est le
 tilde. Pour produire ce caractère avec \LaTeX{}, on peut utiliser 
@@ -362,7 +362,7 @@ http://www.clever.edu/$\sim$demo
 Voir aussi l'extension \pai{hyperref} qui inclut une commande
 \ci{url}. 
 
-\subsection{Symbole degré (\texorpdfstring{\degres}{\string°})}
+\subsection{Symbole degré (\textdegree)}
 
 L'exemple suivent montre comment obtenir un symbole \wi{degré} avec
 \LaTeX{} :
@@ -400,15 +400,15 @@ vous pouvez utiliser la commande
 pour y accéder.
 
 Si votre police ne fournit pas son propre symbole de l'Euro ou si vous
-ne l'aimez pas, il vous reste deux alternatives :
+ne l'aimez pas, il vous reste d'autres possibilités.
 
 Tout d'abord l'extension \pai{eurosym} qui fournit un symbol officiel
 de l'Euro :
 \begin{lscommand}
 \ci{usepackage}\verb|[|\emph{official}\verb|]{eurosym}|
 \end{lscommand}
-Si vous préférez un symbole qui correspond à votre police, utilisez
-plutôt \texttt{gen} à la place de \texttt{option}.
+Si vous préférez un symbole qui se marie bien à votre police, utilisez
+plutôt \texttt{gen} à la place de \texttt{official}.
 
 % Si les polices Adobe Eurofonts sont installées sur votre système (vous
 % pouvez les obtenir gratuitement sur
@@ -445,7 +445,7 @@ $[$gen$]$eurosym &\verb+\euro+ & \huge\geneuro  &\huge\sffamily\geneuro
 \end{lined}
 \end{table}
 
-\subsection{Points de suspension (\texorpdfstring{\dots}{...})}
+\subsection{Points de suspension (\dots)}
 
 Sur une machine à écrire, une \wi{virgule} ou un \wi{point} occupent la
 même largeur que les autres lettres. En typographie professionnelle,
@@ -478,9 +478,10 @@ Ces \wi{ligature}s peuvent être désactivées en insérant un
 \ci{mbox}\verb|{}| entre les lettres en question. Cela peut s'avérer
 utile pour certains mots composés\,\footnote{Il n'existe pas d'exemple en
 français. \emph{NdT.}}.
+%SC: à revérifier dans le document produit
 \begin{example}
 \Large Not shelfful\\
-but shelf\mbox{}ful
+but shelf{}ful
 \end{example}
  
 \subsection{Accents et caractères spéciaux}
@@ -527,10 +528,8 @@ Stra\ss e
 \index{international} 
 
 Pour composer des documents dans des langues autres que l'anglais,
-\LaTeX{} doit pouvoir s'adapter aux règles typographiques et aux
-règles de césure propres à chaque langue. Il y a plusieurs
-domaines pour lesquels il faut configurer \LaTeX{} pour chaque
-langue : 
+il y a plusieurs domaines pour lesquels
+\LaTeX{} doit s'adapter aux spécificités de chaque langue :
 \begin{enumerate}
 \item Toutes les chaînes de caractères générées automatiquement
   \footnote{\og Table des matières \fg{}, \og Liste des figures \fg{},...} 
@@ -541,11 +540,11 @@ langue :
       langue. Définir les règles de césure utilisées par \LaTeX{} est
       une tâche assez complexe, qui impose la construction de formats
       spécifiques. Votre \guide{} devrait vous indiquer 
-      quelles sont les langues supportées par votre installation de
+      quelles sont les langues prises en compte par votre installation de
       \LaTeX{} et comment configurer les règles de césure.
     \item Certaines règles typographiques changent en fonction de la
       langue ou de la région géographique. Par exemple le français
-      impose un espace avant chaque deux-points (:). Ces changements
+      impose une espace avant le caractère deux-points (:). Ces changements
       peuvent être pris en compte par l'extension \pai{babel} ou par des
       extensions spécifiques (telles que \pai{french}~\cite{french}
       pour le français).
@@ -557,18 +556,21 @@ avec la commande :
 \begin{lscommand}
 \ci{usepackage}\verb|[|\emph{langue}\verb|]{babel}|
 \end{lscommand}
-\noindent après la commande \verb|\documentclass|. Une liste des
-\emph{langue}s prises en compte par votre système \LaTeX{} est
-affichée à chaque exécution du compilateur. Babel activera les règles
-de césure appropriées pour le langage que vous avez choisi.
-Lorsque la césure d'une langue n'est pas prise en compte par votre moteur
-\LaTeX{}, \pai{babel} continuera à fonctionner mais à cause des
-césures incorrectes le résultat ne sera pas satisfaisant.
+\noindent après la commande \verb|\documentclass|. La liste des langues intégrées à
+votre système \LaTeX{} est affichée à l'écran quand vous lancez \texttt{latex}
+et au début du rapport de compilation (fichier \eei{log}).
+\package[babel]{Babel} activera automatiquement les règles de césures
+correctes pour la langue choisie. Si votre format \LaTeX ne possède pas les
+règles de césures pour la langue choisie, \package{babel} fonctionnera quand
+même mais désactivera la césure des mots, ce qui peut avoir un impact négatif
+sur l'aspect de votre document.
+%SC: danger, la commande package ci-dess(o)us semble être indépendante de
+%\pai. Il faudra les réconcilier.
 
 \textsf{Babel} définit également pour certaines langues de nouvelles
 commandes qui simplifient la saisie des caractères
 spéciaux. L'\wi{Allemand} contient par exemple de nombreux umlauts
-(\"a\"o\"u). Avec\textsf{babel}, vous pouvez entrer un
+(\"a\"o\"u). Avec \package{babel}, vous pouvez entrer un
 \"o en tapant \verb|"o| au lieu de~\verb|\"o|.
 
 Si vous appelez babel avec plusieurs langues,
@@ -580,7 +582,7 @@ Si vous appelez babel avec plusieurs langues,
 \begin{lscommand}
 \ci{selectlanguage}\verb|{|\emph{langueA}\verb|}|
 \end{lscommand}
-\noindent pour changer la langue active.
+\noindent pour changer la langue active au cours de votre document.
 
 %Input Encoding
 \newcommand{\ieih}[1]{%
@@ -604,13 +606,8 @@ variété des codages d'entrée des différents langages et plateformes
 grâce à l'extension \pai{inputenc} :
 \label{inputenc}
 \begin{lscommand}
-\ci{usepackage}\verb|[|\emph{codage}\verb|]{inputenc}|
+\ci{usepackage}\verb|[|\emph{encodage}\verb|]{inputenc}|
 \end{lscommand}
-
-%SC: is this still true ?
-Pour faciliter la lecture, cette extension est utilisée dans la suite
-du document pour représenter les caractères accentués dans les
-exemples.
 
 En utilisant cette extension, il faut prendre garde au fait que les
 systèmes informatiques n'utilisent pas tous le même codage des
@@ -618,17 +615,30 @@ caractères spéciaux. Par exemple, l'umlaut allemand \"a est codé 132
 sous OS/2, sous les systèmes Unix utilisant ISO-LATIN~1 il est codé
 228 et sous le codage cyrillique cp1251 pour Windows cette lettre
 n'existe même pas; c'est pourquoi vous devez exploiter cette
-fonctionnalité avec soin. Les codages suivants peuvent s'avérer utiles
-en fonction du type de système sous lequel vous travaillez.
-\footnote{Pour en savoir plus sur les codages d'entrée reconnus
-  pour les alphabets latins et cyrilliques, lisez la
-  documentation de \texttt{inputenc.dtx} et \texttt{cyinpenc.dtx},
-  respectivement. La section~\ref{sec:Packages} indique comment
-  produire cette documentation.}
+fonctionnalité avec soin.
 
+Pour visualiser correctement votre fichier source sous un autre
+éditeur, il faut donc sélectionner l'encodage correspondant à celui
+avec lequel le fichier a été créé. La plupart des éditeurs de texte
+permettent de choisir l'encodage voulu, mais soyez conscients que
+certains (notamment sous Windows) ne le permettent pas, et qu'en tout
+cas cela demande une intervention manuelle.
+
+Par contre, votre fichier sera compilable sans problème sur tout
+ordinateur, du moment que l'option passée à \package{inputenc}
+correspond bien à l'encodage réel du document.
+
+Les encodages suivants peuvent s'avérer utiles en fonction du type de
+système sous lequel vous travaillez.
+\footnote{Pour en savoir plus sur les codages d'entrée reconnus
+  par \LaTeX{}, consultez \texttt{inputenc.pdf},
+  \texttt{cyinpenc.pdf} et \texttt{utf8ienc.pdf}.}
+
+%SC: ajouter proprement l'info latin1=ISO-8859-1
+% et ansinew = cp1252 et applemac=applemac (suggestion de mpg)
 \begin{center}
 \begin{tabular}{l | r | r }
-Système & \multicolumn{2}{c}{encodings}\\
+Système & \multicolumn{2}{c}{encodages}\\
 d'exploitation & Alphabet latin & Alphabet cyrillique\\
  \hline
 Mac     &  \iei{applemac} & \iei{macukr}  \\
@@ -637,6 +647,18 @@ Windows &  \iei{ansinew}  & \iei{cp1251}    \\
 DOS, OS/2  &  \iei{cp850} & \iei{cp866nav}
 \end{tabular}
 \end{center}
+
+%SC: à réintégrer correctement dans la 4.26 (+ envoyer upstream)
+% Il est intéressant de noter que les encodages \iei{latin1},
+% \iei{latin9}\footnote{Nom officiel : ISO-8859-15.} et \iei{cp1252} sont très
+% proches entre eux et sont compatibles pour la plupart des caractères usuels,
+% bien qu'il présentent des différences sur des caractères comme \texteuro{} et
+% \oe. 
+
+% L'encodage \iei{utf8} présente l'avantage d'être utilisable pour toutes
+% les langues et sur tous les systèmes modernes, mais n'est pas encore très
+% répandu. C'est la meilleure solution pour saisir des documents multilingues
+% avec un jeu de caractères varié.
 
 Si vous avez un document multilingue qui cause des conflits entre
 codages d'entrée, vous devriez considérer l'utilisation d'unicode à
@@ -657,6 +679,11 @@ entre un et quatre octets pour être codé.
   conversion automatique dans les deux sens  : \texttt{recode} sous Unix,
 \texttt{Tower of Babel} sur Macintosh, etc. y compris de et vers
 Unicode.}
+
+%SC: is this still true ?
+Pour faciliter la lecture, \package{inputenc} est utilisé dans la suite
+du document pour représenter les caractères accentués dans les
+exemples.
 
 Le codage des polices de caractères est une autre histoire.
 Celui-ci définit à quelle position dans une police de \TeX{} se
@@ -739,7 +766,7 @@ simplement le codage adéquat.
 \end{table}
 
 
-\subsection{Support de la langue française} 
+\subsection{Support de la langue française} \label{ss-frenchb}
 
 % Pour le français, l'extension \pai{french} a été 
 % développée par Bernard Gaulle~\cite{french}. 
@@ -766,6 +793,7 @@ doubles, etc.  Les mots générés automatiquement par \LaTeX{} sont
 traduits en français et certaines commandes supplémentaires (cf.
 table~\ref{cmd-french}) sont disponibles.
 
+%SC: suggestion de mpg: TODO: bad coding, booh
 \begin{table}[!htbp]
 \caption{Commandes de saisie en français.} \label{cmd-french}
 \begin{lined}{9cm}
@@ -1146,7 +1174,7 @@ majuscule, \LaTeX{} considère qu'il s'agit d'une abréviation et insère
 alors une espace normale.
 
 Toute exception à ces règles doit être spécifiée par l'auteur du
-document. Un antislash qui précède une espace gènère une espace qui ne
+document. Une contre-oblique qui précède une espace génère une espace qui ne
 sera pas élargie par \LaTeX{}.  Un tilde \og \verb|~| \fg{} produit
 une espace interdisant tout saut de ligne (dit espace
 \emph{insécable}).  \verb|~| est à utiliser pour éviter les coupures
@@ -1243,6 +1271,8 @@ invoquée. Un document doit être traité (on dit aussi \og compilé
 \fg{}) deux fois par \LaTeX{} pour avoir une table des matières
 correcte. Dans certains cas, un troisième passage est même
 nécessaire. \LaTeX{} vous indique quand cela est nécessaire.
+%Remarque: j'ai (SC) créé un cas pathologique qui demande 5
+%compilations, situé dans les exemple de mon GNUmakefile pour LaTeX.
 
 Toutes les commandes citées ci-dessus existent dans une forme
 \og étoilée \fg{} obtenue en ajoutant une étoile \verb|*| au nom de la
@@ -1350,7 +1380,7 @@ Les notes de bas de page doivent être placées après le mot où la
 phrase auquel elles se réfèrent%
 \,\footnote{La typographie française demande une espace fine avant la
 marque de renvoi à la note.}
-%SC: hmmm, is it french good practice ?
+%SC: hmmm, is the following french good practice ?
 Les notes qui se réfèrent à une (partie de) phrase devraient être
 placées après une virgule ou un point.\footnote{Remarquez que les
   notes de bas de page détournent l'attention du lecteur du corps du
@@ -1421,7 +1451,7 @@ en page :
 
 \begin{lscommand}
 \ci{begin}\verb|{|\emph{nom}\verb|}|\quad
-   \emph{texte}\quad
+   \emph{contenu}\quad
 \ci{end}\verb|{|\emph{nom}\verb|}|
 \end{lscommand}
 \noindent 
@@ -1450,7 +1480,6 @@ numérotées) et \ei{description} est utilisé pour des descriptions.
 % \end{itemize}
 % \end{example}
 
-\begin{otherlanguage}{english}
 \begin{example}
 \begin{enumerate}
 \item Il est possible d'imbriquer
@@ -1471,7 +1500,6 @@ résumer des faits.
 \end{description}
 \end{enumerate}
 \end{example}
-\end{otherlanguage}
 
 Notez que l'option \pai{francais} de l'extension \pai{babel} utilise
 une présentation des 
@@ -1949,6 +1977,9 @@ Elle ordonne à \LaTeX{} de placer tous les objets en attente
 immédiatement puis de commencer une nouvelle
 page. \ci{cleardoublepage} commence une nouvelle page de droite.
 
+%SC: remarque de mpg : le rapport avec la choucroute ?
+% SC: que les images vont souvent dans des figures, je dirais, il
+% faudrait demander à upstream
 En section~\ref{eps}, vous apprendrez à inclure une figure
 \PSi{} dans vos documents.
 
