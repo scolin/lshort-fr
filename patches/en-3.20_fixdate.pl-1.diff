@@ -1,9 +1,0 @@
---- /dev/null
-+++ b/en-3.20/fixdate.pl
-@@ -0,0 +1,6 @@
-+chomp ($d = `date +"%d %B, %Y"`);
-+$v = pop @ARGV;
-+while (<>) {
-+ s/^Version.+/Version~$v, $d/;
-+ print;
-+}
