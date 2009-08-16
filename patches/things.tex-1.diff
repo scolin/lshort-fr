@@ -1,16 +1,6 @@
 --- a/things.tex
 +++ b/things.tex
 @@ -1,79 +1,65 @@
--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
--% Contents: Things you need to know
--% $Id: things.tex,v 1.25 2001/11/25 17:43:58 matthieu Exp $
--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-+% chapitre « ce qu'il faut savoir » pour lshort-fr (encodé en latin1)
-+%
-+% Pour les informations de licence, voir lshort-fr.tex.
-+% See lshort-fr.tex for licence information.
-+%
-+
  \chapter{Ce qu'il faut savoir}
 -\thispagestyle{plain}
  

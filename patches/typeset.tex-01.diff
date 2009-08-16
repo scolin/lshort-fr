@@ -1,16 +1,6 @@
 --- a/typeset.tex
 +++ b/typeset.tex
 @@ -1,109 +1,102 @@
--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
--% Contents: Typesetting Part of LaTeX2e Introduction
--% $Id: typeset.tex,v 1.29 2001/11/25 17:43:58 matthieu Exp $
--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-+% chapitre « mise en pages » pour lshort-fr (encodé en latin1)
-+%
-+% Pour les informations de licence, voir lshort-fr.tex.
-+% See lshort-fr.tex for licence information.
-+%
-+
  \chapter{Mise en page}
 -\thispagestyle{plain}
  
