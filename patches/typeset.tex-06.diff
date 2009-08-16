@@ -1,0 +1,18 @@
+--- a/typeset.tex
++++ b/typeset.tex
+@@ -322,12 +322,11 @@ http://www.rich.edu/\~{}bush \\
+ http://www.clever.edu/$\sim$demo
+ \end{example}  
+ 
+-Voir aussi l'extension \pai{hyperref} qui inclut une commande
+-\ci{url}. 
++Voir aussi l'extension \pai{hyperref} qui inclut une commande \ci{url}. 
+ 
+-\subsection{Symbole degré (\texorpdfstring{\degres}{\string°})}
++\subsection{Symbole degré (\textdegree)}
+ 
+-Comment obtenir un symbole \wi{degré} avec \LaTeX{} ? 
++Comment obtenir un symbole \wi{degré} avec \LaTeX ? 
+ 
+ \begin{example}
+ Il fait $-30\,^{\circ}\mathrm{C}$,

@@ -1,0 +1,125 @@
+--- a/things.tex
++++ b/things.tex
+@@ -232,81 +232,75 @@ un nouveau paragraphe.
+ \subsection{Caractères spéciaux}
+ 
+ Les symboles suivants sont des \wi{caractères réservés} qui, soit ont 
+-une signification spéciale dans \LaTeX{}, soit ne sont pas disponibles
++une signification spéciale dans \LaTeX, soit ne sont pas disponibles
+ dans toutes les polices. Si vous les saisissez directement dans votre
+-texte, ils ne seront pas imprimés et forceront \LaTeX{} à faire des
++texte, ils ne seront pas imprimés mais forceront \LaTeX à faire des
+ choses que vous n'avez pas voulues.
+ 
+ \begin{code}
+-\verb.$ & % # _ { }  ~  ^  \ . %$
++  #  $  %  ^  &  _  {  }  ~  \ .
+ \end{code}
++%stopzone
+ 
+-Comme vous le voyez, certains de ces caractères peuvent être utilisés
+-dans vos documents en les préfixant par un antislash :
++\index{Backslash|see{Contre-oblique}}
++\index{Antislash|see{Contre-oblique}}
++\index{Barre oblique inverse|see{Contre-oblique}}
++Comme vous le voyez, certains de ces caractères peuvent être utilisés dans vos
++documents en les préfixant par une \wi{contre-oblique}\footnote{Aussi nommée
++  « barre oblique inverse », ou parfois \nolang{antislash} d'après l'anglais
++  \eng{backslash}. \NdT } :
+ 
+ \begin{example}
+-\$ \& \% \# \_ \{ \}
++\# \$ \% \^{} \& \_ \{ \} \~{} 
+ \end{example} 
+-%$
+-
+-%%% XXX Trouver un terme meilleur qu'antislash
+ 
+-Les autres et bien d'autres encore peuvent être obtenus avec des
+-commandes spéciales à l'intérieur de formules mathématiques ou comme
+-accents. L'antislash $\backslash$ ne peut pas être saisi en ajoutant
+-un second antislash (\verb|\\|). Cette séquense est utilisée pour
+-indiquer les coupures de ligne\,\footnote{Utilisez la commande
+-\texttt{\$}\ci{backslash}\texttt{\$}. Elle produit un $\backslash$.}.
++Les autres et bien d'autres encore peuvent être obtenus avec des commandes
++spéciales à l'intérieur de formules mathématiques ou comme accents. La
++contre-oblique \textbackslash ne peut pas être saisi en ajoutant une
++contre-oblique devant (©\\©). Cette séquence est utilisée pour indiquer les
++coupures de ligne\footnote{Pour produire une contre-oblique dans le texte,
++  utilisez la commande \ci{textbackslash}, fournie par l'extension
++  \pai{textcomp}. En mode maths, utilisez \ci{backslash}. [La version
++  originale ne fait pas cette distinction. \NdT]}.
+ 
+-\subsection{Commandes \LaTeX{}}
++\subsection{Commandes \LaTeX}
+ 
+-Les commandes \LaTeX{} sont sensibles à la casse des caractères
+-(majuscules ou minuscules) et utilisent l'un des deux formats
+-suivants :
++Les commandes \LaTeX sont sensibles à la casse des caractères (majuscules ou
++minuscules) et utilisent l'une des deux formes suivantes :
+ 
+ \begin{itemize}
+-\item soit elles commencent par un \wi{antislash} \verb|\| et ont un
+-      nom composé uniquement de lettres. Un nom de commande est
+-      terminé par une espace, un chiffre ou tout autre caractère qui
+-      n'est pas une lettre ;
+-\index{backslash}
+-\item soit elles sont composées d'un antislash et d'un 
+-      caractère spécial (non-lettre) exactement.
++  \item soit elles commencent par une \wi{contre-oblique} ©\© et ont un nom
++    composé uniquement de lettres. Un nom de commande est terminé par une
++    espace, un chiffre ou tout autre caractère qui n'est pas une lettre ;
++  \item soit elles sont composées d'une contre-oblique et d'exactement un
++    caractère autre qu'une lettre.
+ \end{itemize}
+ 
+-%
+-% \\* doesn't comply !
+-%
+-
+-%
+-% Can \3 be a valid command ? (jacoboni)
+-%
+ \label{whitespace}
+-\LaTeX{} ignore les espaces après les commandes. Si vous souhaitez
+-obtenir un blanc après une commande\index{espace!après une commande},
+-il faut ou bien insérer \verb|{}| suivi d'un blanc ou bien utiliser une
+-commande d'espacement spécifique de \LaTeX{}. La séquence \verb|{}|
+-empêche \LaTeX{} d'ignorer les blancs après une commande.
++\LaTeX ignore les espaces après les commandes. Si vous souhaitez obtenir un
++blanc après une commande\index{espace!après une commande}, il faut ou bien
++insérer \verb|{}| suivi d'un blanc ou bien utiliser une commande d'espacement
++spécifique de \LaTeX. La séquence \verb|{}| empêche \LaTeX d'ignorer les
++blancs après une commande.
+ 
+ \begin{example}
+ J'ai lu que Knuth classe les
+-gens qui utilisent \TeX{} en
++gens qui utilisent \TeX en
+ \TeX{}niciens et en \TeX perts.\\
+-Aujourd'hui nous sommes le \today.
++Nous sommes le \today.
+ \end{example}
+ 
+-Certaines commandes sont suivies d'un \wi{paramètre} qui est mis entre
+-\wi{accolades} \verb|{ }|. Certaines commandes supportent des
+-\wi{paramètres optionnels} qui suivent le nom de la commande entre
+-\wi{crochets}~\verb|[ ]|. L'exemple suivant montre quelques commandes
+-\LaTeX{}. Ne vous tracassez pas pour les comprendre, elles seront
+-expliquées plus loin.
++Certaines commandes prennent un \wi{paramètre}, qui est mis entre
++\wi{accolades}~©{ }© après le nom de la commande. Certaines commandes
++supportent des \wi{paramètres optionnels} qui suivent le nom de la commande
++entre \wi{crochets}~©[ ]©. L'exemple suivant montre quelques commandes \LaTeX.
++Ne vous tracassez pas pour les comprendre, elles seront expliquées plus loin.
+ 
+ \begin{example}
+ \textsl{Penchez}-vous !
+ \end{example}
+ \begin{example}
+-S'il vous plait, passez \`a la 
++S'il vous plaît, passez à la 
+ ligne ici.\newline
+ Merci !
+ \end{example}

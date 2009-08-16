@@ -1,0 +1,38 @@
+--- a/typeset.tex
++++ b/typeset.tex
+@@ -1018,20 +1018,23 @@ Fer coiffeur.\\
+ 
+ \subsection{Impression \emph{verbatim}}
+ 
+-Tout texte inclus entre \verb|\begin{|\ei{verbatim}\verb|}| et
+-\verb|\end{verbatim}| est imprimé tel quel, comme s'il avait été tapé
+-à la machine, avec tous les retours à la ligne et les espaces, sans
+-qu'aucune commande \LaTeX{} ne soit exécutée.
++Tout texte inclus entre ©\begin{©\ei{verbatim}©}© et ©\end{verbatim}© est
++imprimé tel quel, comme s'il avait été tapé à la machine, avec tous les
++retours à la ligne et les espaces, sans qu'aucune commande \LaTeX ne soit
++exécutée.
+ 
+-À l'intérieur d'un paragraphe, une fonctionnalité équivalente peut
+-être obtenue par
+-\begin{lscommand}
+-\ci{verb}\verb|+|\emph{texte}\verb|+|
++À l'intérieur d'un paragraphe, une fonctionnalité équivalente peut être
++obtenue par
++\begin{lscommand}{2}
++  ¡\verb¡+{«texte»}+
+ \end{lscommand}
+-\noindent Le caractère \verb|+| est seulement un exemple de caractère
+-séparateur. Vous pouvez utiliser n'importe quel caractère, sauf les
+-lettres, \verb|*| ou l'espace. La plupart des exemples de commandes
+-\LaTeX{} dans ce document sont réalisés avec cette commande.
++%stopzone
++\noindent Le caractère ©+© est seulement un exemple de caractère séparateur.
++Vous pouvez utiliser n'importe quel caractère, sauf les lettres, ©*© ou
++l'espace. La plupart des exemples de commandes \LaTeX dans ce document sont
++réalisés avec cette commande\footnote{En fait, ce n'est pas tout à fait vrai,
++  le traducteur préférant utiliser certaines fonctionnalités de
++  \package{fancyvrb}.}.
+ 
+ \begin{example}
+ La commande \verb|\dots| \dots

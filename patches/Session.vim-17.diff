@@ -1,0 +1,149 @@
+--- a/Session.vim
++++ b/Session.vim
+@@ -401,21 +401,138 @@ setlocal nowinfixheight
+ setlocal nowinfixwidth
+ setlocal wrap
+ setlocal wrapmargin=0
+-1
+-normal zc
+-let s:l = 32 - ((31 * winheight(0) + 24) / 49)
++8
++normal zo
++17
++normal zo
++98
++normal zo
++103
++normal zo
++105
++normal zo
++168
++normal zo
++237
++normal zo
++255
++normal zo
++257
++normal zo
++273
++normal zo
++292
++normal zo
++308
++normal zo
++326
++normal zo
++347
++normal zo
++365
++normal zo
++404
++normal zo
++498
++normal zo
++534
++normal zo
++561
++normal zo
++600
++normal zo
++612
++normal zo
++613
++normal zo
++614
++normal zo
++615
++normal zo
++616
++normal zo
++625
++normal zo
++656
++normal zo
++656
++normal zo
++705
++normal zo
++734
++normal zo
++754
++normal zo
++793
++normal zo
++812
++normal zo
++861
++normal zo
++892
++normal zo
++945
++normal zo
++991
++normal zo
++1094
++normal zo
++1248
++normal zo
++991
++normal zo
++793
++normal zo
++656
++normal zo
++625
++normal zo
++616
++normal zo
++615
++normal zo
++614
++normal zo
++613
++normal zo
++612
++normal zo
++600
++normal zo
++534
++normal zo
++404
++normal zo
++365
++normal zo
++255
++normal zo
++168
++normal zo
++103
++normal zo
++17
++normal zo
++8
++normal zo
++let s:l = 8 - ((0 * winheight(0) + 12) / 24)
+ if s:l < 1 | let s:l = 1 | endif
+ exe s:l
+ normal! zt
+-32
+-normal! 02l
++8
++normal! 0
+ wincmd w
+-3wincmd w
+-exe '1resize ' . ((&lines * 14 + 25) / 51)
++5wincmd w
++exe '1resize ' . ((&lines * 24 + 25) / 51)
+ exe 'vert 1resize ' . ((&columns * 80 + 80) / 161)
+-exe '2resize ' . ((&lines * 34 + 25) / 51)
++exe '2resize ' . ((&lines * 8 + 25) / 51)
+ exe 'vert 2resize ' . ((&columns * 80 + 80) / 161)
++exe '3resize ' . ((&lines * 15 + 25) / 51)
+ exe 'vert 3resize ' . ((&columns * 80 + 80) / 161)
++exe '4resize ' . ((&lines * 24 + 25) / 51)
++exe 'vert 4resize ' . ((&columns * 80 + 80) / 161)
++exe '5resize ' . ((&lines * 24 + 25) / 51)
++exe 'vert 5resize ' . ((&columns * 80 + 80) / 161)
+ tabnext 1
+ if exists('s:wipebuf')
+   silent exe 'bwipe ' . s:wipebuf

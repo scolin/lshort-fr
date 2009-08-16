@@ -1,0 +1,29 @@
+--- /dev/null
++++ b/list
+@@ -0,0 +1,26 @@
++# when doing a new part:
++- lscommand
++- code
++- \LaTeX{}, \TeX{}, \og \fg \fg{}
++- nbsp before [»:;?!] and after «
++- \verb|...|, \verb+...+
++- \,\footnote
++- rm \thispagestyle after \chapter
++- rm useless comments
++- spell-check
++- vim's gq and =
++
++# todo at some point
++
++review the frenchb part
++
++review the \NdT before things and incl the 1st half of things
++
++implement a version of ¡ detecting environments and use it in typeset.tex (and
++elsewhere)
++
++check all %TODO marks in the files
++
++redo the section about command-line to talk of pdflatex first
++
++reread the section about special chars with T1/TS1 in mind

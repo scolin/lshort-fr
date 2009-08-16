@@ -1,0 +1,14 @@
+--- a/graphic.tex
++++ b/graphic.tex
+@@ -1,5 +1,9 @@
+-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
++% chapitre « graphiques » pour lshort-fr (encodé en latin1)
++%
++% Pour les informations de licence, voir lshort-fr.tex.
++% See lshort-fr.tex for licence information.
++%
++
+ \setcounter{chapter}{4}
+ \newcommand{\graphicscompanion}{\emph{The \LaTeX{} Graphics Companion}~\cite{graphicscompanion}} 
+ \newcommand{\hobby}{\emph{A User's Manual for \MP{}}~\cite{metapost}}

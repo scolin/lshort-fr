@@ -1,0 +1,9 @@
+--- a/custom.tex
++++ b/custom.tex
+@@ -864,5 +864,5 @@ environnement \verb|tabular| pour garantir la hauteur d'une ligne.
+ 
+ %%% Local Variables: 
+ %%% mode: latex
+-%%% TeX-master: "flshort"
++%%% TeX-master: "lshort-fr"
+ %%% End: 

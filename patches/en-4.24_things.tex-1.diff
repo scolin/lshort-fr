@@ -1,0 +1,29 @@
+--- a/en-4.24/things.tex
++++ b/en-4.24/things.tex
+@@ -447,18 +447,22 @@ input file. Type \texttt{ctrl-D} to get back to the command line.
+ \end{lscommand}
+ 
+ \item 
+-Now you may view the DVI file. There are several ways to do that. You can show the file on screen with
++Now you may view the DVI file. There are several ways to do that. You can show
++the file on screen with
+ \begin{lscommand}
+ \verb+xdvi foo.dvi &+
+ \end{lscommand}
+-This only works on Unix with X11. If you are on Windows you might want to try \texttt{yap} (yet another previewer).
++This only works on Unix with X11. If you are on Windows you might want to try
++\texttt{yap} (yet another previewer).
+ 
+-You can also convert the dvi file to \PSi{} for printing or viewing with Ghostscript.
++You can also convert the dvi file to \PSi{} for printing or viewing with
++Ghostscript.
+ \begin{lscommand}
+ \verb+dvips -Pcmz foo.dvi -o foo.ps+
+ \end{lscommand}
+ 
+-If you are lucky your \LaTeX{} system even comes with the \texttt{dvipdf} tool, which allows
++If you are lucky your \LaTeX{} system even comes with the \texttt{dvipdf}
++tool, which allows
+ you to convert your \texttt{.dvi} files straight into pdf.
+ \begin{lscommand}
+ \verb+dvipdf foo.dvi+

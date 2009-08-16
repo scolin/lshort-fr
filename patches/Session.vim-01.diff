@@ -1,0 +1,163 @@
+--- a/Session.vim
++++ b/Session.vim
+@@ -1,73 +1,141 @@
+ let SessionLoad = 1
+ if &cp | set nocp | endif
++nmap <silent> ,cI :call NERDComment(0, "prepend")
++nmap <silent> ,cA :call NERDComment(0, "append")
++nnoremap <silent> ,c$ :call NERDComment(0, "toEOL")
++vnoremap <silent> ,cu :call NERDComment(1, "uncomment")
++nnoremap <silent> ,cu :call NERDComment(0, "uncomment")
++vnoremap <silent> ,cn :call NERDComment(1, "nested")
++nnoremap <silent> ,cn :call NERDComment(0, "nested")
++vnoremap <silent> ,cb :call NERDComment(1, "alignBoth")
++nnoremap <silent> ,cb :call NERDComment(0, "alignBoth")
++vnoremap <silent> ,cr :call NERDComment(1, "alignRight")
++nnoremap <silent> ,cr :call NERDComment(0, "alignRight")
++vnoremap <silent> ,cl :call NERDComment(1, "alignLeft")
++nnoremap <silent> ,cl :call NERDComment(0, "alignLeft")
++vmap <silent> ,cy :call NERDComment(1, "yank")
++nmap <silent> ,cy :call NERDComment(0, "yank")
++vnoremap <silent> ,ci :call NERDComment(1, "invert")
++nnoremap <silent> ,ci :call NERDComment(0, "invert")
++vnoremap <silent> ,cs :call NERDComment(1, "sexy")
++nnoremap <silent> ,cs :call NERDComment(0, "sexy")
++vnoremap <silent> ,cm :call NERDComment(1, "minimal")
++nnoremap <silent> ,cm :call NERDComment(0, "minimal")
++vnoremap <silent> ,c  :call NERDComment(1, "toggle")
++nnoremap <silent> ,c  :call NERDComment(0, "toggle")
++vnoremap <silent> ,cc :call NERDComment(1, "norm")
++nnoremap <silent> ,cc :call NERDComment(0, "norm")
+ let s:cpo_save=&cpo
+ set cpo&vim
+ nmap gx <Plug>NetrwBrowseX
+-nnoremap <silent> <Plug>NetrwBrowseX :call netrw#NetBrowseX(expand("<cWORD>"),0)
++nnoremap <silent> <Plug>NetrwBrowseX :call netrw#NetrwBrowseX(expand("<cWORD>"),0)
++inoremap <silent>   <BS>:call NERDComment(0, "insert")
+ let &cpo=s:cpo_save
+ unlet s:cpo_save
+ set autoindent
+ set autowrite
+ set background=dark
+ set backspace=indent,eol,start
+-set expandtab
+ set fileencodings=utf8,latin1
++set grepprg=grep\ -nH\ $*
+ set helplang=fr
+ set hidden
+ set history=50
+ set incsearch
+-set operatorfunc=TeXCommentOut
+ set pastetoggle=<F12>
+ set printoptions=paper:a4
+ set ruler
+ set runtimepath=~/.vim,/var/lib/vim/addons,/usr/share/vim/vimfiles,/usr/share/vim/vim71,/usr/share/vim/vimfiles/after,/var/lib/vim/addons/after,~/.vim/after
++set scrollopt=ver,jump,hor
++set sessionoptions=blank,buffers,curdir,folds,help,options,tabpages,winsize,globals
+ set shiftwidth=4
+ set showcmd
+ set smartcase
+-set suffixes=.aux,.pdf,.dvi,.ps,.bbl,.blg,.ind,.idx,.ilg,.inx,.out,.toc
+-set tabstop=4
++set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,.aux,.pdf,.dvi,.ps,.bbl,.blg,.ind,.idx,.ilg,.inx,.out,.toc
+ set textwidth=80
+ set wildmenu
+ let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+ let v:this_session=expand("<sfile>:p")
++let NERDSpaceDelims = "0"
++let NERDUncomLineMap = ",cu"
++let NERDBlockComIgnoreEmpty = "0"
++let NERDDelimiterRequests = "1"
++let NERDLPlace = "[>"
++let NERDComLineToggleMap = ",c<space>"
++let NERDMapleader = ",c"
++let NERDAppendComMap = ",cA"
++let NERDUsePlaceHolders = "1"
++let NERDComLineMap = ",cc"
++let NERDComLineYankMap = ",cy"
++let NERDComToEOLMap = ",c$"
++let NERDCompactSexyComs = "0"
++let NERDComAlignBothMap = ",cb"
++let NERDPrependComMap = ",cI"
++let NERDShutUp = "0"
++let NERDComLineMinimalMap = ",cm"
++let TeX_main_file = "lshort-fr"
++let NERDCommentWholeLinesInVMode = "0"
++let NERDMenuMode = "3"
++let NERDComAlignLeftMap = ",cl"
++let NERDDefaultNesting = "1"
++let NERDRPlace = "<]"
++let NERDComLineInvertMap = ",ci"
++let NERDComInInsertMap = "<C-c>"
++let NERDComLineNestMap = ",cn"
++let NERDComAlignRightMap = ",cr"
++let NERDRemoveExtraSpaces = "1"
++let NERDRemoveAltComs = "1"
++let NERDComLineSexyMap = ",cs"
++let NERDAllowAnyVisualDelims = "1"
++let NERDAltComMap = ",ca"
+ silent only
+ cd ~/tex/traduc/lshort
+ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+   let s:wipebuf = bufnr('%')
+ endif
+ set shortmess=aoO
+-badd +5 flshort.tex
+-badd +1 flshort.sty
+-badd +32 title.tex
+-badd +93 en-4.24/lshort-base.tex
+-badd +1 math
+-badd +677 math.tex
+-badd +176 lssym.tex
+-args flshort.tex
+-edit flshort.tex
++badd +3 en-3.20/typeset.tex
++badd +5 en-4.24/typeset.tex
++badd +60 remarks
++badd +0 lshort-fr.sty
++badd +8 typeset.tex
++args en-3.20/typeset.tex en-4.24/typeset.tex
++edit en-3.20/typeset.tex
+ set splitbelow splitright
+ wincmd _ | wincmd |
+ vsplit
+ 1wincmd h
+ wincmd _ | wincmd |
+ split
+-1wincmd k
++wincmd _ | wincmd |
++split
++2wincmd k
+ wincmd w
+ wincmd w
++wincmd w
++wincmd _ | wincmd |
++split
++1wincmd k
++wincmd w
+ set nosplitbelow
+ set nosplitright
+ wincmd t
+ set winheight=1 winwidth=1
+-exe '1resize ' . ((&lines * 14 + 25) / 51)
++exe '1resize ' . ((&lines * 24 + 25) / 51)
+ exe 'vert 1resize ' . ((&columns * 80 + 80) / 161)
+-exe '2resize ' . ((&lines * 34 + 25) / 51)
++exe '2resize ' . ((&lines * 8 + 25) / 51)
+ exe 'vert 2resize ' . ((&columns * 80 + 80) / 161)
++exe '3resize ' . ((&lines * 15 + 25) / 51)
+ exe 'vert 3resize ' . ((&columns * 80 + 80) / 161)
++exe '4resize ' . ((&lines * 24 + 25) / 51)
++exe 'vert 4resize ' . ((&columns * 80 + 80) / 161)
++exe '5resize ' . ((&lines * 24 + 25) / 51)
++exe 'vert 5resize ' . ((&columns * 80 + 80) / 161)
+ argglobal
+ let s:cpo_save=&cpo
+ set cpo&vim
+-vmap <buffer> <F4> :s:^\( *\)% :\1:e
+-vmap <buffer> <F3> :s:^:% :
++vmap <buffer> <F4> :s:^\( *\)% :\1:e:noh
++vmap <buffer> <F3> :s:^:% ::noh
+ nmap <buffer> <silent> <F4> :set opfunc=TeXUnCommentg@
+ nmap <buffer> <silent> <F3> :set opfunc=TeXCommentOutg@
+ nmap <buffer> <F6> :call TeXDisplay() 

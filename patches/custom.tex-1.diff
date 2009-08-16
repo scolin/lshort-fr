@@ -1,0 +1,16 @@
+--- a/custom.tex
++++ b/custom.tex
+@@ -1,7 +1,9 @@
+-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+-% Contents: Customising LaTeX output
+-% $Id: custom.tex,v 1.15 2001/11/25 17:43:58 matthieu Exp $
+-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
++% chapitre « presonnalisation » pour lshort-fr (encodé en latin1)
++%
++% Pour les informations de licence, voir lshort-fr.tex.
++% See lshort-fr.tex for licence information.
++%
++
+ \chapter{Personnalisation de \LaTeX}
+ 
+ \begin{intro}

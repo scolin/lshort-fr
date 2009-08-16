@@ -1,0 +1,25 @@
+--- a/typeset.tex
++++ b/typeset.tex
+@@ -1104,16 +1104,14 @@ cadre.\\
+ Merci de votre visite.\\
+ \hline 
+ \end{tabular}
+-
+ \end{example}
+ 
+-La construction \verb|@{...}| permet d'imposer le séparateur de
+-colonnes. Cette commande supprime l'espacement inter-colonnes et le
+-remplace par ce qui est indiqué entre les crochets. Une utilisation
+-courante de cette commande est présentée plus loin comme solution au
+-problème de l'alignement des nombres décimaux. Une autre utilisation
+-possible est de supprimer l'espacement dans un tableau avec
+-\verb|@{}|.
++La construction ©@{...}© permet d'imposer le séparateur de colonnes. Cette
++commande supprime l'espacement inter-colonnes et le remplace par ce qui est
++indiqué entre les crochets. Une utilisation courante de cette commande est
++présentée plus loin comme solution au problème de l'alignement des nombres
++décimaux. Une autre utilisation possible est de supprimer l'espacement dans un
++tableau avec ©@{}©.
+ 
+ \begin{example}
+ \begin{tabular}{@{} l @{}}

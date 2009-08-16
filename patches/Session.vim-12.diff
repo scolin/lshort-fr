@@ -1,0 +1,10 @@
+--- a/Session.vim
++++ b/Session.vim
+@@ -311,6 +311,7 @@ unlet s:cpo_save
+ setlocal keymap=
+ setlocal noarabic
+ setlocal autoindent
++setlocal balloonexpr=
+ setlocal nobinary
+ setlocal bufhidden=
+ setlocal buflisted

@@ -1,0 +1,334 @@
+--- a/typeset.tex
++++ b/typeset.tex
+@@ -636,208 +636,196 @@ I like BASIC\@. Do you?
+ \end{example}
+ \frenchspacing
+ 
+-L'ajout d'espace supplémentaire à la fin d'une phrase peut être
+-supprimé par la commande :
+-\begin{lscommand}
+-\ci{frenchspacing}
++L'ajout d'espace supplémentaire à la fin d'une phrase peut être supprimé par
++la commande :
++\begin{lscommand}{2}
++  ¡\frenchspacing¡
+ \end{lscommand}
+-\noindent qui est active par défaut avec l'option \pai{francais} de
+-l'extension \pai{babel}. Dans ce cas, la commande \verb|\@| n'est pas
+-nécessaire. 
+-
+-
++\noindent qui est active par défaut avec l'option \pai{français} de
++l'extension \pai{babel}. Dans ce cas, la commande ©\@© n'est pas nécessaire. 
+ 
+ \section{Titres, chapitres et sections}
+ 
+-Pour aider le lecteur à suivre votre pensée, vous souhaitez séparer
+-vos documents en chapitres, sections ou sous-sections. \LaTeX{}
+-utilise pour cela des commandes qui prennent en argument le titre de
+-chaque élément. C'est à vous de les utiliser dans l'ordre.
++Pour aider le lecteur à suivre votre pensée, vous souhaitez séparer vos
++documents en chapitres, sections ou sous-sections. \LaTeX utilise pour cela
++des commandes qui prennent en argument le titre de chaque élément. C'est à
++vous de les utiliser dans l'ordre.
+ 
+-Dans la classe de document \texttt{article}, les commandes de
+-sectionnement suivantes sont disponibles :
++Dans la classe de document \texttt{article}, les commandes de sectionnement
++suivantes sont disponibles :
+ \nopagebreak
+ \begin{code}
+-\ci{part}\verb|{...}|\\
+-\ci{section}\verb|{...}           |\ci{paragraph}\verb|{...}|\\
+-\ci{subsection}\verb|{...}        |\ci{subparagraph}\verb|{...} |\\
+-\ci{subsubsection}\verb|{...}     |\ci{appendix}
++  ¡\part¡{«titre»}
++  ¡\section¡{«titre»}
++  ¡\subsection¡{«titre»}
++  ¡\subsubsection¡{«titre»}
++  ¡\paragraph¡{«titre»}
++  ¡\subparagraph¡{«titre»}
+ \end{code}
+ 
+ Dans les classes \texttt{report} et \texttt{book}, la commande
+ \begin{code}
+-\ci{chapter}\verb|{...}|
++  ¡\chapter¡{«titre»}
+ \end{code}
+ 
+-est également reconnue,  (elle s'intercale entre \verb|\part| et 
+-\verb|\section|)%
+-\,\footnote{Puisque la classe \texttt{article} ne connaît pas les chapitres, il
+-est facile par exemple de regrouper des articles en tant que chapitres
+-d'un livre en remplacant le \texttt{\bs title} de chaque article par
+-\texttt{\bs chapter}.}.
++est également reconnue,  (elle s'intercale entre ©\part© et
++©\section©)\footnote{Puisque la classe \texttt{article} ne connaît pas les
++  chapitres, il est facile par exemple de regrouper des articles en tant que
++  chapitres d'un livre en remplaçant le \texttt{\bs title} de chaque article
++  par \texttt{\bs chapter}.}.
+ 
+-L'espacement entre les sections, la numérotation et le
+-choix de la police et de la taille des titres sont gérés
+-automatiquement par \LaTeX{}.
++L'espacement entre les sections, la numérotation et le choix de la police et
++de la taille des titres sont gérés automatiquement par \LaTeX.
+ 
+-% \pagebreak[3]
+-Deux commandes de sectionnement ont un comportement spécial :
++Deux commandes de sectionnement ont un comportement spécial :
+ \begin{itemize}
+-\item la commande \ci{part} ne change pas la numérotation des
+-      chapitres ;
+-\item la commande \ci{appendix} ne prend pas d'argument. Elle bascule
+-      simplement la numérotation des chapitres\,\footnote{Pour la classe
+-      article, elle change la numérotation des sections} en lettres.
++  \item la commande \ci{part} ne change pas la numérotation des chapitres ;
++  \item la commande \ci{appendix} ne prend pas d'argument. Elle bascule
++    simplement la numérotation des chapitres\footnote{Pour la classe article,
++      elle change la numérotation des sections} en lettres.
+ \end{itemize}
+ 
+-\LaTeX{} peut ensuite créer la table des matières en récupérant la
+-liste des titres et de leur numéro de page d'une exécution précédente
+-(fichier \texttt{.toc}). La commande :
+-\begin{lscommand}
+-\ci{tableofcontents}
++\LaTeX peut ensuite créer la table des matières en récupérant la liste des
++titres et de leur numéro de page d'une exécution précédente (fichier
++\texttt{.toc}). La commande :
++\begin{lscommand}{2}
++  ¡\tableofcontents¡
+ \end{lscommand}
+-\noindent imprime la table des matières. Un document doit
+-être traité (on dit aussi \og compilé \fg{}) deux fois par \LaTeX{} pour avoir une
+-table des matières correcte. Dans certains cas, un troisième passage
+-est même nécessaire. \LaTeX{} vous indique quand cela est nécessaire.
+-
+-Toutes les commandes citées ci-dessus existent dans une forme
+-\og étoilée \fg{} obtenue en ajoutant une étoile \verb|*| au nom de la
+-commande. Ces commandes produisent des titres de sections qui
+-n'apparaissent pas dans la table des matières et qui ne sont pas
+-numérotés. On peut ainsi remplacer la commande
+-\verb|\section{Introduction}| par
+-\verb|\section*{Introduction}|.
+-
+-Par défaut, les titres de section apparaissent dans la table des
+-matières exactement comme ils sont dans le texte. Parfois il n'est pas
+-possible de faire tenir un titre trop long dans la table des
+-matières. On peut donner un titre spécifique pour la table des
+-matières en argument optionnel avant le titre principal :
++\noindent imprime la table des matières. Un document doit être traité (on dit
++aussi « compilé ») deux fois par \LaTeX pour avoir une table des matières
++correcte. Dans certains cas, un troisième passage est même nécessaire. \LaTeX
++vous indique quand cela est nécessaire.
++
++Toutes les commandes citées ci-dessus existent dans une forme « étoilée »
++obtenue en ajoutant une étoile ©*© au nom de la commande. Ces commandes
++produisent des titres de sections qui n'apparaissent pas dans la table des
++matières et qui ne sont pas numérotés. On peut ainsi remplacer la commande
++©\section{Introduction}© par ©\section*{Introduction}©.
++
++Par défaut, les titres de section apparaissent dans la table des matières
++exactement comme ils sont dans le texte. Parfois il n'est pas possible de
++faire tenir un titre trop long dans la table des matières. On peut donner un
++titre spécifique pour la table des matières en argument optionnel avant le
++titre principal :
+ \begin{code}
+-\verb|\chapter[Le LAAS du CNRS]{Le Laboratoire|\\
+-\verb|         d'Analyse et d'Architecture|\\
+-\verb|        des Systèmes du Centre National|\\
+-\verb|        de la Recherche Scientifique}|
++  \chapter[Le LAAS du CNRS]{Le Laboratoire
++           d'Analyse et d'Architecture
++          des Systèmes du Centre National
++          de la Recherche Scientifique}
+ \end{code} 
+ 
+-Le \wi{titre du document} est obtenu par la commande :
+-\begin{lscommand}
+-\ci{maketitle}
++Le \wi{titre du document} est obtenu par la commande :
++\begin{lscommand}{2}
++  ¡\maketitle¡
+ \end{lscommand}
+-Les éléments de ce titre sont définis par les commandes :
+-\begin{lscommand}
+-\ci{title}\verb|{...}|, \ci{author}\verb|{...}| 
+-et éventuellement \ci{date}\verb|{...}| 
++Les éléments de ce titre sont définis par les commandes :
++\begin{lscommand}{2}
++  ¡\title¡{«titre»}
++  ¡\author¡{«auteur»}
++  ¡\date¡{«date»}
+ \end{lscommand}
+-\noindent qui doivent être appelées avant \verb|\maketitle|. Dans
+-l'argument de la commande \ci{author}, vous pouvez citer plusieurs
+-auteurs en séparant leurs noms par des commandes \ci{and}.
++\noindent qui doivent être appelées avant ©\maketitle©. Dans l'argument de la
++commande \ci{author}, vous pouvez citer plusieurs auteurs en séparant leurs
++noms par des commandes \ci{and}.
+ 
+ Vous trouverez un exemple des commandes citées ci-dessus sur la
+ figure~\ref{document}, page~\pageref{document}.
+ 
+-En plus des commandes de sectionnement expliquées ci-dessus, \LaTeXe{}
+-a introduit trois nouvelles commandes destinées à être utilisées avec
+-la classe \texttt{book} :
++En plus des commandes de sectionnement expliquées ci-dessus, \LaTeXe a
++introduit trois nouvelles commandes destinées à être utilisées avec la classe
++\texttt{book} :
+ \begin{description}
+-\item[\ci{frontmatter}] doit être la première commande après le
+-  \verb|\begin{document}|, elle introduit le préambule du document. 
+-  Les numéros de pages sont alors en romain (i, ii, iii, etc.). 
+-  En général on ne numérote pas les parties d'un préambule, ceci
+-  se fait en utilisant les variantes étoilées des commandes de
+-  sectionnement comme  \verb|\chapter*{Preface}|.
+-\item[\ci{mainmatter}] se place juste avant le début du premier
+-  (vrai) chapitre du livre,  la numérotation des pages se fait alors 
+-  en chiffres arabes et le compteur de pages est remis à~1.
+-\item[\ci{appendix}] indique le début des appendices, les numéros
+-  des chapitres sont alors remplacés par des lettres majuscules (A, B, etc.).
+-\item[\ci{backmatter}] se place juste avant la bibliographie et les index.
++  \item[\ci{frontmatter}] doit être la première commande après le
++    ©\begin{document}©, elle introduit le préambule du document.  Les numéros
++    de pages sont alors en romain (i, ii, iii, etc.).  En général on ne
++    numérote pas les parties d'un préambule, ceci se fait en utilisant les
++    variantes étoilées des commandes de sectionnement comme
++    ©\chapter*{Preface}©.
++  \item[\ci{mainmatter}] se place juste avant le début du premier (vrai)
++    chapitre du livre,  la numérotation des pages se fait alors en chiffres
++    arabes et le compteur de pages est remis à~1.
++  \item[\ci{appendix}] indique le début des appendices, les numéros des
++    chapitres sont alors remplacés par des lettres majuscules (A, B, etc.).
++  \item[\ci{backmatter}] se place juste avant la bibliographie et les index.
+ \end{description}
+ 
+ \section{Références croisées}
+ 
+-Dans les livres, rapports ou articles, on trouve souvent des
+-\wi{références croisées} vers des figures, des tableaux ou des passages
+-particuliers du texte. \LaTeX{} dispose des commandes suivantes pour
+-faire des références croisées :
++Dans les livres, rapports ou articles, on trouve souvent des \wi{références
++  croisées} vers des figures, des tableaux ou des passages particuliers du
++texte. \LaTeX dispose des commandes suivantes pour faire des références
++croisées :
+ 
+-\begin{lscommand}
+-\ci{label}\verb|{|\emph{marque}\verb|}|, \ci{ref}\verb|{|\emph{marque}\verb|}| 
+-et \ci{pageref}\verb|{|\emph{marque}\verb|}|
++\begin{lscommand}{2}
++  ¡\label¡{«marque»} ¡\ref¡{«marque»} ¡\pageref¡{«marque»}
+ \end{lscommand}
+-\noindent où \emph{marque} est un identificateur choisi par
+-l'utilisateur. \LaTeX{} remplace \verb|\ref| par le numéro de la
+-section, de la sous-section, de la figure, du tableau, ou du théorème
+-où la commande \verb|\label| correspondante a été placée. 
+-L'utilisation de références croisées rend nécessaire de compiler deux fois le
+-document : à la première compilation les numéros correspondant aux étiquettes
+-\verb|\label{}| sont inscrits dans le fichier \texttt{.aux} et, à la
+-compilation suivante, \verb|\ref{}| et \verb|\pageref{}| peuvent imprimer
+-ces numéros%
+-\,\footnote{Ces commandes ne connaissent pas le type du numéro auquel
+-elles se réfèrent, elles utilisent le dernier numéro généré
+-automatiquement.}. 
++\noindent où \emph{marque} est un identificateur choisi par l'utilisateur.
++\LaTeX remplace ©\ref© par le numéro de la section, de la sous-section, de la
++figure, du tableau, ou du théorème où la commande ©\label© correspondante a
++été placée.  L'utilisation de références croisées rend nécessaire de compiler
++deux fois le document : à la première compilation les numéros correspondant
++aux étiquettes ©\label{}© sont inscrits dans le fichier \texttt{.aux} et, à la
++compilation suivante, ©\ref{}© et ©\pageref{}© peuvent imprimer ces
++numéros\footnote{Ces commandes ne connaissent pas le type du numéro auquel
++  elles se réfèrent, elles utilisent le dernier numéro généré
++  automatiquement.}. 
+ 
+ \begin{example}
+ Une référence à cette 
+ section\label{ma-section}
+-ressemble à :
++ressemble à :
+ «~voir section~\ref{ma-section},
+ page~\pageref{ma-section}.~»
+ \end{example}
+  
+ \section{Notes de bas de page}
+-La commande :
+-\begin{lscommand}
+-\ci{footnote}\verb|{|\emph{texte}\verb|}|
++
++La commande :
++\begin{lscommand}{2}
++  ¡\footnote¡{«texte»}
+ \end{lscommand}
+-\noindent imprime une note de bas de page en bas de la page en cours.
+-Les notes de bas de page doivent être placées après le mot où la
+-phrase auquel elles se réfèrent%
+-\,\footnote{La typographie française demande une espace fine avant la
+-marque de renvoi à la note.}.
++\noindent imprime une note de bas de page en bas de la page en cours.  Les
++notes de bas de page doivent être placées après le mot où la phrase auquel
++elles se réfèrent\footnote{La typographie française demande une espace fine
++  avant la marque de renvoi à la note.}.  
+ \nopagebreak[2]
+ 
+ \begin{example}
+ Les notes de bas de page%
+-\,\footnote{ceci est une note
++\footnote{ceci est une note
+ 	  de bas de page.}
+ sont très prisées par les 
+-utilisateurs de \LaTeX{}.
++utilisateurs de \LaTeX.
+ \end{example}
+ 
+ \section{Souligner l'importance d'un mot}
+ 
+-Dans un manuscrit réalisé sur une machine à écrire, les mots
+-importants sont \underline{soulignés}, ce qui peut être obtenu par la
+-commande: 
+-\begin{lscommand}
+-\ci{underline}\verb|{|\textit{texte}\verb|}|
++Dans un manuscrit réalisé sur une machine à écrire, les mots importants sont
++\underline{soulignés}, ce qui peut être obtenu par la commande: 
++\begin{lscommand}{2}
++  ¡\underline¡{«texte»}
+ \end{lscommand}
+ 
+-Dans un ouvrage
+-imprimé, on préfère les \emph{mettre en valeur}%
+-\,\footnote{\emph{Emphasized} en anglais.}. 
+-La commande de mise en valeur est :
+-\begin{lscommand}
+-\ci{emph}\verb|{|\emph{texte}\verb|}|
++Dans un ouvrage imprimé, on préfère les \emph{mettre en
++  valeur}\footnote{\emph{Emphasized} en anglais.}.  La commande de mise en
++valeur est :
++\begin{lscommand}{2}
++  ¡\emph¡{«texte»}
+ \end{lscommand}
+ 
+ Son argument est le texte à mettre en valeur. En général, la police
+-\emph{italique} est utilisée pour la mise en valeur, sauf si le texte
+-est déja en italique, auquel cas on utilise une police romaine (droite).
++\emph{italique} est utilisée pour la mise en valeur, sauf si le texte est déja
++en italique, auquel cas on utilise une police romaine (droite).
+ 
+ \begin{example}
+ \emph{Pour \emph{insister}
+ dans un passage déjà 
+-mis en valeur, \LaTeX{} 
++mis en valeur, \LaTeX 
+ utilise une police droite.}
+ \end{example}
+  
+-Remarquez la différence entre demander à \LaTeX{} de \emph{mettre en
+-valeur} un mot et lui demander de changer de \emph{police de
+-caractères} :
++Remarquez la différence entre demander à \LaTeX de \emph{mettre en valeur} un
++mot et lui demander de changer de \emph{police de caractères} :
+ 
+ \begin{example}
+ \textit{Vous pouvez aussi

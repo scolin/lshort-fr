@@ -1,0 +1,18 @@
+--- a/typeset.tex
++++ b/typeset.tex
+@@ -972,13 +972,13 @@ importantes ou les exemples.
+ \begin{example}
+ Une règle typographique 
+ simple pour la longueur
+-des lignes :
++des lignes :
+ \begin{quote}
+ Une ligne ne devrait pas comporter
+ plus de 66~caractères.
+ 
+ C'est pourquoi les pages 
+-composées par \LaTeX{} ont des 
++composées par \LaTeX ont des 
+ marges importantes.
+ \end{quote}
+ Cela explique pourquoi les 

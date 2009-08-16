@@ -1,0 +1,238 @@
+--- a/things.tex
++++ b/things.tex
+@@ -86,139 +86,130 @@ en-t
+ le passe à un technicien typographe qui réalise la mise en page
+ en suivant ces instructions.
+ 
+-Un éditeur humain essaye de comprendre ce que l'auteur veut mettre en
+-valeur et décide de la présentation en fonction de son expérience
++Un éditeur humain essaye de comprendre ce que l'auteur avait en tête en
++écrivant le manuscrit. Il décide de la présentation des en-têtes de chapitres,
++citation, exemples, formules, etc. en fonction de son expérience
+ professionnelle et du contenu du manuscrit. 
+ 
+-Dans un environnement \LaTeX{}, celui-ci joue le rôle de l'éditeur et
+-utilise \TeX{} comme typographe pour la composition. Mais \LaTeX{}
+-n'est qu'un programme et a donc besoin de plus de directives. L'auteur
+-doit en particulier lui fournir la structure logique de son
+-document. Cette information est insérée dans le texte sous la forme de
+-\og commandes \LaTeX{} \fg{}.
++Dans un environnement \LaTeX, celui-ci joue le rôle de l'éditeur et utilise
++\TeX comme typographe pour la composition. Mais \LaTeX n'est qu'un programme
++et a donc besoin de plus de directives. L'auteur doit en particulier lui
++fournir de l'information sur la structure logique de son document. Cette
++information est insérée dans le texte sous la forme de « commandes \LaTeX ».
+ 
+ Cette approche est totalement différente de l'approche
+-\wi{WYSIWYG}\,\footnote{What you see is what you get -- Ce que vous
+-voyez est ce qui sera imprimé.}  utilisée par les traitements de texte
+-modernes tels que \emph{Microsoft Word} ou \emph{Corel
+-WordPerfect}. Avec ces programmes, l'auteur définit la mise en page du
+-document de manière interactive pendant la saisie du texte. Tout au
+-long de cette opération, il voit à l'écran à quoi ressemblera le
+-document final une fois imprimé.
+-
+-Avec \LaTeX{}, il n'est normalement pas possible de voir le résultat
+-final durant la saisie du texte. Mais celui-ci peut être
+-pré-visualisé après traitement du fichier par \LaTeX{}. Des corrections
+-peuvent alors être apportées avant d'envoyer la version définitive
+-vers l'imprimante.
++\wi{WYSIWYG}\footnote{What you see is what you get -- Ce que vous voyez est ce
++  qui sera imprimé.} utilisée par des traitements de texte comme par exemple
++\emph{\mbox{Microsoft} \mbox{Word}} ou \emph{\mbox{Corel} \mbox{WordPerfect}}.
++Avec ces programmes, l'auteur définit la mise en page du document de manière
++interactive pendant la saisie du texte. Tout au long de cette opération, il
++voit à l'écran à quoi ressemblera le document final une fois imprimé.
++
++Avec \LaTeX, il n'est normalement pas possible de voir le résultat final
++durant la saisie du texte. Mais celui-ci peut être pré-visualisé après
++traitement du fichier par \LaTeX. Des corrections peuvent alors être apportées
++avant d'envoyer la version définitive à l'impression.
+ 
+ \subsection{Choix de la mise en page}
+ 
+-La typographie est un métier (un art ?). Les auteurs inexpérimentés
+-font souvent de graves erreurs en considérant que la mise en page est
+-avant tout une question d'esthétique : \og si un document est beau, il
+-est bien conçu \fg{}. Mais un document doit être lu et non accroché dans
+-une galerie d'art. La lisibilité et la compréhensibilité sont bien
+-plus importantes que le \og look \fg{}. Par exemple :
++La typographie est un métier (un art ?). Les auteurs inexpérimentés font
++souvent de graves erreurs en considérant que la mise en page est avant tout
++une question d'esthétique : « si un document est beau, il est bien conçu ».
++Mais un comme une document doit être lu et non accroché dans une galerie
++d'art, la lisibilité et la compréhensibilité sont bien plus importantes que
++l'apparence. Par exemple :
+ \begin{itemize}
+-\item la taille de la police et la numérotation des en-têtes doivent
+-      être choisies afin de mettre en évidence la structure des
+-      chapitres et des sections ;
+-\item les lignes ne doivent pas être trop longues pour ne pas fatiguer
+-      la vue du lecteur, tout en remplissant la page de manière
+-      harmonieuse. 
++  \item la taille de la police et la numérotation des en-têtes doivent être
++    choisies afin de mettre en évidence la structure des chapitres et des
++    sections ;
++  \item les lignes ne doivent pas être trop longues pour ne pas fatiguer la
++    vue du lecteur, mais cepandant assez pour remplir la page de manière
++    harmonieuse. 
+ \end{itemize}
+ 
+-Avec un logiciel \wi{WYSIWYG}, l'auteur produit généralement des
+-documents esthétiquement plaisants (quoi que\dots) mais très peu ou
+-mal structurés. \LaTeX{} empêche de telles erreurs de formatage en
+-forçant l'auteur à décrire la structure logique de son document et en
+-choisissant lui-même la mise en page la plus appropriée.
+-
++Avec un logiciel \wi{WYSIWYG}, l'auteur produit généralement des documents
++esthétiquement plaisants (quoi que\dots) mais très peu ou mal structurés.
++\LaTeX empêche de telles erreurs de formatage en forçant l'auteur à décrire la
++structure logique de son document et en choisissant lui-même la mise en page
++la plus\footnote{Le traducteur n'est pas aussi optimiste et pense que \LaTeX
++  choisit seulement \emph{une} mise en pages appropriée, ce qui n'est déjà pas
++  mal. \NdT} appropriée.
+ 
+ \subsection{Avantages et inconvénients}
+ 
+ Un sujet de discussion qui  revient souvent quand des gens du monde
+-\wi{WYSIWYG} rencontrent des utilisateurs de \LaTeX{} est le 
+-suivant : \og les \wi{avantages de \LaTeX{}} par rapport à un
+-traitement de texte classique \fg{} ou bien le contraire.
+-La meilleure chose à faire quand une telle discussion démarre, est de
+-garder son calme, car souvent cela dégénère. Mais parfois on ne peut y
+-échapper\dots
++\wi{WYSIWYG} rencontrent des utilisateurs de \LaTeX est le suivant : « les
++\wi{avantages de \LaTeX} par rapport à un traitement de texte classique » ou
++bien le contraire.  La meilleure chose à faire quand une telle discussion
++démarre, est de garder son calme, car souvent cela dégénère. Mais parfois on
++ne peut y échapper\dots
+ 
+-\medskip Voici donc quelques arguments. Les principaux avantages de
+-\LaTeX{} par rapport à un traitement de texte traditionnel sont :
++\medskip
++Voici donc quelques arguments. Les principaux avantages de \LaTeX par rapport
++à un traitement de texte traditionnel sont :
+ 
+ \begin{itemize}
+-
+-\item mise en page professionnelle qui donne aux documents l'air de
+-      sortir de l'atelier d'un imprimeur ;
+-\item la composition des formules mathématiques se fait de manière
+-      pratique ;
+-\item il suffit de connaître quelques commandes de
+-      base pour décrire la structure logique du document. 
+-      Il n'est pas nécessaire de se préoccuper de la mise en page ;
+-\item des structures complexes telles que des notes de bas de page,
+-      des renvois, la table des matières ou les références
+-      bibliographiques sont produites facilement ;
+-\item pour la plupart des tâches de la typographie qui ne sont pas
+-      directement gérées par \LaTeX{}, il existe des extensions
+-      gratuites. Par exemple pour inclure des figures
+-      \textsc{PostScript} ou pour formater une bibliographie selon un
+-      standard précis. La majorité de ces extensions sont décrites dans
+-      \companion{} (en anglais) et dans \desgraupes{} (en français) ;
+-\item \LaTeX{} encourage les auteurs à écrire des documents bien
+-      structurés, parce que c'est ainsi qu'il fonctionne (en
+-      décrivant la structure) ;
+-\item \TeX{}, l'outil de formatage de \LaTeXe{}, est réellement
+-      portable et gratuit. Ainsi il est disponible sur quasiment
+-      toutes les machines existantes.
+-%
+-% Add examples ...
+-%
++  \item mise en page professionnelle qui donne aux documents l'air de sortir
++    de l'atelier d'un imprimeur ;
++  \item la composition des formules mathématiques se fait de manière
++    pratique ;
++  \item il suffit de connaître quelques les quelques commandes qui décrivent la
++    structure logique du document. Il n'est pas nécessaire de se préoccuper
++    de la mise en page ;
++  \item même les structures complexes telles que des notes de bas de page, des
++    renvois, la table des matières ou les références bibliographiques sont
++    faciles à produire ;
++  \item pour la plupart des tâches de la typographie qui ne sont pas
++    directement gérées par \LaTeX, il existe des extensions gratuites : par
++    exemple pour inclure des figures \PSi ou pour formater une
++    bibliographie selon un standard précis. La majorité de ces extensions sont
++    décrites dans \companion ;
++  \item \LaTeX encourage les auteurs à écrire des documents bien structurés,
++    parce que c'est ainsi qu'il fonctionne (en décrivant la structure) ;
++  \item \TeX, l'outil de formatage de \LaTeXe, est réellement
++    portable et gratuit. Le système peut ainsi tourner sur presque
++    tous les types de machines existants.
+ \end{itemize}
+ 
+ \medskip
+-
+-\LaTeX{} a également quelques inconvénients ; il est difficile
+-pour moi d'en trouver, mais d'autres vous en citeront des centaines  :
++\LaTeX a également quelques inconvénients ; il est difficile pour moi d'en
++trouver de sérieux, mais d'autres vous en citeront des centaines :
+ 
+ \begin{itemize}
+-\item \LaTeX{} ne fonctionne pas bien pour ceux qui ont vendu leur 
+-      âme ;
+-\item bien que quelques paramètres des mises en page pré-définies
+-      puissent être personnalisés, la mise au point d'une présentation
+-      entièrement nouvelle est difficile et demande beaucoup de
+-      temps\,\footnote{La rumeur dit que c'est un des points qui
+-      devrait être améliorés dans la future version \LaTeX
+-      3}\index{LaTeX3@\LaTeX 3} ;
+-\item écrire des documents mal organisés et mal structurés est très
+-      difficile. 
++  \item \LaTeX ne fonctionne pas bien pour ceux qui ont vendu leur âme ;
++  \item bien que quelques paramètres des mises en page pré-définies puissent
++    être personnalisés, la mise au point d'une présentation entièrement
++    nouvelle est difficile et demande beaucoup de temps\footnote{La rumeur dit
++      que c'est un des points qui devrait être améliorés dans la future
++      version \LaTeX 3}\index{LaTeX3@\LaTeX 3.} ;
++  \item écrire des documents mal organisés et mal structurés est très
++    difficile ;
++  \item il est possible que votre hamster, malgré des débuts encourageants, ne
++    parvienne jamais à bien comprendre la notion de balisage logique.
+ \end{itemize}
+- 
+-\section{Fichiers source \LaTeX{}}
+ 
+-L'entrée de \LaTeX{} est un fichier texte \texttt{ASCII}. Vous pouvez
+-le créer avec l'éditeur de texte de votre choix. Il contient le texte
+-de votre document ainsi que les commandes qui vont dire à \LaTeX{}
+-comment mettre en page le texte. On appelle ce fichier \emph{\wi{fichier
+-source}}. 
++\section{Fichiers source \LaTeX}
++
++L'entrée de \LaTeX est un fichier en texte brut. Vous pouvez le créer avec
++l'éditeur de texte de votre choix. Il contient le texte de votre document
++ainsi que les commandes qui vont dire à \LaTeX comment mettre en page le
++texte. On appelle ce fichier le \emph{\wi{fichier source}}\footnote{Couramment
++  élidé en « le source » dans la conversation. \NdT}.
+ 
+ \subsection{Espaces}
+ 
+-Les caractères d'espacement, tels que les blancs ou les tabulations
+-sont traités de manière unique comme \og \wi{espace} \fg{} par
+-\LaTeX{}. Plusieurs \wi{blancs} \emph{consécutifs} sont considérés
+-comme \emph{une seule} espace\,\footnote{En langage typographique,
+-    \emph{espace} est un mot féminin. \emph{NdT.}}.  Les espaces en début
+-d'une ligne sont en général ignorées et un seul retour à la ligne est
+-traité comme une espace.  \index{espace!en début de ligne}
++Les caractères d'espacement, tels que les blancs ou les tabulations, sont
++traités de manière unique comme « \wi{espace} » par \LaTeX. Plusieurs
++\wi{blancs} \emph{consécutifs} sont considérés comme \emph{une seule}
++espace\footnote{En langage typographique, \emph{espace} est un mot féminin.
++  \NdT}. Les espaces en début de ligne sont en général ignorées et un seul
++retour à la ligne est traité comme une espace. \index{espace!en début de
++  ligne}
+ 
+-Une ligne vide entre deux lignes de texte marque la fin d'un
+-paragraphe. \emph{Plusieurs} lignes vides sont considérées comme
+-\emph{une seule} ligne vide. Le texte ci-dessous est un exemple. Sur
+-la gauche se trouve le contenu du fichier source et à droite le
+-résultat formaté.
++Une ligne vide entre deux lignes de texte marque la fin d'un paragraphe.
++\emph{Plusieurs} lignes vides sont considérées comme \emph{une seule} ligne
++vide. Le texte ci-dessous est un exemple. On voit à gauche le contenu du
++fichier source et à droite le résultat formaté.
+ 
+ \begin{example}
+ Saisir un ou      plusieurs

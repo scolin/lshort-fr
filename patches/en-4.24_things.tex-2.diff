@@ -1,0 +1,12 @@
+--- a/en-4.24/things.tex
++++ b/en-4.24/things.tex
+@@ -539,7 +539,8 @@ purposes.
+   or not. The \texttt{article} class does not start a new page by
+   default, while \texttt{report} and \texttt{book} do.  \index{title}
+ 
+-\item[\normalfont\texttt{onecolumn}, \texttt{twocolumn}] \quad Instructs \LaTeX{} to typeset the
++\item[\normalfont\texttt{onecolumn}, \texttt{twocolumn}] \quad Instructs
++  \LaTeX{} to typeset the
+   document in \wi{one column} or \wi{two column}s.
+ 
+ \item[\normalfont\texttt{twoside, oneside}] \quad Specifies whether double or

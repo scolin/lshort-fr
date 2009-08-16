@@ -1,0 +1,16 @@
+--- a/spec.tex
++++ b/spec.tex
+@@ -1,7 +1,9 @@
+-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+-% Contents: Specialties of the LaTeX system
+-% $Id: spec.tex,v 1.23 2001/11/25 17:43:58 matthieu Exp $
+-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
++% chapitre « compléments » pour lshort-fr (encodé en latin1)
++%
++% Pour les informations de licence, voir lshort-fr.tex.
++% See lshort-fr.tex for licence information.
++%
++
+ \chapter{Compléments}
+ \label{chap:spec}
+ \thispagestyle{plain}

@@ -1,0 +1,573 @@
+--- a/typeset.tex
++++ b/typeset.tex
+@@ -336,297 +336,349 @@ supra-conducteur.
+ \end{example}
+ 
+ L'extension \pai{babel} avec l'option \pai{francais} introduit la commande
+-\ci{degres} qui donne un meilleur résultat :
++\ci{degres} qui donne un meilleur résultat :
+ \begin{example}
+ Il fait -30~\degres C,
+ je vais bient\^ot devenir 
+ supra-conducteur.
+ \end{example}
+ 
+-\subsection{Points de suspension (\texorpdfstring{\dots}{...})}
++L'extension \pai{textcomp} fournit également la commande \ci{textcelsius} pour
++le symbole degré.
+ 
+-Sur une machine à écrire, une \wi{virgule} ou un \wi{point} occupent la
+-même largeur que les autres lettres. En typographie professionnelle,
+-le point occupe très peu de place et il est placé tout près du caractère
+-qui le précède. Il n'est donc pas possible d'utiliser trois points
+-consécutifs pour créer des \wi{points de suspension}. À la place on
+-utilise la commande spécifique : 
+-\begin{lscommand}
+-\ci{dots}
++\subsection{Le symbole monétaire euro \texorpdfstring{(\officialeuro)}{}}
++
++Pour parler d'argent de nos jours, on a besoin du symbole de l'euro. Beaucoup
++de fontes actuelles contiennent un symbole euro. Après avoir chargé
++\pai{textcomp} dans votre préambule,
++\begin{lscommand}{2}
++  ¡\usepackage¡{textcomp}
++\end{lscommand}
++\noindent vous pouvez utiliser la commande
++\begin{lscommand}{2}
++  ¡\texteuro¡
++\end{lscommand}
++\noindent pour y accéder.
++
++Si votre fonte ne fournit pas de symbole euro ou si vous n'aimez pas son
++symbole euro, vous avez d'autres possibilités.  Par exemple, l'extension
++\pai{eurosym}, qui fournit le symbole euro officiel :
++\begin{lscommand}{2}
++  ¡\usepackage¡[official]{eurosym}
++\end{lscommand}
++Si vous préférez un symbole euro qui se marie bien avec votre fonte, essayez
++l'option \texttt{gen} au lieu d'\texttt{official}.
++
++\begin{table}[!htbp]
++  \caption{Quelques symboles euro} \label{eurosymb}
++  \begin{lined}{10cm}
++    \begin{tabular}{llccc}
++      LM+textcomp  &\verb+\texteuro+ & \huge\texteuro &\huge\sffamily\texteuro
++      &\huge\ttfamily\texteuro\\
++      eurosym      &\verb+\euro+ & \huge\officialeuro &\huge\sffamily\officialeuro
++      &\huge\ttfamily\officialeuro\\
++      $[$gen$]$eurosym &\verb+\euro+ & \huge\geneuro  &\huge\sffamily\geneuro
++      &\huge\ttfamily\geneuro\\
++      %europs       &\verb+\EUR + & \huge\EURtm        &\huge\EURhv
++      %                                                &\huge\EURcr\\
++      %eurosans     &\verb+\euro+ & \huge\EUROSANS  &\huge\sffamily\EUROSANS
++      %                                             & \huge\ttfamily\EUROSANS \\
++      %marvosym     &\verb+\EURtm+  & \huge\mvchr101  &\huge\mvchr101
++      %                                               &\huge\mvchr101
++    \end{tabular}
++    \medskip
++  \end{lined}
++\end{table}
++
++\subsection{Points de suspension (\dots)}
++
++Sur une machine à écrire, une \wi{virgule} ou un \wi{point} occupent la même
++largeur que les autres lettres. En typographie professionnelle, le point
++occupe très peu de place et il est placé tout près du caractère qui le
++précède. Il n'est donc pas possible d'utiliser trois points consécutifs pour
++créer des \wi{points de suspension}. À la place on utilise la commande
++spécifique : 
++
++\begin{lscommand}{2}
++  ¡\dots¡
+ \end{lscommand}
+ \index{...@\dots}
+ \nonfrenchspacing
+ \begin{example}
+ Non pas comme \c{c}a... 
+-mais ainsi :\\
++mais ainsi :\\
+ New York, Tokyo, Budapest\dots
+ \end{example}
+ \frenchspacing
+ 
+ \subsection{Ligatures}
+ 
+-Certaines séquences de lettres ne sont pas composées simplement en
+-juxtaposant les différentes lettres les unes à la suite des autres,
+-mais en utilisant des symboles spéciaux.
+-\begin{code}
+-{\large ff fi fl ffi\dots}\quad
+-\`a la place de\quad {\large f{}f f{}i f{}l f{}f{}i\dots}
+-\end{code}
+-Ces \wi{ligature}s peuvent être désactivées en insérant un
+-\ci{mbox}\verb|{}| entre les lettres en question. Cela peut s'avérer
+-utile pour certains mots composés\,\footnote{Il n'existe pas d'exemple en
+-français. \emph{NdT.}}.
++Certaines séquences de lettres ne sont pas composées simplement en juxtaposant
++les différentes lettres les unes à la suite des autres, mais en utilisant des
++symboles spéciaux.
++\begin{quote}
++  {\Large ff fi fl ffi}\dots\quad
++  \`a la place de\quad {\Large f{}f f{}i f{}l f{}f{}i}\dots
++\end{quote}
++Ces \wi{ligature}s peuvent être désactivées en insérant un ©{}© entre les
++lettres en question. Cela peut s'avérer utile pour certains mots
++composés\footnote{Il n'existe pas d'exemple en français. \emph{NdT.}}.
+ \begin{example}
+-Not shelfful\\
+-but shelf\mbox{}ful
++\Large Not shelfful\\
++but shelf{}ful
+ \end{example}
+  
+ \subsection{Accents et caractères spéciaux}
+ 
+-\LaTeX{} permet l'utilisation d'\wi{accent}s et de \wi{caractères
+-spéciaux} issus de nombreuses langues. Le tableau~\ref{accents} montre
+-tous les accents que l'on peut ajouter à la lettre o. Ils s'appliquent
+-naturellement aux autres lettres.
++\LaTeX permet l'utilisation d'\wi{accent}s et de \wi{caractères spéciaux}
++issus de nombreuses langues. Le tableau~\ref{accents} montre tous les accents
++que l'on peut ajouter à la lettre o. Ils s'appliquent naturellement aux autres
++lettres.
+ 
+-Pour placer un accent sur un i ou un j, il faut supprimer leur
+-point. Ceci s'obtient en tapant \verb|\i| et \verb|\j|.
++Pour placer un accent sur un i ou un j, il faut supprimer leur point. Ceci
++s'obtient en tapant ©\i© et ©\j©.
+ 
+ \begin{example}
+ H\^otel, na\"\i ve, \'el\`eve,\\ 
+-sm\o rrebr\o d, !`Se\~norita!,\\
++sm\o rrebr\o d, !`Se\~norita!,\\
+ Sch\"onbrunner Schlo\ss{} 
+ Stra\ss e
+ \end{example}
+ 
+ \begin{table}[!hbp]
+-\caption{Accents et caractères spéciaux} \label{accents}
+-\begin{lined}{10cm}
+-\begin{tabular}{*4{cl}}
+-\A{\`o} & \A{\'o} & \A{\^o} & \A{\~o} \\
+-\A{\=o} & \A{\.o} & \A{\"o} & \B{\c}{c}\\[6pt]
+-\B{\u}{o} & \B{\v}{o} & \B{\H}{o} & \B{\c}{o} \\
+-\B{\d}{o} & \B{\b}{o} & \B{\t}{oo} \\[6pt]
+-\A{\oe}  &  \A{\OE} & \A{\ae} & \A{\AE} \\
+-\A{\aa} &  \A{\AA} \\[6pt]
+-\A{\o}  & \A{\O} & \A{\l} & \A{\L} \\
+-\A{\i}  & \A{\j} & !` & \verb|!|\verb|`| & ?` & \verb|?|\verb|`| 
+-\end{tabular}
+-\index{i et j@\i{} et \j{} sans points}\index{scandinaves (caractères)}
+-\index{ae@\ae}\index{umlaut}\index{accent!grave}\index{accent!aigu}
+-\index{accent!circonflexe}
+-\index{oe@\oe}
+-\index{cédille}
+-
+-\bigskip
+-\end{lined}
++  \caption{Accents et caractères spéciaux} \label{accents}
++  \begin{lined}{10cm}
++    \begin{tabular}{*4{cl}}
++      \A{\`o} & \A{\'o} & \A{\^o} & \A{\~o} \\
++      \A{\=o} & \A{\.o} & \A{\"o} & \B{\c}{c}\\[6pt]
++      \B{\u}{o} & \B{\v}{o} & \B{\H}{o} & \B{\c}{o} \\
++      \B{\d}{o} & \B{\b}{o} & \B{\t}{oo} \\[6pt]
++      \A{\oe}  &  \A{\OE} & \A{\ae} & \A{\AE} \\
++      \A{\aa} &  \A{\AA} \\[6pt]
++      \A{\o}  & \A{\O} & \A{\l} & \A{\L} \\
++      \A{\i}  & \A{\j} & !` & ©!`© & ?` & ©?`© 
++    \end{tabular}
++    \index{i et j@\i{} et \j{} sans points}\index{scandinaves (caractères)}
++    \index{ae@\ae}\index{umlaut}\index{accent!grave}\index{accent!aigu}
++    \index{accent!circonflexe}
++    \index{oe@\oe} \index{aa@\aa}
++    \index{cédille}
++    \bigskip
++  \end{lined}
+ \end{table}
+- 
+-%\clearpage
++
+ \section{Support multilingue\label{international}}
+-\index{international} 
+ 
+-Pour composer des documents dans des langues autres que l'anglais,
+-\LaTeX{} doit pouvoir s'adapter aux règles typographiques et aux
+-règles de césure propres à chaque langue. Il y a plusieurs
+-domaines pour lesquels il faut configurer \LaTeX{} pour chaque
+-langue : 
++\index{international} 
++Pour composer des documents dans des langues autres que l'anglais, 
++il y a plusieurs domaines pour lesquels \LaTeX doit d'adapter aux spécificités
++de chaque langue :
+ \begin{enumerate}
+-\item Toutes les chaînes de caractères générées automatiquement
+-  \footnote{\og Table des matières \fg{}, \og Liste des figures \fg{},...} 
+-  doivent être traduites. Pour de nombreuses langues, ces adaptations
+-  peuvent être réalisées par l'extension \pai{babel} de Johannes
+-  Braams.
+-\item \LaTeX{} doit connaître les règles de césure de la nouvelle
+-      langue. Définir les règles de césure utilisées par \LaTeX{} est
+-      une tâche assez complexe, qui impose la construction de formats
+-      spécifiques. Votre \guide{} devrait vous indiquer 
+-      quelles sont les langues supportées par votre installation de
+-      \LaTeX{} et comment configurer les règles de césure.
+-\item Certaines règles typographiques changent en fonction de la
+-      langue ou de la région géographique. Ces changements peuvent
+-      être supportés par l'extension \pai{babel} ou par des extensions 
+-      spécifiques (telles que \pai{french}~\cite{french} pour le
+-      français).  
++  \item Toutes les chaînes de caractères générées automatiquement
++    \footnote{« Table des matières », « Liste des figures »,...} doivent
++    être traduites. Pour de nombreuses langues, ces adaptations peuvent être
++    réalisées par l'extension \pai{babel} de Johannes Braams.
++  \item \LaTeX doit connaître les règles de césure de la nouvelle langue.
++    Définir les règles de césure utilisées par \LaTeX est une tâche assez
++    complexe, qui impose la construction de formats spécifiques. Votre
++    \guide{} devrait vous indiquer quelles sont les langues supportées par
++    votre installation de \LaTeX et comment configurer les règles de césure.
++  \item Certaines règles typographiques changent en fonction de la langue ou
++    de la région géographique. En français par exemple, il il doit toujours y
++    avoir un espace avec le caractère deux-points.
+ \end{enumerate}
+ 
+-Si votre système est configuré correctement, vous pouvez sélectionner
+-la langue utilisée par l'extension \pai{babel} 
+-avec la commande : 
+-\begin{lscommand}
+-\ci{usepackage}\verb|[|\emph{langue}\verb|]{babel}| 
++Si votre système est configuré correctement, vous pouvez sélectionner la
++langue utilisée par l'extension \pai{babel} avec la commande : 
++\begin{lscommand}{2}
++  ¡\usepackage¡[«langue»]{babel}
++\end{lscommand}
++\noindent après la commande ©\documentclass©. La liste des langues intégrées à
++votre système \LaTeX est affichée à l'écran quand vous lancez \texttt{latex}
++et au début du rapport de compilation (fichier \eei{log}).
++\package[babel]{Babel} activera automatiquement les règles de césures
++correctes pour la langue choisie. Si votre format \LaTeX ne possède pas les
++règles de césures pour la langue choisie, \package{babel} fonctionnera quand
++même mais désactivera la césure des mots, ce qui peut avoir un impact négatif
++sur l'aspect de votre document.
++
++Pour certaines langues \textsf{babel} définit également de nouvelles commandes
++qui simplifient la saisie des caractères spéciaux. La langue allemande, par
++exemple, utilise beaucoup d'\emph{umlaut} (\"a\"o\"u). Avec \package{babel},
++vous pouvez saisir un \"o avec ©"o© au lieu de~©\"o©.
++
++Si vous appelez \package{babel} avec plusieurs langues
++\begin{lscommand}{2}
++  ¡\usepackage¡[«langue1, langue2»]{babel}
+ \end{lscommand}
+-\noindent après la commande \verb|\documentclass|. Les \emph{langue}s
+-supportées par votre système sont normalement listées dans votre \guide.
+-Lorsque la césure d'une langue n'est pas supportée par votre moteur
+-\LaTeX{}, celle-ci peut être utilisée avec l'extension \pai{babel}
+-mais à cause des césures incorrectes le résultat ne sera pas
+-satisfaisant.
+-
+-Pour certaines langues \textsf{babel} définit également de nouvelles
+-commandes qui simplifient la saisie des caractères spéciaux.
+-
+-Les systèmes informatiques modernes vous permettent de saisir
+-directement les caractères accentués ou les symboles spécifiques d'une
+-langue. Depuis la version de décembre 1994, \LaTeXe{} sait gérer ce
+-type de codage grâce à l'extension \pai{inputenc} :
+-\label{inputenc}
+-\begin{lscommand}
+-\ci{usepackage}\verb|[|\textit{codage}\verb|]{inputenc}| 
++\noindent la dernière langue chargée sera la langue active au début du
++document (ici, \emph{langue2}). Vous pouvez alors utiliser
++\begin{lscommand}{2}
++  ¡\selectlanguage{«langue1»}¡
++\end{lscommand}
++\noindent au cours de votre document pour changer la langue active.
++
++Les systèmes informatiques modernes vous permettent de saisir directement au
++clavier les caractères accentués ou les symboles spécifiques d'une langue.
++Pour gérer les divers encodages d'entrée associées aux différentes langues
++et/ou conventions informatiques, \LaTeX utilise l'extension \pai{inputenc} :
++\begin{lscommand}{2}
++  ¡\usepackage¡[«encodage»]{inputenc}
+ \end{lscommand}
+ 
+-Les codages suivants sont utilisés en fonction du système
+-d'exploitation pour les langues d'Europe de l'Ouest :
++En utilisant cette extension, vous devez être conscient que cela peut poser
++problème pour visualiser votre fichier source sur d'autres ordinateurs ou avec
++d'autres éditeurs de texte, si ils utilisent par défaut un encodage différent.
++Par exemple, le caractère \emph{é} est représenté par le nombre~142 en
++\iei{macroman}, 233 en \iei{latin1}, et la succession de nombres 195-169 en
++\iei{utf8}.
++
++Pour visualiser correctement votre fichier source sous un autre éditeur, il
++faut donc sélectionner l'encodage correspondant à celui avec lequel le fichier
++a été créé. La plupart des éditeurs de texte permettent de choisir l'encodage
++voulu, mais soyez conscients que certains (notamment sous Windows) ne le
++permettent pas, et qu'en tout cas cela demande une intervention manuelle.
++
++Par contre, votre fichier sera compilable sans problème sur tout ordinateur,
++du moment que l'option passée à \package{inputenc} correspond bien à
++l'encodage réel du document.
++
++Les encodages suivants sont les plus courants, en fonction de la langue et du
++système d'exploitation utilisés\footnote{Pour en savoir plus sur les encodages
++  d'entrés gérés par \LaTeX, consultes \texttt{inputenc.pdf},
++  \texttt{cyinpenc.pdf} et \texttt{utf8ienc.pdf}.} :
+ \begin{center}
+-\begin{tabular}{l | r}
+-Système & Codage \\
+-\hline
+-Mac OS  &  \texttt{applemac} \\
+-Unix    &  \texttt{latin1} \\ 
+-Windows &  \texttt{ansinew} \\
+-OS/2    &  \texttt{cp850}
+-\end{tabular}
+-\end{center}
+-
+-Pour faciliter la lecture, cette extension est utilisée dans la suite
+-du document pour représenter les caractères accentués dans les
+-exemples.
+-
+-En utilisant cette extension, il faut prendre garde au fait que les
+-systèmes informatiques n'utilisent pas tous le même codage des
+-caractères spéciaux.  Le caractère \textit{é} par exemple, est
+-codé~142 sur Mac et 233 sur PC Windows ou sous Unix (codage latin-1).
+-D'autres personnes risquent donc de ne pas pouvoir lire votre document
+-source, parce que leur système utilise un codage différent.
+-
+-Lorsqu'un document source \LaTeX{} doit être transmis vers un autre
+-système, il est recommandé de convertir les caractères accentués et
+-spéciaux en séquences du type \verb|\'|\verb|e| préalablement au
+-transfert.  Il existe de nombreux utilitaires pour faire la conversion
+-automatique dans les deux sens : \texttt{recode} sous Unix,
+-\texttt{Tower of Babel} sur Macintosh, etc.
+-
+-Le codage des polices de caractères est une autre histoire.
+-Celui-ci définit à quelle position dans une police de \TeX{} se
+-trouve chaque caractère. La police originale de \TeX{}, Computer
+-Modern, ne contient que les 128 caractères du jeu de caractères
+-ASCII. Pour produire un caractère accentué, \TeX{} combine un
+-caractère normal avec un accent. Bien que le résultat obtenu ainsi
+-soit presque parfait, cette approche empêche la césure automatique des
+-mots contenant des accents.
+-
+-Heureusement, dans la plupart des installations modernes de \TeX{} on
+-trouve la police EC. Cette police à la même apparence que la police
+-Computer Modern, mais elle contient également les caractères accentués
+-pour la plupart des langues européeenes. L'utilisation de cette 
+-police permet donc la  césure des mots contenant
+-des caractères accentués. L'utilisation de la  police EC est activée par
+-l'extension \pai{fontenc}, avec la commande suivante dans le
+-préambule :
+-\begin{lscommand}
+-\verb|\usepackage[T1]{fontenc}|
++    \begin{longtable}{l|r|r}
++      Système  & \multicolumn{2}{c}{Encodages}\\
++      d'exploitation & Europ de l'ouest & Langues cyriliques\\
++      \hline
++      Mac     &  \iei{applemac}\footnote{Synonyme de \iei{applemac}.}
++      & \iei{macukr}  \\
++      Unix    &  \iei{latin1}\footnote{Dont le nom « officiel » est
++	ISO-8859-1.} & \iei{koi8-ru}  \\ 
++      Windows & \iei{ansinew}\footnote{Synonyme de \iei{cp1252}.} &
++      \iei{cp1251}
++    \end{longtable}                
++\end{center}                 
++
++Il est intéressant de noter que les encodages \iei{latin1},
++\iei{latin9}\footnote{Nom officiel : ISO-8859-15.} et \iei{cp1252} sont très
++proches entre eux et sont compatibles pour la plupart des caractères usuels,
++bien qu'il présentent des différences sur des caractères comme \texteuro{} et
++\oe. 
++
++L'encodage \iei{utf8} présente l'avantage d'être utilisable pour toutes
++les langues et sur tous les systèmes modernes, mais n'est pas encore très
++répandu. C'est la meilleure solution pour saisir des documents multilingues
++avec un jeu de caractères varié.
++
++Pour faciliter la lecture, \package{inputenc} est utilisé dans la suite du
++document pour représenter les caractères accentués dans les exemples.
++
++Le codage des polices de caractères est une autre histoire.  Celui-ci définit
++à quelle position dans une police de \TeX se trouve chaque caractère. La
++police originale de \TeX, Computer Modern, ne contient que les 128 caractères
++du jeu de caractères ASCII. Pour produire un caractère accentué, \TeX combine
++un caractère normal avec un accent. Bien que le résultat obtenu ainsi soit
++presque parfait, cette approche empêche la césure automatique des mots
++contenant des accents.
++
++Heureusement, dans la plupart des installations modernes de \TeX on trouve la
++police EC. Cette police à la même apparence que la police Computer Modern,
++mais elle contient également les caractères accentués pour la plupart des
++langues européeenes. L'utilisation de cette police permet donc la  césure des
++mots contenant des caractères accentués. L'utilisation de la  police EC est
++activée par l'extension \pai{fontenc}, avec la commande suivante dans le
++préambule :
++\begin{lscommand}{2}
++  \usepackage[T1]{fontenc}
+ \end{lscommand}
+ 
+-\subsection{Support de la langue française} 
++\subsection{Support de la langue française} \label{ss-frenchb}
+ 
+-% Pour le français, l'extension \pai{french} a été 
+-% développée par Bernard Gaulle~\cite{french}. 
+-% Mais le traducteur boycotte les versions récentes (frenchpro) 
++Pour le français, l'option \pai{francais} de l'extension \pai{babel} applique
++les règles de césure spécifiques du français et adapte \LaTeX à la plupart des
++règles spécifiques de la typographie française~\cite{ftypo} : présentation des
++listes, insertion automatique de l'espacement avant les signes de ponctuation
++doubles, etc.
+ 
+-Pour le français, l'option \pai{francais} de l'extension \pai{babel}
+-applique les règles de césure spécifiques du français et adapte
+-\LaTeX{} à la plupart des règles spécifiques de la typographie
+-française~\cite{ftypo} : présentation des listes, insertion
+-automatique de l'espacement avant les signes de ponctuation doubles, etc.
+-
+-\begin{lscommand}
+-\verb|\usepackage[francais]{babel}|
++\begin{lscommand}{2}
++  \usepackage[francais]{babel}
+ \end{lscommand}
+ 
+-\begin{table}[!htbp]
+-\caption{Commandes de saisie en français.} \label{cmd-french}
+-\begin{lined}{9cm}
+-\begin{tabular}{ll}
+-\verb+\og guillemets \fg{}+         \quad &\og guillemets \fg \\[1ex]
+-\verb+M\up{me}, D\up{r}+            \quad &M\up{me}, D\up{r}  \\[1ex]
+-\verb+1\ier{}, 1\iere{}, 1\ieres{}+ \quad &1\ier{}, 1\iere{}, 1\ieres{}\\[1ex]
+-\verb+2\ieme{} 4\iemes{}+           \quad &2\ieme{} 4\iemes{}\\[1ex]
+-\verb+\No 1, \no 2+                 \quad &\No 1, \no 2   \\[1ex]
+-\verb+20~\degres C, 45\degres+      \quad &20~\degres C, 45\degres \\[1ex]
+-\verb+\bsc{M. Durand}+              \quad &\bsc{M.~Durand} \\[1ex]
+-\verb+\nombre{1234,56789}+          \quad &\nombre{1234,56789}
+-\end{tabular}
+-\bigskip
+-\end{lined}
++\begin{table}[!htbp] %TODO: bad coding, booh
++  \caption{Commandes de saisie en français.} \label{cmd-french}
++  \begin{lined}{9cm}
++    \begin{tabular}{ll}
++      ©« guillemets »©         	     \quad &« guillemets » \\[1ex]
++      ©M\up{me}, D\up{r}©            \quad &M\up{me}, D\up{r}  \\[1ex]
++      ©1\ier{}, 1\iere{}, 1\ieres{}© \quad &1\ier{}, 1\iere{}, 1\ieres{}\\[1ex]
++      ©2\ieme{} 4\iemes{}©           \quad &2\ieme{} 4\iemes{}\\[1ex]
++      ©\No 1, \no 2©                 \quad &\No 1, \no 2   \\[1ex]
++      ©20~\degres C, 45\degres©      \quad &20~\degres C, 45\degres \\[1ex]
++      ©\bsc{M. Durand}©              \quad &\bsc{M.~Durand} \\[1ex]
++      ©\nombre{1234,56789}©          \quad &\nombre{1234,56789}
++    \end{tabular}
++    \bigskip
++  \end{lined}
+ \end{table}
+ 
+-Les mots générés automatiquement par \LaTeX{} sont traduits en
+-français et certaines commandes supplémentaires (cf.
+-table~\ref{cmd-french}) sont disponibles. 
++Les mots générés automatiquement par \LaTeX sont traduits en français et
++certaines commandes supplémentaires (cf.  table~\ref{cmd-french}) sont
++disponibles. 
+ 
+-% -- ca serait bien d'ajouter ça --mh
+-% L'extension \pai{aeguill} active l'utilisation du mécanisme des polices
+-% virtuelles permettant d'utiliser les versions PostScript Type 1 des
+-% polices de caractère \TeX avec le codage T1 (nécessaire pour la césure
+-% correcte des mots contenant des caractères accentués). 
+-
+-Dans cette traduction, un certain nombre d'ajouts présentent ces
+-spécificités de la typographie française tout au long du texte.
++Dans cette traduction, un certain nombre d'ajouts présentent ces spécificités
++de la typographie française tout au long du texte.
+ 
+ \subsection{Support de la langue allemande}
+ 
+-Voici quelques conseils pour créer des documents en
+-\wi{allemand}\index{deutsch} à l'aide de \LaTeX{}. Le support de la
+-langue allemande est activé par la commande :
++Voici quelques conseils pour créer des documents en \wi{allemand}
++\index{deutsch} à l'aide de \LaTeX. Le support de la langue allemande est
++activé par la commande :
+ 
+-\begin{lscommand}
+-\verb|\usepackage[german]{babel}|
++\begin{lscommand}{2}
++  \usepackage[german]{babel}
+ \end{lscommand}
+ 
+-La césure allemande est alors activée, si votre système a été
+-configuré pour cela. Le texte produit automatiquement par \LaTeX{} est
+-traduit en allemand (par ex. ``Kapitel'' pour un chapitre). De
+-nouvelles commandes (listées dans la table~\ref{german}) permettent la
+-saisie simplifiée des caractères spéciaux. 
++La césure allemande est alors activée, si votre système a été configuré pour
++cela. Le texte produit automatiquement par \LaTeX est traduit en allemand (par
++ex. ``Kapitel'' pour un chapitre). De nouvelles commandes (listées dans la
++table~\ref{german}) permettent la saisie simplifiée des caractères spéciaux. 
+ 
+ \begin{table}[!hbp]
+-\caption{Caractères spéciaux en allemand.} \label{german}
+-\begin{lined}{5cm}
+-\begin{tabular}{*3{cl}}
+-\verb|"a| & \"a \hspace*{1ex} & \verb|"s| & \ss & \verb|"`| & \glqq \\[1ex]
+- \verb|"'| & \grqq & \verb|"<| & \flqq  & \verb|">| & \frqq \\[1ex]
+-\ci{dq} & " \\
+-\end{tabular}
+-\bigskip
+-\end{lined}
++  \caption{Caractères spéciaux en allemand.} \label{german}
++  \begin{lined}{5cm}
++    \begin{tabular}{*3{cl}}
++      ©"a© & \"a \hspace*{1ex} & ©"s© & \ss & ©"`© & \glqq \\[1ex]
++      ©"'© & \grqq & ©"<© & \flqq  & ©">© & \frqq \\[1ex]
++      \ci{dq} & " \\
++    \end{tabular}
++    \bigskip
++  \end{lined}
+ \end{table}
+ 
+ \section{L'espace entre les mots}
+ 
+-Pour obtenir une marge droite alignée, \LaTeX{} insère des espaces
+-plus ou moins larges entre les mots. 
++Pour obtenir une marge droite alignée, \LaTeX insère des espaces plus ou moins
++larges entre les mots. 
+ 
+-Un tilde \og \verb|~| \fg{}  produit une espace interdisant tout saut
+-de ligne (dit espace \emph{insécable}).
+-\verb|~| est à utiliser pour éviter les coupures indésirables :
+-on code \verb|M.~Dupont|, \verb|cf.~Fig.~5|, etc.
+-\index{espace insécable}
+-\index{~@$\sim$} \index{tilde}
++Un tilde « ©~© »  produit une espace interdisant tout saut de ligne (dit
++espace \emph{insécable}).  ©~© est à utiliser pour éviter les coupures
++indésirables : on code ©M.~Dupont©, ©cf.~Fig.~5©, etc.  \index{espace
++  insécable} \index{~@$\sim$} \index{tilde}
+ 
+-La commande \verb|\,| permet d'insérer une demi-espace insécable.
++La commande ©\,© permet d'insérer une demi-espace insécable.
+ 
+ \begin{example}
+ 1\,234\,567
+ \end{example}
+ 
+-Signalons enfin une subtilité  : après la
+-ponctuation finale d'une phrase, les règles de la typographie
+-anglo-saxonne veulent que l'on insère une espace plus large.  Mais si
+-un point suit une lettre majuscule, \LaTeX{} considère qu'il s'agit
+-d'une abréviation et insère alors une espace normale. La commande
+-\verb|\@| avant un point indique que celui-ci termine une phrase, même
+-lorsqu'il suit une lettre majuscule.
+-\cih{"@}
+-\index{., espace après}
++Signalons enfin une subtilité  : après la ponctuation finale d'une phrase, les
++règles de la typographie anglo-saxonne veulent que l'on insère une espace plus
++large.  Mais si un point suit une lettre majuscule, \LaTeX considère qu'il
++s'agit d'une abréviation et insère alors une espace normale. La commande ©\@©
++avant un point indique que celui-ci termine une phrase, même lorsqu'il suit
++une lettre majuscule.  \cih{"@} \index{., espace après}
+ 
+ \nonfrenchspacing
+ \begin{example}

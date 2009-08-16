@@ -1,0 +1,36 @@
+--- a/typeset.tex
++++ b/typeset.tex
+@@ -986,21 +986,22 @@ journaux utilisent souvent
+ plusieurs colonnes.
+ \end{example}
+ 
+-Il existe deux autres environnements comparables : \ei{quotation} et
+-\ei{verse}. L'environnement \ei{quotation} est utile pour des
+-citations plus longues, couvrant plusieurs
+-paragraphes parce qu'il indente les paragraphes.
+-L'environnement \ei{verse} est utilisé pour la poésie, là
+-où les retours à la ligne sont importants. Les vers sont séparés par
+-des commandes \ci{\bs} et les strophes par une ligne vide\footnote{Les
+-puristes constateront que l'environnement \ei{verse} ne respecte pas
+-les règles de la typographie française : les rejets devraient être
+-préfixés par \emph{[} et alignés à droite sur le vers précédent.}.
++Il existe deux autres environnements comparables : \ei{quotation} et
++\ei{verse}. L'environnement \ei{quotation} est utile pour des citations plus
++longues, couvrant plusieurs paragraphes parce qu'il indente les paragraphes.
++L'environnement \ei{verse} est utilisé pour la poésie, là où les retours à la
++ligne sont importants. Les vers sont séparés par des commandes \ci{\bs} et les
++strophes par une ligne vide\footnote{Les puristes constateront que
++  l'environnement \ei{verse} ne respecte pas les règles de la typographie
++  française : les rejets devraient être préfixés par \emph{[} et alignés à
++  droite sur le vers précédent.}.
+ 
++% make vim happy: 
++\let\egroup] \let\egroup} \let\egroup}
+ 
+ \begin{example}
+ Voici le début d'une 
+-fugue de Boris Vian :
++fugue de Boris Vian :
+ \begin{flushleft}
+ \begin{verse}
+ Les gens qui n'ont plus 

@@ -1,0 +1,15 @@
+--- a/overview.tex
++++ b/overview.tex
+@@ -1,9 +1,8 @@
+-% préface pour flshort (encodé en latin1)
++% préface pour lshort-fr (encodé en latin1)
+ %
+-% Pour les informations de licence, voir flshort.tex.
+-% See flshort.tex for licence information.
++% Pour les informations de licence, voir lshort-fr.tex.
++% See lshort-fr.tex for licence information.
+ %
+-\svnid{$Id$}
+ 
+ \chapter{Préface}
+ 

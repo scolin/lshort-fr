@@ -1,0 +1,11 @@
+--- a/typeset.tex
++++ b/typeset.tex
+@@ -953,7 +953,7 @@ d'aligner la marge droite.
+ \begin{flushright}
+ Ce texte est\\
+ aligné à droite.
+-\LaTeX{} n'essaye pas 
++\LaTeX n'essaye pas 
+ d'aligner la marge gauche. 
+ \end{flushright}
+ \end{example}

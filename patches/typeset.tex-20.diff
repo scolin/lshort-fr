@@ -1,0 +1,14 @@
+--- a/typeset.tex
++++ b/typeset.tex
+@@ -1382,11 +1382,3 @@ Voici un exemple d'utilisation de \verb+\protect+ :
+ \end{verbatim}
+ \end{center}
+ 
+-\endinput
+-
+-
+-%%% Local Variables: 
+-%%% mode: latex
+-%%% TeX-master: "flshort"
+-%%% End:
+-

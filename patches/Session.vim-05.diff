@@ -1,0 +1,11 @@
+--- a/Session.vim
++++ b/Session.vim
+@@ -143,7 +143,7 @@ setlocal quoteescape=\\
+ setlocal noreadonly
+ setlocal norightleft
+ setlocal rightleftcmd=search
+-setlocal noscrollbind
++setlocal scrollbind
+ setlocal shiftwidth=2
+ setlocal noshortname
+ setlocal nosmartindent

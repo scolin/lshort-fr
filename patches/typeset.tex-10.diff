@@ -1,0 +1,25 @@
+--- a/typeset.tex
++++ b/typeset.tex
+@@ -934,17 +934,16 @@ An english list:
+ 
+ \subsection{Alignements à gauche, à droite et centrage}
+ 
+-Les environnements \ei{flushleft} et \ei{flushright} produisent des
+-textes alignés à gauche ou à droite. L'environnement \ei{center}
+-produit un texte centré. Si vous n'utilisez pas la commande \ci{\bs}
+-pour indiquer les sauts de ligne, ceux-ci sont calculés
+-automatiquement par \LaTeX{}.
++Les environnements \ei{flushleft} et \ei{flushright} produisent des textes
++alignés à gauche ou à droite. L'environnement \ei{center} produit un texte
++centré. Si vous n'utilisez pas la commande \ci{\bs} pour indiquer les sauts de
++ligne, ceux-ci sont calculés automatiquement par \LaTeX.
+ 
+ \begin{example}
+ \begin{flushleft}
+ Ce texte est\\
+ aligné à gauche.
+-\LaTeX{} n'essaye pas 
++\LaTeX n'essaye pas 
+ d'aligner la marge droite. 
+ \end{flushleft}
+ \end{example}

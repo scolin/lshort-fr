@@ -1,0 +1,9 @@
+--- a/spec.tex
++++ b/spec.tex
+@@ -392,5 +392,5 @@ Parfois vous constaterez qu'un fichier \texttt{.glo} (glossaire) a
+ 
+ %%% Local Variables: 
+ %%% mode: latex 
+-%%% TeX-master: "flshort2e" 
++%%% TeX-master: "lshort-fr2e" 
+ %%% End:  

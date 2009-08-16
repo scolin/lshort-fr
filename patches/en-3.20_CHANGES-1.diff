@@ -1,0 +1,277 @@
+--- /dev/null
++++ b/en-3.20/CHANGES
+@@ -0,0 +1,274 @@
++3.20
++----
++From Alexander Mai <st002279@hrzpub.tu-darmstadt.de>
++* tabular presentation of input encodings
++* description of a typical commandline latex session
++* \X{\lvert}&\X{\rvert}&\X{\lVert}&\X{\rVert}
++* bigskip smallskip description
++* new ctan reference
++* cdot for the math section
++
++From Tobi
++* added lshort.ist to insert letters between index sections
++* added comment on plus and minus in setlength
++* degree symbol
++* moved fragile commands section to chapter 2
++* no more bad boxes ... neither over nor underfull
++* no more oscilating text
++
++From Many
++* spelling fixes
++
++3.19
++----
++changed wording on \apendix \frontmatter \backmatter ... 
++fixed pagebreaks in math chapter
++
++3.18
++----
++compile fixed for environments where TEXINPUTS is set
++replace the environemnt command with lscommand
++  it seems command is too common .. (Alex Mai)
++
++3.17
++----
++Added more info on the inputenc package.
++Added Section on German Language support. Sections for other languages are welcome.
++Better explanation of the \section[xxx]{yyy} syntax
++Changed wording for Cross Ref
++Changed wording on Quotation Marks
++added note on fbox.
++added \underline command
++\cleardoublepage goes to a righthand page
++added \cline
++added section on package installation contributed by Joseph Hilferty
++
++3.16
++----
++Fixed upload procedure
++Some spelling fixes
++Updated old URLs
++
++3.15
++----
++Integrated a number of spelling and logic fixes by Björn Hvittfeldt
++
++3.14
++----
++Even better Makefile
++Update TODO
++
++3.13
++----
++Better Makefile
++Added description of Today, TeX, LaTeX, LaTeXe
++Added description of file extensions you will find when working with latex
++Some CTAN references fixed
++Better explanation for hyphenation command
++Added paragraph on typesetting tildes ...
++Added example with multicol and borders (|c|)
++Added Hamster disadvantage ...
++How todo a tilde
++
++3.12
++----
++Replaced first section (TeX) as suggested by Michael John Downes in order to
++be more in sync with the real events ...
++
++3.11
++----
++better explanation for sloppy/fussy
++\sin and frinds in index
++pointer to whitespace after non argument commands information in custom.tex
++
++3.10
++----
++removed some exess files from tar files 
++
++
++3.9
++---
++* included a number of minor fixes from Alexander Mai ...
++
++3.8
++---
++* Added sections on \phantom and \protect commands, based
++  on a contribution from Alexander Mai
++* Added section on lines in array environments ... thanks Alex
++* rephrased newcommand section ... again thnaks to Alex
++
++3.7 
++---
++* re-release to for some even spelling :-) 
++
++3.6
++---
++* released on CTAN ... 
++
++3.5
++---
++* even smaller factual errors corrected ...
++
++3.4
++---
++* minor spelling fixes
++
++3.3
++---
++* lots of small patches from Prof Ripley ... 
++* fixed compile problem on first run ...
++* properly packaged the whole thing ....
++
++3.2
++---
++
++* added better explanation of the difference between newline and linebreak 
++* added about 1000 spell and detail fixed contributed by Hanspeter Schmid
++* added new section: The Structure of Text and Language contributed by
++  Hanspeter Schmid
++* added more verbose explanation about babel and hyphenation
++
++
++3.1
++---
++* Var spell and other fixes. Especially the ftp.shsu.edu reference 
++  has been fixed.
++
++3.0
++---
++* Restructuring of the Chapter 4 for didactical reasons ... 
++* moved some bits to the new Chapter 5. 
++* added 15 pages of new material ... 
++
++
++2.3
++---
++* it's slides and not slide ... p8
++* pointer to foiltex added ... p8
++
++2.2 non beta 13/10/97
++---------------------
++* made the thing compile with pdftex and hyperref
++
++David Frey:
++* Sensible copyright notice
++* some mathematical error in math mode
++* correct Murphy ...
++
++Cyril Goutte:
++* typos
++
++Martin Maechler:
++* an Inch is exactly 25.4 mm!
++
++2.2 7/11/95
++-----------
++Christian Kern:
++ * Spelling, and some suggestions for new stuff to inlcude
++
++Young U. Ryu:
++ * Spelling and some errors in latex
++
++Cyril Goutte:
++ * Some additions for math
++
++Brian Ripley:
++ * Spelling, LateX 95/12/1 compatibility
++ * Some more real english .... :-)
++ * AMS-LaTeX now prefers eucal to euscript, so he has altered both
++   lssym.tex and lshort2e.sty.
++ * He has corrected some examples in chapter 3 which would be regarded
++   as bad practice in mathematical typesetting.
++ * He has added a section on bold symbols, and conditionals for amsbsy.
++
++
++2.1 17/6/1995
++-------------
++Rasmus Borup Hansen:
++ * tonns of spelling mistakes and some suggestions for more logic ...
++
++Josef Tkadlec:
++ * some spellings 
++ * all new hopefully even more usefull maths tables ...
++
++2.0 5/6/1995
++-----------
++Mike Ressler:
++ * Fixed Loads of spelling Mistakes.
++1.9.9: 16/5/95
++---------------
++Tobi:
++ * General Makeover
++
++ * Added Preface.
++
++ * Added example to math.tex
++
++ * Introduced intro environment. I am going to add a short describtion about
++   what the user can expect, to each chapter.
++
++ * Page Layout. spec.tex now contains a copy of the Geometry page layout
++   parameters page. Provided by the layout package from the tools bundle.
++
++ * newcommand, newenvironament and newtheorem are described.
++
++ * new dynamic document title
++
++ * using fancy headings for header.
++
++1.2:  8/2/95
++------------
++Tobi:
++Revoved all | |  in an attempt to make
++the document latex2html compatible ... failed :-(
++
++Elliot:
++* Odd spelling mistakes
++
++David Jones:
++* "Whitespace Description" ...
++
++Byron: 
++* Many Spelling fixes Some requests for examples
++
++Partl:
++* Fixed Irene Hyna addr
++
++Martien:
++* "Character" spelling
++
++Claus:
++* ref to indexing without backslash ...
++
++ 
++1.1:  17/11/94
++------------------
++Eric:
++* Spelling.
++* Removed numerical from section 1.3.3 (suggesting \3 as a valid command)
++* \quad as MATH spacing
++* No Pagenumber on first Page
++
++Mike:
++* Fixed @{} Discussion (thanks)
++
++David:
++* Letter case in \hyphenation ignored
++* `|-|.'' 
++* shelf\mbox{}ful because TeX can `forget' {} after hyphenation attempt
++* pointer to dcolumn package
++* standard calsses assume [tbp] !
++* Pointer to amstex and  exscale package added to \big description
++* Thanks for symbols.tex
++* |*| and | | as forbidden delimiters with verb
++* refrence to amsfonts removed
++* LaTeX \vspace works within a paragraph ... (-> normally)
++* Pointer to graphguide.tex
++
++Tobi:
++* `horizontal' and Page Style Indexentries
++* Odd Spell Fix
++* pagestyle index entries
++* Commented out display style example, to keep total size down to 58 Pages
++* Fixed eufrak problem thanks David and Martien
++

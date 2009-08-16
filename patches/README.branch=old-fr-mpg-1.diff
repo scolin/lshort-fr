@@ -1,0 +1,35 @@
+--- /dev/null
++++ b/README.branch=old-fr-mpg
+@@ -0,0 +1,32 @@
++What is there in this branch ?
++------------------------------
++
++This branch contains previous work started a while ago by me (Manuel
++Pégourié-Gonnard) and imported from my private svn repo. Roughly speaking, I
++updated the translation up to section 2.4 included, to match v4.24, and made
++various updates to the macro files (sometimes not matching the upstream
++version).
++
++This branch is for reference only, it is NOT intended to be merged into the
++'french' branch (no common ancestor, different directory structure, etc.).
++
++What could be interesting in those files ?
++------------------------------------------
++
++1. A 'REMARKS-mpg' file listing (most of the) stuff I changed (or added
++footnotes about) in my version (be it in the macros or the actual content).
++This file was intended to be sent to Tobias when ready, so that he could take
++them into account for future upstream versions if he'd like to. It could be of
++great help for point two, too.
++
++2. Since I updated the translation up to 2.4, it could be interesting to compare
++both translations (mine and Samuel's) in order to take the best part out of
++them.
++
++3. Maybe some macros are interesting too for simplify code. However, I now
++wonder if having macros too different from upstream will not make upstream
++harder to follow in the long term. This point probably needs further meditation.
++
++4. The IDEAS file lists two ideas I already talked about with Samuel by private
++email, so that we remind them.
++

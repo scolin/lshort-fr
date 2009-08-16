@@ -1,0 +1,187 @@
+--- a/typeset.tex
++++ b/typeset.tex
+@@ -112,105 +112,102 @@ comprendre comment utiliser ces structures de haut niveau.
+ 
+ \index{justification}
+ Bien souvent les livres sont composés de lignes qui ont toutes la même
+-longueur ; on dit qu'elles sont justifiées à droite. \LaTeX{} insère
+-des retours à la ligne et des espacements entre les mots de manière à
+-optimiser la présentation de l'ensemble d'un paragraphe. En cas de
+-besoin, il coupe les mots qui ne tiennent pas en entier sur une
+-ligne. La présentation exacte d'un paragraphe dépend de la classe de
+-document\,\footnote{et des règles typographiques propres de chaque pays
+-\emph{NdT.}}. Normalement la première ligne d'un paragraphe est
+-en retrait par rapport à la marge gauche  
+-et il n'y a pas d'espace vertical particulière entre deux
+-paragraphes (cf. section~\ref{parsp}).
+-
+-Dans certains cas particuliers, il peut être nécessaire de demander à
+-\LaTeX{} de couper une ligne :
+-\begin{lscommand}
+-\ci{\bs} ou \ci{newline} 
++longueur ; on dit qu'elles sont justifiées à droite. \LaTeX insère des retours
++à la ligne et des espacements entre les mots de manière à optimiser la
++présentation de l'ensemble d'un paragraphe. En cas de besoin, il coupe les
++mots qui ne tiennent pas en entier sur une ligne. La présentation exacte d'un
++paragraphe dépend de la classe de document\footnote{et des règles
++  typographiques propres de chaque pays \emph{NdT.}}. Normalement la première
++ligne d'un paragraphe est en retrait par rapport à la marge gauche  et il n'y
++a pas d'espace vertical particulière entre deux paragraphes (cf.
++section~\ref{parsp}).
++
++Dans certains cas particuliers, il peut être nécessaire de demander à \LaTeX
++de couper une ligne :
++\begin{lscommand}{2}
++  ¡\\¡	¡\newline¡
+ \end{lscommand}
+-\noindent commence une nouvelle ligne sans commencer un nouveau
+-paragraphe.
++\noindent commence une nouvelle ligne sans commencer un nouveau paragraphe.
+ 
+-\begin{lscommand}
+-\ci{\bs*}
++\begin{lscommand}{2}
++  ¡\\*¡
+ \end{lscommand}
+ \noindent empêche un saut de page après le saut de ligne demandé.
+ 
+-\begin{lscommand}
+-\ci{newpage}
++\begin{lscommand}{2}
++  ¡\newpage¡
+ \end{lscommand}
+ \noindent provoque un saut de page.
+ 
+-\begin{lscommand}
+-\ci{linebreak}\verb|[|\emph{n}\verb|]|,
+-\ci{nolinebreak}\verb|[|\emph{n}\verb|]|, 
+-\ci{pagebreak}\verb|[|\emph{n}\verb|]| et
+-\ci{nopagebreak}\verb|[|\emph{n}\verb|]|
++\begin{lscommand}{2}
++  ¡\linebreak¡[«n»]
++  ¡\nolinebreak¡[«n»]
++  ¡\pagebreak¡[«n»]
++  ¡\nopagebreak¡[«n»]
+ \end{lscommand}
+-\noindent font ce que suggère leur nom anglais. Ces commandes permettent à
+-l'auteur de paramétrer leur action par l'intermédiaire du paramètre
+-optionnel \emph{n}. Il peut prendre une valeur entre zéro et
+-quatre. En donnant à \emph{n} une valeur inférieure à quatre, vous
+-laissez à \LaTeX{} la possibilité de ne pas tenir compte de votre
+-commande si cela devait rendre le résultat  réellement laid.
+-Ne confondez pas ces commandes \og break \fg{} avec les commandes \og new \fg{}. 
+-Même lorsque vous utilisez une commande \og break \fg{}, \LaTeX{} essaye de
+-justifier le bord droit du texte et d'ajuster la longueur totale de la 
+-page, comme expliqué plus loin. Si vous voulez réellement commencer
+-une \og nouvelle \fg{} ligne, utilisez la commande \og new \fg{} correspondante. 
+-
+-\LaTeX{} essaye toujours de trouver les meilleurs endroits pour les
+-retours à la ligne.
+-S'il ne trouve pas de solution pour couper les lignes de
+-manière conforme à ses normes de qualité, il laisse dépasser un bout
+-de ligne sur la marge droite du paragraphe. \LaTeX{} émet alors le
+-message d'erreur \og \wi{overfull hbox}\,\footnote{débordement
+-horizontal} \fg{}. Cela se produit surtout quand \LaTeX{} ne trouve pas
+-de point de césure dans un mot. En utilisant alors la commande \ci{sloppy},
+-vous pouvez demander à \LaTeX{} d'être moins exigeant. Il ne produira
+- plus de lignes trop longues en ajoutant de l'espace entre les
+-mots du paragraphe, même si ceux-ci finissent trop espacés selon ses
+-critères. Dans ce cas le message \og \wi{underfull hbox}\,\footnote{boîte
+-horizontale pas assez pleine} \fg{} est produit. Souvent, malgré tout, le
+-résultat est acceptable. La commande \ci{fussy} agit dans l'autre
+-sens, au cas où vous voudriez voir \LaTeX{} revenir à ses exigences
++\noindent suggère à \LaTeX des endroits où un changement de page serait
++souhaitable (ou indésirable). Ces commandes permettent à
++l'auteur de paramétrer leur action par l'intermédiaire du paramètre optionnel
++\emph{n}. Il peut prendre une valeur entre zéro et quatre. En donnant à
++\emph{n} une valeur inférieure à quatre, vous laissez à \LaTeX la possibilité
++de ne pas tenir compte de votre commande si cela devait rendre le résultat
++réellement laid.  Ne confondez pas ces commandes « break » avec les commandes
++« new ».  Même lorsque vous utilisez une commande « break », \LaTeX essaye
++de justifier le bord droit du texte et d'ajuster la longueur totale de la
++page, comme expliqué plus loin ; ceci peut créer des trous disgracieux dans
++votre texte. Si vous voulez réellement commencer une « nouvelle » ligne,
++utilisez la commande « new » correspondante. 
++
++\LaTeX essaye toujours de trouver les meilleurs endroits pour les retours à la
++ligne.  S'il ne trouve pas de solution pour couper les lignes de manière
++conforme à ses normes de qualité, il laisse dépasser un bout de ligne sur la
++marge droite du paragraphe. \LaTeX émet alors le message d'erreur
++« \eei{overfull hbox}\footnote{débordement horizontal} ». Cela se produit
++surtout quand \LaTeX ne trouve pas de point de césure dans un mot. En
++utilisant alors la commande \ci{sloppy}, vous pouvez demander à \LaTeX d'être
++moins exigeant.  Il ne produira plus de lignes trop longues en ajoutant de
++l'espace entre les mots du paragraphe, même si ceux-ci finissent trop espacés
++selon ses critères.  Dans ce cas le message « \wi{underfull
++  hbox}\footnote{boîte horizontale pas assez pleine} » est produit. Souvent,
++malgré tout, le résultat est acceptable. La commande \ci{fussy} agit dans
++l'autre sens, au cas où vous voudriez voir \LaTeX revenir à ses exigences
+ normales. 
+ 
+ \subsection{Césure} \label{hyph}
++
+ \index{cesure@césure}
+-\LaTeX{} coupe les mots en fin de ligne si nécessaire. Si l'algorithme de
+-césure\footnote{\emph{\wi{Hyphenation}} en anglais} ne trouve pas
+-l'endroit correct pour couper un mot\,\footnote{Ce qui est normalement
+-plutôt rare. Si vous observez de nombreuses erreurs de césure, c'est
+-probablement un problème de spécification de la langue du document ou
+-du codage de sortie. Voir le paragraphe sur le support multilingue,
+-page~\pageref{international}.}, vous pouvez utiliser les 
+-commandes suivantes pour informer \TeX{} de l'exception.
+-
+-La commande :
+-\begin{lscommand}
+-\ci{hyphenation}\verb|{|\emph{liste de mots}\verb|}|
+-\end{lscommand}
+-\noindent permet de ne couper les mots cités en argument qu'aux
+-endroits indiqués par \og \verb|-| \fg{}. Cette commande doit être placée
+-dans le préambule et ne doit contenir que des mots composés de lettres
+-normales. La casse des caractères n'est pas prise en compte. L'exemple
+-ci-dessous permet à \og anticonstitutionnellement \fg{} d'être coupé,
+-ainsi qu'à \og Anticonstitutionnellement \fg{}. Mais il empêche toute
+-césure de \og FORTRAN \fg{}, \og Fortran \fg{} ou \og fortran \fg{}. Ni les
+-caractères spéciaux ni les symboles ne sont autorisés dans cette commande.
++\LaTeX coupe les mots en fin de ligne si nécessaire. Si l'algorithme de
++césure\footnote{\emph{\wi{Hyphenation}} en anglais} ne trouve pas l'endroit
++correct pour couper un mot\footnote{Ce qui est normalement plutôt rare. Si
++  vous observez de nombreuses erreurs de césure, c'est probablement un
++  problème de spécification de la langue du document ou du codage de sortie.
++  Voir le paragraphe sur le support multilingue,
++  page~\pageref{international}.}, vous pouvez utiliser les commandes suivantes
++pour informer \TeX de l'exception.
++
++La commande : 
++\begin{lscommand}{2} 
++  ¡\hyphenation¡{«liste de mots séparés pas des espaces»} 
++\end{lscommand} 
++\noindent permet de ne couper les mots cités en argument qu'aux endroits
++indiqués par « ©-© ». Cette commande doit être placée dans le préambule et ne
++doit contenir que des mots composés de lettres normales. La casse des
++caractères n'est pas prise en compte. L'exemple ci-dessous permet à
++« anticonstitutionnellement » d'être coupé, ainsi qu'à
++« Anticonstitutionnellement ». Mais il empêche toute césure de « FORTRAN »,
++« Fortran » ou « fortran ». Ni les caractères spéciaux ni les symboles ne sont
++autorisés dans cette commande.
+ 
+ \begin{code}
+-\verb|\hyphenation{FORTRAN}|\\
+-\verb|\hyphenation{Anti-cons-ti-tu-tion-nel-le-ment}|
++  \hyphenation{FORTRAN}
++  \hyphenation{Anti-cons-ti-tu-tion-nel-le-ment}
+ \end{code}
+ 
+-La commande \verb|\hyphenation{|\emph{liste de mots}\verb|}| a un effet
+-\emph{global} sur toutes les occurrences des mots de la liste.
+-Si l'exception ne concerne qu'une occurrence d'un mot on utilise
+-la commande \ci{-} qui insère un point de  césure potentiel dans un
+-mot. Ces positions deviennent alors les \emph{seuls} points de césure
+-possibles pour cette occurrence du mot. 
++La commande ©\hyphenation{«liste de mots»}© a un effet \emph{global} sur
++toutes les occurrences des mots de la liste.  Si l'exception ne concerne
++qu'une occurrence d'un mot on utilise la commande \ci{-} qui insère un point
++de  césure potentiel dans un mot. Ces positions deviennent alors les
++\emph{seuls} points de césure possibles pour cette occurrence du mot. 
+ 
+ \begin{example}
+ I think this is: su\-per\-cal\-%

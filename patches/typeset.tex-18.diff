@@ -1,0 +1,11 @@
+--- a/typeset.tex
++++ b/typeset.tex
+@@ -1160,7 +1160,7 @@ $\pi^{\pi}$         & 36&46   \\
+ $(\pi^{\pi})^{\pi}$ & 80662&7 \\
+ \end{tabular}
+ \end{example}
+-Autre exemple d'utilisation de \verb+\multicolumn+ :
++Autre exemple d'utilisation de ©\multicolumn© :
+ \begin{example}
+ \begin{tabular}{|l|l|}
+ \hline
