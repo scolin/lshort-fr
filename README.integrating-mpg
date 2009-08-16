@@ -1,0 +1,39 @@
+Environnements/commandes ajoutés ou changés, idées à creuser/intégrer
+upstream.
+
+- \begin{code}
+  Ne nécessite plus l'utilisation de \verb
+
+- ©\commande©
+  Remplace \texttt{\bs{}commande}
+
+- \begin{verbatim}
+  Remplacé par \begin{Verbatim}[gobble=6] pour \label{mini} et
+  \label{document}
+  Remplace aussi avec [gobble=2] pour syntaxonly à la fin de things.tex
+
+- \ldots{}
+  souvent remplacé par \dots
+
+- \begin{lscommand}{6}
+  à la place du simple lscommand semble encore éviter l'utilisation de
+  \verb. Introduit dans l'explication de la compilation latex
+  (chercher Ctrl-D dans things.tex), pour tous les exemples du
+  enumerate
+
+- Plus difficile:
+  \begin{lscommand}
+  \ci{documentclass}\verb|[|\emph{options}\verb|]{|\emph{classe}\verb|}|
+  \end{lscommand}
+  devient:
+  \begin{lscommand}{2}
+    ¡\documentclass¡[«options»]{«classe»}
+  \end{lscommand}
+  Le point d'exclamation inversé semble remplacer \ci
+
+- \tth{titlepage} \tti{notitlepage} pour remplacer
+  \index{titlepage@\texttt{titlepage}}
+  \index{notitlepage@\texttt{notitlepage}}
+  et autres commandes d'indexation
+  (cf \label{options})
+

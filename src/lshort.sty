@@ -4,6 +4,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % By Tobias Oetiker
 % Modified by Matthieu Herrb to handle the french extension
+% With further modifications/additions by Manuel Pégourié-Gonnard
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\errorcontextlines=10
 
@@ -303,3 +304,24 @@
 \else
 \let\tilde\@tildeORI
 \fi
+
+% Additions by mpg
+\newcommand\NdT{%
+  \unskip~(NdT)}
+\newcommand\eng[1]{%
+  \emph{\foreignlanguage{english}{#1}}}
+\newcommand\nohyph[1]{%
+  \begin{hyphenrules}{nohyphenation}#1\end{hyphenrules}}
+\newcommand\nolang[1]{%
+  \emph{\nohyph{#1}}}
+\newcommand\tth[1]{%
+  \index{#1@\texttt{#1}}}
+\newcommand\tti[1]{%
+  \tth{#1}#1}
+
+% Change the way the labels of descriptions are set [[1
+% #2 gets before (can be font), #1 after (can be space)
+%
+\newcommand\changelabels[2][]{%
+  \renewcommand\makelabel[1]{%
+    {\hspace\labelsep \normalfont#2##1#1}}}
