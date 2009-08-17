@@ -24,6 +24,8 @@
 \RequirePackage[T1]{fontenc}
 \RequirePackage[latin1]{inputenc}
 \RequirePackage{lmodern}
+% For just a command below
+\RequirePackage{ifmtarg}
 %\RequirePackage{textcomp}
 %\RequirePackage{type1cm}% remove size restrictions
 %\RequirePackage{aeguill}
@@ -353,6 +355,8 @@
   \begin{hyphenrules}{nohyphenation}#1\end{hyphenrules}}
 \newcommand\nolang[1]{%
   \emph{\nohyph{#1}}}
+\newcommand\texlive{%
+  \TeX{}\thinspace Live\xspace}
 \newcommand\tth[1]{%
   \index{#1@\texttt{#1}}}
 \newcommand\tti[1]{%
