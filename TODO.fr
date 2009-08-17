@@ -1,0 +1,28 @@
+
+- antislash ou backslash -> contre-oblique
+
+- les \, avant les footnotes : supprimer tout ? Car généré
+  automatiquement par babel ? À tester.
+
+From mpg's list:
+
+# when doing a new part:
+- lscommand
+- code
+- \LaTeX{}, \TeX{}, \og \fg \fg{}
+- nbsp before [»:;?!] and after «
+- \verb|...|, \verb+...+
+- \,\footnote
+- rm \thispagestyle after \chapter
+- rm useless comments
+- spell-check
+- vim's gq and =
+
+# todo at some point
+
+review the frenchb part
+
+review the \NdT before things and incl the 1st half of things
+
+implement a version of ¡ detecting environments and use it in typeset.tex (and
+elsewhere)
