@@ -1,0 +1,217 @@
+# Transcript of README.branch=old-fr-mpg (with some answers)
+
+What is there in this branch ?
+------------------------------
+
+This branch contains previous work started a while ago by me (Manuel
+Pégourié-Gonnard) and imported from my private svn repo. Roughly speaking, I
+updated the translation up to section 2.4 included, to match v4.24, and made
+various updates to the macro files (sometimes not matching the upstream
+version).
+
+This branch is for reference only, it is NOT intended to be merged into the
+'french' branch (no common ancestor, different directory structure, etc.).
+
+SC: rebased it onto the origin of my git repository, made a branch
+(v4.24fr-plus-mpg) from v4.24fr-unreleased onto which make the
+modifications you propose, make a merge -s ours with your branch (so
+as to "validate" that I integrated mpg's changes and to keep history of mpg's
+branch). Next step, merge this branch into french.
+
+What could be interesting in those files ?
+------------------------------------------
+
+1. A 'REMARKS-mpg' file listing (most of the) stuff I changed (or added
+footnotes about) in my version (be it in the macros or the actual content).
+This file was intended to be sent to Tobias when ready, so that he could take
+them into account for future upstream versions if he'd like to. It could be of
+great help for point two, too.
+
+SC: see below, transcript of REMARKS-mpg
+
+2. Since I updated the translation up to 2.4, it could be interesting to compare
+both translations (mine and Samuel's) in order to take the best part out of
+them.
+
+SC: done, for the translation bits, not for the macros
+though. lshort-fr.sty kept aside for this
+
+3. Maybe some macros are interesting too for simplify code. However, I now
+wonder if having macros too different from upstream will not make upstream
+harder to follow in the long term. This point probably needs further meditation.
+
+SC: the bare minimum has been put into lshort.sty (which is very close
+to upstream). Further macros should be proposed first to upstream, I
+think, before using them in the document (I like some of them, it
+makes the source way more readable). lshort-fr.sty kept aside for
+reference anyway.
+
+4. The IDEAS file lists two ideas I already talked about with Samuel by private
+email, so that we remind them.
+
+SC: see below, transcript of IDEAS
+
+################################################################################
+
+# Transcript of REMARKS-mpg
+
+# Style file (implementation questions)
+
+Why use url.sty and not just hyperref? Is it a matter of taste or does it really
+add features?
+
+Looks like the \@tildeORI things is now useless, is it?
+
+Why save \pageref at the beginning?
+
+mylayout.sty ? fancy.sty ?
+
+# Style file (features)
+
+Using mirror.ctan.org to make clickable CTAN: urls (see \CTAN)
+
+Using ctan.org/pkg/PKGNAME as link for package names (see \package and \pai).
+
+# Style file (implementation)
+
+Use fancyvrb + active chars for lscommand and code environments.
+
+New command \changelabels for descriptions.
+
+New \tti and \tth commands for things in tt in index.
+
+Imported \iei and \fei from typeset.tex
+
+# things.tex
+
+202: add 'this file is refered to as the "source file", or simply "source"'?
+
+250: why not advertise \textbackslash by textcomp? Shifting to math mode for
+anything else but math is a bad habit (\everymath, \mathsurround, etc).
+
+450 & Co: why not simply consider pdflatex as the normal compilation mode.
+Everyone knows how to view a pdf... And anyway nearly everyone will consider
+only the pdf as the final result (even pstricks addicts generally agree that
+dvi/ps are just intermediate steps).
+
+454: AFAIK, yap only works with MikTeX but you can also have TeX Live on windows
+(which unfortunately doesn't come with a dvi viewer).
+
+464: Actually dvipdf comes with GhostScript. Only (x)dvipdfm(x) come with the
+TeX distro. Anyway, this is another point that make me think pdflatex should be
+introduced instead: all those new commands and file formats look so scary to a
+newcomer.
+
+511: Why not advertise beamer?
+
+602: texdoc is specific to teTeX and TeXLive (hence MacTeX), not really to Unix
+(TeXLive exsists on windows). And MikTeX provides a similar thing named mthelp,
+worth mentionning.
+
+609 etc: every decent distro comes with the doc compiled, and the CTAN holds a
+pdf version of every packages's doc (or is trying to). So I would just mention
+doc.pdf etc, remember texdoc/mthelp, and say nothing about compiling dtx.
+
+721: here too, mention pdf as well as dvi. 
+
+# typeset.tex
+
+181: may be worth mentionning that the words in the list should be separated by
+spaces (one could otherwise be tempted to try comas).
+
+310: one could also mention siunitx in this context
+
+330: I think the \emph around official is a typo, should be \verb
+
+326 etc: since the 2nd possibility is commented out, probably it would be better to say one more choice?
+
+397: are you sure that an \mbox is necessary? I think {} is enough.
+
+516 etc: I disagree on tying encodings to platforms. Nowadays, most text editors (at least on Unix and Mac) allow you to choose your encoding. I rephrased the whole paragraph.
+
+523: here too, mention pdf rather than dtx. Also mention utf8ienc.pdf.
+
+530 table: drop dos+os/2, and after tehtable add a remark about
+latin1-latin9-cp1252 (esp. usefull for French) and mention utf-8.
+
+542: I think ucs is obsolete. inputenc handles utf8 correctly anyway.
+
+################################################################################
+
+# Transcript of IDEAS
+
+Various ideas for improvements in the French version.
+
+- Include the table of symbols of textcomp as an appendix like in the German
+  version.
+
+- Check that every interesting bit of Daniel's version in /Cahiers GUTenberg/
+  years ago has been included in the upstream version since then. If not, ask
+Daniel if it would be ok for him that we include it in the revived French
+version.
+
+################################################################################
+
+# Transcript of README.integrating-mpg
+#
+# These are (in french) the behaviours of the new macros proposed my mpg as I 
+# saw them, so as to keep/give ideas
+
+Environnements/commandes ajoutés ou changés, idées à creuser/intégrer
+upstream.
+
+- \begin{code}
+  Ne nécessite plus l'utilisation de \verb
+
+- ©\commande©
+  Remplace \texttt{\bs{}commande}
+  ©\\© remplace aussi \texttt{\bs\bs}
+
+- \begin{verbatim}
+  Remplacé par \begin{Verbatim}[gobble=6] pour \label{mini} et
+  \label{document}
+  Remplace aussi avec [gobble=2] pour syntaxonly à la fin de things.tex
+
+- \ldots{}
+  souvent remplacé par \dots
+
+- \begin{lscommand}{6}
+  à la place du simple lscommand semble encore éviter l'utilisation de
+  \verb. Introduit dans l'explication de la compilation latex
+  (chercher Ctrl-D dans things.tex), pour tous les exemples du
+  enumerate
+
+- Plus difficile:
+  \begin{lscommand}
+  \ci{documentclass}\verb|[|\emph{options}\verb|]{|\emph{classe}\verb|}|
+  \end{lscommand}
+  devient:
+  \begin{lscommand}{2}
+    ¡\documentclass¡[«options»]{«classe»}
+  \end{lscommand}
+  Le point d'exclamation inversé semble remplacer \ci
+  Autres exemples, tirés de typeset.tex:
+
+  \begin{lscommand}
+  \ci{\bs} ou \ci{newline} 
+  \end{lscommand}
+    remplacé par
+  \begin{lscommand}{2}
+    ¡\\¡ ¡\newline¡
+  \end{lscommand}
+
+  \begin{lscommand}
+  \ci{\bs*}
+  \end{lscommand}
+    remplacé par
+  \begin{lscommand}{2}
+    ¡\\*¡
+  \end{lscommand}
+
+
+- \tth{titlepage} \tti{notitlepage} pour remplacer
+  \index{titlepage@\texttt{titlepage}}
+  \index{notitlepage@\texttt{notitlepage}}
+  et autres commandes d'indexation
+  (cf \label{options})
+
