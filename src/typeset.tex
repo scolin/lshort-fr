@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Typesetting Part of LaTeX2e Introduction
-% $Id: typeset.tex 169 2008-09-24 07:32:13Z oetiker $
+% $Id: typeset.tex 199 2009-04-20 06:29:16Z oetiker $
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Typesetting Text}
 
@@ -29,7 +29,7 @@ then derives the typographical form of the text according to the
 The most important text unit in \LaTeX{} (and in typography) is the
 \wi{paragraph}.  We call it ``text unit'' because a paragraph is the
 typographical form that should reflect one coherent thought, or one
-idea.  You will learn in the following sections how you can force
+idea.  You will learn in the following sections how to force
 line breaks with e.g.{} \texttt{\bs\bs}, and paragraph breaks with e.g.{} 
 leaving an empty line in the source code.  Therefore, if a new thought
 begins, a new paragraph should begin, and if not, only line breaks
@@ -162,7 +162,7 @@ suitable place to hyphenate a word.\footnote{Although \LaTeX{} gives
   offending line, such lines are not always easy to find. If you use
   the option \texttt{draft} in the \ci{documentclass} command, these
   lines will be marked with a thick black line on the right margin.}
-You can instruct \LaTeX{} to lower its standards a little by giving
+Instruct \LaTeX{} to lower its standards a little by giving
 the \ci{sloppy} command. It prevents such over-long lines by
 increasing the inter-word spacing---even if the final output is not
 optimal.  In this case a warning (``\wi{underfull hbox}'') is given to
@@ -172,7 +172,7 @@ command \ci{fussy} brings \LaTeX{} back to its default behaviour.
 \subsection{Hyphenation} \label{hyph}
 
 \LaTeX{} hyphenates words whenever necessary. If the hyphenation
-algorithm does not find the correct hyphenation points, you can
+algorithm does not find the correct hyphenation points,
 remedy the situation by using the following commands to tell \TeX{}
 about the exception.
 
@@ -271,8 +271,8 @@ opening quotes and vertical quote (\textquotesingle) for closing, despite what t
 
 \subsection{Dashes and Hyphens}
 
-\LaTeX{} knows four kinds of \wi{dash}es. You can access three of
-them with different numbers of consecutive dashes. The fourth sign
+\LaTeX{} knows four kinds of \wi{dash}es. Access three of
+them with different number of consecutive dashes. The fourth sign
 is actually not a dash at all---it is the mathematical minus sign: \index{-}
 \index{--} \index{---} \index{-@$-$} \index{mathematical!minus}
 
@@ -289,7 +289,7 @@ The names for these dashes are:
 \subsection{Tilde ($\sim$)}
 \index{www}\index{URL}\index{tilde}
 A character often seen in web addresses is the tilde. To generate
-this in \LaTeX{} you can use \verb|\~| but the result: \~{} is not really
+this in \LaTeX{} use \verb|\~| but the result: \~{} is not really
 what you want. Try this instead:
 
 \begin{example}
@@ -299,7 +299,7 @@ http://www.clever.edu/$\sim$demo
  
 \subsection{Degree Symbol \texorpdfstring{($\circ$)}{}}
 
-The following example shows how to print a \wi{degree symbol} in \LaTeX{}:
+Printing the \wi{degree symbol} in pure \LaTeX{}.
 
 \begin{example}
 It's $-30\,^{\circ}\mathrm{C}$.
@@ -307,7 +307,13 @@ I will soon start to
 super-conduct.
 \end{example}
 
-The \pai{textcomp} package makes the degree symbol also available as \ci{textcelsius}.
+The \pai{textcomp} package makes the degree symbol also available as
+\ci{textdegree} or in combination with the C by using the \ci{textcelsius}.
+
+\begin{example}
+30 \textcelsius{} is
+86 \textdegree{}F.
+\end{example}
 
 \subsection{The Euro Currency Symbol \texorpdfstring{(\officialeuro)}{}}
 
@@ -316,7 +322,7 @@ fonts contain a Euro symbol. After loading the \pai{textcomp} package in the pre
 \begin{lscommand}
 \ci{usepackage}\verb|{textcomp}| 
 \end{lscommand}
-you can use the command
+use the command
 \begin{lscommand}
 \ci{texteuro}
 \end{lscommand}
@@ -370,8 +376,8 @@ $[$gen$]$eurosym &\verb+\euro+ & \huge\geneuro  &\huge\sffamily\geneuro
 On a typewriter, a \wi{comma} or a \wi{period} takes the same amount of
 space as any other letter. In book printing, these characters occupy
 only a little space and are set very close to the preceding letter.
-Therefore, you cannot enter `\wi{ellipsis}' by just typing three
-dots, as the spacing would be wrong. Instead, there is a special
+Therefore, entering `\wi{ellipsis}' by just typing three
+dots would be wrong produce the wrong result. Instead, there is a special
 command for these dots. It is called
 
 \begin{lscommand}
@@ -459,7 +465,7 @@ configured appropriately:
   mandatory space before each colon character (:).
 \end{enumerate}
 
-If your system is already configured appropriately, you can activate
+If your system is already configured appropriately, activate
 the \pai{babel} package by adding the command
 \begin{lscommand}
 \ci{usepackage}\verb|[|\emph{language}\verb|]{babel}|
@@ -475,15 +481,15 @@ appearance of the typeset document.
 
 \textsf{Babel} also specifies new commands for some languages, which
 simplify the input of special characters. The \wi{German} language, for
-example, contains a lot of umlauts (\"a\"o\"u).  With \textsf{babel},
-you can enter an \"o by typing \verb|"o| instead of~\verb|\"o|.
+example, contains a lot of umlauts (\"a\"o\"u).  With \textsf{babel} loaded,
+enter an \"o by typing \verb|"o| instead of~\verb|\"o|.
 
 If you call babel with multiple languages
 \begin{lscommand}
 \ci{usepackage}\verb|[|\emph{languageA}\verb|,|\emph{languageB}\verb|]{babel}| 
 \end{lscommand}
 \noindent then the last language in the option list will be active (i.e.
-languageB). You can to use the command
+languageB). Use the command
 \begin{lscommand}
 \ci{selectlanguage}\verb|{|\emph{languageA}\verb|}|
 \end{lscommand}
@@ -582,8 +588,8 @@ and~\fei{X2}.\footnote{The list of languages supported by each of these
 encodings could be found in \cite{cyrguide}.} The CB bundle contains fonts
 in \fei{LGR} encoding for the composition of Greek text.
 
-By using these fonts you can improve/enable hyphenation in non-English
-documents. Another advantage of using new CM-like fonts is that they 
+Improve/enable hyphenation in non-English
+documents by using these fonts. Another advantage of using new CM-like fonts is that they 
 provide fonts of CM families in all weights, shapes, and optically
 scaled font sizes. 
 
@@ -629,7 +635,7 @@ the appropriate encoding for your system.
 
 \secby{Daniel Flipo}{daniel.flipo@univ-lille1.fr}
 Some hints for those creating \wi{French} documents with \LaTeX{}:
-you can load French language support with the following command:
+load French language support with the following command:
 
 \begin{lscommand}
 \verb|\usepackage[frenchb]{babel}|
@@ -666,14 +672,14 @@ easily. Check out table \ref{cmd-french} for inspiration.
 
 You will also notice that the layout of lists changes when switching to the
 French language. For more information on what the \texttt{frenchb}
-option of \textsf{babel} does and how you can customize its behaviour, run
+option of \textsf{babel} does and how to customize its behaviour, run
 \LaTeX{} on file \texttt{frenchb.dtx} and read the produced file
 \texttt{frenchb.dvi}.
 
 \subsection{Support for German}
 
 Some hints for those creating \wi{German}\index{Deutsch}
-documents with \LaTeX{}: you can load German language support with the following
+documents with \LaTeX{}: load German language support with the following
 command:
 
 \begin{lscommand}
@@ -745,7 +751,7 @@ consecutive octets. The first has its MSB set.
 Until the mid-1990's, it took a considerable amount of time and effort to
 set up a Korean-capable environment under a non-localized (non-Korean)
 operating system. 
-You can skim through the now much-outdated \url{http://jshin.net/faq} to get 
+Skim through the now much-outdated \url{http://jshin.net/faq} to get 
 a glimpse of what it was like to use Korean under non-Korean OS in mid-1990's.
 These days all three major operating systems (Mac OS, Unix, Windows) come equipped
 with pretty decent multilingual support and internationalization features
@@ -844,7 +850,7 @@ H\LaTeX{} relieves its users from this boring and error-prone process.
 
 In case you don't need Korean localization features
 but just want 
-to  typeset Korean text, you can put the following line in the 
+to  typeset Korean text, put the following line in the 
 preamble, instead.
 \begin{lscommand}
 \verb+\usepackage{hfont}+
@@ -862,7 +868,7 @@ See table~\ref{preamble-greek} for the preamble you need to write in the
 \wi{Greek} \index{Greek} language.  This preamble enables hyphenation and
 changes all automatic text to Greek.\footnote{If you select the
 \texttt{utf8x}
-option for the package \texttt{inputenc}, you can type Greek and polytonic
+option for the package \texttt{inputenc}, \LaTeX{} will understand Greek and polytonic
 Greek
 unicode characters.}
 
@@ -882,7 +888,7 @@ Greek input files more easily.  In order to temporarily switch to English
 and vice versa, one can use the commands \verb|\textlatin{|\emph{english
 text}\verb|}| and \verb|\textgreek{|\emph{greek text}\verb|}| that both take
 one argument which is then typeset using the requested font encoding. 
-Otherwise you can use the command \verb|\selectlanguage{...}| described in a
+Otherwise use the command \verb|\selectlanguage{...}| described in a
 previous section.  Check out table~\ref{sym-greek} for some Greek
 punctuation characters.  Use \verb|\euro| for the Euro symbol.
 
@@ -991,6 +997,45 @@ produce letters from the Bulgarian alphabet.
 %Finally, math alphabets are redefined and  as well as the commands for math
 %operators according to Cyrillic typesetting traditions. 
 
+\subsection{Support for Mongolian}
+
+To use \LaTeX{} for typesetting Mongolian you have a choice between two packages:
+Multilingual Babel and Mon\TeX{} by Oliver Corff.
+
+Mon\TeX{} includes support for both Cyrillic and traditional
+Mongolian Script. In order to access the commands of Mon\TeX{}, add:
+\begin{lscommand}
+\ci{usepackage}\verb|[|\emph{language},\emph{encoding}\verb|]{mls}|
+\end{lscommand}
+\noindent to the preamble. Choose the \emph{language} option \pai{xalx} to generate
+captions and the dates in Modern Mongolian. To write a complete document in the traditional Mongolian script
+you have to choose \pai{bicig} for the \emph{language} option. The document
+language option \pai{bicig} enables the ``Simplified Transliteration'' input method.
+
+Enable and disable Latin Transliteration Mode with
+\begin{lscommand}
+\verb|\SetDocumentEncodingLMC|
+\end{lscommand}
+and
+\begin{lscommand}
+\verb|\SetDocumentEncodingNeutral|
+\end{lscommand}
+
+More information about Mon\TeX{} is available from
+\CTAN|language/mongolian/montex/doc|.
+
+Mongolian Cyrillic script is supported by \pai{babel}. Activate
+Mongolian language support with the following commands:
+
+\begin{lscommand}
+\verb|\usepackage[T2A]{fontenc}|\\
+\verb|\usepackage[mn]{inputenc}|\\
+\verb|\usepackage[mongolian]{babel}|
+\end{lscommand}
+
+\noindent where \iei{mn} is the \iei{cp1251} input encoding. For a more modern approach
+invoke \iei{utf8} instead.
+
 \section{The Space Between Words}
 
 To get a straight right margin in the output, \LaTeX{} inserts varying
@@ -1044,7 +1089,7 @@ The following sectioning commands are available for the
 \end{lscommand}
 
 If you want to split your document in parts without influencing the
-section or chapter numbering you can use
+section or chapter numbering use
 \begin{lscommand}
 \ci{part}\verb|{...}|
 \end{lscommand}
@@ -1110,8 +1155,7 @@ The \wi{title} of the whole document is generated by issuing a
 \ci{title}\verb|{...}|, \ci{author}\verb|{...}| 
 and optionally \ci{date}\verb|{...}| 
 \end{lscommand}
-\noindent before calling \verb|\maketitle|. In the argument to \ci{author}, you can
-supply several names separated by \ci{and} commands. 
+\noindent before calling \verb|\maketitle|. In the argument to \ci{author}, you can supply several names separated by \ci{and} commands. 
 
 An example of some of the commands mentioned above can be found in
 Figure~\ref{document} on page~\pageref{document}.
@@ -1370,7 +1414,7 @@ Within a paragraph, similar behavior can be accessed with
 \begin{lscommand}
 \ci{verb}\verb|+|\emph{text}\verb|+|
 \end{lscommand}
-\noindent The \verb|+| is just an example of a delimiter character. You can use any
+\noindent The \verb|+| is just an example of a delimiter character. Use any
 character except letters, \verb|*| or space. Many \LaTeX{} examples in this
 booklet are typeset with this command.
 
@@ -1430,7 +1474,7 @@ alignment at the top, bottom or center.
  
 Within a \texttt{tabular} environment, \texttt{\&} jumps to the next
 column, \ci{\bs} starts a new line and \ci{hline} inserts a horizontal
-line.  You can add partial lines by using the \ci{cline}\texttt{\{}\emph{j}\texttt{-}\emph{i}\texttt{\}},
+line.  Add partial lines by using the \ci{cline}\texttt{\{}\emph{j}\texttt{-}\emph{i}\texttt{\}},
 where j and i are the column numbers the line should extend over.
 
 \index{"|@ \verb."|.}
@@ -1542,8 +1586,7 @@ table layout\\\hline
 
 \end{example}
 
-If you just want to grow the height of a single row in your table you can do
-this with a invisible vertical bar\footnote{In professional typesetting,
+If you just want to grow the height of a single row in your table add an invisible vertical bar\footnote{In professional typesetting,
 this is called a \wi{strut}.} Use a zero width \ci{rule} to implement this trick.
 
 \begin{example}
@@ -1652,13 +1695,13 @@ that in more recent versions of \LaTeX, it is automatically replaced by
 \bigskip
 \noindent Having explained the difficult bit, there are some more things to
 mention about the \ei{table} and \ei{figure} environments.
-With the 
+Use the 
 
 \begin{lscommand}
 \ci{caption}\verb|{|\emph{caption text}\verb|}|
 \end{lscommand}
 
-\noindent command, you can define a caption for the float. A running number and
+\noindent command to define a caption for the float. A running number and
 the string ``Figure'' or ``Table'' will be added by \LaTeX.
 
 The two commands
@@ -1677,7 +1720,7 @@ the \verb|\caption| command.
 \verb|\caption[Short]{LLLLLoooooonnnnnggggg}| 
 \end{code}
 
-With \ci{label} and \ci{ref}, you can create a reference to a float within
+Use \ci{label} and \ci{ref},to create a reference to a float within
 your text. Note that the \ci{label} command must come \emph{after} the
 \ci{caption} command since you want it to reference the number of the
 caption.
@@ -1691,7 +1734,7 @@ you are going to paste into the finished document.
 Figure~\ref{white} is an example of Pop-Art.
 \begin{figure}[!hbtp]
 \makebox[\textwidth]{\framebox[5cm]{\rule{0pt}{5cm}}}
-\caption{Five by Five in Centimetres.\label{white}}[A
+\caption{Five by Five in Centimetres.\label{white}}
 \end{figure}
 \end{verbatim}
 \end{code}
@@ -1728,7 +1771,7 @@ well as in the body of the document). Some commands will break when used in
 the argument of \ci{section}-like commands. Compilation of your document
 will fail. These commands are called \wi{fragile commands}---for example,
 \ci{footnote} or \ci{phantom}. These fragile commands need protection (don't
-we all?). You can protect them by putting the \ci{protect} command in front
+we all?). Protect them by putting the \ci{protect} command in front
 of them.
 
 \ci{protect} only refers to the command that follows right behind, not even

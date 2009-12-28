@@ -1,6 +1,6 @@
 #	pstops "4:0L@0.8(22.5cm,-0.6cm)+1L@0.8(22.5cm,13.3cm),2L@0.8(22.5cm,-0.6cm)+3L@0.8(22.5cm,13.3cm)" \
 SHELL = /bin/sh
-VERS = 4.26
+VERS = 4.27
 
 OTHER = README CHANGES
 FILES = src/biblio.tex src/math.tex src/things.tex src/contrib.tex src/lshort.sty src/mylayout.sty src/title.tex \
@@ -56,6 +56,15 @@ lshort.pdf: $(FILES)
 	$(MAKEINDEX) -s ../src/lshort.ist lshort&&$(PDFLATEX) lshort&& \
 	(thumbpdf --resolution 10 lshort.pdf && $(PDFLATEX) lshort)&& \
 	mv lshort.pdf .. )
+	rm pdfbuild/*
+
+lshort-letter.pdf: $(FILES)
+	-mkdir pdfbuild
+	(T1FONTS=.:`pwd`/eurofont: && export T1FONTS && TEXINPUTS=.:`pwd`/src:`pwd`/euro:${TEXINPUTS:-:}&&export TEXINPUTS&& cd pdfbuild&& \
+	$(PDFLATEX) lshort-letter&& $(PDFLATEX) lshort-letter&& \
+	$(MAKEINDEX) -s ../src/lshort.ist lshort-letter&&$(PDFLATEX) lshort-letter&& \
+	(thumbpdf --resolution 10 lshort-letter.pdf && $(PDFLATEX) lshort-letter)&& \
+	mv lshort-letter.pdf .. )
 	rm pdfbuild/*
 
 src/title.tex: Makefile
