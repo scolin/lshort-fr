@@ -1,9 +1,6 @@
 
 - antislash ou backslash -> contre-oblique
 
-- les \, avant les footnotes : supprimer tout ? Car généré
-  automatiquement par babel ? À tester.
-
 From mpg's list:
 
 # when doing a new part:
@@ -12,7 +9,6 @@ From mpg's list:
 - \LaTeX{}, \TeX{}, \og \fg \fg{}
 - nbsp before [»:;?!] and after «
 - \verb|...|, \verb+...+
-- \,\footnote
 - rm \thispagestyle after \chapter
 - rm useless comments
 - spell-check

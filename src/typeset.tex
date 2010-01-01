@@ -126,7 +126,7 @@ des retours à la ligne et des espacements entre les mots de manière à
 optimiser la présentation de l'ensemble d'un paragraphe. En cas de
 besoin, il coupe les mots qui ne tiennent pas en entier sur une
 ligne. La présentation exacte d'un paragraphe dépend de la classe de
-document\,\footnote{et des règles typographiques propres de chaque pays
+document\footnote{et des règles typographiques propres de chaque pays
 \emph{NdT.}}. Normalement la première ligne d'un paragraphe est
 en retrait par rapport à la marge gauche  
 et il n'y a pas d'espace vertical particulière entre deux
@@ -177,7 +177,7 @@ S'il ne trouve pas de solution pour couper les lignes de
 manière conforme à ses normes de qualité, il laisse dépasser un bout
 de ligne sur la marge droite du paragraphe. \LaTeX{} émet alors le
 %SC: suggestion de mpg: \eei au lieu de \wi pour overfull hbox ?
-message d'erreur \og \wi{overfull hbox}\,\footnote{débordement
+message d'erreur \og \wi{overfull hbox}\footnote{débordement
 horizontal} \fg{}. Cela se produit surtout quand \LaTeX{} ne trouve pas
 de point de césure dans un mot.\footnote{Bien que \LaTeX{} signale un
   avertissement lorsque cela arrive (Overfull hbox) et affiche la
@@ -189,7 +189,7 @@ En utilisant alors la commande \ci{sloppy},
 vous pouvez demander à \LaTeX{} d'être moins exigeant. Il ne produira
  plus de lignes trop longues en ajoutant de l'espace entre les
 mots du paragraphe, même si ceux-ci finissent trop espacés selon ses
-critères. Dans ce cas le message \og \wi{underfull hbox}\,\footnote{boîte
+critères. Dans ce cas le message \og \wi{underfull hbox}\footnote{boîte
 horizontale pas assez pleine} \fg{} est produit. Souvent, malgré tout, le
 résultat est acceptable. La commande \ci{fussy} agit dans l'autre
 sens, au cas où vous voudriez voir \LaTeX{} revenir à ses exigences
@@ -199,7 +199,7 @@ normales.
 \index{cesure@césure}
 \LaTeX{} coupe les mots en fin de ligne si nécessaire. Si l'algorithme de
 césure\footnote{\emph{\wi{Hyphenation}} en anglais} ne trouve pas
-l'endroit correct pour couper un mot\,\footnote{Ce qui est normalement
+l'endroit correct pour couper un mot\footnote{Ce qui est normalement
 plutôt rare. Si vous observez de nombreuses erreurs de césure, c'est
 probablement un problème de spécification de la langue du document ou
 du codage de sortie. Voir le paragraphe sur le support multilingue,
@@ -476,7 +476,7 @@ mais en utilisant des symboles spéciaux.
 \end{code}
 Ces \wi{ligature}s peuvent être désactivées en insérant un
 \ci{mbox}\verb|{}| entre les lettres en question. Cela peut s'avérer
-utile pour certains mots composés\,\footnote{Il n'existe pas d'exemple en
+utile pour certains mots composés\footnote{Il n'existe pas d'exemple en
 français. \emph{NdT.}}.
 %SC: à revérifier dans le document produit
 \begin{example}
@@ -1023,7 +1023,7 @@ de ce manuel.
 Les commandes à insérer en préambule pour écrire en \wi{grec}
 \index{grec} se trouvent dans le tableau~\ref{preamble-greek}. Ce
 préambule active la césure et change le texte automatique en grec.%
-\,\footnote{Si vous ajoutez l'option \texttt{utf8x} à
+\footnote{Si vous ajoutez l'option \texttt{utf8x} à
   \texttt{inputenc}, vous pourrez saisir du grec et des caractères
   unicodes grecs polytoniques.}
 
@@ -1256,7 +1256,7 @@ Deux commandes de sectionnement ont un comportement spécial :
 \item la commande \ci{part} ne change pas la numérotation des
       chapitres ;
 \item la commande \ci{appendix} ne prend pas d'argument. Elle bascule
-      simplement la numérotation des chapitres\,\footnote{Pour la classe
+      simplement la numérotation des chapitres\footnote{Pour la classe
       article, elle change la numérotation des sections} en lettres.
 \end{itemize}
 
@@ -1358,7 +1358,7 @@ document : à la première compilation les numéros correspondant aux étiquettes
 \verb|\label{}| sont inscrits dans le fichier \texttt{.aux} et, à la
 compilation suivante, \verb|\ref{}| et \verb|\pageref{}| peuvent imprimer
 ces numéros%
-\,\footnote{Ces commandes ne connaissent pas le type du numéro auquel
+\footnote{Ces commandes ne connaissent pas le type du numéro auquel
 elles se réfèrent, elles utilisent le dernier numéro généré
 automatiquement.}. 
 
@@ -1378,7 +1378,7 @@ La commande :
 \noindent imprime une note de bas de page en bas de la page en cours.
 Les notes de bas de page doivent être placées après le mot où la
 phrase auquel elles se réfèrent%
-\,\footnote{La typographie française demande une espace fine avant la
+\footnote{La typographie française demande une espace fine avant la
 marque de renvoi à la note.}
 %SC: hmmm, is the following french good practice ?
 Les notes qui se réfèrent à une (partie de) phrase devraient être
@@ -1394,7 +1394,7 @@ placées après une virgule ou un point.\footnote{Remarquez que les
 
 \begin{example}
 Les notes de bas de page%
-\,\footnote{ceci est une note
+\footnote{ceci est une note
 	  de bas de page.}
 sont très prisées par les 
 utilisateurs de \LaTeX{}.
@@ -1411,7 +1411,7 @@ via la commande :
 
 Dans un ouvrage
 imprimé, on préfère les \emph{mettre en valeur}%
-\,\footnote{\emph{Emphasized} en anglais.}. 
+\footnote{\emph{Emphasized} en anglais.}. 
 La commande de mise en valeur est :
 \begin{lscommand}
 \ci{emph}\verb|{|\emph{texte}\verb|}|
@@ -1756,7 +1756,7 @@ avec espaces\\
 %
 
 \index{alignement décimal} S'il n'y a pas de commande prévue%
-\,\footnote{Si les extensions de l'ensemble \og tools \fg{} sont installées
+\footnote{Si les extensions de l'ensemble \og tools \fg{} sont installées
           sur votre système, jetez un \oe il sur l'extension
           \pai{dcolumn} faite pour résoudre ce problème.} 
 pour aligner les nombres sur le point décimal (ou la virgule si on
@@ -1895,7 +1895,7 @@ Caractère & Emplacement pour l'objet flottant\dots\\
 \texttt{p} & \emph{page}, sur une page à part ne contenant que des
              objets flottants.\\[0.3ex]
 \texttt{!} & ici, sans prendre en compte les paramètres
-             internes\,\footnote{tels que le nombre maximum d'objets
+             internes\footnote{tels que le nombre maximum d'objets
              flottants sur une page} qui pourraient empêcher ce
              placement. 
 \end{tabular}
@@ -1917,7 +1917,7 @@ classes standard utilisent \verb|[tbp]| par défaut.
 \LaTeX{} place tous les objets flottants qu'il rencontre
 en suivant les indications fournies par l'auteur. Si un objet ne peut
 être placé sur la page en cours, il est placé soit dans la file des
-figures soit dans la file des tableaux\,\footnote{Il s'agit de files
+figures soit dans la file des tableaux\footnote{Il s'agit de files
 FIFO (\emph{First In, First Out}) : premier arrivé, premier servi.}. 
 Quand une nouvelle page est
 entamée, \LaTeX{} essaye d'abord de voir si les objets en tête des
@@ -1994,7 +1994,7 @@ La figure~\ref{blanche} est un exemple de Pop-Art.
 \end{verbatim}
 \end{code}
 
-Dans l'exemple ci-dessus\,\footnote{En supposant que la file
+Dans l'exemple ci-dessus\footnote{En supposant que la file
 des figures soit vide.} \LaTeX{} va s'acharner~(\texttt{!}) à
 placer la figure là où se trouve la commande~(\texttt{h}) dans le
 texte. S'il n'y arrive pas, il essayera de la placer en

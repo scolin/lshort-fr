@@ -11,7 +11,18 @@
 %save pageref an label
 \let\lsspageref=\pageref
 \ProvidesPackage{lshort}
-\RequirePackage[english,frenchb,german]{babel}
+% main language has to come last for global layout to be right (mpg)
+\RequirePackage[english,german,frenchb]{babel}
+% the following are defaults of frenchb since 2.x
+% set them so the result is correct even with older frenchb (mpg)
+\FrenchFootnotes
+\AddThinSpaceBeforeFootnotes
+\addto\captionsfrench{%
+  \def\figurename{{\scshape Figure}}%
+  \def\tablename{{\scshape Table}}%
+  }
+% end frenchb 1.x compatibility settings
+\NoAutoSpaceBeforeFDP % un dernier réglage de frenchb
 \RequirePackage{mflogo}
 \RequirePackage{verbatim}
 \RequirePackage{fancyhdr}
