@@ -29,7 +29,7 @@ collection d'extensions et de classes pour la saisie
 mathématique. Nous traiterons ici principalement de l'extension
 \pai{amsmath} qui fait partie de ce paquet. \AmS-\LaTeX{} est produit
 par l'\emph{American Mathematical Society}\footnote{la Société
-  Américaine de Mathématiques. \NdT} et est utilisée extensivement pour la
+  américaine de mathématiques. \NdT} et est utilisée extensivement pour la
 mise en forme de mathématiques. \LaTeX{} seul fournit bien quelques
 fonctionnalités et environnements basiques, mais ils sont
 relativement limités (voire, la logique s'appliquerait plutôt dans
@@ -37,7 +37,7 @@ l'autre sens : \AmS-\LaTeX{} est \emph{illimité} !) et parfois
 incohérents.
 
 \AmS-\LaTeX{} fait partie de la distribution de base et est fournie
-avec toutes les distributions récentes de \LaTeX{}.\footnote{Si la
+avec toutes les distributions récentes de \LaTeX{}\footnote{Si la
   vôtre ne l'a pas, visitez
   \texttt{CTAN:macros/latex/required/amslatex}. Dans ce chapitre nous
   supposerons qu'\pai{amsmath} est chargé en préambule, via
@@ -46,17 +46,17 @@ avec toutes les distributions récentes de \LaTeX{}.\footnote{Si la
 \section{Équations simples}
 
 Il y a deux façons de mettre en forme des \wi{formules}
-mathématiques~: au fil du texte à l'intérieur d'un paragraph
-(\emph{\wi{style en-ligne}}) ou le paragraphe peut être découpé pour
+mathématiques~: au fil du texte à l'intérieur d'un paragraphe
+(\emph{\wi{style en-ligne}}) ou en interrompant le flot du texte pour
 que la mise en forme soit séparée (\textit{\wi{style hors-texte}}). Les
 \wi{équation}s mathématiques \emph{dans} un paragraphe sont entrées
-entre deux signes \index{$@\texttt{\$}} \texttt{\$} :
+entre deux signes \index{$\iffalse$\fi @\texttt{\$}} \texttt{\$} :
 \begin{example}
 Ajoutez $a$ au carré 
 et $b$ au carré pour obtenir
 $c$ au carré. Ou, en 
 utilisant une approche plus
-matheuse : $a^2 + b^2 = c^2$
+matheuse : $a^2 + b^2 = c^2$.
 \end{example}
 \begin{example}
  \TeX{} se prononce 
@@ -65,20 +65,15 @@ $\tau\epsilon\chi$\\[5pt]
 J'$\heartsuit$ \LaTeX{}
 \end{example}
 
-% just to avoid bad emacs colorizing because of too many $
-%
 Il vaut mieux composer les équations ou les formules plus importantes
-\og \emph{hors-texte} \fg{} plutôt que découper un paragraphe pour
-cela, c'est-à-dire sur des lignes à part. À cette fin, on les
+\og \emph{hors-texte} \fg{}, c'est-à-dire sur une ligne à part, plutôt que
+d'amocher le paragraphe.  À cette fin, on les
 inclut entre \verb|\begin{|\ei{equation}\verb|}| et
-\verb|\end{equation}|.\footnote{Il s'agit d'une commande d'
-\textsf{amsmath}. Si vous n'y avez pas accès pour quelque obscure
-raison, utilisez l'environnement \ei{displaymath} de \LaTeX{} à la
-place.}
-Vous pouvez ensuite utiliser  \ci{label} pour marquer un numéro
+\verb|\end{equation}|.
+Vous pouvez ensuite utiliser \ci{label} pour marquer un numéro
 d'équation et vous y référer ailleurs dans le texte via la commande
 \ci{eqref}. Si vous voulez plutôt nommer l'équation, utiliser \ci{tag}
-à la place. Vous ne pouvez pas utiliser \ci{eqref} avec \ci{tag}.
+à la place.
 
 \begin{example}
 Ajoutez $a$ au carré 
@@ -102,29 +97,22 @@ Voici une référence à
 \end{example}
 
 Si vous ne voulez pas que \LaTeX{} numérote vos équations, utilisez la
-version étoilée d'\texttt{equation}, \ei{equation*}, ou mieux encore,
+version étoilée d'\texttt{equation}, \ei{equation*}\footnote{Fournie par
+  \package{amsmath}. Si vous ne l'avez pas chargé, vous pouvez utiliser
+  l'environnement \ei{displaymath} de \LaTeX{}. Mais il vaut mieux toujours
+  charger \package{amsmath}.}, ou mieux encore,
 entourez votre équation par \ci{[} et \ci{]} :
-\footnote{\index{equation!\textsf{amsmath}} \index{equation!\LaTeX{}}
-Cela provient encore d'\textsf{amsmath}. Si vous ne l'avez pas chargé,
-utilisez l'environnement \texttt{equation} de \LaTeX{} à la place. Les
-noms des commandes \texttt{amsmath}/\LaTeX{} peuvent prêter à
-confusion, mais ce n'est pas un vrai problème puisque tout le monde
-utilise \texttt{amsmath} de toute façon. Il vaut mieux en règle
-générale charger l'extension dès le départ parce que vous pourriez
-l'utiliser plus tard. De plus les \texttt{equation} non numérotées de
-\LaTeX{} entrent en conflit avec les \texttt{equation} numérotées
-d'\AmS-\LaTeX{}.}.
 \begin{example}
 Ajoutez $a$ au carré 
 et $b$ au carré pour obtenir
 $c$ au carré. Ou, en 
 utilisant une approche plus
 matheuse :
- \begin{equation*}
-   a^2 + b^2 = c^2
- \end{equation*}
+\begin{equation*}
+  a^2 + b^2 = c^2
+\end{equation*}
 ou plus parcimonieusement :
- \[ a^2 + b^2 = c^2 \]
+\[ a^2 + b^2 = c^2 \]
 \end{example}
 
 
@@ -133,15 +121,15 @@ différemment selon qu'elles sont composées \og \wi{en-ligne} \fg{} ou \og
 \wi{hors-texte} \fg{} :
  \begin{example}
 Style en-ligne :
- $\lim_{n \to \infty} 
- \sum_{k=1}^n \frac{1}{k^2} 
- = \frac{\pi^2}{6}$.
-Style hors-text :
- \begin{equation}
+$\lim_{n \to \infty} 
+\sum_{k=1}^n \frac{1}{k^2} 
+= \frac{\pi^2}{6}$.
+Style hors-texte :
+\begin{equation}
   \lim_{n \to \infty} 
   \sum_{k=1}^n \frac{1}{k^2} 
   = \frac{\pi^2}{6}
- \end{equation}
+\end{equation}
 \end{example}
 
 En style en-ligne, utilisez la commande \ci{smash} sur des
@@ -178,9 +166,9 @@ Il y a également des différences notables entre le \wi{mode
 \item les lignes vides ne sont pas autorisées. Un seul paragraphe par
       formule ;
 \item chaque lettre est considérée comme étant le nom d'une variable
-      et sera imprimée comme tel. Pour insérer du  texte
+      et sera imprimée comme telle. Pour insérer du  texte
       normal (police et espacement standard) dans une formule, il 
-      faut utiliser la commande \verb|\textrm{...}| (voir également la
+      faut utiliser la commande \verb|\text{...}| (voir également la
       section \ref{sec:fontsz} en page \pageref{sec:fontsz}).
 \end{enumerate}
 
@@ -190,11 +178,11 @@ $\forall x \in \mathbf{R}:
 \end{example}
 \begin{example}
 $x^{2} \geq 0\qquad
- \text{pour tout}x\in\mathbf{R}$
+ \text{pour tout } x\in\mathbf{R}$
  \end{example}
  
 Une mode récente et contestable pousse à utiliser la police 
-\og \wi{blackboard bold} \fg{} (Gras Tableau Noir, ainsi appelée car c'est par
+\eng{\wi{blackboard bold}} (gras tableau noir, ainsi appelée car c'est par
 le doublement des verticales des lettres que l'on simule le gras
 typographique lorsqu'on ne peut faire autrement) qui est obtenue par
 la commande \ci{mathbb} de l'extension \pai{amssymb}
@@ -244,17 +232,14 @@ $\lambda,\xi,\pi,\theta,
 \end{example}
  
 
-Les \textbf{indices et exposants} sont
-\index{indice}\index{exposant} positionnés en utilisant les caractères
+Les \textbf{indices et exposants} sont\index{indice}\index{exposant}
+positionnés en utilisant les caractères
 \verb|_|\index{_@\verb"|_"|} et \verb|^|\index{^@\verb"|^"|}.
 
-La plupart des commandes du mode mathématique ne s'applique qu'au
+La plupart des commandes du mode mathématique ne s'appliquent qu'au
 caractère suivant. Pour qu'une commande s'applique à un ensemble de
 caractères, il faut les grouper en utilisant des accolades :
 \verb|{...}|. 
-
-Le tableau~\ref{binaryrel} en page \pageref{binaryrel}  liste de
-nombreuses autres relations binaires comme $\subseteq$ et $\perp$.
 
 \begin{example}
 $p^3_{ij} \qquad
@@ -263,9 +248,11 @@ $p^3_{ij} \qquad
  e^{x^2} \neq {e^x}^2$
 \end{example}
 
-%SC: nth root with the accent
+Le tableau~\ref{binaryrel} en page \pageref{binaryrel}  liste de
+nombreuses relations binaires comme $\subseteq$ et $\perp$.
+
 La \textbf{\wi{racine carrée}} est saisie via \ci{sqrt}. La
-racine $n^\text{ieme}$ est produite par la commande
+racine $n$-ième est produite par la commande
 \verb|\sqrt[|$n$\verb|]|. La taille du symbole racine est calculée par
 \LaTeX. Pour obtenir le symbole seul, utilisez \verb|\surd|.
 
@@ -273,7 +260,7 @@ Voyez d'autres sortes de flèches comme $\hookrightarrow$ et
 $\rightleftharpoons$ dans le tableau~\ref{tab:arrows} en page
 \pageref{tab:arrows}.
 \begin{example}
-$\sqrt{x} \Leftrightarrow x^{1/2}
+$\sqrt{x} = x^{1/2}
  \quad \sqrt[3]{2}
  \quad \sqrt{x^{2} + \sqrt{y}}
  \quad \surd[x^2 + y^2]$
@@ -317,7 +304,7 @@ expression :
 \begin{example}
 $\underbrace{\overbrace{a+b+c}^6 
  \cdot \overbrace{d+e+f}^9}
- _\text{meaning of life} = 42$
+ _{\text{meaning of life}} = 42$
 \end{example}
 
 \index{mathématiques!accents}
@@ -327,7 +314,7 @@ tableau~\ref{mathacc} p.~\pageref{mathacc}.  Les chapeaux et les
 tildes larges, couvrant plusieurs caractères, sont produits par les
 commandes \ci{widetilde} et \ci{widehat}. Notez bien la différence
 entre \ci{hat} et \ci{widehat} ainsi que le placement de \ci{bar} pour
-une variable indicée.La commande \verb|'|\index{'@\verb"|'"|} produit
+une variable indicée. La commande \verb|'|\index{'@\verb"|'"|} produit
 un \wi{prime} :
 % a dash is --
 \begin{example}
@@ -370,7 +357,9 @@ les plus utilisées :
 
 Les fonctions n'apparaissant pas dans la liste peuvent être déclarées
 avec \ci{DeclareMathOperator}. Il y a même une version étoilée pour
-les fonctions avec des limites. Cette commande ne peut être utilisée
+les fonctions avec des indices ou exposants placés en dessous et en
+dessus\footnote{Parfois appellés \emph{limites}. \NdT}. Cette commande ne peut
+être utilisée
 qu'en préambule, aussi les lignes commentées de l'exemple doivent être
 ajoutées en préambule pour fonctionner.
 
@@ -388,13 +377,13 @@ $a\bmod b \\
  x\equiv a \pmod{b}$
 \end{example}
 
-Un trait de \textbf{\wi{fraction}} est produit par la commande
+Une \textbf{\wi{fraction}} est produite avec
 \ci{frac}\verb|{|\emph{numérateur}\verb|}{|\emph{dénominateur}\verb|}|. Pour
 les équations en-ligne, la fraction est réduite pour tenir sur la
-ligne. Ce style peut aussi s'obtenir hors-text avec
+ligne. Ce style peut aussi s'obtenir hors-texte avec
 \ci{tfrac}. L'inverse, c'est-à-dire obtenir des fractions en-ligne
 selon le style hors-texte, est obtenu avec \ci{dfrac}.  La forme
-utilisant un \emph{slash} ($1/2$) est souvent préférable pour des
+utilisant une barre oblique ($1/2$) est souvent préférable pour des
 petits éléments.
 \begin{example}
 En style hors-texte :
@@ -404,8 +393,8 @@ En style hors-texte :
 
 \begin{example}
 En style en-ligne :
-$1\frac{1}{2}$~heures \qquad
-$1\dfrac{1}{2}$~heures
+$1\frac{1}{2}$~heures \\
+ou bien $1\dfrac{1}{2}$~heures
 \end{example}
 
 Ici nous utilisons la commande \ci{partial} utilisée habituellement
@@ -474,9 +463,9 @@ commandes spéciales (par exemple \verb|\updownarrow|) :
 \end{equation*}
 \end{example}
 
-Si vous ajoutez \ci{left} avant un délimiteur ouvrant ou
-\ci{right} avant un délimiteur fermant, \LaTeX{} détermine
-automatiquement la taille appropriée pour ce caractère. Remarquez
+Si vous ajoutez \ci{left} avant un délimiteur ouvrant et
+\ci{right} avant le délimiteur fermant correspondant, \LaTeX{} détermine
+automatiquement la taille appropriée pour ces symboles. Remarquez
 qu'il est nécessaire de fermer chaque délimiteur ouvrant
 (\ci{left}) avec un délimiteur fermant (\ci{right}). Si vous
 ne voulez pas de délimiteur fermant, utilisez le délimiteur invisible
@@ -526,11 +515,11 @@ utilisez les environnements \ei{align} et \verb|align*| plutôt que
 Avec \ei{align} chaque ligne est numérotée, alors que la variante
 \verb|align*| ne produit aucun numéro.
 
-Les environnements \ei{align} centrent l'équation par rapport au signe
+Les environnements \ei{align} alignent l'équation par rapport au signe
 \verb|&|. La commande \verb|\\| sépare les lignes.  Pour énumérer
 seulement certaines équations particulières, utilisez \ci{nonumber}
 pour supprimer la numérotation en la plaçant avant le saut de ligne
-\verb|\\| :
+\verb|\\|.
 \begin{example}
 \begin{align}
 f(x) &= (a+b)(a-b) \label{1}\\
@@ -631,9 +620,9 @@ espace moyenne ($\frac{4}{18}\:\textrm{quad}$, \demowidth{0.222em}) et
 \demowidth{0.277em}).  L'espace échappée \verb*|\ | crée une espace
 moyenne similaire à l'espace entre mots. and \ci{quad}
 (\demowidth{1em}) et \ci{qquad} (\demowidth{2em}) produisent des
-espaces plus larges.  La largeur d'un \ci{quad}
-%SC: \footnote{Cadratin.} ?? A vérifier -mh
-correspond à la largeur du caractère \og M \fg{} dans la police courante. 
+espaces plus larges.  La largeur d'un \ci{quad}\footnote{Appelé \emph{espace
+    cadratin} en français. \NdT} correspond approximativement à la largeur du
+caractère \og M \fg{} dans la police courante. 
 La commande \verb|\!|\cih{"!} produit une espace fine négative
 de $-\frac{3}{18}\:\textrm{quad}$ ($-$\demowidth{0.166em}). Remarquez
 que dans l'exemple suivant, \og d \fg{} est imprimée en police romaine :
@@ -705,7 +694,7 @@ vous y aider.
 
 
 \section{Manipuler les polices mathématiques}\label{sec:fontsz}
-Plusieurs polices mathématiques sont listée au tableau~\ref{mathalpha}
+Plusieurs polices mathématiques sont listées au tableau~\ref{mathalpha}
 page \pageref{mathalpha}.
 \begin{example}
  $\Re \qquad
@@ -713,11 +702,11 @@ page \pageref{mathalpha}.
   \mathfrak{R} \qquad
   \mathbb{R} \qquad $  
 \end{example}
-Ces deux dernières nécessitent \pai{amssymb} ou \pai{amsfonts}.
+Les deux dernières nécessitent \pai{amssymb} ou \pai{amsfonts}.
 
-Malgré tout, il peut être nécessaire d'indiquer à \LaTeX{} la taille
-exacte. En mode mathématique, la taille de la police est déterminée
-par les quatre commandes :
+Parfois, il peut être nécessaire d'indiquer à \LaTeX{} la taille
+de fonte désirée. En mode mathématique, cette taille est ajustable
+avec les quatre commandes :
 \begin{flushleft}
 \ci{displaystyle}~($\displaystyle 123$),
  \ci{textstyle}~($\textstyle 123$), 
@@ -725,7 +714,8 @@ par les quatre commandes :
 \ci{scriptscriptstyle}~($\scriptscriptstyle 123$).
 \end{flushleft}
 
-Si $\sum$ est placé dans une fraction, il sera imprimé en-ligne à
+Si $\sum$ est placé dans une fraction, il sera imprimé dans le style \og
+en-ligne \fg à
 moins d'indiquer à \LaTeX{} le contraire :
 \begin{example}
 \begin{equation*}
@@ -746,7 +736,7 @@ grands opérateurs sont affichés.
 % mathop gets the spacing right.
 
 
-\section{Symboles gras}
+\subsection{Symboles gras}
 \index{symboles!gras}
 
 Il est relativement ardu d'obtenir des symboles gras avec \LaTeX{} ;
@@ -805,15 +795,15 @@ Ceci est mon premier théorème\\
 
 L'extension \pai{amsthm} (qui fait partie d'\AmS-LaTeX) met à
 disposition la commande
-\ci{newtheoremstyle}\verb|{|\emph{style}\verb|}| qui vous montrera que
-le choix de style pour les théorèmes se limite à trois styles
+\ci{theoremstyle}\verb|{|\emph{style}\verb|}| permet de choisir un type de
+théorème parmi trois styles
 préféfinis : \texttt{definition} (titre gras, corps romain),
 \texttt{plain} (titre gras, corps italique) or \texttt{remark} (titre
 italique, corps romain).
 
 %SC: ah, the initial translation missed the subtle sarcasm here
 Voilà pour la théorie. Les exemples qui suivent devraient lever tout
-doute et montrer clairement que l'environnement \verb|\newtheorem| est
+doute et montrer clairement que la commande \verb|\newtheorem| est
 trop complexe à comprendre.
 
 % actually define things
@@ -844,18 +834,18 @@ Et si le chef a tort, se référer
 \end{example}
 
 
-Le théorème \og decret \fg{} utilise le même compteur que le
-théorème \og loi \fg{}, donc il obtient un numéro dans la même
+L'environnement \og decret \fg{} utilise le même compteur que l'environnment
+\og loi \fg{}, donc il obtient un numéro dans la même
 séquence que les autres \og lois \fg{}. L'argument entre crochets permet
-de spécifier un titre ou quelque chose de ce genre pour le théorème.
+de spécifier un titre ou quelque chose de ce genre pour l'environnement.
 \begin{example}
 \newtheorem{mur}{Murphy}[section]
 \begin{mur} Tout ce qui peut 
 aller mal ira mal.\end{mur}
 \end{example}
 
-Le théorème \og Murphy \fg{} est numéroté à l'intérieur de la section en
-cours. On aurait pu utiliser un autre niveau tel que \texttt{chapter}
+Les environnements \og Murphy \fg{} sont numérotés à l'intérieur de la section
+en cours. On aurait pu utiliser un autre niveau tel que \texttt{chapter}
 ou \texttt{subsection}. 
 
 L'extension \pai{amsthm} fournit aussi l'environnement de preuve
