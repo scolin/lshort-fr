@@ -1,6 +1,3 @@
-
-- antislash ou backslash -> contre-oblique
-
 From mpg's list:
 
 # when doing a new part:
