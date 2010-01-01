@@ -21,10 +21,10 @@
 
 La principale raison d'être d'un texte (à l'exception de certains textes
 de la littérature contemporaine
-\footnote{
+\footnote{%
 \emph{Différente à tout prix}, traduction du \emph{Different at
   all cost} du texte original, lui-même une traduction du
-suisse-allemand UVA (\emph{Um's Verrecken Anders}). NdT.
+suisse-allemand UVA (\emph{Um's Verrecken Anders}). \NdT
 }%
 ) est de diffuser des idées, de
 l'information ou de la connaissance au lecteur. Celui-ci comprendra
@@ -126,8 +126,8 @@ des retours à la ligne et des espacements entre les mots de manière à
 optimiser la présentation de l'ensemble d'un paragraphe. En cas de
 besoin, il coupe les mots qui ne tiennent pas en entier sur une
 ligne. La présentation exacte d'un paragraphe dépend de la classe de
-document\footnote{et des règles typographiques propres de chaque pays
-\emph{NdT.}}. Normalement la première ligne d'un paragraphe est
+document\footnote{Et des règles typographiques propres de chaque pays.
+\NdT}. Normalement la première ligne d'un paragraphe est
 en retrait par rapport à la marge gauche  
 et il n'y a pas d'espace vertical particulière entre deux
 paragraphes (cf. section~\ref{parsp}).
@@ -217,8 +217,8 @@ lettres ou signes considérés comme normaux par \LaTeX{}. La casse des
 caractères n'est pas prise en compte. Les informations de césure sont
 associés au langage actif lors de l'invocation de la commande de
 césure. Cela signifie que si vous placez une commande de césure dans
-le préambule, cela influencera la césure de l'anglais (NdT. par défaut
-les documents sont supposés être en anglais). Si vous placez la
+le préambule, cela influencera la césure de l'anglais \footnote{Par défaut
+les documents sont supposés être en anglais. \NdT}. Si vous placez la
 commande après \verb|\begin{document}| et que vous utilisez une
 extension comme \pai{babel} pour le support d'une autre langue,
 alors les suggestions de césure seront actives pour le langage
@@ -477,8 +477,7 @@ mais en utilisant des symboles spéciaux.
 Ces \wi{ligature}s peuvent être désactivées en insérant un
 \ci{mbox}\verb|{}| entre les lettres en question. Cela peut s'avérer
 utile pour certains mots composés\footnote{Il n'existe pas d'exemple en
-français. \emph{NdT.}}.
-%SC: à revérifier dans le document produit
+français. \NdT}.
 \begin{example}
 \Large Not shelfful\\
 but shelf{}ful
@@ -671,14 +670,14 @@ l'aide de l'extension \pai{ucs}.
 \noindent vous permettra de créer des fichiers d'entrée \LaTeX{} en
 \iei{utf8x}, un codage multi-octets où chaque caractère peut nécessiter
 entre un et quatre octets pour être codé.
-\footnote{NdT. D'anciennes versions de ce document préconisent la
+\footnote{D'anciennes versions de ce document préconisent la
   conversion des caractères accentués et spéciaux en séquences du type
   {\bs' e} pour l'échange de documents \LaTeX{}. Cette
   pratique tend à être de moins en moins nécessaire grâce à
   Unicode. Il existe cependant des utilitaires pour faire la
   conversion automatique dans les deux sens  : \texttt{recode} sous Unix,
 \texttt{Tower of Babel} sur Macintosh, etc. y compris de et vers
-Unicode.}
+Unicode. \NdT}
 
 %SC: is this still true ?
 Pour faciliter la lecture, \package{inputenc} est utilisé dans la suite
