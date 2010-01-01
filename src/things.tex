@@ -55,10 +55,10 @@ $3.1415926$.
     un mot commun qui se prononce \og tyekh \fg{}. Je crois cependant
     que la meilleure prononciation est la grecque, où l'on a le \og ch
     \fg{} dur de \og ach \fg{} et \og Loch \fg{}.}}
-Le « ch » provient de l'alphabet grec où X est la lettre « chi ». \TeX est aussi la
+Le « ch » provient de l'alphabet grec où X est la lettre « chi ». \TeX{} est aussi la
 première syllabe du mot grec texnologia (technologie).
 En alphabet phonétique cela donne
-\textbf{[tex]}\dots Dans un environnement \texttt{ASCII}, \TeX{}
+\textbf{[tex]}\dots{} Dans un environnement \texttt{ASCII}, \TeX{}
 devient \texttt{TeX}.
 
 \subsection{\LaTeX}
@@ -108,7 +108,7 @@ i:]}.
 Pour publier un texte, un auteur confie son manuscrit  à une maison
 d'édition. L'éditeur décide alors de la mise en page du document
 (largeur des colonnes, polices de caractères, présentation des
-en-têtes,\dots). L'éditeur note ses instructions sur le manuscrit et
+en-têtes, \dots). L'éditeur note ses instructions sur le manuscrit et
 le passe à un technicien typographe qui réalise la mise en page
 en suivant ces instructions.
 
@@ -195,7 +195,7 @@ garder son calme, car souvent cela dégénère. Mais parfois on ne peut y
       gratuites : par exemple pour inclure des figures
       \PSi{} ou pour formater une bibliographie selon un
       standard précis. La majorité de ces extensions sont décrites dans
-      \companion{} (en anglais) et dans \desgraupes{} (en français) ;
+      \companion{} et dans \desgraupes{} (en français) ;
 \item \LaTeX{} encourage les auteurs à écrire des documents bien
       structurés, parce que c'est ainsi qu'il fonctionne (en
       décrivant la structure) ;
@@ -220,7 +220,7 @@ pour moi d'en trouver, mais d'autres vous en citeront des centaines  :
       entièrement nouvelle est difficile et demande beaucoup de
       temps\footnote{La rumeur dit que c'est un des points qui
       devrait être améliorés dans la future version \LaTeX
-      3}\index{LaTeX3@\LaTeX 3} ;
+      3.}\index{LaTeX3@\LaTeX 3} ;
 %SC: the bit about the hamster was not translated here, too bad
 \item écrire des documents mal organisés et mal structurés est très
       difficile. 
@@ -244,7 +244,7 @@ sont traités de manière unique comme \og \wi{espace} \fg{} par
 \LaTeX{}. Plusieurs \wi{blancs} \emph{consécutifs} sont considérés
 comme \emph{une seule} espace\footnote{En langage typographique,
     \emph{espace} est un mot féminin. \NdT}.  Les espaces en début
-d'une ligne sont en général ignorées et un retour à la ligne unique est
+de ligne sont en général ignorées et un retour à la ligne unique est
 traité comme une espace.  \index{espace!en début de ligne}
 
 Une ligne vide entre deux lignes de texte marque la fin d'un
@@ -272,8 +272,6 @@ choses que vous n'avez pas voulues.
 
 \begin{code}
 \verb.$ & % # _ { }  ~  ^  \ . %$
-%SC: mpg suggère (grâce à l'environnement code ?) :
-%  #  $  %  ^  &  _  {  }  ~  \ .
  \end{code}
 
 \index{Backslash|see{Contre-oblique}}
@@ -286,8 +284,6 @@ dans vos documents en les préfixant par une \wi{contre-oblique}\footnote{Aussi n
 
 \begin{example}
 \$ \& \% \# \_ \{ \}
-%SC: suggestion mpg :
-% \# \$ \% \^{} \& \_ \{ \} \~{} 
 \end{example} 
 
 Les autres et bien d'autres encore peuvent être obtenus avec des
@@ -458,7 +454,7 @@ Small is beautiful.
 \section{Quelques mots descriptifs}
 Et bien, ici commence mon \oe uvre.
 \section{Au revoir, monde}
-\ldots{} Et ainsi s'achève mon ouvrage.
+\ldots{} Et ainsi s'ach\`eve mon ouvrage.
 \end{document}
 \end{verbatim}
 \end{lined}
@@ -488,9 +484,8 @@ Puristes utilisent Unix, donc \ldots{} \texttt{;-)}}
 \item Créez/éditez votre fichier source \LaTeX{}. Il s'agit d'un
       fichier texte pur. Sur les systèmes Unix, tous les éditeurs
       créent ce type de fichier. Sous Windows, assurez-vous que le
-      fichier est sauvegardé en texte seul (ASCII ou encore \og plain
-      text \fg{}). Choisissez pour votre fichier un nom avec le suffixe
-      \eei{.tex}. 
+      fichier est sauvegardé en texte seul (\eng{plain text}). Choisissez pour
+      votre fichier un nom avec le suffixe \eei{.tex}. 
 
 \item 
 
@@ -566,7 +561,7 @@ le tableau~\ref{options}.
   \index{conférence}
 \item [\normalfont\texttt{minimal}] est aussi réduite que
   possible. Elle définit uniquement une taille de papier et une police
-  de base. Elle est utilisée principale à des fins de déboguage.
+  de base. Elle est utilisée principalement à des fins de déboguage.
   \index{classe minimal}
 \item [\normalfont\texttt{report}] pour des rapports plus longs
       contenant plusieurs chapitres, des petits livres, des thèses, etc.
@@ -678,7 +673,7 @@ Une extension est chargée par la commande
 \begin{lscommand}
 \ci{usepackage}\verb|[|\emph{options}\verb|]{|\emph{extension}\verb|}|
 \end{lscommand}
-\emph{extension} est le nom de l'extension et \emph{options} une liste
+où \emph{extension} est le nom de l'extension et \emph{options} une liste
 de mots-clés qui déclenchent certaines fonctions de
 l'extension. Certaines extensions font partie de la distribution
 standard de \LaTeXe{} (reportez-vous au
@@ -884,9 +879,7 @@ les commandes \verb|\include|.
 \end{lscommand}
 Après avoir rencontré cette commande dans le préambule d'un document,
 seules les commandes \ci{include} dont les fichiers sont cités en
-paramètre de la commande \ci{includeonly} seront exécutées. Attention,
-il ne doit pas y avoir d'espace entre les noms de fichiers et les
-virgules. 
+paramètre de la commande \ci{includeonly} seront exécutées.
 
 La commande \ci{include} saute une page avant de commencer le
 formatage du texte inclus. Ceci est utile lorsqu'on utilise
@@ -894,7 +887,7 @@ formatage du texte inclus. Ceci est utile lorsqu'on utilise
 même si certains morceaux ne sont pas inclus. Parfois ce comportement
 n'est pas souhaitable. Dans ce cas, vous pouvez utiliser la commande :
 \begin{lscommand}
-\ci{input}\verb|{|\emph{fichier.tex}\verb|}|
+\ci{input}\verb|{|\emph{fichier}\verb|}|
 \end{lscommand}
 \noindent qui insère simplement le fichier indiqué sans aucun traitement
 sophistiqué. 
