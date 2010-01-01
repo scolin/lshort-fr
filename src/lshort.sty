@@ -22,7 +22,8 @@
   \def\tablename{{\scshape Table}}%
   }
 % end frenchb 1.x compatibility settings
-\NoAutoSpaceBeforeFDP % un dernier réglage de frenchb
+\NoAutoSpaceBeforeFDP % another frenchb setting
+\usepackage{xspace} % frenchb commands can use it
 \RequirePackage{mflogo}
 \RequirePackage{verbatim}
 \RequirePackage{fancyhdr}
@@ -173,6 +174,8 @@
 \texttt{#1}}
 % Indexentry for a word (Word inserted into the text)
 \newcommand{\wi}[1]{\index{#1}#1}
+% same with @ variant
+\newcommand\wiat[2]{\index{#2@#1}{#1}}
 %
 % Typesetting Commands
 %

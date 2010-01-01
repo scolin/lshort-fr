@@ -92,7 +92,7 @@ L'unité de texte immédiatement inférieure est la phrase. Dans les
 documents anglo-saxons, l'espace après le point terminant une phrase
 est plus grande que celle qui suit un point après une
 abréviation. (Ceci n'est pas vrai dans les règles de la typographie
-française). En général, \LaTeX{} se débrouille pour déterminer la
+française.) En général, \LaTeX{} se débrouille pour déterminer la
 bonne largeur des espaces. S'il n'y arrive pas, vous verrez dans la
 suite comment le forcer à faire quelque chose de correct.
 
@@ -102,7 +102,7 @@ manière très précise. Dans la plupart des langues, la virgule
 représente une courte respiration dans le flux du langage. Si vous ne
 savez pas trop où placer une virgule, lisez la phrase à voix haute en
 respirant à chaque virgule. Si cela ne sonne pas naturellement à
-certains endroits, supprimez la virgule; au contraire, si vous
+certains endroits, supprimez la virgule ; au contraire, si vous
 ressentez le besoin de respirer (ou de marquer une courte pause),
 insérez un virgule à cet endroit. 
 
@@ -156,10 +156,10 @@ paragraphe.
 \ci{pagebreak}\verb|[|\emph{n}\verb|]|,
 \ci{nopagebreak}\verb|[|\emph{n}\verb|]|
 \end{lscommand}
-\noindent suggèrent (en anglais) où un saut de ligne ou de page peut
-apparaître ou non. Ces commandes permettent à l'auteur de paramétrer
-leur action par l'intermédiaire du paramètre optionnel \emph{n}
-pouvant prendre une valeur entre zéro et quatre. En donnant à \emph{n}
+\noindent indiquent les endroits où un saut de ligne ou de page devrait
+apparaître ou non. L'action de ces commandes peut être paramétrée par l'auteur
+grâce au paramètre optionnel \emph{n}
+qui peut prendre une valeur entre zéro et quatre. En donnant à \emph{n}
 une valeur inférieure à quatre, vous laissez à \LaTeX{} la possibilité
 de ne pas tenir compte de votre commande si cela devait rendre le
 résultat réellement laid.  Ne confondez pas ces commandes \og break
@@ -176,11 +176,11 @@ retours à la ligne.
 S'il ne trouve pas de solution pour couper les lignes de
 manière conforme à ses normes de qualité, il laisse dépasser un bout
 de ligne sur la marge droite du paragraphe. \LaTeX{} émet alors le
-%SC: suggestion de mpg: \eei au lieu de \wi pour overfull hbox ?
-message d'erreur \og \wi{overfull hbox}\footnote{débordement
-horizontal} \fg{}. Cela se produit surtout quand \LaTeX{} ne trouve pas
+message d'erreur \og \wiat{\texttt{overfull \bs hbox}}{overfull hbox}
+\footnote{Débordement
+horizontal.} \fg{}. Cela se produit surtout quand \LaTeX{} ne trouve pas
 de point de césure dans un mot.\footnote{Bien que \LaTeX{} signale un
-  avertissement lorsque cela arrive (Overfull hbox) et affiche la
+  avertissement lorsque cela arrive et affiche la
   ligne qui pose problème, celle-ci n'est pas toujours facile à
   retrouver dans le texte. En utilisant l'option \texttt{draft} dans
   la commande \ci{documentclass}, ces lignes problématiques seront
@@ -189,8 +189,9 @@ En utilisant alors la commande \ci{sloppy},
 vous pouvez demander à \LaTeX{} d'être moins exigeant. Il ne produira
  plus de lignes trop longues en ajoutant de l'espace entre les
 mots du paragraphe, même si ceux-ci finissent trop espacés selon ses
-critères. Dans ce cas le message \og \wi{underfull hbox}\footnote{boîte
-horizontale pas assez pleine} \fg{} est produit. Souvent, malgré tout, le
+critères. Dans ce cas le message \og \wiat{\texttt{underfull \bs hbox}}
+{underfull hbox}\footnote{Boîte
+horizontale pas assez pleine.} \fg{} est produit. Souvent, malgré tout, le
 résultat est acceptable. La commande \ci{fussy} agit dans l'autre
 sens, au cas où vous voudriez voir \LaTeX{} revenir à ses exigences
 normales. 
@@ -198,7 +199,7 @@ normales.
 \subsection{Césure} \label{hyph}
 \index{cesure@césure}
 \LaTeX{} coupe les mots en fin de ligne si nécessaire. Si l'algorithme de
-césure\footnote{\emph{\wi{Hyphenation}} en anglais} ne trouve pas
+césure\footnote{\eng{\wi{Hyphenation}} en anglais.} ne trouve pas
 l'endroit correct pour couper un mot\footnote{Ce qui est normalement
 plutôt rare. Si vous observez de nombreuses erreurs de césure, c'est
 probablement un problème de spécification de la langue du document ou
@@ -254,7 +255,7 @@ la dernière syllabe d'un mot si elle est muette, mais il arrive qu'on
 soit obligé de le faire, par exemple si on travaille sur des textes
 étroits (cas de colonnes multiples).
 
-Exemple: on pourra coder \verb+ils ex\-pri\-ment+
+Exemple : on pourra coder \verb+ils ex\-pri\-ment+
 pour autoriser \emph{exceptionnellement} le rejet à la ligne suivante de
 la syllabe muette \texttt{ment}.
 
@@ -263,6 +264,7 @@ commande :
 \begin{lscommand}
 \ci{mbox}\verb|{|\emph{texte}\verb|}|
 \end{lscommand}
+\noindent
 Elle a pour effet d'interdire toute coupure de ligne dans \emph{texte}.
 
 \begin{example}
@@ -306,7 +308,8 @@ Commande&Résultat&Description\\
 Pour insérer des \wi{guillemets} n'utilisez pas le caractère \verb|"|
 \index{""@\texttt{""}} comme sur une machine à écrire. En typographie,
 il y a des guillemets ouvrants et fermants spécifiques. En anglais,
-utilisez deux~\textasciigrave pour les guillemets ouvrants et deux~\textquotesingle
+utilisez deux~\textasciigrave{} pour les guillemets ouvrants et
+deux~\textquotesingle{}
 pour les guillemets fermants.
 En français, avec l'option \pai{francais} de l'extension \pai{babel},
 utilisez \ci{og} et \ci{fg} ou bien utilisez directement 
@@ -387,25 +390,25 @@ via les commandes \ci{textcelsius}.
 \subsection{Le symbole de l'euro \texorpdfstring{(\officialeuro)}{}}
 
 Écrire sur tout sujet économique de nos jours requiert l'utilisation
-du symbole de l'Euro. De nombreuses polices de caractères contiennent
-un symbole Euro. Après avoir chargé l'extension \pai{textcomp} dans le
+du symbole de l'euro. De nombreuses polices de caractères contiennent
+un symbole euro. Après avoir chargé l'extension \pai{textcomp} dans le
 préambule
 \begin{lscommand}
 \ci{usepackage}\verb|{textcomp}| 
 \end{lscommand}
-vous pouvez utiliser la commande
+\noindent vous pouvez utiliser la commande
 \begin{lscommand}
 \ci{texteuro}
 \end{lscommand}
-pour y accéder.
+\noindent pour y accéder.
 
-Si votre police ne fournit pas son propre symbole de l'Euro ou si vous
+Si votre police ne fournit pas son propre symbole de l'euro ou si vous
 ne l'aimez pas, il vous reste d'autres possibilités.
 
 Tout d'abord l'extension \pai{eurosym} qui fournit un symbol officiel
-de l'Euro :
+de l'euro :
 \begin{lscommand}
-\ci{usepackage}\verb|[|\emph{official}\verb|]{eurosym}|
+\ci{usepackage}\verb|[official]{eurosym}|
 \end{lscommand}
 Si vous préférez un symbole qui se marie bien à votre police, utilisez
 plutôt \texttt{gen} à la place de \texttt{official}.
@@ -414,18 +417,18 @@ plutôt \texttt{gen} à la place de \texttt{official}.
 % pouvez les obtenir gratuitement sur
 % \url{ftp://ftp.adobe.com/pub/adobe/type/win/all}), vous pouvez
 % utiliser l'extension \pai{europs} et la commande \ci{EUR} (pour
-% un symbole de l'Euro qui correspond à la police courante).
+% un symbole de l'euro qui correspond à la police courante).
 % ne fonctionne pas
 % soit
-% l'extension \pai{eurosans} et la commande \ci{euro} (pour l'\og Euro
+% l'extension \pai{eurosans} et la commande \ci{euro} (pour l'\og euro
 % officiel \fg{}).
 
 % L'extension \pai{marvosym} fournit également des symboles variés, y
-% compris celui de l'Euro, sous le nom \ci{EURtm}. Son défaut est de ne
+% compris celui de l'euro, sous le nom \ci{EURtm}. Son défaut est de ne
 % pas proposer des versions italiques et grasses de ce symbole.
 
 \begin{table}[!htbp]
-\caption{Un sac plein d'Euros} \label{eurosymb}
+\caption{Un sac plein d'euros} \label{eurosymb}
 \begin{lined}{10cm}
 \begin{tabular}{llccc}
 LM+textcomp  &\verb+\texteuro+ & \huge\texteuro &\huge\sffamily\texteuro
@@ -531,7 +534,7 @@ il y a plusieurs domaines pour lesquels
 \LaTeX{} doit s'adapter aux spécificités de chaque langue :
 \begin{enumerate}
 \item Toutes les chaînes de caractères générées automatiquement
-  \footnote{\og Table des matières \fg{}, \og Liste des figures \fg{},...} 
+  \footnote{\og Table des matières \fg{}, \og Liste des figures \fg{}, \dots} 
   doivent être traduites. Pour de nombreuses langues, ces adaptations
   peuvent être réalisées par l'extension \pai{babel} de Johannes
   Braams.
@@ -543,10 +546,7 @@ il y a plusieurs domaines pour lesquels
       \LaTeX{} et comment configurer les règles de césure.
     \item Certaines règles typographiques changent en fonction de la
       langue ou de la région géographique. Par exemple le français
-      impose une espace avant le caractère deux-points (:). Ces changements
-      peuvent être pris en compte par l'extension \pai{babel} ou par des
-      extensions spécifiques (telles que \pai{french}~\cite{french}
-      pour le français).
+      impose une espace avant le caractère deux-points (:).
 \end{enumerate}
 
 Si votre système est configuré correctement, vous pouvez sélectionner
@@ -568,7 +568,7 @@ sur l'aspect de votre document.
 
 \textsf{Babel} définit également pour certaines langues de nouvelles
 commandes qui simplifient la saisie des caractères
-spéciaux. L'\wi{Allemand} contient par exemple de nombreux umlauts
+spéciaux. L'\wi{allemand} contient par exemple de nombreux umlauts
 (\"a\"o\"u). Avec \package{babel}, vous pouvez entrer un
 \"o en tapant \verb|"o| au lieu de~\verb|\"o|.
 
@@ -577,7 +577,7 @@ Si vous appelez babel avec plusieurs langues,
 \ci{usepackage}\verb|[|\emph{langueA}\verb|,|\emph{langueB}\verb|]{babel}| 
 \end{lscommand}
 \noindent alors la dernière langue dans la liste d'options sera active
-(i.e. langueB). Vous pouvez utiliser la commande
+(c'est-à-dire \emph{langueB}). Vous pouvez utiliser la commande
 \begin{lscommand}
 \ci{selectlanguage}\verb|{|\emph{langueA}\verb|}|
 \end{lscommand}
@@ -660,7 +660,7 @@ DOS, OS/2  &  \iei{cp850} & \iei{cp866nav}
 % avec un jeu de caractères varié.
 
 Si vous avez un document multilingue qui cause des conflits entre
-codages d'entrée, vous devriez considérer l'utilisation d'unicode à
+codages d'entrée, vous devriez considérer l'utilisation d'Unicode à
 l'aide de l'extension \pai{ucs}.
 
 \begin{lscommand}
@@ -686,10 +686,10 @@ exemples.
 
 Le codage des polices de caractères est une autre histoire.
 Celui-ci définit à quelle position dans une police de \TeX{} se
-trouve chaque caractère. Des codages multiples pourraient être mis en
-correspondance avec un codage unique, ce qui réduit le nombre
-d'ensembles de polices requis. Les codages de polices sont manipulés
-via l'extension \pai{fontenc}: \label{fontenc}
+trouve chaque caractère. Plusieurs codages d'entrée sont susceptibles d'être
+traduits en un codage de fonte donné, ce qui réduit le nombre
+de dispositions de polices requises. Les codages de polices sont manipulés
+avec l'extension \pai{fontenc} : \label{fontenc}
 \begin{lscommand}
 \ci{usepackage}\verb|[|\emph{codage}\verb|]{fontenc}| \index{codages des polices}
 \end{lscommand}
@@ -701,7 +701,7 @@ celui de la police \TeX{} Computer Modern originelle. Celui-ci
 contient seulement les 128 caractères de l'ensemble ASCII sur 7
 bits. Au besoin, \TeX{} fabrique des caractères accentués en combinant
 un caractère normal avec un accent. Bien que le résultat soit
-visuellement parfait, cette approche empêche le système de césure de
+visuellement correct, cette approche empêche le système de césure de
 fonctionner pour les mots contenant des caractères accentués. De plus,
 certaines lettres latines ne peuvent être fabriquées de cette façon,
 sans parler des alphabets non-latins, comme le grec ou le cyrillique.
@@ -780,9 +780,10 @@ langue française est activé par la commande suivante :
 \verb|\usepackage[francais]{babel}|
 \end{lscommand}
 
-Remarquez que, pour des raisons historiques, le nom de l'option
-\textsf{babel} pour le français est soit \emph{francais}, soit \emph{frenchb}
-mais pas \emph{french}.
+Vous pouvez aussi utiliser l'option \texttt{frenchb} qui est un synonyme.
+L'option \texttt{french} a pu être différente à une époque et sur certains
+systèmes, mais est équivalente aux précédentes sur tous les systèmes
+depuis~2003. C'est désormais le nom recommandé.
 
 Cette commande active les règles de césure spécifiques du français et
 adaptent \LaTeX{} à la plupart des règles spécifiques de la
@@ -814,9 +815,9 @@ table~\ref{cmd-french}) sont disponibles.
 Vous remarquerez également que la mise en page des listes est changée
 lors du passage à la langue française. Pour obtenir toutes les
 informations sur l'option \pai{frenchb} de \pai{babel} et comment
-modifier son comportement, compilez le fichier \texttt{frenchb.dtx}
-avec \LaTeX{} et consultez le fichier \texttt{frenchb.dvi} ainsi
-produit.
+modifier son comportement, consultez la partie~29 de
+\texttt{babel.pdf}\footnote{Ou la documentation en français sur la page de son
+  auteur : \url{http://daniel.flipo.free.fr/frenchb/frenchb2-doc.pdf}. \NdT}
 
 Dans cette traduction, un certain nombre d'ajouts présentent les
 spécificités de la typographie française tout au long du texte.
@@ -833,11 +834,11 @@ langue allemande est activé par la commande suivante :
 
 La césure allemande est alors activée, si votre système a été
 configuré pour cela. Le texte produit automatiquement par \LaTeX{} est
-traduit en allemand (par ex. ``Kapitel'' pour un chapitre). De
+traduit en allemand (par ex. \og Kapitel \fg pour un chapitre). De
 nouvelles commandes (listées dans la table~\ref{german}) permettent la
 saisie simplifiée des caractères spéciaux même sans utiliser
 l'extension inputenc. Avec inputenc cette capacité devient un peu vaine
-mais votre texte est alors limité au codage utilisé.
+mais votre texte est alors un peu enfermé dans un type d'encodage particulier.
 
 \begin{table}[!htbp]
 \caption{Caractères spéciaux en allemand} \label{german}
@@ -854,16 +855,16 @@ mais votre texte est alors limité au codage utilisé.
 \end{table}
 
 Les livres allemands contiennent souvent des marques de citation
-françaises (\flqq guil\-le\-mets\frqq). Les typographes allemands les
+françaises (\og guil\-le\-mets \fg). Les typographes allemands les
 utilisent différemment, cependant. Une citation dans un livre allemand
 ressemblerait plutôt à \frqq ceci\flqq. En Suisse allemande, les
-typographes utilisent les \flqq guillemets\frqq~comme les français le font.
+typographes utilisent les \og guillemets \fg~comme les français le font.
 
 Un problème majeur découle de l'utilisation de commandes comme
-\verb+flq+ : si vous utilisez la police OT1 (la police par défaut) les
-guillements ressembleront au symbole mathématique \og $\ll$ \fg{}, de
+\verb+\flq+ : si vous utilisez la police OT1 (la police par défaut) les
+guillemets ressembleront au symbole mathématique \og $\ll$ \fg{}, de
 quoi causer des maux d'estomac à un typographe. Les polices codées T1,
-d'un autre côté, ne contient pas les symboles requis. Ainsi si vous
+par contre, contiennent les symboles requis. Ainsi, si vous
 utilisez ce type de marque de citation, assurez-vous d'utiliser le
 codage T1 (\verb|\usepackage[T1]{fontenc}|).
 
@@ -904,10 +905,10 @@ trois problèmes :
   un système non-coréen dans les années 1990. De nos jours les trois
   systèmes majeurs (Mac OS, Unix, Windows) sont équipés d'un bon
   support multilingue et de fonctionnalités d'internationalisation, de
-  manière qu'éditer un fichier texte coréen n'est plus autant un
+  sorte qu'éditer un fichier texte coréen n'est plus autant un
   problème, même sur un système non-coréen.
 
-\item \TeX{} and \LaTeX{} ont été développés à l'origine pour des
+\item \TeX{} et \LaTeX{} ont été développés à l'origine pour des
   documents n'ayant pas plus de 256 caractères dans leur
   alphabet. Pour les faire fonctionner avec des langages ayant
   considérablement plus de caractères comme le coréen
@@ -952,9 +953,9 @@ par Werner~Lemberg.\footnote{%
   Elles peuvent être obtenues depuis
   \CTANref|language/korean/HLaTeX/|,
   \CTANref|language/korean/CJK/| et
-  \texttt{http://knot.kaist.ac.kr/htex/}
+  \texttt{http://knot.kaist.ac.kr/htex/}.
 }
-  H\LaTeX{} et h\LaTeX{}p sont spécifique au coréen et fournissent une
+  H\LaTeX{} et h\LaTeX{}p sont spécifiques au coréen et fournissent une
   localisation coréenne au-delà du support de police. Elles peuvent
   toutes deux compiler des fichiers textes codés en EUC-KR. H\LaTeX{}
   peut même compiler des fichiers d'entrée codés en
@@ -991,12 +992,12 @@ insérer la déclaration suivante en préambule :
 Cette commande active la localisation coréenne. Les textes
 automatiques (chapitres, sections,\dots) sont traduits en coréen et le
 format du document est modifié afin de suivre les conventions
-coréennes. L' extension propose également une \og sélection de
+coréennes. L'extension propose également une \og sélection de
 particules \fg{} automatique. En coréen, il y a des paires de
 particules postfixées équivalentes grammaticalement mais différentes
 d'apparence. La correction d'une paire dépend du fait que la syllabe
-qui précéde est une consonne ou une voyelle (c'est en fait plus
-complexe, mais donne une idée générale). Les coréens natifs n'ont
+qui précéde est une consonne ou une voyelle (la réalité est plus
+complexe, mais c'est l'idée générale). Les coréens natifs n'ont
 aucun problème pour choisir la bonne particule, mais il n'est pas
 possible de déterminer quelle particule utiliser pour les références
 et pour les textes automatiques qui changeront au fur et à mesure de
@@ -1034,7 +1035,6 @@ préambule active la césure et change le texte automatique en grec.%
 \usepackage[english,greek]{babel}
 \usepackage[iso-8859-7]{inputenc}
 \end{verbatim}
-\bigskip
 \end{lined}
 \end{table}
 
@@ -1048,7 +1048,7 @@ Sinon vous pouvez aussi utiliser la commande
 \verb|\selectlanguage{...}| présentée précédemment. Le
 tableau~\ref{sym-greek} présente quelques caractères de ponctuation
 grecs. Vous pouvez utiliser \verb|\euro| pour obtenir le symbole de
-l'Euro.
+l'euro.
 
 \begin{table}[!htbp]
 \caption{Caractères spéciaux grecs} \label{sym-greek}
@@ -1071,16 +1071,16 @@ l'Euro.
 \secby{Maksym Polyakov}{polyama@myrealbox.com}
 La version~3.7h de \pai{babel} comprend un support pour les codages
 \fei{T2*} et pour le formatage des textes bulgares, russes et
-ukrainiens à base de letters cyrilliques.
+ukrainiens à base de lettres cyrilliques.
 
 Le support du cyrillique se base sur des mécanismes \LaTeX{} standards
 via les extensions \pai{fontenc} et \pai{inputenc}. Si cependant vous
 voulez utiliser du cyrillique en mode mathématique, vous devrez
-charger \pai{mathtext} avant \pai{fontenc} :
+charger \pai{mathtext} avant \pai{fontenc}
 \footnote{
 Si vous utilisez les extensions \AmS-\LaTeX{}, chargez-les aussi avant
 \pai{fontenc} et \pai{babel}.
-}
+} :
 \begin{lscommand}
 \verb+\usepackage{mathtext}+\\
 \verb+\usepackage[+\fei{T1}\verb+,+\fei{T2A}\verb+]{fontenc}+\\
@@ -1106,7 +1106,7 @@ formatage conforme aux conventions bulgare, russe ou ukrainienne.
 Pour ces trois langues, une ponctuation spéciale est fournie. Le
 tiret cyrillique pour le texte (plus étroit que le tiret latin et
 entouré d'espaces fines), un tiret pour le dialogue, des marques de
-citation et des commandes pour faciliter les césures, voyez le
+citation et des commandes pour faciliter les césures, voir le
 tableau~\ref{Cyrillic}.
 
 
@@ -1126,25 +1126,25 @@ tableau~\ref{Cyrillic}.
   \begin{tabular}{@{}p{.1\hsize}@{}p{.9\hsize}@{}}
    \hline
    \verb="|= & Désactiver la ligature ici.               \\
-   \verb|"-| & Un tiret explicit autorisant la césure dans
+   \verb|"-| & Un tiret explicite autorisant la césure dans
                le reste du mot.                             \\
    \verb|"---| & Tiret long cyrillique pour le texte.        \\
    \verb|"--~| & Tiret long cyrillique pour les noms composés.       \\
    \verb|"--*| & Tiret long cyrillique pour le dialogue.         \\
-   \verb|""| & comme \verb|"-|, mais n'affiche pas le tiret
+   \verb|""| & Comme \verb|"-|, mais n'affiche pas le tiret
                (pour les mots composés avec tiret, p.e. \verb|x-""y|
                 ou d'autres signes comme \og disable/enable \fg{}). \\
-   \verb|"~| & pour une marque de mot composé sans rupture.        \\
-   \verb|"=| & pour une marque de mot composé avec rupture, pour
+   \verb|"~| & Pour une marque de mot composé sans rupture.        \\
+   \verb|"=| & Pour une marque de mot composé avec rupture, pour
                autoriser les césures dans les mots le composant. \\
-   \verb|",| & espace fine pour les initiales avec rupture possible
+   \verb|",| & Espace fine pour les initiales avec rupture possible
                pour le nom qui suit.                            \\
-   \verb|"`| & pour les marques doubles allemandes de citation
+   \verb|"`| & Pour les marques doubles allemandes de citation
                (ressemble à ,\kern-0.08em,).                     \\
    \verb|"'| & Pour les marques doubles allemandes de citation,
                à droite (ressemble à ``).                        \\%''
-   \verb|"<| & Pour les guillemets à gauche (comme $<\!\!<$).  \\
-   \verb|">| & Pour les guillemets à droite (comme $>\!\!>$). \\
+   \verb|"<| & Pour les guillemets à gauche (comme \flqq).  \\
+   \verb|">| & Pour les guillemets à droite (comme \frqq). \\
    \hline
   \end{tabular}
   \end{center}
@@ -1168,7 +1168,9 @@ pour le bulgare est de produire des lettres de l'alphabet bulgare.
 
 Pour obtenir une marge droite alignée, \LaTeX{} insère des espaces
 plus ou moins larges entre les mots. Après la ponctuation finale
-d'une phrase, les règles de la typographie anglo-saxonne veulent que
+d'une phrase, les règles de la typographie anglo-saxonne\footnote{Mais pas
+  celles de la typographie française. C'est pourquoi l'exemple suivant reste
+  en anglais. \NdT} veulent que
 l'on insère une espace plus large.  Mais si un point suit une lettre
 majuscule, \LaTeX{} considère qu'il s'agit d'une abréviation et insère
 alors une espace normale.
@@ -1178,7 +1180,7 @@ document. Une contre-oblique qui précède une espace génère une espace qui ne
 sera pas élargie par \LaTeX{}.  Un tilde \og \verb|~| \fg{} produit
 une espace interdisant tout saut de ligne (dit espace
 \emph{insécable}).  \verb|~| est à utiliser pour éviter les coupures
-indésirables : on code \verb|M.~Dupont|, \verb|cf.~Fig.~5|, etc.  La
+indésirables : on code par exemple \verb|M.~Dupont|.  La
 commande \verb|\@| avant un point indique que celui-ci termine une
 phrase, même lorsqu'il suit une majuscule.
 \cih{"@}
@@ -1186,19 +1188,13 @@ phrase, même lorsqu'il suit une majuscule.
 \index{., espace après}
 \index{espace insécable}
 
-\nonfrenchspacing
+\begin{otherlanguage}{english}
 \begin{example}
-M.~Dupont vous remercie\\
-R.E.M.\\
-I like BASIC\@. Do you?
+  Mr.~Smith was happy to see her\\
+  cf.~Fig.~5\\
+  I like BASIC\@. What about you?
 \end{example}
-\frenchspacing
-
-La commande \verb|\,| permet d'insérer une demi-espace insécable.
-
-\begin{example}
-1\,234\,567
-\end{example}
+\end{otherlanguage}
 
 L'ajout d'espace supplémentaire à la fin d'une phrase peut être
 supprimé par la commande :
@@ -1270,7 +1266,7 @@ liste des titres et de leur numéro de page d'une exécution précédente
 invoquée. Un document doit être traité (on dit aussi \og compilé
 \fg{}) deux fois par \LaTeX{} pour avoir une table des matières
 correcte. Dans certains cas, un troisième passage est même
-nécessaire. \LaTeX{} vous indique quand cela est nécessaire.
+nécessaire. \LaTeX{} vous indique quand c'est la cas.
 %Remarque: j'ai (SC) créé un cas pathologique qui demande 5
 %compilations, situé dans les exemple de mon GNUmakefile pour LaTeX.
 
@@ -1288,10 +1284,10 @@ possible de faire tenir un titre trop long dans la table des
 matières. On peut donner un titre spécifique pour la table des
 matières en argument optionnel avant le titre principal :
 \begin{code}
-\verb|\chapter[Le LAAS du CNRS]{Le Laboratoire|\\
-\verb|         d'Analyse et d'Architecture|\\
-\verb|        des Systèmes du Centre National|\\
-\verb|        de la Recherche Scientifique}|
+\verb|\chapter[Le LAAS du CNRS]{Le laboratoire|\\
+\verb|         d'analyse et d'architecture|\\
+\verb|        des systèmes du Centre national|\\
+\verb|        de la recherche scientifique}|
 \end{code} 
 
 Le \wi{titre du document} est obtenu par la commande :
@@ -1320,7 +1316,7 @@ la classe \texttt{book} :
     Les numéros de pages sont alors en romain (i, ii, iii, etc.) et
     les sections non-numérotées, comme si vous utilisiez les variantes
     étoilées des commandes de sectionnement
-    (p.e. \verb|\chapter*{Preface}|) mais que les sections
+    (p.e. \verb|\chapter*{Preface}|), mais les sections
     apparaissaient tout de même en table des matières ;
 
 \item[\ci{mainmatter}] se place juste avant le début du premier
@@ -1366,8 +1362,8 @@ automatiquement.}.
 Une référence à cette 
 section\label{ma-section}
 ressemble à :
-«~voir section~\ref{ma-section},
-page~\pageref{ma-section}.~»
+\og voir section~\ref{ma-section},
+page~\pageref{ma-section}.\fg
 \end{example}
  
 \section{Notes de bas de page}
@@ -1379,8 +1375,13 @@ La commande :
 Les notes de bas de page doivent être placées après le mot où la
 phrase auquel elles se réfèrent%
 \footnote{La typographie française demande une espace fine avant la
-marque de renvoi à la note.}
+marque de renvoi à la note. Celle-ci est insérée automatiquement par
+\package{babel} si le français est la langue principale du document, depuis la
+version 2.0 de \package{frenchb}. Auparavant, il fallait utiliser
+\ci{\AddThinSpaceBeforeFootnotes} dans le préambule. \NdT}
 %SC: hmmm, is the following french good practice ?
+%MPG: I don't think so, but I'm not sure. At least Lacroux says no.
+% If we change that, we should take care to stop applying this rule ourselves!
 Les notes qui se réfèrent à une (partie de) phrase devraient être
 placées après une virgule ou un point.\footnote{Remarquez que les
   notes de bas de page détournent l'attention du lecteur du corps du
@@ -1393,8 +1394,8 @@ placées après une virgule ou un point.\footnote{Remarquez que les
 \nopagebreak[2]
 
 \begin{example}
-Les notes de bas de page%
-\footnote{ceci est une note
+Les notes de bas de page
+\footnote{Ceci est une note
 	  de bas de page.}
 sont très prisées par les 
 utilisateurs de \LaTeX{}.
@@ -1403,15 +1404,15 @@ utilisateurs de \LaTeX{}.
 \section{Souligner l'importance d'un mot}
 
 Dans un manuscrit réalisé sur une machine à écrire, les mots
-importants sont \texttt{valorisés en les \underline{soulignant}},
-via la commande :
+importants sont \texttt{valorisés en les \underline{soulignant}} ;
+on peut obtenir ce résultat en \LaTeX{} avec la commande :
 \begin{lscommand}
 \ci{underline}\verb|{|\textit{texte}\verb|}|
 \end{lscommand}
 
 Dans un ouvrage
 imprimé, on préfère les \emph{mettre en valeur}%
-\footnote{\emph{Emphasized} en anglais.}. 
+\footnote{\eng{Emphasize} en anglais.}. 
 La commande de mise en valeur est :
 \begin{lscommand}
 \ci{emph}\verb|{|\emph{texte}\verb|}|
@@ -1456,13 +1457,12 @@ en page :
 \end{lscommand}
 \noindent 
 \emph{nom} est le nom de l'environnement. Les environnements peuvent
-être imbriqués, à condition que l'ordre d'imbrication est préservé.
+être imbriqués, à condition que l'ordre de fermeture soit correct.
 \begin{code}
 \verb|\begin{aaa}...\begin{bbb}...\end{bbb}...\end{aaa}|
 \end{code}
-
-\noindent Dans les sections suivantes tous les environnements
-importants sont présentés.
+\noindent Les sections suivantes présentent tous les environnements
+importants.
 
 \subsection{Listes, énumérations et descriptions}
 
@@ -1503,32 +1503,16 @@ résumer des faits.
 
 Notez que l'option \pai{francais} de l'extension \pai{babel} utilise
 une présentation des 
-listes simples qui respecte les règles typographiques françaises :
-
-\begin{example}
-Une liste simple française :
-\begin{itemize}
-\item voici un élément ;
-\item puis un autre.
-\end{itemize}
-\end{example}
-
-\begin{otherlanguage}{english}
-\begin{example}
-An english list:
-\begin{itemize}
-\item one item
-\item an other one
-\end{itemize}
-\end{example}
-\end{otherlanguage}
+listes simples qui respecte les règles typographiques françaises.
+%MPG: and this is applied to all languages by default. So don't bother trying
+%to make an example.
 
 \subsection{Alignements à gauche, à droite et centrage}
 
 Les environnements \ei{flushleft} et \ei{flushright} produisent des
 textes \wi{aligné}s à gauche ou à droite. L'environnement \ei{center}
 produit un texte centré. Si vous n'utilisez pas la commande \ci{\bs}
-pour indiquer les sauts de ligne, ceux-ci sont calculés
+pour indiquer les sauts de ligne, ceux-ci continue d'être calculés
 automatiquement par \LaTeX{}.
 
 \begin{example}
@@ -1584,8 +1568,7 @@ où les retours à la ligne sont importants. Les vers sont séparés par
 des commandes \ci{\bs} et les strophes par une ligne vide\footnote{Les
 puristes constateront que l'environnement \ei{verse} ne respecte pas
 les règles de la typographie française : les rejets devraient être
-préfixés par \emph{[} et alignés à droite sur le vers précédent.}.
-
+préfixés par \og [\iffalse]\fi \fg et alignés à droite sur le vers précédent.}.
 
 \begin{example}
 Voici le début d'une 
@@ -1683,8 +1666,8 @@ L'argument \emph{description} de la commande :
 \mfr{l} pour une colonne alignée à gauche, \mfr{r} pour
 une colonne alignée à droite et \mfr{c} pour une colonne
 centrée. \mfr{p{\{\emph{largeur}\}}} permet de réaliser une colonne
-justifiée à droite sur plusieurs lignes et enfin
-\mfr{|} permet d'obtenir une ligne verticale.
+justifiée sur plusieurs lignes et enfin
+\mfr{|} permet d'obtenir un filer vertical.
 \index{"|@ \verb."|.} 
 
 Si le texte d'une colonne est trop large pour la page, \LaTeX{}
@@ -1700,10 +1683,10 @@ par rapport au texte environnant. Utilisez les lettres \mfr{t},
 
 À l'intérieur de l'environnement \texttt{tabular}, le caractère
 \texttt{\&} est le séparateur de colonnes, \ci{\bs} commence une nouvelle
-ligne et \ci{hline} insère une ligne horizontale. Vous pouvez ajoutez
-des lignes partielles via la commande
+ligne et \ci{hline} insère un filet horizontal. Vous pouvez ajoutez
+des filets partiels via la commande
 \ci{cline}\texttt{\{}\emph{j}\texttt{-}\emph{i}\texttt{\}}, où j et i
-sont les numéros de colonnes de début et de fin de ligne.
+sont les numéros de colonnes de début et de fin du filet.
 \index{\&}
 
 \begin{example}
@@ -1785,10 +1768,9 @@ $(\pi^{\pi})^{\pi}$ & 80662&7 \\
 Autre exemple d'utilisation de \verb+\multicolumn+ :
 \begin{example}
 \begin{tabular}{|l|l|}
-\hline
-\multicolumn{2}{|c|}{\textbf{Nom}}\\
-\hline
-Dupont & Jules \\
+\hline \multicolumn{2}{|c|}{%
+  \textbf{Nom}}\\
+\hline Dupont & Jules \\
 \hline
 \end{tabular}
 \end{example}
@@ -1821,9 +1803,9 @@ moins étroit\\\hline
 \end{example}
 
 Si vous voulez seulement augmenter la hauteur d'un ligne dans un
-tableau, vous pouvez utiliser un filet de largeur nulle%
+tableau, vous pouvez utiliser une réglure de largeur nulle
 \footnote{En typographie professionnelle ceci est appelé un
-\wi{montant}.}. Donnez à ce filet \ci{rule} la hauteur voulue.
+\wi{montant}.}. Donnez à cette réglure\cih{rule} la hauteur voulue.
 
 \begin{example}
 \begin{tabular}{|c|}
@@ -1869,7 +1851,7 @@ traité comme un objet flottant. Les deux environnements flottants ont
 un paramètre optionnel :
 \begin{lscommand}
 \verb|\begin{figure}[|\emph{placement}\verb|]| ou
-\verb|\begin{table}[|\ldots\verb|]|
+\verb|\begin{table}[|\emph{placement}\verb|]|
 \end{lscommand}
 \noindent 
 appelé \emph{placement}. Ce paramètre permet de dire à \LaTeX{} où
@@ -1903,7 +1885,7 @@ Caractère & Emplacement pour l'objet flottant\dots\\
 \end{minipage}
 \end{table}
 
-Un tableau peut commencer par exemple par la ligne suivante :
+Un tableau flottant peut commencer par exemple par la ligne suivante :
 \begin{code}
 \verb|\begin{table}[!hbp]|
 \end{code}
@@ -2016,7 +1998,8 @@ page. \ci{cleardoublepage} commence une nouvelle page de droite.
 %SC: remarque de mpg : le rapport avec la choucroute ?
 % SC: que les images vont souvent dans des figures, je dirais, il
 % faudrait demander à upstream
-En section~\ref{eps}, vous apprendrez à inclure une figure
+%MPG: oui, parce que là ça vient après \clearpage, ça fait bizare ÀMHA.
+En section~\ref{eps}, vous apprendrez à inclure des figures
 \PSi{} dans vos documents.
 
 \section{Protection des commandes \texorpdfstring{\og fragiles \fg}{\string«fragiles \string»}}
