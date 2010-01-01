@@ -753,7 +753,7 @@ ne fonctionnera donc pas comme attendu sous Mac ou DOS. Utilisez
 simplement le codage adéquat.
 
 \begin{table}[btp]
-\caption{Préambule pour les documents portugais.} \label{portuguese}
+\caption{Préambule pour les documents portugais} \label{portuguese}
 \begin{lined}{5cm}
 \begin{verbatim}
 \usepackage[portuguese]{babel}
@@ -794,7 +794,7 @@ table~\ref{cmd-french}) sont disponibles.
 
 %SC: suggestion de mpg: TODO: bad coding, booh
 \begin{table}[!htbp]
-\caption{Commandes de saisie en français.} \label{cmd-french}
+\caption{Commandes de saisie en français} \label{cmd-french}
 \begin{lined}{9cm}
 \begin{tabular}{ll}
 \verb+\og guillemets \fg{}+         \quad &\og guillemets \fg \\[1ex]
@@ -840,7 +840,7 @@ l'extension inputenc. Avec inputenc cette capacité devient un peu vaine
 mais votre texte est alors limité au codage utilisé.
 
 \begin{table}[!htbp]
-\caption{Caractères spéciaux en allemand.} \label{german}
+\caption{Caractères spéciaux en allemand} \label{german}
 \begin{lined}{8cm}
 \begin{tabular}{*2{ll}}
 \verb|"a| & "a \hspace*{1ex} & \verb|"s| & "s \\[1ex]
@@ -867,7 +867,8 @@ d'un autre côté, ne contient pas les symboles requis. Ainsi si vous
 utilisez ce type de marque de citation, assurez-vous d'utiliser le
 codage T1 (\verb|\usepackage[T1]{fontenc}|).
 
-\subsection{Support de la langue coréenne\protect\footnotemark}
+\subsection[Support de la langue coréenne]
+           {Support de la langue coréenne\footnotemark}
 \label{support_korean}%
 \footnotetext{%
 En réponse aux problèmes usuellement rencontrés par les utilisateurs
@@ -1027,7 +1028,7 @@ préambule active la césure et change le texte automatique en grec.%
   unicodes grecs polytoniques.}
 
 \begin{table}[btp]
-\caption{Préambule pour les documents grecs.} \label{preamble-greek}
+\caption{Préambule pour les documents grecs} \label{preamble-greek}
 \begin{lined}{7cm}
 \begin{verbatim}
 \usepackage[english,greek]{babel}
@@ -1050,7 +1051,7 @@ grecs. Vous pouvez utiliser \verb|\euro| pour obtenir le symbole de
 l'Euro.
 
 \begin{table}[!htbp]
-\caption{Caractères spéciaux grecs.} \label{sym-greek}
+\caption{Caractères spéciaux grecs} \label{sym-greek}
 \begin{lined}{4cm}
 %SC: Nope, already in french :-P
 %\selectlanguage{french}
@@ -1604,13 +1605,13 @@ Fer coiffeur.\\
 \end{flushleft}
 \end{example}
 
-\subsection{Abstract}
+\subsection{Résumé}
 
 Lors d'une publication scientifique il est usuel de démarrer celle-ci
-avec un \emph{abstract}, ou résumé, censé donner au lecteur une vue
+avec un résumé (\eng{abstract}, censé donner au lecteur une vue
 d'ensemble de ce qu'il doit attendre du document. \LaTeX{} fournit un
 environnement \ei{abstract} à cette fin. Normalement \ei{abstract} est
-utilisé dans les documents utilisant la classe article.
+utilisé dans les documents de classe \texttt{article}.
 
 \newenvironment{abstract}%
         {\begin{center}\begin{small}\begin{minipage}{0.8\textwidth}}%
