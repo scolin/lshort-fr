@@ -123,7 +123,7 @@ Dans certains cas, vous pouvez avoir besoin de
 \LaTeXe{} ignore  la nouvelle définition.
 
 \LaTeX{} supprime en général les espaces qui suivent une commande
-(voir~\pageref{whitespace}).
+(voir page~\pageref{whitespace}).
 
 \subsection{Nouveaux environnements}
 
@@ -165,9 +165,9 @@ environnement existant, utilisez \ci{renewenvironment} qui utilise la
 même syntaxe que \verb|\newenvironment|.
 
 Les commandes utilisées dans l'exemple ci-dessus seront présentées
-plus loin. Pour la commande \ci{rule}, voyez page~\pageref{sec:rule},
-pour \ci{stretch}, voyez page~\pageref{cmd:stretch} enfin, pour plus
-d'informations sur \ci{hspace}, voyez page~\pageref{sec:hspace}.
+plus loin. Pour la commande \ci{rule}, voir page~\pageref{sec:rule},
+pour \ci{stretch}, voir page~\pageref{cmd:stretch} enfin, pour plus
+d'informations sur \ci{hspace}, voir page~\pageref{sec:hspace}.
 
 \subsection{Espaces surnuméraires}
 
@@ -576,9 +576,11 @@ Pour indenter un paragraphe qui ne l'est pas, utilisez la commande :
 \end{lscommand}
 \noindent au début du paragraphe\footnote{Pour indenter
  systématiquement le premier
- paragraphe après le titre d'une section, utilisez l'extension
- \pai{indentfirst} de l'ensemble \texttt{tools}.}. Bien sûr cela ne
+ paragraphe après le titre d'une section, utilisez\footnotemark l'extension
+ \pai{indentfirst} de l'ensemble \package{tools}.}. Bien sûr cela ne
  marche que si \verb|\parindent| n'est pas nul.
+ \footnotetext{Ou bien, si vous écrivez en français, ne faites rien :
+   \pai{babel} s'en est chargé pour vous ! \NdT}
 
 Pour créer un paragraphe sans indentation, utilisez :
 \begin{lscommand}
@@ -783,8 +785,8 @@ utiliserions les commandes suivantes dans le préambule :
 
 Dans ce contexte, il peut être intéressant d'utiliser l'extension
 \pai{calc}. Elle permet d'utiliser des expressions algébriques
-traditionnelles en argument de \verb|setlength| ainsi que partout où
-l'on utilise des valeurs numériques comme arguments de fonctions.
+traditionnelles en argument de \verb|\setlength| ainsi que partout où
+l'on utilise des valeurs numériques comme arguments de macros.
 
 \section{Jouons un peu avec les dimensions}
 
@@ -870,7 +872,9 @@ vertical de la boîte par rapport à la base du texte
 précédent. \texttt{largeur} est une dimension indiquant la largeur de la
 boîte. La différence majeure entre \ei{minipage} et \ci{parbox} est
 qu'il est possible d'utiliser quasiment n'importe quelle commande ou
-environnement dans \ei{minipage}, alors que ce n'est pas le cas avec
+environnement dans \ei{minipage}, alors que ce n'est pas le cas\footnote{En
+  fait, ce sont essentiellement les environements et commandes de type
+  \emph{verbatim} qui posent problème. \NdT} avec
 \ci{parbox}.
 
 Alors que \ci{parbox} englobe tout un paragraphe en réalisant coupure
@@ -890,7 +894,7 @@ boîtes horizontales sont extrêmement flexibles.
 \noindent Le paramètre \texttt{largeur} définit la largeur de la boîte vue de
 l'extérieur\footnote{Cela signifie qu'elle peut être plus petite que
 la largeur du contenu de la boîte. Dans un cas extrême on peut même
-positionner la largeur à \texttt{0pt}; ainsi le texte dans la boîte
+régler la largeur à \texttt{0pt}; ainsi le texte dans la boîte
 sera placé sans influencer les boîtes adjacentes.}.  En plus des
 expressions exprimant une longueur vous pouvez également utiliser
 \ci{width}, \ci{height}, \ci{depth} et \ci{totalheight} à l'intérieur
