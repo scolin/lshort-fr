@@ -4,8 +4,6 @@ Avant le CTAN : régler les (over|under)full !
 
 - composer la bibliographie à la française.
 
-- améliorer la typo de la licence GPL (caps -> gras) ? (+VO ?)
-
 - Pas de raison d'écrire ASCII ni CTAN en \tt ! (+VO ?)
 
 - Placer le français en premier dans les langues supportées.
