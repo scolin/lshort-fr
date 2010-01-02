@@ -378,10 +378,10 @@ supra-conducteur.
 \end{example}
 
 L'extension \pai{textcomp} fournit un symbole degré plus adapté, disponile
-seul avec la commande \ci{textdegree}, ou accompagné d'un C avec
+seul avec \ci{textdegree}, ou accompagné d'un C avec
 \ci{textcelsius}.
 
-+\begin{example}
+\begin{example}
 30 \textcelsius{} font
 86 \textdegree{}F.
 \end{example}
@@ -1166,6 +1166,43 @@ pour le bulgare est de produire des lettres de l'alphabet bulgare.
 
 %Finally, math alphabets are redefined and  as well as the commands for math
 %operators according to Cyrillic typesetting traditions. 
+
+\subsection{Support du mongol}
+
+Pour composer du mongol avec \LaTeX, vous avec le choix entre deux
+extensions : \pai{babel} (multilingue) et Mon\TeX{} d'Oliver Corff.
+
+Mon\TeX{} supporte aussi bien le cyrillique que l'écriture mongole
+traditionnelle. Pour avoir accès aux commandes de Mon\TeX, ajoutez
+\begin{lscommand}
+\ci{usepackage}\verb|[|\emph{langue},\emph{encodage}\verb|]{mls}|
+\end{lscommand}
+\noindent à votre préambule. Pour obtenir les titres et dates en mongol
+moderne, utilisez l'option \pai{xalx} comme \emph{langue}. Pour écrire un
+document complet en mongol traditionnel, choisissez \pai{bicig}. Cette
+dernière active la méthode d'entrée de caractères par translittération
+simplifiée.
+
+Le mode de translittération latine peut être activé ou désactivé avec les
+commandes suivantes.
+\begin{lscommand}
+\verb|\SetDocumentEncodingLMC|
+\verb|\SetDocumentEncodingNeutral|
+\end{lscommand}
+
+Vous trouverez plus d'information sur Mon\TeX{} sur
+\CTAN|language/mongolian/montex/doc|.
+
+L'écriture cyrillique du mongol est supportée par \pai{babel}. Les commandes
+suivantes activent ce support.
+
+\begin{lscommand}
+\verb|\usepackage[T2A]{fontenc}|\\
+\verb|\usepackage[mn]{inputenc}|\\
+\verb|\usepackage[mongolian]{babel}|
+\end{lscommand}
+\noindent où \iei{mn} correspond à l'encodage d'entrée \iei{cp1251}.
+Si vous préférez la modernité, utilsez \iei{utf8} à la place.
 
 \section{L'espace entre les mots}
 
