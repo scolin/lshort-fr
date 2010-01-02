@@ -10,7 +10,7 @@ Knuth. Ceci a mené à une situation où il existe une implantation libre
 de \TeX{} pour presque tous les systèmes d'exploitation
 existants. Dans ce chapitre nous donnerons quelques astuces sur ce
 dont vous avez besoin pour faire fonctionner \TeX{} sous Linux,
-Mac~OSX et Windows.
+Mac~OS~X et Windows.
 \end{intro}
 
 \section{Ce qu'il faut installer}
@@ -25,7 +25,7 @@ essentiels :
 \item Le programme \TeX{}/\LaTeX{} pour compiler vos fichiers sources
   \LaTeX{} en documents PDF ou DVI ;
 
-\item Un visualiseur PDF/DVI pour afficher et imprimer vos documents ;
+\item Un visualiseur PDF ou DVI pour afficher et imprimer vos documents ;
 
 \item Un programme pour gérer les fichiers PostScript et les images
   pour inclusion dans vos documents.
@@ -37,7 +37,7 @@ ci-dessus\ldots{} Nous discuterons ici seulement de ceux que nous
 connaissons, apprécions et pour lesquels nous avons quelque
 expérience.
 
-\section{\TeX{} sous Mac~OSX}
+\section{\TeX{} sous Mac~OS~X}
 
 \subsection{Choisir un éditeur}
 
@@ -119,7 +119,13 @@ vous avez utilisés lors de son installation. Utilisez votre
 gestionnaire de paquets pour installer les applications suivantes :
 
 \begin{itemize}
-\item tetex or texlive -- l'installation \TeX{}/\LaTeX{} de base ;
+\item texlive\footnote{%
+    Attention, la plupart des distributions découpent \TeX\,Live en plusiuers
+    paquets. Si vous souhaitez une installation complète, cherchez un paquet
+    appelé \texttt{texlive-full} ou bien installez tous les paquets dont le
+    nom contient \texttt{texlive} ou \texttt{latex}, ainsi que les paquets
+    \texttt{cm-super} et \texttt{lmodern} s'ils existent.}
+    -- l'installation \TeX{}/\LaTeX{} de base ;
 \item emacs (avec auctex) -- un éditeur Linux qui s'intègre
   étroitement avec \LaTeX{} via une extension appelée AucTeX ;
 \item ghostscript -- un visualiseur PostScript ;
