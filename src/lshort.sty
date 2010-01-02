@@ -302,11 +302,13 @@
 \fi
 \makebox[\textwidth][l]{%
 %\raisebox{-\height}[0pt][\totalheight]{%
-  \begin{minipage}[c]{0.5\outdent+0.46\textwidth-3mm}%
+  \begin{minipage}[c]{0.5\outdent+0.46\textwidth}%
     \small\verbatiminput{\jobname.exa}
   \end{minipage}%
                                 %}%
-  \hspace{5mm}%
+  \hspace{2mm}%
+  %MPG: makes no sense to impose 5mm here and then ignore the huge number of
+  %overfull \hbox'es produced by actual examples! Restoring the reality here.
   \setlength{\savefboxrule}{\fboxrule}%
   \setlength{\fboxrule}{0.1pt}%
   \setlength{\savefboxsep}{\fboxsep}%

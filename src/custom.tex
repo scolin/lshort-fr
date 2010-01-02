@@ -296,8 +296,12 @@ régnèrent sur}
 et grande \textit{Italie}.}
 \end{example}
 
+%MPG: ajouté la note juste pour remplir la page...
 Une caractéristique importante de \LaTeXe{} est que les différents
-attributs d'une police sont indépendants. Cela signifie que vous
+attributs d'une police sont indépendants\footnote{Ou presque. Par exemple,
+  comme l'italique et les petites capitales relèvent d'un même attribut pour
+  \LaTeX, il lui est impossible de concevoir des petites capitales italiques.
+  \NdT}. Cela signifie que vous
 pouvez exécuter des commandes de changement de taille ou même de
 changement de police tout en conservant l'attribut gras ou
 italique. 
@@ -315,23 +319,23 @@ spéciales. Reportez-vous au tableau~\ref{mathfonts}.
 
 \begin{table}[!bp]
 \caption{Polices} \label{fonts}
-\begin{lined}{12cm}
+\begin{lined}{\textwidth}
 %
 % Alan suggested not to tell about the other form of the command
 % eg \verb|\sffamily| or \verb|\bfseries|. This seems a good thing to me.
 %
-\begin{tabular}{@{}rl@{\qquad}rl@{}}
-\fni{textrm}\verb|{...}|        &      \textrm{\wi{romaine}}&
-\fni{textsf}\verb|{...}|        &      \textsf{\wi{sans serif}}\\
-\fni{texttt}\verb|{...}|        &      \texttt{machine à écrire}\\[6pt]
-\fni{textmd}\verb|{...}|        &      \textmd{graisse normale}&
-\fni{textbf}\verb|{...}|        &      \textbf{\wi{grasse}}\\[6pt]
-\fni{textup}\verb|{...}|        &       \textup{\wi{droite}}&
-\fni{textit}\verb|{...}|        &       \textit{\wi{italique}}\\
-\fni{textsl}\verb|{...}|        &       \textsl{\wi{penchée}}&
-\fni{textsc}\verb|{...}|        &       \textsc{\wi{Petites Capitales}}\\[6pt]
-\ci{emph}\verb|{...}|          &            \emph{en évidence} &
-\fni{textnormal}\verb|{...}|    &    police \textnormal{par défaut}
+\begin{tabular}{@{}r@{ }l@{\qquad}r@{ }l@{}}
+\fni{textrm}\verb|{...}|        &      \textrm{\wi{romain}}&
+\fni{texttt}\verb|{...}|        &      \texttt{machine à écrire}\\
+\fni{textsf}\verb|{...}|        &      \textsf{\wi{sans serif}}\\[6pt]
+\fni{textmd}\verb|{...}|        &      \textmd{moyen}&
+\fni{textbf}\verb|{...}|        &      \textbf{\wi{gras}}\\[6pt]
+\fni{textup}\verb|{...}|        &      \textup{\wi{droit}}&
+\fni{textit}\verb|{...}|        &      \textit{\wi{italique}}\\
+\fni{textsl}\verb|{...}|        &      \textsl{\wi{penché}}&
+\fni{textsc}\verb|{...}|        &      \textsc{\wi{Petites Capitales}}\\[6pt]
+\ci{emph}\verb|{...}|           &      \emph{en évidence} &
+\fni{textnormal}\verb|{...}|    &      \textnormal{par défaut}
 \end{tabular}
 
 \bigskip
@@ -450,11 +454,12 @@ Si vous voulez utiliser une commande de modification de la taille pour
 tout un paragraphe ou même plus, vous pouvez utiliser la syntaxe des
 environnements à la place des commandes. 
 
+%MPG: ajout de \raggedright:
 \begin{example}
-\begin{Large} 
+\begin{Large} \raggedright
 Ceci n'est pas vrai
 Mais, qu'est-ce qui l'est
-de nos jours\dots
+de nos jours\dots\par
 \end{Large}
 \end{example}
 
@@ -469,6 +474,7 @@ commandes vont à l'encontre de la philosophie de \LaTeX{} qui est de
 séparer les aspects logiques et visuels d'un document. Cela signifie
 que si vous voulez utiliser en plusieurs endroits la même commande de
 changement de style afin de mettre en valeur un type particulier
+\vadjust{\pagebreak[3]}%MPG: fighting underfull \vbox'es
 d'information, vous devriez utiliser \ci{newcommand} pour définir une
 nouvelle commande en insérant ainsi la commande de changement de style
 dans une enveloppe logique.
@@ -527,6 +533,7 @@ interligne. L'interligne par défaut est~1.
 Notez que l'effet de la commande \ci{linespread} est drastique et
 inapproprié pour la publication. Si vous avez une bonne raison de
 changer l'interligne, vous pouvez utiliser la commande :
+\pagebreak[3]%MPG: avoid underfull \vbox
 \begin{lscommand}
 \verb|\setlength{\baselineskip}{1.5\baselineskip}|
 \end{lscommand}
@@ -912,6 +919,7 @@ La commande \ci{framebox} fonctionne de la même façon que
 L'exemple suivant vous montre quelques choses que l'on peut faire avec
 les commandes \ci{makebox} et \ci{framebox} :
 
+\typeout{Next message about under-full at line 4 is OK!}%MPG
 \begin{example}
 \makebox[\textwidth]{%
     c e n t r \'e}\par
@@ -925,6 +933,7 @@ les commandes \ci{makebox} et \ci{framebox} :
     mon cas.} 
 Pouvez-vous lire ceci ?
 \end{example}
+\typeout{Previous message about under-full at line 4 was OK!}%MPG
 
 Maintenant que nous savons contrôler l'alignement horizontal, la suite
 logique est de voir comment gérer l'alignement vertical\footnote{Le

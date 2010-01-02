@@ -147,8 +147,8 @@ document.
 \begin{lscommand}
 \ci{cite}\verb|{|\emph{marque}\verb|}|
 \end{lscommand}
-Si vous n'utilisez pas l'option \emph{label}, la numérotation des
-références est produite automatiquement. Le paramètre qui suit
+Si vous n'utilisez pas l'option \emph{label}, les références sont
+automatiquement numérotées. Le paramètre qui suit
 \verb|\begin{thebibliography}| définit la largeur du décrochement
 utilisé pour placer ces numéros. Dans l'exemple ci-après,
 \verb|{99}| indique à \LaTeX{} que le décrochement ne devrait jamais
@@ -253,8 +253,8 @@ Remarquez également que la command \ci{index} peut affecter votre mise
 en page si vous n'y prenez pas garde.
 
 \begin{example}
-Mon mot \index{mot}. En opposition
-à mot\index{mot}. Notez la
+Mon mot \index{mot}. Différent
+de mot\index{mot}. Notez la
 position du point final.
 \end{example}
 
@@ -535,16 +535,16 @@ transférèrent par la suite les droits à l'American Mathematical
 Society. Les polices furent diffusées au début de 1997 et sont
 désormais fournies avec la plupart des distributions \TeX{}.
 
-Si cependant vous utiliser \LaTeX{} dans d'autres documents que
+Si cependant vous utilisez \LaTeX{} dans d'autres langues que
 l'anglais, vous pouvez utiliser les polices EC, LH ou CB (voir la
 discussion sur les polices \texttt{OT1} en
 page~\pageref{OT1}). Vladimir Volovich a produit le paquet de polices
 cm-super qui couvre l'ensemble des polices EC/TC, EC Concrete, EC
 Bright et LH. Ce paquet est disponible sur
-\texttt{CTAN:/fonts/ps-type1/cm-super} et est fourni avec \TeX{}Live7
+\texttt{CTAN:fonts/ps-type1/cm-super} et est fourni avec \TeX{}Live7
 et Mik\TeX. Des polices grecques type~1 CB similaires créées par
 Apostolos Syropoulos sont disponibles sur
-\texttt{CTAN:/tex-archive/fonts/greek/cb}.
+\texttt{CTAN:fonts/greek/cb}.
 Malheureusement ces jeux de polices ne sont pas de la même
 qualité typographique que les polices Type1 CM faites par Blue
 Sky/Y\&Y. Le \eng{hinting}\footnote{Les indications permettant à la police
@@ -583,7 +583,7 @@ fonctionnent pas avec la fonction de recherche d'Acrobat Reader
 (\texttt{Find}) : vous ne pourrez donc pas rechercher des mots avec
 des caractères accentués dans votre fichier PDF final.
 
-Pour la langue russe, une solution similaire est d'utiliser des
+Pour la langue russe, une solution est d'utiliser des
 polices C1 virtuelles disponibles sur
 \texttt{ftp://ftp.vsu.ru/pub/tex/font-packs/c1fonts}. Ces polices
 combinent les polices standard CM type~1 de Bluesky aux polices type~1
@@ -623,9 +623,9 @@ document est introuvable. Vous devez vraiment résoudre ces problèmes,
 car le document PDF résultant pourrait \emph{ne pas afficher du tout
   les pages contenant les caractères manquants}.
 
-Comme vous le constatez, ces histoires de polices, en particulier le manque d'une bonne
-police EC de qualité équivalente à la police CM au format type~1, a
-occupé les esprits de nombreuses personnes. Depuis peu un nouvel
+Comme vous le constatez, ces histoires, en particulier le manque d'une bonne
+police EC de qualité équivalente à la police CM au format type~1, ont
+occupé les esprits de nombreuses personnes. Depuis 2003, un nouvel
 ensemble de polices de haute qualité appelé Latin Modern (LM) est
 disponible, ce qui allège considérablement des manipulations décrites
 ci-avant. Si vous possédez une installation de \TeX{} récente, il est
@@ -657,7 +657,7 @@ d'utiliser de la couleur dans les documents affichés à l'écran.
 
 Voilà pour les bonnes nouvelles. La mauvaise nouvelle est que les
 figures au format \EPSi{} ne fonctionnent \emph{pas} avec pdf\LaTeX{}.
-Si vous ne définissez pas d'extension de fichier dans la commande
+Si vous ne donnez pas d'extension de fichier dans l'argument de la commande
 \ci{includegraphics}, \pai{graphicx} cherchera lui-même la bonne en
 fonction de l'option de pilote qui lui est passée. Pour
 \texttt{pdftex} ce seront les formats \texttt{.png}, \texttt{.pdf},
@@ -702,7 +702,7 @@ De nombreuses options modifient le comportement de l'extension
 \item soit en tant qu'une liste séparée par des virgules après
   l'option pdftex\\
   \verb+\usepackage{hyperref}+ ;
-\item soit sur des lignes individuelles avec la commande
+\item soit sur des lignes à part avec la commande
   \verb+\hypersetup{+\emph{options}\verb+}+.
 \end{itemize}
 
@@ -951,13 +951,12 @@ version non-PDF, ceci afin de faire fonctionner la commande \ci{href}
 dans tous les cas. Cela évite de devoir protéger chacune de ses
 occurrences par une structure conditionnelle.
 
-Remarquez que dans les distributions \TeX{} récentes (\TeX{}Live par
-exemple), le programme \TeX{} par défaut est en fait pdf\TeX{}. Il
-s'adaptera automatiquement à la production de pdf ou de dvi en
-fonction des réglages de votre classe de document. Si vous utilisez le
-code ci-dessus, alors vous pouvez toujours utiliser la commande
-\verb|pdflatex| pour obtenir une sortie pdf et \verb|latex| pour une
-sortie dvi.
+%MPG: rewritten to tell the truth
+Remarquez que dans les distributions \TeX{} récentes (comme \TeX{}Live,
+Mac\TeX{} et MiK\TeX), le programme \TeX{} par défaut est en fait pdf\TeX{}.
+Il s'adaptera automatiquement à la production de pdf ou de dvi en fonction de
+la façon dont vous l'appelez : utilisez la commande \verb|pdflatex| pour
+obtenir une sortie pdf et \verb|latex| pour une sortie dvi.
 
 
 \section{Créer des présentations}

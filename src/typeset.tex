@@ -225,9 +225,11 @@ extension comme \pai{babel} pour le support d'une autre langue,
 alors les suggestions de césure seront actives pour le langage
 activé via \pai{babel}.
 
+%MPG: let's do what we say... :-)
+\hyphenation{Anti-cons-ti-tu-tion-nel-le-ment}
 L'exemple ci-dessous permet à
-\og anticonstitutionnellement \fg{} d'être coupé, ainsi qu'à \og
-Anticonstitutionnellement \fg{}. Mais il empêche toute césure de \og
+\og anticonstitutionnellement \fg{} et \og Anticonstitutionnellement
+\fg{},  d'être coupés. Mais il empêche toute césure de \og
 FORTRAN \fg{}, \og Fortran \fg{} ou \og fortran \fg{}. Ni les
 caractères spéciaux ni les symboles ne sont autorisés dans cette
 commande.
@@ -269,7 +271,7 @@ Elle a pour effet d'interdire toute coupure de ligne dans \emph{texte}.
 
 \begin{example}
 Mon num\'ero de t\'el\'ephone va  
-changer. \`A partir du 18 octobre,
+changer. \`A partir du 18 mai,
 ce sera le  \mbox{0561 336 330}.
 
 Le param\`etre 
@@ -367,8 +369,7 @@ Voir aussi l'extension \pai{hyperref} qui inclut une commande
 
 \subsection{Symbole degré (\textdegree)}
 
-L'exemple suivent montre comment obtenir un symbole \wi{degré} avec
-\LaTeX{} :
+L'exemple suivant montre comment obtenir un symbole \wi{degré} :
 
 \begin{example}
 Il fait $-30\,^{\circ}\mathrm{C}$.
@@ -754,7 +755,7 @@ simplement le codage adéquat.
 
 \begin{table}[btp]
 \caption{Préambule pour les documents portugais} \label{portuguese}
-\begin{lined}{5cm}
+\begin{lined}{7cm}
 \begin{verbatim}
 \usepackage[portuguese]{babel}
 \usepackage[latin1]{inputenc}
@@ -807,7 +808,7 @@ table~\ref{cmd-french}) sont disponibles.
 \verb+\bsc{M. Durand}+              \quad &\bsc{M.~Durand} \\[1ex]
 \verb+\nombre{1234,56789}+          \quad &\nombre{1234,56789}
 \end{tabular}
-\bigskip
+\par\bigskip
 \end{lined}
 \end{table}
 
@@ -908,7 +909,7 @@ trois problèmes :
   sorte qu'éditer un fichier texte coréen n'est plus autant un
   problème, même sur un système non-coréen.
 
-\item \TeX{} et \LaTeX{} ont été développés à l'origine pour des
+\item \TeX{} et \LaTeX{} ont été conçus à l'origine pour des
   documents n'ayant pas plus de 256 caractères dans leur
   alphabet. Pour les faire fonctionner avec des langages ayant
   considérablement plus de caractères comme le coréen
@@ -970,8 +971,8 @@ par Werner~Lemberg.\footnote{%
   comme celle offerte par H\LaTeX{} et n'est pas livrée avec autant de
   polices spéciales coréennes qu'H\LaTeX{}.
 
-\item L'idée principale derrière l'utilisation d'un système de
-  traitement comme \TeX{} et \LaTeX{} est d'obtenir des documents
+\item L'idée principale derrière l'utilisation d'un système
+  comme \TeX{} et \LaTeX{} est d'obtenir des documents
   typographiés d'une manière \og esthétiquement \fg{}
   satisfaisante. En conséquence l'élément le plus important en
   typographie est un ensemble de polices bien conçues. La distribution
@@ -1038,7 +1039,7 @@ préambule active la césure et change le texte automatique en grec.%
 \end{lined}
 \end{table}
 
-De nouvelles commandes pour une saisie simplifiée du grec devient
+De nouvelles commandes pour une saisie simplifiée du grec deviennent
 aussi disponibles. Pour passer temporairement en alphabet latin et
 vice-versa, vous pouvez utiliser les commandes
 \verb|\textlatin{|\emph{texte latin}\verb|}| and
@@ -1074,15 +1075,16 @@ La version~3.7h de \pai{babel} comprend un support pour les codages
 ukrainiens à base de lettres cyrilliques.
 
 Le support du cyrillique se base sur des mécanismes \LaTeX{} standards
-via les extensions \pai{fontenc} et \pai{inputenc}. Si cependant vous
-voulez utiliser du cyrillique en mode mathématique, vous devrez
+en utilisant les extensions \pai{fontenc} et \pai{inputenc}. Si cependant vous
+voulez utiliser du cyrillique en mode mathématique, vous devrez de plus
 charger \pai{mathtext} avant \pai{fontenc}
 \footnote{
 Si vous utilisez les extensions \AmS-\LaTeX{}, chargez-les aussi avant
-\pai{fontenc} et \pai{babel}.
+\pai{fontenc} et \pai{babel} pour éviter des conflits.
 } :
 \begin{lscommand}
 \verb+\usepackage{mathtext}+\\
+\verb+%\usepackage{amsmath}+\\
 \verb+\usepackage[+\fei{T1}\verb+,+\fei{T2A}\verb+]{fontenc}+\\
 \verb+\usepackage[+\iei{koi8-ru}\verb+]{inputenc}+\\
 \verb+\usepackage[english,bulgarian,russian,ukranian]{babel}+
@@ -1311,6 +1313,7 @@ a introduit trois nouvelles commandes destinées à être utilisées avec
 la classe \texttt{book} :
 \begin{description}
 \item[\ci{frontmatter}] doit être la première commande après le
+  \vadjust{\pagebreak[3]}%MPG: avoid underfull vbox on next page
   début du corps du document (\verb|\begin{document}|),
     elle introduit le prologue du document.
     Les numéros de pages sont alors en romain (i, ii, iii, etc.) et
@@ -1378,7 +1381,7 @@ phrase auquel elles se réfèrent%
 marque de renvoi à la note. Celle-ci est insérée automatiquement par
 \package{babel} si le français est la langue principale du document, depuis la
 version 2.0 de \package{frenchb}. Auparavant, il fallait utiliser
-\ci{\AddThinSpaceBeforeFootnotes} dans le préambule. \NdT}
+\ci{AddThinSpaceBeforeFootnotes} dans le préambule. \NdT}
 %SC: hmmm, is the following french good practice ?
 %MPG: I don't think so, but I'm not sure. At least Lacroux says no.
 % If we change that, we should take care to stop applying this rule ourselves!
@@ -1435,8 +1438,8 @@ caractères} :
 
 \begin{example}
 \textit{Vous pouvez aussi
-  \emph{mettre en valeur} du
- texte en italique,}
+  \emph{mettre en valeur}\\
+  du texte en italique,}
 \textsf{ou dans une police
   \emph{sans-serif},} 
 \texttt{ou dans une police
@@ -1447,8 +1450,9 @@ caractères} :
 \section{Environnements} \label{env}
 
 Pour composer du texte dans des contextes spécifiques, \LaTeX{}
-définit des \wi{environnement}s différents pour divers types de mise
-en page :
+définit des \wi{environnement}s différents pour appliquer divers types
+de mise en page à des portions de texte potentiellement longues :
+%MPG: rallongé pour remplir la page...
 
 \begin{lscommand}
 \ci{begin}\verb|{|\emph{nom}\verb|}|\quad
@@ -1461,8 +1465,8 @@ en page :
 \begin{code}
 \verb|\begin{aaa}...\begin{bbb}...\end{bbb}...\end{aaa}|
 \end{code}
-\noindent Les sections suivantes présentent tous les environnements
-importants.
+\noindent Les sections suivantes vous présentent (presque) tous les
+environnements importants.
 
 \subsection{Listes, énumérations et descriptions}
 
@@ -1480,6 +1484,15 @@ numérotées) et \ei{description} est utilisé pour des descriptions.
 % \end{itemize}
 % \end{example}
 
+%MPG: déplacé ici et alongé pour remplir la page
+Notez que l'option \pai{francais} de l'extension \pai{babel} utilise
+une présentation des 
+listes simples qui respecte les règles typographiques françaises : utilisation
+d'un tiret pour les listes simples au loin d'un point épais \og \textbullet
+\fg, espaces vertivaux réduits.
+%MPG: and this is applied to all languages by default. So don't bother trying
+%to make an example.
+
 \begin{example}
 \begin{enumerate}
 \item Il est possible d'imbriquer
@@ -1494,18 +1507,12 @@ les environnements à sa guise :
 \item[Clarté :] les faits ne 
 vont pas devenir plus sensés 
 parce  qu'ils sont dans une liste,
-\item[Synthèse :] cependant,
-une liste peut très bien 
+\item[Synthèse :] une liste peut 
+cependant très bien 
 résumer des faits.
 \end{description}
 \end{enumerate}
 \end{example}
-
-Notez que l'option \pai{francais} de l'extension \pai{babel} utilise
-une présentation des 
-listes simples qui respecte les règles typographiques françaises.
-%MPG: and this is applied to all languages by default. So don't bother trying
-%to make an example.
 
 \subsection{Alignements à gauche, à droite et centrage}
 
@@ -1555,7 +1562,7 @@ plus de 66~caractères.
 C'est pourquoi les pages 
 composées par \LaTeX{} ont des 
 marges importantes et
-pourquoi les journaux utilisent 
+les journaux utilisent 
 souvent plusieurs colonnes.
 \end{example}
 
@@ -2008,7 +2015,7 @@ Les arguments de commandes telles que \ci{section} ou \ci{caption}
 etc., peuvent apparaître plusieurs fois dans le document (par exemple
 dans la table des matières, les hauts de pages\dots), on dit qu'il
 s'agit d'arguments \og mobiles \fg{} (\emph{moving arguments}).
-Certaines commandes, entre autres \ci{footnote}, \ci{phantom} etc., ne
+Certaines commandes, comme \ci{footnote}, \ci{phantom} etc., ne
 produisent pas le résultat escompté quand elles sont exécutées comme
 argument de commandes de type \ci{section}. La compilation du document
 échouera alors. On dit de ces commandes qu'elles sont \og fragiles

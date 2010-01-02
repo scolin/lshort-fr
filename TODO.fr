@@ -1,6 +1,9 @@
-Avant le CTAN : régler les (over|under)full !
 
 # divers, pas urgent
+
+- overfull HVboxes avec un gros exemple de picture, mais pas visible
+
+- changer le Makefile pour avoir directement -fr comme nom ?
 
 - composer la bibliographie à la française.
 

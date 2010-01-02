@@ -67,8 +67,8 @@ J'$\heartsuit$ \LaTeX{}
 
 Il vaut mieux composer les équations ou les formules plus importantes
 \og \emph{hors-texte} \fg{}, c'est-à-dire sur une ligne à part, plutôt que
-d'amocher le paragraphe.  À cette fin, on les
-inclut entre \verb|\begin{|\ei{equation}\verb|}| et
+d'amocher le paragraphe.  Pour cela, on les
+place entre \verb|\begin{|\ei{equation}\verb|}| et
 \verb|\end{equation}|.
 Vous pouvez ensuite utiliser \ci{label} pour marquer un numéro
 d'équation et vous y référer ailleurs dans le texte via la commande
@@ -178,9 +178,9 @@ $\forall x \in \mathbf{R}:
 \end{example}
 \begin{example}
 $x^{2} \geq 0\qquad
- \text{pour tout } x\in\mathbf{R}$
- \end{example}
- 
+\text{pour tout } x\in\mathbf{R}$
+\end{example}
+
 Une mode récente et contestable pousse à utiliser la police 
 \eng{\wi{blackboard bold}} (gras tableau noir, ainsi appelée car c'est par
 le doublement des verticales des lettres que l'on simule le gras
@@ -365,8 +365,8 @@ ajoutées en préambule pour fonctionner.
 
 \begin{example}
 %\DeclareMathOperator{\argh}{argh}
-%\DeclareMathOperator*{\nut}{Nut}
-\[3\argh = 2\nut_{x=1}\]
+%\DeclareMathOperator*{\Nut}{Nut}
+\[3\argh = 2\Nut_{x=1}\]
 \end{example}
 
 Pour la fonction \wi{modulo}, il y a deux commandes possibles : 
@@ -464,6 +464,7 @@ commandes spéciales (par exemple \verb|\updownarrow|) :
 \end{example}
 
 Si vous ajoutez \ci{left} avant un délimiteur ouvrant et
+\vadjust{\pagebreak[3]}%MPG: avoid underfull vbox next page
 \ci{right} avant le délimiteur fermant correspondant, \LaTeX{} détermine
 automatiquement la taille appropriée pour ces symboles. Remarquez
 qu'il est nécessaire de fermer chaque délimiteur ouvrant
@@ -503,8 +504,8 @@ tableau~\ref{tab:delimiters}, page~\pageref{tab:delimiters}.
 \index{equation!longue}
 
 
-Pour les formules qui prennent plusieurs lignes ou pour des
-\wi{systèmes d'équations} \index{equations@équations!système d'},
+Pour les formules qui prennent plusieurs lignes ou des
+\wi{systèmes d'équations}\index{equations@équations!système d'},
 utilisez les environnements \ei{align} et \verb|align*| plutôt que
 \texttt{equation} ou \texttt{equation*}.%
 \footnote{L'environnement \ei{align} provient
@@ -565,8 +566,8 @@ lignes :
 \end{example}
 
 L'environnement \ei{array} peut également être utilisé pour imprimer
-des \wi{fonctions!par parties} en utilisant \og \verb|.| \fg{} comme
-délimiteur (invisible) de droite :%
+des fonctions\index{fonctions!définies par morceaux} définies par morceaux en
+utilisant \og \verb|.| \fg{} comme délimiteur (invisible) de droite :%
 \footnote{Si vous avez de nombreuses constructions de ce genre,
   essayer l'environnement \ei{cases} d'\textsf{amsmath} peut en valoir
   la peine, puisqu'il simplifie ce type de syntaxe.}
