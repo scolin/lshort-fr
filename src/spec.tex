@@ -149,7 +149,7 @@ document.
 \end{lscommand}
 Si vous n'utilisez pas l'option \emph{label}, la numérotation des
 références est produite automatiquement. Le paramètre qui suit
-\verb|\begin{\thebibliography}| définit la largeur du décrochement
+\verb|\begin{thebibliography}| définit la largeur du décrochement
 utilisé pour placer ces numéros. Dans l'exemple ci-après,
 \verb|{99}| indique à \LaTeX{} que le décrochement ne devrait jamais
 être plus large que le nombre 99.
@@ -179,13 +179,10 @@ votre document. La génération des listes de références  par
 BiB\TeX{} utilise un mécanisme de feuilles de style qui permettent
 de réaliser tous les types de présentations habituellement demandés. 
 
-%SC: upstream change, maybe not appropriate
-\newpage
-
 \section{Index} \label{sec:indexing}
-L'\wi{index} est un élément fort utile de nombreux
+L'\wi{index} est un élément fort utile pour de nombreux
 ouvrages. \LaTeX{} et le programme associé
-\texttt{makeindex}\footnote{sur les systèmes qui ne supportent pas les
+\texttt{makeindex}\footnote{Sur les systèmes qui ne supportent pas les
 noms de fichiers de plus de huit caractères, ce programme s'appelle
 \texttt{makeidx}.} permettent de créer des index assez
 facilement. Cette introduction présente seulement les commandes
@@ -256,9 +253,9 @@ Remarquez également que la command \ci{index} peut affecter votre mise
 en page si vous n'y prenez pas garde.
 
 \begin{example}
-Mon Mot \index{Word}. En opposition
-à Mot\index{Word}. Notez la position
-du point final.
+Mon mot \index{mot}. En opposition
+à mot\index{mot}. Notez la
+position du point final.
 \end{example}
 
 Le programme \texttt{makeindex} standard ne traite malheureusement pas
@@ -268,8 +265,8 @@ systématiquement en tête de l'ordre alphabétique.
 Pour obtenir un classement correct des clés contenant des caractères 
 accentués (le «é» doit être classé comme un «e»), on peut utiliser
 le caractère \texttt{@} : la dernière ligne du tableau~\ref{index}
-produira une entrée \og éolienne \fg{} dans l'index, classée comme s'il s'agissait
-de \og eolienne \fg{}.
+produira une entrée \og école \fg{} dans l'index, classée comme s'il s'agissait
+de \og ecole \fg{}.
 
 
 \section{En-têtes améliorés}
@@ -279,9 +276,9 @@ L'extension \pai{fancyhdr}%
 \footnote{disponible sur 
           \CTANref|macros/latex/contrib/supported/fancyhdr|.},
 développée par Piet van Oostrum, offre quelques commandes simples
-permettant de personnaliser les en-têtes et les pieds de page de votre
+permettant de personnaliser les entêtes et les pieds de page de votre
 document. Si vous regardez en haut de cette page, vous verrez un
-résultat possible de cette extension.
+résultat possible de l'utilisation de cette extension.
 
 La difficulté principale pour personnaliser les en-têtes et les pieds
 de page consiste à mettre à jour le nom de la section ou du chapitre
@@ -435,13 +432,13 @@ Parfois vous constaterez qu'un fichier \texttt{.glo} (glossaire) a
 \section{Travailler avec pdf\LaTeX} \label{sec:pdftex}\index{PDF}
 \secby{Daniel Flipo}{Daniel.Flipo@univ-lille1.fr}%
 
-PDF est un format de document \wi{hypertexte}. De la même manière que
+PDF est un format de document \wi{hypertexte} et portable. De la même manière que
 dans une page Web, certains mots sont marqués comme des
 hyperliens. Ils renvoient vers d'autres endroits du document voir vers
 d'autres documents. En cliquant sur un hyperlien vous
 serez transportés sur la destination de ce lien. Dans le contexte de
 \LaTeX{}, cela signifie que toute occurrence de \ci{ref} et de
-\ci{pageref} deviendra un hyperlien. De plus, la table des matières,
+\ci{pageref} peut devenir un hyperlien. De plus, la table des matières,
 l'index et d'autres structures similaires deviendront aussi des
 collections d'hyperliens.
 
@@ -533,7 +530,7 @@ produire des documents au rendu correct. \emph{Les installations
   vous, passez directement à la section suivante.}
 
 L'implantation PSi{} Type 1 des polices Computer Modern et AMSFonts
-furent produites par Blue Sky Research and Y\&Y, Inc. qui
+a été produite par Blue Sky Research and Y\&Y, Inc. qui
 transférèrent par la suite les droits à l'American Mathematical
 Society. Les polices furent diffusées au début de 1997 et sont
 désormais fournies avec la plupart des distributions \TeX{}.
@@ -550,8 +547,12 @@ Apostolos Syropoulos sont disponibles sur
 \texttt{CTAN:/tex-archive/fonts/greek/cb}.
 Malheureusement ces jeux de polices ne sont pas de la même
 qualité typographique que les polices Type1 CM faites par Blue
-Sky/Y\&Y. Elles ont été affinées automatiquement et le document
+Sky/Y\&Y. Le \eng{hinting}\footnote{Les indications permettant à la police
+  d'être rendue correctement à différentes résolutions, en particulier les
+  résolutions basses utilisées par les écrans. \NdT} a été ajusté
+automatiquement et le document
 %SC: see the translation of hinting (affinage ?)
+%MPG: Haralambous keeps "hinting", let's do the same...
 final peut ne pas être aussi agréable à l'\oe il sur l'écran que les
 documents qui utilisent les polices type 1 CM Blue Sky/Y\&Y. Sur des
 périphériques de sortie à haute résolution elles produisent des
@@ -645,15 +646,14 @@ pdf avec support complet de l'alphabet latin.
 \label{ssec:pdfgraph}
 
 Inclure des images dans un document fonctionne mieux avec l'extension
-\pai{graphicx} (voir page~\pageref{eps}). Avec l'option spéciale de
-pilote \texttt{pdftex} l'extension fonctionnera avec pdf\LaTeX{} :
+\pai{graphicx} (voir page~\pageref{eps}).
 \begin{code}
 \begin{verbatim}
-\usepackage[pdftex]{color,graphicx}
+\usepackage{xcolor,graphicx}
 \end{verbatim}
 \end{code}
-L'example ci-dessus inclus l'option \texttt{color}, puisqu'utiliser de
-la couleur dans les documents affichés sur le Web vient naturellement.
+L'exemple ci-dessus charge aussi l'extension \pai{xcolor}, puisqu'il est naturel
+d'utiliser de la couleur dans les documents affichés à l'écran.
 
 Voilà pour les bonnes nouvelles. La mauvaise nouvelle est que les
 figures au format \EPSi{} ne fonctionnent \emph{pas} avec pdf\LaTeX{}.
@@ -682,10 +682,18 @@ distributions \TeX{} et est livré avec son manuel détaillé.
 \subsection{Liens hypertextuels}
 \label{ssec:pdfhyperref}
 
-L'extension \pai{hyperref} prendra soin de transformer toutes les
+L'extension \pai{hyperref}\footnote{%
+  Il est ici intéressant de noter que l'extension \pai{hyperref} n'est
+  pas limitée à pdf\TeX{}. Elle peut aussi être configurée pour
+  embarquer des informations spécifiques au format PDF dans la sortie
+  DVI de \LaTeX{}, qui seront insérées dans le fichier PS via
+  \texttt{dvips} et enfin reconnues par l'interpréteur \PSi{} (comme
+  GhostScript ou Adbe Distiller) lors de la
+  transformation du fichier PS en PDF.}
+prendra soin de transformer toutes les
 références internes de votre document en hyperliens. Pour que cela
 fonctionne, il faut faire appel à un peu de magie : vous devrez
-ajouter \verb+\usepackage[pdftex]{hyperref}+ en tant que
+ajouter \verb+\usepackage{hyperref}+ en tant que
 \emph{dernière} commande de votre préambule.
 
 De nombreuses options modifient le comportement de l'extension
@@ -693,37 +701,28 @@ De nombreuses options modifient le comportement de l'extension
 \begin{itemize}
 \item soit en tant qu'une liste séparée par des virgules après
   l'option pdftex\\
-  \verb+\usepackage[pdftex]{hyperref}+ ;
+  \verb+\usepackage{hyperref}+ ;
 \item soit sur des lignes individuelles avec la commande
   \verb+\hypersetup{+\emph{options}\verb+}+.
 \end{itemize}
 
-La seule option requise est \texttt{pdftex}; les autres ne sont pas
-obligatoire et ne servent qu'à modifier le comportement par défaut
-d'hyperref.\footnote{
-Il est ici intéressant de noter que l'extension \pai{hyperref} n'est
-pas limitée à pdf\TeX{}. Elle peut aussi être configurée pour
-embarquer des informations spécifiques au format PDF dans la sortie
-DVI de \LaTeX{}, qui seront insérées dans le fichier PS via
-\texttt{dvips} et enfin reconnues par Adobe Distiller lors de la
-transformation du fichier PS en PDF.}
 Dans la liste suivante, les valeurs par défaut des options sont
 affichées avec une police droite.
 
 \begin{flushleft}
 \begin{description}
   \item [\texttt{bookmarks (=true,\textit{false})}] montrer ou cacher
-    le marque-pages lors de l'affichage du document ;
+    les marque-pages lors de l'affichage du document ;
   \item [\texttt{unicode (=false,\textit{true})}] permettre d'utiliser
-    des caractères non-latins dans les marque-pages d'Acrobat ;
+    des caractères non-latins dans les marque-pages du lecteur de PDF ;
   \item [\texttt{pdftoolbar (=true,\textit{false})}] montrer ou cacher
-    la barre d'outils d'Acrobat ;
+    la barre d'outils du lecteur de PDF ;
   \item [\texttt{pdfmenubar (=true,\textit{false})}] montrer ou cacher
-    le menu d'Acrobat ;
+    le menu du lecteur de PDF ;
   \item [\texttt{pdffitwindow (=true,\textit{false})}] ajuster le
     grossissement initial lors de l'affichage du fichier PDF ;
   \item [\texttt{pdftitle (=\{texte\})}] définir le titre affiché dans
-    la fenêtre \texttt{Document Info} d'Acrobat ;
+    la fenêtre \texttt{Document Info} du lecteur de PDF ;
   \item [\texttt{pdfauthor (=\{texte\})}] le nom de l'auteur ;
   \item [\texttt{pdfnewwindow (=true,\textit{false})}] définir si une
     nouvelle fenêtre doit être ouverte lorsqu'un lien conduit hors du
@@ -749,7 +748,7 @@ affichées avec une police droite.
 Si les valeurs par défaut vous plaisent, utilisez
 \begin{code}
 \begin{verbatim}
-\usepackage[pdftex]{hyperref}
+\usepackage{hyperref}
 \end{verbatim}
 \end{code}
 
@@ -757,7 +756,7 @@ Pour avoir la liste des marque-pages ouverte et des liens en couleur
 (les valeurs \texttt{=true} sont optionnelles) :
 \begin{code}
 \begin{verbatim}
-\usepackage[pdftex,bookmarks,colorlinks]{hyperref}
+\usepackage[bookmarks,colorlinks]{hyperref}
 \end{verbatim}
 \end{code}
 
@@ -775,12 +774,12 @@ seront pas imprimés :
 \begin{code}
 \begin{verbatim}
 \usepackage{hyperref}
-\hypersetup{colorlinks,%
-            citecolor=black,%
-            filecolor=black,%
-            linkcolor=black,%
-            urlcolor=black,%
-            pdftex}
+\hypersetup{colorlinks,
+            citecolor=black,
+            filecolor=black,
+            linkcolor=black,
+            urlcolor=black,
+            }
 \end{verbatim}
 \end{code}
 
@@ -788,9 +787,9 @@ Lorsque vous souhaitez simplement fournir des informations en section
 \texttt{Document Info} pour le fichier PDF :
 \begin{code}
 \begin{verbatim}
-\usepackage[pdfauthor={Pierre Desproges},%
-            pdftitle={Des femmes qui tombent},%
-            pdftex]{hyperref}
+\usepackage[pdfauthor={Pierre Desproges},
+            pdftitle={Des femmes qui tombent},
+            ]{hyperref}
 \end{verbatim}
 \end{code}
 
@@ -828,15 +827,15 @@ l'intérieur de la commande \ci{author} sur la page de titre du
 document :
 \begin{code}
 \begin{verbatim}
-\author{Mary Oetiker $<$\href{mailto:mary@oetiker.ch}%
-       {mary@oetiker.ch}$>$
+\author{Mary Oetiker <\href{mailto:mary@oetiker.ch}%
+       {mary@oetiker.ch}>
 \end{verbatim}
 \end{code}
 Remarquez que j'ai écrit le lien de manière à ce que mon adresse email
 apparaisse non seulement dans le lien mais aussi sur la page
 elle-même. J'ai fait cela parce que le lien\\
 \verb+\href{mailto:mary@oetiker.ch}{Mary Oetiker}+,\\
-s'il fonctionnerait bien avec Acrobat, ne serait plus visible une fois
+s'il fonctionnerait bien en listant le PDF, ne serait plus visible une fois
 la page imprimée.
 
 \subsection{Problème de liens}
@@ -886,24 +885,11 @@ de problèmes :
 \begin{code}
 \begin{verbatim}
 \section{\texorpdfstring{$E=mc^2$}%
-        {E=mc^2}}
+        {E=mc2}}
 \end{verbatim}
 \end{code}
-transforme \verb+\section{$E=mc^2$}+ en \og E=mc2 \fg{} dans la zone de
+transforme \verb+$E=mc^2$+ en \og E=mc2 \fg{} dans la zone de
 marque-pages.
-
-Il en va de même pour les changements de couleur :
-\begin{code}
-\verb+\section{\textcolor{red}{Rouge !}}+
-\end{code}
-produit la chaîne \og redRouge! \fg{}. La commande \verb+textcolor+
-est ignorée mais son argument (red) est tout de même affiché.
-
-Si vous utilisez
-\begin{code}
-\verb+\section{\texorpdfstring{\textcolor{red}{Rouge !}}{Rouge\ !}}+
-\end{code}
-le résultat sera beaucoup plus lisible.
 
 Si votre document est codé en unicode et que vous utilisez l'option
 \verb+unicode+ de l'extension \pai{hyperref}, vous pouvez utiliser des
@@ -911,7 +897,7 @@ caractères unicode dans les marque-pages. Vous aurez ainsi une bien
 plus grande sélection parmi les caractères utilisables avec
 \ci{texorpdfstring}.
 
-\subsubsection{Compatibilité des sources entre \LaTeX{} et pdf\LaTeX{}}
+\subsection{Compatibilité des sources entre \LaTeX{} et pdf\LaTeX{}}
 \label{sec:pdfcompat}
 
 Idéalement vos documents devraient se compiler aussi bien avec
@@ -943,22 +929,20 @@ PDF en ligne soit colorée.
 \begin{code}
 \begin{verbatim}
 \RequirePackage{ifpdf} % utilisation de pdfTeX?
-\ifpdf
-  \documentclass[a4paper,12pt,pdftex]{book}
-\else
-  \documentclass[a4paper,12pt,dvips]{book}
-\fi
-
-\ifpdf
-  \usepackage{lmodern}
-\fi
+\documentclass[a4paper,12pt]{book}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
 \usepackage[bookmarks, % ajout d'hyperliens
             colorlinks,
             plainpages=false]{hyperref}
-\usepackage[T1]{fontenc}
-\usepackage[latin1]{inputenc}
-\usepackage[english]{babel}
 \usepackage{graphicx}
+\ifpdf
+  \hypersetup{linkscolor=blue}
+\else
+  \hypersetup{linkscolors=black}
+\fi
+\usepackage[english]{babel}
 ...
 \end{verbatim}
 \end{code}
@@ -985,8 +969,8 @@ portable grâce à un logiciel de présentation.
 
 \wi{pdf\LaTeX} combiné à la classe \pai{beamer} permettent la création
 de présentations en PDF très semblables à ce que vous feriez avec
-PowerPoint dans un bon jour, mais bien plus portable puisqu'Acrobat
-Reader est disponible sur bien plus de systèmes.
+PowerPoint dans un bon jour, mais bien plus portable puisque des lecteurs PDF
+sont disponibles sur bien plus de systèmes.
 
 La classe \pai{beamer} utilise \pai{graphicx}, \pai{color} et
 \pai{hyperref} avec des options adaptées aux présentations sur
@@ -1056,11 +1040,10 @@ de votre document à partir de votre fichier d'entrée. Celui-ci peut
 contenir des instructions spéciales pour les différents modes entre
 chevrons (crochets obliques \verb|<| et \verb|>|). Les modes suivants
 sont disponibles :
-
 \begin{description}
-\item[beamer] Pour une présentation PDF comme au-dessus
-\item[trans] Pour les transparents
-\item[handout] Pour la version imprimée.
+\item[beamer] pour une présentation PDF comme au-dessus ;
+\item[trans] pour les transparents ;
+\item[handout] pour la version imprimée.
 \end{description}
 Le mode par défaut est \texttt{beamer}. Vous pouvez le changer via les
 options globales de la classe, comme
@@ -1075,7 +1058,7 @@ un. Pour plus d'information, voyez la documentation dans
 Observons maintenant le code de la figure~\ref{fig:code-beamer} de
 plus près.
 
-Pour la version à l'écran de la présentation \verb|\mode<beamer| nous
+Pour la version à l'écran de la présentation (\verb|\mode<beamer>|) nous
 avons choisi le thème \emph{Goettingen}. Celui-ci propose un panneau
 de navigation intégré à la table des matières. Les options permettent
 de choisir la taille de ce panneau (22~mm dans notre cas) et sa
@@ -1111,13 +1094,13 @@ n'apparaîtra pas dans la version imprimée à cause de l'option
 
 Il est particulièrement recommandé de donner un titre à chaque
 transparent, en plus du transparent de titre. Ce titre est fourni via
-la commande \verb|\frametitle{}|. Si un sous-titre est requis,
+la commande \verb|\frametitle{}|. Pour obtenir un sous-titre,
 utilisez \verb|\framesubtitle{}| ou une commande \ei{block} comme dans
 l'exemple. Remarquez également que le contenu des commandes \verb|\section{}|
 et \verb|\subsection{}| n'apparaît pas sur le transparent.
 
-La commande \verb|\pause| dans l'environnement itemize fait se révéler
-chacun des points un à un. D'autres effets de présentations sont
+La commande \verb|\pause| dans l'environnement itemize fait que les points
+vont se révéler un à un. D'autres effets de présentations sont
 disponibles via les commandes \verb|\only|, \verb|\uncover|,
 \verb|\alt| et \verb|\temporal|. Vous pouvez aussi utiliser les
 chevrons à de nombreux endroits pour personnaliser encore plus votre
@@ -1125,10 +1108,10 @@ présentation.
 
 Dans tous les cas, nous vous recommandons fortement de lire la
 documentation de la classe beamer \texttt{beameruserguide.pdf} pour
-tout savoir sur ce qu'il y a en réserve pour vous. Cette extension est
+tout savoir sur les possibilités non évoquées ici. Cette classe est
 développée activement, consultez son site
+(\url{http://latex-beamer.sourceforge.net/})
 pour plus d'informations récentes.
-(\href{http://latex-beamer.sourceforge.net/}{http://latex-beamer.sourceforge.net/})
 
 
 
