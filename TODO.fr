@@ -1,3 +1,21 @@
+Avant le CTAN : régler les (over|under)full !
+
+# divers, pas urgent
+
+- composer la bibliographie à la française.
+
+- améliorer la typo de la licence GPL (caps -> gras) ? (+VO ?)
+
+- Pas de raison d'écrire ASCII ni CTAN en \tt ! (+VO ?)
+
+- Placer le français en premier dans les langues supportées.
+
+- Moins de référence à Desgroupes, obsolète à mon goût, et moins utiles depuis
+que le LC est traduit. Pourquoi pas garder le garder en \nocite, et ajouter
+le bouquin de JCC et BC de la même manière ?
+
+- « en-tête » ou « entête » ? Choisir et uniformiser...
+
 From mpg's list:
 
 # when doing a new part:
