@@ -102,13 +102,13 @@ balise \verb|#1| est remplacée par le paramètre réel.
 Pour utiliser plus d'un paramètre, continuez avec \verb|#2|, etc.
 
 \begin{example}
-\newcommand{\uxil}[1]
+\newcommand{\uxil}[2]
     {Une \emph{#1}  
-     introduction à \LaTeXe}
+     introduction à #2}
 % dans le document :
 \begin{itemize}
-\item \uxil{courte}
-\item \uxil{rapide}
+  \item \uxil{courte}{\LaTeXe}
+  \item \uxil{longue}{Word}
 \end{itemize}
 \end{example}
 

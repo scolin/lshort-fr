@@ -377,16 +377,17 @@ Je vais bient\^ot devenir
 supra-conducteur.
 \end{example}
 
-L'extension \pai{babel} avec l'option \pai{francais} introduit la commande
-\ci{degres} qui donne un meilleur résultat :
-\begin{example}
-Il fait -30~\degres C.
-Je vais bient\^ot devenir 
-supra-conducteur.
+L'extension \pai{textcomp} fournit un symbole degré plus adapté, disponile
+seul avec la commande \ci{textdegree}, ou accompagné d'un C avec
+\ci{textcelsius}.
+
++\begin{example}
+30 \textcelsius{} font
+86 \textdegree{}F.
 \end{example}
 
-L'extension \pai{textcomp} met aussi à disposition le symbole degré
-via les commandes \ci{textcelsius}.
+En français avec l'option \texttt{french} de \package{babel}, on dispose aussi
+de la commande \ci{degres} qui donne un résultat similaire.
 
 \subsection{Le symbole de l'euro \texorpdfstring{(\officialeuro)}{}}
 

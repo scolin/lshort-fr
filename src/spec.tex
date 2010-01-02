@@ -203,13 +203,15 @@ La  création de l'index doit être activée par la commande :
 
 Le contenu de l'index est défini par une série de commandes :
 \begin{lscommand}
-  \ci{index}\verb|{|\emph{clef}\verb|}|
+  \ci{index}\verb|{|\emph{clef@entrée formatée}\verb|}|
 \end{lscommand}
 \noindent 
-où \emph{clef} est un mot-clef de l'index. Vous insérez des commandes
+où \emph{entrée formatée} est ce qui doit apparaître dans l'index, et
+\emph{clef} est utilisée pour le tri. La partie \emph{entrée formattée} est
+optionnelle. Vous insérez des commandes
  \ci{index} aux endroits du texte que vous voulez voir référencés par
- l'index. Le tableau~\ref{index} explique la syntaxe de l'argument
- \emph{clef} avec plusieurs exemples.
+ l'index. Le tableau~\ref{index} explique cela
+ avec plusieurs exemples.
 
 \begin{table}[!htp]
 \caption{Exemples de clefs d'index}
@@ -220,10 +222,11 @@ où \emph{clef} est un mot-clef de l'index. Vous insérez des commandes
   \rule{0pt}{1.05em}\verb|\index{hello}| &hello, 1 &Entrée normale\\ 
 \verb|\index{hello!Peter}|   &\hspace*{2ex}Peter, 3 &Sous-entrée de 'hello'\\ 
 \verb|\index{Sam@\textsl{Sam}}|     &\textsl{Sam}, 2& Entrée formatée\\ 
-\verb|\index{Lin@\textbf{Lin}}|     &\textbf{Lin}, 7& idem\\ 
+\verb|\index{Lin@\textbf{Lin}}|     &\textbf{Lin}, 7& Entrée formatée\\ 
+\verb|\index{Kaese@K\"ase}|     &\textbf{K\"ase}, 33& Entrée formatée\\ 
+\verb.\index{ecole@\'ecole}.     &\'ecole, 4& Entrée formatée\\
 \verb.\index{Jenny|textbf}.     &Jenny, \textbf{3}& Numéro de page formaté\\
-\verb.\index{Joe|textit}.     &Joe, \textit{5}& idem\\
-\verb.\index{ecole@école}.     &école, 4& clef accentuée
+\verb.\index{Joe|textit}.     &Joe, \textit{5}& Numéro de page formaté\\
 \end{tabular}
 \end{center}
 \end{table}
@@ -719,12 +722,12 @@ affichées avec une police droite.
     la barre d'outils du lecteur de PDF ;
   \item [\texttt{pdfmenubar (=true,\textit{false})}] montrer ou cacher
     le menu du lecteur de PDF ;
-  \item [\texttt{pdffitwindow (=true,\textit{false})}] ajuster le
+  \item [\texttt{pdffitwindow (=false,\textit{true})}] ajuster le
     grossissement initial lors de l'affichage du fichier PDF ;
   \item [\texttt{pdftitle (=\{texte\})}] définir le titre affiché dans
     la fenêtre \texttt{Document Info} du lecteur de PDF ;
   \item [\texttt{pdfauthor (=\{texte\})}] le nom de l'auteur ;
-  \item [\texttt{pdfnewwindow (=true,\textit{false})}] définir si une
+  \item [\texttt{pdfnewwindow (=false,\textit{true})}] définir si une
     nouvelle fenêtre doit être ouverte lorsqu'un lien conduit hors du
     document courant ;
   \item [\texttt{colorlinks (=false,\textit{true})}] entourer les
@@ -885,10 +888,10 @@ de problèmes :
 \begin{code}
 \begin{verbatim}
 \section{\texorpdfstring{$E=mc^2$}%
-        {E=mc2}}
+        {E=mc**2}}
 \end{verbatim}
 \end{code}
-transforme \verb+$E=mc^2$+ en \og E=mc2 \fg{} dans la zone de
+transforme \verb+$E=mc^2$+ en \og E=mc**2 \fg{} dans la zone de
 marque-pages.
 
 Si votre document est codé en unicode et que vous utilisez l'option
