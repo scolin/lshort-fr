@@ -17,9 +17,9 @@
 De nombreuses personnes utilisent \LaTeX{} pour mettre en page leur
 texte. Mais si l'approche \og orientée structure \fg{} est si
 commode, \LaTeX{} fournit également des possibilités de production
-graphique sur la base de descriptions textuelles quelque peu
+graphique sur la base de descriptions textuelles, quelque peu
 limitées. De nombreuses extensions ont été créées pour surmonter ces
-limitations. Vous découvrirez quelques-une d'entre elles dans cette
+limitations. Vous découvrirez quelques-unes d'entre elles dans cette
 section.
 \end{intro}
 
@@ -34,8 +34,8 @@ un choix limité de valeurs. D'un autre côté, l'environnement
 \texttt{q} \fg{} pour \og quadratique \fg{}. Des courbes fréquemment
 utilisées comme des cercles, des ellipses ou des caténaires peuvent
 être approchés de manière satisfaisantes par des courbes de B\'ezier,
-bien que cela requiert quelques efforts mathématiques. Si en plus un
-langage de programmation comme Java est utilisé pour générer des blocs
+bien que cela requière quelques efforts mathématiques. Si en plus un
+langage de programmation externe est utilisé pour générer des blocs
 \ci{qbezier} en fichiers d'entrée, l'environnement \ei{picture}
 devient soudain plus puissant.
 
@@ -44,7 +44,7 @@ souvent fatiguant, il reste des raisons pour continuer à le faire : en
 effet les documents produits ainsi sont de petite taille (en octets)
 et il n'y a pas de fichier graphique à adjoindre.
 
-Des environnements comme \pai{epic} et \pai{eepic} (décrits dans
+Des extensions comme \pai{epic} et \pai{eepic} (décrits dans
 \companion, par exemple), ou \pai{pstricks} aident à éliminer les
 restrictions qui entravent l'environnement \ei{picture} originel. Ils
 renforcent ainsi les capacités graphiques de \LaTeX.
@@ -63,7 +63,7 @@ Le plus puissant outil graphique lié à \LaTeX{} est sûrement \MP, le
 frère jumeau de \MF{} par Donald E. Knuth. \MP{} possède le langage
 mathématique puissant et sophistiqué de \MF. À la différence de \MF{}
 qui génère des bitmaps, \MP{} génère du \PSi{} encapsulé, qui peut
-être importé dans \LaTeX. Pour une présentation, voyez \hobby ou le
+être importé dans \LaTeX. Pour une présentation, voyez \hobby{} ou le
 tutoriel de \cite{ursoswald}.
 
 Vous pourrez trouver une discussion très détaillé des stratégies
@@ -399,7 +399,7 @@ Une boîte d'image peut être \emph{déclarée} par la commande
 \end{lscommand}
 \noindent et enfin dessinée arbitrairement souvent via
 \begin{lscommand}
-  \ci{put}\verb|(|$x,y$\verb|)|\ci{usebox}\verb|{|\emph{nom}\verb|}|
+  \ci{put}\verb|(|$x,y$\verb|){|\ci{usebox}\verb|{|\emph{nom}\verb|}}|
 \end{lscommand}
 
 Le paramètre optionnel de \emph{position} a pour effet de définir
@@ -409,7 +409,7 @@ inférieur gauche de l'image emboîtée. Les autres positions possibles
 sont \texttt{t}op (en haut) et \texttt{r}ight (à droite).
 
 Le paramètre \emph{nom} se rapporte à un registre de stockage
-\LaTeX{}: il s'agit donc d'une commande (ce qui explique l'usage
+\LaTeX{}: il s'agit donc d'une commande (ce qui explique l'usage de
 contre-obliques dans l'exemple). Les images emboîtées peuvent être
 imbriquées : \ci{foldera} est utilisée à l'intérieur de la définition
 de \ci{folderb} dans l'exemple.
@@ -458,10 +458,10 @@ point de contrôle intermédiaire est donné par les équations
 suivantes~:
 \begin{equation} \label{zwischenpunkt}
   \left\{
-    \begin{array}{rcl}
-      x & = & \displaystyle \frac{m_2 x_2-m_1x_1-(y_2-y_1)}{m_2-m_1}, \\
-      y & = & y_i+m_i(x-x_i)\qquad (i=1,\,2).
-    \end{array}
+    \begin{aligned}
+      x & = \dfrac{m_2 x_2-m_1x_1-(y_2-y_1)}{m_2-m_1}, \\
+      y & = y_i+m_i(x-x_i)\qquad (i=1,\,2).
+    \end{aligned}
   \right.
 \end{equation}
 \noindent Référez-vous à \graphicsinlatex{} pour un programme Java qui
@@ -551,9 +551,10 @@ associé aux coordonnées mathématiques $(-3,-2)$ (le disque noir).
 
 \section{Les extensions graphiques TikZ \& PGF}
 
-De nos jours, tout système de génération de sortie \LaTeX{} est
-capable de fabriquer d'agréables images vectorielles. Ce sont surtout
-les interfaces pour ce faire qui sont variées. L'extension PGF fournit
+De nos jours, tout système de génération de sortie \LaTeX{} (\texttt{dvips},
+\texttt{pdflatex}, etc.) est
+capable de fabriquer d'agréables images vectorielles, mais aucun ne le fait
+avec la même interface. L'extension PGF fournit
 une couche d'abstraction au-dessus de ces interfaces et vous donne des
 commandes simples pour créer des images vectorielles qui viennent
 directement de vos documents. Elle est fournie avec sa documentation
@@ -582,8 +583,8 @@ instructions de dessin.
 \end{tikzpicture}
 \end{example}
 
-Si vous être programmeur, vous aurez remarqué le point-virgule
-(\texttt{;}) si familier pour séparer les instructions. Avec la
+Si vous être programmeur, vous aurez remarqué l'usage, familier,
+du point-virgule (\texttt{;}) pour séparer les instructions. Avec la
 commande \ci{usetikzlibrary} en préambule, vous pouvez activer de
 nombreuses fonctionnalités pour le dessin de formes spéciales, comme
 cette boîte légèrement tordue.
