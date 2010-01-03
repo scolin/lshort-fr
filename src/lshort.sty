@@ -13,6 +13,8 @@
 \ProvidesPackage{lshort}
 % main language has to come last for global layout to be right (mpg)
 \RequirePackage[english,german,frenchb]{babel}
+\usepackage[autolanguage]{numprint} % needed for \nombre since frenchb 2.x
+\usepackage{etex} % to avoid "no room for a new \dimen" error
 % the following are defaults of frenchb since 2.x
 % set them so the result is correct even with older frenchb (mpg)
 \FrenchFootnotes
