@@ -1796,9 +1796,9 @@ description du tableau remplace l'espace normale entre les colonnes par
 une simple virgule, donnant l'impression d'une seule colonne alignée
 sur le séparateur décimal. N'oubliez pas de remplacer dans votre
 tableau le point ou la virgule 
-par un séparateur de colonnes (\verb|&|) ! Un label peut être
-placé au-dessus de cette colonne en utilisant la commande
-\ci{multicolumn}. 
+par un séparateur de colonnes (\verb|&|) ! Un titre peut être
+placé au-dessus de cette \og colonne virtuelle \fg (en fait, de ces deux
+colonnes) en utilisant la commande \ci{multicolumn}.
 
 \begin{example}
 \begin{tabular}{c r @{,} l}
@@ -1808,14 +1808,19 @@ Expression       &
 $\pi$               & 3&1416  \\
 $\pi^{\pi}$         & 36&46   \\
 $(\pi^{\pi})^{\pi}$ & 80662&7 \\
+$\pi^{-1}$          & 0&3183 \\
 \end{tabular}
 \end{example}
+%MPG: added more lines, trying to fill the page...
 Autre exemple d'utilisation de \verb+\multicolumn+ :
 \begin{example}
 \begin{tabular}{|l|l|}
-\hline \multicolumn{2}{|c|}{%
-  \textbf{Nom}}\\
-\hline Dupont & Jules \\
+\hline
+\multicolumn{2}{|c|}{%
+  \textbf{Nom}} \\
+\hline
+Dupont & Jules \\
+Durand & Jaques \\
 \hline
 \end{tabular}
 \end{example}
@@ -1828,7 +1833,8 @@ il faut avoir recours aux extensions \pai{supertabular} ou
 
 Parfois les tableaux par défaut de \LaTeX{} donnent une impression
 d'étroitesse. Si vous voulez leur donner plus d'extension, vous pouvez
-le faire à l'aide des valeurs \ci{arraystretch} et \ci{tabcolsep}.
+le faire en modifiant les valeurs de \ci{arraystretch} et \ci{tabcolsep} comme
+dans l'exemple suivant.
 
 \begin{example}
 \begin{tabular}{|l|}

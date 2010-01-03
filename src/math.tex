@@ -503,8 +503,8 @@ des commandes qui impriment les délimiteurs :
 \begin{example}
 $\Big((x+1)(x-1)\Big)^{2}$\\
 $\big( \Big( \bigg( \Bigg( \quad
-\big\} \Big\} \bigg\} \Bigg\} \quad
-\big\| \Big\| \bigg\| \Bigg\| \quad
+\big\} \Big\} \bigg\} \Bigg\}\quad
+\big\| \Big\| \bigg\| \Bigg\|\quad
 \big\Downarrow \Big\Downarrow 
 \bigg\Downarrow \Bigg\Downarrow$
 \end{example}
@@ -590,7 +590,7 @@ droite se distingue clairement du membre de gauche de l'équation.
 \label{sec:IEEEeqnarray}
 \index{equation@équation!multiple}
 
-Dans le cas le plus général, considérons une suite d'égalités qui ne tiennent
+Dans le cas le plus général, considérons une suite d'équations qui ne tiennent
 pas en entier sur une ligne. Il s'agit d'ajuster l'alignement vertical de
 façon à obtenir une structure lisible et agréable à l'\oe il pour l'ensemble.
 
@@ -729,7 +729,7 @@ minuscule), et la troisième alignée à gauche.
 \end{example}
 
 %MPG: fixed typo \texttt -> \verb
-En fait, on peut spécifier n'importe quel nombre de colonnes. Par exemple,
+En fait, on peut choisir n'importe quel nombre de colonnes. Par exemple,
 \verb+{c}+ donnera une seule colonne dans laquelle toutes les lignes seront
 centrées, ou bien \verb+{rCll}+ donnera une quatrième colonne aligné à gauche,
 par exemple pour des commentaires. Mieux, en plus de \texttt{l}, \texttt{c},
@@ -878,7 +878,7 @@ situations, comme par exemple devant
 
 \item Il existe également une version étoilée de l'environnement, qui supprime
   totalement la numérotation. Dans ce cas, on peut ajouter un numéro
-  d'équation sur une ligne particulière avec la commande \ci{IEEEyesnumber}.
+  d'équation sur une ligne particulière avec \ci{IEEEyesnumber}.
 \begin{example}
 \begin{IEEEeqnarray*}{rCl}
   a & = & b + c \\
@@ -887,7 +887,7 @@ situations, comme par exemple devant
 \end{IEEEeqnarray*}
 \end{example}
 
-\item On peut également obtenir des numéros de sous-équation avec
+\item On peut également obtenir des numéros de sous-équation avec la commande
   \ci{IEEEyessubnumber}.
 \begin{example}
 \begin{IEEEeqnarray}{rCl}
@@ -899,7 +899,6 @@ situations, comme par exemple devant
   \IEEEyessubnumber
 \end{IEEEeqnarray}
 \end{example}
-  
 \end{itemize}
 
 \subsection{Tableaux et matrices}
@@ -911,28 +910,34 @@ Pour composer des \textbf{tableaux} mathématiques, utilisez l'environnement
 lignes :
 \begin{example}
   \begin{equation*}
-    \mathbf{X} = \left( 
+    \mathbf{X} =
+    \left(
       \begin{array}{ccc}
         x_1 & x_2 & \ldots \\
         x_3 & x_4 & \ldots \\
         \vdots & \vdots & \ddots
-      \end{array} \right)
+      \end{array}
+    \right)
   \end{equation*}
 \end{example}
+%MPG: changed the disposition to help filling the page
 
 L'environnement \ei{array} peut également être utilisé pour imprimer
 des fonctions\index{fonctions!définies par morceaux} définies par morceaux en
 utilisant \og \verb|.| \fg{} comme délimiteur (invisible) de droite :
 \begin{example}
 \begin{equation*}
-  |x| = \left\{
+  |x| =
+  \left\{
     \begin{array}{rl}
       -x & \text{si } x < 0,\\
       0 & \text{si } x = 0,\\
       x & \text{si } x > 0.
-    \end{array} \right.
+    \end{array}
+  \right.
 \end{equation*}
 \end{example}
+%MPG: changed the disposition to help filling the page
 Cependant, l'environnement \ei{cases} d'\package{amsmath} offre une syntaxe
 plus simple.
 \begin{example}
@@ -946,13 +951,15 @@ plus simple.
 \end{equation*}
 \end{example}
 
+\looseness1
 L'environnement \ei{array} peut aussi servir à mettre en page des
 matrices\index{matrice}, mais \pai{amsmath} fournit une meilleure
-solution via les environnements \ei{matrix}. Il y en a six versions
-(avec des délimiteurs différents) : \ei{matrix} (aucun), \ei{pmatrix}
+solution avec l'environnement \ei{matrix} et ses variantes. Elles sont au
+nombre de six (avec des délimiteurs différents) : \ei{matrix} (aucun
+délimiteur ), \ei{pmatrix}
 $($, \ei{bmatrix} $[$, \ei{Bmatrix} $\{$, \ei{vmatrix} $\vert$ et
 \ei{Vmatrix} $\Vert$. Vous n'avez pas à spécifier le nombre de
-colonnes comme avec \ei{array}. Leur nombre maximal est de 10 mais il
+colonnes comme avec \ei{array}. Leur nombre maximal est de 10 par défaut mais il
 est modifiable (bien que ce ne soit pas fréquent d'avoir besoin de 10
 colonnes ou plus !) :
 \begin{example}
@@ -1250,7 +1257,8 @@ preuve (CQFD) pour les cas où il finirait seul sur une ligne.
 \end{proof}
 \end{example}
 
-Malheureusement, cette correction ne fonctionne pas pour \ei{IEEEeqnarray}.
+Malheureusement, cette correction ne fonctionne pas avec l'environnement
+\ei{IEEEeqnarray}.
 \begin{example}
 \begin{proof}
   Voici une preuve qui termine
@@ -1284,7 +1292,7 @@ Heureusement, il y a une solution simple : définir nous-même ces colonnes
 \noindent
 Ici, le \verb=+= dans \verb={+rCl+x*}= indique un espace étirable : un à
 gauche de l'équation qui, s'il n'était pas présent, serait ajouté
-automatiquement par \texttt{IEEEeqnarray}, et un à droite de l'équation. Mais
+d'office par \texttt{IEEEeqnarray}, et un à droite de l'équation. Mais
 cette fois à droite, \emph{après} cette colonne étirable, nous ajoutons une
 colonne vide \verb+x+, qui ne sera utilisée que sur la dernière ligne, pour
 placer la commande \ci{qedhere}. Enfin, nous ajoutons un \verb+*+ : c'est un
