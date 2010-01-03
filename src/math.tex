@@ -96,6 +96,7 @@ Voici une référence à
 \eqref{intelligent}.
 \end{example}
 
+%MPG: correction à faire remonter upstream
 Si vous ne voulez pas que \LaTeX{} numérote vos équations, utilisez la
 version étoilée d'\texttt{equation}, \ei{equation*}\footnote{Fournie par
   \package{amsmath}. Si vous ne l'avez pas chargé, vous pouvez utiliser
@@ -111,10 +112,18 @@ matheuse :
 \begin{equation*}
   a^2 + b^2 = c^2
 \end{equation*}
-ou plus parcimonieusement :
+ou de façon plus condensée :
 \[ a^2 + b^2 = c^2 \]
 \end{example}
 
+Cependant, si vous avez beaucoup d'équations dans votre document, le source
+\LaTeX{} risque de devenir moins lisible si vous utilisez \ci{[\iffalse]\fi}
+et \ci{\iffalse[\fi]}. Aussi\footnote{En fait, \ci{[\iffalse]\fi} et
+  \ci{\iffalse[\fi]} peuvent être parfaitement lisibles si vous prenez la pein
+  de les laisser seuls sur une ligne. Un autre avantage d'\ei{equation*} est
+  qu'il est facile d'activer la numérotation : il suffit d'enlever les
+  étoiles.} nous recommandons d'utiliser plutôt \ei{equation} et
+\ei{equation*}.
 
 Remarquez que les expressions mathématiques sont formatées
 différemment selon qu'elles sont composées \og \wi{en-ligne} \fg{} ou \og
@@ -351,8 +360,10 @@ les plus utilisées :
 \end{tabular}
 
 \begin{example}
-\[\lim_{x \rightarrow 0}
- \frac{\sin x}{x}=1\]
+\begin{equation*}
+  \lim_{x \rightarrow 0}
+  \frac{\sin x}{x}=1
+\end{equation*}
 \end{example}
 
 Les fonctions n'apparaissant pas dans la liste peuvent être déclarées
@@ -366,7 +377,9 @@ ajoutées en préambule pour fonctionner.
 \begin{example}
 %\DeclareMathOperator{\argh}{argh}
 %\DeclareMathOperator*{\Nut}{Nut}
-\[3\argh = 2\Nut_{x=1}\]
+\begin{equation*}
+  3\argh = 2\Nut_{x=1}
+\end{equation*}
 \end{example}
 
 Pour la fonction \wi{modulo}, il y a deux commandes possibles : 
@@ -387,8 +400,10 @@ utilisant une barre oblique ($1/2$) est souvent préférable pour des
 petits éléments.
 \begin{example}
 En style hors-texte :
-\[3/8 \qquad \frac{3}{8} 
- \qquad \tfrac{3}{8} \]
+\begin{equation*}
+  3/8 \qquad \frac{3}{8}
+  \qquad \tfrac{3}{8}
+\end{equation*}
 \end{example}
 
 \begin{example}
@@ -400,10 +415,12 @@ ou bien $1\dfrac{1}{2}$~heures
 Ici nous utilisons la commande \ci{partial} utilisée habituellement
 pour une \wi{dérivée partielle} :
 \begin{example}
-\[\sqrt{\frac{x^2}{k+1}}\qquad
+\begin{equation*}
+  \sqrt{\frac{x^2}{k+1}}\qquad
   x^\frac{2}{k+1}\qquad
   \frac{\partial^2f}
-  {\partial x^2} \]
+  {\partial x^2}
+\end{equation*}
 \end{example}
 
 Pour imprimer des coefficients binomiaux (à l'américaine) ou d'autres
@@ -495,95 +512,441 @@ $\big( \Big( \bigg( \Bigg( \quad
 Pour une liste de tous les délimiteurs disponibles, reportez-vous au
 tableau~\ref{tab:delimiters}, page~\pageref{tab:delimiters}.
 
+\section{Formules trop longues : \ei{multline}}
+\label{sec:multline}
+\index{equation!longue@équation}
 
-
-\section{Alignements verticaux}
-\label{sec:vert}
-
-\subsection{Équations longues}
-\index{equation!longue}
-
-
-Pour les formules qui prennent plusieurs lignes ou des
-\wi{systèmes d'équations}\index{equations@équations!système d'},
-utilisez les environnements \ei{align} et \verb|align*| plutôt que
-\texttt{equation} ou \texttt{equation*}.%
-\footnote{L'environnement \ei{align} provient
-  d'\textsf{amsmath}. L'environnement similaire de \LaTeX{} sans
-  \textsf{amsmath} est \ei{eqnarray}, mais il est déconseillé de
-  l'utiliser pour des raisons d'incohérences d'espaces et de
-  références.}
-Avec \ei{align} chaque ligne est numérotée, alors que la variante
-\verb|align*| ne produit aucun numéro.
-
-Les environnements \ei{align} alignent l'équation par rapport au signe
-\verb|&|. La commande \verb|\\| sépare les lignes.  Pour énumérer
-seulement certaines équations particulières, utilisez \ci{nonumber}
-pour supprimer la numérotation en la plaçant avant le saut de ligne
-\verb|\\|.
+Si une équation est trop longue, il faut trouver un moyen de la répartir sur
+plusieurs lignes. Malheureusement, l'équation a alors tendance à devenir moins
+lisible. Pour préserver la lisibilité, voici quelques règles sur la façon de
+découper les équations.
+\begin{enumerate}
+  \item En général, une équation devrait toujours être coupée \emph{avant} un
+    signe d'égalité ou un opérateur.
+  \item Une coupure devant un signe d'égalité est préférable à une coupure
+    devant un opérateur.
+  \item Une coupure devant un signe \og plus \fg ou moins est préférable à une
+    coupure devant un signe de multiplication.
+  \item Il faut éviter autant que possible les coupures à tous les autres
+    endroits.
+\end{enumerate}
+La façon la plus simple pour réaliser un tel découpage est d'utiliser
+l'environnement \ei{multline}\footnote{Fourni par \package{amsmath}.}.
 \begin{example}
-\begin{align}
-f(x) &= (a+b)(a-b) \label{1}\\
-     &= a^2-ab+ba-b^2  \\ 
-     &= a^2+b^2 \tag{faux}
-\end{align}
-Ceci se réfère à \eqref{1}.
+\begin{multline}
+  a + b + c + d + e + f 
+  + g + h + i  
+  \\
+  = j + k + l + m + n 
+\end{multline}
+\end{example}
+\noindent
+La différence avec l'environnement \ei{equation} est qu'il est possible
+d'insérer un saut de ligne où l'on veut (voire plusieurs), en utilisant
+\verb+\\+ là où l'équation doit être coupée. Comme pour \ei{equation*}, il
+existe un environnement \ei{multline*} qui supprime la numérotation.
+
+Bien que ce soit la solution la plus facile, on peut souvent obtenir un
+meilleur résultat avec l'environnement \ei{IEEEeqnarray} (voir
+section~\ref{sec:IEEEeqnarray}). Par exemple, considérons la situation
+suivante.
+\begin{example}
+\begin{equation}
+  a = b + c + d + e + f 
+  + g + h + i + j 
+  + k + l + m + n + o + p  
+  \label{eq:formule_trop_longue}
+\end{equation}
+\end{example}
+\noindent
+Ici, c'est en fait le membre de droite qui est trop long pour tenir sur une
+ligne. L'usage de \ei{multline} donne alors :
+\begin{example}
+\begin{multline}
+  a = b + c + d + e + f 
+  + g + h + i + j \\
+  + k + l + m + n + o + p
+\end{multline}
 \end{example}
 
-\index{equations@équations!longues}
-Les \textbf{équations longues} ne sont pas découpées automatiquement
-en morceaux harmonieux. L'auteur doit indiquer où les couper et
-comment indenter la suite :
+C'est bien sûr nettement mieux que \eqref{eq:formule_trop_longue}, mais
+l'inconvénient est que le signe d'égalité perd son importance naturelle, en
+principe supérieur à celle du signe \og plus \fg devant $k$. Une meilleure
+solution est d'utiliser \ei{IEEEeqnarray}, qui sera présenté en détails en
+section~\ref{sec:IEEEeqnarray} :
+\begin{example}
+\begin{IEEEeqnarray}{rCl}
+  a & = & b + c + d + e + f
+  + g + h + i + j \nonumber\\
+  && +\: k + l + m + n + o + p
+  \label{eq:sans_multline}
+\end{IEEEeqnarray}
+\end{example}
+Dans ce cas, la deuxième ligne est alignée verticalement par rapport à la
+première : le $+$ devant $k$ est exactement en dessous de $b$, et le membre de
+droite se distingue clairement du membre de gauche de l'équation.
+
+\section{Formules multiples}
+\label{sec:IEEEeqnarray}
+\index{equation@équation!multiple}
+
+Dans le cas le plus général, considérons une suite d'égalités qui ne tiennent
+pas en entier sur une ligne. Il s'agit d'ajuster l'alignement vertical de
+façon à obtenir une structure lisible et agréable à l'\oe il pour l'ensemble.
+
+Avant les conseils pour obtenir ce résultat, commençons par quelques mauvais
+exemples qui montrent les principaux inconvénients de certaines solutions
+courantes.
+
+\subsection{Problèmes des commandes traditionnelles}
+\label{sec:problems_traditional}
+
+Pour grouper ensemble plusieurs équations, on peut aussi utiliser
+l'environnement \ei{align}\footnote{L'environnement \texttt{align} peut aussi
+  servir à placer plusieurs groupes d'équations côte à côte. Cependant, pour
+  cette usage plutôt rare, nous recommandons également d'utiliser
+  l'environnement \ei{IEEEeqnarray} avec un argument comme, par exemple
+  \texttt{\{rCl+rCl\}}.} comme ceci :
+\begin{example}
+ \begin{align}
+  a & = b + c \\
+  & = d + e
+ \end{align}
+\end{example}
+
+Cependant, cette approche pose problème dès qu'un ligne est trop longue.
 \begin{example}
 \begin{align}
-f(x) &= 3x^5 + x^4 + 2x^3 
-                \nonumber \\
-     &\qquad + 9x^2 + 12x + 23 \\
-     &= g(x) - h(x)
+  a & = b + c \\
+  & = d + e + f + g + h + i 
+  + j + k + l \nonumber \\
+  & + m + n + o \\
+  & = p + q + r + s
 \end{align}
 \end{example}
-L'extension \pai{amsmath} propose d'autres environnements utiles :
-\verb|flalign|, \verb|gather|, \verb|multline| et
-\verb|split|. Consultez la documentation de l'extension pour en savoir
-plus.
+\noindent
+Ici, on voudrait que $+\: m$ soit placé exactement sous le $d$ et non sous le
+signe d'égalité. Bioen sûr, il est possible d'ajouter un peu d'espace avec,
+par exemple \verb+\hspace{...}+, mais il est difficile d'obtenir un alignement
+précis ainsi (et ce n'est pas un très bon style de programmation).
+
+L'environnement \ei{eqnarray} offre à première vue une meilleure solution.
+\begin{example}
+\begin{eqnarray}
+  a & = & b + c \\
+  & = & d + e + f + g + h + i 
+  + j + k + l \nonumber \\
+  && +\: m + n + o \\
+  & = & p + q + r + s
+\end{eqnarray}
+\end{example}
+
+Malheureusement, l'environnement \ei{eqnarray} souffre de quelques défauts
+très sérieux.
+\begin{itemize}
+  \item Les espaces autour du signe d'égalité sont trop grands. En particulier,
+    ce ne sont pas les mêmes qu'avec les environnement \ei{multline} ou
+    \ei{equation}.
+\begin{example}
+\begin{eqnarray}
+  a & = & a = a
+\end{eqnarray}
+\end{example}
+
+\item La formule et le numéro d'équation peuvent se chevaucher, même quand il
+  y a suffisamment de place à gauche pour pousser la formule.
+\begin{example}
+\begin{eqnarray}
+  a & = & b + c 
+  \\
+  & = & d + e + f + g + h^2 
+  + i^2 + j 
+  \label{eq:eqnarrayfautif}
+\end{eqnarray}
+\end{example}
+
+\item L'environnement propse une commande \ci{lefteqn} qui peut être utilisée
+  quand le membre de gauche est trop long.
+\begin{example}
+\begin{eqnarray}
+  \lefteqn{a + b + c + d 
+    + e + f + g + h}\nonumber\\
+  & = & i + j + k + l + m 
+  \\
+  & = & n + o + p + q + r + s
+\end{eqnarray}
+\end{example}
+Malheureusement, cette commande aussi est défaillante : si le membre de droite
+est trop court, l'ensemble n'est pas centré correctement :
+\begin{example}
+\begin{eqnarray}
+  \lefteqn{a + b + c + d 
+    + e + f + g + h} 
+  \nonumber \\
+  & = & i + j 
+\end{eqnarray}
+\end{example}
+De plus, il est très difficile de modifier l'alignement vertical du signe
+d'égalité sur la deuxième ligne.
+\end{itemize}
+
+Heureusement, il y a un meilleur moyen\ldots
+
+\subsection{L'environnement IEEEeqnarray}
+\label{sec:IEEEeqnarray_intro}
+
+L'environnement \ei{IEEEeqnarray} est très puissant et offre beaucoup
+d'options. Nous n'en couvrirons ici que les fonctionnalités de base. Pour plus
+d'information, nous renvoyons à son manuel\footnote{Le manuel officiel
+  s'appelle \texttt{IEEEtran\_HOWTO.pdf} ; la partie sur \texttt{IEEEeqnarray}
+  se trouve dans l'appendice~F.}.
+
+Pour commencer, il faut charger l'extension\footnote{Qui se trouve sur le
+  CTAN.} \pai{IEEEtranstools} afin de pouvoir utiliser \ei{IEEEeqnarray}. Pour
+cela, ajoutez la ligne suivante à votre préambule.
+\small
+\begin{verbatim}
+\usepackage[retainorgcmds]{IEEEtrantools}
+\end{verbatim}
+\normalsize
+
+Ce qui fait la force d'\ei{IEEEeqnarray}, c'est la possibilité de spécifier le
+nombre de \emph{colonnes} dans le tableau d'équation. Le plus souvent, cette
+spécification sera \verb+{rcl}+, c'est-à-dire trois colonnes dont la première
+est alignée à droite, la deuxième centrée et avec un peu plus d'espace autour
+d'elle (c'est le sens du \texttt{C} majuscule au lieu de \texttt{c}
+minuscule), et la troisième alignée à gauche.
+\begin{example}
+\begin{IEEEeqnarray}{rCl}
+  a & = & b + c 
+  \\
+  & = & d + e + f + g + h 
+  + i + j + k \nonumber\\
+  && +\: l + m + n + o 
+  \\
+  & = & p + q + r + s
+\end{IEEEeqnarray}
+\end{example}
+
+%MPG: fixed typo \texttt -> \verb
+En fait, on peut spécifier n'importe quel nombre de colonnes. Par exemple,
+\verb+{c}+ donnera une seule colonne dans laquelle toutes les lignes seront
+centrées, ou bien \verb+{rCll}+ donnera une quatrième colonne aligné à gauche,
+par exemple pour des commentaires. Mieux, en plus de \texttt{l}, \texttt{c},
+\texttt{r}, \texttt{L}, \texttt{C}, \texttt{R} pour les entrées en mode math,
+on dispose aussi de \texttt{s}, \texttt{t}, \texttt{u} pour des colonnes en
+mode texte, respectivement alignées à gauche, centrées ou alignées à droite.
+Par ailleurs, on peut ajouter de l'espace entre deux colonnes
+avec\footnote{Pour plus de types d'espacement, nous renvoyons à la
+  section~\ref{sec:putting-qed-right} et au manuel officiel.} \og \texttt{.}
+\fg, \og \texttt{/} \fg et \og \texttt{\string?} \fg en ordre croissant.
+
+Remarquons que les espaces autour du signe d'égalité sont corrects,
+contrairement au cas d'\texttt{eqnarray} !
+
+\subsection{Usages courants}
+\label{sec:common-usage}
+
+Nous décrivons ici comment utiliser \texttt{IEEEeqnarray} pour résoudre les
+problèmes les plus courants.
+\begin{itemize}
+  \item Si une ligne est le numéro d'équation se superposent comme dans
+  \eqref{eq:eqnarrayfautif}, la commande
+\small
+\begin{verbatim}
+\IEEEeqnarraynumspace
+\end{verbatim} 
+\normalsize
+permet de résoudre le problème : il suffit de l'ajouter à la fin de la ligne
+en question, et l'ensemble de la formule est décalée vers la gauche de la
+longueur nécessaire (le décalage dépend de la taille du numéro d'équation).
+Par exemple, partant de :
+\begin{example}
+\begin{IEEEeqnarray}{rCl}
+  a & = & b + c 
+  \\
+  & = & d + e + f + g + h 
+  + i + j + k 
+  \\
+  & = & l + m + n
+\end{IEEEeqnarray}
+\end{example}
+on obtient :
+\begin{example}
+\begin{IEEEeqnarray}{rCl}
+  a & = & b + c 
+  \\
+  & = & d + e + f + g + h 
+  + i + j + k 
+  \IEEEeqnarraynumspace\\
+  & = & l + m + n.
+\end{IEEEeqnarray}
+\end{example}
+
+\item Si le membre de gauche est trop long, \texttt{IEEEeqnarray} propose la
+  commande \ci{IEEEeqnarraymulticol}, qui fonctionne dans tous les cas, comme
+  remplacement de \ci{lefteqn}.
+\begin{example}
+\begin{IEEEeqnarray}{rCl}
+  \IEEEeqnarraymulticol{3}{l}{
+    a + b + c + d + e + f 
+    + g + h
+  }\nonumber\\ \quad
+  & = & i + j 
+  \\
+  & = & k + l + m
+\end{IEEEeqnarray}
+\end{example}
+Son usage est identique à celui de la commande \ci{multicolumns} dans
+l'environnement \texttt{taular} : le premier argument \verb+3+ dit qu'il faut
+combiner trois colonnes pour n'en former qu'une, et le deuxième argument
+\verb+l+ dit que son contenu sera aligné à gauche.
+
+Remarquons qu'en remplaçant \ci{quad} dans l'exemple précédent par autre
+chose, on peut facilement adapter l'alignement vertical\footnote{Nous pensons
+  qu'un cadratin est la distance qui rend le mieux dans la plupart des cas.}
+du signe égal, par exemple :
+\begin{example}
+\begin{IEEEeqnarray}{rCl}
+  \IEEEeqnarraymulticol{3}{l}{
+    a + b + c + d + e + f 
+    + g + h
+  }\nonumber\\ \qquad\qquad
+  & = & i + j
+  \\
+  & = & k + l + m
+\end{IEEEeqnarray}
+\end{example}
+
+\item Si une formule est découpée en deux ou plusieurs lignes, \LaTeX{} croit
+  que le signe $+$ ou $-$ au début d'une ligne est un opérateur unaire (comme
+  dans $-2$) et non binaire (comme dans $2 - 2$). C'est pourquoi il faut
+  ajouter un peu d'espace \ci{:} entre ce signe et le terme qui suit. Par
+  exemple, au lieu de
+\begin{example}
+\begin{IEEEeqnarray}{rCl}
+  a & = & b + c 
+  \\
+  & = & d + e + f + g + h 
+  + i + j + k \nonumber\\
+  && + l + m + n + o 
+  \\
+  & = & p + q + r + s
+\end{IEEEeqnarray}
+\end{example}
+il vaut mieux écrire
+\begin{example}
+\begin{IEEEeqnarray}{rCl}
+  a & = & b + c 
+  \\
+  & = & d + e + f + g + h 
+  + i + j + k \nonumber\\
+  && +\: l + m + n + o 
+  \\
+  & = & p + q + r + s
+\end{IEEEeqnarray}
+\end{example}
+(Observer l'espace entre $+$ et $l$ dans les deux cas.)
+
+\textbf{Attention}, \LaTeX{} n'est pas complètement stupide : dans certainnes
+situations, comme par exemple devant
+  \begin{itemize}
+    \item un nom d'opérateur comme \ci{log}, \ci{sin}, \ci{det},
+    \ci{max}, etc. ;
+  \item une intégrale \ci{int} ou une somme sum \ci{sum} ;
+  \item une parenthèse dont la taille s'adapte en utilisant \ci{left} ou
+    \ci{right} (par opposition à une parenthèse simple, ou dont la taille est
+    fixée avec par exemple \ci{big}) ;
+  \end{itemize}
+  un signe $+$ ou $-$ ne peut pas être unaire et doit être un opérateur
+  binaire. Dans ces cas, \LaTeX{} ajuste correctement l'espace après le signe,
+  et il ne faut pas en rajouter.
+  \begin{itemize}
+  \item[$\rhd$] \itshape
+    À chaque fois que vous coupez une ligne, regardez rapidement le résultat
+    et vérifiez si l'espacement est correct !
+  \end{itemize}
+
+\item Pour supprimer la numérotation sur une ligne particulière, on dispose de
+  la commande \ci{nonumber} (ou bien \ci{IEEEnonumber}). Si un label
+  \verb+\label{...}+ est défini sur cette ligne, il est alors transmis à la
+  prochaine ligne dont la numérotation n'est pas supprimée. Ceci dit, il est
+  recommandé de plutôt placer les labels juste avant le \verb+\\+ à la fin de
+  la ligne concernée. En plus d'améliorer la lisibilité du code source, ceci
+  évite des erreurs de compilation dans le cas où une commande
+  \ci{IEEEmulticol} se trouverai après la définition du label.
+
+\item Il existe également une version étoilée de l'environnement, qui supprime
+  totalement la numérotation. Dans ce cas, on peut ajouter un numéro
+  d'équation sur une ligne particulière avec la commande \ci{IEEEyesnumber}.
+\begin{example}
+\begin{IEEEeqnarray*}{rCl}
+  a & = & b + c \\
+  & = & d + e \IEEEyesnumber\\
+  & = & f + g
+\end{IEEEeqnarray*}
+\end{example}
+
+\item On peut également obtenir des numéros de sous-équation avec
+  \ci{IEEEyessubnumber}.
+\begin{example}
+\begin{IEEEeqnarray}{rCl}
+  a & = & b + c
+  \IEEEyessubnumber\\
+  & = & d + e
+  \nonumber\\
+  & = & f + g
+  \IEEEyessubnumber
+\end{IEEEeqnarray}
+\end{example}
+  
+\end{itemize}
 
 \subsection{Tableaux et matrices}
 \label{sec:arraymat}
 
-Pour imprimer des \textbf{matrices}, utilisez l'environnement
+Pour composer des \textbf{tableaux} mathématiques, utilisez l'environnement
 \ei{array}. Il fonctionne de manière similaire à l'environnement
 \texttt{tabular}. La commande \verb|\\| est utilisée pour séparer les
 lignes :
 \begin{example}
-\begin{equation*}
- \mathbf{X} = \left( 
-  \begin{array}{ccc}
-   x_1 & x_2 & \ldots \\
-   x_3 & x_4 & \ldots \\
-   \vdots & \vdots & \ddots
-  \end{array} \right)
-\end{equation*}
+  \begin{equation*}
+    \mathbf{X} = \left( 
+      \begin{array}{ccc}
+        x_1 & x_2 & \ldots \\
+        x_3 & x_4 & \ldots \\
+        \vdots & \vdots & \ddots
+      \end{array} \right)
+  \end{equation*}
 \end{example}
 
 L'environnement \ei{array} peut également être utilisé pour imprimer
 des fonctions\index{fonctions!définies par morceaux} définies par morceaux en
-utilisant \og \verb|.| \fg{} comme délimiteur (invisible) de droite :%
-\footnote{Si vous avez de nombreuses constructions de ce genre,
-  essayer l'environnement \ei{cases} d'\textsf{amsmath} peut en valoir
-  la peine, puisqu'il simplifie ce type de syntaxe.}
+utilisant \og \verb|.| \fg{} comme délimiteur (invisible) de droite :
 \begin{example}
 \begin{equation*}
-|x| = \left\{
- \begin{array}{rl}
-  -x & \text{si } x < 0\\
-   0 & \text{si } x = 0\\
-   x & \text{si } x > 0
- \end{array} \right.
+  |x| = \left\{
+    \begin{array}{rl}
+      -x & \text{si } x < 0,\\
+      0 & \text{si } x = 0,\\
+      x & \text{si } x > 0.
+    \end{array} \right.
+\end{equation*}
+\end{example}
+Cependant, l'environnement \ei{cases} d'\package{amsmath} offre une syntaxe
+plus simple.
+\begin{example}
+  \begin{equation*}
+    |x| = 
+    \begin{cases}
+      -x & \text{si } x < 0,\\
+      0 & \text{si } x = 0,\\
+      x & \text{si } x > 0.
+    \end{cases} 
 \end{equation*}
 \end{example}
 
-
-\ei{array} peut aussi servir à mettre en page des
+L'environnement \ei{array} peut aussi servir à mettre en page des
 matrices\index{matrice}, mais \pai{amsmath} fournit une meilleure
 solution via les environnements \ei{matrix}. Il y en a six versions
 (avec des délimiteurs différents) : \ei{matrix} (aucun), \ei{pmatrix}
@@ -594,15 +957,20 @@ est modifiable (bien que ce ne soit pas fréquent d'avoir besoin de 10
 colonnes ou plus !) :
 \begin{example}
 \begin{equation*}
- \begin{matrix} 
-   1 & 2 \\
-   3 & 4 
- \end{matrix} \qquad
- \begin{bmatrix} 
-   1 & 2 & 3 \\
-   4 & 5 & 6 \\ 
-   7 & 8 & 9
- \end{bmatrix}
+  \begin{matrix} 
+    1 & 2 \\
+    3 & 4 
+  \end{matrix} \qquad
+  \begin{bmatrix} 
+    p_{11} & p_{12} & \ldots 
+    & p_{1n} \\
+    p_{21} & p_{22} & \ldots 
+    & p_{2n} \\
+    \vdots & \vdots & \ddots 
+    & \vdots \\
+    p_{m1} & p_{m2} & \ldots 
+    & p_{mn} 
+  \end{bmatrix}
 \end{equation*}
 \end{example}
 
@@ -662,11 +1030,13 @@ réaliser cet ajustement : \ci{iint}, \ci{iiint},
 \begin{example}
 \newcommand{\ud}{\,\mathrm{d}}
 
-\[ \int\int f(x)g(y) 
-                  \ud x \ud y \]
-\[ \int\!\!\!\int 
-         f(x)g(y) \ud x \ud y \]
-\[ \iint f(x)g(y) \ud x \ud y \]
+\begin{IEEEeqnarray*}{c}
+  \int\int f(x)g(y) 
+                  \ud x \ud y \\
+  \int\!\!\!\int 
+         f(x)g(y) \ud x \ud y \\
+  \iint f(x)g(y)  \ud x \ud y 
+\end{IEEEeqnarray*}
 \end{example}
 
 Reportez-vous au document \texttt{testmath.tex} distribué avec
@@ -720,14 +1090,14 @@ en-ligne \fg à
 moins d'indiquer à \LaTeX{} le contraire :
 \begin{example}
 \begin{equation*}
- R = \frac{\displaystyle{ 
-   \sum_{i=1}^n (x_i-\bar{x})
-   (y_i- \bar{y})}} 
+ P = \frac{\displaystyle{
+   \sum_{i=1}^n (x_i-x)
+   (y_i-y)}}
    {\displaystyle{\left[
-   \sum_{i=1}^n(x_i-\bar{x})^2
-   \sum_{i=1}^n(y_i-\bar{y})^2
+   \sum_{i=1}^n(x_i-x)^2
+   \sum_{i=1}^n(y_i-y)^2
    \right]^{1/2}}}
-\end{equation*}    
+\end{equation*}
 \end{example}
 
 Changer de style modifie également la façon dont les limites et les
@@ -849,13 +1219,22 @@ Les environnements \og Murphy \fg{} sont numérotés à l'intérieur de la section
 en cours. On aurait pu utiliser un autre niveau tel que \texttt{chapter}
 ou \texttt{subsection}. 
 
+Si vous voulez personnaliser vos théorèmes au point près, l'extension
+\pai{ntheorem} vous offrira la pléthore d'options dont vous avez
+besoin.
+
+\subsection{Preuves et symbole de fin de preuve}
+\label{sec:putting-qed-right}
+
 L'extension \pai{amsthm} fournit aussi l'environnement de preuve
 \ei{proof}.
 
 \begin{example}
 \begin{proof}
  Trivial, utilisez
-\[E=mc^2\]
+ \begin{equation*}
+   E=mc^2.
+ \end{equation*}
 \end{proof}
 \end{example}
 
@@ -865,18 +1244,106 @@ preuve (CQFD) pour les cas où il finirait seul sur une ligne.
 \begin{example}
 \begin{proof}
  Trivial, utilisez
-\[E=mc^2 \qedhere\]
+ \begin{equation*}
+   E=mc^2. \qedhere
+ \end{equation*}
 \end{proof}
 \end{example}
 
-Si vous voulez personnaliser vos théorèmes au point près, l'extension
-\pai{ntheorem} vous offrira la pléthore d'options dont vous avez
-besoin.
+Malheureusement, cette correction ne fonctionne pas pour \ei{IEEEeqnarray}.
+\begin{example}
+\begin{proof}
+  Voici une preuve qui termine
+  par un alignement d'équations.
+  \begin{IEEEeqnarray*}{rCl}
+    a & = & b + c \\
+    & = & d + e. \qedhere
+  \end{IEEEeqnarray*}
+\end{proof}
+\end{example}
+\noindent
+La raison provient de la structure interne d'\ei{IEEEeqnarray}, qui place
+systématiquement une colonnes invisible de chaque côté de l'équation, qui
+contiennent seulement des espaces étirables, de façon à ce que le tableau
+d'équations soit correctement centré. Il faudrait en fait placer le
+\ci{qedhere} à l'extérieur de cet espace étirable, mais ce n'est pas possible
+car ces colonnes sont invisibles pour l'utilisateur.
 
+Heureusement, il y a une solution simple : définir nous-même ces colonnes
+étirables !
+\begin{example}
+\begin{proof}
+  Voici une preuve qui termine
+  par un alignement d'équations.
+  \begin{IEEEeqnarray*}{+rCl+x*}
+    a & = & b + c \\
+    & = & d + e. & \qedhere
+  \end{IEEEeqnarray*}
+\end{proof}
+\end{example}
+\noindent
+Ici, le \verb=+= dans \verb={+rCl+x*}= indique un espace étirable : un à
+gauche de l'équation qui, s'il n'était pas présent, serait ajouté
+automatiquement par \texttt{IEEEeqnarray}, et un à droite de l'équation. Mais
+cette fois à droite, \emph{après} cette colonne étirable, nous ajoutons une
+colonne vide \verb+x+, qui ne sera utilisée que sur la dernière ligne, pour
+placer la commande \ci{qedhere}. Enfin, nous ajoutons un \verb+*+ : c'est un
+espace sans épaisseur, qui empêche \texttt{IEEEeqnarray} d'ajouter un autre
+espace \verb=+= dont on ne veut pas ici.
+
+Dans le cas d'équations numérotées, nous avons un problème similaire.
+Comparons
+\begin{example}
+\begin{proof}
+  Voici une preuve qui termine
+  par une équation numérotée.
+  \begin{equation}
+    a = b + c.
+  \end{equation}
+\end{proof}
+\end{example}
+\noindent
+avec
+\begin{example}
+\begin{proof}
+  Voici une preuve qui termine
+  par une équation numérotée.
+  \begin{equation}
+    a = b + c. \qedhere
+  \end{equation}
+\end{proof}
+\end{example}
+\noindent
+Vous remarquerez que dans la deuxième version, qui est correcte, le symbole
+$\Box$ est bien plus proche de l'équation que dans le première.
+
+De façon analogue, la bonne manière de placer le symbole de fin de preuve à la
+fin d'un alignements d'équations est la suivante.
+\begin{example}
+\begin{proof}
+  Voici une preuve qui termine
+  par un alignement d'équations.
+  \begin{IEEEeqnarray}{+rCl+x*}
+    a & = & b + c \\
+    & = & d + e. \\
+    &&& \qedhere\nonumber
+  \end{IEEEeqnarray}
+\end{proof}
+\end{example}
+\noindent
+par opposition à
+\begin{example}
+\begin{proof}
+  Voici une preuve qui termine
+  par un alignement d'équations.
+  \begin{IEEEeqnarray}{rCl}
+    a & = & b + c \\
+    & = & d + e.
+  \end{IEEEeqnarray}
+\end{proof}
+\end{example}
 
 \endinput
-
-%
 
 % Local Variables:
 % TeX-master: "lshort"
