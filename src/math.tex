@@ -1,6 +1,31 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Math typesetting with LaTeX
-% $Id: math.tex 169 2008-09-24 07:32:13Z oetiker $
+% $Id: math.tex 182 2008-11-04 09:43:36Z oetiker $
+%
+% Changes by Stefan M. Moser: 2008/10/22
+%
+% -Section 2: "Single Equations": added comment about preference of
+%  equation* over \[
+% -Replaced (almost) all examples with \[ by equation*
+% -New section 4: "Single Equations that are Too Long: multline"
+% -New section 5: "Multiple Equations"
+% -Section 6: "Arrays and Matrices": made a full section and added
+%  some material
+% -Section 9: "Theorems, Lemmas, ...": added a subsection about proofs
+%  with new material
+%
+% Other Changes:
+% -in lshort.sty: 
+%    *example environment adapted: changed in three places
+%     \textwidth by \linewidth. This is necessary for
+%     example-environment within a itemize-list.
+%    *added \RequirePackage[retainorgcmds]{IEEEtrantools}
+%
+% THINGS TO DO:
+% -adapt typesetting of new sections to rest of lshort, including all
+%  the usual commands used so far. In particular, I guess we have to
+%  get rid of the \verb-commands everywhere
+% -include index-commands
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -119,7 +144,7 @@ ou de façon plus condensée :
 Cependant, si vous avez beaucoup d'équations dans votre document, le source
 \LaTeX{} risque de devenir moins lisible si vous utilisez \ci{[\iffalse]\fi}
 et \ci{\iffalse[\fi]}. Aussi\footnote{En fait, \ci{[\iffalse]\fi} et
-  \ci{\iffalse[\fi]} peuvent être parfaitement lisibles si vous prenez la pein
+  \ci{\iffalse[\fi]} peuvent être parfaitement lisibles si vous prenez la peine
   de les laisser seuls sur une ligne. Un autre avantage d'\ei{equation*} est
   qu'il est facile d'activer la numérotation : il suffit d'enlever les
   étoiles.} nous recommandons d'utiliser plutôt \ei{equation} et
@@ -512,9 +537,14 @@ $\big( \Big( \bigg( \Bigg( \quad
 Pour une liste de tous les délimiteurs disponibles, reportez-vous au
 tableau~\ref{tab:delimiters}, page~\pageref{tab:delimiters}.
 
+
 \section{Formules trop longues : \ei{multline}}
 \label{sec:multline}
 \index{equation@équation!trop longue}
+
+%SC: I also liked the points raised in "How to write a long formula"
+%by Leslie Lamport, although I suspect it applies better to logic than
+%other fields of mathematics.
 
 Si une équation est trop longue, il faut trouver un moyen de la répartir sur
 plusieurs lignes. Malheureusement, l'équation a alors tendance à devenir moins
@@ -546,8 +576,8 @@ d'insérer un saut de ligne où l'on veut (voire plusieurs), en utilisant
 \verb+\\+ là où l'équation doit être coupée. Comme pour \ei{equation*}, il
 existe un environnement \ei{multline*} qui supprime la numérotation.
 
-Bien que ce soit la solution la plus facile, on peut souvent obtenir un
-meilleur résultat avec l'environnement \ei{IEEEeqnarray} (voir
+Bien que ce soit la solution la plus facile, le résultat peut souvent
+être meilleur avec l'environnement \ei{IEEEeqnarray} (voir
 section~\ref{sec:IEEEeqnarray}). Par exemple, considérons la situation
 suivante.
 \begin{example}
@@ -586,6 +616,7 @@ Dans ce cas, la deuxième ligne est alignée verticalement par rapport à la
 première : le $+$ devant $k$ est exactement en dessous de $b$, et le membre de
 droite se distingue clairement du membre de gauche de l'équation.
 
+
 \section{Formules multiples}
 \label{sec:IEEEeqnarray}
 \index{equation@équation!multiple}
@@ -601,7 +632,7 @@ courantes.
 \subsection{Problèmes des commandes traditionnelles}
 \label{sec:problems_traditional}
 
-Pour grouper ensemble plusieurs équations, on peut aussi utiliser
+Pour grouper ensemble plusieurs équations, on peut utiliser
 l'environnement \ei{align}\footnote{L'environnement \texttt{align} peut aussi
   servir à placer plusieurs groupes d'équations côte à côte. Cependant, pour
   cette usage plutôt rare, nous recommandons également d'utiliser
@@ -614,7 +645,7 @@ l'environnement \ei{align}\footnote{L'environnement \texttt{align} peut aussi
  \end{align}
 \end{example}
 
-Cependant, cette approche pose problème dès qu'un ligne est trop longue.
+Cependant, cette approche pose problème dès qu'une ligne est trop longue.
 \begin{example}
 \begin{align}
   a & = b + c \\
@@ -645,7 +676,7 @@ Malheureusement, l'environnement \ei{eqnarray} souffre de quelques défauts
 très sérieux.
 \begin{itemize}
   \item Les espaces autour du signe d'égalité sont trop grands. En particulier,
-    ce ne sont pas les mêmes qu'avec les environnement \ei{multline} ou
+    ce ne sont pas les mêmes qu'avec les environnements \ei{multline} ou
     \ei{equation}.
 \begin{example}
 \begin{eqnarray}
@@ -712,7 +743,7 @@ cela, ajoutez la ligne suivante à votre préambule.
 
 Ce qui fait la force d'\ei{IEEEeqnarray}, c'est la possibilité de spécifier le
 nombre de \emph{colonnes} dans le tableau d'équation. Le plus souvent, cette
-spécification sera \verb+{rcl}+, c'est-à-dire trois colonnes dont la première
+spécification sera \verb+{rCl}+, c'est-à-dire trois colonnes dont la première
 est alignée à droite, la deuxième centrée et avec un peu plus d'espace autour
 d'elle (c'est le sens du \texttt{C} majuscule au lieu de \texttt{c}
 minuscule), et la troisième alignée à gauche.
@@ -731,9 +762,9 @@ minuscule), et la troisième alignée à gauche.
 %MPG: fixed typo \texttt -> \verb
 En fait, on peut choisir n'importe quel nombre de colonnes. Par exemple,
 \verb+{c}+ donnera une seule colonne dans laquelle toutes les lignes seront
-centrées, ou bien \verb+{rCll}+ donnera une quatrième colonne aligné à gauche,
+centrées, ou bien \verb+{rCll}+ donnera une quatrième colonne alignée à gauche,
 par exemple pour des commentaires. Mieux, en plus de \texttt{l}, \texttt{c},
-\texttt{r}, \texttt{L}, \texttt{C}, \texttt{R} pour les entrées en mode math,
+\texttt{r}, \texttt{L}, \texttt{C}, \texttt{R} pour les entrées en mode mathématique,
 on dispose aussi de \texttt{s}, \texttt{t}, \texttt{u} pour des colonnes en
 mode texte, respectivement alignées à gauche, centrées ou alignées à droite.
 Par ailleurs, on peut ajouter de l'espace entre deux colonnes
@@ -798,7 +829,7 @@ on obtient :
 \end{IEEEeqnarray}
 \end{example}
 Son usage est identique à celui de la commande \ci{multicolumns} dans
-l'environnement \texttt{taular} : le premier argument \verb+3+ dit qu'il faut
+l'environnement \texttt{tabular} : le premier argument \verb+3+ dit qu'il faut
 combiner trois colonnes pour n'en former qu'une, et le deuxième argument
 \verb+l+ dit que son contenu sera aligné à gauche.
 
@@ -853,7 +884,7 @@ situations, comme par exemple devant
   \begin{itemize}
     \item un nom d'opérateur comme \ci{log}, \ci{sin}, \ci{det},
     \ci{max}, etc. ;
-  \item une intégrale \ci{int} ou une somme sum \ci{sum} ;
+  \item une intégrale \ci{int} ou une somme \ci{sum} ;
   \item une parenthèse dont la taille s'adapte en utilisant \ci{left} ou
     \ci{right} (par opposition à une parenthèse simple, ou dont la taille est
     fixée avec par exemple \ci{big}) ;
@@ -872,7 +903,8 @@ situations, comme par exemple devant
   \verb+\label{...}+ est défini sur cette ligne, il est alors transmis à la
   prochaine ligne dont la numérotation n'est pas supprimée. Ceci dit, il est
   recommandé de plutôt placer les labels juste avant le \verb+\\+ à la fin de
-  la ligne concernée. En plus d'améliorer la lisibilité du code source, ceci
+  la ligne concernée ou avant la fin de la formule. En plus
+  d'améliorer la lisibilité du code source, ceci
   évite des erreurs de compilation dans le cas où une commande
   \ci{IEEEmulticol} se trouverai après la définition du label.
 
@@ -1005,8 +1037,9 @@ que dans l'exemple suivant, \og d \fg{} est imprimée en police romaine :
 
 \begin{example}
 \begin{equation*}
- \int_1^2 \ln x \mathrm{d}x \qquad
- \int_1^2 \ln x \,\mathrm{d}x
+  \int_1^2 \ln x \mathrm{d}x
+  \qquad
+  \int_1^2 \ln x \,\mathrm{d}x
 \end{equation*}
 \end{example}
 
@@ -1271,7 +1304,7 @@ Malheureusement, cette correction ne fonctionne pas avec l'environnement
 \end{example}
 \noindent
 La raison provient de la structure interne d'\ei{IEEEeqnarray}, qui place
-systématiquement une colonnes invisible de chaque côté de l'équation, qui
+systématiquement une colonne invisible de chaque côté de l'équation, qui
 contiennent seulement des espaces étirables, de façon à ce que le tableau
 d'équations soit correctement centré. Il faudrait en fait placer le
 \ci{qedhere} à l'extérieur de cet espace étirable, mais ce n'est pas possible
@@ -1297,7 +1330,7 @@ cette fois à droite, \emph{après} cette colonne étirable, nous ajoutons une
 colonne vide \verb+x+, qui ne sera utilisée que sur la dernière ligne, pour
 placer la commande \ci{qedhere}. Enfin, nous ajoutons un \verb+*+ : c'est un
 espace sans épaisseur, qui empêche \texttt{IEEEeqnarray} d'ajouter un autre
-espace \verb=+= dont on ne veut pas ici.
+espace \verb=+= indésirable.
 
 Dans le cas d'équations numérotées, nous avons un problème similaire.
 Comparons
@@ -1323,7 +1356,7 @@ avec
 \end{example}
 \noindent
 Vous remarquerez que dans la deuxième version, qui est correcte, le symbole
-$\Box$ est bien plus proche de l'équation que dans le première.
+$\Box$ est bien plus proche de l'équation que dans la première.
 
 De façon analogue, la bonne manière de placer le symbole de fin de preuve à la
 fin d'un alignements d'équations est la suivante.
