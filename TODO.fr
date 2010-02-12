@@ -1,6 +1,3 @@
-- Ajouter Matthieu Herrb en page de titre ? Du genre:
-  Matthieu Herrb (jusqu'à la version 3.20)
-
 - Remarque de François Pétiard sur fctt:
 > Une remarque : certaines césures sont bizarres :
 >
