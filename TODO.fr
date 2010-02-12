@@ -1,6 +1,15 @@
 - Ajouter Matthieu Herrb en page de titre ? Du genre:
   Matthieu Herrb (jusqu'à la version 3.20)
 
+- Remarque de François Pétiard sur fctt:
+> Une remarque : certaines césures sont bizarres :
+>
+> page v (1re ligne) : suiv-antes
+> page 18 (12e ligne à partir du bas) : doc-uments
+> page 19 (14e ligne à partir du haut) : ti-ennent
+> ...
+>
+
 # divers, pas urgent
 
 - overfull HVboxes avec un gros exemple de picture, mais pas visible
