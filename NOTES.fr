@@ -1,3 +1,14 @@
+                  Notes concernant version française de lshort
+                               Voir aussi TODO.fr
+
+
+Pour l'instant, il y a surtout des transcriptions de vieux fichiers de notes. Un
+de ces 4, on pourrait organiser une partie de ces notes, soit dans le TODO, soit
+ici.
+
+
+################################################################################
+
 # Transcript of README.branch=old-fr-mpg (with some answers)
 
 What is there in this branch ?
@@ -214,4 +225,3 @@ upstream.
   \index{notitlepage@\texttt{notitlepage}}
   et autres commandes d'indexation
   (cf \label{options})
-

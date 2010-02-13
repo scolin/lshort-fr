@@ -1,3 +1,7 @@
+               Trucs à faire pour la version française de lshort
+                              Voir aussi NOTES.fr
+
+
 - Remarque de François Pétiard sur fctt:
 > Une remarque : certaines césures sont bizarres :
 >
@@ -7,7 +11,7 @@
 > ...
 >
 Sauf que ça marche bien chez moi (mpg). Vérifier si les motifs de césure
-corrects son bien installés sur la machine où est compilée la bête...
+corrects sont bien installés sur la machine où est compilée la bête...
 
 - overfull HVboxes avec un gros exemple de picture, mais pas visible
 
