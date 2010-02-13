@@ -13,6 +13,8 @@
 Sauf que ça marche bien chez moi (mpg). Vérifier si les motifs de césure
 corrects sont bien installés sur la machine où est compilée la bête...
 
+- Problème d'encodage dans fixdate.pl
+
 - overfull HVboxes avec un gros exemple de picture, mais pas visible
 
 - composer la bibliographie à la française (encore que, les notes de Matthieu
