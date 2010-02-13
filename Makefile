@@ -97,3 +97,15 @@ README.ctan.fr: Makefile
 	sed -e 's/(version .*)/(version $(VERS))/' \
 		-e 's/$(NAME)-.*\.tgz/$(NAME)-$(VERS).tgz/' \
 		-i $@
+
+ctan: tar $(NAME).pdf README.ctan.fr
+	mkdir $(NAME)
+	cd $(NAME) \
+		&& ln -s ../$(NAME)-$(VERS).src.tar.gz $(NAME)-$(VERS).tgz \
+		&& ln -s ../README.ctan.fr README \
+		&& ln -s ../$(NAME).pdf
+	zip -r $(NAME).zip $(NAME)
+	rm -rf $(NAME)
+
+mrproper: clean
+	rm -f -- $(NAME)[.-]* $(NAME).zip $(NAME)-$(VERS).src.tar.gz
