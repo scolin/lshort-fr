@@ -91,3 +91,9 @@ dist:	all tar
 
 clean:
 	rm -rf texbuild pdfbuild
+
+# additions for the French version (mpg)
+README.ctan.fr: Makefile
+	sed -e 's/(version .*)/(version $(VERS))/' \
+		-e 's/$(NAME)-.*\.tgz/$(NAME)-$(VERS).tgz/' \
+		-i $@
