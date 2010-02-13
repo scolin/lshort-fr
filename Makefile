@@ -98,11 +98,12 @@ README.ctan.fr: Makefile
 		-e 's/$(NAME)-.*\.tgz/$(NAME)-$(VERS).tgz/' \
 		-i $@
 
-ctan: tar $(NAME).pdf README.ctan.fr
+ctan: tar $(NAME).pdf README.ctan.fr CHANGES.fr
 	mkdir $(NAME)
 	cd $(NAME) \
 		&& ln -s ../$(NAME)-$(VERS).src.tar.gz $(NAME)-$(VERS).tgz \
 		&& ln -s ../README.ctan.fr README \
+		&& ln -s ../CHANGES.fr historique \
 		&& ln -s ../$(NAME).pdf
 	zip -r $(NAME).zip $(NAME)
 	rm -rf $(NAME)

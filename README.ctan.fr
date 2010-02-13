@@ -5,6 +5,7 @@ This was done by Samuel Colin and Manuel Pégourié-Gonnard, upon the initial
 3.20 translation by Matthieu Herrb. See the sources for more details.
 
 README                  This README
+historique              Changelog for French versions (in French)
 lshort-fr.pdf           A PDF version, produced by pdflatex
 lshort-fr-4.27fr-2.tgz  The LaTeX 2e document sources
 
@@ -18,5 +19,6 @@ en se basant sur les traductions effectuées par Matthieu Herrb jusqu'à la
 version 3.20. Reportez-vous aux sources pour plus de détails.
 
 README                  Ce README
+historique              Historique des versions françaises
 lshort-fr.pdf           Une version PDF, produite par pdflatex
 lshort-fr-4.27fr-2.tgz  Les sources LaTeX2e du document
