@@ -1,9 +1,14 @@
 00README 
 CHANGES 
+CHANGES.fr
+GPL
 TODO
+TODO.fr
+NOTES.fr
 MANIFEST 
 Makefile 
 README 
+README.ctan.fr
 TRANSLATIONS 
 fixdate.pl 
 src/appendix.tex
@@ -14,6 +19,7 @@ src/fancyhea.sty
 src/graphic.tex
 src/lshort-a5.tex 
 src/lshort-base.tex 
+src/lshort-fr.sty
 src/lshort.ist
 src/lshort.sty 
 src/lshort.tex 
@@ -25,3 +31,5 @@ src/spec.tex
 src/things.tex 
 src/title.tex 
 src/typeset.tex 
+upgrade-script/create-mini-patches
+upgrade-script/README
