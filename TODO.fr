@@ -6,14 +6,13 @@
 > page 19 (14e ligne à partir du haut) : ti-ennent
 > ...
 >
-
-# divers, pas urgent
+Sauf que ça marche bien chez moi (mpg). Vérifier si les motifs de césure
+corrects son bien installés sur la machine où est compilée la bête...
 
 - overfull HVboxes avec un gros exemple de picture, mais pas visible
 
-- changer le Makefile pour avoir directement -fr comme nom ?
-
-- composer la bibliographie à la française.
+- composer la bibliographie à la française (encore que, les notes de Matthieu
+  semble indique qu'il s'est déjà rapproché de la norme AFNOR Z44-005...)
 
 - Placer le français en premier dans les langues supportées.
 
@@ -23,24 +22,11 @@ le bouquin de JCC et BC de la même manière ?
 
 - « en-tête » ou « entête » ? Choisir et uniformiser...
 
-From mpg's list:
+- Revoir (ou demander à Daniel de revoir) la partie sur frenchb, notamment pour
+  pendre en compte frenchb 2.x.
 
-# when doing a new part:
-- lscommand
-- code
-- \LaTeX{}, \TeX{}, \og \fg \fg{}
-- nbsp before [»:;?!] and after «
-- \verb|...|, \verb+...+
-- rm \thispagestyle after \chapter
-- rm useless comments
-- spell-check
-- vim's gq and =
-
-# todo at some point
-
-review the frenchb part
-
-review the \NdT before things and incl the 1st half of things
+- Revoir les diverses notes du traducteur pour éventuellement faire remonter les
+  remarques upstream.
 
 implement a version of ¡ detecting environments and use it in typeset.tex (and
 elsewhere)
