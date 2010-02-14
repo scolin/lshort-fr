@@ -15,12 +15,10 @@ corrects sont bien installés sur la machine où est compilée la bête...
 
 - Problème d'encodage dans fixdate.pl (+VO)
 
-- overfull HVboxes avec un gros exemple de picture, mais pas visible
-
 - composer la bibliographie à la française (encore que, les notes de Matthieu
   semble indique qu'il s'est déjà rapproché de la norme AFNOR Z44-005...)
 
-- Placer le français en premier dans les langues supportées.
+- Placer le français en premier dans les langues supportées ?
 
 - Moins de référence à Desgraupes, obsolète à mon goût, et moins utiles depuis
 que le LC est traduit. Pourquoi pas garder le garder en \nocite, et ajouter
@@ -31,11 +29,10 @@ le bouquin de JCC et BC de la même manière ?
 - Revoir (ou demander à Daniel de revoir) la partie sur frenchb, notamment pour
   pendre en compte frenchb 2.x.
 
-- Revoir les diverses notes du traducteur pour éventuellement faire remonter les
-  remarques upstream.
+- Revoir les diverses notes du traducteur : certaines sont à ajouter dans
+  NOTES.fr pour remonter upstream, d'autres sont normales.
 
 - S'assurer que toutes les références à des fichiers du CTAN sont faites via la
   macro (+VO)
 
-implement a version of ¡ detecting environments and use it in typeset.tex (and
-elsewhere)
+- remplacer \ldots{} par \dots (redéfini par frenchb)

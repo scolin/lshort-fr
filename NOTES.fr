@@ -2,53 +2,55 @@
                                Voir aussi TODO.fr
 
 
-Ce fichier regroupe des notes sur la VF trop diffuses pour être dans le TODO et
-des notes sur la VO, à transmettre à Tobi un de ces jours sous une forme à
-déterminer.
+Ce fichier regroupe des notes sur la VO (parfois concernant aussi la VF),
+à transmettre à Tobi un de ces jours sous une forme à déterminer (patch, liste
+par mail, modification dans la VF à backporter par lui, etc.) en fonction de la
+nature du truc.
 
-À la fin, il y asurtout des transcriptions de vieux fichiers de notes. Un de ces
-4, on pourrait organiser une partie de ces notes, soit dans le TODO, soit ici. 
+(Désolé pour l'horrible mixture de français et d'anglais -- mpg.)
 
-Notes sur la VO (contenu)
--------------------------
+Contenu (voire typo) de la VO
+-----------------------------
 
-- Ne pas faire référence aux .dtx et aux .tex (tab 1.3, biblio, notes).
+- (ajout) table des symboles de textcomp en annexe, comme c'est fait dans la
+  version allemande ?
 
-- ASCII \neq "plain text"
+- (ajout) quelque part : faire référence à detexify (par exemple près de
+  symbols-a4)
 
 - (long terme) présenter PDF d'abord comme format de sortie ?
 
 - (long terme) ne pas parler de ligne de commande au début ?
 
-- Est-il vraiment utile de mentionner syntonly ?
-
-- \includeonly: les espaces autour des virgules sont autorisés depuis 1988 :-)
-
-- tab. 1.3: comment sont choisis les paquets présentés ?
-
-- texdoc n'est plus spécifique à Unix depuis TL 2008. Mentionner mthelp pour
-  MikTeX ?
-
-- (ajout) table des symboles de textcomp en annexe, comme c'est fait dans la
-  version allemande ?
-
-- Est-ce que UCS est vraiment mieux qu'utf8.def ?
-
 - Les références au « Local guide » sont-elle utiles ? Peut-on trouver ce
   document sur les systèmes actuellement courants ?
 
-- Vérifier les usages de « most TeX installs ».
+- Vérifier les usages de « most TeX installs » : vague donc peu utile.
 
-- overview : *most* math symbols, not *all*.
+- Ne pas faire référence aux .dtx et aux .tex mais au .pdf (tab 1.3, biblio,
+  notes).
 
-- overview : faire référence à l'appendice pour l'installation plutôt que
-  CTAN/systems qui n'aide personne.
+- overview
+    - *most* math symbols, not *all*.
+    - faire référence à l'appendice pour l'installation plutôt que CTAN/systems
+      qui n'aide personne.
 
-- quelque part : faire référence à detexify (par exemple près de symbols-a4)
+- things.tex : (line numbers from 4.24)
+    - l. 202: add 'this file is refered to as the "source file", or simply
+      "source"'?
+    - l. 454: AFAIK, yap only works with MikTeX but you can also have TeX Live
+      on windows (which unfortunately doesn't come with a dvi viewer).
+    - l. 464: Actually dvipdf comes with GhostScript. Only (x)dvipdfm(x) come
+      with the TeX distro.
+    - ASCII \neq "plain text"
+    - Est-il vraiment utile de mentionner syntonly ?
+    - \includeonly: les espaces autour des virgules sont autorisés depuis 1988
+    - tab. 1.3: comment sont choisis les paquets présentés ?
+    - texdoc n'est plus spécifique à Unix depuis TL 2008. Mentionner mthelp pour
+      MikTeX ?
+    - Est-ce que UCS est vraiment mieux qu'utf8.def ?
 
-- dans les math : faire une référence à Mathmode.pdf ?
-
-- typeset.tex : 
+- typeset.tex : (line numbers from 4.24)
     - \textlowtilde de textcomp devrait être mentionné
     - (typo) eurosym : pas de \emph pour "official"
     - les encodages dépendent de l'éditeur et de son réglage, plus que de l'OS
@@ -60,13 +62,21 @@ Notes sur la VO (contenu)
     - AMSLATEX \neq AMS pacakges
     - tab 2.8 : utiliser les vrais caractères ?
     - \backmatter a un effet, voir classes.pdf
+    - l. 181: may be worth mentionning that the words in the list should be
+      separated by spaces (one could otherwise be tempted to try comas).
+    - l. 310: one could also mention siunitx in this context
+    - l. 326 etc: since the 2nd possibility is commented out, probably it would
+      be better to say one more choice?
+    - l. 397: are you sure that an \mbox is necessary? I think {} is enough.
+    - l. 523: here too, mention pdf rather than dtx. Also mention utf8ienc.pdf.
 
 - math.tex :
     - p. 53, exemple : \Longleftrightarrow n'est pas '=' (le matheux parle)
     - 3.5 : \quad n'est qu'approximativement la largeur de M
     - \newtheorem : les arguments optionels sont mutuellement exclusifs, le dire
+    - mentionner Mathmode.pdf quelque part ?
 
-- spec.tex : 
+- spec.tex :
     - formulation bizarre de l'intro
     - 4.1 être plus neutre sur les formats graphiques et parler plus tôt de PDF
     - 4.1 la remarque sur {figure} et {table} induit en erreur (flottants)
@@ -96,16 +106,13 @@ Notes sur la VO (contenu)
       TeXmaker...
 
 
-Idées d'amélioration pour les macros VO/VF
-------------------------------------------
-
-(Reprendre les trucs commencés dans lshort-fr.sty en les ordonnant et en les
-documentant, cf ci-dessous.)
+Idées d'amélioration pour les macros
+------------------------------------
 
 - régler les warnings de trucs obsolète à la compilation (essayer de rester
   compatible avec TL07 à 09)
 
-- écart pour les exemple, cf code VF
+- régler l'écart pour les exemple, cf code VF
 
 - exemple de picture avec de gros débordements :-(
 
@@ -125,91 +132,57 @@ documentant, cf ci-dessous.)
 
 - (corps) vérifier les \textXX qui devraient être remplacés par des macros.
 
+- New command \changelabels for descriptions.
 
-################################################################################
+- New \tti and \tth commands for things in tt in index.
 
-# Transcript of REMARKS-mpg (edited)
+- Import \iei and \fei from typeset.tex?
 
-# Style file (implementation questions)
+Questions sur les macros
+------------------------
 
-Why use url.sty and not just hyperref? Is it a matter of taste or does it really
-add features?
+- L'usage fait de url.sty est bizarre (catcodes). En même temps, tant que ça
+marche...
 
-Looks like the \@tildeORI things is now useless, is it?
+- Looks like the \@tildeORI things is now useless, is it?
 
-Why save \pageref at the beginning?
+- Why save \pageref at the beginning?
 
-mylayout.sty ? fancy.sty ?
+- mylayout.sty ? fancy.sty ?
 
-# Style file (implementation)
+Idées pour rendre le code plus lisible et facile à saisir
+---------------------------------------------------------
 
-Use fancyvrb + active chars for lscommand and code environments.
+Trucs dont j'avais (mpg) commencé l'implémentation dans lshort-fr.sty et l'usage
+dans ma version (vielle branche mpg-work). Idée à creuser, documenter, proposer
+upstream de façon propre. (Notes de SC identées par 2 espaces, de mpg par 4
+esapces.)
 
-New command \changelabels for descriptions.
-
-New \tti and \tth commands for things in tt in index.
-
-Imported \iei and \fei from typeset.tex
-
-# things.tex
-
-202: add 'this file is refered to as the "source file", or simply "source"'?
-
-454: AFAIK, yap only works with MikTeX but you can also have TeX Live on windows
-(which unfortunately doesn't come with a dvi viewer).
-
-464: Actually dvipdf comes with GhostScript. Only (x)dvipdfm(x) come with the
-TeX distro. Anyway, this is another point that make me think pdflatex should be
-introduced instead: all those new commands and file formats look so scary to a
-newcomer.
-
-721: here too, mention pdf as well as dvi. 
-
-# typeset.tex
-
-181: may be worth mentionning that the words in the list should be separated by
-spaces (one could otherwise be tempted to try comas).
-
-310: one could also mention siunitx in this context
-
-326 etc: since the 2nd possibility is commented out, probably it would be better to say one more choice?
-
-397: are you sure that an \mbox is necessary? I think {} is enough.
-
-523: here too, mention pdf rather than dtx. Also mention utf8ienc.pdf.
-
-################################################################################
-
-# Transcript of README.integrating-mpg
-#
-# These are (in french) the behaviours of the new macros proposed my mpg as I 
-# saw them, so as to keep/give ideas
-
-Environnements/commandes ajoutés ou changés, idées à creuser/intégrer
-upstream.
+Globalement, il s'agit d'utiliser fancyvrb pour simplifier des trucs, en usant
+abondamment de la possibilité de jouer avec les caractères actifs pour alléger
+le balisage.
 
 - \begin{code}
   Ne nécessite plus l'utilisation de \verb
 
 - ©\commande©
-  Remplace \texttt{\bs{}commande}
-  ©\\© remplace aussi \texttt{\bs\bs}
+    Équivalent à \verb+\commande+ (ou \texttt{\bs{}commande}).
 
 - \begin{verbatim}
   Remplacé par \begin{Verbatim}[gobble=6] pour \label{mini} et
   \label{document}
   Remplace aussi avec [gobble=2] pour syntaxonly à la fin de things.tex
-
-- \ldots{}
-  souvent remplacé par \dots
+    Permet d'indenter le contenu de l'environnement.
 
 - \begin{lscommand}{6}
   à la place du simple lscommand semble encore éviter l'utilisation de
   \verb. Introduit dans l'explication de la compilation latex
   (chercher Ctrl-D dans things.tex), pour tous les exemples du
   enumerate
+    En fait, lscommand devient un environnement verbatim comme code, et à
+    l'intérieur on utilse des caractères actifs pour les comande.
+    Par ailleurs, l'argument permet d'indenter comme on veut.
 
-- Plus difficile:
   \begin{lscommand}
   \ci{documentclass}\verb|[|\emph{options}\verb|]{|\emph{classe}\verb|}|
   \end{lscommand}
@@ -218,27 +191,12 @@ upstream.
     ¡\documentclass¡[«options»]{«classe»}
   \end{lscommand}
   Le point d'exclamation inversé semble remplacer \ci
-  Autres exemples, tirés de typeset.tex:
+    Voilà. Et «...» met en italique. On pourrait finasser encore plus et
+    permettre l'utilisation de ¡ pour indexer les environnements aussi.
 
-  \begin{lscommand}
-  \ci{\bs} ou \ci{newline} 
-  \end{lscommand}
-    remplacé par
-  \begin{lscommand}{2}
-    ¡\\¡ ¡\newline¡
-  \end{lscommand}
+-   On peut aussi simplifier l'implémentation de example en utilisant fancyvrb
+    si on veut (voir si c'est utile... ça permet d'indenter en tout cas, c'est
+    déjà ça).
 
-  \begin{lscommand}
-  \ci{\bs*}
-  \end{lscommand}
-    remplacé par
-  \begin{lscommand}{2}
-    ¡\\*¡
-  \end{lscommand}
-
-
-- \tth{titlepage} \tti{notitlepage} pour remplacer
-  \index{titlepage@\texttt{titlepage}}
-  \index{notitlepage@\texttt{notitlepage}}
-  et autres commandes d'indexation
-  (cf \label{options})
+-   Faudrait relire un peu lshort-fr.sty pour voir si rien n'a été omis dans
+    cette liste...
