@@ -1,11 +1,129 @@
-                  Notes concernant version française de lshort
+                      Notes diverses sur lshort (VF et VO)
                                Voir aussi TODO.fr
 
 
-Pour l'instant, il y a surtout des transcriptions de vieux fichiers de notes. Un
-de ces 4, on pourrait organiser une partie de ces notes, soit dans le TODO, soit
-ici.
+Ce fichier regroupe des notes sur la VF trop diffuses pour être dans le TODO et
+des notes sur la VO, à transmettre à Tobi un de ces jours sous une forme à
+déterminer.
 
+À la fin, il y asurtout des transcriptions de vieux fichiers de notes. Un de ces
+4, on pourrait organiser une partie de ces notes, soit dans le TODO, soit ici. 
+
+Notes sur la VO (contenu)
+-------------------------
+
+- Ne pas faire référence aux .dtx et aux .tex (tab 1.3, biblio, notes).
+
+- ASCII \neq "plain text"
+
+- (long terme) présenter PDF d'abord comme format de sortie ?
+
+- (long terme) ne pas parler de ligne de commande au début ?
+
+- Est-il vraiment utile de mentionner syntonly ?
+
+- \includeonly: les espaces autour des virgules sont autorisés depuis 1988 :-)
+
+- tab. 1.3: comment sont choisis les paquets présentés ?
+
+- texdoc n'est plus spécifique à Unix depuis TL 2008. Mentionner mthelp pour
+  MikTeX ?
+
+- (ajout) table des symboles de textcomp en annexe, comme c'est fait dans la
+  version allemande ?
+
+- Est-ce que UCS est vraiment mieux qu'utf8.def ?
+
+- Les références au « Local guide » sont-elle utiles ? Peut-on trouver ce
+  document sur les systèmes actuellement courants ?
+
+- Vérifier les usages de « most TeX installs ».
+
+- overview : *most* math symbols, not *all*.
+
+- overview : faire référence à l'appendice pour l'installation plutôt que
+  CTAN/systems qui n'aide personne.
+
+- quelque part : faire référence à detexify (par exemple près de symbols-a4)
+
+- dans les math : faire une référence à Mathmode.pdf ?
+
+- typeset.tex : 
+    - \textlowtilde de textcomp devrait être mentionné
+    - (typo) eurosym : pas de \emph pour "official"
+    - les encodages dépendent de l'éditeur et de son réglage, plus que de l'OS
+    - Techniquement, CM n'est pas en ASCII, bien qu'en 7 bits (caractères de
+      contrôle mais surtout positions variables dans OT1).
+    - L'encodage d'entrée devrait être mieux dissocié du langage aussi.
+    - Suggérer xspace avec frenchb ? Et l'utiliser dans le tableau 2.4?
+    - Coréen : Omega est obsolète. Quid de LuaTeX et XeTeX ?
+    - AMSLATEX \neq AMS pacakges
+    - tab 2.8 : utiliser les vrais caractères ?
+    - \backmatter a un effet, voir classes.pdf
+
+- math.tex :
+    - p. 53, exemple : \Longleftrightarrow n'est pas '=' (le matheux parle)
+    - 3.5 : \quad n'est qu'approximativement la largeur de M
+    - \newtheorem : les arguments optionels sont mutuellement exclusifs, le dire
+
+- spec.tex : 
+    - formulation bizarre de l'intro
+    - 4.1 être plus neutre sur les formats graphiques et parler plus tôt de PDF
+    - 4.1 la remarque sur {figure} et {table} induit en erreur (flottants)
+    - 4.6 Reacommander tlmgr/mpm en premier. Parler des .tds.zip.
+    - texhash marche aussi sous web2c. Revoir tout ça.
+    - 4.7.1 revoir la liste des distros modernes.
+    - 4.7.2 mentionner lmodern en premier, c'est *la* solution dans la plupart
+      des cas (plutôt que de décourager avec des semi-solutions complexes).
+    - pxfonts/txfonts dépréciés (mathpazo et mathptmx)
+    - 4.7.3 utiliser xcolor
+    - 4.7.3 on peut aussi inclure des EPS automagiquement depuis MikTeX 2.8 (et
+      bientôt TL2010).
+    - 4.7.6 référence à MikTeX déplacée
+
+- graphiques :
+    - intro incohérente avec le contenu (PStricks, MP vs TikZ)
+    - 5.1 : bien compliqué, la distinction LaTeX vs 2e est-elle pertinente ?
+
+- chap. 6 :
+    - geometry est vachement mieux (drivers), et hoffset me paraît douteux
+
+- appendice :
+    - A.2.1 recommender aussi des éditeurs libres pour Mac (TeXworks, TeXshop,
+      Aquamacs, inclus dans MacTeX ou MacTeXtras).
+    - A.3.2 TeXworks installé par TL et MikTeX désormais :-)
+    - A.4 teTeX obsolète. Parler d'éditeurs plus abordables : Kile, TeXworks,
+      TeXmaker...
+
+
+Idées d'amélioration pour les macros VO/VF
+------------------------------------------
+
+(Reprendre les trucs commencés dans lshort-fr.sty en les ordonnant et en les
+documentant, cf ci-dessous.)
+
+- régler les warnings de trucs obsolète à la compilation (essayer de rester
+  compatible avec TL07 à 09)
+
+- écart pour les exemple, cf code VF
+
+- exemple de picture avec de gros débordements :-(
+
+- Utiliser varioref ? (Une occurence de "page N" pour désigner la page courante
+  remaquée à un moment.)
+
+- Supprimer le besoin de \noindent après {lscommand}.
+
+- (corps) Incohérences à corriger entre \texttt et \textsf pour les packages.
+  Créer une macro \package ou \pkg.
+
+- Faire en sorte que \pkg fasse un lien vers le CTAN ? Cf mes (mpg) macros du
+  lm204 pour un exemple.
+
+- (corps) Utiliser des commandes pour les sigles PDF et PS, qui sont composés de
+  façons inconsistante.
+
+- (corps) vérifier les \textXX qui devraient être remplacés par des macros.
 
 ################################################################################
 

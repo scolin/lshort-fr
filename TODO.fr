@@ -13,7 +13,7 @@
 Sauf que ça marche bien chez moi (mpg). Vérifier si les motifs de césure
 corrects sont bien installés sur la machine où est compilée la bête...
 
-- Problème d'encodage dans fixdate.pl
+- Problème d'encodage dans fixdate.pl (+VO)
 
 - overfull HVboxes avec un gros exemple de picture, mais pas visible
 
@@ -33,6 +33,9 @@ le bouquin de JCC et BC de la même manière ?
 
 - Revoir les diverses notes du traducteur pour éventuellement faire remonter les
   remarques upstream.
+
+- S'assurer que toutes les références à des fichiers du CTAN sont faites via la
+  macro (+VO)
 
 implement a version of ¡ detecting environments and use it in typeset.tex (and
 elsewhere)
