@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Customising LaTeX output
-% $Id: custom.tex 243 2009-09-22 05:38:48Z oetiker $
+% $Id: custom.tex 417 2010-06-18 12:16:27Z oetiker $
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Customising \LaTeX}
 
@@ -86,7 +86,8 @@ so on.
 
 \begin{example}
 \newcommand{\txsit}[2]
- {This is the \emph{#1} #2 Introduction to \LaTeXe}
+ {This is the \emph{#1} 
+  #2 Introduction to \LaTeXe}
 % in the document body: 
 \begin{itemize}
 \item \txsit{not so}{short}
@@ -643,7 +644,7 @@ vertical space without having to worry about exact numbers.
 \makeatletter\@mylayout\makeatother
 \end{center}
 \vspace*{1.8cm}
-\caption{Page Layout Parameters.}
+\caption[Layout parameters for this book.]{Layout parameters for this book. Try the \pai{layouts} package to print the layout of your own document.}
 \label{fig:layout}
 \cih{footskip}
 \cih{headheight}

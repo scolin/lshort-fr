@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Math typesetting with LaTeX
-% $Id: math.tex 182 2008-11-04 09:43:36Z oetiker $
+% $Id: math.tex 404 2010-03-25 22:21:27Z oetiker $
 %
 % Changes by Stefan M. Moser: 2008/10/22
 %
@@ -54,7 +54,7 @@ in some cases inconsistent.
 
 \AmS-\LaTeX{} is a part of the required distribution and is provided
 with all recent \LaTeX{} distributions.\footnote{If yours is missing it, go to
-  \texttt{CTAN:macros/latex/required/amslatex}.} In this chapter, we assume
+  \CTAN|macros/latex/required/amslatex|.} In this chapter, we assume
   \pai{amsmath} is loaded in the preamble; \verb|\usepackage{amsmath}|.
 
 \section{Single Equations}
@@ -85,8 +85,7 @@ To do this, you enclose them between \verb|\begin{|\ei{equation}\verb|}| and
 have access to the package for some obscure reason, you can use \LaTeX's own
 \ei{displaymath} environment instead.} You can then \ci{label} an equation number and refer to
 it somewhere else in the text by using the \ci{eqref} command. If you want to
-name the equation something specific, you \ci{tag} it instead. You can't use
-\ci{eqref} with \ci{tag}.
+name the equation something specific, you \ci{tag} it instead.
 \begin{example}
 Add $a$ squared and $b$ squared
 to get $c$ squared. Or, using
@@ -109,13 +108,7 @@ This is a reference to
 If you don't want \LaTeX{} to number the equations, use the starred
 version of \texttt{equation} using an asterisk, \ei{equation*}, or even easier, enclose the
 equation in \ci{[} and \ci{]}:\footnote{\index{equation!\textsf{amsmath}}
-  \index{equation!\LaTeX{}}This is again from \textsf{amsmath}. If you 
-didn't load the package, use \LaTeX{}'s own \texttt{equation} environment
-instead. The naming of the \textsf{amsmath}/\LaTeX{} commands may seem a bit
-confusing, but it's really not a problem since everybody uses \textsf{amsmath} anyway.
-In general, it is best to load the package from the beginning because you might use it
-later on, and then \LaTeX's unnumbered \texttt{equation} clashes with
-\AmS-\LaTeX's numbered \texttt{equation}.}
+  \index{equation!\LaTeX{}}This is again from \textsf{amsmath}. Standard \LaTeX{}'s has only the \texttt{equation} environment without the star.}
 \begin{example}
 Add $a$ squared and $b$ squared
 to get $c$ squared. Or, using
@@ -127,9 +120,8 @@ or you can type less for the
 same effect:
  \[ a^2 + b^2 = c^2 \]
 \end{example}
-However, note that if you have many equations in a document the
-\LaTeX{} source code will become poorly readable if you use \ci{[} and
-\ci{]}. So we recommend to use \ei{equation} and \ei{equation*}.
+While \ci{[} is short and sweet, it does not allow to switch between numbered and not numbered style as easily as
+nicely \ei{equation} and \ei{equation*}.
 
 Note the difference in typesetting style between \wi{text style} and \wi{display style}
 equations: 
@@ -583,7 +575,7 @@ To group multiple equations the
   also be used to group several blocks of equations beside each other.
   However, for this rather rare situation we also recommend to use the
   \ei{IEEEeqnarray} environment with an argument like,
-  \emph{e.g.}, \texttt{\{rCl+rCl\}}.} could be used:
+  \texttt{\{rCl+rCl\}}.} could be used:
 \begin{example}
 \begin{align}
   a & = b + c \\
@@ -603,7 +595,7 @@ However, this approach does not work once a single line is too long:
 \end{example}
 \noindent
 Here $+\:m$ should be below $d$ and not below the equality sign. Of
-course, one could add some space by, \emph{e.g.}, \verb+\hspace{...}+,
+course, one could add some space (\verb+\hspace{...}+),
 but this will never yield a precise arrangement (and is bad
 style\ldots).
 
@@ -708,18 +700,17 @@ lower-case \texttt{c}) and the third column left-justified:
 \end{IEEEeqnarray}
 \end{example}
 
-However, we can specify any number of needed columns. \emph{E.g.},
-\texttt{{c}} will give only one column with all entries centered, or
-\verb+{rCll}+ will add a fourth, left-justified column, \emph{e.g.},
+However, any number of columns can be specified:
+\verb+{c}+ will give only one column with all entries centered, or
+\verb+{rCll}+ would add a fourth, left-justified column to use
 for comments. Moreover, beside \texttt{l}, \texttt{c}, \texttt{r}, \texttt{L},
-\texttt{C}, \texttt{R} for math mode entries there also exists \texttt{s},
-\texttt{t}, \texttt{u} for left, centered, and right text mode entries,
-respectively. Moreover, we can add additional space by \texttt{.} and
+\texttt{C}, \texttt{R} for math mode entries there are also \texttt{s},
+\texttt{t}, \texttt{u} for left, centered, and right text mode entries.
+Additional space can be added with \texttt{.} and
 \texttt{/} and \texttt{?} in increasing order.\footnote{For more spacing
-  types we refer to Section~\ref{sec:putting-qed-right} and the
-  official manual.}
+  types refer to Section~\ref{sec:putting-qed-right}.}
 
-Note that in contrast to \texttt{eqnarry} the spaces around the equality
+In contrast to \texttt{eqnarry} the spaces around the equality
 signs are correct!
 
 \subsection{Common Usage}
