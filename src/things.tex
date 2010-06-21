@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Things you need to know
-% $Id: things.tex 193 2009-01-30 17:56:05Z oetiker $
+% $Id: things.tex 417 2010-06-18 12:16:27Z oetiker $
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Pour les informations de licence, voir title.tex.
@@ -289,7 +289,7 @@ dans vos documents en les préfixant par une \wi{contre-oblique}\footnote{Aussi n
 
 Les autres symboles et bien d'autres encore peuvent être obtenus avec des
 commandes spéciales à l'intérieur de formules mathématiques ou comme
-accents. La contre-oblique \textbackslash ne peut pas être saisie en ajoutant
+accents. La contre-oblique \textbackslash{} ne peut pas être saisie en ajoutant
 une contre-oblique devant (\verb|\\|) : cette séquence est utilisée pour
 indiquer les coupures de ligne ; utilisez la commande
 \ci{textbackslash}\footnote{Fournie par l'extension \pai{textcomp}. \NdT} pour
@@ -492,7 +492,12 @@ Puristes utilisent Unix, donc \ldots{} \texttt{;-)}}
 
 \item 
 
-Exécutez \LaTeX{} sur votre fichier. Si tout se passe bien, vous
+%SC: je suis conscient de l'abus de langage sur «terminal» plutôt que
+% «émulateur de terminal», mais je préfère laisser comme ça.
+
+Ouvrez un terminal ou une ligne de commande, déplacez-vous via la
+commande \texttt{cd} dans le répertoire où se trouve votre fichier et
+exécutez \LaTeX{} sur celui-ci. Si tout se passe bien, vous
 obtiendrez un nouveau fichier avec le suffixe \texttt{.dvi}. Il peut
 être nécessaire d'exécuter \LaTeX{} plusieurs fois afin que la table
 des matières et les références croisées soient à jour. S'il y a une
