@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Customising LaTeX output
-% $Id: custom.tex 417 2010-06-18 12:16:27Z oetiker $
+% $Id: custom.tex 456 2011-04-06 09:10:27Z oetiker $
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Customising \LaTeX}
 
@@ -445,6 +445,19 @@ identifying all the occurrences of \verb|\textbf| and then figuring out
 for each one whether it was used for pointing out danger or for some other
 reason.
 
+Please note the difference between telling \LaTeX{} to
+\emph{emphasize} something and telling it to use a different
+\emph{font}. The \ci{emph} command is context aware, while the font commands are absolute.
+
+\begin{example}
+\textit{You can also
+  \emph{emphasize} text if 
+  it is set in italics,}
+\textsf{in a 
+  \emph{sans-serif} font,}
+\texttt{or in 
+  \emph{typewriter} style.}
+\end{example}
 
 \subsection{Advice}
 
