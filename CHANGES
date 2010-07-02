@@ -1,3 +1,29 @@
+4.30 2010.06.18
+---------------
+* Updated installation appendig. Remove Texmate since it is not OSS software
+  and add Texshop and Texmaker instead.
+* use microtype for optimized character positioning
+* updated graphics chapter with more emphasis on PGF/TikZ
+  integrated several examples by  Andras Salamon
+* add note about the layouts package to the  layout page
+* spaceing after e.g. fixed as suggested by Mike Lee
+* it is --update-fndb not -update-fndb (Rockrush Engch)
+* integrated suggestions from the  Manuel Pégourié-Gonnard and Samuel Colin
+  * make CTAN links more uniform throughout the document
+  * do not type ASCII in tt
+  * be less opinionated on \[ vs equation
+  * add note on how to deal with accented characters and makeindex
+    sorting limitations. 
+  * update notes on how todo documents that work in both latex and pdflatex
+  * replace acrobat reader by pdf reader and acrobat distiller by pdf
+    convertor
+  * use francais instead of frenchb and mention numprint.
+  * note about linux distros splitting tex distors up into many packages
+  * do not mention java in math-graphics
+  * eqref does work with tag
+  * equation is from latex, equation* is from amslatex ... (footnote fix)
+  * textcolor works fine with hyperref by now
+
 4.27 2009.11.16
 ---------------
 
