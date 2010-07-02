@@ -20,10 +20,12 @@ essentiels :
 
 \begin{enumerate}
 
-\item Un éditeur de texte pour éditer vos fichiers sources \LaTeX{} ;
-
 \item Le programme \TeX{}/\LaTeX{} pour compiler vos fichiers sources
   \LaTeX{} en documents PDF ou DVI ;
+
+\item Un éditeur de texte pour éditer vos fichiers sources
+  \LaTeX{}. Certains programmes permettent même le lancement du
+  programme \LaTeX{} depuis l'éditeur ;
 
 \item Un visualiseur PDF ou DVI pour afficher et imprimer vos documents ;
 
@@ -39,30 +41,31 @@ expérience.
 
 \section{\TeX{} sous Mac~OS~X}
 
-\subsection{Choisir un éditeur}
-
-Basez votre environnement \LaTeX{} sur l'éditeur \wi{TextMate} ! Non
-seulement il s'agit d'un éditeur généraliste très facilement
-modifiable, mais il fournit en plus un très bon support \LaTeX{} et
-s'intègre étroitement avec le visualiseur PDFView. Cette combinaison
-d'outils vous laisse utiliser \LaTeX{} de manière agréable et conforme
-aux usages Mac. Vous pouvez télécharger une version gratuite d'essai
-depuis le site de TextMate \url{http://macromates.com/} et acheter la
-version complète pour 39 euros. Si vous connaissez un outil libre
-équivalent sous Mac, n'hésitez pas à nous le signaler.
-
 \subsection{Obtenir une distribution \TeX{}}
+
+Téléchargez tout simplement \wi{MacTeX}. Il s'agit d'une distribution
+LaTeX précompilée de \LaTeX{} pour OSX. \wi{MacTeX} met à disposition
+une installation complète de \LaTeX{} fournie avec des outils
+supplémentaires. Obtenez MacTex sur \url{http://www.tug.org/mactex/}.
 
 Si vous utilisez déjà les Macports ou Fink pour installer des
 logiciels Unix sous OSX, utilisez-les aussi pour \LaTeX. Avec Macport
-la commande sera \framebox{\texttt{port install tetex}} et avec Fink
-\framebox{\texttt{fink install tetex}}.
+la commande sera \framebox{\texttt{port install texlive}} et avec Fink
+\framebox{\texttt{fink install texlive}}.
 
-Si vous n'utilisez ni l'un ni l'autre, téléchargez \wi{MacTeX}, une
-distribution précompilée de \LaTeX{} pour OSX. \wi{MacTeX} met à
-disposition une installation complète de \LaTeX{} fournie avec des
-outils supplémentaires. Obtenez MacTex sur
-\url{http://www.tug.org/mactex/}.
+\subsection{Choisir un éditeur}
+
+L'éditeur ouvert le plus populaire pour \LaTeX{} sous Mac semble être
+\TeX{}shop. Téléchargez-en une copie sur
+\url{http://www.uoregon.edu/~koch/texshop}. Il est aussi fourni avec
+la distribution \wi{MacTeX}.
+
+Texmaker est un autre bon éditeur. Son avantage, à part d'être un bon
+éditeur, est sa capacité à fonctionner sous Windows, Mac et
+Unix/Linux. Visitez \url{http://www.xm1math.net/texmaker} pour plus
+d'information. Notez qu'il existe également une version dérivée de
+Texmaker appelée TexmakerX sur \url{http://texmakerx.sourceforge.net/}
+qui y ajoute de nouvelles fonctionnalités.
 
 \subsection{Faites-vous plaisir avec \wi{PDFView}}
 
@@ -84,7 +87,10 @@ En premier lieu, obtenez une copie de l'excellente distribution
 programmes et fichiers de base pour compiler des documents
 \LaTeX{}. La fonctionnalité la plus sympathique, à mes yeux, est que
 MiKTeX téléchargera les extensions \LaTeX{} manquantes à la volée et
-les installera lors de la compilation d'un document.
+les installera lors de la compilation d'un document. Vous pouvez aussi
+utiliser la distribution TeXlive pour Windows, Unix et Mac~OS pour
+obtenir un bon environnement \LaTeX{} de base
+\url{http://www.tug.org/texlive/}.
 
 \subsection{Un éditeur \LaTeX{}}
 
@@ -119,13 +125,7 @@ vous avez utilisés lors de son installation. Utilisez votre
 gestionnaire de paquets pour installer les applications suivantes :
 
 \begin{itemize}
-\item texlive\footnote{%
-    Attention, la plupart des distributions découpent \TeX\,Live en plusiuers
-    paquets. Si vous souhaitez une installation complète, cherchez un paquet
-    appelé \texttt{texlive-full} ou bien installez tous les paquets dont le
-    nom contient \texttt{texlive} ou \texttt{latex}, ainsi que les paquets
-    \texttt{cm-super} et \texttt{lmodern} s'ils existent.}
-    -- l'installation \TeX{}/\LaTeX{} de base ;
+\item texlive -- l'installation \TeX{}/\LaTeX{} de base ;
 \item emacs (avec auctex) -- un éditeur Linux qui s'intègre
   étroitement avec \LaTeX{} via une extension appelée AucTeX ;
 \item ghostscript -- un visualiseur PostScript ;
@@ -137,3 +137,13 @@ gestionnaire de paquets pour installer les applications suivantes :
   vectoriel).
 \end{itemize}
 
+Si vous cherchez un environnement graphique d'édition plus proche de
+ce qui se fait sous Windows, essayez Texmaker, dont il est question
+dans la section Mac plus haut.
+
+Attention, la plupart des distributions découpent \TeX\,Live en
+plusieurs paquets. Si vous souhaitez une installation complète,
+cherchez un paquet appelé \texttt{texlive-full} ou bien installez tous
+les paquets dont le nom contient \texttt{texlive} ou \texttt{latex},
+ainsi que les paquets \texttt{cm-super} et \texttt{lmodern} s'ils
+existent.
