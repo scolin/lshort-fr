@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Specialties of the LaTeX system
-% $Id: spec.tex 206 2009-08-06 12:09:12Z oetiker $
+% $Id: spec.tex 402 2010-03-19 08:35:15Z oetiker $
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Pour les informations de licence, voir title.tex.
@@ -50,14 +50,14 @@ simple et la plus utilisée. Pour pouvoir utiliser des graphiques au
 format EPS, il faut disposer d'une imprimante \PSi{}%
 \footnote{Une autre possibilité pour imprimer du \PSi{}
           est d'utiliser le logiciel \textsc{Ghost\-Script}, disponible
-          sur \CTANref|support/ghostscript|. Les utilisateurs de
+          sur \CTAN|support/ghostscript|. Les utilisateurs de
           Windows et OS/2 peuvent se tourner vers \textsc{GSview}.} 
 vers laquelle envoyer le résultat.
 
 Un ensemble de commandes bien adaptées à l'insertion de graphiques est
 fourni par l'extension \pai{graphicx}, développée par D.~P.~Carlisle. Elle
 fait partie d'un ensemble d'extensions appelé \og graphics \fg{}.
-\footnote{\CTANref|macros/latex/required/graphics|.}.
+\footnote{\CTAN|macros/latex/required/graphics|.}.
 
 En supposant maintenant que vous travaillez sur un système où
 l'extension \textsf{graphicx} est installée et qui dispose d'une
@@ -264,7 +264,6 @@ position du point final.
 Le programme \texttt{makeindex} standard ne traite malheureusement pas
 correctement les caractères accentués dans les clefs : il les place
 systématiquement en tête de l'ordre alphabétique.
-% ajout (df)
 Pour obtenir un classement correct des clés contenant des caractères 
 accentués (le «é» doit être classé comme un «e»), on peut utiliser
 le caractère \texttt{@} : la dernière ligne du tableau~\ref{index}
@@ -277,7 +276,7 @@ de \og ecole \fg{}.
 
 L'extension \pai{fancyhdr}%
 \footnote{disponible sur 
-          \CTANref|macros/latex/contrib/supported/fancyhdr|.},
+          \CTAN|macros/latex/contrib/supported/fancyhdr|.},
 développée par Piet van Oostrum, offre quelques commandes simples
 permettant de personnaliser les entêtes et les pieds de page de votre
 document. Si vous regardez en haut de cette page, vous verrez un
@@ -392,7 +391,7 @@ l'extension sur votre machine, vous dever les manipuler de manière à
 \item mettre à jour la base de données des noms de fichiers, la commande
   dépend de votre distribution \LaTeX{} :
   teTeX, fpTeX -- \texttt{texhash}; web2c -- \texttt{mktexlsr};
-  MikTeX -- \texttt{initexmf -update-fndb} ou via l'interface
+  MikTeX -- \texttt{initexmf -{}-update-fndb} ou via l'interface
   graphique; la commande peut également être \texttt{texconfig rehash}.
 \end{enumerate}
 
@@ -544,18 +543,16 @@ discussion sur les polices \texttt{OT1} en
 page~\pageref{OT1}). Vladimir Volovich a produit le paquet de polices
 cm-super qui couvre l'ensemble des polices EC/TC, EC Concrete, EC
 Bright et LH. Ce paquet est disponible sur
-\texttt{CTAN:fonts/ps-type1/cm-super} et est fourni avec \TeX{}Live7
+\CTAN|fonts/ps-type1/cm-super| et est fourni avec \TeX{}Live7
 et Mik\TeX. Des polices grecques type~1 CB similaires créées par
 Apostolos Syropoulos sont disponibles sur
-\texttt{CTAN:fonts/greek/cb}.
+\CTAN|fonts/greek/cb|.
 Malheureusement ces jeux de polices ne sont pas de la même
 qualité typographique que les polices Type1 CM faites par Blue
 Sky/Y\&Y. Le \eng{hinting}\footnote{Les indications permettant à la police
   d'être rendue correctement à différentes résolutions, en particulier les
   résolutions basses utilisées par les écrans. \NdT} a été ajusté
 automatiquement et le document
-%SC: see the translation of hinting (affinage ?)
-%MPG: Haralambous keeps "hinting", let's do the same...
 final peut ne pas être aussi agréable à l'\oe il sur l'écran que les
 documents qui utilisent les polices type 1 CM Blue Sky/Y\&Y. Sur des
 périphériques de sortie à haute résolution elles produisent des
@@ -690,8 +687,7 @@ L'extension \pai{hyperref}\footnote{%
   pas limitée à pdf\TeX{}. Elle peut aussi être configurée pour
   embarquer des informations spécifiques au format PDF dans la sortie
   DVI de \LaTeX{}, qui seront insérées dans le fichier PS via
-  \texttt{dvips} et enfin reconnues par l'interpréteur \PSi{} (comme
-  GhostScript ou Adbe Distiller) lors de la
+  \texttt{dvips} et enfin reconnues par l'interpréteur \PSi{} lors de la
   transformation du fichier PS en PDF.}
 prendra soin de transformer toutes les
 références internes de votre document en hyperliens. Pour que cela
@@ -931,7 +927,7 @@ des coûts d'impression, mais nous voulons quand même que la version
 PDF en ligne soit colorée.
 \begin{code}
 \begin{verbatim}
-\RequirePackage{ifpdf} % utilisation de pdfTeX?
+\RequirePackage{ifpdf} % Production d'un PDF ?
 \documentclass[a4paper,12pt]{book}
 \usepackage[latin1]{inputenc}
 \usepackage[T1]{fontenc}
@@ -954,7 +950,6 @@ version non-PDF, ceci afin de faire fonctionner la commande \ci{href}
 dans tous les cas. Cela évite de devoir protéger chacune de ses
 occurrences par une structure conditionnelle.
 
-%MPG: rewritten to tell the truth
 Remarquez que dans les distributions \TeX{} récentes (comme \TeX{}Live,
 Mac\TeX{} et MiK\TeX), le programme \TeX{} par défaut est en fait pdf\TeX{}.
 Il s'adaptera automatiquement à la production de pdf ou de dvi en fonction de
