@@ -25,45 +25,43 @@ section.
 
 \section{Vue d'ensemble}
 
-L'environnement \ei{picture} permet la programmation directe d'images
-en \LaTeX. Vous pourrez en trouver une description détaillée dans le
-\manual. D'un côté, cet environnement a des contraintes sérieuses,
-comme les pentes des segments ou les rayons des cercles restreints à
-un choix limité de valeurs. D'un autre côté, l'environnement
-\ei{picture} de \LaTeXe{} amène la commande \ci{qbezier}, avec \og
-\texttt{q} \fg{} pour \og quadratique \fg{}. Des courbes fréquemment
-utilisées comme des cercles, des ellipses ou des caténaires peuvent
-être approchés de manière satisfaisantes par des courbes de B\'ezier,
-bien que cela requière quelques efforts mathématiques. Si en plus un
-langage de programmation externe est utilisé pour générer des blocs
-\ci{qbezier} en fichiers d'entrée, l'environnement \ei{picture}
-devient soudain plus puissant.
+La création de graphiques avec \LaTeX{} a une longue
+histoire. Celle-ci commence par l'environnement \ei{picture} qui
+permet la création de graphiques par le placement d'éléments
+prédéfinis sur un canevas. Vous pourrez en trouver une description
+complète dans le \manual. Cet environnement fournit la commande
+\ci{qbezier}, le «\texttt{q}» signifiant «quadratique». De nombreuses
+courbes usuelles comme les cercles, ellipses ou caténaires peuvent
+être approchés de manière satisfaisante par des courbes quadratiques
+de Bézier, bien que cela requiert quelque labeur mathématique. Si de
+plus un langage de programmation externe est utilisé pour générer
+les blocs \ci{qbezier} des fichiers d'entrée, l'environnement
+\ei{picture} devient soudain plus puissant.
 
 Bien que programmer des images directement en \LaTeX{} soit limité et
 souvent fatiguant, il reste des raisons pour continuer à le faire : en
 effet les documents produits ainsi sont de petite taille (en octets)
 et il n'y a pas de fichier graphique à adjoindre.
 
-Des extensions comme \pai{epic} et \pai{eepic} (décrits dans
-\companion, par exemple), ou \pai{pstricks} aident à éliminer les
-restrictions qui entravent l'environnement \ei{picture} originel. Ils
-renforcent ainsi les capacités graphiques de \LaTeX.
+Cela était la situation jusqu'à il y a quelques années lorsque Till
+Tantau célèbre pour l'extension \pai{beamer} proposa le Format de
+Graphiques Portable \pai{pgf} et son extension associée TikZ
+\pai{tikz}. Ce système permet de créer des graphiques vectoriels de
+haute qualité avec un support pour tous les systèmes \TeX{} actuels, y
+compris ceux utilisant pdf comme format de prédilection.
 
-Alors que les deux premières extensions précitées se contentent
-d'améliorer \ei{picture}, l'environnement \pai{pstricks} fournit son
-propre environnement de dessin, \ei{pspicture}. La puissance de
-\pai{pstricks} provient de son usage intensif des capacités de
-\PSi{}. De plus, de nombreux environnements ont été
-écrits avec des objectifs précis en tête. \graphicscompanion{} décrit en
-détail une grande variété de ces environnements (à ne pas confondre avec
-\companion).
+À partir de ces nombreuses extensions de base, d'autres extensions
+furent développées pour des besoins spécifiques. Nombre d'entre elles
+sont décrites en détail dans \graphicscompanion{}.
 
-Le plus puissant outil graphique lié à \LaTeX{} est sûrement \MP, le
-frère jumeau de \MF{} par Donald E. Knuth. \MP{} possède le langage
-mathématique puissant et sophistiqué de \MF. À la différence de \MF{}
-qui génère des bitmaps, \MP{} génère du \PSi{} encapsulé, qui peut
-être importé dans \LaTeX. Pour une présentation, voyez \hobby{} ou le
-tutoriel de \cite{ursoswald}.
+%SC: TODO: typo dans la version anglaise (ontrary)
+Le plus puissant outil graphique lié à \LaTeX{} est sûrement \MP. Il
+s'agit d'une application tierce basée sur \MF{} par Donald E. Knuth.
+\MP{} possède le langage mathématique puissant et sophistiqué de
+\MF. À la différence de \MF{} qui génère des bitmaps, \MP{} génère du
+\PSi{} encapsulé, qui peut être importé dans \LaTeX et même
+pdf\LaTeX{}. Pour une présentation, voyez \hobby{} ou le tutoriel de
+\cite{ursoswald}.
 
 Vous pourrez trouver une discussion très détaillé des stratégies
 \LaTeX{} et \TeX{} pour les images (et les polices) dans \hoenig.
@@ -71,6 +69,13 @@ Vous pourrez trouver une discussion très détaillé des stratégies
 
 \section{L'extension \texttt{picture}}
 \secby{Urs Oswald}{osurs@bluewin.ch}
+
+Comme indiqué plus haut, l'environnement \ei{picture} fait partie du
+\LaTeX{} standard et fonctionne très bien pour des tâches simple ou si
+vous souhaitez plus de contrôle sur la position exacte des éléments
+sur une page. Mais pour tout labeur graphique complexe, vous devriez
+plutôt regarder du côté de TikZ présenté en section \ref{sec:tikz} à
+la page \pageref{sec:tikz}.
 
 \subsection{Commandes de base}
 
@@ -457,9 +462,9 @@ point de contrôle intermédiaire est donné par les équations
 suivantes~:
 \begin{equation} \label{zwischenpunkt}
   \left\{
-    \begin{aligned}
-      x & = \dfrac{m_2 x_2-m_1x_1-(y_2-y_1)}{m_2-m_1}, \\
-      y & = y_i+m_i(x-x_i)\qquad (i=1,\,2).
+    \begin{aligned}{rcl}
+      x & = & \dfrac{m_2 x_2-m_1x_1-(y_2-y_1)}{m_2-m_1}, \\
+      y & = & y_i+m_i(x-x_i)\qquad (i=1,\,2).
     \end{aligned}
   \right.
 \end{equation}
@@ -548,31 +553,32 @@ coordonnées mathématiques commodes et le coin inférieur gauche est
 associé aux coordonnées mathématiques $(-3,-2)$ (le disque noir).
 
 
-\section{Les extensions graphiques TikZ \& PGF}
+\section{Les extensions graphiques PGF et TikZ}
+\label{sec:tikz}
 
 De nos jours, tout système de sortie \LaTeX{} (\texttt{dvips},
 \texttt{pdflatex}, etc.) est
 capable de fabriquer d'agréables images vectorielles, mais aucun ne le fait
 avec la même interface. L'extension PGF fournit
-une couche d'abstraction au-dessus de ces interfaces et vous donne des
-commandes simples pour créer des images vectorielles qui viennent
-directement de vos documents. Elle est fournie avec sa documentation
+une couche d'abstraction au-dessus de ces interfaces.
+Elle est fournie avec sa documentation
 de 500 pages et plus \cite{pgfplot}. Nous allons nous contenter d'une
 vue superficielle de l'utilisation de cette extension dans cette
 courte section.
 
-Pour accéder aux fonctionnalités de haut niveau de PGF, vous devez
-charger l'extension \pai{tikz}. Celle-ci fournit des commandes
+PGF est accompagnée par un langage de haut niveau fourni par
+l'extension \pai{tikz}. TikZ fournit des commandes
 efficaces pour le dessin d'images directement dans votre
 document. Utilisez l'environnement \ei{tikzpicture} pour y mettre ces
-instructions de dessin.
+instructions de dessin décrites en TikZ.
 
-%MPG: déplacé ici pour lutter contre la page sous-remplie.
-Si vous êtes programmeur, vous remarquerez l'usage, familier, du point-virgule
-\og \texttt{;} \fg pour séparer les instructions.  Avec 
-\ci{usetikzlibrary} dans le préambule, vous pouvez activer de nombreuses
-fonctionnalités pour le dessin de formes spéciales.
+Comme mentionné plus haut, il existe un très bon manuel pour PGF et
+ses dérivés. Plutôt donc que montrer comment ces extensions
+fonctionnent, nous allons juste montrer quelques exemples de ce qui
+peut être produit afin d'offrir une première impression de
+l'utilisation de cet outil.
 
+Tout d'abord un diagramme sans signification spéciale~:
 \begin{example}
 \begin{tikzpicture}[scale=3]
   \clip (-0.1,-0.2)
@@ -588,9 +594,59 @@ fonctionnalités pour le dessin de formes spéciales.
          arc (0:30:3mm) -- cycle;
 \end{tikzpicture}
 \end{example}
+%SC: redéplacement de ce paragraphe à sa place initiale.
+Remarquez l'usage du point-virgule \og \texttt{;} \fg. Il sépare les
+commandes individuelles.
 
-Par exemple, la bibliothèque \texttt{decorations.pathmorphing}
-permet d'obtenir des boîtes légérement tordues.
+Un simple diagramme de Venn.
+\begin{example}
+\shorthandoff{:}
+\begin{tikzpicture}
+  \node[circle,draw,
+        minimum size=3cm,
+        label=120:{economics}]
+         at (0,0) {};
+  \node[circle,draw,
+        minimum size=3cm,
+        label=60:{psychology}]
+         at (1,0) {};
+  \node (i) at (0.5,-1) {};
+  \node at (0.6,-2.5) 
+    {behavioral economics}
+    edge[->,thick,
+         out=60,in=-60] (i);
+\end{tikzpicture}
+\end{example}
+Si vous utilisez \pai{tikz} avec \pai{babel}, il se peut que certains
+caractères utilisés par le langage TikZ soient modifiés par babel, ce
+qui conduit à des erreurs étranges. Pour éviter ce problème, ajoutez
+la commande \ci{shorthandoff} à votre code.
+
+Remarquez les boucles «pour» (\texttt{foreach}) dans l'example suivant~:
+\begin{example}
+\begin{tikzpicture}[scale=0.8]
+  \tikzstyle{v}=[circle, minimum size=2mm,inner sep=0pt,draw]
+  \foreach \i in {1,...,8}
+    \foreach \j in {1,...,3}
+      \node[v] 
+        (G-\i-\j) at (\i,\j) {};
+  \foreach \i in {1,...,8}
+    \foreach \j/\o in {1/2,2/3}
+      \draw[->] 
+        (G-\i-\j) -- (G-\i-\o);
+  \foreach \i/\n in 
+    {1/2,2/3,3/4,4/5,5/6,6/7,7/8}
+    \foreach \j/\o in {1/2,2/3} {
+       \draw[->] (G-\i-\j) -- (G-\n-\o);
+       \draw[->] (G-\n-\j) -- (G-\i-\o);
+    }
+\end{tikzpicture}
+\end{example}
+
+Avec \ci{usetikzlibrary} dans le préambule, vous pouvez activer de nombreuses
+fonctionnalités pour le dessin de formes spéciales. Par exemple, la
+bibliothèque \texttt{decorations.pathmorphing} permet d'obtenir des
+boîtes légérement tordues.
 
 \begin{example}
 \usetikzlibrary{%
@@ -598,13 +654,32 @@ permet d'obtenir des boîtes légérement tordues.
 \begin{tikzpicture}[
      decoration={bent,aspect=.3}]
  \draw [decorate,fill=lightgray]
-        (0,0) rectangle (5.5,2);
+        (0,0) rectangle (5.5,4);
  \node[circle,draw] 
         (A) at (.5,.5) {A};
  \node[circle,draw] 
-        (B) at (5,1.5) {B};
+        (B) at (5,3.5) {B};
  \draw[->,decorate] (A) -- (B);
  \draw[->,decorate] (B) -- (A);
+\end{tikzpicture}
+\end{example}
+
+\begin{example}
+\usetikzlibrary{positioning}
+\begin{tikzpicture}[xscale=6,
+     yscale=8,>=stealth]
+  \tikzstyle{v}=[circle,
+     minimum size=1mm,draw,thick]
+  \node[v] (a) {$1$};
+  \node[v] (b) [right=of a] {$2$};
+  \node[v] (c) [below=of a] {$2$};
+  \node[v] (d) [below=of b] {$1$};
+  \draw[thick,->] 
+        (a) to node {} (c);
+  \draw[thick,->] 
+        (a) to node {} (d);
+  \draw[thick,->] 
+        (b) to node {} (d);
 \end{tikzpicture}
 \end{example}
 
@@ -686,6 +761,11 @@ numériques, de fonctions, etc à l'aide de l'extension
 \pai{pgfplot}. Elle fournit tout ce dont vous avez besoin pour
 dessiner des graphes. Elle peut même appeler la commande externe
 \texttt{gnuplot} pour évaluer les fonctions faisant partie du graphe.
+
+Pour encore plus d'inspiration, visitez l'ébahissant site de Kjell
+Magne Fauske \url{http://www.texample.net/tikz/}. Il contient un
+corpus toujours grandissant de beaux graphiques et de code \LaTeX{}.
+
 
 %%% Local Variables:
 %%% TeX-master: "lshort.tex"
