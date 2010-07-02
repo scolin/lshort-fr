@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Math typesetting with LaTeX
-% $Id: math.tex 182 2008-11-04 09:43:36Z oetiker $
+% $Id: math.tex 404 2010-03-25 22:21:27Z oetiker $
 %
 % Changes by Stefan M. Moser: 2008/10/22
 %
@@ -64,7 +64,7 @@ incohérents.
 \AmS-\LaTeX{} fait partie de la distribution de base et est fournie
 avec toutes les distributions récentes de \LaTeX{}\footnote{Si la
   vôtre ne l'a pas, visitez
-  \texttt{CTAN:macros/latex/required/amslatex}. Dans ce chapitre nous
+  \CTAN|macros/latex/required/amslatex|}. Dans ce chapitre nous
   supposerons qu'\pai{amsmath} est chargé en préambule, via
   {\ci{usepackage}\{amsmath\}}.}.
 
@@ -122,11 +122,13 @@ Voici une référence à
 \end{example}
 
 %MPG: correction à faire remonter upstream
+%SC: upstream a pris la correction, mais j'essaye de garder la trad. fidèle
 Si vous ne voulez pas que \LaTeX{} numérote vos équations, utilisez la
 version étoilée d'\texttt{equation}, \ei{equation*}\footnote{Fournie par
   \package{amsmath}. Si vous ne l'avez pas chargé, vous pouvez utiliser
   l'environnement \ei{displaymath} de \LaTeX{}. Mais il vaut mieux toujours
-  charger \package{amsmath}.}, ou mieux encore,
+  charger \package{amsmath}, \LaTeX{} seul n'ayant que la version
+  non-étoilée d'\texttt{equation}.}, ou mieux encore,
 entourez votre équation par \ci{[} et \ci{]} :
 \begin{example}
 Ajoutez $a$ au carré 
@@ -143,12 +145,10 @@ ou de façon plus condensée :
 
 Cependant, si vous avez beaucoup d'équations dans votre document, le source
 \LaTeX{} risque de devenir moins lisible si vous utilisez \ci{[\iffalse]\fi}
-et \ci{\iffalse[\fi]}. Aussi\footnote{En fait, \ci{[\iffalse]\fi} et
-  \ci{\iffalse[\fi]} peuvent être parfaitement lisibles si vous prenez la peine
-  de les laisser seuls sur une ligne. Un autre avantage d'\ei{equation*} est
-  qu'il est facile d'activer la numérotation : il suffit d'enlever les
-  étoiles.} nous recommandons d'utiliser plutôt \ei{equation} et
-\ei{equation*}.
+et \ci{\iffalse[\fi]}, à moins de les laisser seuls sur une
+ligne. Aussi nous recommandons d'utiliser plutôt \ei{equation} et
+\ei{equation*} pour lesquels il est plus facile d'activer ou
+désactiver la numérotation par simple ajout ou retrait des étoiles.
 
 Remarquez que les expressions mathématiques sont formatées
 différemment selon qu'elles sont composées \og \wi{en-ligne} \fg{} ou \og
@@ -635,8 +635,8 @@ courantes.
 Pour grouper ensemble plusieurs équations, on peut utiliser
 l'environnement \ei{align}\footnote{L'environnement \texttt{align} peut aussi
   servir à placer plusieurs groupes d'équations côte à côte. Cependant, pour
-  cette usage plutôt rare, nous recommandons également d'utiliser
-  l'environnement \ei{IEEEeqnarray} avec un argument comme, par exemple
+  cet usage plutôt rare, nous recommandons également d'utiliser
+  l'environnement \ei{IEEEeqnarray} avec un argument comme
   \texttt{\{rCl+rCl\}}.} comme ceci :
 \begin{example}
  \begin{align}
@@ -657,8 +657,8 @@ Cependant, cette approche pose problème dès qu'une ligne est trop longue.
 \end{example}
 \noindent
 Ici, on voudrait que $+\: m$ soit placé exactement sous le $d$ et non sous le
-signe d'égalité. Bioen sûr, il est possible d'ajouter un peu d'espace avec,
-par exemple \verb+\hspace{...}+, mais il est difficile d'obtenir un alignement
+signe d'égalité. Bioen sûr, il est possible d'ajouter un peu d'espace avec
+\verb+\hspace{...}+, mais il est difficile d'obtenir un alignement
 précis ainsi (et ce n'est pas un très bon style de programmation).
 
 L'environnement \ei{eqnarray} offre à première vue une meilleure solution.
@@ -759,7 +759,6 @@ minuscule), et la troisième alignée à gauche.
 \end{IEEEeqnarray}
 \end{example}
 
-%MPG: fixed typo \texttt -> \verb
 En fait, on peut choisir n'importe quel nombre de colonnes. Par exemple,
 \verb+{c}+ donnera une seule colonne dans laquelle toutes les lignes seront
 centrées, ou bien \verb+{rCll}+ donnera une quatrième colonne alignée à gauche,
