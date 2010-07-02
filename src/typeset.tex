@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Typesetting Part of LaTeX2e Introduction
-% $Id: typeset.tex 199 2009-04-20 06:29:16Z oetiker $
+% $Id: typeset.tex 404 2010-03-25 22:21:27Z oetiker $
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Pour les informations de licence, voir title.tex.
@@ -244,7 +244,11 @@ La commande \verb|\hyphenation{|\emph{liste de mots}\verb|}| a un effet
 Si l'exception ne concerne qu'une occurrence d'un mot on utilise
 la commande \ci{-} qui insère un point de  césure potentiel dans un
 mot. Ces positions deviennent alors les \emph{seuls} points de césure
-possibles pour cette occurrence du mot. 
+possibles pour cette occurrence du mot. Cette commande est
+particulièrement utile pour les mots contenant des caractères
+spéciaux, puisque \LaTeX{} ne réalise pas automatiquement la césure
+pour ces derniers.
+%\footnote{À moins d'utiliser les nouvelles \wi{polices DC}}
 
 \begin{example}
 I think this is: su\-per\-cal\-%
@@ -816,10 +820,14 @@ table~\ref{cmd-french}) sont disponibles.
 
 Vous remarquerez également que la mise en page des listes est changée
 lors du passage à la langue française. Pour obtenir toutes les
-informations sur l'option \pai{frenchb} de \pai{babel} et comment
+informations sur l'option \pai{francais} de \pai{babel} et comment
 modifier son comportement, consultez la partie~29 de
 \texttt{babel.pdf}\footnote{Ou la documentation en français sur la page de son
   auteur : \url{http://daniel.flipo.free.fr/frenchb/frenchb2-doc.pdf}. \NdT}
+
+Notez également que les versions récentes de \pai{francais}
+nécessitent l'extension \pai{numprint} pour implanter la commande
+\ci{nombre}.
 
 Dans cette traduction, un certain nombre d'ajouts présentent les
 spécificités de la typographie française tout au long du texte.
@@ -1135,7 +1143,7 @@ tableau~\ref{Cyrillic}.
    \verb|"--~| & Tiret long cyrillique pour les noms composés.       \\
    \verb|"--*| & Tiret long cyrillique pour le dialogue.         \\
    \verb|""| & Comme \verb|"-|, mais n'affiche pas le tiret
-               (pour les mots composés avec tiret, p.e. \verb|x-""y|
+               (pour les mots composés avec tiret, p.e.\ \verb|x-""y|
                 ou d'autres signes comme \og disable/enable \fg{}). \\
    \verb|"~| & Pour une marque de mot composé sans rupture.        \\
    \verb|"=| & Pour une marque de mot composé avec rupture, pour
