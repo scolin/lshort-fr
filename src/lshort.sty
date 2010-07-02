@@ -12,7 +12,7 @@
 \let\lsspageref=\pageref
 \ProvidesPackage{lshort}
 % main language has to come last for global layout to be right (mpg)
-\RequirePackage[english,german,frenchb]{babel}
+\RequirePackage[english,german,francais]{babel}
 \usepackage[autolanguage]{numprint} % needed for \nombre since frenchb 2.x
 \usepackage{etex} % to avoid "no room for a new \dimen" error
 % the following are defaults of frenchb since 2.x
@@ -39,6 +39,7 @@
 \RequirePackage[T1]{fontenc}
 \RequirePackage[latin1]{inputenc}
 \RequirePackage{lmodern}
+\RequirePackage[babel=true,kerning=true]{microtype}
 % For just a command below
 \RequirePackage{ifmtarg}
 %\RequirePackage{textcomp}
@@ -125,6 +126,7 @@
 % Adapted from TeX FAQ
 \renewcommand{\Email}{\begingroup \def\UrlLeft{<}\def\UrlRight{>} \urlstyle{tt}\Url}     % email address
 \def\mailto|#1|{\href{mailto:#1}{\Email|#1|}}        % url to mail somewhere
+%\newcommand{\CTANref}{\begingroup \urlstyle{tt}\Url}     % 
 \newcommand{\CTANref}{\begingroup \urlstyle{tt}\Url}     % 
 \def\CTAN|#1|{\href{http://www.ctan.org/get/#1}{\CTANref|CTAN://#1|}}  
 \newcommand\Newsgroup{\begingroup \urlstyle{tt}\Url} % newsgroup
@@ -212,7 +214,7 @@
 \pdfstringdefDisableCommands{\edef\ldots{... }}%
 \fi
 
-%\noindent\addvspace{1ex}\small #1 $<$\texttt{#2}$>$\par\addvspace{2ex}\noindnet\ignorespaces}
+%\noindent\addvspace{1ex}\small #1 <\texttt{#2}>\par\addvspace{2ex}\noindnet\ignorespaces}
 %
 %
 % Symbol Entry for Math Symbol Tables
