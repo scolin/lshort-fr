@@ -1,0 +1,4 @@
+- Signal that lshort-letter does not exist, breaking compilation
+
+- Check TODOs by grepping src/*
+
