@@ -559,20 +559,20 @@ associé aux coordonnées mathématiques $(-3,-2)$ (le disque noir).
 De nos jours, tout système de sortie \LaTeX{} (\texttt{dvips},
 \texttt{pdflatex}, etc.) est
 capable de fabriquer d'agréables images vectorielles, mais aucun ne le fait
-avec la même interface. L'extension PGF fournit
+avec la même interface. L'extension \pai{pgf} fournit
 une couche d'abstraction au-dessus de ces interfaces.
 Elle est fournie avec sa documentation
 de 500 pages et plus \cite{pgfplot}. Nous allons nous contenter d'une
 vue superficielle de l'utilisation de cette extension dans cette
 courte section.
 
-PGF est accompagnée par un langage de haut niveau fourni par
+L'extension \pai{pgf} est accompagnée par un langage de haut niveau fourni par
 l'extension \pai{tikz}. TikZ fournit des commandes
 efficaces pour le dessin d'images directement dans votre
 document. Utilisez l'environnement \ei{tikzpicture} pour y mettre ces
 instructions de dessin décrites en TikZ.
 
-Comme mentionné plus haut, il existe un très bon manuel pour PGF et
+Comme mentionné plus haut, il existe un très bon manuel pour \pai{pgf} et
 ses dérivés. Plutôt donc que montrer comment ces extensions
 fonctionnent, nous allons juste montrer quelques exemples de ce qui
 peut être produit afin d'offrir une première impression de
@@ -618,7 +618,7 @@ Un simple diagramme de Venn.
 \end{tikzpicture}
 \end{example}
 Si vous utilisez \pai{tikz} avec \pai{babel}, il se peut que certains
-caractères utilisés par le langage TikZ soient modifiés par babel, ce
+caractères utilisés par le langage TikZ soient modifiés par \pai{babel}, ce
 qui conduit à des erreurs étranges. Pour éviter ce problème, ajoutez
 la commande \ci{shorthandoff} à votre code.
 
@@ -683,10 +683,10 @@ boîtes légérement tordues.
 \end{tikzpicture}
 \end{example}
 
-Vous pouvez même dessiner des diagrammes comme s'ils provenaient
+Vous pouvez même dessiner des diagrammes syntaxiques comme s'ils provenaient
 directement d'un livre sur la programmation Pascal. Le code est plus
 complexe que l'exemple du dessus, aussi me contenterai-je de ne vous
-montrer que son résultat. Si vous lisez la documentation de PGF, vous
+montrer que son résultat. Si vous lisez la documentation de \pai{pgf}, vous
 y trouverez un tutoriel pour dessiner ces mêmes diagrammes.
 
 \begin{center}
