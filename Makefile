@@ -15,7 +15,7 @@ MAKEINDEX=makeindex
 DVIPS=dvips
 
 # The default targets
-all: $(NAME).ps $(NAME)-book.ps $(NAME).pdf $(NAME)-a5book.pdf $(NAME)-letter.pdf $(NAME)-a5.pdf
+all: $(NAME).ps $(NAME)-book.ps $(NAME).pdf $(NAME)-a5book.pdf $(NAME)-a5.pdf
 
 
 $(NAME).dvi: $(FILES)
