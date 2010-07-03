@@ -60,13 +60,13 @@ $(NAME).pdf: $(FILES)
 	rm pdfbuild/*
 
 $(NAME)-a5.pdf: $(FILES)
-       -mkdir pdfbuild
-       (T1FONTS=.:`pwd`/eurofont: && export T1FONTS && TEXINPUTS=.:`pwd`/src:`pwd`/euro:${TEXINPUTS:-:}&&export TEXINPUTS&& cd pdfbuild&& \
-       $(PDFLATEX) lshort-a5&& $(PDFLATEX) lshort-a5&& \
-       $(MAKEINDEX) -s ../src/lshort.ist lshort-a5&&$(PDFLATEX) lshort-a5&& \
-       (thumbpdf --resolution 10 lshort-a5.pdf && $(PDFLATEX) lshort-a5)&& \
-       mv lshort-a5.pdf ../$(NAME)-a5.pdf )
-       rm pdfbuild/*
+	-mkdir pdfbuild
+	(T1FONTS=.:`pwd`/eurofont: && export T1FONTS && TEXINPUTS=.:`pwd`/src:`pwd`/euro:${TEXINPUTS:-:}&&export TEXINPUTS&& cd pdfbuild&& \
+	$(PDFLATEX) lshort-a5&& $(PDFLATEX) lshort-a5&& \
+	$(MAKEINDEX) -s ../src/lshort.ist lshort-a5&&$(PDFLATEX) lshort-a5&& \
+	(thumbpdf --resolution 10 lshort-a5.pdf && $(PDFLATEX) lshort-a5)&& \
+	mv lshort-a5.pdf ../$(NAME)-a5.pdf )
+	rm pdfbuild/*
 
 $(NAME)-letter.pdf: $(FILES)
 	-mkdir pdfbuild
