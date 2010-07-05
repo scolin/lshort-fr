@@ -30,7 +30,7 @@ histoire. Celle-ci commence par l'environnement \ei{picture} qui
 permet la création de graphiques par le placement d'éléments
 prédéfinis sur un canevas. Vous pourrez en trouver une description
 complète dans le \manual. Cet environnement fournit la commande
-\ci{qbezier}, le «\texttt{q}» signifiant «quadratique». De nombreuses
+\ci{qbezier}, le \og \texttt{q} \fg signifiant \og quadratique \fg. De nombreuses
 courbes usuelles comme les cercles, ellipses ou caténaires peuvent
 être approchés de manière satisfaisante par des courbes quadratiques
 de Bézier, bien que cela requiert quelque labeur mathématique. Si de
@@ -44,7 +44,7 @@ effet les documents produits ainsi sont de petite taille (en octets)
 et il n'y a pas de fichier graphique à adjoindre.
 
 Cela était la situation jusqu'à il y a quelques années lorsque Till
-Tantau célèbre pour l'extension \pai{beamer} proposa le Format de
+Tantau, célèbre pour l'extension \pai{beamer}, proposa le Format de
 Graphiques Portable \pai{pgf} et son extension associée TikZ
 \pai{tikz}. Ce système permet de créer des graphiques vectoriels de
 haute qualité avec un support pour tous les systèmes \TeX{} actuels, y
@@ -71,10 +71,10 @@ Vous pourrez trouver une discussion très détaillé des stratégies
 \secby{Urs Oswald}{osurs@bluewin.ch}
 
 Comme indiqué plus haut, l'environnement \ei{picture} fait partie du
-\LaTeX{} standard et fonctionne très bien pour des tâches simple ou si
+\LaTeX{} standard et fonctionne très bien pour des tâches simples ou si
 vous souhaitez plus de contrôle sur la position exacte des éléments
-sur une page. Mais pour tout labeur graphique complexe, vous devriez
-plutôt regarder du côté de TikZ présenté en section \ref{sec:tikz} à
+sur une page. Mais pour tout travail graphique complexe, vous devriez
+plutôt regarder du côté de TikZ, présenté en section \ref{sec:tikz} à
 la page \pageref{sec:tikz}.
 
 \subsection{Commandes de base}
@@ -578,7 +578,7 @@ fonctionnent, nous allons juste montrer quelques exemples de ce qui
 peut être produit afin d'offrir une première impression de
 l'utilisation de cet outil.
 
-Tout d'abord un diagramme sans signification spéciale~:
+Tout d'abord un diagramme sans signification spéciale :
 \begin{example}
 \begin{tikzpicture}[scale=3]
   \clip (-0.1,-0.2)
@@ -594,7 +594,6 @@ Tout d'abord un diagramme sans signification spéciale~:
          arc (0:30:3mm) -- cycle;
 \end{tikzpicture}
 \end{example}
-%SC: redéplacement de ce paragraphe à sa place initiale.
 Remarquez l'usage du point-virgule \og \texttt{;} \fg. Il sépare les
 commandes individuelles.
 
@@ -622,7 +621,7 @@ caractères utilisés par le langage TikZ soient modifiés par \pai{babel}, ce
 qui conduit à des erreurs étranges. Pour éviter ce problème, ajoutez
 la commande \ci{shorthandoff} à votre code.
 
-Remarquez les boucles «pour» (\texttt{foreach}) dans l'example suivant~:
+Remarquez les boucles \og pour \fg (\texttt{foreach}) dans l'example suivant :
 \begin{example}
 \begin{tikzpicture}[scale=0.8]
   \tikzstyle{v}=[circle, minimum size=2mm,inner sep=0pt,draw]

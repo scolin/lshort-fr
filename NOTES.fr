@@ -80,7 +80,7 @@ Contenu (voire typo) de la VO
     - formulation bizarre de l'intro
     - 4.1 être plus neutre sur les formats graphiques et parler plus tôt de PDF
     - 4.1 la remarque sur {figure} et {table} induit en erreur (flottants)
-    - 4.6 Reacommander tlmgr/mpm en premier. Parler des .tds.zip.
+    - 4.6 Recommander tlmgr/mpm en premier. Parler des .tds.zip.
     - texhash marche aussi sous web2c. Revoir tout ça.
     - 4.7.1 revoir la liste des distros modernes.
     - 4.7.2 mentionner lmodern en premier, c'est *la* solution dans la plupart
