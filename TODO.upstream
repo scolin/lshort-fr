@@ -1,4 +1,4 @@
 - Signal that lshort-letter does not exist, breaking compilation
 
-- Check TODOs by grepping src/*
+- src/graphic.tex line 51 (r429): "but ontrary" -> contrary
 

@@ -138,6 +138,9 @@ Idées d'amélioration pour les macros
 
 - Import \iei and \fei from typeset.tex?
 
+- la codage du tableau \label{cmd-french} dans typest.tex est moche (\quad et
+  \\[1ex] répétés...)
+
 Questions sur les macros
 ------------------------
 
