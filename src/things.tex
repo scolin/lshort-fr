@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Things you need to know
-% $Id: things.tex 448 2010-12-14 15:34:32Z oetiker $
+% $Id: things.tex 456 2011-04-06 09:10:27Z oetiker $
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Pour les informations de licence, voir title.tex.
@@ -37,7 +37,7 @@ caractères 8 bits ainsi que plusieurs langages. \TeX{} est connu pour sa très
 grande stabilité, sa capacité à fonctionner sur toutes sortes d'ordinateurs,
 et son absence quasi-totale de bogues. Son numéro de version converge vers
 $\pi$ et vaut actuellement\footnote{Au moment de la traduction\dots \NdT}
-$3.1415926$.
+$3.141592653$.
 
 \TeX{} se prononce \og Tech \fg{}, avec un \og ch \fg{} comme dans le mot
 écossais \og Loch \fg{}.
@@ -56,7 +56,7 @@ $3.1415926$.
     que la meilleure prononciation est la grecque, où l'on a le \og ch
     \fg{} dur de \og ach \fg{} et \og Loch \fg{}.}}
 Le « ch » provient de l'alphabet grec où X est la lettre « chi ». \TeX{} est aussi la
-première syllabe du mot grec texnologia (technologie).
+première syllabe du mot grec {\greektext teknolog'ia} (technologie).
 En alphabet phonétique cela donne
 \textbf{[tex]}\dots{} Dans un environnement ASCII, \TeX{}
 devient TeX.
@@ -313,13 +313,15 @@ suivants :
 \index{contre-oblique}
 \item soit elles sont composées d'une contre-oblique et d'exactement
   un caractère autre qu'une lettre.
+\item plusieurs commandes ont aussi une variante \og étoilée \fg où
+  une étoile (*) est ajoutée au nom de la commande.
 \end{itemize}
 
 %SC: toujours vrai au vu de la modif ci-dessus ?
 %
 % \\* doesn't comply !
 %
-%MPG: l'étoile ne fait pas partie de la commande, c'est le commande \\ suivie
+%MPG: l'étoile ne fait pas partie de la commande, c'est la commande \\ suivie
 %d'une étoile.
 
 %SC: ibidem
@@ -330,9 +332,10 @@ suivants :
 \label{whitespace}
 \LaTeX{} ignore les espaces après les commandes. Si vous souhaitez
 obtenir un blanc après une commande\index{espace!après une commande},
-il faut ou bien insérer \verb|{}| suivi d'un blanc ou bien utiliser une
-commande d'espacement spécifique d'espacement de \LaTeX{}. La séquence \verb|{}|
-empêche \LaTeX{} d'ignorer les blancs après une commande.
+il faut ou bien insérer un paramètre vide \verb|{}| suivi d'un blanc
+ou bien utiliser une commande d'espacement spécifique de \LaTeX{}. Le
+paramètre vide \verb|{}| empêche \LaTeX{} d'ignorer les blancs après une
+commande.
 
 \begin{example}
 J'ai lu que Knuth classe les
@@ -344,9 +347,12 @@ Nous sommes le \today.
 Certaines commandes prennent un \wi{paramètre} fourni entre
 \wi{accolades}~\verb|{ }|. Certaines commandes acceptent des
 \wi{paramètres optionnels} qui suivent le nom de la commande entre
-\wi{crochets}~\verb|[ ]|. L'exemple suivant montre quelques commandes
-\LaTeX{}. Ne vous tracassez pas pour les comprendre, elles seront
-expliquées plus loin.
+\wi{crochets}~\verb|[ ]|.
+\begin{code}
+\verb|\|\textit{commande}\verb|[|\textit{paramètre optionnel}\verb|]{|\textit{paramètre}\verb|}|
+\end{code}
+L'exemple suivant montre quelques commandes \LaTeX{}. Ne vous
+tracassez pas pour les comprendre, elles seront expliquées plus loin.
 
 \begin{example}
 \textsl{Penchez}-vous !
