@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Math typesetting with LaTeX
-% $Id: math.tex 431 2010-07-06 20:53:05Z oetiker $
+% $Id: math.tex 459 2011-04-06 10:02:44Z oetiker $
 %
 % Changes by Stefan M. Moser: 2008/10/22
 %
@@ -70,8 +70,8 @@ avec toutes les distributions récentes de \LaTeX{}\footnote{Si la
 
 \section{Équations simples}
 
-Il y a deux façons de mettre en forme des \wi{formules}
-mathématiques~: au fil du texte à l'intérieur d'un paragraphe
+Une \wi{formule} mathématique peut être mise en forme
+au fil du texte à l'intérieur d'un paragraphe
 (\emph{\wi{style en-ligne}}) ou en interrompant le flot du texte pour
 que la mise en forme soit séparée (\textit{\wi{style hors-texte}}). Les
 \wi{équation}s mathématiques \emph{dans} un paragraphe sont entrées
@@ -253,8 +253,7 @@ suivante :
 \textbf{grecques majuscules} sont quant à elles saisies ainsi :
 \verb|\Gamma|, \verb|\Delta|, etc.
 \footnote{Il n'y a pas de Alpha, Beta\ldots{} majuscule dans \LaTeXe{}
-parce que c'est le même caractère que le A,B\ldots{} romain. Lorsque le nouveau
-codage mathématique sera terminé, cela changera.} sont saisies
+parce que c'est le même caractère que le A,B\ldots{} romain.} sont saisies
 
 Référez-vous au tableau~\ref{greekletters} en
 page~\pageref{greekletters} pour une liste de lettres grecques.
@@ -264,9 +263,13 @@ $\lambda,\xi,\pi,\theta,
 \end{example}
  
 
-Les \textbf{indices et exposants} sont\index{indice}\index{exposant}
+Les \textbf{indices, exposants et lettres supérieures}
+sont\index{indice}\index{exposant}\index{lettre supérieure}
 positionnés en utilisant les caractères
 \verb|_|\index{_@\verb"|_"|} et \verb|^|\index{^@\verb"|^"|}.
+
+Le tableau~\ref{binaryrel} en page \pageref{binaryrel}  liste de
+nombreuses relations binaires comme $\subseteq$ et $\perp$.
 
 La plupart des commandes du mode mathématique ne s'appliquent qu'au
 caractère suivant. Pour qu'une commande s'applique à un ensemble de
@@ -274,14 +277,12 @@ caractères, il faut les grouper en utilisant des accolades :
 \verb|{...}|. 
 
 \begin{example}
-$p^3_{ij} \qquad
- m_\text{Knuth} \\[5pt]
+$p^3_{ij} \qquad 
+ m_\text{Knuth}\qquad
+\sum_{k=1}^3 k \\[5pt]
  a^x+y \neq a^{x+y}\qquad 
  e^{x^2} \neq {e^x}^2$
 \end{example}
-
-Le tableau~\ref{binaryrel} en page \pageref{binaryrel}  liste de
-nombreuses relations binaires comme $\subseteq$ et $\perp$.
 
 La \textbf{\wi{racine carrée}} est saisie via \ci{sqrt}. La
 racine $n$-ième est produite par la commande
@@ -358,7 +359,7 @@ $f(x) = x^2 \qquad f'(x)
 
 
 Les \textbf{\wi{vecteurs}} sont en général marqués en ajoutant une
-flèche au-dessus du nom de la variable. Ceci est obtenu par la
+flèche au-dessus des noms de variables. Ceci est obtenu par la
 commande \ci{vec}. Pour coder le vecteur de $A$ à $B$, les commandes
 \ci{overrightarrow} et \ci{overleftarrow} sont bien utiles :
 \begin{example}
@@ -367,7 +368,7 @@ $\vec{a} \qquad
  \overrightarrow{AB}$
 \end{example}
 
-Les noms des fonctions telles que sinus doivent être imprimés à l'aide
+Les noms des fonctions doivent souvent être imprimés à l'aide
 d'une police droite et non en italique comme les variables. C'est
 pourquoi \LaTeX{} fournit les commandes suivantes pour les fonctions
 les plus utilisées :
@@ -599,7 +600,7 @@ ligne. L'usage de \ei{multline} produit alors :
 
 C'est nettement mieux que \eqref{eq:formule_trop_longue}, mais
 l'inconvénient est que le signe d'égalité perd son importance naturelle, en
-principe supérieur à celle du signe \og plus \fg devant $k$. Une meilleure
+principe supérieure à celle du signe \og plus \fg devant $k$. Une meilleure
 solution est d'utiliser \ei{IEEEeqnarray}, qui sera présenté en détails en
 section~\ref{sec:IEEEeqnarray}.
 
@@ -659,19 +660,19 @@ L'environnement \ei{eqnarray} offre à première vue une meilleure solution.
 \end{eqnarray}
 \end{example}
 
-Ça n'est cependant toujours pas une solution optimale :
-\begin{itemize}
-  \item Les espaces autour du signe d'égalité sont trop grands. En particulier,
-    ce ne sont pas les mêmes qu'avec les environnements \ei{multline} ou
-    \ei{equation}.
+Ça n'est cependant toujours pas une solution optimale puisque les
+espaces autour du signe d'égalité sont trop grands. En particulier, ce
+ne sont pas les mêmes qu'avec les environnements \ei{multline} ou
+\ei{equation} :
 \begin{example}
 \begin{eqnarray}
   a & = & a = a
 \end{eqnarray}
 \end{example}
 
-\item La formule et le numéro d'équation peuvent se chevaucher, même quand il
-  y a suffisamment de place à gauche pour pousser la formule.
+\noindent \dots De plus, la formule et le numéro d'équation peuvent se
+chevaucher, même quand il y a suffisamment de place à gauche pour
+pousser la formule :
 \begin{example}
 \begin{eqnarray}
   a & = & b + c 
@@ -682,8 +683,8 @@ L'environnement \ei{eqnarray} offre à première vue une meilleure solution.
 \end{eqnarray}
 \end{example}
 
-\item L'environnement propose une commande \ci{lefteqn} qui peut être utilisée
-  quand le membre de gauche est trop long.
+\noindent Alors que l'environnement propose une commande \ci{lefteqn}
+qui peut être utilisée quand le membre de gauche est trop long.
 \begin{example}
 \begin{eqnarray}
   \lefteqn{a + b + c + d 
@@ -693,7 +694,7 @@ L'environnement \ei{eqnarray} offre à première vue une meilleure solution.
   & = & n + o + p + q + r + s
 \end{eqnarray}
 \end{example}
-Une fois encore, ça n'est pas optimal étant donné que le membre de droite
+\noindent Ça n'est toujours pas optimal étant donné que le membre de droite
 est trop court et l'ensemble n'est pas centré correctement :
 \begin{example}
 \begin{eqnarray}
@@ -703,9 +704,9 @@ est trop court et l'ensemble n'est pas centré correctement :
   & = & i + j 
 \end{eqnarray}
 \end{example}
-\end{itemize}
 
-Heureusement, il y a un meilleur moyen\ldots
+\noindent Après avoir suffisamment dénigré la compétition, nous
+pouvons nous diriger vers le glorieux\ldots
 
 \subsection{L'environnement IEEEeqnarray}
 \label{sec:IEEEeqnarray_intro}
@@ -716,16 +717,17 @@ d'information, nous renvoyons à son manuel\footnote{Le manuel officiel
   s'appelle \texttt{IEEEtran\_HOWTO.pdf} ; la partie sur \texttt{IEEEeqnarray}
   se trouve dans l'appendice~F.}.
 
-Pour commencer, il faut charger l'extension\footnote{Qui se trouve sur le
-  CTAN.} \pai{IEEEtranstools} afin de pouvoir utiliser \ei{IEEEeqnarray}. Pour
-cela, ajoutez la ligne suivante à votre préambule.
-\small
+Pour commencer, il faut charger l'extension\footnote{L'extension
+  \pai{IEEEtrantools} peut ne pas être présente dans votre
+  installation, vous pourrez alors la trouver sur le CTAN.}
+\pai{IEEEtrantools} afin de pouvoir utiliser \ei{IEEEeqnarray}. Pour
+cela, ajoutez la ligne suivante à votre préambule.  \small
 \begin{verbatim}
 \usepackage[retainorgcmds]{IEEEtrantools}
 \end{verbatim}
 \normalsize
 
-Ce qui fait la force d'\ei{IEEEeqnarray}, c'est la possibilité de spécifier le
+Ce qui fait la force d'\ei{IEEEeqnarray}, c'est la capacité de spécifier le
 nombre de \emph{colonnes} dans le tableau d'équation. Le plus souvent, cette
 spécification sera \verb+{rCl}+, c'est-à-dire trois colonnes dont la première
 est alignée à droite, la deuxième centrée et avec un peu plus d'espace autour
@@ -742,7 +744,6 @@ minuscule), et la troisième alignée à gauche.
   & = & p + q + r + s
 \end{IEEEeqnarray}
 \end{example}
-
 On peut choisir n'importe quel nombre de colonnes. Par exemple,
 \verb+{c}+ donnera une seule colonne dans laquelle toutes les lignes seront
 centrées, ou bien \verb+{rCll}+ donnera une quatrième colonne alignée à gauche,
@@ -754,7 +755,6 @@ Par ailleurs, on peut ajouter de l'espace entre deux colonnes
 avec\footnote{Pour plus de types d'espacement, nous renvoyons à la
   section~\ref{sec:putting-qed-right} et au manuel officiel.} \og \texttt{.}
 \fg, \og \texttt{/} \fg et \og \texttt{\string?} \fg en ordre croissant.
-
 Remarquons les espaces autour des signes d'égalité, par rapport au cas
 d'utilisation de l'environnement \texttt{eqnarray}.
 
@@ -763,10 +763,9 @@ d'utilisation de l'environnement \texttt{eqnarray}.
 
 Nous décrivons ici comment utiliser \texttt{IEEEeqnarray} pour résoudre les
 problèmes les plus courants.
-\begin{itemize}
-  \item Si une ligne est le numéro d'équation se superposent comme dans
-  \eqref{eq:eqnarrayfautif}, la commande
-\small
+
+Si une ligne et le numéro d'équation se superposent comme dans
+\eqref{eq:eqnarrayfautif}, la commande \small
 \begin{verbatim}
 \IEEEeqnarraynumspace
 \end{verbatim} 
@@ -797,9 +796,9 @@ on obtient :
 \end{IEEEeqnarray}
 \end{example}
 
-\item Si le membre de gauche est trop long, \texttt{IEEEeqnarray} propose la
-  commande \ci{IEEEeqnarraymulticol}, qui fonctionne dans tous les cas, comme
-  remplacement de \ci{lefteqn}.
+Si le membre de gauche est trop long, \texttt{IEEEeqnarray} propose la
+commande \ci{IEEEeqnarraymulticol}, qui fonctionne dans tous les cas,
+comme remplacement de \ci{lefteqn}.
 \begin{example}
 \begin{IEEEeqnarray}{rCl}
   \IEEEeqnarraymulticol{3}{l}{
@@ -816,9 +815,9 @@ l'environnement \texttt{tabular} : le premier argument \verb+3+ dit qu'il faut
 combiner trois colonnes pour n'en former qu'une, et le deuxième argument
 \verb+l+ dit que son contenu sera aligné à gauche.
 
-Remarquons qu'en remplaçant \ci{quad} dans l'exemple précédent par autre
-chose, on peut facilement adapter l'alignement vertical\footnote{Nous pensons
-  qu'un cadratin est la distance qui rend le mieux dans la plupart des cas.}
+Remarquons qu'en insérant \ci{quad} dans l'exemple précédent, on peut
+facilement adapter l'alignement vertical\footnote{Nous pensons qu'un
+  cadratin est la distance qui rend le mieux dans la plupart des cas.}
 du signe égal, par exemple :
 \begin{example}
 \begin{IEEEeqnarray}{rCl}
@@ -832,11 +831,11 @@ du signe égal, par exemple :
 \end{IEEEeqnarray}
 \end{example}
 
-\item Si une formule est découpée en deux ou plusieurs lignes, \LaTeX{} croit
-  que le signe $+$ ou $-$ au début d'une ligne est un opérateur unaire (comme
-  dans $-2$) et non binaire (comme dans $2 - 2$). C'est pourquoi il faut
-  ajouter un peu d'espace \ci{:} entre ce signe et le terme qui suit. Par
-  exemple, au lieu de
+Si une formule est découpée en deux ou plusieurs lignes, \LaTeX{}
+croit que le signe $+$ ou $-$ au début d'une ligne est un opérateur
+unaire (comme dans $-2$) et non binaire (comme dans $2 - 2$). C'est
+pourquoi il faut ajouter un peu d'espace \ci{:} entre ce signe et le
+terme qui suit. Par exemple, au lieu de
 \begin{example}
 \begin{IEEEeqnarray}{rCl}
   a & = & b + c 
@@ -860,40 +859,35 @@ il vaut mieux écrire
   & = & p + q + r + s
 \end{IEEEeqnarray}
 \end{example}
-(Observer l'espace entre $+$ et $l$ dans les deux cas.)
+\noindent Observez l'espace entre $+$ et $l$ dans les deux cas !
 
-\textbf{Attention}, \LaTeX{} n'est pas complètement stupide : dans certainnes
-situations, comme par exemple devant
-  \begin{itemize}
-    \item un nom d'opérateur comme \ci{log}, \ci{sin}, \ci{det},
-    \ci{max}, etc. ;
-  \item une intégrale \ci{int} ou une somme \ci{sum} ;
-  \item une parenthèse dont la taille s'adapte en utilisant \ci{left} ou
-    \ci{right} (par opposition à une parenthèse simple, ou dont la taille est
-    fixée avec par exemple \ci{big}) ;
-  \end{itemize}
-  un signe $+$ ou $-$ ne peut pas être unaire et doit être un opérateur
-  binaire. Dans ces cas, \LaTeX{} ajuste correctement l'espace après le signe,
-  et il ne faut pas en rajouter.
-  \begin{itemize}
-  \item[$\rhd$] \itshape
-    À chaque fois que vous coupez une ligne, regardez rapidement le résultat
-    et vérifiez si l'espacement est correct !
-  \end{itemize}
+Parfois, un espacement adéquat suffit, comme par exemple devant
+\begin{itemize}
+\item un nom d'opérateur comme \ci{log}, \ci{sin}, \ci{det},
+  \ci{max}, etc. ;
+\item une intégrale \ci{int} ou une somme \ci{sum} ;
+\item une parenthèse dont la taille s'adapte en utilisant \ci{left} ou
+  \ci{right} (par opposition à une parenthèse simple, ou dont la taille est
+  fixée avec par exemple \ci{big}) ;
+\end{itemize}
+un signe $+$ ou $-$ ne peut pas être unaire et doit être un opérateur
+binaire. Dans ces cas, \LaTeX{} ajuste correctement l'espace après le signe,
+et il ne faut pas en rajouter.
 
-\item Pour supprimer la numérotation sur une ligne particulière, on dispose de
-  la commande \ci{nonumber} (ou bien \ci{IEEEnonumber}). Si un label
-  \verb+\label{...}+ est défini sur cette ligne, il est alors transmis à la
-  prochaine ligne dont la numérotation n'est pas supprimée. Placez plutôt
-  les labels juste avant le \verb+\\+ à la fin de
-  la ligne concernée ou avant la fin de la formule. En plus
-  d'améliorer la lisibilité du code source, ceci
-  évite des erreurs de compilation dans le cas où une commande
-  \ci{IEEEmulticol} se trouverai après la définition du label.
+Pour supprimer la numérotation sur une ligne particulière, on
+dispose de la commande \ci{nonumber} (ou bien \ci{IEEEnonumber}). Si
+un label \verb+\label{...}+ est défini sur cette ligne, il est alors
+transmis à la prochaine ligne dont la numérotation n'est pas
+supprimée. Placez plutôt les labels juste avant le \verb+\\+ à la
+fin de la ligne concernée ou avant la fin de la formule. En plus
+d'améliorer la lisibilité du code source, ceci évite des erreurs de
+compilation dans le cas où une commande \ci{IEEEmulticol} se
+trouverai après la définition du label.
 
-\item Il existe également une version étoilée de l'environnement, qui supprime
-  totalement la numérotation. Dans ce cas, on peut ajouter un numéro
-  d'équation sur une ligne particulière avec \ci{IEEEyesnumber}.
+Il existe également une version étoilée de l'environnement, qui
+supprime totalement la numérotation. Dans ce cas, on peut ajouter un
+numéro d'équation sur une ligne particulière avec
+\ci{IEEEyesnumber}.
 \begin{example}
 \begin{IEEEeqnarray*}{rCl}
   a & = & b + c \\
@@ -902,8 +896,8 @@ situations, comme par exemple devant
 \end{IEEEeqnarray*}
 \end{example}
 
-\item On peut également obtenir des numéros de sous-équation avec la commande
-  \ci{IEEEyessubnumber}.
+On peut également obtenir des numéros de sous-équation avec la
+commande \ci{IEEEyessubnumber}.
 \begin{example}
 \begin{IEEEeqnarray}{rCl}
   a & = & b + c
@@ -914,7 +908,6 @@ situations, comme par exemple devant
   \IEEEyessubnumber
 \end{IEEEeqnarray}
 \end{example}
-\end{itemize}
 
 \subsection{Tableaux et matrices}
 \label{sec:arraymat}
@@ -967,7 +960,7 @@ plus simple.
 \end{example}
 
 \looseness1
-L'environnement \ei{array} peut aussi servir à mettre en page des
+L'environnement \ei{array} peut servir à mettre en page des
 matrices\index{matrice}, mais \pai{amsmath} fournit une meilleure
 solution avec l'environnement \ei{matrix} et ses variantes. Elles sont au
 nombre de six (avec des délimiteurs différents) : \ei{matrix} (aucun
@@ -1015,8 +1008,7 @@ espaces plus larges.  La largeur d'un \ci{quad}\footnote{Appelé \emph{espace
     cadratin} en français. \NdT} correspond approximativement à la largeur du
 caractère \og M \fg{} dans la police courante. 
 La commande \verb|\!|\cih{"!} produit une espace fine négative
-de $-\frac{3}{18}\:\textrm{quad}$ ($-$\demowidth{0.166em}). Remarquez
-que dans l'exemple suivant, \og d \fg{} est imprimée en police romaine :
+de $-\frac{3}{18}\:\textrm{quad}$ ($-$\demowidth{0.166em}).
 
 \begin{example}
 \begin{equation*}
@@ -1026,7 +1018,7 @@ que dans l'exemple suivant, \og d \fg{} est imprimée en police romaine :
 \end{equation*}
 \end{example}
 
-
+Remarquez que \og d \fg{} est imprimée en police romaine.
 Dans l'exemple suivant, nous définissons une commande \ci{ud} qui
 produit \og $\,\mathrm{d}$ \fg{} (remarquez l'espace
 \demowidth{0.166em} avant le $\text{d}$), de manière à ne pas avoir à
@@ -1149,8 +1141,9 @@ $\mu, M \qquad
 \end{example}
 
 L'extension \pai{amsbsy} (appelée par \pai{amsmath}) ainsi que
-\pai{bm} dans le paquet \texttt{tools} simplifient beaucoup ce
-problème puisqu'ils fournissent une commande \ci{boldsymbol} :
+l'extenstion \pai{bm} dans le paquet \texttt{tools} simplifient
+beaucoup ce problème puisqu'ils fournissent une commande
+\ci{boldsymbol} :
 
 \begin{example}
 $\mu, M \qquad
@@ -1309,12 +1302,12 @@ Ici, le \verb=+= dans \verb={+rCl+x*}= indique un espace étirable : un à
 gauche de l'équation qui, s'il n'était pas présent, serait ajouté
 d'office par \texttt{IEEEeqnarray}, et un à droite de l'équation. Mais
 cette fois à droite, \emph{après} cette colonne étirable, nous ajoutons une
-colonne vide \verb+x+, qui ne sera utilisée que sur la dernière ligne, pour
-placer la commande \ci{qedhere}. Enfin, nous ajoutons un \verb+*+ : c'est un
+colonne vide \verb+x+, qui ne sera utilisée que sur la dernière ligne, si
+la commande \ci{qedhere} est utilisée. Enfin, nous ajoutons un \verb+*+ : c'est un
 espace sans épaisseur, qui empêche \texttt{IEEEeqnarray} d'ajouter un autre
 espace \verb=+= indésirable.
 
-Dans le cas d'équations numérotées, nous avons un problème similaire.
+Dans le cas d'équations numérotées, le problème est similaire.
 Comparons
 \begin{example}
 \begin{proof}
