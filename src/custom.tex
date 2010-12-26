@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Customising LaTeX output
-% $Id: custom.tex 417 2010-06-18 12:16:27Z oetiker $
+% $Id: custom.tex 456 2011-04-06 09:10:27Z oetiker $
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Pour les informations de licence, voir contrib.tex.
@@ -496,6 +496,21 @@ d'utiliser une autre représentation typographique du danger que
 \verb|\textbf|. Elle évitera d'avoir à rechercher et remplacer une à
 une toutes les occurrences de \verb|\textbf| correspondant à la notion
 de danger. 
+
+-Remarquez la différence entre demander à \LaTeX{} de \emph{mettre en
+-valeur} un mot et lui demander de changer de \emph{police de
+-caractères}. La commande \ci{emph} prend en compte le contexte alors
+que les commandes de police sont absolues.
+
+\begin{example}
+\textit{Vous pouvez aussi
+  \emph{mettre en valeur}\\
+  du texte en italique,}
+\textsf{ou dans une police
+  \emph{sans-serif},}
+\texttt{ou dans une police
+  \emph{machine à écrire}.}
+\end{example}
 
 \subsection{Un conseil}
 
