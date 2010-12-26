@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Typesetting Part of LaTeX2e Introduction
-% $Id: typeset.tex 423 2010-06-21 21:04:21Z oetiker $
+% $Id: typeset.tex 449 2010-12-14 16:53:51Z oetiker $
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Pour les informations de licence, voir title.tex.
@@ -356,10 +356,10 @@ des habitudes anglo-saxonnes, en particulier le double tiret n'est pas
 utilisé en français.
 
 \subsection{Tilde (\textasciitilde)}
-\index{www}\index{URL}\index{tilde}
+\index{URL link}\index{tilde}
 Un caractère souvent utilisé dans les adresses sur le web est le
 tilde. Pour produire ce caractère avec \LaTeX{}, on peut utiliser 
-\verb|\~|, mais le résultat : \~{} n'est pas tout à fait le symbole
+\verb|\~{}|, mais le résultat (\~{}) n'est pas tout à fait le symbole
 attendu. Essayez ceci à la place :
 \cih{sim}
 
@@ -665,16 +665,11 @@ DOS, OS/2  &  \iei{cp850} & \iei{cp866nav}
 % répandu. C'est la meilleure solution pour saisir des documents multilingues
 % avec un jeu de caractères varié.
 
-Si vous avez un document multilingue qui cause des conflits entre
-codages d'entrée, vous devriez considérer l'utilisation d'Unicode à
-l'aide de l'extension \pai{ucs}.
-
 \begin{lscommand}
-\ci{usepackage}\verb|{ucs}|\\ 
-\ci{usepackage}\verb|[|\iei{utf8x}\verb|]{inputenc}| 
+\ci{usepackage}\verb|[|\iei{utf8}\verb|]{inputenc}| 
 \end{lscommand}
 \noindent vous permettra de créer des fichiers d'entrée \LaTeX{} en
-\iei{utf8x}, un codage multi-octets où chaque caractère peut nécessiter
+\iei{utf8}, un codage multi-octets où chaque caractère peut nécessiter
 entre un et quatre octets pour être codé.
 \footnote{D'anciennes versions de ce document préconisent la
   conversion des caractères accentués et spéciaux en séquences du type
@@ -684,6 +679,15 @@ entre un et quatre octets pour être codé.
   conversion automatique dans les deux sens  : \texttt{recode} sous Unix,
 \texttt{Tower of Babel} sur Macintosh, etc. y compris de et vers
 Unicode. \NdT}
+
+Depuis le début de ce siècle la majorité des systèmes d'exploitation
+sont basés sur Unicode (par exemple, Windows XP, MacOS X). C'est
+pourquoi il est recommandé d'utiliser \iei{utf8} pour tout nouveau
+projet. Le codage \iei{utf8} utilisé par \pai{inputenc} n'est défini que
+pour les caractères effectivement fournis par les polices
+utilisées. Si vous avez besoin de plus de caractères (non-latins),
+vous pouvez regarder la section \ref{sec:xetex} sur \hologo{XeLaTeX},
+une implantation de \TeX{} qui se base sur Unicode.
 
 %SC: is this still true ?
 Pour faciliter la lecture, \package{inputenc} est utilisé dans la suite
@@ -715,13 +719,13 @@ sans parler des alphabets non-latins, comme le grec ou le cyrillique.
 Pour surpasser ces limitations, plusieurs ensembles de polices 8 bits
 proches de CM furent proposées. Les polices \emph{Extended Cork} (EC)
 dans le codage \fei{T1} contiennent les lettres et caractères de
-ponctuation pour la plupart des langues européennes basées sur un
+ponctuation pour la plupart des langues européennes qui utilisent un
 alphabet latin. L'ensemble de polices LH contient les lettres pour
 formatter les langages à l'alphabet cyrillique. À cause du nombre
 imposant de glyphes cyrilliques, ils sont organisés en quatre codages
 de police : \fei{T2A}, \fei{T2B}, \fei{T2C} et \fei{X2}.
-\footnote{La liste des langages pris en compte par chacun de ces
-  codages peut être consultée dans \cite{cyrguide}.}
+\footnote{Retrouvez une liste des langages pris en compte par chacun de ces
+  codages dans \cite{cyrguide}.}
 Le paquet CB contient des polices dans le codage \fei{LGR} pour la
 composition de textes en grec.
 
@@ -754,9 +758,8 @@ pour obtenir des césures correctes.
 
 Voyez le tableau~\ref{portuguese} qui récapitule ce
 qu'il y a à ajouter en préambule pour écrire en langue
-portugaise. Remarquez que nous indiquons ici le codage latin1 : cela
-ne fonctionnera donc pas comme attendu sous Mac ou DOS. Utilisez
-simplement le codage adéquat.
+portugaise. Remarquez que nous indiquons ici le codage latin1. Il est
+préférable d'utiliser utf8 sur un système moderne.
 
 \begin{table}[btp]
 \caption{Préambule pour les documents portugais} \label{portuguese}
@@ -1210,6 +1213,209 @@ suivantes activent ce support.
 \end{lscommand}
 \noindent où \iei{mn} correspond à l'encodage d'entrée \iei{cp1251}.
 Si vous préférez la modernité, utilisez \iei{utf8} à la place.
+
+\subsection{L'alternative Unicode}
+
+\secby{Axel Kielhorn}{A.Kielhorn@web.de}
+Unicode est la meilleure approche si vous souhaitez inclure plusieurs
+langages dans le même document, en particulier si ces langages ne sont
+pas basés sur un alphabet latin. Il existe deux systèmes \hologo{TeX}
+capables de prendre de l'Unicode directement en entrée :
+
+\begin{description}
+\item[\hologo{XeTeX}], développé initialement pour MacOS X mais
+  désormais disponible pour toutes les architectures. Il fut inclus à
+  partir de 2007 dans TeXLive.
+\item[\hologo{LuaTeX}], le successeur de pdf\TeX. Il fut inclus à
+  partir de 2008 dans TeXLive.
+\end{description}
+
+Nous décrivons dans la suite \hologo{XeLaTeX} tel qu'il existe dans
+TeXLive 2010.
+
+\subsubsection{Démarrage rapide}
+
+Convertir un fichier \LaTeX\ existant vers un format compatible avec
+\hologo{XeLaTeX} entraîne la procédure suivante :
+
+\begin{enumerate}
+\item Sauvegarder le fichier en UTF-8
+\item Retirer
+\begin{lscommand}
+\verb|\usepackage{inputenc}|\\
+\verb|\usepackage{fontenc}|\\
+\verb|\usepackage{textcomp}|
+\end{lscommand}
+du préambule.
+\item Changer
+\begin{lscommand}
+\verb|\usepackage[|\emph{langageA}\verb|]{babel}|
+\end{lscommand}
+en
+\begin{lscommand}
+\verb|\usepackage{polyglossia}|\\
+\verb|\setdefaultlanguage[babelshorthands]{|\emph{langageA}\verb|}|
+\end{lscommand}
+\item Ajouter
+\begin{lscommand}
+\verb|\usepackage[Ligatures=TeX]{fontspec}|
+\end{lscommand}
+au préambule.
+\end{enumerate}
+
+L'extension \pai{polyglossia}\cite{polyglossia} est un substitut à
+\pai{babel}. Elle prend soin des motifs de césure et des chaînes de
+textes générées automatiquement. L'option \verb|babelshorthands|
+active la compatibilité avec babel en ce qui concerne les raccourcis
+pour l'allemand et le catalan.
+
+L'extension \pai{fontspec}\cite{fontspec} gère le chargement des
+polices pour \hologo{XeLaTeX} et \hologo{LuaTeX}. La police par défaut
+est Latin Modern Roman. Il est à noter ici un fait peu connu, à savoir
+que certaines commandes \hologo{TeX} sont des ligatures définies dans
+les polices Computer Modern. Si vous souhaitez les utiliser avec une
+police non-\hologo{TeX}, vous devez les émuler. L'option
+
+\subsubsection{C'est du $\Gamma\rho\epsilon\epsilon\kappa$ pour moi}
++%\subsubsection{It's all \textgreek{Ellenik'a} to me} % this requires greek babel.
+
+Jusqu'à maintenant l'utilisation d'un système \hologo{TeX} Unicode
+n'apportait aucun avantage. Cet état de fait change dès que l'on
+quitte l'alphabet latin et que l'on utilise un langage plus
+intéressant comme le grec ou le russe. Avec un système basé sur
+Unicode, pour pouvez simplement\footnote{Pour des valeurs suffisamment
+  petites de \og simple \fg.} entrer les caractères dans votre éditeur
+et \hologo{TeX} les comprendra.
+
+Écrire en plusieurs langues est facile, il suffit de spécifier les
+langages dans le préambule\footnote{les noms des langages sont en
+  anglais, il faut bien un socle commun... \NdT} :
+
+\begin{lscommand}
+\verb|\setdefaultlanguage{french}|\\
+\verb|\setotherlanguage[babelshorthands]{german}|
+\end{lscommand}
+%
+Pour écrire un paragraphe en allemand, vous utiliserez l'environnement
+\texttt{german} :
+
+\begin{lscommand}
+Texte en français.\\
+\verb|\begin{german}|\\
+Deutscher Text.\\
+\verb|\end{german}|\\
+Encore du texte en français.
+\end{lscommand}
+
+Si vous avez seulement besoin d'un mot dans une langue autre, utilisez
+alors la commande \verb|\text|\emph{langage} :
+
+\begin{lscommand}
+\verb|Texte en français. \textgerman{Gesundheit} est en fait un mot allemand.|
+\end{lscommand}
+
+Cela peut sembler superflu puisque le seul avantage est alors une
+césure correcte, mais pour un langage plus exotique le jeu en vaut la
+chandelle.
+
+Parfois la police principale du document ne contient pas les glyphes
+requis pour le second langage\footnote{Latin Modern ne contient pas de
+  caractères cyrilliques.}. La solution est alors de spécifier une
+police à utiliser pour ce langage. Chaque fois qu'un nouveau langage
+est activé, \pai{polyglossia} vérifiera d'abord si une police aura été
+spécifiée pour ce langage.
+
+\begin{lscommand}
+\verb|\newfontfamily\russianfont[Script=Cyrillic,(...)]{(font)}|
+\end{lscommand}
+
+Maintenant vous pouvez écrire :
+
+\begin{lscommand} \verb|\textrussian{Pravda} est un journal russe.|
+\end{lscommand}
+%
+Puisque le document que vous lisez actuellement est codé en Latin1, il
+m'est impossible de montrer les caractères
+cyrilliques\index{russe}\index{cyrillique}.
+
+L'extension \pai{xgreek}\index{Grec}\cite{xgreek} offre le support
+pour écrire autant en ancien grec qu'en grec moderne (monotonique ou
+polytonique).
+
+\subsubsection{Langages à l'écriture de droite à gauche.}
+
+Certains langages s'écrivent de gauche à droite, d'autres de droite à
+gauche (abbrévié en RTL, comme \og right to left \fg en
+anglais). \pai{polyglossia} doit faire appel à l'extension
+\pai{bidi}\cite{bidi}\footnote{\texttt{bidi} ne fonctionne pas avec
+  \hologo{LuaTeX}.} pour le support des langages RTL. L'extension
+\pai{bidi} doit être la dernière à être chargée, même après
+\pai{hyperref} à qui cette place est usuellement réservée (de plus,
+comme \pai{polyglossia} charge \pai{bidi}, alors \pai{polyglossia}
+devra être la dernière extension chargée).
+
+L'extension \pai{xepersian}\index{Perse}\cite{xepersian} propose un
+support de la langue perse. Elle fournit des commandes \LaTeX\
+permettant d'écrire des commandes comme \verb|\section| en perse,
+ce qui rend cette extension attrayante pour les natifs de cette
+langue. \pai{xepersian} est la seule extension disposant du support du
+kashida\index{kashida} avec \hologo{XeLaTeX}. Le développement d'une
+extension avec support du syriaque selon un algorithme similaire est
+en cours.
+
+La police IranNastaliq fournie par le SCICT\footnote{Supreme Council of
++Information and Communication Technology -- Conseil suprême pour les
+technologies de l'information et de la communication. \NdT} est
+disponible sur son site web
+\url{http://www.scict.ir/Portal/Home/Default.aspx}.
+
+L'extension \pai{arabxetex}\cite{arabxetex} propose le support de
+plusieurs langages utilisant un alphabet arabe :
+
+\begin{itemize}
+\item arab (arabe) \index{arabe}
+\item persian (perse) \index{perse}
+\item urdu \index{urdu}
+\item sindhi (sindhî) \index{sindhî}
+\item pashto (ou pachto ou pachtoune) \index{Pashto}\index{pachtoune}
+\item ottoman (turc) \index{ottoman}\index{Turc}
+\item kurdish (kurde) \index{kurde}
+\item kashmiri (Cachemire) \index{cachemire}
+\item malay (malais ou jawi) \index{malais}\index{Jawi}
+\item uighur (ouïghoure) \index{ouighoure}
+\end{itemize}
+
+%SC : pas très sûr de la traduction, à quoi s'applique le "using"
+Elle offre un mécanisme de mise en correspondance des polices qui
+permet à \hologo{XeLaTeX} de traiter les entrées à l'aide d'une
+transcription ASCII Arab\TeX.
+
+Les polices avec support de plusieurs langues arabes sont offertes
+par l'IRMUG\footnote{Iranian Mac User Group -- groupe iranien des
+  utilisateurs de Mac \NdT.} sur
+\url{http://wiki.irmug.org/index.php/X_Series_2}.
+
+Il n'y a pas d'extension pour l'hébreu\index{hébreu} parce qu'aucune
+n'est nécessaire, \pai{polyglossia} étant suffisante ici. Si cependant
+vous souhaitez une police convenable pour de l'hébreu en Unicode, SBL
+Hebrew est gratuite pour un usage non commercial et disponible sur
+\url{http://www.sbl-site.org/educational/biblicalfonts.aspx}. Vous
+pouvez également regarder à la police Ezra SIL distribuée sous la
+licence SIL Open Font License sur
+\url{http://www.sil.org/computing/catalog/show_software.asp?id=76}.
+
+Rappelez-vous simplement d'utiliser les commandes suivantes pour les
+utiliser :
+
+\begin{lscommand}
+\verb|\newfontfamily\hebrewfont[Script=Hebrew]{SBL Hebrew}| \\
+\verb|\newfontfamily\hebrewfont[Script=Hebrew]{Ezra SIL}|
+\end{lscommand}
+
+\subsubsection{Chinois, japonais et coréen (CJK)}
+
+L'extension \pai{xeCJK}\cite{xecjk} prend soin de la sélection des
+polices et de la ponctuation pour ces langues.
 
 \section{L'espace entre les mots}
 
