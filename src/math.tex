@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Math typesetting with LaTeX
-% $Id: math.tex 425 2010-06-22 17:44:29Z oetiker $
+% $Id: math.tex 431 2010-07-06 20:53:05Z oetiker $
 %
 % Changes by Stefan M. Moser: 2008/10/22
 %
@@ -302,16 +302,16 @@ $\sqrt{x} = x^{1/2}
 \index{points de suspension!verticaux}
 \index{vertical!points de suspension}
 \index{points de suspension!diagonaux}
-En général, les \textbf{\wi{point}s} indiquant une opération de
-multiplication ne sont pas imprimés. Cependant, il arrive qu'il soit
-nécessaire de les faire apparaître pour aider la lecture. Utilisez
+Bien que les \textbf{\wi{point}s} pour indiquer les opérations de
+multiplication soient normalemet omis, les faire apparaître peut aider à
+la lecture. Utilisez
 alors \ci{cdot} qui imprime un seul point centré. \ci{cdots} imprime
 des \textbf{\wi{points de suspension}} centrés (à la manière de points
 de suspension situés plus haut sur la ligne). \ci{ldots} imprime des
 points de suspension normaux. En plus de ces commandes vous avez
 également \ci{vdots} pour des points alignés verticalement et
-\ci{ddots} qui imprime des \wi{points en diagonale}. Vous en trouverez
-un exemple en section~\ref{sec:arraymat}.
+\ci{ddots} qui imprime des \wi{points en diagonale}. D'autres exemples
+se trouvent en section~\ref{sec:arraymat}.
 \begin{example}
 $\Psi = v_1 \cdot v_2
  \cdot \ldots \qquad 
@@ -574,8 +574,8 @@ d'insérer un saut de ligne où l'on veut (voire plusieurs), en utilisant
 \verb+\\+ là où l'équation doit être coupée. Comme pour \ei{equation*}, il
 existe un environnement \ei{multline*} qui supprime la numérotation.
 
-Bien que ce soit la solution la plus facile, le résultat peut souvent
-être meilleur avec l'environnement \ei{IEEEeqnarray} (voir
+Souvent le résultat sera
+meilleur avec l'environnement \ei{IEEEeqnarray} (voir
 section~\ref{sec:IEEEeqnarray}). Par exemple, considérons la situation
 suivante.
 \begin{example}
@@ -588,7 +588,7 @@ suivante.
 \end{example}
 \noindent
 Ici, c'est en fait le membre de droite qui est trop long pour tenir sur une
-ligne. L'usage de \ei{multline} donne alors :
+ligne. L'usage de \ei{multline} produit alors :
 \begin{example}
 \begin{multline}
   a = b + c + d + e + f 
@@ -597,22 +597,11 @@ ligne. L'usage de \ei{multline} donne alors :
 \end{multline}
 \end{example}
 
-C'est bien sûr nettement mieux que \eqref{eq:formule_trop_longue}, mais
+C'est nettement mieux que \eqref{eq:formule_trop_longue}, mais
 l'inconvénient est que le signe d'égalité perd son importance naturelle, en
 principe supérieur à celle du signe \og plus \fg devant $k$. Une meilleure
 solution est d'utiliser \ei{IEEEeqnarray}, qui sera présenté en détails en
-section~\ref{sec:IEEEeqnarray} :
-\begin{example}
-\begin{IEEEeqnarray}{rCl}
-  a & = & b + c + d + e + f
-  + g + h + i + j \nonumber\\
-  && +\: k + l + m + n + o + p
-  \label{eq:sans_multline}
-\end{IEEEeqnarray}
-\end{example}
-Dans ce cas, la deuxième ligne est alignée verticalement par rapport à la
-première : le $+$ devant $k$ est exactement en dessous de $b$, et le membre de
-droite se distingue clairement du membre de gauche de l'équation.
+section~\ref{sec:IEEEeqnarray}.
 
 
 \section{Formules multiples}
@@ -632,9 +621,9 @@ courantes.
 
 Pour grouper ensemble plusieurs équations, on peut utiliser
 l'environnement \ei{align}\footnote{L'environnement \texttt{align} peut aussi
-  servir à placer plusieurs groupes d'équations côte à côte. Cependant, pour
-  cet usage plutôt rare, nous recommandons également d'utiliser
-  l'environnement \ei{IEEEeqnarray} avec un argument comme
+  servir à placer plusieurs groupes d'équations côte à côte. Un autre excellent
+  cas d'utilisation de l'environnement \ei{IEEEeqnarray}, avec un
+  argument comme
   \texttt{\{rCl+rCl\}}.} comme ceci :
 \begin{example}
  \begin{align}
@@ -643,7 +632,7 @@ l'environnement \ei{align}\footnote{L'environnement \texttt{align} peut aussi
  \end{align}
 \end{example}
 
-Cependant, cette approche pose problème dès qu'une ligne est trop longue.
+Cette approche pose problème dès qu'une ligne est trop longue.
 \begin{example}
 \begin{align}
   a & = b + c \\
@@ -670,8 +659,7 @@ L'environnement \ei{eqnarray} offre à première vue une meilleure solution.
 \end{eqnarray}
 \end{example}
 
-Malheureusement, l'environnement \ei{eqnarray} souffre de quelques défauts
-très sérieux.
+Ça n'est cependant toujours pas une solution optimale :
 \begin{itemize}
   \item Les espaces autour du signe d'égalité sont trop grands. En particulier,
     ce ne sont pas les mêmes qu'avec les environnements \ei{multline} ou
@@ -694,7 +682,7 @@ très sérieux.
 \end{eqnarray}
 \end{example}
 
-\item L'environnement propse une commande \ci{lefteqn} qui peut être utilisée
+\item L'environnement propose une commande \ci{lefteqn} qui peut être utilisée
   quand le membre de gauche est trop long.
 \begin{example}
 \begin{eqnarray}
@@ -705,8 +693,8 @@ très sérieux.
   & = & n + o + p + q + r + s
 \end{eqnarray}
 \end{example}
-Malheureusement, cette commande aussi est défaillante : si le membre de droite
-est trop court, l'ensemble n'est pas centré correctement :
+Une fois encore, ça n'est pas optimal étant donné que le membre de droite
+est trop court et l'ensemble n'est pas centré correctement :
 \begin{example}
 \begin{eqnarray}
   \lefteqn{a + b + c + d 
@@ -715,8 +703,6 @@ est trop court, l'ensemble n'est pas centré correctement :
   & = & i + j 
 \end{eqnarray}
 \end{example}
-De plus, il est très difficile de modifier l'alignement vertical du signe
-d'égalité sur la deuxième ligne.
 \end{itemize}
 
 Heureusement, il y a un meilleur moyen\ldots
@@ -757,7 +743,7 @@ minuscule), et la troisième alignée à gauche.
 \end{IEEEeqnarray}
 \end{example}
 
-En fait, on peut choisir n'importe quel nombre de colonnes. Par exemple,
+On peut choisir n'importe quel nombre de colonnes. Par exemple,
 \verb+{c}+ donnera une seule colonne dans laquelle toutes les lignes seront
 centrées, ou bien \verb+{rCll}+ donnera une quatrième colonne alignée à gauche,
 par exemple pour des commentaires. Mieux, en plus de \texttt{l}, \texttt{c},
@@ -769,8 +755,8 @@ avec\footnote{Pour plus de types d'espacement, nous renvoyons à la
   section~\ref{sec:putting-qed-right} et au manuel officiel.} \og \texttt{.}
 \fg, \og \texttt{/} \fg et \og \texttt{\string?} \fg en ordre croissant.
 
-Remarquons que les espaces autour du signe d'égalité sont corrects,
-contrairement au cas d'\texttt{eqnarray} !
+Remarquons les espaces autour des signes d'égalité, par rapport au cas
+d'utilisation de l'environnement \texttt{eqnarray}.
 
 \subsection{Usages courants}
 \label{sec:common-usage}
@@ -898,8 +884,8 @@ situations, comme par exemple devant
 \item Pour supprimer la numérotation sur une ligne particulière, on dispose de
   la commande \ci{nonumber} (ou bien \ci{IEEEnonumber}). Si un label
   \verb+\label{...}+ est défini sur cette ligne, il est alors transmis à la
-  prochaine ligne dont la numérotation n'est pas supprimée. Ceci dit, il est
-  recommandé de plutôt placer les labels juste avant le \verb+\\+ à la fin de
+  prochaine ligne dont la numérotation n'est pas supprimée. Placez plutôt
+  les labels juste avant le \verb+\\+ à la fin de
   la ligne concernée ou avant la fin de la formule. En plus
   d'améliorer la lisibilité du code source, ceci
   évite des erreurs de compilation dans le cas où une commande
@@ -967,7 +953,7 @@ utilisant \og \verb|.| \fg{} comme délimiteur (invisible) de droite :
 \end{equation*}
 \end{example}
 %MPG: changed the disposition to help filling the page
-Cependant, l'environnement \ei{cases} d'\package{amsmath} offre une syntaxe
+L'environnement \ei{cases} d'\package{amsmath} offre une syntaxe
 plus simple.
 \begin{example}
   \begin{equation*}
@@ -1307,8 +1293,7 @@ d'équations soit correctement centré. Il faudrait en fait placer le
 \ci{qedhere} à l'extérieur de cet espace étirable, mais ce n'est pas possible
 car ces colonnes sont invisibles pour l'utilisateur.
 
-Heureusement, il y a une solution simple : définir nous-même ces colonnes
-étirables !
+Il y a une solution très simple : définir ces colonnes étirables explicitement !
 \begin{example}
 \begin{proof}
   Voici une preuve qui termine
