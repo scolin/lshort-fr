@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Specialties of the LaTeX system
-% $Id: spec.tex 402 2010-03-19 08:35:15Z oetiker $
+% $Id: spec.tex 449 2010-12-14 16:53:51Z oetiker $
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Pour les informations de licence, voir title.tex.
@@ -79,7 +79,7 @@ figure dans un document :
 \verb|\usepackage[|\emph{pilote}\verb|]{graphicx}|
 \end{lscommand}
 \noindent \emph{pilote} est le nom du programme de conversion \og DVI vers
-PostScript \fg{} que vous utilisez. Le programme le plus répandu
+\PSi{} \fg{} que vous utilisez. Le programme le plus répandu
 est \texttt{dvips}. Cette information est nécessaire car
 il n'y a pas de standard pour l'insertion de figures en \TeX{} ;
 celle-ci est réalisée par le pilote au moment de
@@ -390,8 +390,8 @@ l'extension sur votre machine, vous dever les manipuler de manière à
   \texttt{\ldots/\emph{localtexmf}/tex/latex}.
 \item mettre à jour la base de données des noms de fichiers, la commande
   dépend de votre distribution \LaTeX{} :
-  teTeX, fpTeX -- \texttt{texhash}; web2c -- \texttt{mktexlsr};
-  MikTeX -- \texttt{initexmf -{}-update-fndb} ou via l'interface
+  \TeX{}live -- \texttt{texhash}; web2c -- \texttt{mktexlsr};
+  Mik\TeX{} -- \texttt{initexmf -{}-update-fndb} ou via l'interface
   graphique; la commande peut également être \texttt{texconfig rehash}.
 \end{enumerate}
 
@@ -921,7 +921,7 @@ n'est pas le cas alors vous utilisez probablement MiK\TeX{} qui
 l'installera de lui-même lorsque vous l'utiliserez pour la première
 fois. Cette extension définit la commande spéciale \ci{ifpdf} qui
 permet d'écrire du code conditionnel aisément. Dans l'exemple suivant,
-nous voulons que la version PostScript soit en noir et blanc à cause
+nous voulons que la version \PSi{} soit en noir et blanc à cause
 des coûts d'impression, mais nous voulons quand même que la version
 PDF en ligne soit colorée.
 \begin{code}
@@ -954,6 +954,156 @@ Mac\TeX{} et MiK\TeX), le programme \TeX{} par défaut est en fait pdf\TeX{}.
 Il s'adaptera automatiquement à la production de pdf ou de dvi en fonction de
 la façon dont vous l'appelez : utilisez la commande \verb|pdflatex| pour
 obtenir une sortie pdf et \verb|latex| pour une sortie dvi.
+
+\section{Utiliser \hologo{XeLaTeX}}
+\label{sec:xetex}\index{PDF}\index{XeTeX@\hologo{XeTeX}}\index{XeLaTeX@\hologo{XeLaTeX}}
+
+\secby{Axel Kielhorn}{A.Kielhorn@web.de}%
+
+La plupart des propos applicables à pdf\LaTeX\ sont également valides
+pour \hologo{XeLaTeX}.
+
+Le Wiki situé sur le site \url{http://wiki.xelatex.org/doku.php}
+rassemble les informations concernant \hologo{XeTeX} et \hologo{XeLaTeX}.
+
+\subsection{Les polices}
+
+En plus des polices usuelles basées sur \texttt{tfm}, \hologo{XeLaTeX}
+sait utiliser toute police connue du système d'exploitation. Supposons
+que les polices \texttt{Linux Libertine} soient installées, vous
+pouvez les utiliser via la commande
+\begin{code}
+\begin{verbatim}
+\usepackage{fontspec}
+\setmainfont[Ligatures=TeX]{Linux Libertine}
+\end{verbatim}
+\end{code}
+ajoutée dans le préambule. La détection des versions italique et
+grasse de la police devrait également être effective, ainsi
+\verb|\textit| et \verb|\textbf| fonctionneront comme de
+coutume. Lorsque la police utilise la technologie OpenType, vous avez
+accès à de nombreuses fonctionnalités qui nécessitaient naguère le
+passage à une autre police ou l'utilisation de polices virtuelles. La
+fonctionnalité principale est l'obtention d'un ensemble de caractères
+étendu : une police peut contenir des caractères latins, grecs et
+cyrilliques ainsi que les ligatures correspondantes.
+
+%SC: Pas sûr de la traduction de "lower case" pour des chiffres, ça
+%fait penser au vieux style de chiffres à la française
+De nombreuses polices contiennent au moins deux types de chiffres,
+ceux à l'alignement normal et ceux en style ancien (ou en minuscules)
+qui s'étendent partiellement en dessous de la ligne. Elles peuvent
+contenir des chiffres proportionnés (le \og 1 \fg prend moins de place
+que le \og 0 \fg) ou à espacement fixe mieux adaptés pour des tableaux.
+
+\begin{code}
+\begin{verbatim}
+\newfontfamily\LLln[Numbers=Lining]{(font)}
+\newfontfamily\LLos[Numbers=OldStyle]{(font)}
+\newfontfamily\LLlnm[Numbers=Lining,Numbers=Monospaced]{(font)}
+\newfontfamily\LLosm[Numbers=OldStyle,Numbers=Monospaced]{(font)}
+\end{verbatim}
+\end{code}
+
+Presque toutes les polices OpenType contiennent les ligatures standard
+(fl fi ffi) mais il existe aussi des ligatures rares ou historiques
+comme st, ct et tz. Si leur utilité dans un rapport technique est
+discutable, elles ont leur place dans un roman. Pour activer ces
+ligatures utilisez l'une des commandes suivantes :
+
+\begin{code}
+\begin{verbatim}
+\setmainfont[Ligatures=Rare]{(font)}
+\setmainfont[Ligatures=Historic]{(font)}
+\setmainfont[Ligatures=Historic,Ligature=Rare]{(font)}
+\end{verbatim}
+\end{code}
+
+Toutes les polices ne contiennent pas les deux ensembles de ligatures,
+aussi consultez la documentation de la police ou essayez-la
+directement. Parfois ces ligatures dépendent du langage utilisé, par
+exemple la ligature (fk), inconnue en français, est utilisée en
+polonais. Il vous faudra ajouter
+
+\begin{code}
+\begin{verbatim}
+\setmainfont[Language=Polish]{(font)}
+\end{verbatim}
+\end{code}
+%
+pour activer les ligatures polonaises.
+Certaines polices (comme la police commerciale Adobe Garamond Premier
+Pro) contiennent aussi des glyphes alternatifs activés par défaut dans
+le \hologo{XeLaTeX} fourni avec \TeX Live~2010\footnote{Ce
+  comportement n'était pas présent car désactivé par défaut dans des
+  versions précédentes.}. Le résultat de son utilisation est par
+exemple un \og Q \fg majuscule stylisé dont la queue rejoint par
+en-dessous le \og u \fg qui suit. Pour désactiver cette fonctionnalité,
+vous devrez définir la police sans les traitements contextuels :
+
+\begin{code}
+\begin{verbatim}
+\setmainfont[Contextuals=NoAlternate]{(font)}
+\end{verbatim}
+\end{code}
+
+Pour en savoir plus sur les polices et \hologo{XeLaTeX}, référez-vous
+au manuel de \pai{fontspec}.
+
+\subsubsection{Où se procurer des polices OpenType ?}
+
+Si \texttt{TeXLive} est installé, vous en avez quelques-unes à
+disposition dans \url{.../texmf-dist/fonts/opentype} : il ne vous
+reste plus qu'à les installer dans votre système d'exploitation. Cette
+collection ne comprend pas \texttt{DejaVu}, qui elle est disponible
+sur le site \url{http://dejavu-fonts.org/}.
+
+Assurez-vous que chacune des polices n'est bien installée \emph{qu'une
+seule fois}, sinon vous obtiendrez des résultats au mieux \og
+intéressants \fg.
+
+Vous pouvez utiliser toute police installée sur votre ordinateur,
+rappelez-vous cependant que d'autres utilisateurs ne les ont peut-être
+pas. Par exemple, la police Zapfino utilisée dans le manuel de
+\pai{fontspec} existe sous Mac OSX mais pas sous Windows.\footnote{À
+  noter qu'une version commerciale appelée Zapfino Extra existe.}
+
+\subsubsection{Saisie de caractères Unicode}
+
+Le nombre de caractères dans une police a assurément augmenté, mais ce
+n'est pas le cas du nombre de touches des claviers. Comment, alors,
+saisir des caractères non-ASCII ?
+
+Si vous écrivez beaucoup de texte dans une autre langue, vous pouvez
+installer un clavier pour ce langage et imprimer les positions des
+caractères (la plupart des systèmes d'exploitation ont une forme ou
+une autre de clavier virtuel, il suffit de faire une copie d'écran).
+
+Si vous n'avez pas souvent besoin de caractères exotiques, vous pouvez
+simplement le choisir dans la palette des caractères.
+
+Certains environnements (comme p.e. le système X Window) offrent des
+méthodes spécifiques pour entrer des caractères non-ASCII. Il en va de
+même de certains éditeurs (comme Vim et Emacs). Consultez les
+documentations des outils que vous utilisez.
+
+\subsection{Compatibilité entre \hologo{XeLaTeX} et \hologo{pdfLaTeX}}
+\label{sec:comp-entre-holog}
+
+Certaines différences existent entre \hologo{XeLaTeX} et
+\hologo{pdfLaTeX}.
+
+\begin{itemize}
+\item Un document \hologo{XeLaTeX} doit être écrit en Unicode (UTF-8)
+  alors qu'un document \hologo{pdfLaTeX} peut utiliser d'autres types
+  de codages.
+\item L'extension \pai{microtype} ne fonctionne pas encore avec
+  \hologo{XeLaTeX} et le support pour la saillie de caractères
+  (technique connue sous le nom de \og character protrusion \fg en
+  anglais) est en cours de développement.
+\item Tout ce qui a trait aux polices doit être vérifié (sauf si vous
+  vous cantonnez à la police Latin Modern).
+\end{itemize}
 
 
 \section{Créer des présentations}
@@ -1028,7 +1178,7 @@ vous avancez dans la présentation.
 
 Un avantage notable de la classe beamer est sa capacité à produire un
 fichier PDF utilisable directement sans avoir à passer par une étape
-PostScript comme avec \pai{prosper} ou sans demander un post-traitement
+\PSi{} comme avec \pai{prosper} ou sans demander un post-traitement
 comme les présentations créées avec l'extension \pai{ppower4}.
 
 Avec la classe \pai{beamer} vous pouvez produire plus versions (modes)
