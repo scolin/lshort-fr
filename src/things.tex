@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Things you need to know
-% $Id: things.tex 417 2010-06-18 12:16:27Z oetiker $
+% $Id: things.tex 448 2010-12-14 15:34:32Z oetiker $
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Pour les informations de licence, voir title.tex.
@@ -127,10 +127,11 @@ document. Cette information est insérée dans le texte sous la forme de
 Cette approche est totalement différente de l'approche
 \wi{WYSIWYG}\footnote{What you see is what you get -- Ce que vous
 voyez est ce qui sera imprimé.}  utilisée par les traitements de texte
-modernes tels que \emph{\mbox{Microsoft} \mbox{Word}} ou \emph{\mbox{Corel}
-\mbox{WordPerfect}}. Avec ces programmes, l'auteur définit la mise en page du
-document de manière interactive pendant la saisie du texte. Il voit à
-l'écran à quoi ressemblera le document final une fois imprimé.
+modernes tels que \emph{\mbox{Microsoft} \mbox{Word}} ou
+\emph{\mbox{LibreOffice}}. Avec ces programmes, l'auteur définit la
+mise en page du document de manière interactive pendant la saisie du
+texte. Il voit à l'écran à quoi ressemblera le document final une fois
+imprimé.
 
 Avec \LaTeX{}, il n'est normalement pas possible de voir le résultat
 final durant la saisie du texte, mais celui-ci peut être
@@ -230,12 +231,15 @@ pour moi d'en trouver, mais d'autres vous en citeront des centaines  :
  
 \section{Fichiers source \LaTeX{}}
 
-L'entrée de \LaTeX{} est un fichier texte brut. Vous pouvez
-le créer avec l'éditeur de texte de votre choix. Il contient le texte
+L'entrée de \LaTeX{} est un fichier texte brut. Sous Unix/Linux les
+fichiers textes sont communs. Sous Windows, d'aucuns utiliseraient
+Notepad pour créer un fichier texte. Ce fichier contient le texte
 de votre document ainsi que les commandes qui vont dire à \LaTeX{}
 comment mettre en page le texte. On appelle ce fichier \emph{\wi{fichier
-source}}\footnote{Couramment élidé en « le source » dans la conversation. \NdT}.
-
+source}}\footnote{Couramment élidé en « le source » dans la
+conversation. \NdT}. Si vous utilisez un environnement de
+développement LaTeX intégré, il contiendra un programme pour créer des
+fichiers sources \LaTeX{} au format texte.
 
 \subsection{Espaces}
 
@@ -520,7 +524,7 @@ Windows avec la distribution MikTeX, vous pouvez essayer via \texttt{yap}
 (\eng{yet another previewer}\footnote{Encore un autre prévisualiseur. \NdT}).
 
 Vous pouvez également transformer le résultat en \PSi{} pour
-impression ou visualisation avec Ghostcript.
+impression ou visualisation avec \wi{Ghostcript}.
 \begin{lscommand}
 \verb+dvips -Pcmz -o document.ps document.dvi+
 \end{lscommand}
