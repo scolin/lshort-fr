@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Specialties of the LaTeX system
-% $Id: spec.tex 449 2010-12-14 16:53:51Z oetiker $
+% $Id: spec.tex 457 2011-04-06 09:50:23Z oetiker $
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Pour les informations de licence, voir title.tex.
@@ -235,7 +235,8 @@ Quand le fichier source est traité par \LaTeX{}, chaque commande
 \verb|\index| crée une entrée adaptée contenant le numéro de la page
 en cours dans le fichier qui porte le même nom de base que le fichier
 source, mais avec le suffixe \eei{.idx}. Ce fichier est ensuite traité
-par le programme \texttt{makeindex}.
+par le programme \texttt{makeindex} :
+
 \begin{lscommand}
   \texttt{makeindex} \emph{nom de fichier}
 \end{lscommand}
@@ -391,7 +392,7 @@ l'extension sur votre machine, vous dever les manipuler de manière à
 \item mettre à jour la base de données des noms de fichiers, la commande
   dépend de votre distribution \LaTeX{} :
   \TeX{}live -- \texttt{texhash}; web2c -- \texttt{mktexlsr};
-  Mik\TeX{} -- \texttt{initexmf -{}-update-fndb} ou via l'interface
+  MiK\TeX{} -- \texttt{initexmf -{}-update-fndb} ou via l'interface
   graphique; la commande peut également être \texttt{texconfig rehash}.
 \end{enumerate}
 
@@ -474,8 +475,9 @@ plus d'extensions pour l'affichage direct de documents PDF.
 Bien qu'il y ait des visualiseurs DVI et PS pour presque toutes les
 plateformes, vous constaterez qu'\wi{Acrobat Reader} et \wi{Xpdf}, qui
 servent à lire des documents PDF, sont encore plus fréquemment
-déployés. Fournir des versions PDF de vos documents les rendra donc
-d'autant plus accessibles à vos lecteurs potentiels.
+déployés\footnote{\url{http://pdfreaders.org}}. Fournir des versions
+PDF de vos documents les rendra donc d'autant plus accessibles à vos
+lecteurs potentiels.
 
 \subsection{Des documents PDF pour le Web}
 
@@ -495,7 +497,7 @@ Pour produire un fichier PDF au lieu d'un fichier DVI, il suffit de
 remplacer la commande \texttt{latex document.tex} par \texttt{pdflatex
   document.tex}. Sur les systèmes où \LaTeX{} n'est pas appelé depuis
 la ligne de commande, vous pourrez trouver un bouton à cette fin dans
-le centre de contrôle \TeX{}.
+l'interface graphique \TeX{}.
 
 Vous pouvez définir le format de papier via une option
 passée à \texttt{documentclass} comme \texttt{a4paper} ou
@@ -531,57 +533,21 @@ produire des documents au rendu correct. \emph{Les installations
   automatiquement. Le mieux est d'essayer. Si cela fonctionne pour
   vous, passez directement à la section suivante.}
 
-L'implantation PSi{} Type 1 des polices Computer Modern et AMSFonts
-a été produite par Blue Sky Research and Y\&Y, Inc. qui
-transférèrent par la suite les droits à l'American Mathematical
-Society. Les polices furent diffusées au début de 1997 et sont
-désormais fournies avec la plupart des distributions \TeX{}.
-
-Si cependant vous utilisez \LaTeX{} dans d'autres langues que
-l'anglais, vous pouvez utiliser les polices EC, LH ou CB (voir la
-discussion sur les polices \texttt{OT1} en
-page~\pageref{OT1}). Vladimir Volovich a produit le paquet de polices
-cm-super qui couvre l'ensemble des polices EC/TC, EC Concrete, EC
-Bright et LH. Ce paquet est disponible sur
-\CTAN|fonts/ps-type1/cm-super| et est fourni avec \TeX{}Live
-et Mik\TeX. Des polices grecques type~1 CB similaires créées par
-Apostolos Syropoulos sont disponibles sur
-\CTAN|fonts/greek/cb|.
-Malheureusement ces jeux de polices ne sont pas de la même
-qualité typographique que les polices Type1 CM faites par Blue
-Sky/Y\&Y. Le \eng{hinting}\footnote{Les indications permettant à la police
-  d'être rendue correctement à différentes résolutions, en particulier les
-  résolutions basses utilisées par les écrans. \NdT} a été ajusté
-automatiquement et le document
-final peut ne pas être aussi agréable à l'\oe il sur l'écran que les
-documents qui utilisent les polices type 1 CM Blue Sky/Y\&Y. Sur des
-périphériques de sortie à haute résolution elles produisent des
-résultats identiques aux polices bitmap EC/LH/CB d'origine.
-
-Si vous créez un document dans un langage latin ou basé sur le
-l'alphabet latin, vous disposez de plusieurs autres alternatives.
-\begin{itemize}
-\item Vous pouvez utiliser l'extension \pai{aeguill} (\emph{Almost
-    European Computer Modern with Guillemets}). Ajoutez simplement en
-  préambule la ligne\newline
-  \verb+\usepackage{aeguill}+\paih{aeguill} pour
-  utiliser les polices virtuelles AE au lieu des polices EC.
-\item Autrement vous pouvez utiliser l'extension \pai{mltex} à la
-  condition que votre version de pdf\TeX{} a été compilée avec
-  l'option \wi{mltex}
-\end{itemize}
-La police virtuelle AE comme le système {Ml\TeX} font croire à \TeX{}
-qu'il a un jeu de polices complet de 256 caractères à disposition. Ils
-créent pour ce faire les lettres manquantes à partir de caractères
-disponibles dans la police CM et les réarrangent dans l'ordre EC. Cela
-permet d'utiliser les excellentes polices CM de format type 1
-disponibles sur la plupart des systèmes. Comme la police est alors
-dans un codage T1, ceci a l'avantage de faire bien fonctionner les
-césures avec les langues européennes basées sur l'alphabet latin. Le
-seul défaut de cette approche est que les caractères AE artificiels ne
-fonctionnent pas avec la fonction de recherche d'Acrobat Reader
-(\texttt{Find}) : vous ne pourrez donc pas rechercher des mots avec
-des caractères accentués dans votre fichier PDF final.
+L'ensemble de polices de Type 1 la plus utilisée aujourd'hui s'appelle
+Latin Modern (LM). Si vous avez une installation \TeX{} récente, il
+est probable que vous en ayez déjà une copie installée. Tout ce qu'il
+vous reste alors à faire dans ce cas est d'ajouter
+\begin{code}
+\begin{verbatim}  
+\usepackage{lmodern}
+\usepackage[T1]{fontenc} 
+\usepackage{textcomp}
+\end{verbatim}
+\end{code}
+au préambule de votre document et vous êtes parés pour créer d'excellents
+documents PDF avec support complet de l'alphabet latin. Si vous
+travaillez avec une installation \TeX{} réduite, vous aurez peut-être
+à ajouter les polices lm explicitement.
 
 Pour la langue russe, une solution est d'utiliser des
 polices C1 virtuelles disponibles sur
@@ -613,33 +579,16 @@ les utiliser il suffit d'ajouter les lignes suivantes en préambule :
 \end{verbatim}
 \end{code}
 
-Note : il se peut que vous voyiez des lignes comme
+Il se peut que vous voyiez des lignes comme
 \begin{verbatim}
 Warning: pdftex (file eurmo10): Font eur... not found
 \end{verbatim}
 dans le fichier \texttt{.log} après compilation de votre
 fichier. Elles signifient que l'une des polices utilisées par votre
-document est introuvable. Vous devez vraiment résoudre ces problèmes,
+document est introuvable. Assurez-vous d'identifier et réparer les
+sections incriminées de votre document,
 car le document PDF résultant pourrait \emph{ne pas afficher du tout
   les pages contenant les caractères manquants}.
-
-Toutes ces histoires, en particulier le manque d'une bonne
-police EC de qualité équivalente à la police CM au format type~1, ont
-occupé les esprits de nombreuses personnes. Depuis 2003, un nouvel
-ensemble de polices de haute qualité appelé Latin Modern (LM) est
-disponible, ce qui allège considérablement des manipulations décrites
-ci-avant. Si vous possédez une installation de \TeX{} récente, il est
-fort probable que vous possédiez déjà une copie de ces polices. Tout
-ce qu'il vous reste alors à faire est d'ajouter
-\begin{code}
-\begin{verbatim}  
-\usepackage{lmodern}
-\usepackage[T1]{fontenc} 
-\usepackage{textcomp}
-\end{verbatim}
-\end{code}
-au préambule et vous êtes parés pour créer de magnifiques documents
-pdf avec support complet de l'alphabet latin.
 
 
 \subsection{Images et graphiques}
@@ -810,7 +759,7 @@ sur le mot \og \textcolor{magenta}{CTAN} \fg{} vous amènera au site
 web du CTAN.
 
 Si la destination du lien n'est pas une URL mais un fichier local,
-vous pouvez utiliser la commande \ci{href} :
+vous pouvez utiliser la commande \ci{href} sans la partie 'http://' :
 \begin{verbatim}
   Le document complet est \href{manuel.pdf}{ici}
 \end{verbatim}
@@ -889,9 +838,9 @@ de problèmes :
 transforme \verb+$E=mc^2$+ en \og E=mc**2 \fg{} dans la zone de
 marque-pages.
 
-Si votre document est codé en unicode et que vous utilisez l'option
+Si votre document est écrit en Unicode et que vous utilisez l'option
 \verb+unicode+ de l'extension \pai{hyperref}, vous pouvez utiliser des
-caractères unicode dans les marque-pages. Vous aurez ainsi une bien
+caractères Unicode dans les marque-pages. Vous aurez ainsi une bien
 plus grande sélection parmi les caractères utilisables avec
 \ci{texorpdfstring}.
 
@@ -978,6 +927,7 @@ pouvez les utiliser via la commande
 \setmainfont[Ligatures=TeX]{Linux Libertine}
 \end{verbatim}
 \end{code}
+%
 ajoutée dans le préambule. La détection des versions italique et
 grasse de la police devrait également être effective, ainsi
 \verb|\textit| et \verb|\textbf| fonctionneront comme de
@@ -1024,14 +974,13 @@ aussi consultez la documentation de la police ou essayez-la
 directement. Parfois ces ligatures dépendent du langage utilisé, par
 exemple la ligature (fk), inconnue en français, est utilisée en
 polonais. Il vous faudra ajouter
-
 \begin{code}
 \begin{verbatim}
 \setmainfont[Language=Polish]{(font)}
 \end{verbatim}
 \end{code}
-%
 pour activer les ligatures polonaises.
+
 Certaines polices (comme la police commerciale Adobe Garamond Premier
 Pro) contiennent aussi des glyphes alternatifs activés par défaut dans
 le \hologo{XeLaTeX} fourni avec \TeX Live~2010\footnote{Ce
@@ -1115,8 +1064,8 @@ portable grâce à un logiciel de présentation.
 
 \wi{pdf\LaTeX} combiné à la classe \pai{beamer} permettent la création
 de présentations en PDF très semblables à ce que vous feriez avec
-PowerPoint dans un bon jour, mais bien plus portable puisque des lecteurs PDF
-sont disponibles sur bien plus de systèmes.
+LibreOffice ou PowerPoint dans un bon jour, mais bien plus portable
+puisque des lecteurs PDF sont disponibles sur bien plus de systèmes.
 
 La classe \pai{beamer} utilise \pai{graphicx}, \pai{color} et
 \pai{hyperref} avec des options adaptées aux présentations sur
@@ -1206,7 +1155,7 @@ plus près.
 
 Pour la version à l'écran de la présentation (\verb|\mode<beamer>|) nous
 avons choisi le thème \emph{Goettingen}. Celui-ci propose un panneau
-de navigation intégré à la table des matières. Les options permettent
+de navigation intégré à la table des matières. Les options nous permettent
 de choisir la taille de ce panneau (22~mm dans notre cas) et sa
 position (à droite du corps du texte). L'option
 \emph{hideothersubsections} montre les titres de sections, mais
@@ -1233,7 +1182,7 @@ du thème choisi.
 
 Le contenu de chaque transparent ou chaque écran doit être placé dans
 un environnement \ei{frame}. L'option entre chevrons ((\verb|<| et
-\verb|>|) permet de supprimer un cadre en particulier de l'une des
+\verb|>|) nous permet de supprimer un cadre en particulier de l'une des
 versions de la présentation. Dans notre exemple, la première page
 n'apparaîtra pas dans la version imprimée à cause de l'option
 \verb|<handout:0>|.
