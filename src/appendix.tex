@@ -29,7 +29,7 @@ essentiels~:
 
 \item Un visualiseur PDF ou DVI pour afficher et imprimer vos documents ;
 
-\item Un programme pour gérer les fichiers PostScript et les images
+\item Un programme pour gérer les fichiers \PSi{} et les images
   pour inclusion dans vos documents.
 
 \end{enumerate}
@@ -67,6 +67,12 @@ d'information. Notez qu'il existe également une version dérivée de
 Texmaker appelée TexmakerX sur \url{http://texmakerx.sourceforge.net/}
 qui y ajoute de nouvelles fonctionnalités.
 
+Les distributions récentes \TeX Live contiennent l'éditeur \TeX{}works
+\url{http://texworks.org/}, un éditeur multi-plateformes basé sur les
+concepts de \TeX{}Shop. Puisque \TeX{}works utilise la bibliothèque
+Qt, il est disponible sur toute plateforme sur laquelle cette
+bibliothèque fonctionne (MacOS X, Windows, Linux).
+
 \subsection{Faites-vous plaisir avec \wi{PDFView}}
 
 Utilisez PDFView pour afficher des fichiers PDF générés par \LaTeX{},
@@ -83,7 +89,7 @@ TextMate \fg{}.
 \subsection{Obtenir \TeX{}}
 
 En premier lieu, obtenez une copie de l'excellente distribution
-\wi{MiKTeX} sur \url{http://www.miktex.org/}. Elle contient tous les
+MiK\TeX\index{MiKTeX@MiK\TeX} sur \url{http://www.miktex.org/}. Elle contient tous les
 programmes et fichiers de base pour compiler des documents
 \LaTeX{}. La fonctionnalité la plus sympathique, à mes yeux, est que
 MiKTeX téléchargera les extensions \LaTeX{} manquantes à la volée et
@@ -98,13 +104,19 @@ obtenir un bon environnement \LaTeX{} de base
 documents. \wi{TeXnicCenter} fait appel à plusieurs concepts du monde
 de la programmation pour mettre à disposition un environnement
 \LaTeX{} agréable et efficace pour la saisie sous Windows. Obtenez une
-copie sur \url{http://www.toolscenter.org}. TeXnicCenter s'intègre
-bien avec MiKTeX.
+copie sur \url{http://http://www.texniccenter.org/}. TeXnicCenter s'intègre
+bien avec MiKTeX. La version 2.0 de TeXnicCenter prendra en compte
+l'Unicode et la version alpha récente semble raisonnablement stable.
 
 Un autre très bon choix est l'éditeur fourni par le projet LEd sur
 \url{http://www.latexeditor.org}.
 
-Voyez la note sur Texmaker dans la section Mac
+Voyez la note sur Texmaker dans la section Mac plus haut pour un
+troisième choix.
+
+Les distributions \TeX Live récentes contiennent l'éditeur \TeX{}works
+\url{http://texworks.org/}. Celui-ci prend en compte l'Unicode et
+nécessite Windows XP au minimum.
 
 \subsection{Prévisualisation}
 
@@ -119,7 +131,7 @@ document source.
 \subsection{Travailler avec des images}
 
 Travailler avec des images de haute qualité dans \LaTeX{} est synonyme
-d'utilisation de PostScript (eps) ou de PDF comme format d'image. Le
+d'utilisation de \EPSi{} (eps) ou de PDF comme format d'image. Le
 programme qui vous aidera dans cette tâche s'appelle
 \wi{GhostScript}. Vous pouvez l'obtenir avec son interface
 graphique propre \wi{GhostView} sur \url{http://www.cs.wisc.edu/~ghost/}.
@@ -140,7 +152,7 @@ gestionnaire de paquets pour installer les applications suivantes :
 \item texlive -- l'installation \TeX{}/\LaTeX{} de base ;
 \item emacs (avec auctex) -- un éditeur Linux qui s'intègre
   étroitement avec \LaTeX{} via une extension appelée AucTeX ;
-\item ghostscript -- un visualiseur PostScript ;
+\item ghostscript -- un visualiseur \PSi{} ;
 \item xpdf et acrobat -- des visualiseurs PDF ;
 \item imagemagick -- un programme libre pour convertir des images
   bitmap ;
@@ -150,8 +162,8 @@ gestionnaire de paquets pour installer les applications suivantes :
 \end{itemize}
 
 Si vous cherchez un environnement graphique d'édition plus proche de
-ce qui se fait sous Windows, essayez Texmaker, dont il est question
-dans la section Mac plus haut.
+ce qui se fait sous Windows, essayez Texmaker ou \TeX{}works, éditeurs
+dont il est question dans la section Mac plus haut.
 
 Attention, la plupart des distributions découpent \TeX\,Live en
 plusieurs paquets. Si vous souhaitez une installation complète,
