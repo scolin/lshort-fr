@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Typesetting Part of LaTeX2e Introduction
-% $Id: typeset.tex 449 2010-12-14 16:53:51Z oetiker $
+% $Id: typeset.tex 456 2011-04-06 09:10:27Z oetiker $
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Pour les informations de licence, voir title.tex.
@@ -371,6 +371,17 @@ http://www.clever.edu/$\sim$demo
 Voir aussi l'extension \pai{hyperref} qui inclut une commande
 \ci{url}. 
 
+\subsection{Barre oblique ou slash (/)}
+\index{slash}\index{Barre oblique}
+Pour obtenir une barre oblique entre deux mots, il suffit de l'écrire,
+comme par exemple \texttt{lire/écrire}. Cependant \LaTeX{} considère
+alors cela comme un seul mot et non deux. La césure est désactivée
+pour ces mots, ce qui peut conduire à des erreurs de débordement de
+ligne (\og overfull hbox \fg). Pour surmonter ce problème, utilisez
+\ci{slash} comme par exemple \verb|lire\slash écrire| qui autorise la
+césure. Le caractère usuel de barre oblique (\texttt{/}) peut toujours
+être utilisés pour des fractions ou des unités, par exemple \texttt{5 MB/s}.
+
 \subsection{Symbole degré (\textdegree)}
 
 L'exemple suivant montre comment obtenir un symbole \wi{degré} :
@@ -462,6 +473,7 @@ le point occupe très peu de place et il est placé tout près du caractère
 qui le précède. Il n'est donc pas possible d'utiliser trois points
 consécutifs pour créer des \wi{points de suspension}. À la place on
 utilise la commande spécifique : 
+%SC : upstream ajoute (low dots) après \ci{ldots}, mais ici on utilise dots
 \begin{lscommand}
 \ci{dots}
 \end{lscommand}
@@ -947,12 +959,10 @@ trois problèmes :
   \emph{moderne}
   (\url{http://www.unicode.org/charts/PDF/UAC00.pdf}). L'un des plus
   éminents défis en typographie coréenne avec \LaTeX{} et autres
-  systèmes simiaires est la prise en compte de syllabes du coréen
+  systèmes similaires est la prise en compte de syllabes du coréen
   médian~---~et futur~---~via la conjonction jamos en
   Unicode. L'espoir réside dans des moteurs \TeX{} futurs tels que
-  $\Omega$ et $\Lambda$ pour proposer des solutions de manière à
-  éloigner les linguistes et historiens coréens de MS Word, qui
-  possède un support relativement bon du coréen médian.
+  $\Omega$ et $\Lambda$ pour proposer des solutions.
 %SC: many technical things, I most probably got some wrong (Middle
 %Korean?)
 }
@@ -1166,7 +1176,8 @@ tableau~\ref{Cyrillic}.
 
 Les options \pai{babel} pour le russe et l'ukrainien définissent les
 commandes \ci{Asbuk} et \ci{asbuk} qui agissent comme \ci{Alph} et
-\ci{alph}, mais produisent des majuscules et des minuscules des
+\ci{alph}\footnote{les commandes pour transformer les compteurs en a,
+  b, c, \dots}, mais produisent des majuscules et des minuscules des
 alphabets russe et ukrainien (en fonction duquel est la langue active
 du document). L'option bulgare de \pai{babel} fournit les commandes
 \ci{enumBul} et \ci{enumLat} (\ci{enumEng}) qui font produire à
@@ -1683,21 +1694,6 @@ mis en valeur, \LaTeX{}
 utilise une police droite.}
 \end{example}
  
-Remarquez la différence entre demander à \LaTeX{} de \emph{mettre en
-valeur} un mot et lui demander de changer de \emph{police de
-caractères} :
-
-\begin{example}
-\textit{Vous pouvez aussi
-  \emph{mettre en valeur}\\
-  du texte en italique,}
-\textsf{ou dans une police
-  \emph{sans-serif},} 
-\texttt{ou dans une police
-  \emph{machine à écrire}.}
-\end{example}
-
-%\clearpage
 \section{Environnements} \label{env}
 
 Pour composer du texte dans des contextes spécifiques, \LaTeX{}
@@ -1935,7 +1931,7 @@ colonne qui fera passer le texte à la ligne comme pour un paragraphe
 usuel.
 
 L'argument \emph{position} définit la position verticale du tableau
-par rapport au texte environnant. Utilisez les lettres \mfr{t},
+par rapport au texte environnant. Utilisez une des lettres \mfr{t},
 \mfr{b} et \mfr{c} pour l'aligner en haut (\emph{top}), en bas
 (\emph{bottom}) ou au centre (\emph{center}) respectivement.
 
@@ -1943,7 +1939,7 @@ par rapport au texte environnant. Utilisez les lettres \mfr{t},
 \texttt{\&} est le séparateur de colonnes, \ci{\bs} commence une nouvelle
 ligne et \ci{hline} insère un filet horizontal. Vous pouvez ajoutez
 des filets partiels via la commande
-\ci{cline}\texttt{\{}\emph{j}\texttt{-}\emph{i}\texttt{\}}, où j et i
+\ci{cline}\texttt{\{}$i$\texttt{-}$j$\texttt{\}}, où i et j
 sont les numéros de colonnes de début et de fin du filet.
 \index{\&}
 
@@ -2080,6 +2076,10 @@ tableau, vous pouvez utiliser une réglure de largeur nulle
 \hline
 \end{tabular}
 \end{example}
+
+Les \texttt{pt} et \texttt{ex} dans l'exemple ci-avant sont des unités
+\TeX. Référez-vous au tableau \ref{units} en page \pageref{units} pour
+en savoir plus sur les unités de \TeX.
 
 \section{Objets flottants}
 
@@ -2261,8 +2261,8 @@ page. \ci{cleardoublepage} commence une nouvelle page de droite.
 % SC: que les images vont souvent dans des figures, je dirais, il
 % faudrait demander à upstream
 %MPG: oui, parce que là ça vient après \clearpage, ça fait bizare ÀMHA.
-En section~\ref{eps}, vous apprendrez à inclure des figures
-\PSi{} dans vos documents.
+Plus loin dans cette introduction à \LaTeX{}, vous apprendrez à
+inclure des figures \PSi{} dans vos documents \LaTeXe{}.
 
 \section{Protection des commandes \texorpdfstring{\og fragiles \fg}{\string«fragiles \string»}}
 
@@ -2275,7 +2275,9 @@ produisent pas le résultat escompté quand elles sont exécutées comme
 argument de commandes de type \ci{section}. La compilation du document
 échouera alors. On dit de ces commandes qu'elles sont \og fragiles
 \fg, ce qui signifie qu'elles ont besoin de la protection (comme nous
-tous ?). Il faut alors les faire précéder de \ci{protect}.
+tous ?). Il faut alors les faire précéder de \ci{protect} : elles
+fonctionneront alors correctement même si elles sont utilisées dans
+des arguments mobiles.
 
 La commande \ci{protect} n'a d'effet que sur la commande qui la suit
 immédiatement, mais \emph{pas ses arguments} éventuels.
