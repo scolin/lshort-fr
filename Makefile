@@ -1,6 +1,6 @@
 #	pstops "4:0L@0.8(22.5cm,-0.6cm)+1L@0.8(22.5cm,13.3cm),2L@0.8(22.5cm,-0.6cm)+3L@0.8(22.5cm,13.3cm)" \
 SHELL = /bin/sh
-VERS = 4.31fr-1
+VERS = 5.00fr-1
 NAME = lshort-fr
 
 OTHER = README CHANGES
@@ -15,18 +15,20 @@ MAKEINDEX=makeindex
 DVIPS=dvips
 
 # The default targets
-all: $(NAME).ps $(NAME)-book.ps $(NAME).pdf $(NAME)-a5book.pdf $(NAME)-a5.pdf
+all: $(NAME).pdf $(NAME)-letter.pdf $(NAME)-a5.pdf
+
+lulu: $(NAME)-body.pdf $(NAME)-title.pdf
 
 
 $(NAME).dvi: $(FILES)
 	-mkdir texbuild
-	(TEXINPUTS=.:`pwd`/src:`pwd`/euro:${TEXINPUTS:-:} && export TEXINPUTS && cd texbuild && \
+	(TEXINPUTS=.:`pwd`/src:`pwd`/euro:`pwd`/oberdiek:${TEXINPUTS:-:} && export TEXINPUTS && cd texbuild && \
 	$(LATEX) lshort && $(LATEX) lshort && $(MAKEINDEX) -s ../src/lshort.ist lshort; \
 	$(LATEX) lshort && $(LATEX) lshort && mv lshort.dvi ../$(NAME).dvi)
 
 $(NAME)-a5.dvi: $(FILES)
 	-mkdir texbuild
-	(TEXINPUTS=.:`pwd`/src:`pwd`/euro:${TEXINPUTS:-:} && export TEXINPUTS && cd texbuild && \
+	(TEXINPUTS=.:`pwd`/src:`pwd`/euro:`pwd`/oberdiek:${TEXINPUTS:-:} && export TEXINPUTS && cd texbuild && \
 	$(LATEX) lshort-a5 && $(LATEX) lshort-a5 && $(MAKEINDEX) -s ../src/lshort.ist lshort-a5; \
 	$(LATEX) lshort-a5 && $(LATEX) lshort-a5 && mv lshort-a5.dvi ../$(NAME)-a5.dvi)
 
@@ -52,16 +54,31 @@ $(NAME)-a5book.pdf: $(NAME)-a5book.ps
 
 $(NAME).pdf: $(FILES)
 	-mkdir pdfbuild
-	(T1FONTS=.:`pwd`/eurofont: && export T1FONTS && TEXINPUTS=.:`pwd`/src:`pwd`/euro:${TEXINPUTS:-:}&&export TEXINPUTS&& cd pdfbuild&& \
+	(T1FONTS=.:`pwd`/eurofont: && export T1FONTS && TEXINPUTS=.:`pwd`/src:`pwd`/euro:`pwd`/oberdiek:${TEXINPUTS:-:}&&export TEXINPUTS&& cd pdfbuild&& \
 	$(PDFLATEX) lshort&& $(PDFLATEX) lshort&& \
 	$(MAKEINDEX) -s ../src/lshort.ist lshort&&$(PDFLATEX) lshort&& \
 	(thumbpdf --resolution 10 lshort.pdf && $(PDFLATEX) lshort)&& \
 	mv lshort.pdf ../$(NAME).pdf )
 	rm pdfbuild/*
 
+$(NAME)-body.pdf: $(FILES)
+	-mkdir pdfbuild
+	(T1FONTS=.:`pwd`/eurofont: && export T1FONTS && TEXINPUTS=.:`pwd`/src:`pwd`/euro:`pwd`/oberdiek:${TEXINPUTS:-:}&&export TEXINPUTS&& cd pdfbuild&& \
+	$(PDFLATEX) lshort-body && $(PDFLATEX) lshort-body && \
+	$(MAKEINDEX) -s ../src/lshort.ist lshort-body &&$(PDFLATEX) lshort-body&& \
+	mv lshort-body.pdf ../$(NAME)-body.pdf )
+	rm pdfbuild/*
+
+$(NAME)-title.pdf: $(FILES)
+	-mkdir pdfbuild
+	(T1FONTS=.:`pwd`/eurofont: && export T1FONTS && TEXINPUTS=.:`pwd`/src:`pwd`/euro:`pwd`/oberdiek:${TEXINPUTS:-:}&&export TEXINPUTS&& cd pdfbuild&& \
+	$(PDFLATEX) lshort-title && $(PDFLATEX) lshort-title && \
+	mv lshort-title.pdf ../$(NAME)-title.pdf )
+	rm pdfbuild/*
+
 $(NAME)-a5.pdf: $(FILES)
 	-mkdir pdfbuild
-	(T1FONTS=.:`pwd`/eurofont: && export T1FONTS && TEXINPUTS=.:`pwd`/src:`pwd`/euro:${TEXINPUTS:-:}&&export TEXINPUTS&& cd pdfbuild&& \
+	(T1FONTS=.:`pwd`/eurofont: && export T1FONTS && TEXINPUTS=.:`pwd`/src:`pwd`/euro:`pwd`/oberdiek:${TEXINPUTS:-:}&&export TEXINPUTS&& cd pdfbuild&& \
 	$(PDFLATEX) lshort-a5&& $(PDFLATEX) lshort-a5&& \
 	$(MAKEINDEX) -s ../src/lshort.ist lshort-a5&&$(PDFLATEX) lshort-a5&& \
 	(thumbpdf --resolution 10 lshort-a5.pdf && $(PDFLATEX) lshort-a5)&& \
@@ -70,7 +87,7 @@ $(NAME)-a5.pdf: $(FILES)
 
 $(NAME)-letter.pdf: $(FILES)
 	-mkdir pdfbuild
-	(T1FONTS=.:`pwd`/eurofont: && export T1FONTS && TEXINPUTS=.:`pwd`/src:`pwd`/euro:${TEXINPUTS:-:}&&export TEXINPUTS&& cd pdfbuild&& \
+	(T1FONTS=.:`pwd`/eurofont: && export T1FONTS && TEXINPUTS=.:`pwd`/src:`pwd`/euro:`pwd`/oberdiek:${TEXINPUTS:-:}&&export TEXINPUTS&& cd pdfbuild&& \
 	$(PDFLATEX) lshort-letter&& $(PDFLATEX) lshort-letter&& \
 	$(MAKEINDEX) -s ../src/lshort.ist lshort-letter&&$(PDFLATEX) lshort-letter&& \
 	(thumbpdf --resolution 10 lshort-letter.pdf && $(PDFLATEX) lshort-letter)&& \
@@ -93,11 +110,11 @@ tar:	$(FILES)
 rsync:  all tar
 	echo press enter to rsync
 	read x
-	rsync  $(NAME)-$(VERS).src.tar.gz CHANGES README $(NAME).pdf $(NAME)-letter.pdf $(NAME)-a5.pdf $(NAME)-a5book.pdf james:public_html/latex/
+	rsync  $(NAME)-$(VERS).src.tar.gz CHANGES README $(NAME).pdf $(NAME)-letter.pdf $(NAME)-a5.pdf james:public_html/latex/
 
 dist:	rsync
-	lftp -e 'cd incoming;mkdir $(NAME)-$(VERS);cd $(NAME)-$(VERS);mput $(NAME)-$(VERS).src.tar.gz CHANGES README $(NAME)-book.ps $(NAME).dvi $(NAME).pdf $(NAME).ps;quit' ftp.tex.ac.uk
-	(echo -e "Robin,\n\nI have uploaded $(NAME)-$(VERS) to ftp.tex.ac.uk:/incoming/$(NAME)-$(VERS).\n\nIf you think it is appropriate, announce it please.\n\nThanks and cheers\ntobi\n\n\n--";fortune -s shakes goethe) | mailx -s "Lshort Upload (note the quote)" ctan@dante.de
+	lftp -e 'cd incoming;mkdir $(NAME)-$(VERS);cd $(NAME)-$(VERS);mput $(NAME)-$(VERS).src.tar.gz CHANGES README $(NAME)-letter.pdf $(NAME)-a5.pdf $(NAME).pdf;quit' ftp.tex.ac.uk
+	(echo -e "Robin,\n\nI have uploaded $(NAME)-$(VERS) to ftp.tex.ac.uk:/incoming/$(NAME)-$(VERS).\n\nThanks and cheers\ntobi\n\n\n--";fortune -s shakes goethe) | mailx -s "Lshort Upload (note the quote)" ctan@dante.de
 	(echo -e "Folks,\n\nI have created $(NAME)-$(VERS). It is available from http://tobi.oetiker.ch/latex.\n\nCheers tobi\n\n\n--";fortune -s shakes goethe) | mailx -s "Lshort $(VERS)" `cat TRLIST`
 
 clean:
