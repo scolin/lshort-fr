@@ -15,7 +15,7 @@ MAKEINDEX=makeindex
 DVIPS=dvips
 
 # The default targets
-all: $(NAME).pdf $(NAME)-letter.pdf $(NAME)-a5.pdf
+all: $(NAME).pdf $(NAME)-a5book.pdf $(NAME)-a5.pdf
 
 lulu: $(NAME)-body.pdf $(NAME)-title.pdf
 
