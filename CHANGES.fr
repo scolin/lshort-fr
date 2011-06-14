@@ -1,3 +1,8 @@
+5.01fr-0 2011-04-25
+-------------------
+- Traduction initiale des (et alignement sur les)  changements apportés par
+  la version 5.01
+
 4.31fr-1 2010-07-05
 -------------------
 

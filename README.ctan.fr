@@ -1,5 +1,5 @@
 This is the french translation of "The not so short
-introduction to LaTeX2e" by Tobias Oetiker (version 4.31fr-1).
+introduction to LaTeX2e" by Tobias Oetiker (version 5.01fr-0).
 
 This was done by Samuel Colin and Manuel Pégourié-Gonnard, upon the initial
 3.20 translation by Matthieu Herrb. See the sources for more details.
@@ -7,12 +7,12 @@ This was done by Samuel Colin and Manuel Pégourié-Gonnard, upon the initial
 README                  This README
 CHANGES.fr              Changelog for French versions (in French)
 lshort-fr.pdf           A PDF version, produced by pdflatex
-lshort-fr-4.31fr-1.tgz  The LaTeX 2e document sources
+lshort-fr-5.01fr-0.tgz  The LaTeX 2e document sources
 
 =====
 
 Voici la traduction française de la "courte (?) introduction à LaTeX2e"
-de Tobias Oetiker (version 4.31fr-1).
+de Tobias Oetiker (version 5.01fr-0).
 
 Cette traduction a été préparée par Samuel Colin et Manuel Pégourié-Gonnard
 en se basant sur les traductions effectuées par Matthieu Herrb jusqu'à la
@@ -21,4 +21,4 @@ version 3.20. Reportez-vous aux sources pour plus de détails.
 README                  Ce README
 CHANGES.fr              Historique des versions françaises
 lshort-fr.pdf           Une version PDF, produite par pdflatex
-lshort-fr-4.31fr-1.tgz  Les sources LaTeX2e du document
+lshort-fr-5.01fr-0.tgz  Les sources LaTeX2e du document
