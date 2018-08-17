@@ -185,8 +185,8 @@ stored for the language that is active when the hyphenation command
 occurs. This means that if you place a hyphenation command into the preamble
 of your document it will influence the English language hyphenation. If you
 place the command after the \verb|\begin{document}| and you are using some
-package for national language support like \pai{babel}, then the hyphenation
-hints will be active in the language activated through \pai{babel}.
+package for national language support like \pai{polyglossia}, then the hyphenation
+hints will be active in the language activated through \pai{polyglossia}.
 
 The example below will allow ``hyphenation'' to be hyphenated as well as
 ``Hyphenation'', and it prevents ``FORTRAN'', ``Fortran'' and ``fortran''
@@ -460,13 +460,8 @@ configured appropriately:
 \begin{enumerate}
 \item All automatically generated text strings\footnote{Table of
     Contents, List of Figures, \ldots} have to be adapted to the new
-  language.  For many languages, these changes can be accomplished by
-  using the \pai{babel} package by Johannes Braams.
-\item \LaTeX{} needs to know the hyphenation rules for the new
-  language. Getting hyphenation rules into \LaTeX{} is a bit more
-  tricky. It means rebuilding the format file with different
-  hyphenation patterns enabled. Your \guide{} should give more
-  information on this.
+  language.
+\item \LaTeX{} needs to know the hyphenation rules for the current language.
 \item Language specific typographic rules. In French for example, there is a
   mandatory space before each colon character (:).
 \end{enumerate}
@@ -476,53 +471,6 @@ commands from figure~\ref{accents}. To overcome this problem, until recently you
 deep into the abyss of language specific encodings both for input as well as fonts. These days,
 with modern \TeX{} engines speaking UTF-8 natively, these problems have relaxed considerably.
 
-So without any further ado, here are the settings you have to put into the preamble of your document
-to make it fit for non-english content.
-
-For \hologo{pdfLaTeX}:
-
-\begin{lscommand}
-\verb|\usepackage[T1]{fontenc}|\\
-\verb|\usepackage[utf8]{inputenc}|\\
-\verb|\usepackage{lmodern}|
-\end{lscommand}
-
-For \hologo{XeLaTeX}:
-
-\begin{lscommand}
-\verb|\usepackage{fontspec}|\\
-\verb|\defaultfontfeatures{Ligatures=TeX}|
-\end{lscommand}
-
-For \hologo{LuaLaTeX}:
-
-\begin{lscommand}
-\verb|\usepackage{luatextra}|\\
-\verb|\defaultfontfeatures{Ligatures=TeX}|
-\end{lscommand}
-
-Figure~\ref{allinone} on page~\pageref{allinone} shows a sample preamble that takes care of all the necessary settings.
-
-\begin{figure}[!bp]
-\begin{lined}{10cm}
-\begin{verbatim}
-\usepackage{iftex}
-\ifPDFTeX
-   \usepackage[utf8]{inputenc}
-   \usepackage[T1]{fontenc}
-   \usepackage{lmodern}
-\else
-   \ifXeTeX
-     \usepackage{fontspec}
-   \else
-     \usepackage{luatextra}
-   \fi
-   \defaultfontfeatures{Ligatures=TeX}
-\fi
-\end{verbatim}
-\end{lined}
-\caption[All in one preamble]{All in one preamble that takes care of all three pdf generating \TeX{} engines.} \label{allinone}
-\end{figure}
 
 \section{Multilingual Texts with Polyglossia}
 \secby{Axel Kielhorn}{A.Kielhorn@web.de}%
@@ -546,8 +494,29 @@ non-\hologo{TeX} font, you have to fake them. The option
 \verb|,,|	& ,, & \verb|<<|	& <<\\ & \verb|>>|	& >>\\
 \end{tabular}
 
+
 \subsubsection{It's all $\Gamma\rho\epsilon\epsilon\kappa$ to me}
 %\subsubsection{It's all \textgreek{Ellenik'a} to me} % this requires greek babel.
+
+Depending on the \TeX{} engine you use slighly different commands are
+necessary in the preamble of your document to properly enable multilingual
+processing. Figure~\ref{allinone} on page~\pageref{allinone} shows a sample preamble that takes care of all the necessary settings.
+
+\begin{figure}[!bp]
+\begin{lined}{10cm}
+\begin{verbatim}
+\usepackage{iftex}
+\ifXeTeX
+   \usepackage{fontspec}
+\else
+   \usepackage{luatextra}
+\fi
+\defaultfontfeatures{Ligatures=TeX}
+\usepackage{polyglossia}
+\end{verbatim}
+\end{lined}
+\caption[All in one preamble]{All in one preamble that takes care of all three pdf generating \TeX{} engines.} \label{allinone}
+\end{figure}
 
 So far there has been no advantage to using a Unicode \hologo{TeX} engine.
 This changes when we leave the Latin script and move to a more interesting
@@ -555,9 +524,13 @@ language like Greek or Russian.  With a Unicode based system, you can
 simply\footnote{For small values of simple.} enter the native characters in your
 editor and \hologo{TeX} will understand them.
 
-Writing in different languages is easy, just specify the languages in the preamble:
+Writing in different languages is easy, just specify the languages in the
+preamble. This example uses the \pai{csquote} package which generates
+the right kind of quotes according to the language you are writing in. Note
+that it needs to be loaded \emph{before} loading the language support.
 
 \begin{lscommand}
+\verb|\usepackage{csquote}|\\
 \verb|\setdefaultlanguage{english}|\\
 \verb|\setotherlanguage[babelshorthands]{german}|
 \end{lscommand}
@@ -567,9 +540,9 @@ To write a paragraph in German, you can use the German environment:
 \begin{lscommand}
 English text.\\
 \verb|\begin{german}|\\
-Deutscher Text.\\
+Deutscher \enquote{Text}.\\
 \verb|\end{german}|\\
-More English text.
+More English \enquote{text}.
 \end{lscommand}
 
 If you just need a word in a foreign language you can use the
