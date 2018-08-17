@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Things you need to know
-% $Id: things.tex 521 2014-02-01 21:53:01Z oetiker $
+% $Id: things.tex 522 2014-05-11 21:10:57Z oetiker $
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  
 \chapter{Things You Need to Know}
@@ -345,7 +345,7 @@ comments in your document.
 Note that this won't work inside complex environments, like math for example.
 
 \section{Input File Structure}
-
+\label{sec:structure}
 When \LaTeXe{} processes an input file, it expects it to follow a
 certain \wi{structure}. Thus every input file must start with the
 command
@@ -591,7 +591,10 @@ Packages are activated with the
 \end{lscommand}
 \noindent command, where \emph{package} is the name of the package and
 \emph{options} is a list of keywords that trigger special features in
-the package. Some packages come with the \LaTeXe{} base distribution
+the package. The \ci{usepackage} command goes into the preamble of the
+document. See section \ref{sec:structure} for details.
+
+Some packages come with the \LaTeXe{} base distribution
 (See Table~\ref{packages}). Others are provided separately. You may
 find more information on the packages installed at your site in your
 \guide. The prime source for information about \LaTeX{} packages is \companion.
@@ -601,6 +604,7 @@ information of how to write your own extensions to \LaTeXe.
 Modern \TeX{} distributions come with a large number of packages
 preinstalled. If you are working on a Unix system, use the command
 \texttt{texdoc} for accessing package documentation.
+
 
 \begin{table}[btp]
 \caption{Some of the Packages Distributed with \LaTeX.} \label{packages}
@@ -726,7 +730,7 @@ file:
 \item[\eei{.log}] Gives a detailed account of what happened during the
   last compiler run.
 \item[\eei{.toc}] Stores all your section headers. It gets read in for the
-  next compiler run and is used to produce the table of content.
+  next compiler run and is used to produce the table of contents.
 \item[\eei{.lof}] This is like .toc but for the list of figures.
 \item[\eei{.lot}] And again the same for the list of tables.
 \item[\eei{.aux}] Another file that transports information from one
