@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Math typesetting with LaTeX
-% $Id: math.tex 459 2011-04-06 10:02:44Z oetiker $
+% $Id: math.tex 493 2012-03-13 05:40:49Z oetiker $
 %
 % Changes by Stefan M. Moser: 2008/10/22
 %
@@ -54,7 +54,7 @@ in some cases inconsistent.
 
 \AmS-\LaTeX{} is a part of the required distribution and is provided
 with all recent \LaTeX{} distributions.\footnote{If yours is missing it, go to
-  \CTAN|macros/latex/required/amslatex|.} In this chapter, we assume
+  \CTAN|pkg/amslatex|.} In this chapter, we assume
   \pai{amsmath} is loaded in the preamble; \verb|\usepackage{amsmath}|.
 
 \section{Single Equations}
@@ -595,8 +595,7 @@ A better solution is offered by the \ei{eqnarray} environment:
 \end{eqnarray}
 \end{example}
 
-This is still not optimal though as
-he spaces around the equality signs are too big.
+This is still not optimal. The spaces around the equality signs are too big.
 Particularly, they are \textbf{not} the same as in the
 \ei{multline} and \ei{equation} environments:
 \begin{example}
@@ -639,7 +638,7 @@ not properly centered:
 \end{eqnarray}
 \end{example}
 
-\noindent having badmouthed the competition sufficiently, I can now stear you gently towards the glorious \ldots
+\noindent having badmouthed the competition sufficiently, I can now steer you gently towards the glorious \ldots
 
 \subsection{IEEEeqnarray Environment}
 \label{sec:IEEEeqnarray_intro}
@@ -648,7 +647,7 @@ The \ei{IEEEeqnarray} environment is a very powerful command with
 many options. Here, we will only introduce its basic
 functionalities. For more information we refer to the
 manual.\footnote{The official manual is called
-  \texttt{IEEEtran\_HOWTO.pdf}. The part about \texttt{IEEEeqnarray}
+  \CTAN|macros/latex/contrib/IEEEtran/IEEEtran_HOWTO.pdf|. The part about \texttt{IEEEeqnarray}
   can be found in Appendix~F.}
 
 First of all, in order to be able to use the
@@ -1110,7 +1109,11 @@ Don't hide in the witness box
 \begin{jury}[The Twelve]
 It could be you! So beware and
 see law~\ref{law:box}.\end{jury}
+\begin{jury}
+You will disregard the last
+statement.\end{jury}
 \begin{marg}No, No, No\end{marg}
+\begin{marg}Denis!\end{marg}
 \end{example}
 
 The ``Jury'' theorem uses the same counter as the ``Law''

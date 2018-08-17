@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Things you need to know
-% $Id: things.tex 456 2011-04-06 09:10:27Z oetiker $
+% $Id: things.tex 521 2014-02-01 21:53:01Z oetiker $
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  
 \chapter{Things You Need to Know}
@@ -41,7 +41,7 @@ common word, pronounced `tyekh'. But I believe the most proper pronunciation
 is heard in Greece, where you have the harsher ch of ach and Loch.}}
 or in the Scottish ``Loch.'' The ``ch'' originates from the Greek
 alphabet where X is the letter ``ch'' or ``chi''. \TeX{} is also the first syllable
-of the Greek word {\greektext teknolog'ia} (technology). In an ASCII environment, \TeX{}
+of the Greek word {\greektext teqnik'h} (technique). In an ASCII environment, \TeX{}
 becomes \texttt{TeX}.
 
 \subsection{\LaTeX}
@@ -199,7 +199,7 @@ able to fully grasp the concept of Logical Markup.
 The input for \LaTeX{} is a plain text file. On Unix/Linux text files are
 pretty common. On windows, one would use Notepad to create a text file. It
 contains the text of the document, as well as the commands that tell
-\LaTeX{} how to typeset the text. If you are working with a LaTeX IDE, it will contain a program for creating
+\LaTeX{} how to typeset the text. If you are working with a \LaTeX{} IDE, it will contain a program for creating
 \LaTeX{} input files in text format.
 
 \subsection{Spaces}
@@ -280,10 +280,11 @@ command name. The empty parameter \verb|{}| stops \LaTeX{} from eating up all th
 the command name. 
 
 \begin{example}
-I read that Knuth divides the 
-people working with \TeX{} into 
-\TeX{}nicians and \TeX perts.\\
-Today is \today.
+New \TeX users may miss whitespaces
+after a command. % renders wrong
+Experienced \TeX{} users are
+\TeX perts, and know how to use
+whitespaces. % renders correct
 \end{example}
 
 Some commands require a \wi{parameter}, which has to be given between
@@ -291,7 +292,7 @@ Some commands require a \wi{parameter}, which has to be given between
 \wi{optional parameters}, which are inserted after the command name in
 \wi{square brackets}~\verb|[ ]|.
 \begin{code}
-\verb|\|\textit{command}\verb|[|\textit{optinal parameter}\verb|]{|\textit{parameter}\verb|}|
+\verb|\|\textit{command}\verb|[|\textit{optional parameter}\verb|]{|\textit{parameter}\verb|}|
 \end{code}
 The next examples use some \LaTeX{}
 commands. Don't worry about them; they will be explained later.
@@ -772,8 +773,7 @@ instruct \LaTeX{} to only input some of the \verb|\include|d files.
 \end{lscommand}
 After this command is executed in the preamble of the document, only
 \ci{include} commands for the filenames that are listed in the
-argument of the \ci{includeonly} command will be executed. Note that
-there must be no spaces between the filenames and the commas.
+argument of the \ci{includeonly} command will be executed.
 
 The \ci{include} command starts typesetting the included text on a new
 page. This is helpful when you use \ci{includeonly}, because the

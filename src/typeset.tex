@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Typesetting Part of LaTeX2e Introduction
-% $Id: typeset.tex 456 2011-04-06 09:10:27Z oetiker $
+% $Id: typeset.tex 505 2012-07-29 10:03:06Z oetiker $
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Typesetting Text}
 
@@ -1089,7 +1089,7 @@ generated text strings. The option \verb|babelshorthands| enables
 
 The package \pai{fontspec}\cite{fontspec} handles font loading for
 \hologo{XeLaTeX} and \hologo{LuaTeX}. The default font is Latin Modern
-Roman. It is a little know fact that some \hologo{TeX} command are ligatures
+Roman. It is a little known fact that some \hologo{TeX} command are ligatures
 defined in the Computer Modern fonts. If you want to use them with a
 non-\hologo{TeX} font, you have to fake them. The option
 \texttt{Ligatures=TeX} defines the following ligatures:
@@ -1433,11 +1433,12 @@ If a text is typed using a typewriter, important words are
 \end{lscommand}
 In printed books,
 however, words are emphasized by typesetting them in an \emph{italic}
-font.  \LaTeX{} provides the command
+font.  As an author you shouldn't care either way. The important bit is, to tell \LaTeX{} that a praticular
+bit of text is important and should be emphasized. Hence the command
 \begin{lscommand}
 \ci{emph}\verb|{|\emph{text}\verb|}|
 \end{lscommand}
-\noindent to emphasize text.  What the command actually does with 
+\noindent to emphasize text. What the command actually does with 
 its argument depends on the context:
 
 \begin{example}
@@ -1448,6 +1449,9 @@ its argument depends on the context:
   \emph{normal} font for 
   emphasizing.}
 \end{example}
+
+If you want control over font and font size, section \ref{sec:fontsize} on
+page \pageref{sec:fontsize} might provide some inspiration.
 
 \section{Environments} \label{env}
 
@@ -1477,7 +1481,7 @@ The \ei{itemize} environment is suitable for simple lists, the
 \begin{example}
 \flushleft
 \begin{enumerate}
-\item You can next the list
+\item You can nest the list
 environments to your taste:
 \begin{itemize}
 \item But it might start to
@@ -1782,6 +1786,11 @@ this is called a \wi{strut}.}. Use a zero width \ci{rule} to implement this tric
 
 The \texttt{pt} and \texttt{em} in the example above are \TeX{} units. Read more
 on units in table \ref{units} on page \pageref{units}.
+
+A number of extra commands, enhancing the tabular environment are available
+in the \pai{booktabs} package. It makes the creation of professional looking
+tables with proper spacing quite a bit simples.
+
 
 \section{Floating Bodies}
 Today most publications contain a lot of figures and tables. These
