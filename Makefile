@@ -1,12 +1,12 @@
 #	pstops "4:0L@0.8(22.5cm,-0.6cm)+1L@0.8(22.5cm,13.3cm),2L@0.8(22.5cm,-0.6cm)+3L@0.8(22.5cm,13.3cm)" \
 SHELL = /bin/sh
-VERS = 5.01fr-0
+VERS = 5.02fr-unreleased
 NAME = lshort-fr
 
 OTHER = README CHANGES
 FILES = src/biblio.tex src/math.tex src/things.tex src/contrib.tex src/lshort.sty src/mylayout.sty src/title.tex \
 	src/custom.tex src/lshort.tex src/overview.tex src/typeset.tex src/fancyhea.sty src/lssym.tex src/spec.tex \
-	src/lshort-base.tex src/lshort-a5.tex src/graphic.tex
+	src/lshort-base.tex src/lshort-a5.tex src/graphic.tex src/appendix.tex
 
 # Define some variables
 LATEX=latex
@@ -113,9 +113,8 @@ rsync:  all tar
 	rsync  $(NAME)-$(VERS).src.tar.gz CHANGES README $(NAME).pdf $(NAME)-letter.pdf $(NAME)-a5.pdf james:public_html/latex/
 
 dist:	rsync
-	lftp -e 'cd incoming;mkdir $(NAME)-$(VERS);cd $(NAME)-$(VERS);mput $(NAME)-$(VERS).src.tar.gz CHANGES README $(NAME)-letter.pdf $(NAME)-a5.pdf $(NAME).pdf;quit' ftp.tex.ac.uk
-	(echo -e "Robin,\n\nI have uploaded $(NAME)-$(VERS) to ftp.tex.ac.uk:/incoming/$(NAME)-$(VERS).\n\nThanks and cheers\ntobi\n\n\n--";fortune -s shakes goethe) | mailx -s "Lshort Upload (note the quote)" ctan@dante.de
-	(echo -e "Folks,\n\nI have created $(NAME)-$(VERS). It is available from http://tobi.oetiker.ch/latex.\n\nCheers tobi\n\n\n--";fortune -s shakes goethe) | mailx -s "Lshort $(VERS)" `cat TRLIST`
+	zip $(NAME)-$(VERS).zip $(NAME)-$(VERS).src.tar.gz CHANGES README $(NAME).pdf $(NAME)-letter.pdf $(NAME)-a5.pdf
+	echo upload $(NAME)-$(VERS).zip to http://www.ctan.org/upload   
 
 clean:
 	rm -rf texbuild pdfbuild

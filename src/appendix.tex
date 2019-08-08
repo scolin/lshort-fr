@@ -8,9 +8,9 @@ vous voulez avec les sources, mais vous ne pouvez appeler le résultat
 \TeX{} que si le programme passe une série de tests fournis aussi par
 Knuth. Ceci a mené à une situation où il existe une implantation libre
 de \TeX{} pour presque tous les systèmes d'exploitation
-existants. Dans ce chapitre nous donnerons quelques astuces sur ce
-dont vous avez besoin pour faire fonctionner \TeX{} sous Linux,
-Mac~OS~X et Windows.
+existants. Ce chapitre vous donnera quelques astuces sur ce
+dont vous avez besoin sous Linux,
+Mac~OS~X et Windows pour avoir une installation \TeX{} fonctionnelle.
 \end{intro}
 
 \section{Ce qu'il faut installer}
@@ -39,33 +39,45 @@ ci-dessus\ldots{} Nous discuterons ici seulement de ceux que nous
 connaissons, apprécions et pour lesquels nous avons quelque
 expérience.
 
+\section{Éditeur multi-plateformes}
+\label{sec:texmaker}
+
+Bien que \TeX{} soit disponible sur de nombreuses plateformes
+différentes, les éditeurs \LaTeX{} ont longtemps été chacun restreints
+à une plateforme donnée.
+
+Ces dernières années j'en suis venu à apprécier grandement Texmaker.
+En plus d'être un éditeur très utile avec une prévisualisation pdf
+intégrée et la colorisation syntaxique, il a l'avantage de fonctionner
+aussi bien sous Windows, Mac et Unix/Linux. Voyez
+\url{http://www.xm1math.net/texmaker} pour plus d'informations.
+Notez qu'il en existe un \emph{fork}\footnote{Ou embranchement
+  logiciel, ou \emph{fourche} pour nos amis québecois} nommé TeXstudio
+sur \url{http://texstudio.sourceforge.net/} qui semble bien maintenu
+et disponible sur les trois plateformes majeures.
+
+Vous trouverez quelques suggestions d'éditeurs plus spécifiques à
+certaines plateformes dans les sections sur les systèmes
+d'exploitation ci-après.
+
 \section{\TeX{} sous Mac~OS~X}
 
-\subsection{Obtenir une distribution \TeX{}}
+\subsection{Distribution \TeX{}}
 
 Téléchargez tout simplement \wi{MacTeX}. Il s'agit d'une distribution
 précompilée de \LaTeX{} pour OSX. \wi{MacTeX} met à disposition
 une installation complète de \LaTeX{} fournie avec des outils
-supplémentaires. Obtenez MacTex sur \url{http://www.tug.org/mactex/}.
+supplémentaires. Obtenez Mac\TeX{} sur \url{http://www.tug.org/mactex/}.
 
-Si vous utilisez déjà les Macports ou Fink pour installer des
-logiciels Unix sous OSX, utilisez-les aussi pour \LaTeX. Avec Macports
-la commande sera \framebox{\texttt{port install texlive}} et avec Fink
-\framebox{\texttt{fink install texlive}}.
+\subsection{Éditeur \TeX{} OSX}
 
-\subsection{Choisir un éditeur}
+Si la suggestion d'utiliser l'éditeur multi-plateformes Texmaker
+(section \ref{sec:texmaker}) ne vous convient pas...
 
 L'éditeur ouvert le plus populaire pour \LaTeX{} sous Mac semble être
 \TeX{}shop. Téléchargez-en une copie sur
 \url{http://www.uoregon.edu/~koch/texshop}. Il est aussi fourni avec
 la distribution \wi{MacTeX}.
-
-Texmaker est un autre bon éditeur. Son avantage, à part d'être un bon
-éditeur, est sa capacité à fonctionner sous Windows, Mac et
-Unix/Linux. Visitez \url{http://www.xm1math.net/texmaker} pour plus
-d'information. Notez qu'il existe également une version dérivée de
-Texmaker appelée TexmakerX sur \url{http://texmakerx.sourceforge.net/}
-qui y ajoute de nouvelles fonctionnalités.
 
 Les distributions récentes \TeX Live contiennent l'éditeur \TeX{}works
 \url{http://texworks.org/}, un éditeur multi-plateformes basé sur les
@@ -77,12 +89,11 @@ bibliothèque fonctionne (MacOS X, Windows, Linux).
 
 Utilisez PDFView pour afficher des fichiers PDF générés par \LaTeX{},
 il s'intègre parfaitement avec votre éditeur. PDFView est une
-application libre qui peut être téléchargée depuis
+application libre disponible au téléchargement sur le site de PDFView
 \url{http://pdfview.sourceforge.net/}. Une fois téléchargé et
 installé, ouvrez les préférences de PDFView et assurez-vous que
 l'option \emph{recharger/rafraîchir automatiquement les documents} est
-activée et que le support PDFSync est positionné sur le réglage \og
-TextMate \fg{}.
+activée et que le support PDFSync est réglé correctement.
 
 \section{\TeX{} sous Windows}
 
@@ -92,7 +103,7 @@ En premier lieu, obtenez une copie de l'excellente distribution
 MiK\TeX\index{MiKTeX@MiK\TeX} sur \url{http://www.miktex.org/}. Elle contient tous les
 programmes et fichiers de base pour compiler des documents
 \LaTeX{}. La fonctionnalité la plus sympathique, à mes yeux, est que
-MiKTeX téléchargera les extensions \LaTeX{} manquantes à la volée et
+MiK\TeX{} téléchargera les extensions \LaTeX{} manquantes à la volée et
 les installera lors de la compilation d'un document. Vous pouvez aussi
 utiliser la distribution TeXlive pour Windows, Unix et Mac~OS pour
 obtenir un bon environnement \LaTeX{} de base
@@ -100,13 +111,14 @@ obtenir un bon environnement \LaTeX{} de base
 
 \subsection{Un éditeur \LaTeX{}}
 
-\LaTeX{} est un langage de programmation pour
-documents. \wi{TeXnicCenter} fait appel à plusieurs concepts du monde
+Si la suggestion d'utiliser l'éditeur multi-plateformes Texmaker
+(section \ref{sec:texmaker}) ne vous convient pas...
+
+\wi{TeXnicCenter} fait appel à plusieurs concepts du monde
 de la programmation pour mettre à disposition un environnement
 \LaTeX{} agréable et efficace pour la saisie sous Windows. Obtenez une
 copie sur \url{http://http://www.texniccenter.org/}. TeXnicCenter s'intègre
-bien avec MiKTeX. La version 2.0 de TeXnicCenter prendra en compte
-l'Unicode et la version alpha récente semble raisonnablement stable.
+bien avec MiKTeX.
 
 Un autre très bon choix est l'éditeur fourni par le projet LEd sur
 \url{http://www.latexeditor.org}.
@@ -150,7 +162,7 @@ gestionnaire de paquets pour installer les applications suivantes :
 
 \begin{itemize}
 \item texlive -- l'installation \TeX{}/\LaTeX{} de base ;
-\item emacs (avec auctex) -- un éditeur Linux qui s'intègre
+\item emacs (avec AUCTeX) -- un éditeur qui s'intègre
   étroitement avec \LaTeX{} via une extension appelée AucTeX ;
 \item ghostscript -- un visualiseur \PSi{} ;
 \item xpdf et acrobat -- des visualiseurs PDF ;
@@ -162,8 +174,8 @@ gestionnaire de paquets pour installer les applications suivantes :
 \end{itemize}
 
 Si vous cherchez un environnement graphique d'édition plus proche de
-ce qui se fait sous Windows, essayez Texmaker ou \TeX{}works, éditeurs
-dont il est question dans la section Mac plus haut.
+ce qui se fait sous Windows, essayez Texmaker (cf section
+\ref{sec:texmaker}).
 
 Attention, la plupart des distributions découpent \TeX\,Live en
 plusieurs paquets. Si vous souhaitez une installation complète,

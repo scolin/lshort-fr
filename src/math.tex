@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Math typesetting with LaTeX
-% $Id: math.tex 459 2011-04-06 10:02:44Z oetiker $
+% $Id: math.tex 493 2012-03-13 05:40:49Z oetiker $
 %
 % Changes by Stefan M. Moser: 2008/10/22
 %
@@ -64,7 +64,7 @@ incohérents.
 \AmS-\LaTeX{} fait partie de la distribution de base et est fournie
 avec toutes les distributions récentes de \LaTeX{}\footnote{Si la
   vôtre ne l'a pas, visitez
-  \CTAN|macros/latex/required/amslatex|}. Dans ce chapitre nous
+  \CTAN|pkg/amslatex|}. Dans ce chapitre nous
   supposerons qu'\pai{amsmath} est chargé en préambule, via
   {\ci{usepackage}\{amsmath\}}.
 
@@ -660,7 +660,7 @@ L'environnement \ei{eqnarray} offre à première vue une meilleure solution.
 \end{eqnarray}
 \end{example}
 
-Ça n'est cependant toujours pas une solution optimale puisque les
+Ça n'est cependant pas une solution optimale~: les
 espaces autour du signe d'égalité sont trop grands. En particulier, ce
 ne sont pas les mêmes qu'avec les environnements \ei{multline} ou
 \ei{equation} :
@@ -714,7 +714,7 @@ pouvons nous diriger vers le glorieux\ldots
 L'environnement \ei{IEEEeqnarray} est très puissant et offre beaucoup
 d'options. Nous n'en couvrirons ici que les fonctionnalités de base. Pour plus
 d'information, nous renvoyons à son manuel\footnote{Le manuel officiel
-  s'appelle \texttt{IEEEtran\_HOWTO.pdf} ; la partie sur \texttt{IEEEeqnarray}
+  s'appelle \CTAN|macros/latex/contrib/IEEEtran/IEEEtran_HOWTO.pdf| ; la partie sur \texttt{IEEEeqnarray}
   se trouve dans l'appendice~F.}.
 
 Pour commencer, il faut charger l'extension\footnote{L'extension

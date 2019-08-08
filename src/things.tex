@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Things you need to know
-% $Id: things.tex 456 2011-04-06 09:10:27Z oetiker $
+% $Id: things.tex 521 2014-02-01 21:53:01Z oetiker $
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Pour les informations de licence, voir contrib.tex.
@@ -56,7 +56,7 @@ $3.141592653$.
     que la meilleure prononciation est la grecque, où l'on a le \og ch
     \fg{} dur de \og ach \fg{} et \og Loch \fg{}.}}
 Le « ch » provient de l'alphabet grec où X est la lettre « chi ». \TeX{} est aussi la
-première syllabe du mot grec {\greektext teknolog'ia} (technologie).
+première syllabe du mot grec {\greektext teqnik'h} (technique).
 En alphabet phonétique cela donne
 \textbf{[tex]}\dots{} Dans un environnement ASCII, \TeX{}
 devient TeX.
@@ -238,7 +238,7 @@ de votre document ainsi que les commandes qui vont dire à \LaTeX{}
 comment mettre en page le texte. On appelle ce fichier \emph{\wi{fichier
 source}}\footnote{Couramment élidé en « le source » dans la
 conversation. \NdT}. Si vous utilisez un environnement de
-développement LaTeX intégré, il contiendra un programme pour créer des
+développement \LaTeX{} intégré, il contiendra un programme pour créer des
 fichiers sources \LaTeX{} au format texte.
 
 \subsection{Espaces}
@@ -338,10 +338,11 @@ paramètre vide \verb|{}| empêche \LaTeX{} d'ignorer les blancs après une
 commande.
 
 \begin{example}
-J'ai lu que Knuth classe les
-gens qui utilisent \TeX{} en
-\TeX{}niciens et \TeX perts.\\
-Nous sommes le \today.
+Les nouveaux utilisateurs \TeX peuvent
+oublier des espaces après une commande. %rendu incorrect
+Les utilisateurs \TeX{} expérimentés sont
+\TeX perts et savent comment utiliser les
+espaces. %rendu correct
 \end{example}
 
 Certaines commandes prennent un \wi{paramètre} fourni entre

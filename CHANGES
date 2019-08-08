@@ -1,3 +1,13 @@
+5.02 2014.4.21
+--------------
+* better example for spaceing
+* fix spelling of Photoshop and AUCTeX
+* correctly spell greek technology
+* fix CTAN links
+* mention booktabs package
+* minor typos
+* improved logic in appendix on installation
+
 5.01 2011.4.6
 ------------
 * many minor wording fixes by Robert Funnell

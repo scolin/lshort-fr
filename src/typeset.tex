@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Typesetting Part of LaTeX2e Introduction
-% $Id: typeset.tex 456 2011-04-06 09:10:27Z oetiker $
+% $Id: typeset.tex 505 2012-07-29 10:03:06Z oetiker $
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Pour les informations de licence, voir contrib.tex.
@@ -1686,6 +1686,9 @@ La commande de mise en valeur est :
 Son argument est le texte à mettre en valeur. En général, la police
 \emph{italique} est utilisée pour la mise en valeur, sauf si le texte
 est déja en italique, auquel cas on utilise une police romaine (droite).
+En tant qu'auteur, ce n'est pas tant la police que le besoin de mettre
+en valeur un texte particulier qui est important, d'où l'existence de
+cette commande.
 
 \begin{example}
 \emph{Pour \emph{insister}
@@ -1693,7 +1696,11 @@ dans un passage déjà
 mis en valeur, \LaTeX{} 
 utilise une police droite.}
 \end{example}
- 
+
+Si vous souhaitez plus de contrôle sur la police et sa taille, la
+section \ref{sec:fontsize} en page \pageref{sec:fontsize} donnera
+quelques idées dans ce sens.
+
 \section{Environnements} \label{env}
 
 Pour composer du texte dans des contextes spécifiques, \LaTeX{}
@@ -2080,6 +2087,12 @@ tableau, vous pouvez utiliser une réglure de largeur nulle
 Les \texttt{pt} et \texttt{ex} dans l'exemple ci-avant sont des unités
 \TeX. Référez-vous au tableau \ref{units} en page \pageref{units} pour
 en savoir plus sur les unités de \TeX.
+
+Un certain nombre de commandes supplémentaires pour améliorer
+l'environnement \texttt{tabular} sont disponibles dans le paquet
+\pai{booktabs}. Celui-ci simplifie grandement la création de tables
+d'aspect professionnel et à l'espacement correct.
+
 
 \section{Objets flottants}
 
