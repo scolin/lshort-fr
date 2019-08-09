@@ -1,6 +1,6 @@
 #	pstops "4:0L@0.8(22.5cm,-0.6cm)+1L@0.8(22.5cm,13.3cm),2L@0.8(22.5cm,-0.6cm)+3L@0.8(22.5cm,13.3cm)" \
 SHELL = /bin/sh
-VERS = 5.04fr-unreleased
+VERS = 5.05fr-unreleased
 NAME = lshort-fr
 
 OTHER = README CHANGES
@@ -114,6 +114,10 @@ rsync:  all tar
 
 dist:	rsync
 	zip $(NAME)-$(VERS).zip $(NAME)-$(VERS).src.tar.gz CHANGES README $(NAME).pdf $(NAME)-letter.pdf $(NAME)-a5.pdf
+	-rm $(NAME)
+	ln -s . $(NAME)
+	zip $(NAME)-$(VERS).zip $(NAME)/$(NAME)-$(VERS).src.tar.gz $(NAME)/CHANGES $(NAME)/README $(NAME)/$(NAME).pdf $(NAME)/$(NAME)-letter.pdf $(NAME)/$(NAME)-a5.pdf
+	-rm $(NAME)
 	echo upload $(NAME)-$(VERS).zip to http://www.ctan.org/upload   
 
 clean:

@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Typesetting Part of LaTeX2e Introduction
-% $Id: typeset.tex 526 2014-09-24 15:10:03Z oetiker $
+% $Id: typeset.tex 537 2015-07-18 09:43:10Z oetiker $
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Pour les informations de licence, voir contrib.tex.
@@ -66,8 +66,8 @@ cette section.)
 \begin{equation}
   e = m \cdot c^2 \; ,
 \end{equation}
-qui est en même temps la formule la plus connue et la 
-moins comprise de la physique. 
+qui est en même temps la formule la plus connue et la
+moins comprise de la physique.
 
 % Exemple 2
 \dots{} d'où vient la loi des courants de Kirchhoff :
@@ -82,8 +82,8 @@ La loi des tensions de Kirchhof s'en déduit\dots
 
 \begin{equation}
   I_D = I_F - I_R
-\end{equation} 
-est le c\oe{}ur d'un modèle de transistor très 
+\end{equation}
+est le c\oe{}ur d'un modèle de transistor très
 différent\dots
 \end{verbatim}
 \end{code}
@@ -104,19 +104,19 @@ savez pas trop où placer une virgule, lisez la phrase à voix haute en
 respirant à chaque virgule. Si cela ne sonne pas naturellement à
 certains endroits, supprimez la virgule ; au contraire, si vous
 ressentez le besoin de respirer (ou de marquer une courte pause),
-insérez une virgule à cet endroit. 
+insérez une virgule à cet endroit.
 
 Enfin, les paragraphes d'un texte sont également structurés au niveau
 supérieur, en les regroupant en sections, chapitres, etc. L'effet
-typographique d'une commande telle que 
+typographique d'une commande telle que
 \begin{center}
-\verb|\section{La structure du texte et du langage}| 
+\verb|\section{La structure du texte et du langage}|
 \end{center}
-\noindent est suffisamment évident pour 
+\noindent est suffisamment évident pour
 comprendre comment utiliser ces structures de haut niveau.
 
 \section{Sauts de ligne et de page}
- 
+
 \subsection{Paragraphes justifiés}
 
 \index{justification}
@@ -128,14 +128,14 @@ besoin, il coupe les mots qui ne tiennent pas en entier sur une
 ligne. La présentation exacte d'un paragraphe dépend de la classe de
 document\footnote{Et des règles typographiques propres de chaque pays.
 \NdT}. Normalement la première ligne d'un paragraphe est
-en retrait par rapport à la marge gauche  
+en retrait par rapport à la marge gauche
 et il n'y a pas d'espace vertical particulière entre deux
 paragraphes (cf. section~\ref{parsp}).
 
 Dans certains cas particuliers, il peut être nécessaire de demander à
 \LaTeX{} de couper une ligne :
 \begin{lscommand}
-\ci{\bs} ou \ci{newline} 
+\ci{\bs} ou \ci{newline}
 \end{lscommand}
 \noindent commence une nouvelle ligne sans commencer un nouveau
 paragraphe.
@@ -152,7 +152,7 @@ paragraphe.
 
 \begin{lscommand}
 \ci{linebreak}\verb|[|\emph{n}\verb|]|,
-\ci{nolinebreak}\verb|[|\emph{n}\verb|]|, 
+\ci{nolinebreak}\verb|[|\emph{n}\verb|]|,
 \ci{pagebreak}\verb|[|\emph{n}\verb|]|,
 \ci{nopagebreak}\verb|[|\emph{n}\verb|]|
 \end{lscommand}
@@ -194,7 +194,7 @@ critères. Dans ce cas le message \og \wiat{\texttt{underfull \bs hbox}}
 horizontale pas assez pleine.} \fg{} est produit. Souvent, malgré tout, le
 résultat est acceptable. La commande \ci{fussy} agit dans l'autre
 sens, au cas où vous voudriez voir \LaTeX{} revenir à ses exigences
-normales. 
+normales.
 
 \subsection{Césure} \label{hyph}
 \index{cesure@césure}
@@ -204,7 +204,7 @@ l'endroit correct pour couper un mot\footnote{Ce qui est normalement
 plutôt rare. Si vous observez de nombreuses erreurs de césure, c'est
 probablement un problème de spécification de la langue du document ou
 du codage de sortie. Voir le paragraphe sur le support multilingue,
-page~\pageref{international}.}, vous pouvez utiliser les 
+page~\pageref{international}.}, vous pouvez utiliser les
 commandes suivantes pour informer \TeX{} de l'exception.
 
 La commande :
@@ -256,7 +256,7 @@ i\-frag\-i\-lis\-tic\-ex\-pi\-%
 al\-i\-do\-cious
 \end{example}
 
-Normalement, en français, on ne coupe pas  
+Normalement, en français, on ne coupe pas
 la dernière syllabe d'un mot si elle est muette, mais il arrive qu'on
 soit obligé de le faire, par exemple si on travaille sur des textes
 étroits (cas de colonnes multiples).
@@ -274,13 +274,13 @@ commande :
 Elle a pour effet d'interdire toute coupure de ligne dans \emph{texte}.
 
 \begin{example}
-Mon num\'ero de t\'el\'ephone va  
+Mon num\'ero de t\'el\'ephone va
 changer. \`A partir du 18 mai,
 ce sera le  \mbox{0561 336 330}.
 
-Le param\`etre 
+Le param\`etre
 \mbox{\emph{nom du fichier}}
-de la commande \texttt{input} 
+de la commande \texttt{input}
 contient le nom du fichier
 \`a lire.
 \end{example}
@@ -308,7 +308,7 @@ Commande&Résultat&Description\\
 \end{tabular}
 
 \section{Caractères spéciaux et symboles}
- 
+
 \subsection{Guillemets}
 
 Pour insérer des \wi{guillemets} n'utilisez pas le caractère \verb|"|
@@ -318,7 +318,7 @@ utilisez deux~\textasciigrave{} pour les guillemets ouvrants et
 deux~\textquotesingle{}
 pour les guillemets fermants.
 En français, avec l'option \pai{francais} de l'extension \pai{babel},
-utilisez \ci{og} et \ci{fg} ou bien utilisez directement 
+utilisez \ci{og} et \ci{fg} ou bien utilisez directement
 \texttt{\guillemotleft} et
 \texttt{\guillemotright} si vous disposez d'un moyen de saisir ces caractères
 (voir la section~\ref{ss-frenchb} pour plus de détails).
@@ -333,7 +333,7 @@ effectivement d'un accent grave (\textasciigrave) pour l'ouverture et
 d'une quote (\textquotesingle) (i.e. pas une apostrophe au sens
 typographique du terme) pour la fermeture, et ce malgré ce que la
 police choisie semble indiquer.
- 
+
 \subsection{Tirets}
 
 \LaTeX{} connaît quatre types de \wi{tiret}s. Trois d'entre eux sont
@@ -344,7 +344,7 @@ mathématique moins. \index{-} \index{--} \index{---} \index{-@$-$}
 
 \begin{example}
 belle-fille, pages 13-67\\
-il parle ---~en vain~--- 
+il parle ---~en vain~---
 du passé.\\
 oui~---~ou non ? \\
 $0$, $1$ et $-1$
@@ -358,7 +358,7 @@ utilisé en français.
 \subsection{Tilde (\textasciitilde)}
 \index{URL link}\index{tilde}
 Un caractère souvent utilisé dans les adresses sur le web est le
-tilde. Pour produire ce caractère avec \LaTeX{}, on peut utiliser 
+tilde. Pour produire ce caractère avec \LaTeX{}, on peut utiliser
 \verb|\~{}|, mais le résultat (\~{}) n'est pas tout à fait le symbole
 attendu. Essayez ceci à la place :
 \cih{sim}
@@ -366,10 +366,10 @@ attendu. Essayez ceci à la place :
 \begin{example}
 http://www.rich.edu/\~{}bush \\
 http://www.clever.edu/$\sim$demo
-\end{example}  
+\end{example}
 
 Voir aussi l'extension \pai{hyperref} qui inclut une commande
-\ci{url}. 
+\ci{url}.
 
 \subsection{Barre oblique ou slash (/)}
 \index{slash}\index{Barre oblique}
@@ -388,7 +388,7 @@ L'exemple suivant montre comment obtenir un symbole \wi{degré} :
 
 \begin{example}
 Il fait $-30\,^{\circ}\mathrm{C}$.
-Je vais bient\^ot devenir 
+Je vais bient\^ot devenir
 supra-conducteur.
 \end{example}
 
@@ -411,7 +411,7 @@ du symbole de l'euro. De nombreuses polices de caractères contiennent
 un symbole euro. Après avoir chargé l'extension \pai{textcomp} dans le
 préambule
 \begin{lscommand}
-\ci{usepackage}\verb|{textcomp}| 
+\ci{usepackage}\verb|{textcomp}|
 \end{lscommand}
 \noindent vous pouvez utiliser la commande
 \begin{lscommand}
@@ -472,7 +472,7 @@ même largeur que les autres lettres. En typographie professionnelle,
 le point occupe très peu de place et il est placé tout près du caractère
 qui le précède. Il n'est donc pas possible d'utiliser trois points
 consécutifs pour créer des \wi{points de suspension}. À la place on
-utilise la commande spécifique : 
+utilise la commande spécifique :
 %SC : upstream ajoute (low dots) après \ci{ldots}, mais ici on utilise dots
 \begin{lscommand}
 \ci{dots}
@@ -480,7 +480,7 @@ utilise la commande spécifique :
 \index{...@\dots}
 \nonfrenchspacing
 \begin{example}
-Non pas comme \c{c}a... 
+Non pas comme \c{c}a...
 mais ainsi :\\
 New York, Tokyo, Budapest\dots
 \end{example}
@@ -503,7 +503,7 @@ français. \NdT}.
 \Large Not shelfful\\
 but shelf{}ful
 \end{example}
- 
+
 \subsection{Accents et caractères spéciaux}
 
 \LaTeX{} permet l'utilisation d'\wi{accent}s et de \wi{caractères
@@ -515,9 +515,9 @@ Pour placer un accent sur un i ou un j, il faut supprimer leur
 point. Ceci s'obtient en tapant \verb|\i| et \verb|\j|.
 
 \begin{example}
-H\^otel, na\"\i ve, \'el\`eve,\\ 
+H\^otel, na\"\i ve, \'el\`eve,\\
 sm\o rrebr\o d, !`Se\~norita!,\\
-Sch\"onbrunner Schlo\ss{} 
+Sch\"onbrunner Schlo\ss{}
 Stra\ss e
 \end{example}
 
@@ -532,7 +532,7 @@ Stra\ss e
 \A{\oe}  &  \A{\OE} & \A{\ae} & \A{\AE} \\
 \A{\aa} &  \A{\AA} \\[6pt]
 \A{\o}  & \A{\O} & \A{\l} & \A{\L} \\
-\A{\i}  & \A{\j} & !` & \verb|!|\verb|`| & ?` & \verb|?|\verb|`| 
+\A{\i}  & \A{\j} & !` & \verb|!|\verb|`| & ?` & \verb|?|\verb|`|
 \end{tabular}
 \index{i et j@\i{} et \j{} sans points}\index{scandinaves (caractères)}
 \index{ae@\ae}\index{umlaut}\index{accent!grave}\index{accent!aigu}
@@ -543,23 +543,23 @@ Stra\ss e
 \bigskip
 \end{lined}
 \end{table}
- 
+
 \section{Support multilingue\label{international}}
-\index{international} 
+\index{international}
 
 Pour composer des documents dans des langues autres que l'anglais,
 il y a plusieurs domaines pour lesquels
 \LaTeX{} doit s'adapter aux spécificités de chaque langue :
 \begin{enumerate}
 \item Toutes les chaînes de caractères générées automatiquement
-  \footnote{\og Table des matières \fg{}, \og Liste des figures \fg{}, \dots} 
+  \footnote{\og Table des matières \fg{}, \og Liste des figures \fg{}, \dots}
   doivent être traduites. Pour de nombreuses langues, ces adaptations
   peuvent être réalisées par l'extension \pai{babel} de Johannes
   Braams.
 \item \LaTeX{} doit connaître les règles de césure de la nouvelle
       langue. Définir les règles de césure utilisées par \LaTeX{} est
       une tâche assez complexe, qui impose la construction de formats
-      spécifiques. Votre \guide{} devrait vous indiquer 
+      spécifiques. Votre \guide{} devrait vous indiquer
       quelles sont les langues prises en compte par votre installation de
       \LaTeX{} et comment configurer les règles de césure.
     \item Certaines règles typographiques changent en fonction de la
@@ -568,8 +568,8 @@ il y a plusieurs domaines pour lesquels
 \end{enumerate}
 
 Si votre système est configuré correctement, vous pouvez sélectionner
-la langue utilisée par l'extension \pai{babel} 
-avec la commande : 
+la langue utilisée par l'extension \pai{babel}
+avec la commande :
 \begin{lscommand}
 \ci{usepackage}\verb|[|\emph{langue}\verb|]{babel}|
 \end{lscommand}
@@ -592,7 +592,7 @@ spéciaux. L'\wi{allemand} contient par exemple de nombreux umlauts
 
 Si vous appelez babel avec plusieurs langues,
 \begin{lscommand}
-\ci{usepackage}\verb|[|\emph{langueA}\verb|,|\emph{langueB}\verb|]{babel}| 
+\ci{usepackage}\verb|[|\emph{langueA}\verb|,|\emph{langueB}\verb|]{babel}|
 \end{lscommand}
 \noindent alors la dernière langue dans la liste d'options sera active
 (c'est-à-dire \emph{langueB}). Vous pouvez utiliser la commande
@@ -659,7 +659,7 @@ Système & \multicolumn{2}{c}{encodages}\\
 d'exploitation & Alphabet latin & Alphabet cyrillique\\
  \hline
 Mac     &  \iei{applemac} & \iei{macukr}  \\
-Unix    &  \iei{latin1}   & \iei{koi8-ru}  \\ 
+Unix    &  \iei{latin1}   & \iei{koi8-ru}  \\
 Windows &  \iei{ansinew}  & \iei{cp1251}    \\
 DOS, OS/2  &  \iei{cp850} & \iei{cp866nav}
 \end{tabular}
@@ -670,7 +670,7 @@ DOS, OS/2  &  \iei{cp850} & \iei{cp866nav}
 % \iei{latin9}\footnote{Nom officiel : ISO-8859-15.} et \iei{cp1252} sont très
 % proches entre eux et sont compatibles pour la plupart des caractères usuels,
 % bien qu'il présentent des différences sur des caractères comme \texteuro{} et
-% \oe. 
+% \oe.
 
 % L'encodage \iei{utf8} présente l'avantage d'être utilisable pour toutes
 % les langues et sur tous les systèmes modernes, mais n'est pas encore très
@@ -678,7 +678,7 @@ DOS, OS/2  &  \iei{cp850} & \iei{cp866nav}
 % avec un jeu de caractères varié.
 
 \begin{lscommand}
-\ci{usepackage}\verb|[|\iei{utf8}\verb|]{inputenc}| 
+\ci{usepackage}\verb|[|\iei{utf8}\verb|]{inputenc}|
 \end{lscommand}
 \noindent vous permettra de créer des fichiers d'entrée \LaTeX{} en
 \iei{utf8}, un codage multi-octets où chaque caractère peut nécessiter
@@ -788,9 +788,9 @@ préférable d'utiliser utf8 sur un système moderne.
 
 \subsection{Support de la langue française} \label{ss-frenchb}
 
-% Pour le français, l'extension \pai{french} a été 
-% développée par Bernard Gaulle~\cite{french}. 
-% Mais le traducteur boycotte les versions récentes (frenchpro) 
+% Pour le français, l'extension \pai{french} a été
+% développée par Bernard Gaulle~\cite{french}.
+% Mais le traducteur boycotte les versions récentes (frenchpro)
 
 \secby{Daniel Flipo}{daniel.flipo@univ-lille1.fr}
 Voici quelques conseils pour créer des documents en
@@ -894,152 +894,84 @@ codage T1 (\verb|\usepackage[T1]{fontenc}|).
 
 \subsection[Support de la langue coréenne]
            {Support de la langue coréenne\footnotemark}
-\label{support_korean}%
-\footnotetext{%
-En réponse aux problèmes usuellement rencontrés par les utilisateurs
-coréens de \LaTeX{}.
-Cette section fut écrite par Karnes KIM au nom de l'équipe de
-traduction coréenne de lshort. Elle fut ensuite traduite en anglais
-par SHIN Jungshik, raccourcie par Tobi Oetiker puis traduite en
-français par Samuel Colin.}
+           \label{support_korean}%
+\footnotetext{Écrit par Karnes Kim $<$\href{mailto:karnes@ktug.org}{karnes@ktug.org}$>$ et Kihwang Lee $<$\href{mailto:leekh@ktug.org}{leekh@ktug.org}$>$ au nom du groupe coréen d'utilisateurs \TeX{} et la Société Coréenne \TeX{}.}
 
-Pour utiliser \LaTeX{} avec la langue coréenne, nous devons résoudre
-trois problèmes :
+Pour traiter les caractères Hangeul\footnote{Hangeul est le nom du
+  système d'écriture coréen, cf
+  \url{https://fr.wikipedia.org/wiki/Hangeul}} ou préparer un document
+rédigé en coréen avec \LaTeX, insérer la commande suivante dans le
+préambule du document.
 
-\begin{enumerate}
-\item Nous devons être capables d'éditer des \wi{fichiers d'entrée en
-    coréen}. Ces fichiers doivent être au format text brut, mais
-  puisque le coréen dispose d'un ensemble de caractères situé en
-  dehors du répertoire US-ASCII, ils apparaîtront étranges dans tout
-  éditeur ASCII usuel. Les codages coréens les plus répandus sont
-  EUC-KR et son extension (avec compatibilité ascendante) utilisée
-  dans la version coréenne de Windows, CP949/Windows-949/UHC. Dans ces
-  codages, chaque caractère US-ASCII représente son caractère usuel,
-  comme dans d'autres codages compatibles avec US-ASCII
-  (ISO-8859-\textit{x}, EUC-JP, Big5 ou Shift\_JIS). En revanche
-  les caractères hangul, hanjas (des caractères chinois utilisées en
-  Corée), hangul jamos, hirakanas, katakanas, grecs et cyrilliques,
-  les symboles et les lettres dérivée de KS~X~1001 sont représentés
-  par deux octets consécutifs. Le premier possède son propre ensemble
-  MSB. Jusqu'au milieu des années 1990, il fallait beaucoup de temps
-  et d'effort pour installer un environnement capable de gérer la
-  langue coréenne sous un système non localisé. Vous pouvez lire en
-  diagonale la ressource désormais désuette \url{http://jshin.net/faq}
-  pour vous faire une idée de la difficulté d'utiliser du coréen sous
-  un système non-coréen dans les années 1990. De nos jours les trois
-  systèmes majeurs (Mac OS, Unix, Windows) sont équipés d'un bon
-  support multilingue et de fonctionnalités d'internationalisation, de
-  sorte qu'éditer un fichier texte coréen n'est plus autant un
-  problème, même sur un système non-coréen.
-
-\item \TeX{} et \LaTeX{} ont été conçus à l'origine pour des
-  documents n'ayant pas plus de 256 caractères dans leur
-  alphabet. Pour les faire fonctionner avec des langages ayant
-  considérablement plus de caractères comme le coréen
-\footnote{Le hangul coréen est un script alphabétique avec 14
-  consonnes de base et 10 voyelles (jamos) de base. À la différence
-  des alphabets latin ou cyrillique, les caractères individuels
-  doivent être arrangés sous forme de groupes rectangulaires de la
-  taille de caractères chinois. Chaque groupe représente une
-  syllabe. Un nombre illimité de syllabes peut être fabriqué avec cet
-  ensemble fini de consonnes et de voyelles. Les standards
-  orthographiques coréens modernes (tant en Corée du Nord qu'en Corée
-  du Sud) imposent cependant des restrictions sur la formation de ces
-  groupes. C'est pourquoi il existe seulement un nombre fini de
-  syllabes syntaxiquement correctes. Le codage coréen définit des
-  points de code individuels pour chacune des syllabes (KS~X~1001:1998
-  et KS~X~1002:1992). Ainsi l'hangul, bien qu'alphabétique, est traité
-  comme les systèmes d'écriture chinois et japonais avec des dizaines
-  de milliers de caractères
-  idéographiques/logographiques. l'ISO~10646/Unicode propose les deux
-  façons de représenter l'hangul utilisé pour le coréen \emph{moderne}
-  via l'hangul jamos conjoignant (alphabets:
-  \url{http://www.unicode.org/charts/PDF/U1100.pdf}) en plus de toutes
-  les syllabes hangul orthographiquement correctes en coréen
-  \emph{moderne}
-  (\url{http://www.unicode.org/charts/PDF/UAC00.pdf}). L'un des plus
-  éminents défis en typographie coréenne avec \LaTeX{} et autres
-  systèmes similaires est la prise en compte de syllabes du coréen
-  médian~---~et futur~---~via la conjonction jamos en
-  Unicode. L'espoir réside dans des moteurs \TeX{} futurs tels que
-  $\Omega$ et $\Lambda$ pour proposer des solutions.
-%SC: many technical things, I most probably got some wrong (Middle
-%Korean?)
-}
-ou le chinois, un mécanisme de \og sous-police \fg{} a été
-développé. Il divise une police CJK avec des (dizaines de) milliers de
-glyphes en un ensemble de sous-polices ayant chacune 256 glyphes. Pour
-le coréen, il y a déjà 3 extensions couramment utilisées : \wi{H\LaTeX}
-par UN~Koaunghi, \wi{h\LaTeX{}p} par CHA~Jaechoon et l'extension \wi{CJK}
-par Werner~Lemberg.\footnote{%
-  Elles peuvent être obtenues depuis
-  \CTANref|language/korean/HLaTeX/|,
-  \CTANref|language/korean/CJK/| et
-  \texttt{http://knot.kaist.ac.kr/htex/}.
-}
-  H\LaTeX{} et h\LaTeX{}p sont spécifiques au coréen et fournissent une
-  localisation coréenne au-delà du support de police. Elles peuvent
-  toutes deux compiler des fichiers textes codés en EUC-KR. H\LaTeX{}
-  peut même compiler des fichiers d'entrée codés en
-  CP949/Windows-949/UHC et UTF-8 si elle est utilisée avec $\Lambda$ ou
-  $\Omega$.
-
-  L'extension CJK n'est pas spécifique au coréen. Elle peut compiler des
-  fichiers d'entrée en UTF-8 ainsi que différents codages CJK comprenant
-  EUC-KR et CP949/Windows-949/UHC. Elle peut être utilisée pour saisir
-  des documents avec support multilingue (en particulier chinois,
-  japonais et coréen). L'extension CJK n'a pas de localisation coréenne
-  comme celle offerte par H\LaTeX{} et n'est pas livrée avec autant de
-  polices spéciales coréennes qu'H\LaTeX{}.
-
-\item L'idée principale derrière l'utilisation d'un système
-  comme \TeX{} et \LaTeX{} est d'obtenir des documents
-  typographiés d'une manière \og esthétiquement \fg{}
-  satisfaisante. En conséquence l'élément le plus important en
-  typographie est un ensemble de polices bien conçues. La distribution
-  H\LaTeX{} inclut les polices \PSi{} UHC
-  \index{Police coréenne!police UHC} de 10 familles différentes et des
-  polices TrueType Munhwabu\footnote{Ministère coréen de la culture.}
-  de 5 différentes familles. L'extension CJK fonctionne avec un
-  ensemble de polices utilisé par des versions antérieures d'H\LaTeX{}
-  et elle peut utiliser la police TrueType Bitstream cyberbit.
-\end{enumerate}
-
-Pour utiliser l'extension H\LaTeX{} pour votre document coréen,
-insérer la déclaration suivante en préambule :
 \begin{lscommand}
-\verb+\usepackage{hangul}+
+\verb|\usepackage{kotex}|
 \end{lscommand}
 
-Cette commande active la localisation coréenne. Les textes
-automatiques (chapitres, sections,\dots) sont traduits en coréen et le
-format du document est modifié afin de suivre les conventions
-coréennes. L'extension propose également une \og sélection de
-particules \fg{} automatique. En coréen, il y a des paires de
-particules postfixées équivalentes grammaticalement mais différentes
-d'apparence. La correction d'une paire dépend du fait que la syllabe
-qui précéde est une consonne ou une voyelle (la réalité est plus
-complexe, mais c'est l'idée générale). Les coréens natifs n'ont
-aucun problème pour choisir la bonne particule, mais il n'est pas
-possible de déterminer quelle particule utiliser pour les références
-et pour les textes automatiques qui changeront au fur et à mesure de
-l'édition du document. Placer les particules appropriées manuellement
-requiert un douloureux effort à chaque ajout/retrait de référence ou à
-chaque réordonnancement de parties du document.
-H\LaTeX{} soulage ses utilisateurs de ce processus ennuyeux et risqué.
+Un document contenant cette déclaration devra être interprété par
+pdf\LaTeX, \hologo{XeLaTeX} ou Lua\LaTeX{}. Assurez-vous que le
+fichier d'entrée écrit en Hangeul est codé en Unicode UTF-8. Le paquet
+appelé ko.\TeX\footnote{Lire ``Korean \TeX{}''. ko.\TeX{} est le nom
+  d'une collection de paquets incluant \texttt{cjk-ko},
+  \texttt{kotex-utf}, \texttt{xetexko} and \texttt{luatexko}.} est
+en développement constant pour le groupe coréen d'utilisateurs
+\TeX{}\footnote{\url{http://ktug.org}} and la Société Coréenne
+\TeX{}\footnote{\url{http://ktug.kr}}. De nombreuses personnes
+utilisent ce paquet pour créer des documents coréens pour leurs
+besoins de tous les jours. ko.\TeX\ est disponible sur CTAN depuis
+2014. Il est inclus dans \TeX\,Live, MiK\TeX{} ainsi que d'autres
+distributions \TeX{} modernes. Il est fort à parier que vous pouvez
+dès à présent commencer à travailler directement sans avoir à
+installer de paquets supplémentaires.
 
-Au cas où vous n'avez pas besoin de fonctionnalités de localisation
-mais souhaitez simplement saisir du texte coréen, insérez plutôt la
-ligne suivante en préambule :
+ko.\TeX\ n'utilise pas le paquet \texttt{babel}. De nombreuses
+fonctions liées au coréen peuvent être activées via les options et
+commandes de configuration fournies par le paquet \pai{kotex}. Si vous
+souhaitez composer un document coréen réaliste, vous êtes invités à
+consulter la documentation du paquet (ces documents sont rédigés en
+coréen).
+
+Avec ko.\TeX, vous obtenez également \pai{oblivoir}, une classe de
+document basée sur \pai{memoir}, adaptée à la préparation de documents
+coréens. Ainsi votre document en coréen commencerait par ceci:
+
 \begin{lscommand}
-\verb+\usepackage{hfont}+
+\verb|\documentclass{oblivoir}|
 \end{lscommand}
 
-Pour plus de détails sur la typographie coréenne avec H\LaTeX{},
-référez-vous au \emph{H\LaTeX{} Guide}. Consultez également le site
-web des utilisateurs coréens de \TeX{} (KTUG) sur
-\url{http://www.ktug.or.kr/}. Il existe aussi une traduction coréenne
-de ce manuel.
+Pour générer l'index d'un document en coréen, exécutez
+\texttt{komkindex} au lieu de \texttt{makeindex}. C'est une version
+modifiée de \texttt{makeindex} en vue de traiter la langue
+coréenne. Pour le tri lexicographique des entrées d'index en coréen,
+vous pouvez utiliser le style d'index \texttt{kotex.ist} fourni par
+ko.\TeX{} comme suit:
+
+
+\begin{lscommand}
+\verb|komkindex -s kotex foo.idx|
+\end{lscommand}
+
+Vous pouvez aussi utiliser \texttt{xindy} pour la génération d'index
+puisque le module coréen pour \texttt{xindy} est inclus dans
+\TeX\,Live.
+
+Il existe un autre paquet de support du Coréen/Hangeul appelé
+CJK. Comme son nom le suggère, il facilite le support des caractères
+chinois, coréens et japonais. Il prend en compte plusieurs types
+d'encodage des caractères CJK. L'exemple suivant illustre comment
+gérer le Hangeul encodé en UTF-8 avec le paquet CJK. Cela peut être
+utile lorsque vous soumettez un manuscript à certains journaux
+académiques qui autorisent les noms d'auteurs écrits dans leur langue
+native.
+
+\begin{verbatim}
+\usepackage{CJK}
+
+\begin{CJK}{UTF8}{}
+\CJKfamily{nanummj}
+...
+\end{CJK}
+\end{verbatim}
+
 
 \subsection{Support du grec}
 \secby{Nikolaos Pothitos}{pothitos@di.uoa.gr}
@@ -1137,13 +1069,13 @@ tableau~\ref{Cyrillic}.
 %SC: please, some french specialist of cyrillic typography could help ?
 \begin{table}[htb]
   \begin{center}
-  \index{""-@\texttt{""}\texttt{-}} 
-  \index{""---@\texttt{""}\texttt{-}\texttt{-}\texttt{-}} 
-  \index{""=@\texttt{""}\texttt{=}} 
-  \index{""`@\texttt{""}\texttt{`}} 
-  \index{""'@\texttt{""}\texttt{'}} 
-  \index{"">@\texttt{""}\texttt{>}} 
-  \index{""<@\texttt{""}\texttt{<}} 
+  \index{""-@\texttt{""}\texttt{-}}
+  \index{""---@\texttt{""}\texttt{-}\texttt{-}\texttt{-}}
+  \index{""=@\texttt{""}\texttt{=}}
+  \index{""`@\texttt{""}\texttt{`}}
+  \index{""'@\texttt{""}\texttt{'}}
+  \index{"">@\texttt{""}\texttt{>}}
+  \index{""<@\texttt{""}\texttt{<}}
   \caption[Bulgare, russe et ukrainien]{Les définitions additionnelles
     de \pai{babel} pour le bulgare, le russe et l'ukrainien}\label{Cyrillic}
   \begin{tabular}{@{}p{.1\hsize}@{}p{.9\hsize}@{}}
@@ -1186,7 +1118,7 @@ du document). L'option bulgare de \pai{babel} fournit les commandes
 pour le bulgare est de produire des lettres de l'alphabet bulgare.
 
 %Finally, math alphabets are redefined and  as well as the commands for math
-%operators according to Cyrillic typesetting traditions. 
+%operators according to Cyrillic typesetting traditions.
 
 \subsection{Support du mongol}
 
@@ -1467,7 +1399,7 @@ supprimé par la commande :
 \end{lscommand}
 \noindent qui est active par défaut avec l'option \pai{francais} de
 l'extension \pai{babel}. Dans ce cas, la commande \verb|\@| n'est pas
-nécessaire. 
+nécessaire.
 
 
 
@@ -1552,7 +1484,7 @@ matières en argument optionnel avant le titre principal :
 \verb|         d'analyse et d'architecture|\\
 \verb|        des systèmes du Centre national|\\
 \verb|        de la recherche scientifique}|
-\end{code} 
+\end{code}
 
 Le \wi{titre du document} est obtenu par la commande :
 \begin{lscommand}
@@ -1560,8 +1492,8 @@ Le \wi{titre du document} est obtenu par la commande :
 \end{lscommand}
 Les éléments de ce titre sont définis par les commandes :
 \begin{lscommand}
-\ci{title}\verb|{...}|, \ci{author}\verb|{...}| 
-et éventuellement \ci{date}\verb|{...}| 
+\ci{title}\verb|{...}|, \ci{author}\verb|{...}|
+et éventuellement \ci{date}\verb|{...}|
 \end{lscommand}
 \noindent qui doivent être appelées avant \verb|\maketitle|. Dans
 l'argument de la commande \ci{author}, vous pouvez citer plusieurs
@@ -1585,7 +1517,7 @@ la classe \texttt{book} :
     apparaissaient tout de même en table des matières ;
 
 \item[\ci{mainmatter}] se place juste avant le début du premier
-  (vrai) chapitre du livre,  la numérotation des pages se fait alors 
+  (vrai) chapitre du livre,  la numérotation des pages se fait alors
   en chiffres arabes et le compteur de pages est remis à~1 ;
 
 \item[\ci{appendix}] indique le début des appendices, les numéros
@@ -1605,7 +1537,7 @@ particuliers du texte. \LaTeX{} dispose des commandes suivantes pour
 faire des références croisées :
 
 \begin{lscommand}
-\ci{label}\verb|{|\emph{marque}\verb|}|, \ci{ref}\verb|{|\emph{marque}\verb|}| 
+\ci{label}\verb|{|\emph{marque}\verb|}|, \ci{ref}\verb|{|\emph{marque}\verb|}|
 et \ci{pageref}\verb|{|\emph{marque}\verb|}|
 \end{lscommand}
 \noindent où \emph{marque} est un identificateur choisi par
@@ -1621,16 +1553,16 @@ compilation suivante, \verb|\ref{}| et \verb|\pageref{}| peuvent imprimer
 ces numéros%
 \footnote{Ces commandes ne connaissent pas le type du numéro auquel
 elles se réfèrent, elles utilisent le dernier numéro généré
-automatiquement.}. 
+automatiquement.}.
 
 \begin{example}
-Une référence à cette 
+Une référence à cette
 section\label{ma-section}
 ressemble à :
 \og voir section~\ref{ma-section},
 page~\pageref{ma-section}.\fg
 \end{example}
- 
+
 \section{Notes de bas de page}
 La commande :
 \begin{lscommand}
@@ -1662,7 +1594,7 @@ placées après une virgule ou un point.\footnote{Remarquez que les
 Les notes de bas de page
 \footnote{Ceci est une note
 	  de bas de page.}
-sont très prisées par les 
+sont très prisées par les
 utilisateurs de \LaTeX{}.
 \end{example}
 
@@ -1677,7 +1609,7 @@ on peut obtenir ce résultat en \LaTeX{} avec la commande :
 
 Dans un ouvrage
 imprimé, on préfère les \emph{mettre en valeur}%
-\footnote{\eng{Emphasize} en anglais.}. 
+\footnote{\eng{Emphasize} en anglais.}.
 La commande de mise en valeur est :
 \begin{lscommand}
 \ci{emph}\verb|{|\emph{texte}\verb|}|
@@ -1692,8 +1624,8 @@ cette commande.
 
 \begin{example}
 \emph{Pour \emph{insister}
-dans un passage déjà 
-mis en valeur, \LaTeX{} 
+dans un passage déjà
+mis en valeur, \LaTeX{}
 utilise une police droite.}
 \end{example}
 
@@ -1713,7 +1645,7 @@ de mise en page à des portions de texte potentiellement longues :
    \emph{contenu}\quad
 \ci{end}\verb|{|\emph{nom}\verb|}|
 \end{lscommand}
-\noindent 
+\noindent
 \emph{nom} est le nom de l'environnement. Les environnements peuvent
 être imbriqués, à condition que l'ordre de fermeture soit correct.
 \begin{code}
@@ -1726,7 +1658,7 @@ environnements importants.
 
 L'environnement \ei{itemize} est utilisé pour des listes simples,
 \ei{enumerate} est utilisé pour des énumérations (listes
-numérotées) et \ei{description} est utilisé pour des descriptions. 
+numérotées) et \ei{description} est utilisé pour des descriptions.
 \cih{item}
 
 % \begin{example}
@@ -1740,7 +1672,7 @@ numérotées) et \ei{description} est utilisé pour des descriptions.
 
 %MPG: déplacé ici et allongé pour remplir la page
 Notez que l'option \pai{francais} de l'extension \pai{babel} utilise
-une présentation des 
+une présentation des
 listes simples qui respecte les règles typographiques françaises : utilisation
 d'un tiret pour les listes simples au loin d'un point épais \og \textbullet
 \fg, espaces verticaux réduits.
@@ -1752,17 +1684,17 @@ d'un tiret pour les listes simples au loin d'un point épais \og \textbullet
 \item Il est possible d'imbriquer
 les environnements à sa guise :
 \begin{itemize}
-\item mais cela peut ne pas 
+\item mais cela peut ne pas
   être  très beau,
 \item ni facile à suivre.
 \end{itemize}
 \item Souvenez-vous :
 \begin{description}
-\item[Clarté :] les faits ne 
-vont pas devenir plus sensés 
+\item[Clarté :] les faits ne
+vont pas devenir plus sensés
 parce  qu'ils sont dans une liste,
-\item[Synthèse :] une liste peut 
-cependant très bien 
+\item[Synthèse :] une liste peut
+cependant très bien
 résumer des faits.
 \end{description}
 \end{enumerate}
@@ -1780,8 +1712,8 @@ automatiquement par \LaTeX{}.
 \begin{flushleft}
 Ce texte est\\
 aligné à gauche.
-\LaTeX{} n'essaye pas 
-d'aligner la marge droite. 
+\LaTeX{} n'essaye pas
+d'aligner la marge droite.
 \end{flushleft}
 \end{example}
 
@@ -1789,8 +1721,8 @@ d'aligner la marge droite.
 \begin{flushright}
 Ce texte est\\
 aligné à droite.
-\LaTeX{} n'essaye pas 
-d'aligner la marge gauche. 
+\LaTeX{} n'essaye pas
+d'aligner la marge gauche.
 \end{flushright}
 \end{example}
 
@@ -1806,17 +1738,17 @@ L'environnement \ei{quote} est utile pour les citations, les phrases
 importantes ou les exemples.
 
 \begin{example}
-Une règle typographique 
+Une règle typographique
 simple pour la longueur
 des lignes :
 \begin{quote}
 Une ligne ne devrait pas comporter
 plus de 66~caractères.
 \end{quote}
-C'est pourquoi les pages 
-composées par \LaTeX{} ont des 
+C'est pourquoi les pages
+composées par \LaTeX{} ont des
 marges importantes et
-les journaux utilisent 
+les journaux utilisent
 souvent plusieurs colonnes.
 \end{example}
 
@@ -1832,11 +1764,11 @@ les règles de la typographie française : les rejets devraient être
 préfixés par \og [\iffalse]\fi \fg et alignés à droite sur le vers précédent.}.
 
 \begin{example}
-Voici le début d'une 
+Voici le début d'une
 fugue de Boris Vian :
 \begin{flushleft}
 \begin{verse}
-Les gens qui n'ont plus 
+Les gens qui n'ont plus
   rien à faire\\
 Se suivent dans la rue comme\\
 Des wagons de chemin de fer.
@@ -1894,9 +1826,9 @@ La commande \verb|\dots| \dots
 
 \begin{example}
 \begin{verbatim*}
-La version étoilée de 
+La version étoilée de
 l'environnement  verbatim
-met    les   espaces   en 
+met    les   espaces   en
 évidence
 \end{verbatim*}
 \end{example}
@@ -1922,14 +1854,14 @@ ajuste automatiquement la largeur des colonnes.
 L'argument \emph{description} de la commande :
 \begin{lscommand}
 \verb|\begin{tabular}[|\emph{position}\verb|]{|\emph{description}\verb|}|
-\end{lscommand} 
+\end{lscommand}
 \noindent définit le format des colonnes du tableau. Utilisez un
 \mfr{l} pour une colonne alignée à gauche, \mfr{r} pour
 une colonne alignée à droite et \mfr{c} pour une colonne
 centrée. \mfr{p{\{\emph{largeur}\}}} permet de réaliser une colonne
 justifiée sur plusieurs lignes et enfin
 \mfr{|} permet d'obtenir un filet vertical.
-\index{"|@ \verb."|.} 
+\index{"|@ \verb."|.}
 
 Si le texte d'une colonne est trop large pour la page, \LaTeX{}
 n'insèrera pas automatiquement de saut de ligne. Grâce à
@@ -1965,10 +1897,10 @@ sont les numéros de colonnes de début et de fin du filet.
 \begin{example}
 \begin{tabular}{|p{4.7cm}|}
 \hline
-Bienvenue dans ce 
+Bienvenue dans ce
 cadre.\\
 Merci de votre visite.\\
-\hline 
+\hline
 \end{tabular}
 
 \end{example}
@@ -1983,7 +1915,7 @@ possible est de supprimer l'espacement dans un tableau avec
 
 \begin{example}
 \begin{tabular}{@{} l @{}}
-\hline 
+\hline
 sans espace\\\hline
 \end{tabular}
 \end{example}
@@ -2002,7 +1934,7 @@ avec espaces\\
 \index{alignement décimal} S'il n'y a pas de commande prévue%
 \footnote{Si les extensions de l'ensemble \og tools \fg{} sont installées
           sur votre système, jetez un \oe il sur l'extension
-          \pai{dcolumn} faite pour résoudre ce problème.} 
+          \pai{dcolumn} faite pour résoudre ce problème.}
 pour aligner les nombres sur le point décimal (ou la virgule si on
 respecte les règles françaises) nous pouvons \og tricher \fg{} et
 réaliser cet alignement en utilisant deux colonnes : la première
@@ -2011,7 +1943,7 @@ gauche contient la partie décimale. La commande \verb|\@{,}| dans la
 description du tableau remplace l'espace normale entre les colonnes par
 une simple virgule, donnant l'impression d'une seule colonne alignée
 sur le séparateur décimal. N'oubliez pas de remplacer dans votre
-tableau le point ou la virgule 
+tableau le point ou la virgule
 par un séparateur de colonnes (\verb|&|) ! Un titre peut être
 placé au-dessus de cette \og colonne virtuelle \fg (en fait, de ces deux
 colonnes) en utilisant la commande \ci{multicolumn}.
@@ -2108,16 +2040,16 @@ blanches, ce qui ne serait réellement pas beau.
 
 La solution est de laisser \og flotter \fg{} les figures et les tableaux
 qui ne rentrent pas sur la page en cours, vers une page suivante et de
-compléter la page avec le texte qui suit l'objet \og flottant \fg{}. 
+compléter la page avec le texte qui suit l'objet \og flottant \fg{}.
 \LaTeX{} fournit deux
 environnements pour les \wi{objets flottants} adaptés respectivement
 aux figures (\ei{figure}) et aux tableaux (\ei{table}). Pour
 faire le meilleur usage de ces deux environnements, il est important
 de comprendre comment \LaTeX{} traite ces objets flottants de manière
 interne. Dans le cas contraire ces objets deviendront une cause de
-frustration intense 
+frustration intense
 car \LaTeX{} ne les placera jamais à l'endroit où vous souhaitiez les
-voir. 
+voir.
 
 \bigskip
 Commençons par regarder les commandes que \LaTeX{} propose pour les
@@ -2128,7 +2060,7 @@ environnements flottants ont un paramètre optionnel :
 \verb|\begin{figure}[|\emph{placement}\verb|]| ou
 \verb|\begin{table}[|\emph{placement}\verb|]|
 \end{lscommand}
-\noindent 
+\noindent
 appelé \emph{placement}. Ce paramètre permet de dire à \LaTeX{} où
 vous autorisez l'objet à flotter. Un \emph{placement} est composé
 d'une chaîne de caractères représentant des \emph{placements
@@ -2146,7 +2078,7 @@ Caractère & Emplacement pour l'objet flottant\dots\\
 \rule{0pt}{1.05em}%
 \texttt{h} & \emph{here}, ici, à l'emplacement dans
 	     le texte où la commande se trouve. Utile pour les petits
-	     objets.\\[0.3ex] 
+	     objets.\\[0.3ex]
 \texttt{t} & \emph{top}, en haut d'une page\\[0.3ex]
 \texttt{b} & \emph{bottom}, en bas d'une page\\[0.3ex]
 \texttt{p} & \emph{page}, sur une page à part ne contenant que des
@@ -2154,7 +2086,7 @@ Caractère & Emplacement pour l'objet flottant\dots\\
 \texttt{!} & ici, sans prendre en compte les paramètres
              internes\footnote{tels que le nombre maximum d'objets
              flottants sur une page} qui autrement pourraient empêcher ce
-             placement. 
+             placement.
 \end{tabular}
 \end{center}
 \end{minipage}
@@ -2175,7 +2107,7 @@ classes standard utilisent \verb|[tbp]| par défaut.
 en suivant les indications fournies par l'auteur. Si un objet ne peut
 être placé sur la page en cours, il est placé soit dans la file des
 figures soit dans la file des tableaux\footnote{Il s'agit de files
-FIFO (\emph{First In, First Out}) : premier arrivé, premier servi.}. 
+FIFO (\emph{First In, First Out}) : premier arrivé, premier servi.}.
 Quand une nouvelle page est
 entamée, \LaTeX{} essaye d'abord de voir si les objets en tête des
 deux files pourraient être placés sur une page spéciale, à part.  Si
@@ -2194,7 +2126,7 @@ D'où la règle :
 Si \LaTeX{} ne place pas les objets flottants comme vous le souhaitez,
 c'est souvent à cause d'un seul objet trop grand qui bouche l'une des
 deux files d'objets flottants.
-\end{quote}                 
+\end{quote}
 
 Essayer d'imposer à \LaTeX{} un emplacement particulier pose souvent
 problème : si l'objet flottant ne tient pas à l'emplacement demandé,
@@ -2220,7 +2152,7 @@ vous définissez une légende pour l'objet. Un numéro (incrémenté
 
 Les deux commandes :
 \begin{lscommand}
-\ci{listoffigures} et \ci{listoftables} 
+\ci{listoffigures} et \ci{listoftables}
 \end{lscommand}
 \noindent fonctionnent de la même manière que la commande
 \verb|\tableofcontents| ; elles impriment respectivement la liste des
@@ -2229,7 +2161,7 @@ entier. Si vous désirez utiliser des légendes longues, vous pouvez
 en donner une version courte entre crochets qui sera utilisée pour la
 table :
 \begin{code}
-\verb|\caption[courte]{LLLLLoooooonnnnnggggguuuueee}| 
+\verb|\caption[courte]{LLLLLoooooonnnnnggggguuuueee}|
 \end{code}
 
 Avec \ci{label} et \ci{ref} vous pouvez faire référence à votre objet
@@ -2264,7 +2196,7 @@ d'apparaître dans le texte.
 
 Dans certains cas il peut s'avérer nécessaire d'utiliser la commande :
 \begin{lscommand}
-\ci{clearpage} ou même \ci{cleardoublepage} 
+\ci{clearpage} ou même \ci{cleardoublepage}
 \end{lscommand}
 Elle ordonne à \LaTeX{} de placer tous les objets en attente
 immédiatement puis de commencer une nouvelle

@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Math typesetting with LaTeX
-% $Id: math.tex 532 2014-10-20 13:45:34Z oetiker $
+% $Id: math.tex 534 2015-04-09 13:03:16Z oetiker $
 %
 % Changes by Stefan M. Moser: 2008/10/22
 %
@@ -739,7 +739,7 @@ minuscule), et la troisième alignée à gauche.
   \\
   & = & d + e + f + g + h 
   + i + j + k \nonumber\\
-  && +\: l + m + n + o 
+  && \negmedspace {} + l + m + n + o 
   \\
   & = & p + q + r + s
 \end{IEEEeqnarray}
@@ -854,25 +854,17 @@ il vaut mieux écrire
   \\
   & = & d + e + f + g + h 
   + i + j + k \nonumber\\
-  && +\: l + m + n + o 
+  && \negmedspace {} + l + m + n + o 
   \\
   & = & p + q + r + s
 \end{IEEEeqnarray}
 \end{example}
 \noindent Observez l'espace entre $+$ et $l$ dans les deux cas !
 
-Parfois, l'espacement par défaut suffit, comme par exemple devant
-\begin{itemize}
-\item un nom d'opérateur comme \ci{log}, \ci{sin}, \ci{det},
-  \ci{max}, etc. ;
-\item une intégrale \ci{int} ou une somme \ci{sum} ;
-\item une parenthèse dont la taille s'adapte en utilisant \ci{left} ou
-  \ci{right} (par opposition à une parenthèse simple, ou dont la taille est
-  fixée avec par exemple \ci{big}) ;
-\end{itemize}
-un signe $+$ ou $-$ peut ne pas être unaire et doit être un opérateur
-binaire. Dans ce cas, \LaTeX{} ajuste correctement l'espace après le signe,
-et il ne faut pas en rajouter.
+La construction \verb|{} + l| force the signe \verb|+| à être
+interprété comme opérateur binaire plutôt qu'un signe, et l'espace
+indésirable qui le suit entre \verb|{}| and \verb|+| est compensée par
+un espace moyen négatif \ci{negmedspace}.
 
 Pour supprimer la numérotation sur une ligne particulière, on
 dispose de la commande \ci{nonumber} (ou bien \ci{IEEEnonumber}). Si
