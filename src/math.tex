@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Math typesetting with LaTeX
-% $Id: math.tex 493 2012-03-13 05:40:49Z oetiker $
+% $Id: math.tex 532 2014-10-20 13:45:34Z oetiker $
 %
 % Changes by Stefan M. Moser: 2008/10/22
 %
@@ -336,7 +336,7 @@ expression :
 \index{accolade!horizontale}
 \begin{example}
 $\underbrace{\overbrace{a+b+c}^6 
- \cdot \overbrace{d+e+f}^9}
+ \cdot \overbrace{d+e+f}^7}
  _{\text{meaning of life}} = 42$
 \end{example}
 
@@ -713,7 +713,7 @@ pouvons nous diriger vers le glorieux\ldots
 
 L'environnement \ei{IEEEeqnarray} est très puissant et offre beaucoup
 d'options. Nous n'en couvrirons ici que les fonctionnalités de base. Pour plus
-d'information, nous renvoyons à son manuel\footnote{Le manuel officiel
+d'information, référez-vous à son manuel\footnote{Le manuel officiel
   s'appelle \CTAN|macros/latex/contrib/IEEEtran/IEEEtran_HOWTO.pdf| ; la partie sur \texttt{IEEEeqnarray}
   se trouve dans l'appendice~F.}.
 
@@ -861,7 +861,7 @@ il vaut mieux écrire
 \end{example}
 \noindent Observez l'espace entre $+$ et $l$ dans les deux cas !
 
-Parfois, un espacement adéquat suffit, comme par exemple devant
+Parfois, l'espacement par défaut suffit, comme par exemple devant
 \begin{itemize}
 \item un nom d'opérateur comme \ci{log}, \ci{sin}, \ci{det},
   \ci{max}, etc. ;
@@ -870,19 +870,19 @@ Parfois, un espacement adéquat suffit, comme par exemple devant
   \ci{right} (par opposition à une parenthèse simple, ou dont la taille est
   fixée avec par exemple \ci{big}) ;
 \end{itemize}
-un signe $+$ ou $-$ ne peut pas être unaire et doit être un opérateur
-binaire. Dans ces cas, \LaTeX{} ajuste correctement l'espace après le signe,
+un signe $+$ ou $-$ peut ne pas être unaire et doit être un opérateur
+binaire. Dans ce cas, \LaTeX{} ajuste correctement l'espace après le signe,
 et il ne faut pas en rajouter.
 
 Pour supprimer la numérotation sur une ligne particulière, on
 dispose de la commande \ci{nonumber} (ou bien \ci{IEEEnonumber}). Si
 un label \verb+\label{...}+ est défini sur cette ligne, il est alors
-transmis à la prochaine ligne dont la numérotation n'est pas
+transmis à la prochaine équation dont la numérotation n'est pas
 supprimée. Placez plutôt les labels juste avant le \verb+\\+ à la
 fin de la ligne concernée ou avant la fin de la formule. En plus
 d'améliorer la lisibilité du code source, ceci évite des erreurs de
-compilation dans le cas où une commande \ci{IEEEmulticol} se
-trouverai après la définition du label.
+compilation quand une commande \ci{IEEEmulticol} se
+trouve après la définition du label.
 
 Il existe également une version étoilée de l'environnement, qui
 supprime totalement la numérotation. Dans ce cas, on peut ajouter un

@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Things you need to know
-% $Id: things.tex 521 2014-02-01 21:53:01Z oetiker $
+% $Id: things.tex 522 2014-05-11 21:10:57Z oetiker $
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Pour les informations de licence, voir contrib.tex.
@@ -404,6 +404,7 @@ l'intérieur d'autres environnements complexes, tels que certains
 environnements mathématiques par exemple.
 
 \section{Structure du fichier source}
+\label{sec:structure}
 
 Quand \LaTeX{} analyse un fichier source, il s'attend à y trouver une
 certaine structure. C'est pourquoi chaque fichier source doit
@@ -695,7 +696,10 @@ Une extension est chargée par la commande
 \end{lscommand}
 où \emph{extension} est le nom de l'extension et \emph{options} une liste
 de mots-clés qui déclenchent certaines fonctions de
-l'extension. Certaines extensions font partie de la distribution
+l'extension. La commande \ci{usepackage} s'utilise dans le préambule
+du document. Voir la section \ref{sec:structure} pour plus de détails.
+
+Certaines extensions font partie de la distribution
 standard de \LaTeXe{} (reportez-vous au
 tableau~\ref{extensions}). D'autres sont distribuées à part. Le
 \guide{} peut vous fournir plus d'informations sur les extensions
@@ -708,6 +712,7 @@ Les distributions \TeX{} modernes sont fournies avec un très grand
 nombre d'extensions préinstallées. Vous pouvez utiliser la commande
 \texttt{texdoc} (sous \texlive et Mac\TeX) ou \texttt{mthelp} (sous Mik\TeX{})
 pour accéder à la documentation d'une extension.
+
 
 \begin{table}[!tbp]
 \caption{Quelques extensions fournies avec \LaTeX} \label{extensions}
@@ -843,7 +848,7 @@ source (de suffixe~\texttt{.tex}) :
   compilation du fichier source (avec les messages d'erreur
   éventuels) ;
 \item[\eei{.toc}] contient le matériel nécessaire à la production de
-  la   table des matières, si celle-ci a été demandée. Ce fichier sera
+  la table des matières, si celle-ci a été demandée. Ce fichier sera
   lu à la prochaine exécution de \LaTeX{} ;
 \item[\eei{.lof}] contient la liste numérotée des figures, si elle a
   été demandée ;

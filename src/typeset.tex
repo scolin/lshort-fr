@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Typesetting Part of LaTeX2e Introduction
-% $Id: typeset.tex 505 2012-07-29 10:03:06Z oetiker $
+% $Id: typeset.tex 526 2014-09-24 15:10:03Z oetiker $
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Pour les informations de licence, voir contrib.tex.
@@ -1488,7 +1488,7 @@ sectionnement suivantes sont disponibles : \nopagebreak
 \ci{subparagraph}\verb|{...}|
 \end{lscommand}
 
-Si vous souhaitez découper votre document sans influencer la
+Si vous souhaitez découper votre document en plusieurs parties sans que cela influence la
 numérotation des chapitres ou des sections vous pouvez utiliser la
 commande :
 \begin{lscommand}
@@ -2153,7 +2153,7 @@ Caractère & Emplacement pour l'objet flottant\dots\\
              objets flottants.\\[0.3ex]
 \texttt{!} & ici, sans prendre en compte les paramètres
              internes\footnote{tels que le nombre maximum d'objets
-             flottants sur une page} qui pourraient empêcher ce
+             flottants sur une page} qui autrement pourraient empêcher ce
              placement. 
 \end{tabular}
 \end{center}
@@ -2293,7 +2293,7 @@ fonctionneront alors correctement même si elles sont utilisées dans
 des arguments mobiles.
 
 La commande \ci{protect} n'a d'effet que sur la commande qui la suit
-immédiatement, mais \emph{pas ses arguments} éventuels.
+immédiatement, \emph{même pas} sur ses arguments éventuels.
 La plupart du temps un \ci{protect} de trop ne produira aucun effet pervers.
 
 Voici un exemple d'utilisation de \verb+\protect+ :

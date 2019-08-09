@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Specialties of the LaTeX system
-% $Id: spec.tex 478 2011-06-24 05:43:34Z oetiker $
+% $Id: spec.tex 524 2014-08-11 11:34:38Z oetiker $
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Pour les informations de licence, voir contrib.tex.
@@ -404,7 +404,7 @@ l'extension sur votre machine, vous dever les manipuler de manière à
       \LaTeX{} peuvent être nécessaires pour produire les références
       croisées complètes.
 \item vérifier si \LaTeX{} a produit un fichier \texttt{.idx}. Si ce
-      n'est pas le cas, passer à l'étape 5. 
+      n'est pas le cas, alors la documentation n'a pas d'index. Passer à l'étape 5. 
 \item pour produire l'index, exécuter la commande suivante :
 \begin{lscommand}
 \texttt{makeindex -s gind.ist \textit{nom}}
@@ -965,7 +965,7 @@ ligatures utilisez l'une des commandes suivantes :
 \begin{verbatim}
 \setmainfont[Ligatures=Rare]{(font)}
 \setmainfont[Ligatures=Historic]{(font)}
-\setmainfont[Ligatures=Historic,Ligature=Rare]{(font)}
+\setmainfont[Ligatures=Historic,Ligatures=Rare]{(font)}
 \end{verbatim}
 \end{code}
 
