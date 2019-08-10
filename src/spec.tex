@@ -7,209 +7,102 @@
 % See contrib.tex for license information.
 
 
-\chapter{Compléments}
+\chapter{ComplÃ©ments}
 \label{chap:spec}
 \thispagestyle{plain}
 
 \begin{intro}
-%  Ne lisez pas ce chapitre ! Si vous vous sentez à l'aise, vous pouvez
-%  écrire vos premiers documents avec \LaTeX{} dès maintenant. Le but
-%  de ce chapitre est d'ajouter un peu de piment à votre connaissance
-%  de \LaTeX{}. Une description bien plus complète des possibilités et
-%  des améliorations possibles se trouve dans le {\normalfont\manual{}} et
+%  Ne lisez pas ce chapitre ! Si vous vous sentez Ã  l'aise, vous pouvez
+%  Ã©crire vos premiers documents avec \LaTeX{} dÃ¨s maintenant. Le but
+%  de ce chapitre est d'ajouter un peu de piment Ã  votre connaissance
+%  de \LaTeX{}. Une description bien plus complÃ¨te des possibilitÃ©s et
+%  des amÃ©liorations possibles se trouve dans le {\normalfont\manual{}} et
 %  dans {\normalfont\companion}.
 
-Pour rédiger un document important, \LaTeX{} vous fournit des outils
-pour réaliser un index, une liste de références bibliographiques et
-d'autres choses. Des descriptions bien plus complètes de ces possibilités
-et des améliorations possibles avec \LaTeX{} se trouvent
-dans le {\normalfont\manual{}},dans {\normalfont\companion{}} 
-et dans {\normalfont\desgraupes{}}. 
+Pour rÃ©diger un document important, \LaTeX{} vous fournit des outils
+pour rÃ©aliser un index, une liste de rÃ©fÃ©rences bibliographiques et
+d'autres choses. Des descriptions bien plus complÃ¨tes de ces possibilitÃ©s
+et des amÃ©liorations possibles avec \LaTeX{} se trouvent
+dans le {\normalfont\manual{}},dans {\normalfont\companion{}}
+et dans {\normalfont\desgraupes{}}.
 \end{intro}
 
-\section{Inclusion \EPSi{}} \label{eps}
-
-Avec les environnements \ei{figure} et \texttt{table}, \LaTeX{}
-fournit les mécanismes de base pour travailler avec des objets tels que
-des images ou des graphiques.
-
-Il existe plusieurs façons de produire des \wi{graphiques} avec des
-commandes \LaTeX{} ou des extensions de \LaTeX{}. Certaines d'entre
-elles sont décrites au chapitre~\ref{chap:graphics}.  Pour plus
-d'informations à leur sujet, reportez-vous à~\desgraupes{} ou à
-\companion{}.
-
-Un moyen bien plus simple d'inclure des graphiques dans un document
-est de les produire à l'aide d'un logiciel spécialisé%
-\footnote{Tel que XFig, Gnuplot, Gimp, Xara X\ldots} 
-puis d'inclure le résultat dans
-le document. Ici encore \LaTeX{} offre de nombreuses solutions. Dans
-cette introduction, seule l'utilisation de graphiques \EPSi{} (EPS)
-sera traitée. En effet, c'est la solution la plus
-simple et la plus utilisée. Pour pouvoir utiliser des graphiques au
-format EPS, il faut disposer d'une imprimante \PSi{}%
-\footnote{Une autre possibilité pour imprimer du \PSi{}
-          est d'utiliser le logiciel \textsc{Ghost\-Script}, disponible
-          sur \CTAN|support/ghostscript|. Les utilisateurs de
-          Windows et OS/2 peuvent se tourner vers \textsc{GSview}.} 
-vers laquelle envoyer le résultat.
-
-Un ensemble de commandes bien adaptées à l'insertion de graphiques est
-fourni par l'extension \pai{graphicx}, développée par D.~P.~Carlisle. Elle
-fait partie d'un ensemble d'extensions appelé \og graphics \fg{}.
-\footnote{\CTAN|pkg/graphics|.}.
-
-En supposant maintenant que vous travaillez sur un système où
-l'extension \textsf{graphicx} est installée et qui dispose d'une
-imprimante \PSi{}, voici la marche à suivre pour inclure une
-figure dans un document :
-
-\begin{enumerate}
-\item exportez la figure de votre logiciel graphique au format EPS
-  \footnote{Si votre logiciel ne sait pas exporter au format EPS, vous
-    pouvez essayer d'utiliser un pilote d'impression \PSi{} (tel
-    que Apple LaserWriter, par exemple) puis imprimer vers un fichier
-    à l'aide de ce pilote. Avec de la chance ce fichier sera au format
-    EPS. Notez cependant qu'un fichier EPS ne doit pas faire plus
-    d'une page. Certains pilotes d'impression peuvent même être
-    configurés pour produire explicitement un format EPS.};
-\item chargez l'extension \textsf{graphicx} dans le préambule de votre
-      fichier source avec :
-\begin{lscommand}
-\verb|\usepackage[|\emph{pilote}\verb|]{graphicx}|
-\end{lscommand}
-\noindent \emph{pilote} est le nom du programme de conversion \og DVI vers
-\PSi{} \fg{} que vous utilisez. Le programme le plus répandu
-est \texttt{dvips}. Cette information est nécessaire car
-il n'y a pas de standard pour l'insertion de figures en \TeX{} ;
-celle-ci est réalisée par le pilote au moment de
-l'impression. Connaître le nom du pilote permet à l'extension
-\textsf{graphicx} d'inclure les bonnes commandes dans le
-fichier \eei{.dvi} pour réaliser l'insertion correcte du fichier
-\eei{.eps} ;
-\item utilisez la commande :
-\begin{lscommand}
-\ci{includegraphics}\verb|[|\emph{clef}=\emph{valeur}, ... \verb|]{|\emph{fichier}\verb|}|
-\end{lscommand}
-\noindent pour insérer \emph{fichier} dans votre document. Le paramètre
-optionnel est une liste de paires de \emph{clefs} et de \emph{valeurs}
-séparées par des virgules. Les \emph{clefs} permettent de modifier la
-largeur, la hauteur, ou l'angle de rotation de la figure. Le
-tableau~\ref{keyvals} présente les clefs les plus importantes.
-\end{enumerate}
-
-\begin{table}[htb]
-\caption{Clefs pour l'extension \textsf{graphicx}}
-\label{keyvals}
-\begin{lined}{9cm}
-\begin{tabular}{@{}ll}
-\texttt{width}& définit la largeur de la figure\\
-\texttt{height}& définit la hauteur de la figure\\
-\texttt{angle}& (en degrés) tourne la figure dans le sens \\
-&  des aiguilles d'une montre \\
-\texttt{scale}& échelle de la figure
-\end{tabular}
-
-\bigskip
-\end{lined}
-\end{table}
-
-L'exemple suivant devrait aider à illustrer le fonctionnement de la
-commande :
-\begin{code}
-\begin{verbatim}
-\begin{figure}
-\centering
-\includegraphics[angle=90,
-                 width=0.5\textwidth]{test}
-\caption{Ceci est un test.}
-\end{figure}
-\end{verbatim}
-\end{code}
-
-Cette commande inclut la figure stockée dans le fichier
-\texttt{test.eps}. La figure est \emph{d'abord} tournée de 90 degrés
-puis ajustée pour que sa largeur finale soit de 10 cm. Les proportions
-largeur/hauteur sont conservées, puisqu'aucune hauteur n'est spécifiée.
-
-Pour plus d'informations, reportez vous à~\cite{graphics} et \cite{eps}.
-
-\section{Références bibliographiques}
+\section{RÃ©fÃ©rences bibliographiques}
 
 L'environnement \ei{thebibliography} permet de produire une liste de
-références bibliographiques.  Chaque référence
+rÃ©fÃ©rences bibliographiques.  Chaque rÃ©fÃ©rence
 commence par
 \begin{lscommand}
 \ci{bibitem}\verb|[|\emph{label}\verb|]{|\emph{marque}\verb|}|
 \end{lscommand}
-La \emph{marque} est utilisée pour citer la référence dans le
+La \emph{marque} est utilisÃ©e pour citer la rÃ©fÃ©rence dans le
 document.
 \begin{lscommand}
 \ci{cite}\verb|{|\emph{marque}\verb|}|
 \end{lscommand}
-Si vous n'utilisez pas l'option \emph{label}, les références sont
-automatiquement numérotées. Le paramètre qui suit
-\verb|\begin{thebibliography}| définit la largeur du décrochement
-utilisé pour placer ces numéros. Dans l'exemple ci-après,
-\verb|{99}| indique à \LaTeX{} que le décrochement ne devrait jamais
-être plus large que le nombre 99.
+Si vous n'utilisez pas l'option \emph{label}, les rÃ©fÃ©rences sont
+automatiquement numÃ©rotÃ©es. Le paramÃ¨tre qui suit
+\verb|\begin{thebibliography}| dÃ©finit la largeur du dÃ©crochement
+utilisÃ© pour placer ces numÃ©ros. Dans l'exemple ci-aprÃ¨s,
+\verb|{99}| indique Ã  \LaTeX{} que le dÃ©crochement ne devrait jamais
+Ãªtre plus large que le nombre 99.
 
 \begin{example}
-Partl~\cite{pa} 
+Partl~\cite{pa}
 propose que\dots
 
 {\small
 \begin{thebibliography}{99}
-\bibitem{pa} H.~Partl: 
+\bibitem{pa} H.~Partl:
 \emph{German \TeX},
 TUGboat Vol.~9, No.~1 ('88)
 \end{thebibliography}
 }
 \end{example}
-\chaptermark{Compléments} % w need to fix the damage done by the
+\chaptermark{ComplÃ©ments} % w need to fix the damage done by the
                            %bibliography example.
 \thispagestyle{fancyplain}
 
 
-Pour des projets plus importants, il est recommandé d'utiliser l'outil
+Pour des projets plus importants, il est recommandÃ© d'utiliser l'outil
 BiB\TeX{}. Celui-ci est fourni avec la plupart des installations de
-\TeX{}. Il permet de maintenir une base de données de références
-bibliographiques et d'en extraire la liste des références citées dans
-votre document. La génération des listes de références  par
-BiB\TeX{} utilise un mécanisme de feuilles de style qui permettent
-de réaliser tous les types de présentations habituellement demandés. 
+\TeX{}. Il permet de maintenir une base de donnÃ©es de rÃ©fÃ©rences
+bibliographiques et d'en extraire la liste des rÃ©fÃ©rences citÃ©es dans
+votre document. La gÃ©nÃ©ration des listes de rÃ©fÃ©rences  par
+BiB\TeX{} utilise un mÃ©canisme de feuilles de style qui permettent
+de rÃ©aliser tous les types de prÃ©sentations habituellement demandÃ©s.
 
 \section{Index} \label{sec:indexing}
-L'\wi{index} est un élément fort utile pour de nombreux
-ouvrages. \LaTeX{} et le programme associé
-\texttt{makeindex}\footnote{Sur les systèmes qui ne supportent pas les
-noms de fichiers de plus de huit caractères, ce programme s'appelle
-\texttt{makeidx}.} permettent de créer des index assez
-facilement. Cette introduction présente seulement les commandes
-élémentaires de gestion d'un index. Pour une description plus
-détaillée, reportez-vous à~\companion ou à \desgraupes{}. 
+L'\wi{index} est un Ã©lÃ©ment fort utile pour de nombreux
+ouvrages. \LaTeX{} et le programme associÃ©
+\texttt{makeindex}\footnote{Sur les systÃ¨mes qui ne supportent pas les
+noms de fichiers de plus de huit caractÃ¨res, ce programme s'appelle
+\texttt{makeidx}.} permettent de crÃ©er des index assez
+facilement. Cette introduction prÃ©sente seulement les commandes
+Ã©lÃ©mentaires de gestion d'un index. Pour une description plus
+dÃ©taillÃ©e, reportez-vous Ã ~\companion ou Ã  \desgraupes{}.
 
-Pour utiliser cette fonctionnalité, l'extension \pai{makeidx} doit être
-chargée dans le préambule avec :
+Pour utiliser cette fonctionnalitÃ©, l'extension \pai{makeidx} doit Ãªtre
+chargÃ©e dans le prÃ©ambule avec :
 \begin{lscommand}
 \verb|\usepackage{makeidx}|
 \end{lscommand}
 \pagebreak[3]
-La  création de l'index doit être activée par la commande :
+La  crÃ©ation de l'index doit Ãªtre activÃ©e par la commande :
 \begin{lscommand}
   \ci{makeindex}
 \end{lscommand}
-\noindent placée dans le préambule.
+\noindent placÃ©e dans le prÃ©ambule.
 
-Le contenu de l'index est défini par une série de commandes :
+Le contenu de l'index est dÃ©fini par une sÃ©rie de commandes :
 \begin{lscommand}
-  \ci{index}\verb|{|\emph{clef@entrée formatée}\verb|}|
+  \ci{index}\verb|{|\emph{clef@entrÃ©e formatÃ©e}\verb|}|
 \end{lscommand}
-\noindent 
-où \emph{entrée formatée} est ce qui doit apparaître dans l'index, et
-\emph{clef} est utilisée pour le tri. La partie \emph{entrée formattée} est
-optionnelle. Vous insérez des commandes
- \ci{index} aux endroits du texte que vous voulez voir référencés par
+\noindent
+oÃ¹ \emph{entrÃ©e formatÃ©e} est ce qui doit apparaÃ®tre dans l'index, et
+\emph{clef} est utilisÃ©e pour le tri. La partie \emph{entrÃ©e formattÃ©e} est
+optionnelle. Vous insÃ©rez des commandes
+ \ci{index} aux endroits du texte que vous voulez voir rÃ©fÃ©rencÃ©s par
  l'index. Le tableau~\ref{index} explique cela
  avec plusieurs exemples.
 
@@ -218,95 +111,95 @@ optionnelle. Vous insérez des commandes
 \label{index}
 \begin{center}
 \begin{tabular}{@{}lll@{}}
-  \textbf{Exemple} &\textbf{Résultat} &\textbf{Commentaires}\\\hline
-  \rule{0pt}{1.05em}\verb|\index{hello}| &hello, 1 &Entrée normale\\ 
-\verb|\index{hello!Peter}|   &\hspace*{2ex}Peter, 3 &Sous-entrée de 'hello'\\ 
-\verb|\index{Sam@\textsl{Sam}}|     &\textsl{Sam}, 2& Entrée formatée\\ 
-\verb|\index{Lin@\textbf{Lin}}|     &\textbf{Lin}, 7& Entrée formatée\\ 
-\verb|\index{Kaese@K\"ase}|     &\textbf{K\"ase}, 33& Entrée formatée\\ 
-\verb.\index{ecole@\'ecole}.     &\'ecole, 4& Entrée formatée\\
-\verb.\index{Jenny|textbf}.     &Jenny, \textbf{3}& Numéro de page formaté\\
-\verb.\index{Joe|textit}.     &Joe, \textit{5}& Numéro de page formaté\\
+  \textbf{Exemple} &\textbf{RÃ©sultat} &\textbf{Commentaires}\\\hline
+  \rule{0pt}{1.05em}\verb|\index{hello}| &hello, 1 &EntrÃ©e normale\\
+\verb|\index{hello!Peter}|   &\hspace*{2ex}Peter, 3 &Sous-entrÃ©e de 'hello'\\
+\verb|\index{Sam@\textsl{Sam}}|     &\textsl{Sam}, 2& EntrÃ©e formatÃ©e\\
+\verb|\index{Lin@\textbf{Lin}}|     &\textbf{Lin}, 7& EntrÃ©e formatÃ©e\\
+\verb|\index{Kaese@K\"ase}|     &\textbf{K\"ase}, 33& EntrÃ©e formatÃ©e\\
+\verb.\index{ecole@\'ecole}.     &\'ecole, 4& EntrÃ©e formatÃ©e\\
+\verb.\index{Jenny|textbf}.     &Jenny, \textbf{3}& NumÃ©ro de page formatÃ©\\
+\verb.\index{Joe|textit}.     &Joe, \textit{5}& NumÃ©ro de page formatÃ©\\
 \end{tabular}
 \end{center}
 \end{table}
 
-Quand le fichier source est traité par \LaTeX{}, chaque commande
-\verb|\index| crée une entrée adaptée contenant le numéro de la page
-en cours dans le fichier qui porte le même nom de base que le fichier
-source, mais avec le suffixe \eei{.idx}. Ce fichier est ensuite traité
+Quand le fichier source est traitÃ© par \LaTeX{}, chaque commande
+\verb|\index| crÃ©e une entrÃ©e adaptÃ©e contenant le numÃ©ro de la page
+en cours dans le fichier qui porte le mÃªme nom de base que le fichier
+source, mais avec le suffixe \eei{.idx}. Ce fichier est ensuite traitÃ©
 par le programme \texttt{makeindex} :
 
 \begin{lscommand}
   \texttt{makeindex} \emph{nom de fichier}
 \end{lscommand}
 \index{makeindex@\texttt{makeindex}}
-Le programme \texttt{makeindex} crée un index trié dans le fichier
+Le programme \texttt{makeindex} crÃ©e un index triÃ© dans le fichier
 \eei{.ind}. Ensuite, la prochaine fois que  le fichier source sera
-traité, le contenu du fichier \texttt{.ind} sera
-inclus à l'endroit où \LaTeX{} rencontrera la commande :
+traitÃ©, le contenu du fichier \texttt{.ind} sera
+inclus Ã  l'endroit oÃ¹ \LaTeX{} rencontrera la commande :
 \begin{lscommand}
   \ci{printindex}
 \end{lscommand}
 
 L'extension \pai{showidx} fournie avec \LaTeXe{} permet de visualiser
-les entrées de l'index dans la marge gauche du texte. Cela permet la
+les entrÃ©es de l'index dans la marge gauche du texte. Cela permet la
 relecture et la mise au point de l'index.
 
-Remarquez également que la command \ci{index} peut affecter votre mise
+Remarquez Ã©galement que la command \ci{index} peut affecter votre mise
 en page si vous n'y prenez pas garde.
 
 \begin{example}
-Mon mot \index{mot}. Différent
+Mon mot \index{mot}. DiffÃ©rent
 de mot\index{mot}. Notez la
 position du point final.
 \end{example}
 
 Le programme \texttt{makeindex} standard ne traite malheureusement pas
-correctement les caractères accentués dans les clefs : il les place
-systématiquement en tête de l'ordre alphabétique.
-Pour obtenir un classement correct des clés contenant des caractères 
-accentués (le «é» doit être classé comme un «e»), on peut utiliser
-le caractère \texttt{@} : la dernière ligne du tableau~\ref{index}
-produira une entrée \og école \fg{} dans l'index, classée comme s'il s'agissait
+correctement les caractÃ¨res accentuÃ©s dans les clefs : il les place
+systÃ©matiquement en tÃªte de l'ordre alphabÃ©tique.
+Pour obtenir un classement correct des clÃ©s contenant des caractÃ¨res
+accentuÃ©s (le Â«Ã©Â» doit Ãªtre classÃ© comme un Â«eÂ»), on peut utiliser
+le caractÃ¨re \texttt{@} : la derniÃ¨re ligne du tableau~\ref{index}
+produira une entrÃ©e \og Ã©cole \fg{} dans l'index, classÃ©e comme s'il s'agissait
 de \og ecole \fg{}.
 
 
-\section{En-têtes améliorés}
+\section{En-tÃªtes amÃ©liorÃ©s}
 \label{sec:fancyhdr}
 
 L'extension \pai{fancyhdr}%
-\footnote{disponible sur 
+\footnote{disponible sur
           \CTAN|macros/latex/contrib/supported/fancyhdr|.},
-développée par Piet van Oostrum, offre quelques commandes simples
-permettant de personnaliser les entêtes et les pieds de page de votre
+dÃ©veloppÃ©e par Piet van Oostrum, offre quelques commandes simples
+permettant de personnaliser les entÃªtes et les pieds de page de votre
 document. Si vous regardez en haut de cette page, vous verrez un
-résultat possible de l'utilisation de cette extension.
+rÃ©sultat possible de l'utilisation de cette extension.
 
-La difficulté principale pour personnaliser les en-têtes et les pieds
-de page consiste à mettre à jour le nom de la section ou du chapitre
-en cours utilisés par ces éléments. \LaTeX{} réalise cela en deux
-étapes. Dans la définition des en-têtes et pieds de page 
-les commandes \ci{leftmark} et \ci{rightmark} sont utilisées pour désigner
+La difficultÃ© principale pour personnaliser les en-tÃªtes et les pieds
+de page consiste Ã  mettre Ã  jour le nom de la section ou du chapitre
+en cours utilisÃ©s par ces Ã©lÃ©ments. \LaTeX{} rÃ©alise cela en deux
+Ã©tapes. Dans la dÃ©finition des en-tÃªtes et pieds de page
+les commandes \ci{leftmark} et \ci{rightmark} sont utilisÃ©es pour dÃ©signer
 respectivement les noms du chapitre et la section courants.
-La valeur de ces commandes est redéfinie chaque fois
+La valeur de ces commandes est redÃ©finie chaque fois
 qu'un nouveau chapitre ou une nouvelle section commence.
 
-Pour plus de souplesse, la commande \verb|\chapter| et ses collègues
-ne redéfinissent pas \ci{leftmark} et \ci{rightmark}
-directement. Elles appellent les commandes appelées \ci{chaptermark},
-\ci{sectionmark} et \ci{subsectionmark} qui sont chargées de redéfinir
-\ci{leftmark} et/ou \ci{rightmark}, selon la présentation
-désirée. 
+Pour plus de souplesse, la commande \verb|\chapter| et ses collÃ¨gues
+ne redÃ©finissent pas \ci{leftmark} et \ci{rightmark}
+directement. Elles appellent les commandes appelÃ©es \ci{chaptermark},
+\ci{sectionmark} et \ci{subsectionmark} qui sont chargÃ©es de redÃ©finir
+\ci{leftmark} et/ou \ci{rightmark}, selon la prÃ©sentation
+dÃ©sirÃ©e.
 
-Ainsi, si vous voulez modifier la présentation du nom du chapitre
-courant dans l'en-tête, vous n'aurez qu'à redéfinir la commande
+Ainsi, si vous voulez modifier la prÃ©sentation du nom du chapitre
+courant dans l'en-tÃªte, vous n'aurez qu'Ã  redÃ©finir la commande
 \ci{chaptermark}. \cih{sectionmark}\cih{subsectionmark}
 
 La figure~\ref{fancyhdr} montre un exemple de configuration de l'extension
-\pai{fancyhdr} qui se rapproche de la présentation utilisée pour ce
-document. La documentation complète de cette extension se trouve à
-l'adresse mentionnée dans la note de bas de page. 
+\pai{fancyhdr} qui se rapproche de la prÃ©sentation utilisÃ©e pour ce
+document. La documentation complÃ¨te de cette extension se trouve Ã 
+l'adresse mentionnÃ©e dans la note de bas de page.
 
 \begin{figure}[!htbp]
 \begin{lined}{\textwidth}
@@ -314,13 +207,13 @@ l'adresse mentionnée dans la note de bas de page.
 \documentclass{book}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
-% Ceci permet d'avoir les noms de chapitre et de section 
+% Ceci permet d'avoir les noms de chapitre et de section
 % en minuscules
 \renewcommand{\chaptermark}[1]{
         \markboth{#1}{}}
 \renewcommand{\sectionmark}[1]{
         \markright{\thesection\ #1}}
-\fancyhf{}     % supprime les en-têtes et pieds
+\fancyhf{}     % supprime les en-tÃªtes et pieds
 \fancyhead[LE,RO]{\bfseries\thepage}% Left Even, Right Odd
 \fancyhead[LO]{\bfseries\rightmark} % Left Odd
 \fancyhead[RE]{\bfseries\leftmark}  % Right Even
@@ -340,13 +233,13 @@ l'adresse mentionnée dans la note de bas de page.
 
 \section{L'extension verbatim}
 
-Plus haut dans ce document, vous avez appris à utiliser
-l'\emph{environnement} \ei{verbatim}. Dans cette section vous allez découvrir
+Plus haut dans ce document, vous avez appris Ã  utiliser
+l'\emph{environnement} \ei{verbatim}. Dans cette section vous allez dÃ©couvrir
 l'\emph{extension} \pai{verbatim}. L'extension \pai{verbatim} est une
-nouvelle implémentation de l'environnement du même nom qui corrige
+nouvelle implÃ©mentation de l'environnement du mÃªme nom qui corrige
 certaines de ses limitations. En soi cela n'est pas spectaculaire,
-mais ce package s'adjoint de nouvelles fonctionnalités
-qui justifient que cette extension soit citée ici. L'extension
+mais ce package s'adjoint de nouvelles fonctionnalitÃ©s
+qui justifient que cette extension soit citÃ©e ici. L'extension
 \pai{verbatim} propose la commande~:
 
 \begin{lscommand}
@@ -354,77 +247,77 @@ qui justifient que cette extension soit citée ici. L'extension
 \end{lscommand}
 
 \noindent qui permet d'inclure un fichier ASCII brut dans votre
-document, comme s'il se trouvait à l'intérieur d'un environnement
-\ei{verbatim}. 
+document, comme s'il se trouvait Ã  l'intÃ©rieur d'un environnement
+\ei{verbatim}.
 
 Puisque l'extension \pai{verbatim} fait partie de l'ensemble \og
-\texttt{tools} \fg{}, elle devrait être déjà disponible sur la plupart
-des systèmes. Pour en savoir plus au sujet de cette extension,
-reportez-vous à~\cite{verbatim}.
+\texttt{tools} \fg{}, elle devrait Ãªtre dÃ©jÃ  disponible sur la plupart
+des systÃ¨mes. Pour en savoir plus au sujet de cette extension,
+reportez-vous Ã ~\cite{verbatim}.
 
 \section{Installation d'extensions}
 \label{sec:Packages}
 
 La plupart des  installations \LaTeX{} fournissent en standard un grand
 nombre d'extensions, mais il arrive que justement celle dont on aurait
-besoin manque, ou qu'une extension nécessite une mise à jour.
-L'endroit le plus adéquat pour rechercher les versions officielles
+besoin manque, ou qu'une extension nÃ©cessite une mise Ã  jour.
+L'endroit le plus adÃ©quat pour rechercher les versions officielles
 des  extensions est le CTAN (\url{http://www.ctan.org/}).
 
 Les extensions, telles \pai{geometry}, \pai{hyphenat} et beaucoup
-d'autres, sont en général fournies sous la forme de deux fichiers, l'un
+d'autres, sont en gÃ©nÃ©ral fournies sous la forme de deux fichiers, l'un
 de suffixe \texttt{.dtx}, l'autre de suffixe \texttt{.ins}.  Souvent
-un fichier \texttt{readme.txt} leur est joint et donne une brève
+un fichier \texttt{readme.txt} leur est joint et donne une brÃ¨ve
 description de l'extension. Le mieux est alors de commencer par la
 lecture de ce fichier.
 
-Quoi qu'il en soit, une fois que vous avez copié les fichiers de
-l'extension sur votre machine, vous dever les manipuler de manière à
+Quoi qu'il en soit, une fois que vous avez copiÃ© les fichiers de
+l'extension sur votre machine, vous dever les manipuler de maniÃ¨re Ã 
 (a) informer votre distribution \TeX\ de cette nouvelle extension et
-(b) obtenir sa documentation. Voici la manière de procéder :
+(b) obtenir sa documentation. Voici la maniÃ¨re de procÃ©der :
 
 \begin{enumerate}
-\item exécuter \LaTeX{} sur le fichier \texttt{.ins}. Ceci produira les
+\item exÃ©cuter \LaTeX{} sur le fichier \texttt{.ins}. Ceci produira les
   fichiers \eei{.sty}, \eei{.def}, etc., dont \LaTeX{} a besoin.
-\item déplacer ces fichiers dans un répertoire adéquat, en général 
+\item dÃ©placer ces fichiers dans un rÃ©pertoire adÃ©quat, en gÃ©nÃ©ral
   c'est dans \texttt{\ldots/texmf/tex/latex} ou dans
   \texttt{\ldots/\emph{localtexmf}/tex/latex}.
-\item mettre à jour la base de données des noms de fichiers, la commande
-  dépend de votre distribution \LaTeX{} :
+\item mettre Ã  jour la base de donnÃ©es des noms de fichiers, la commande
+  dÃ©pend de votre distribution \LaTeX{} :
   \TeX{}live -- \texttt{texhash}; web2c -- \texttt{mktexlsr};
   MiK\TeX{} -- \texttt{initexmf -{}-update-fndb} ou via l'interface
-  graphique; la commande peut également être \texttt{texconfig rehash}.
+  graphique; la commande peut Ã©galement Ãªtre \texttt{texconfig rehash}.
 \end{enumerate}
 
 \noindent Il faut ensuite  extraire la documentation du fichier
 \texttt{.dtx} :
 \begin{enumerate}
-\item exécuter \LaTeX{} sur le fichier \texttt{.dtx}. Cela produira un
-      fichier \texttt{.dvi}. Noter que plusieurs exécutions de
-      \LaTeX{} peuvent être nécessaires pour produire les références
-      croisées complètes.
-\item vérifier si \LaTeX{} a produit un fichier \texttt{.idx}. Si ce
-      n'est pas le cas, alors la documentation n'a pas d'index. Passer à l'étape 5. 
-\item pour produire l'index, exécuter la commande suivante :
+\item exÃ©cuter \hologo{XeLaTeX} sur le fichier \texttt{.dtx}. Cela produira un
+      fichier \texttt{.pdf}. Noter que plusieurs exÃ©cutions de
+      \hologo{XeLaTeX} peuvent Ãªtre nÃ©cessaires pour produire les rÃ©fÃ©rences
+      croisÃ©es complÃ¨tes.
+\item vÃ©rifier si \LaTeX{} a produit un fichier \texttt{.idx}. Si ce
+      n'est pas le cas, alors la documentation n'a pas d'index. Passer Ã  l'Ã©tape 5.
+\item pour produire l'index, exÃ©cuter la commande suivante :
 \begin{lscommand}
 \texttt{makeindex -s gind.ist \textit{nom}}
 \end{lscommand}
-(où \textit{nom} représente le nom du fichier principal, sans
+(oÃ¹ \textit{nom} reprÃ©sente le nom du fichier principal, sans
 suffixe).
-\item exécuter \LaTeX{} sur le fichier \texttt{.dtx} une fois de plus.
-\item enfin, produire un fichier PostScript ou PDF à imprimer pour une
-      lecture plus confortable. 
+\item exÃ©cuter \LaTeX{} sur le fichier \texttt{.dtx} une fois de plus.
+\item enfin, produire un fichier PostScript ou PDF Ã  imprimer pour une
+      lecture plus confortable.
 \end{enumerate}
 
 Parfois vous constaterez qu'un fichier \texttt{.glo} (glossaire) a
-également été produit. Exécutez la commande suivante entre les étapes
+Ã©galement Ã©tÃ© produit. ExÃ©cutez la commande suivante entre les Ã©tapes
 4 et 5 :
 
-\texttt{makeindex -s gglo.ist -o \textit{nom}\texttt{.gls} 
+\texttt{makeindex -s gglo.ist -o \textit{nom}\texttt{.gls}
 \textit{nom}\texttt{.glo}}
 
-\noindent Et n'oubliez pas de re-exécuter \LaTeX{} sur le fichier
-\texttt{.dtx} avant de passer à l'étape 5. 
+\noindent Et n'oubliez pas de re-exÃ©cuter \LaTeX{} sur le fichier
+\texttt{.dtx} avant de passer Ã  l'Ã©tape 5.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Contents: Chapter on pdfLaTeX
@@ -432,253 +325,101 @@ Parfois vous constaterez qu'un fichier \texttt{.glo} (glossaire) a
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\section{Travailler avec pdf\LaTeX} \label{sec:pdftex}\index{PDF}
+\section{\LaTeX{} et PDF} \label{sec:pdftex}\index{PDF}
 \secby{Daniel Flipo}{Daniel.Flipo@univ-lille1.fr}%
 
-PDF est un format de document \wi{hypertexte} et portable. De la même manière que
-dans une page Web, certains mots sont marqués comme des
+PDF est un format de document \wi{hypertexte} et portable. De la mÃªme maniÃ¨re que
+dans une page Web, certains mots sont marquÃ©s comme des
 hyperliens. Ils renvoient vers d'autres endroits du document voir vers
 d'autres documents. En cliquant sur un hyperlien vous
-serez transportés sur la destination de ce lien. Dans le contexte de
+serez transportÃ©s sur la destination de ce lien. Dans le contexte de
 \LaTeX{}, cela signifie que toute occurrence de \ci{ref} et de
-\ci{pageref} peut devenir un hyperlien. De plus, la table des matières,
+\ci{pageref} peut devenir un hyperlien. De plus, la table des matiÃ¨res,
 l'index et d'autres structures similaires deviendront aussi des
 collections d'hyperliens.
 
-La plupart des pages Web de nos jours sont écrites en HTML
-\emph{(HyperText Markup Language)}. Ce format a deux défauts majeurs
-pour écrire des documents scientifiques :
+La plupart des pages Web de nos jours sont Ã©crites en HTML
+\emph{(HyperText Markup Language)}. Ce format a deux dÃ©fauts majeurs
+pour Ã©crire des documents scientifiques :
 \begin{enumerate}
-\item L'inclusion de formules mathématiques n'est généralement pas
+\item L'inclusion de formules mathÃ©matiques n'est gÃ©nÃ©ralement pas
   possible. Bien qu'il y ait un standard pour cela, la plupart des
   navigateurs ne le prennent pas en compte ou n'ont pas les polices
   requises;
-\item L'impression de documents HTML est possible mais les résultats
-  varient énormément selon la plateforme et le navigateur, et loin des
-  standards de qualité du monde \LaTeX{}.
+\item L'impression de documents HTML est possible mais les rÃ©sultats
+  varient Ã©normÃ©ment selon la plateforme et le navigateur, et loin des
+  standards de qualitÃ© du monde \LaTeX{}.
 \end{enumerate}
 
-Il y a de nombreuses tentatives de création de traducteurs de \LaTeX{}
-vers HTML. Certaines rencontrèrent un certain succès dans le sens où
-elles peuvent produire des pages Web lisibles à partir d'un fichier
-d'entrée \LaTeX{} standard. Mais toutes évitent certaines parties
-délicates pour obtenir ce résultat. Dès que l'on utilise des
-fonctionnalités plus complexes de \LaTeX{} ou des extensions externes,
-les choses tendent à partir à vau-l'eau. Les auteurs qui souhaitent
-préserver la qualité typographique unique de leurs documents, même sur
+Il y a de nombreuses tentatives de crÃ©ation de traducteurs de \LaTeX{}
+vers HTML. Certaines rencontrÃ¨rent un certain succÃ¨s dans le sens oÃ¹
+elles peuvent produire des pages Web lisibles Ã  partir d'un fichier
+d'entrÃ©e \LaTeX{} standard. Mais toutes Ã©vitent certaines parties
+dÃ©licates pour obtenir ce rÃ©sultat. DÃ¨s que l'on utilise des
+fonctionnalitÃ©s plus complexes de \LaTeX{} ou des extensions externes,
+les choses tendent Ã  partir Ã  vau-l'eau. Les auteurs qui souhaitent
+prÃ©server la qualitÃ© typographique unique de leurs documents, mÃªme sur
 le Web, se tournent vers le format PDF \emph{(Portable Document
-  Format)} qui préserve la mise en page du document et autorise la
+  Format)} qui prÃ©serve la mise en page du document et autorise la
 navigation hypertextuelle. La plupart des navigateurs disposent de
 plus d'extensions pour l'affichage direct de documents PDF.
 
-
-Bien qu'il y ait des visualiseurs DVI et PS pour presque toutes les
-plateformes, vous constaterez qu'\wi{Acrobat Reader} et \wi{Xpdf}, qui
-servent à lire des documents PDF, sont encore plus fréquemment
-déployés\footnote{\url{http://pdfreaders.org}}. Fournir des versions
-PDF de vos documents les rendra donc d'autant plus accessibles à vos
-lecteurs potentiels.
-
-\subsection{Des documents PDF pour le Web}
-
-La création d'un fichier PDF à partir d'une source \LaTeX{} est très
-simple, grâce au programme pdf\TeX{} développé par
-H\`an~Th\'{\^e}~Th\`anh. pdf\TeX{} produit une sortie PDF là où \TeX{}
-produisait une sortie DVI. Il existe aussi pdf\LaTeX{} qui produit une
-sortie PDF à partir de sources \LaTeX{}.
-\index{pdftex@pdf\TeX}
-\index{pdftex@pdf\LaTeX}
-
-pdf\TeX{} et pdf\LaTeX{} sont installés automatiquement par les
-distributions \TeX{} modernes majeures : te\TeX{}, fp\TeX{},
-Mik\TeX, \TeX{}Live et CMac\TeX{}.
-
-Pour produire un fichier PDF au lieu d'un fichier DVI, il suffit de
-remplacer la commande \texttt{latex document.tex} par \texttt{pdflatex
-  document.tex}. Sur les systèmes où \LaTeX{} n'est pas appelé depuis
-la ligne de commande, vous pourrez trouver un bouton à cette fin dans
-l'interface graphique \TeX{}.
-
-Vous pouvez définir le format de papier via une option
-passée à \texttt{documentclass} comme \texttt{a4paper} ou
-\texttt{letterpaper}. Ceci fonctionne également avec pdf\LaTeX{}, mais
-en plus de cela pdf\TeX{} a besoin de connaître le format physique du
-papier pour déterminer la taille réelle des pages dans le fichier pdf.
-\index{format de papier}
-Si vous utilisez l'extension \pai{hyperref} (voir page
-\pageref{ssec:pdfhyperref}), le format de papier sera ajusté
-automatiquement. Sinon vous devrez le spécifier manuellement en
-ajoutant les lignes suivantes en préambule :
-\begin{code}
-\begin{verbatim}
-\pdfpagewidth=\paperwidth
-\pdfpageheight=\paperheight
-\end{verbatim}
-\end{code}
-
-La section suivante précisera plus encore les différences entre
-\LaTeX{} et pdf\LaTeX{}. Les différences principales concernent trois
-domaines : les polices à utiliser, les formats d'images à inclure et
-la configuration manuelle des hyperliens.
-
-\subsection{Les polices}
-
-\wi{pdf\LaTeX} est capable de gérer toutes sortes de polices (PK
-bitmaps, TrueType, \PSi{} type~1\dots) mais le format de police normal
-de \LaTeX{}, les polices bitmap PK, produisent des résultats
-exécrables lorsqu'ils sont affichés avec Acrobat Reader. Il est
-préférable d'utiliser des polices \PSi{} de Type~1 exclusivement pour
-produire des documents au rendu correct. \emph{Les installations
-  modernes de \TeX{} sont réglées pour que ce comportement soit activé
-  automatiquement. Le mieux est d'essayer. Si cela fonctionne pour
-  vous, passez directement à la section suivante.}
-
-L'ensemble de polices de Type 1 la plus utilisée aujourd'hui s'appelle
-Latin Modern (LM). Si vous avez une installation \TeX{} récente, il
-est probable que vous en ayez déjà une copie installée. Tout ce qu'il
-vous reste alors à faire dans ce cas est d'ajouter
-\begin{code}
-\begin{verbatim}  
-\usepackage{lmodern}
-\usepackage[T1]{fontenc} 
-\usepackage{textcomp}
-\end{verbatim}
-\end{code}
-au préambule de votre document et vous êtes parés pour créer d'excellents
-documents PDF avec support complet de l'alphabet latin. Si vous
-travaillez avec une installation \TeX{} réduite, vous aurez peut-être
-à ajouter les polices lm explicitement.
-
-Pour la langue russe, une solution est d'utiliser des
-polices C1 virtuelles disponibles sur
-\texttt{ftp://ftp.vsu.ru/pub/tex/font-packs/c1fonts}. Ces polices
-combinent les polices standard CM type~1 de Bluesky aux polices type~1
-CMCYR des collections Paradissa et BaKoMa, toutes disponibles sur le
-CTAN. Comme les polices Paradissa ne contiennent que des lettres
-russes, il manque aux polices C1 les autres glyphes cyrilliques.
-
-Une autre solution est de passer à d'autres polices \PSi{}
-type~1. Certaines d'entre elles sont même fournies avec chaque copie
-d'Acrobat Reader. Celles-ci ayant des tailles de caractères
-différentes, l'aspect de votre texte sur vos pages sera
-différent. Généralement ces polices utiliseront plus d'espace que les
-polices CM qui sont très efficaces en terme d'occupation d'espace. De
-plus la cohérence visuelle de votre document en souffrira car les
-polices Times, Helvetica et Courier (les premières candidates en lice
-pour un tel changement) n'ont pas été conçues pour fonctionner en
-harmonie dans un seul document.
-
-Deux polices prêtes à l'emploi sont disponibles dans cette optique :
-\pai{pxfonts}, basée sur \emph{Palatino} pour la police du texte
-principal et l'extension \pai{txfonts} basée sur \emph{Times}. Pour
-les utiliser il suffit d'ajouter les lignes suivantes en préambule :
-\begin{code}
-\begin{verbatim}
-\usepackage[T1]{fontenc}
-\usepackage{pxfonts}
-\end{verbatim}
-\end{code}
-
-Il se peut que vous voyiez des lignes comme
-\begin{verbatim}
-Warning: pdftex (file eurmo10): Font eur... not found
-\end{verbatim}
-dans le fichier \texttt{.log} après compilation de votre
-fichier. Elles signifient que l'une des polices utilisées par votre
-document est introuvable. Assurez-vous d'identifier et réparer les
-sections incriminées de votre document,
-car le document PDF résultant pourrait \emph{ne pas afficher du tout
-  les pages contenant les caractères manquants}.
-
-
-\subsection{Images et graphiques}
-\label{ssec:pdfgraph}
-
-Inclure des images dans un document fonctionne mieux avec l'extension
-\pai{graphicx} (voir page~\pageref{eps}).
-\begin{code}
-\begin{verbatim}
-\usepackage{xcolor,graphicx}
-\end{verbatim}
-\end{code}
-L'exemple ci-dessus charge aussi l'extension \pai{xcolor}, puisqu'il est naturel
-d'utiliser de la couleur dans les documents affichés à l'écran.
-
-Voilà pour les bonnes nouvelles. La mauvaise nouvelle est que les
-figures au format \EPSi{} ne fonctionnent \emph{pas} avec pdf\LaTeX{}.
-Si vous ne donnez pas d'extension de fichier dans l'argument de la commande
-\ci{includegraphics}, \pai{graphicx} cherchera lui-même la bonne en
-fonction de l'option de pilote qui lui est passée. Pour
-\texttt{pdftex} ce seront les formats \texttt{.png}, \texttt{.pdf},
-\texttt{.jpg} et \texttt{.mps} (\MP\index{metapost@\MP}), mais
-\emph{sûrement pas} \texttt{.eps}.
-
-La manière la plus simple de résoudre le problème est de convertir
-vos fichiers EPS au format PDF en utilisant l'utilitaire
-\texttt{epstopdf} disponible sur de nombreux systèmes. Pour les images
-vectorielles (dessins) c'est une bonne solution. Pour les formats
-bitmap (photos, numérisations) ce n'est pas l'idéal car le format PDF prend
-nativement en compte l'inclusion d'images PNG et JPEG. PNG est un
-bon format pour les captures d'écran et autres images contenant peu de
-couleurs. JPEG est très bien pour les photos de par l'efficacité de sa
-compression pour ce type d'images.
-
-Pour certaines figures géométriques, il peut même être préférable
-d'utiliser un langage de commandes spécialisé comme
-\MP\index{metapost@\MP}, qui se trouve dans la plupart des
-distributions \TeX{} et est livré avec son manuel détaillé.
+Tous les moteurs \TeX{} modernes sont capables de gÃ©nÃ©rer du PDF
+nativement. Si vous avez lu cette introduction jusqu'ici vous Ãªtes
+dÃ©jÃ  familier du processus.
 
 \subsection{Liens hypertextuels}
 \label{ssec:pdfhyperref}
 
-L'extension \pai{hyperref}\footnote{%
-  Il est ici intéressant de noter que l'extension \pai{hyperref} n'est
-  pas limitée à pdf\TeX{}. Elle peut aussi être configurée pour
-  embarquer des informations spécifiques au format PDF dans la sortie
-  DVI de \LaTeX{}, qui seront insérées dans le fichier PS via
-  \texttt{dvips} et enfin reconnues par l'interpréteur \PSi{} lors de la
-  transformation du fichier PS en PDF.}
-prendra soin de transformer toutes les
-références internes de votre document en hyperliens. Pour que cela
-fonctionne, il faut faire appel à un peu de magie : vous devrez
-ajouter \verb+\usepackage{hyperref}+ en tant que
-\emph{dernière} commande de votre préambule.
+L'extension \pai{hyperref} ajoute deux sympathiques fonctionnalitÃ©s Ã 
+vos fichiers \LaTeX{} en PDF:
+
+\begin{enumerate}
+\item Le format de papier est rÃ©glÃ© selon ce que vous avez spÃ©cifiÃ©
+  dans l'invocation de classe de document
+\item Toutes les rÃ©fÃ©rences de votre document sont transformÃ©es en
+  liens hypertexte.
+\end{enumerate}
+
+Ajoutez simplement \verb+\usepackage[pdftex]{hyperref}+ en tant que
+\emph{derniÃ¨re} commande de votre prÃ©ambule.
+
 De nombreuses options modifient le comportement de l'extension
 \pai{hyperref} :
 \begin{itemize}
-\item soit en tant qu'une liste séparée par des virgules après
+\item soit en tant qu'une liste sÃ©parÃ©e par des virgules aprÃ¨s
   l'option pdftex\\
   \verb+\usepackage{hyperref}+ ;
-\item soit sur des lignes à part avec la commande
+\item soit sur des lignes Ã  part avec la commande
   \verb+\hypersetup{+\emph{options}\verb+}+.
 \end{itemize}
 
-Dans la liste suivante, les valeurs par défaut des options sont
-affichées avec une police droite.
+Dans la liste suivante, les valeurs par dÃ©faut des options sont
+affichÃ©es avec une police droite.
 
 \begin{flushleft}
 \begin{description}
   \item [\texttt{bookmarks (=true,\textit{false})}] montrer ou cacher
     les marque-pages lors de l'affichage du document ;
   \item [\texttt{unicode (=false,\textit{true})}] permettre d'utiliser
-    des caractères non-latins dans les marque-pages du lecteur de PDF ;
+    des caractÃ¨res non-latins dans les marque-pages du lecteur de PDF ;
   \item [\texttt{pdftoolbar (=true,\textit{false})}] montrer ou cacher
     la barre d'outils du lecteur de PDF ;
   \item [\texttt{pdfmenubar (=true,\textit{false})}] montrer ou cacher
     le menu du lecteur de PDF~;
   \item [\texttt{pdffitwindow (=false,\textit{true})}] ajuster le
     grossissement initial lors de l'affichage du fichier PDF ;
-  \item [\texttt{pdftitle (=\{texte\})}] définir le titre affiché dans
-    la fenêtre \texttt{Document Info} du lecteur de PDF ;
+  \item [\texttt{pdftitle (=\{texte\})}] dÃ©finir le titre affichÃ© dans
+    la fenÃªtre \texttt{Document Info} du lecteur de PDF ;
   \item [\texttt{pdfauthor (=\{texte\})}] le nom de l'auteur ;
-  \item [\texttt{pdfnewwindow (=false,\textit{true})}] définir si une
-    nouvelle fenêtre doit être ouverte lorsqu'un lien conduit hors du
+  \item [\texttt{pdfnewwindow (=false,\textit{true})}] dÃ©finir si une
+    nouvelle fenÃªtre doit Ãªtre ouverte lorsqu'un lien conduit hors du
     document courant ;
   \item [\texttt{colorlinks (=false,\textit{true})}] entourer les
-    liens par des liserés colorés (\texttt{false}) ou colorer le texte
+    liens par des liserÃ©s colorÃ©s (\texttt{false}) ou colorer le texte
     des liens (\texttt{true}). La couleur de ces liens peut
-    être configurée via les options suivantes (les couleurs par défaut
-    sont indiquées) :
+    Ãªtre configurÃ©e via les options suivantes (les couleurs par dÃ©faut
+    sont indiquÃ©es) :
     \begin{description}
     \item [\texttt{linkcolor (=red)}] couleur des liens
       internes (sections, pages, etc) ;
@@ -687,12 +428,12 @@ affichées avec une police droite.
     \item [\texttt{filecolor (=magenta)}] couleur des
       liens vers des fichiers ;
     \item [\texttt{urlcolor (=cyan)}] couleur des liens
-      URL (adresse électronique, adresse web).
+      URL (adresse Ã©lectronique, adresse web).
     \end{description}
 \end{description}
 \end{flushleft}
 
-Si les valeurs par défaut vous plaisent, utilisez
+Si les valeurs par dÃ©faut vous plaisent, utilisez
 \begin{code}
 \begin{verbatim}
 \usepackage{hyperref}
@@ -707,10 +448,10 @@ Pour avoir la liste des marque-pages ouverte et des liens en couleur
 \end{verbatim}
 \end{code}
 
-Lors de la création de fichiers PDFs en vue d'impression, les liens
-colorés peuvent finir grisés dans le résultat final, ce qui les rend
-difficiles à lire. Vous pouvez utiliser des liserés colorés qui ne
-seront pas imprimés :
+Lors de la crÃ©ation de fichiers PDFs en vue d'impression, les liens
+colorÃ©s peuvent finir grisÃ©s dans le rÃ©sultat final, ce qui les rend
+difficiles Ã  lire. Vous pouvez utiliser des liserÃ©s colorÃ©s qui ne
+seront pas imprimÃ©s :
 \begin{code}
 \begin{verbatim}
 \usepackage{hyperref}
@@ -742,8 +483,8 @@ Lorsque vous souhaitez simplement fournir des informations en section
 
 \vspace{\baselineskip}
 
-En plus des hyperliens automatiques pour les références croisées, il
-est possible d'insérer des liens explicites via
+En plus des hyperliens automatiques pour les rÃ©fÃ©rences croisÃ©es, il
+est possible d'insÃ©rer des liens explicites via
 \begin{lscommand}
 \ci{href}\verb|{|\emph{url}\verb|}{|\emph{text}\verb|}|
 \end{lscommand}
@@ -755,7 +496,7 @@ Le site web du \href{http://www.ctan.org}{CTAN}.
 \end{verbatim}
 \end{code}
 produit la sortie \og \href{http://www.ctan.org}{CTAN} \fg{}; cliquer
-sur le mot \og \textcolor{magenta}{CTAN} \fg{} vous amènera au site
+sur le mot \og \textcolor{magenta}{CTAN} \fg{} vous amÃ¨nera au site
 web du CTAN.
 
 Si la destination du lien n'est pas une URL mais un fichier local,
@@ -769,8 +510,8 @@ Elle produit le texte \og Le document complet est
 nom de fichier est relatif au document courant).
 
 L'auteur d'un article peut souhaiter que ses lecteurs puissent lui
-envoyer facilement des emails en utilisant la commande \ci{href} à
-l'intérieur de la commande \ci{author} sur la page de titre du
+envoyer facilement des emails en utilisant la commande \ci{href} Ã 
+l'intÃ©rieur de la commande \ci{author} sur la page de titre du
 document :
 \begin{code}
 \begin{verbatim}
@@ -778,14 +519,14 @@ document :
        {mary@oetiker.ch}>
 \end{verbatim}
 \end{code}
-Remarquez que j'ai écrit le lien de manière à ce que mon adresse email
+Remarquez que j'ai Ã©crit le lien de maniÃ¨re Ã  ce que mon adresse email
 apparaisse non seulement dans le lien mais aussi sur la page
-elle-même. J'ai fait cela parce que le lien\\
+elle-mÃªme. J'ai fait cela parce que le lien\\
 \verb+\href{mailto:mary@oetiker.ch}{Mary Oetiker}+,\\
 s'il fonctionnerait bien en listant le PDF, ne serait plus visible une fois
-la page imprimée.
+la page imprimÃ©e.
 
-\subsection{Problème de liens}
+\subsection{ProblÃ¨me de liens}
 
 Des messages tels que celui-ci :
 \begin{verbatim}
@@ -793,42 +534,42 @@ Des messages tels que celui-ci :
   identifier (name{page.1}) has been already used,
   duplicate ignored
 \end{verbatim}
-apparaissent lors de la réinitialisation d'un compteur, par exemple
+apparaissent lors de la rÃ©initialisation d'un compteur, par exemple
 lors de l'utilisation de la commande \ci{mainmatter} fournie par la
-classe de document \texttt{book}. Elle remet à 1 le numéro de page
-page avant le premier chapitre du livre. Cependant, la préface du
-livre a aussi une page numérotée~1 : les liens vers la \og page~1
-\fg{} ne seraient alors plus uniques, d'où l'avertissement \og
+classe de document \texttt{book}. Elle remet Ã  1 le numÃ©ro de page
+page avant le premier chapitre du livre. Cependant, la prÃ©face du
+livre a aussi une page numÃ©rotÃ©e~1 : les liens vers la \og page~1
+\fg{} ne seraient alors plus uniques, d'oÃ¹ l'avertissement \og
 \verb+duplicate+ has been \verb+ignored+ \fg{}.
 
 La contre-mesure consiste en l'ajout de \texttt{plainpages=false} aux
-options d'hyperref. Ça ne résout le problème que pour le compteur de
+options d'hyperref. Ã‡a ne rÃ©sout le problÃ¨me que pour le compteur de
 pages, malheureusement.
 Une solution encore plus radicale est d'utiliser l'option\\
-\texttt{hypertexnames=false} mais cela empêchera les liens de pages en
+\texttt{hypertexnames=false} mais cela empÃªchera les liens de pages en
 index de fonctionner.
 
-\subsection{Problèmes de marque-pages}
+\subsection{ProblÃ¨mes de marque-pages}
 
-Le texte affiché par les marque-pages ne correspond pas toujours à vos
+Le texte affichÃ© par les marque-pages ne correspond pas toujours Ã  vos
 attentes : comme ceux-ci sont \og juste du texte \fg{}, encore moins de
-caractères que pour \LaTeX{} sont disponibles. Hyperref remarquera ce
-type de problème et notifiera un avertissement :
+caractÃ¨res que pour \LaTeX{} sont disponibles. Hyperref remarquera ce
+type de problÃ¨me et notifiera un avertissement :
 \begin{code}
 \begin{verbatim}
-Package hyperref Warning: 
+Package hyperref Warning:
 Token not allowed in a PDFDocEncoded string:
 \end{verbatim}
 \end{code}
-Vous pouvez contourner ce problème en fournissant une chaîne de
-caractères pour les marque-pages pour remplacer le texte à problèmes :
+Vous pouvez contourner ce problÃ¨me en fournissant une chaÃ®ne de
+caractÃ¨res pour les marque-pages pour remplacer le texte Ã  problÃ¨mes :
 \begin{lscommand}
 \ci{texorpdfstring}\verb|{|\emph{Texte \TeX{}}\verb|}{|\emph{Texte de marque-pages}\verb|}|
 \end{lscommand}
 
 
-Les expressions mathématiques sont les coupables idéales pour ce genre
-de problèmes :
+Les expressions mathÃ©matiques sont les coupables idÃ©ales pour ce genre
+de problÃ¨mes :
 \begin{code}
 \begin{verbatim}
 \section{\texorpdfstring{$E=mc^2$}%
@@ -838,88 +579,28 @@ de problèmes :
 transforme \verb+$E=mc^2$+ en \og E=mc**2 \fg{} dans la zone de
 marque-pages.
 
-Si votre document est écrit en Unicode et que vous utilisez l'option
+Si votre document est Ã©crit en Unicode et que vous utilisez l'option
 \verb+unicode+ de l'extension \pai{hyperref}, vous pouvez utiliser des
-caractères Unicode dans les marque-pages. Vous aurez ainsi une bien
-plus grande sélection parmi les caractères utilisables avec
+caractÃ¨res Unicode dans les marque-pages. Vous aurez ainsi une bien
+plus grande sÃ©lection parmi les caractÃ¨res utilisables avec
 \ci{texorpdfstring}.
 
-\subsection{Compatibilité des sources entre \LaTeX{} et pdf\LaTeX{}}
-\label{sec:pdfcompat}
-
-Idéalement vos documents devraient se compiler aussi bien avec
-\LaTeX{} qu'avec pdf\LaTeX{}. Le problème principal ici est
-l'inclusion d'images. La solution simple est de \emph{systématiquement
-omettre} le suffixe de fichier des commandes \ci{includegraphics}. Ils
-chercheront alors un fichier dans un format pris en compte dans le
-répertoire courant. Tout ce que vous avez à faire est créer des
-versions appropriées des images. \LaTeX{} cherchera les fichiers
-\texttt{.eps} et pdf\LaTeX{} s'efforcera d'inclure un fichier au
-suffixe \texttt{.png}, \texttt{.pdf}, \texttt{.jpg} ou \texttt{.mps}
-(dans cet ordre).
-
-
-Pour les occasions où vous voulez utiliser un code différent pour la
-version PDF de votre document, vous pouvez ajouter l'extension
-\pai{ifpdf}%
-\footnote{Pour le pourquoi de l'utilisation de cette extension,
-  consultez la FAQ \TeX{} (en anglais) à la page\\
-  \url{http://www.tex.ac.uk/cgi-bin/texfaq2html?label=ifpdf}.}
-en préambule. Il y a des chances qu'elle soit déjà installée ; si ce
-n'est pas le cas alors vous utilisez probablement MiK\TeX{} qui
-l'installera de lui-même lorsque vous l'utiliserez pour la première
-fois. Cette extension définit la commande spéciale \ci{ifpdf} qui
-permet d'écrire du code conditionnel aisément. Dans l'exemple suivant,
-nous voulons que la version \PSi{} soit en noir et blanc à cause
-des coûts d'impression, mais nous voulons quand même que la version
-PDF en ligne soit colorée.
-\begin{code}
-\begin{verbatim}
-\RequirePackage{ifpdf} % Production d'un PDF ?
-\documentclass[a4paper,12pt]{book}
-\usepackage[latin1]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage[bookmarks, % ajout d'hyperliens
-            colorlinks,
-            plainpages=false]{hyperref}
-\usepackage{graphicx}
-\ifpdf
-  \hypersetup{linkscolor=blue}
-\else
-  \hypersetup{linkscolors=black}
-\fi
-\usepackage[english]{babel}
-...
-\end{verbatim}
-\end{code}
-L'exemple ci-dessus fait inclure l'extension \pai{hyperref} même dans la
-version non-PDF, ceci afin de faire fonctionner la commande \ci{href}
-dans tous les cas. Cela évite de devoir protéger chacune de ses
-occurrences par une structure conditionnelle.
-
-Remarquez que dans les distributions \TeX{} récentes (comme \TeX{}Live,
-Mac\TeX{} et MiK\TeX), le programme \TeX{} par défaut est en fait pdf\TeX{}.
-Il s'adaptera automatiquement à la production de pdf ou de dvi en fonction de
-la façon dont vous l'appelez : utilisez la commande \verb|pdflatex| pour
-obtenir une sortie pdf et \verb|latex| pour une sortie dvi.
-
-\section{Utiliser \hologo{XeLaTeX}}
+\section{Utiliser \hologo{XeLaTeX} et PDF}
 \label{sec:xetex}\index{PDF}\index{XeTeX@\hologo{XeTeX}}\index{XeLaTeX@\hologo{XeLaTeX}}
 
 \secby{Axel Kielhorn}{A.Kielhorn@web.de}%
 
-La plupart des propos applicables à pdf\LaTeX\ sont également valides
+La plupart des propos de la prÃ©cÃ©dente section sont Ã©galement valides
 pour \hologo{XeLaTeX}.
 
-Le Wiki situé sur le site \url{http://wiki.xelatex.org/doku.php}
+Le Wiki situÃ© sur le site \url{http://wiki.xelatex.org/doku.php}
 rassemble les informations concernant \hologo{XeTeX} et \hologo{XeLaTeX}.
 
 \subsection{Les polices}
 
-En plus des polices usuelles basées sur \texttt{tfm}, \hologo{XeLaTeX}
-sait utiliser toute police connue du système d'exploitation. Supposons
-que les polices \texttt{Linux Libertine} soient installées, vous
+En plus des polices usuelles basÃ©es sur \texttt{tfm}, \hologo{XeLaTeX}
+sait utiliser toute police connue du systÃ¨me d'exploitation. Supposons
+que les polices \texttt{Linux Libertine} soient installÃ©es, vous
 pouvez les utiliser via la commande
 \begin{code}
 \begin{verbatim}
@@ -928,23 +609,23 @@ pouvez les utiliser via la commande
 \end{verbatim}
 \end{code}
 %
-ajoutée dans le préambule. La détection des versions italique et
-grasse de la police devrait également être effective, ainsi
+ajoutÃ©e dans le prÃ©ambule. La dÃ©tection des versions italique et
+grasse de la police devrait Ã©galement Ãªtre effective, ainsi
 \verb|\textit| et \verb|\textbf| fonctionneront comme de
 coutume. Lorsque la police utilise la technologie OpenType, vous avez
-accès à de nombreuses fonctionnalités qui nécessitaient naguère le
-passage à une autre police ou l'utilisation de polices virtuelles. La
-fonctionnalité principale est l'obtention d'un ensemble de caractères
-étendu : une police peut contenir des caractères latins, grecs et
+accÃ¨s Ã  de nombreuses fonctionnalitÃ©s qui nÃ©cessitaient naguÃ¨re le
+passage Ã  une autre police ou l'utilisation de polices virtuelles. La
+fonctionnalitÃ© principale est l'obtention d'un ensemble de caractÃ¨res
+Ã©tendu : une police peut contenir des caractÃ¨res latins, grecs et
 cyrilliques ainsi que les ligatures correspondantes.
 
-%SC: Pas sûr de la traduction de "lower case" pour des chiffres, ça
-%fait penser au vieux style de chiffres à la française
+%SC: Pas sÃ»r de la traduction de "lower case" pour des chiffres, Ã§a
+%fait penser au vieux style de chiffres Ã  la franÃ§aise
 De nombreuses polices contiennent au moins deux types de chiffres,
-ceux à l'alignement normal et ceux en style ancien (ou en minuscules)
-qui s'étendent partiellement en dessous de la ligne. Elles peuvent
-contenir des chiffres proportionnés (le \og 1 \fg prend moins de place
-que le \og 0 \fg) ou à espacement fixe mieux adaptés pour des tableaux.
+ceux Ã  l'alignement normal et ceux en style ancien (ou en minuscules)
+qui s'Ã©tendent partiellement en dessous de la ligne. Elles peuvent
+contenir des chiffres proportionnÃ©s (le \og 1 \fg prend moins de place
+que le \og 0 \fg) ou Ã  espacement fixe mieux adaptÃ©s pour des tableaux.
 
 \begin{code}
 \begin{verbatim}
@@ -957,7 +638,7 @@ que le \og 0 \fg) ou à espacement fixe mieux adaptés pour des tableaux.
 
 Presque toutes les polices OpenType contiennent les ligatures standard
 (fl fi ffi) mais il existe aussi des ligatures rares ou historiques
-comme st, ct et tz. Si leur utilité dans un rapport technique est
+comme st, ct et tz. Si leur utilitÃ© dans un rapport technique est
 discutable, elles ont leur place dans un roman. Pour activer ces
 ligatures utilisez l'une des commandes suivantes :
 
@@ -971,8 +652,8 @@ ligatures utilisez l'une des commandes suivantes :
 
 Toutes les polices ne contiennent pas les deux ensembles de ligatures,
 aussi consultez la documentation de la police ou essayez-la
-directement. Parfois ces ligatures dépendent du langage utilisé, par
-exemple la ligature (fk), inconnue en français, est utilisée en
+directement. Parfois ces ligatures dÃ©pendent du langage utilisÃ©, par
+exemple la ligature (fk), inconnue en franÃ§ais, est utilisÃ©e en
 polonais. Il vous faudra ajouter
 \begin{code}
 \begin{verbatim}
@@ -982,13 +663,13 @@ polonais. Il vous faudra ajouter
 pour activer les ligatures polonaises.
 
 Certaines polices (comme la police commerciale Adobe Garamond Premier
-Pro) contiennent aussi des glyphes alternatifs activés par défaut dans
+Pro) contiennent aussi des glyphes alternatifs activÃ©s par dÃ©faut dans
 le \hologo{XeLaTeX} fourni avec \TeX Live~2010\footnote{Ce
-  comportement n'était pas présent car désactivé par défaut dans des
-  versions précédentes.}. Le résultat de son utilisation est par
-exemple un \og Q \fg majuscule stylisé dont la queue rejoint par
-en-dessous le \og u \fg qui suit. Pour désactiver cette fonctionnalité,
-vous devrez définir la police sans les traitements contextuels :
+  comportement n'Ã©tait pas prÃ©sent car dÃ©sactivÃ© par dÃ©faut dans des
+  versions prÃ©cÃ©dentes.}. Le rÃ©sultat de son utilisation est par
+exemple un \og Q \fg majuscule stylisÃ© dont la queue rejoint par
+en-dessous le \og u \fg qui suit. Pour dÃ©sactiver cette fonctionnalitÃ©,
+vous devrez dÃ©finir la police sans les traitements contextuels :
 
 \begin{code}
 \begin{verbatim}
@@ -996,85 +677,86 @@ vous devrez définir la police sans les traitements contextuels :
 \end{verbatim}
 \end{code}
 
-Pour en savoir plus sur les polices et \hologo{XeLaTeX}, référez-vous
+Pour en savoir plus sur les polices et \hologo{XeLaTeX}, rÃ©fÃ©rez-vous
 au manuel de \pai{fontspec}.
 
-\subsubsection{Où se procurer des polices OpenType ?}
+\subsubsection{OÃ¹ se procurer des polices OpenType ?}
 
-Si \texttt{TeXLive} est installé, vous en avez quelques-unes à
+Si \texttt{TeXLive} est installÃ©, vous en avez quelques-unes Ã 
 disposition dans \url{.../texmf-dist/fonts/opentype} : il ne vous
-reste plus qu'à les installer dans votre système d'exploitation. Cette
+reste plus qu'Ã  les installer dans votre systÃ¨me d'exploitation. Cette
 collection ne comprend pas \texttt{DejaVu}, qui elle est disponible
 sur le site \url{http://dejavu-fonts.org/}.
 
-Assurez-vous que chacune des polices n'est bien installée \emph{qu'une
-seule fois}, sinon vous obtiendrez des résultats au mieux \og
-intéressants \fg.
+Assurez-vous que chacune des polices n'est bien installÃ©e \emph{qu'une
+seule fois}, sinon vous obtiendrez des rÃ©sultats au mieux \og
+intÃ©ressants \fg.
 
-Vous pouvez utiliser toute police installée sur votre ordinateur,
-rappelez-vous cependant que d'autres utilisateurs ne les ont peut-être
-pas. Par exemple, la police Zapfino utilisée dans le manuel de
-\pai{fontspec} existe sous Mac OSX mais pas sous Windows.\footnote{À
-  noter qu'une version commerciale appelée Zapfino Extra existe.}
+Vous pouvez utiliser toute police installÃ©e sur votre ordinateur,
+rappelez-vous cependant que d'autres utilisateurs ne les ont peut-Ãªtre
+pas. Par exemple, la police Zapfino utilisÃ©e dans le manuel de
+\pai{fontspec} existe sous Mac OSX mais pas sous Windows.\footnote{Ã€
+  noter qu'une version commerciale appelÃ©e Zapfino Extra existe.}
 
-\subsubsection{Saisie de caractères Unicode}
+\subsubsection{Saisie de caractÃ¨res Unicode}
 
-Le nombre de caractères dans une police a assurément augmenté, mais ce
+Le nombre de caractÃ¨res dans une police a assurÃ©ment augmentÃ©, mais ce
 n'est pas le cas du nombre de touches des claviers. Comment, alors,
-saisir des caractères non-ASCII ?
+saisir des caractÃ¨res non-ASCII ?
 
-Si vous écrivez beaucoup de texte dans une autre langue, vous pouvez
+Si vous Ã©crivez beaucoup de texte dans une autre langue, vous pouvez
 installer un clavier pour ce langage et imprimer les positions des
-caractères (la plupart des systèmes d'exploitation ont une forme ou
-une autre de clavier virtuel, il suffit de faire une copie d'écran).
+caractÃ¨res (la plupart des systÃ¨mes d'exploitation ont une forme ou
+une autre de clavier virtuel, il suffit de faire une copie d'Ã©cran).
 
-Si vous n'avez pas souvent besoin de caractères exotiques, vous pouvez
-simplement le choisir dans la palette des caractères.
+Si vous n'avez pas souvent besoin de caractÃ¨res exotiques, vous pouvez
+simplement le choisir dans la palette des caractÃ¨res.
 
-Certains environnements (comme p.e. le système X Window) offrent des
-méthodes spécifiques pour entrer des caractères non-ASCII. Il en va de
-même de certains éditeurs (comme Vim et Emacs). Consultez les
+Certains environnements (comme p.e. le systÃ¨me X Window) offrent des
+mÃ©thodes spÃ©cifiques pour entrer des caractÃ¨res non-ASCII. Il en va de
+mÃªme de certains Ã©diteurs (comme Vim et Emacs). Consultez les
 documentations des outils que vous utilisez.
 
-\subsection{Compatibilité entre \hologo{XeLaTeX} et \hologo{pdfLaTeX}}
+\subsection{CompatibilitÃ© entre \hologo{XeLaTeX} et \hologo{pdfLaTeX}}
 \label{sec:comp-entre-holog}
 
-Certaines différences existent entre \hologo{XeLaTeX} et
+Certaines diffÃ©rences existent entre \hologo{XeLaTeX} et
 \hologo{pdfLaTeX}.
 
 \begin{itemize}
-\item Un document \hologo{XeLaTeX} doit être écrit en Unicode (UTF-8)
+\item Un document \hologo{XeLaTeX} doit Ãªtre Ã©crit en Unicode (UTF-8)
   alors qu'un document \hologo{pdfLaTeX} peut utiliser d'autres types
   de codages.
 \item L'extension \pai{microtype} ne fonctionne pas encore avec
-  \hologo{XeLaTeX} et le support pour la saillie de caractères
+  \hologo{XeLaTeX} et le support pour la saillie de caractÃ¨res
   (technique connue sous le nom de \og character protrusion \fg en
-  anglais) est en cours de développement.
-\item Tout ce qui a trait aux polices doit être vérifié (sauf si vous
-  vous cantonnez à la police Latin Modern).
+  anglais) est en cours de dÃ©veloppement.
+\item Tout ce qui a trait aux polices doit Ãªtre vÃ©rifiÃ© (sauf si vous
+  vous cantonnez Ã  la police Latin Modern).
 \end{itemize}
 
 
-\section{Créer des présentations}
+\section{CrÃ©er des prÃ©sentations}
 \label{sec:beamer}
 \secby{Daniel Flipo}{Daniel.Flipo@univ-lille1.fr}
-Vous pouvez présenter les résultats de vos travaux sur un tableau
+Vous pouvez prÃ©senter les rÃ©sultats de vos travaux sur un tableau
 noir, avec des transparents ou directement depuis votre ordinateur
-portable grâce à un logiciel de présentation.
+portable grÃ¢ce Ã  un logiciel de prÃ©sentation.
 
-\wi{pdf\LaTeX} combiné à la classe \pai{beamer} permettent la création
-de présentations en PDF très semblables à ce que vous feriez avec
+\wi{pdf\LaTeX} combinÃ© Ã  la classe \pai{beamer} permettent la crÃ©ation
+de prÃ©sentations en PDF trÃ¨s semblables Ã  ce que vous feriez avec
 LibreOffice ou PowerPoint dans un bon jour, mais bien plus portable
-puisque des lecteurs PDF sont disponibles sur bien plus de systèmes.
+puisque des lecteurs PDF sont disponibles sur bien plus de systÃ¨mes.
 
 La classe \pai{beamer} utilise \pai{graphicx}, \pai{color} et
-\pai{hyperref} avec des options adaptées aux présentations sur
-écrans.
-%La figure~\ref{fig:pdfscr} contient un exemple de fichier minimal à
-%compiler avec \wi{pdf\LaTeX} et le 
-%résultat produit.
+\pai{hyperref} avec des options adaptÃ©es aux prÃ©sentations sur
+Ã©crans.
+%SC: this comment does not serve any purpose anymore and should be removed from fr and eng versions
+%La figure~\ref{fig:pdfscr} contient un exemple de fichier minimal Ã 
+%compiler avec \wi{pdf\LaTeX} et le
+%rÃ©sultat produit.
 
-% Écran capturé par ImageMagick (man ImageMagick) fonction « import »
+% Ã‰cran capturÃ© par ImageMagick (man ImageMagick) fonction Â« import Â»
 % et convertie en jpg toujours par ImageMagick.
 
 
@@ -1087,7 +769,7 @@ La classe \pai{beamer} utilise \pai{graphicx}, \pai{color} et
             right,width=22mm]{Goettingen}
 }
 
-\title{Une simple présentation}
+\title{Une simple prÃ©sentation}
 \author[D. Flipo]{Daniel Flipo}
 \institute{U.S.T.L. \& GUTenberg}
 \titlegraphic{\includegraphics[width=20mm]{USTL}}
@@ -1102,7 +784,7 @@ La classe \pai{beamer} utilise \pai{graphicx}, \pai{color} et
 \section{Un exemple}
 
 \begin{frame}
-  \frametitle{Choses à faire un dimanche après-midi}
+  \frametitle{Choses Ã  faire un dimanche aprÃ¨s-midi}
   \begin{block}{On peut \ldots}
     \begin{itemize}
       \item sortir le chien\dots \pause
@@ -1118,95 +800,95 @@ La classe \pai{beamer} utilise \pai{graphicx}, \pai{color} et
   \label{fig:code-beamer}
 \end{figure}
 
-À la compilation du code de la figure~\ref{fig:code-beamer}
-\footnote{Attention, l'exemple suppose un codage d'entrée en
+Ã€ la compilation du code de la figure~\ref{fig:code-beamer}
+\footnote{Attention, l'exemple suppose un codage d'entrÃ©e en
   utf8, voyez la ligne d'appel de l'extension \texttt{inputenc}. \NdT}
 avec \wi{pdf\LaTeX}, vous obtiendrez un fichier avec une page de titre
-et une deuxième page dont les points seront révélés un à un lorsque
-vous avancez dans la présentation.
+et une deuxiÃ¨me page dont les points seront rÃ©vÃ©lÃ©s un Ã  un lorsque
+vous avancez dans la prÃ©sentation.
 
-Un avantage notable de la classe beamer est sa capacité à produire un
-fichier PDF utilisable directement sans avoir à passer par une étape
+Un avantage notable de la classe beamer est sa capacitÃ© Ã  produire un
+fichier PDF utilisable directement sans avoir Ã  passer par une Ã©tape
 \PSi{} comme avec \pai{prosper} ou sans demander un post-traitement
-comme les présentations créées avec l'extension \pai{ppower4}.
+comme les prÃ©sentations crÃ©Ã©es avec l'extension \pai{ppower4}.
 
 Avec la classe \pai{beamer} vous pouvez produire plus versions (modes)
-de votre document à partir de votre fichier d'entrée. Celui-ci peut
-contenir des instructions spéciales pour les différents modes entre
+de votre document Ã  partir de votre fichier d'entrÃ©e. Celui-ci peut
+contenir des instructions spÃ©ciales pour les diffÃ©rents modes entre
 chevrons (crochets obliques \verb|<| et \verb|>|). Les modes suivants
 sont disponibles :
 \begin{description}
-\item[beamer] pour une présentation PDF comme au-dessus ;
+\item[beamer] pour une prÃ©sentation PDF comme au-dessus ;
 \item[trans] pour les transparents ;
-\item[handout] pour la version imprimée.
+\item[handout] pour la version imprimÃ©e.
 \end{description}
-Le mode par défaut est \texttt{beamer}. Vous pouvez le changer via les
+Le mode par dÃ©faut est \texttt{beamer}. Vous pouvez le changer via les
 options globales de la classe, comme
 \verb|\documentclass[10pt,handout]{beamer}| pour obtenir les notes
-associées.
+associÃ©es.
 
-L'aspect de la présentation dépend du thème choisi. Vous pouvez soit
-utiliser les thèmes livrés avec la classe beamer, soit en créer
+L'aspect de la prÃ©sentation dÃ©pend du thÃ¨me choisi. Vous pouvez soit
+utiliser les thÃ¨mes livrÃ©s avec la classe beamer, soit en crÃ©er
 un. Pour plus d'information, voyez la documentation dans
 \texttt{beameruserguide.pdf}.
 
 Observons maintenant le code de la figure~\ref{fig:code-beamer} de
-plus près.
+plus prÃ¨s.
 
-Pour la version à l'écran de la présentation (\verb|\mode<beamer>|) nous
-avons choisi le thème \emph{Goettingen}. Celui-ci propose un panneau
-de navigation intégré à la table des matières. Les options nous permettent
+Pour la version Ã  l'Ã©cran de la prÃ©sentation (\verb|\mode<beamer>|) nous
+avons choisi le thÃ¨me \emph{Goettingen}. Celui-ci propose un panneau
+de navigation intÃ©grÃ© Ã  la table des matiÃ¨res. Les options nous permettent
 de choisir la taille de ce panneau (22~mm dans notre cas) et sa
-position (à droite du corps du texte). L'option
+position (Ã  droite du corps du texte). L'option
 \emph{hideothersubsections} montre les titres de sections, mais
 uniquement les sous-sections de la section en cours. Il n'y a pas
-d'autre réglage spécifique pour \verb|\mode<trans>| et
-\verb|\mode<handout>|, ils apparaîtront selon leur mise en page
+d'autre rÃ©glage spÃ©cifique pour \verb|\mode<trans>| et
+\verb|\mode<handout>|, ils apparaÃ®tront selon leur mise en page
 usuelle.
 
 Les commandes \verb|\title{}|, \verb|\author{}|, \verb|\institute{}|,
 et\\ \verb|\titlegraphic{}| permettent de remplir la page de titre. Les
 arguments optionnels de \verb|\title[]{}| et \verb|\author[]{}|
-servent à spécifier une version spéciale du titre et de l'auteur
-(respectivement) qui apparaîtront sur le panneau fourni par le thème
+servent Ã  spÃ©cifier une version spÃ©ciale du titre et de l'auteur
+(respectivement) qui apparaÃ®tront sur le panneau fourni par le thÃ¨me
 \emph{Goettingen}.
 
 Les titres et sous-titres du panneau proviennent de l'utilisation des
 commandes usuelles \verb|\section{}| et
-\verb|\subsection{}|. Celles-ci doivent être placées \emph{en dehors}
+\verb|\subsection{}|. Celles-ci doivent Ãªtre placÃ©es \emph{en dehors}
 de l'environnement \ei{frame}.
 
-Les petites icônes de navigation au bas de l'écran permettent elles
-aussi de naviguer dans le document. Leur présence n'est pas dépendante
-du thème choisi.
+Les petites icÃ´nes de navigation au bas de l'Ã©cran permettent elles
+aussi de naviguer dans le document. Leur prÃ©sence n'est pas dÃ©pendante
+du thÃ¨me choisi.
 
-Le contenu de chaque transparent ou chaque écran doit être placé dans
+Le contenu de chaque transparent ou chaque Ã©cran doit Ãªtre placÃ© dans
 un environnement \ei{frame}. L'option entre chevrons ((\verb|<| et
 \verb|>|) nous permet de supprimer un cadre en particulier de l'une des
-versions de la présentation. Dans notre exemple, la première page
-n'apparaîtra pas dans la version imprimée à cause de l'option
+versions de la prÃ©sentation. Dans notre exemple, la premiÃ¨re page
+n'apparaÃ®tra pas dans la version imprimÃ©e Ã  cause de l'option
 \verb|<handout:0>|.
 
-Il est particulièrement recommandé de donner un titre à chaque
+Il est particuliÃ¨rement recommandÃ© de donner un titre Ã  chaque
 transparent, en plus du transparent de titre. Ce titre est fourni via
 la commande \verb|\frametitle{}|. Pour obtenir un sous-titre,
 utilisez \verb|\framesubtitle{}| ou une commande \ei{block} comme dans
-l'exemple. Remarquez également que le contenu des commandes \verb|\section{}|
-et \verb|\subsection{}| n'apparaît pas sur le transparent.
+l'exemple. Remarquez Ã©galement que le contenu des commandes \verb|\section{}|
+et \verb|\subsection{}| n'apparaÃ®t pas sur le transparent.
 
 La commande \verb|\pause| dans l'environnement itemize fait que les points
-vont se révéler un à un. D'autres effets de présentations sont
+vont se rÃ©vÃ©ler un Ã  un. D'autres effets de prÃ©sentations sont
 disponibles via les commandes \verb|\only|, \verb|\uncover|,
 \verb|\alt| et \verb|\temporal|. Vous pouvez aussi utiliser les
-chevrons à de nombreux endroits pour personnaliser encore plus votre
-présentation.
+chevrons Ã  de nombreux endroits pour personnaliser encore plus votre
+prÃ©sentation.
 
 Dans tous les cas, nous vous recommandons fortement de lire la
 documentation de la classe beamer \texttt{beameruserguide.pdf} pour
-tout savoir sur les possibilités non évoquées ici. Cette classe est
-développée activement, consultez son site
+tout savoir sur les possibilitÃ©s non Ã©voquÃ©es ici. Cette classe est
+dÃ©veloppÃ©e activement, consultez son site
 (\url{http://latex-beamer.sourceforge.net/})
-pour plus d'informations récentes.
+pour plus d'informations rÃ©centes.
 
 
 

@@ -1,7 +1,7 @@
-% Préambule pour lshort-fr (encodé en latin1) [[
-% D'après lshort.sty par Tobias Oetiker
-% Modifié par Matthieu Herrb pour le français
-% Modifié un peu plus par Manuel Pégourié-Gonnard.
+% PrÃ©ambule pour lshort-fr (encodÃ© en latin1) [[
+% D'aprÃ¨s lshort.sty par Tobias Oetiker
+% ModifiÃ© par Matthieu Herrb pour le franÃ§ais
+% ModifiÃ© un peu plus par Manuel PÃ©gouriÃ©-Gonnard.
 %
 % Pour les informations de licence, voir contrib.tex.
 % See contrib.tex for licence information. ]]
@@ -32,7 +32,7 @@
 \RequirePackage[all]{xy}
 \RequirePackage{makeidx} \makeindex
 
-% symboles variées (flèches, euros) [[1
+% symboles variÃ©es (flÃ¨ches, euros) [[1
 %
 % need some magic here to keep the original definition of rightarrow
 \newcommand\org@Rightarrow{}
@@ -51,28 +51,28 @@
 \let\EURcr\undefined
 % \RequirePackage{europs}
 
-% trucs à charger vers la fin avec babel [[1
+% trucs Ã  charger vers la fin avec babel [[1
 %
 \RequirePackage[expansion=false, babel=true]{microtype}
 \RequirePackage[autolanguage]{numprint}
 \RequirePackage[german, english, frenchb]{babel}
 \RequirePackage[colorlinks, hyperindex, plainpages=false]{hyperref}
 
-% réglages de babel (nécessite la version 2 de frenchb.ldf) [[1
+% rÃ©glages de babel (nÃ©cessite la version 2 de frenchb.ldf) [[1
 %
 \frenchbsetup{%
   AutoSpacePunctuation=false,
-  og=«, fg=»,
+  og=Â«, fg=Â»,
   ThinSpaceInFrenchNumbers=true}
-% si jamais je saisis des espaces insécables, les ignorer
-\catcode`\ 10 % c'est un insécable là
+% si jamais je saisis des espaces insÃ©cables, les ignorer
+\catcode`\Â 10 % c'est un insÃ©cable lÃ 
 
-% quelques ajouts liés à xspace [[1
+% quelques ajouts liÃ©s Ã  xspace [[1
 %
 \newcommand\addxsp@ce[2]{%
   \let#1#2%
   \renewcommand#2{#1\xspace}}
-\newcommand\addxspace[1]{% % ajouter \xspace à la fin de commandes existantes
+\newcommand\addxspace[1]{% % ajouter \xspace Ã  la fin de commandes existantes
   \@tfor\@gtempa:=#1\do{%
     \begingroup\escapechar\m@ne\expandafter\endgroup
     \expandafter\addxsp@ce
@@ -111,14 +111,14 @@
   \renewcommand\footrulewidth{0pt}
   }
 
-% livres couramment cités [[1
+% livres couramment citÃ©s [[1
 %
 \newcommand\manual{%
   \emph{\LaTeX{} Manual}~\cite{manual}\xspace} 
 \newcommand\companion{%
   \emph{The \LaTeX{} Companion}~\cite{companion}\xspace}
 \newcommand\desgraupes{%
-  \emph{\LaTeX{}, Apprentissage, guide et référence}~\cite{desgraupes}\xspace}
+  \emph{\LaTeX{}, Apprentissage, guide et rÃ©fÃ©rence}~\cite{desgraupes}\xspace}
 \newcommand\guide{%
   \emph{Local Guide}~\cite{local}\xspace}
 
@@ -203,16 +203,16 @@
 
 % Fancyvrb General [[1
 %
-{\catcode`\¡\active \makeatletter
+{\catcode`\Â¡\active \makeatletter
   \newcommandx\mkfvindex[0][addprefix=\global]{%
-    \catcode`\¡\active
-    \def¡##1¡{%
+    \catcode`\Â¡\active
+    \defÂ¡##1Â¡{%
       \expandafter\ci\expandafter{\@gobble##1}}}}
-{\catcode`\«\active \catcode`\»\active
+{\catcode`\Â«\active \catcode`\Â»\active
   \newcommandx\mkfvog[0][addprefix=\global]{%
-    \catcode`\«\active \catcode`\»\active
-    \def«##1»{{\normalfont\itshape##1}}}}
-\DefineShortVerb\©
+    \catcode`\Â«\active \catcode`\Â»\active
+    \defÂ«##1Â»{{\normalfont\itshape##1}}}}
+\DefineShortVerb\Â©
 \fvset{gobble=2}
 
 % Typesetting Commands [[1
@@ -241,7 +241,7 @@
     \BUseVerbatim{verbmat}
   \end{quote}}
 
-% Exemple : recopié texto de lshort.sty [[1
+% Exemple : recopiÃ© texto de lshort.sty [[1
 %
 % --- example ----
 % This is an environment to set LaTeX examples.
@@ -374,7 +374,7 @@
   \clearpage\if@twoside \ifodd\c@page\else
   \hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
 
-% sections au fer à gauche [[1
+% sections au fer Ã  gauche [[1
 %
 \renewcommand\section{%
   \@startsection {section}{1}{\z@}%
@@ -399,7 +399,7 @@
   \renewcommand\makelabel[1]{%
     {\hspace\labelsep \normalfont#2##1#1}}}
 
-% trucs à moi, divers [[1
+% trucs Ã  moi, divers [[1
 %
 \newcommand\NdT{%
   \unskip~(NdT)}

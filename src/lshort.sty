@@ -4,10 +4,22 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % By Tobias Oetiker
 % Modified by Matthieu Herrb to handle the french extension
-% With further modifications/additions by Manuel Pégourié-Gonnard
+% With further modifications/additions by Manuel PÃ©gouriÃ©-Gonnard
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\errorcontextlines=10
-
+\usepackage{iftex}
+\ifPDFTeX
+   \RequirePackage[utf8]{inputenc}
+   \RequirePackage[T1]{fontenc}
+   \RequirePackage{lmodern}
+\else
+   \ifXeTeX
+     \RequirePackage{fontspec}
+   \else
+     \RequirePackage{luatextra}
+   \fi
+   \defaultfontfeatures{Ligatures=TeX}
+\fi
 %save pageref an label
 \let\lsspageref=\pageref
 \ProvidesPackage{lshort}
@@ -33,14 +45,11 @@
 \RequirePackage{calc}
 \RequirePackage{lastpage}
 \RequirePackage{amsmath,latexsym,amsthm}
-\RequirePackage[retainorgcmds]{IEEEtrantools}
+\RequirePackage{IEEEtrantools}
 \RequirePackage[psamsfonts]{amssymb}
 \RequirePackage{cmmib57}% Use blueSky cmmib5 cmmib7 cmsy
 \RequirePackage[all]{xy}
-\RequirePackage[T1]{fontenc}
-\RequirePackage[latin1]{inputenc}
-\RequirePackage{lmodern}
-\RequirePackage[babel=true,kerning=true]{microtype}
+%\RequirePackage[babel=true,kerning=true]{microtype}
 % For just a command below
 \RequirePackage{ifmtarg}
 %\RequirePackage{textcomp}
@@ -81,8 +90,10 @@
 \rhead[\fancyplain{}{\bfseries\leftmark}]
     {\fancyplain{}{\bfseries\thepage}}
 \cfoot[]{}
-\RequirePackage{pgfbaseplot}
+% \RequirePackage{pgfbaseplot}
 \RequirePackage{tikz}
+\RequirePackage{pgf}
+\usepgfmodule{plot}
 \usetikzlibrary{%
   arrows,%
   calc,%
@@ -127,15 +138,16 @@
 % Adapted from TeX FAQ
 \renewcommand{\Email}{\begingroup \def\UrlLeft{<}\def\UrlRight{>} \urlstyle{tt}\Url}     % email address
 \def\mailto|#1|{\href{mailto:#1}{\Email|#1|}}        % url to mail somewhere
-\newcommand{\CTANref}{\begingroup \urlstyle{tt}\Url}     % 
-\def\CTAN|#1|{\href{http://www.ctan.org/tex-archive/#1}{\CTANref|CTAN://#1|}}  
+%\newcommand{\CTANref}{\begingroup \urlstyle{tt}\Url}     %
+\newcommand{\CTANref}{\begingroup \urlstyle{tt}\Url}     %
+\def\CTAN|#1|{\href{http://www.ctan.org/tex-archive/#1}{\CTANref|CTAN://#1|}}
 \newcommand\Newsgroup{\begingroup \urlstyle{tt}\Url} % newsgroup
 \let\URL\url                                         % just a URL
 
 \newcommand{\PSi}{\textsc{PostScript}\index{PostScript@\textsc{PostScript}}}
-\newcommand{\EPSi}{\textsc{PostScript} encapsulé%
-\index{PostScript encapsule@\textsc{PostScript} encapsulé}%
-\index{PostScript@\textsc{PostScript}!encapsulé}%
+\newcommand{\EPSi}{\textsc{PostScript} encapsulÃ©%
+\index{PostScript encapsule@\textsc{PostScript} encapsulÃ©}%
+\index{PostScript@\textsc{PostScript}!encapsulÃ©}%
 }
 
 % Earlier paragraphs were separated by some space
@@ -143,9 +155,9 @@
 %\setlength{\parindent}{0pt}
 %\setlength{\parskip}{1.5ex plus 0.7ex minus 0.6ex}
 
-\newcommand{\manual}{\emph{\LaTeX{} Manual}~\cite{manual}} 
-\newcommand{\companion}{\emph{le \LaTeX{} Companion}~\cite{companion}} 
-\newcommand{\desgraupes}{\emph{\LaTeX{}, apprentissage, guide et référence}~\cite{desgraupes}}
+\newcommand{\manual}{\emph{\LaTeX{} Manual}~\cite{manual}}
+\newcommand{\companion}{\emph{le \LaTeX{} Companion}~\cite{companion}}
+\newcommand{\desgraupes}{\emph{\LaTeX{}, apprentissage, guide et rÃ©fÃ©rence}~\cite{desgraupes}}
 \newcommand{\guide}{\emph{Local Guide}~\cite{local}}
 \newcommand{\contrib}[3]{#1\quad\mailto|#2|{\small\\\quad\textit{#3}}\\[1ex]}
 %
@@ -158,7 +170,7 @@
 % Index entry for a command (\cih for hidden command index
 \newcommand{\eei}[1]{%
 \index{extension!\texttt{#1}}\texttt{#1}}
-% probably add handling of period like handling of \ in \ci 
+% probably add handling of period like handling of \ in \ci
 \newcommand{\fni}[1]{%
 \index{font!#1@\texttt{\bs#1}}%
 \index{#1@\texttt{\hspace*{-1.2ex}\bs #1}}\texttt{\bs #1}}
@@ -202,7 +214,7 @@
 %
 \newcommand{\secby}[2]{\nopagebreak\par\addvspace{-1.5ex}%
      \vskip -\parskip\noindent{\tiny Par #1 \mailto|#2|}\par\nopagebreak%
-     \addvspace{1ex plus 0.8ex minus 0.2ex}% 
+     \addvspace{1ex plus 0.8ex minus 0.2ex}%
      \vskip -\parskip\noindent\ignorespaces}
 %
 % propper bookmark entries in pdftex
@@ -219,16 +231,16 @@
 %
 % Symbol Entry for Math Symbol Tables
 %
-\newcommand{\X}[1]{$#1$&\texttt{\string#1}\hspace*{1ex}}
-% normal text .... 
-\newcommand{\SC}[1]{#1&\texttt{\string#1}\hspace*{1ex}}
+\newcommand{\mstX}[1]{$#1$&\texttt{\string#1}\hspace*{1ex}}
+% normal text ....
+\newcommand{\mstSC}[1]{#1&\texttt{\string#1}\hspace*{1ex}}
 % for accents in text mode
-\newcommand{\A}[1]{#1&\texttt{\string#1}\hspace*{1ex}}
-\newcommand{\B}[2]{#1#2&\texttt{\string#1{} #2}\hspace*{1ex}}
+\newcommand{\mstA}[1]{#1&\texttt{\string#1}\hspace*{1ex}}
+\newcommand{\mstB}[2]{#1#2&\texttt{\string#1{} #2}\hspace*{1ex}}
 
-\newcommand{\W}[2]{$#1{#2}$&
+\newcommand{\mstW}[2]{$#1{#2}$&
   \texttt{\string#1}\texttt{\string{\string#2\string}}\hspace*{1ex}}
-\newcommand{\Y}[1]{$\big#1$ &\texttt{\string#1}}  %
+\newcommand{\mstY}[1]{$\big#1$ &\texttt{\string#1}}  %
 % Mathsymbol Table
 \newsavebox{\symbbox}
 \newenvironment{symbols}[1]%
@@ -270,7 +282,7 @@
 % \Large This is Large
 % \end{example}
 % This Part is stolen from the verbaim.sty by FMi
-% 
+%
 \newwrite\example@out
 \newbox\exa@box
 \newcounter{exacnt}
@@ -292,7 +304,7 @@
 {\immediate\closeout\example@out\@esphack\endgroup%
                                 %
                                 % And here comes my part. :-
-                                %   
+                                %
   \stepcounter{exacnt}%
   \setlength{\parindent}{0pt}%
   \par\addvspace{3.0ex plus 0.8ex minus 0.5ex}\vskip -\parskip

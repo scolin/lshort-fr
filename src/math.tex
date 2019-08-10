@@ -32,54 +32,54 @@
 % Pour les informations de licence, voir contrib.tex.
 % See contrib.tex for license information.
 
-\chapter{Formules Mathématiques}
+\chapter{Formules MathÃ©matiques}
 \thispagestyle{plain}
 
 \begin{intro}
-  Vous êtes prêts ! Dans ce chapitre nous allons aborder l'atout
-  majeur de \TeX{} : la composition de formules mathématiques.
-  Mais attention, ce chapitre ne fait que décrire les commandes de
-  base. Bien que ce qui est expliqué ici soit suffisant pour la
-  majorité des utilisateurs, ne désespérez pas si vous n'y trouvez pas
-  la solution à votre problème de mise en forme d'une équation
-  mathématique. Il y a de fortes chances pour que la solution se
+  Vous Ãªtes prÃªts ! Dans ce chapitre nous allons aborder l'atout
+  majeur de \TeX{} : la composition de formules mathÃ©matiques.
+  Mais attention, ce chapitre ne fait que dÃ©crire les commandes de
+  base. Bien que ce qui est expliquÃ© ici soit suffisant pour la
+  majoritÃ© des utilisateurs, ne dÃ©sespÃ©rez pas si vous n'y trouvez pas
+  la solution Ã  votre problÃ¨me de mise en forme d'une Ã©quation
+  mathÃ©matique. Il y a de fortes chances pour que la solution se
   trouve dans l'extension \pai{amsmath} de \AmS-\LaTeX{}.% 
 \end{intro}
   
 \section{L'ensemble \texorpdfstring{\AmS}{AMS}-\LaTeX{}}
 
-Si vous souhaitez saisir des textes \wi{mathématiques} (avancés), vous
+Si vous souhaitez saisir des textes \wi{mathÃ©matiques} (avancÃ©s), vous
 devriez utiliser \AmS-\LaTeX{}. Le paquet \AmS-\LaTeX{} est une
 collection d'extensions et de classes pour la saisie
-mathématique. Nous traiterons ici principalement de l'extension
+mathÃ©matique. Nous traiterons ici principalement de l'extension
 \pai{amsmath} qui fait partie de ce paquet. \AmS-\LaTeX{} est produit
-par l'\emph{American Mathematical Society}\footnote{la Société
-  américaine de mathématiques. \NdT} et est utilisée extensivement pour la
-mise en forme de mathématiques. \LaTeX{} seul fournit bien quelques
-fonctionnalités et environnements basiques, mais ils sont
-relativement limités (voire, la logique s'appliquerait plutôt dans
-l'autre sens : \AmS-\LaTeX{} est \emph{illimité} !) et parfois
-incohérents.
+par l'\emph{American Mathematical Society}\footnote{la SociÃ©tÃ©
+  amÃ©ricaine de mathÃ©matiques. \NdT} et est utilisÃ©e extensivement pour la
+mise en forme de mathÃ©matiques. \LaTeX{} seul fournit bien quelques
+fonctionnalitÃ©s et environnements basiques, mais ils sont
+relativement limitÃ©s (voire, la logique s'appliquerait plutÃ´t dans
+l'autre sens : \AmS-\LaTeX{} est \emph{illimitÃ©} !) et parfois
+incohÃ©rents.
 
 \AmS-\LaTeX{} fait partie de la distribution de base et est fournie
-avec toutes les distributions récentes de \LaTeX{}\footnote{Si la
-  vôtre ne l'a pas, visitez
+avec toutes les distributions rÃ©centes de \LaTeX{}\footnote{Si la
+  vÃ´tre ne l'a pas, visitez
   \CTAN|pkg/amslatex|}. Dans ce chapitre nous
-  supposerons qu'\pai{amsmath} est chargé en préambule, via
+  supposerons qu'\pai{amsmath} est chargÃ© en prÃ©ambule, via
   {\ci{usepackage}\{amsmath\}}.
 
-\section{Équations simples}
+\section{Ã‰quations simples}
 
-Une \wi{formule} mathématique peut être mise en forme
-au fil du texte à l'intérieur d'un paragraphe
+Une \wi{formule} mathÃ©matique peut Ãªtre mise en forme
+au fil du texte Ã  l'intÃ©rieur d'un paragraphe
 (\emph{\wi{style en-ligne}}) ou en interrompant le flot du texte pour
-que la mise en forme soit séparée (\textit{\wi{style hors-texte}}). Les
-\wi{équation}s mathématiques \emph{dans} un paragraphe sont entrées
+que la mise en forme soit sÃ©parÃ©e (\textit{\wi{style hors-texte}}). Les
+\wi{Ã©quation}s mathÃ©matiques \emph{dans} un paragraphe sont entrÃ©es
 entre deux signes \index{$\iffalse$\fi @\texttt{\$}} \texttt{\$} :
 \begin{example}
-Ajoutez $a$ au carré 
-et $b$ au carré pour obtenir
-$c$ au carré. Ou, en 
+Ajoutez $a$ au carrÃ© 
+et $b$ au carrÃ© pour obtenir
+$c$ au carrÃ©. Ou, en 
 utilisant une approche plus
 matheuse : $a^2 + b^2 = c^2$.
 \end{example}
@@ -90,20 +90,20 @@ $\tau\epsilon\chi$\\[5pt]
 J'$\heartsuit$ \LaTeX{}
 \end{example}
 
-Il vaut mieux composer les équations ou les formules plus importantes
-\og \emph{hors-texte} \fg{}, c'est-à-dire sur une ligne à part, plutôt que
+Il vaut mieux composer les Ã©quations ou les formules plus importantes
+\og \emph{hors-texte} \fg{}, c'est-Ã -dire sur une ligne Ã  part, plutÃ´t que
 d'amocher le paragraphe.  Pour cela, on les
 place entre \verb|\begin{|\ei{equation}\verb|}| et
 \verb|\end{equation}|.
-Vous pouvez ensuite utiliser \ci{label} pour marquer un numéro
-d'équation et vous y référer ailleurs dans le texte via la commande
-\ci{eqref}. Si vous voulez plutôt nommer l'équation, utiliser \ci{tag}
-à la place.
+Vous pouvez ensuite utiliser \ci{label} pour marquer un numÃ©ro
+d'Ã©quation et vous y rÃ©fÃ©rer ailleurs dans le texte via la commande
+\ci{eqref}. Si vous voulez plutÃ´t nommer l'Ã©quation, utiliser \ci{tag}
+Ã  la place.
 
 \begin{example}
-Ajoutez $a$ au carré 
-et $b$ au carré pour obtenir
-$c$ au carré. Ou, en 
+Ajoutez $a$ au carrÃ© 
+et $b$ au carrÃ© pour obtenir
+$c$ au carrÃ©. Ou, en 
 utilisant une approche plus
 matheuse :
  \begin{equation}
@@ -117,39 +117,39 @@ Il n'a pas dit
  \begin{equation}
   1 + 1 = 3 \tag{idiot}
  \end{equation}
-Voici une référence à
+Voici une rÃ©fÃ©rence Ã 
 \eqref{intelligent}.
 \end{example}
 
-Si vous ne voulez pas que \LaTeX{} numérote vos équations, utilisez la
-version étoilée d'\texttt{equation}, \ei{equation*}\footnote{Fournie par
-  \package{amsmath}. Si vous ne l'avez pas chargé, vous pouvez utiliser
+Si vous ne voulez pas que \LaTeX{} numÃ©rote vos Ã©quations, utilisez la
+version Ã©toilÃ©e d'\texttt{equation}, \ei{equation*}\footnote{Fournie par
+  \package{amsmath}. Si vous ne l'avez pas chargÃ©, vous pouvez utiliser
   l'environnement \ei{displaymath} de \LaTeX{}. Mais il vaut mieux toujours
   charger \package{amsmath}, \LaTeX{} seul n'ayant que la version
-  non-étoilée d'\texttt{equation}.}, ou mieux encore,
-entourez votre équation par \ci{[} et \ci{]} :
+  non-Ã©toilÃ©e d'\texttt{equation}.}, ou mieux encore,
+entourez votre Ã©quation par \ci{[} et \ci{]} :
 \begin{example}
-Ajoutez $a$ au carré 
-et $b$ au carré pour obtenir
-$c$ au carré. Ou, en 
+Ajoutez $a$ au carrÃ© 
+et $b$ au carrÃ© pour obtenir
+$c$ au carrÃ©. Ou, en 
 utilisant une approche plus
 matheuse :
 \begin{equation*}
   a^2 + b^2 = c^2
 \end{equation*}
-ou de façon plus condensée :
+ou de faÃ§on plus condensÃ©e :
 \[ a^2 + b^2 = c^2 \]
 \end{example}
 
-Cependant, si vous avez beaucoup d'équations dans votre document, le source
+Cependant, si vous avez beaucoup d'Ã©quations dans votre document, le source
 \LaTeX{} risque de devenir moins lisible si vous utilisez \ci{[\iffalse]\fi}
-et \ci{\iffalse[\fi]}, à moins de les laisser seuls sur une
-ligne. Aussi nous recommandons d'utiliser plutôt \ei{equation} et
+et \ci{\iffalse[\fi]}, Ã  moins de les laisser seuls sur une
+ligne. Aussi nous recommandons d'utiliser plutÃ´t \ei{equation} et
 \ei{equation*} pour lesquels il est plus facile d'activer ou
-désactiver la numérotation par simple ajout ou retrait des étoiles.
+dÃ©sactiver la numÃ©rotation par simple ajout ou retrait des Ã©toiles.
 
-Remarquez que les expressions mathématiques sont formatées
-différemment selon qu'elles sont composées \og \wi{en-ligne} \fg{} ou \og
+Remarquez que les expressions mathÃ©matiques sont formatÃ©es
+diffÃ©remment selon qu'elles sont composÃ©es \og \wi{en-ligne} \fg{} ou \og
 \wi{hors-texte} \fg{} :
  \begin{example}
 Style en-ligne :
@@ -165,42 +165,42 @@ Style hors-texte :
 \end{example}
 
 En style en-ligne, utilisez la commande \ci{smash} sur des
-(sous-)expressions mathématiques à plusieurs niveaux, que ce soit vers
-le haut ou vers le bas. Cela incite \LaTeX{} à ne pas prendre en
+(sous-)expressions mathÃ©matiques Ã  plusieurs niveaux, que ce soit vers
+le haut ou vers le bas. Cela incite \LaTeX{} Ã  ne pas prendre en
 compte la hauteur de ces expressions et permet d'avoir un interligne
-régulier.
+rÃ©gulier.
 
 \begin{example}
-Une expression mathématique
+Une expression mathÃ©matique
 $d_{e_{e_p}}$ suivie par une
 expression $h^{i^{g^h}}$. Par
-opposition à une expression
+opposition Ã  une expression
 avec smash \smash{$d_{e_{e_p}}$}
 suivie par une expression
 \smash{$h^{i^{g^h}}$}.
 \end{example}
 
 
-\subsection{Mode mathématique}
+\subsection{Mode mathÃ©matique}
 
 
-Il y a également des différences notables entre le \wi{mode
-  \emph{mathématique}} et le mode \emph{texte}. Par exemple, en mode
-\emph{mathématique} :
+Il y a Ã©galement des diffÃ©rences notables entre le \wi{mode
+  \emph{mathÃ©matique}} et le mode \emph{texte}. Par exemple, en mode
+\emph{mathÃ©matique} :
 
 \begin{enumerate}
-\item \index{espacement!mathématique}
-      la plupart des espaces et des retours à la ligne n'ont aucune
-      signification. Les espaces sont déduites de la logique de la
-      formule ou indiquées à l'aide de commandes spécifiques telles
+\item \index{espacement!mathÃ©matique}
+      la plupart des espaces et des retours Ã  la ligne n'ont aucune
+      signification. Les espaces sont dÃ©duites de la logique de la
+      formule ou indiquÃ©es Ã  l'aide de commandes spÃ©cifiques telles
       que \ci{,}, \ci{quad} ou\ci{qquad} (nous reparlerons de cela en
       section~\ref{sec:math-spacing}) ;
-\item les lignes vides ne sont pas autorisées. Un seul paragraphe par
+\item les lignes vides ne sont pas autorisÃ©es. Un seul paragraphe par
       formule~;
-\item chaque lettre est considérée comme étant le nom d'une variable
-      et sera imprimée comme telle. Pour insérer du  texte
+\item chaque lettre est considÃ©rÃ©e comme Ã©tant le nom d'une variable
+      et sera imprimÃ©e comme telle. Pour insÃ©rer du  texte
       normal (police et espacement standard) dans une formule, il 
-      faut utiliser la commande \verb|\text{...}| (voir également la
+      faut utiliser la commande \verb|\text{...}| (voir Ã©galement la
       section \ref{sec:fontsz} en page \pageref{sec:fontsz}).
 \end{enumerate}
 
@@ -213,18 +213,18 @@ $x^{2} \geq 0\qquad
 \text{pour tout } x\in\mathbf{R}$
 \end{example}
 
-Une mode récente et contestable pousse à utiliser la police 
-\eng{\wi{blackboard bold}} (gras tableau noir, ainsi appelée car c'est par
+Une mode rÃ©cente et contestable pousse Ã  utiliser la police 
+\eng{\wi{blackboard bold}} (gras tableau noir, ainsi appelÃ©e car c'est par
 le doublement des verticales des lettres que l'on simule le gras
 typographique lorsqu'on ne peut faire autrement) qui est obtenue par
 la commande \ci{mathbb} de l'extension \pai{amssymb}
 \footnote{\pai{amssymb} ne fait pas partie du paquet \AmS-\LaTeX{},
-  mais fait peut-être partie de votre distribution \LaTeX{}. Vérifiez
+  mais fait peut-Ãªtre partie de votre distribution \LaTeX{}. VÃ©rifiez
   celle-ci ou visitez \texttt{CTAN:/fonts/amsfonts/latex/} pour
   l'obtenir.}
-pour désigner les ensembles de nombres entiers, réels, etc.
+pour dÃ©signer les ensembles de nombres entiers, rÃ©els, etc.
 \ifx\mathbb\undefined\else
-L'exemple précédent devient :
+L'exemple prÃ©cÃ©dent devient :
 \begin{example}
 $x^{2} \geq 0\qquad
  \text{pour tout } x 
@@ -232,30 +232,30 @@ $x^{2} \geq 0\qquad
 \end{example}
 \fi
 
-Référez-vous aux tableaux \ref{mathalpha} en page \pageref{mathalpha}
+RÃ©fÃ©rez-vous aux tableaux \ref{mathalpha} en page \pageref{mathalpha}
 et \ref{mathfonts} en page \pageref{mathfonts} pour plus de polices
-mathématiques.
+mathÃ©matiques.
 
 
-\section{Éléments d'une formule mathématique}
+\section{Ã‰lÃ©ments d'une formule mathÃ©matique}
 
 
-Cette section décrit les commandes les plus importantes 
-du mode mathématique. La plupart des commandes de cette section ne
-nécessitent pas \textsf{amsmath}, sauf mention explicite, mais
-chargez-la tout de même.
+Cette section dÃ©crit les commandes les plus importantes 
+du mode mathÃ©matique. La plupart des commandes de cette section ne
+nÃ©cessitent pas \textsf{amsmath}, sauf mention explicite, mais
+chargez-la tout de mÃªme.
 
 
 \index{grec!alphabet}
-Les lettres \textbf{grecques minuscules} sont saisies de la manière
+Les lettres \textbf{grecques minuscules} sont saisies de la maniÃ¨re
 suivante :
 \verb|\alpha|, \verb|\beta|, \verb|\gamma|, etc. Les lettres
-\textbf{grecques majuscules} sont quant à elles saisies ainsi :
+\textbf{grecques majuscules} sont quant Ã  elles saisies ainsi :
 \verb|\Gamma|, \verb|\Delta|, etc.
 \footnote{Il n'y a pas de Alpha, Beta\ldots{} majuscule dans \LaTeXe{}
-parce que c'est le même caractère que le A,B\ldots{} romain.} sont saisies
+parce que c'est le mÃªme caractÃ¨re que le A,B\ldots{} romain.} sont saisies
 
-Référez-vous au tableau~\ref{greekletters} en
+RÃ©fÃ©rez-vous au tableau~\ref{greekletters} en
 page~\pageref{greekletters} pour une liste de lettres grecques.
 \begin{example}
 $\lambda,\xi,\pi,\theta,
@@ -263,17 +263,17 @@ $\lambda,\xi,\pi,\theta,
 \end{example}
  
 
-Les \textbf{indices, exposants et lettres supérieures}
-sont\index{indice}\index{exposant}\index{lettre supérieure}
-positionnés en utilisant les caractères
+Les \textbf{indices, exposants et lettres supÃ©rieures}
+sont\index{indice}\index{exposant}\index{lettre supÃ©rieure}
+positionnÃ©s en utilisant les caractÃ¨res
 \verb|_|\index{_@\verb"|_"|} et \verb|^|\index{^@\verb"|^"|}.
 
 Le tableau~\ref{binaryrel} en page \pageref{binaryrel}  liste de
 nombreuses relations binaires comme $\subseteq$ et $\perp$.
 
-La plupart des commandes du mode mathématique ne s'appliquent qu'au
-caractère suivant. Pour qu'une commande s'applique à un ensemble de
-caractères, il faut les grouper en utilisant des accolades :
+La plupart des commandes du mode mathÃ©matique ne s'appliquent qu'au
+caractÃ¨re suivant. Pour qu'une commande s'applique Ã  un ensemble de
+caractÃ¨res, il faut les grouper en utilisant des accolades :
 \verb|{...}|. 
 
 \begin{example}
@@ -284,12 +284,12 @@ $p^3_{ij} \qquad
  e^{x^2} \neq {e^x}^2$
 \end{example}
 
-La \textbf{\wi{racine carrée}} est saisie via \ci{sqrt}. La
-racine $n$-ième est produite par la commande
-\verb|\sqrt[|$n$\verb|]|. La taille du symbole racine est calculée par
+La \textbf{\wi{racine carrÃ©e}} est saisie via \ci{sqrt}. La
+racine $n$-iÃ¨me est produite par la commande
+\verb|\sqrt[|$n$\verb|]|. La taille du symbole racine est calculÃ©e par
 \LaTeX. Pour obtenir le symbole seul, utilisez \verb|\surd|.
 
-Voyez d'autres sortes de flèches comme $\hookrightarrow$ et
+Voyez d'autres sortes de flÃ¨ches comme $\hookrightarrow$ et
 $\rightleftharpoons$ dans le tableau~\ref{tab:arrows} en page
 \pageref{tab:arrows}.
 \begin{example}
@@ -303,14 +303,14 @@ $\sqrt{x} = x^{1/2}
 \index{points de suspension!verticaux}
 \index{vertical!points de suspension}
 \index{points de suspension!diagonaux}
-Bien que les \textbf{\wi{point}s} pour indiquer les opérations de
-multiplication soient normalemet omis, les faire apparaître peut aider à
+Bien que les \textbf{\wi{point}s} pour indiquer les opÃ©rations de
+multiplication soient normalemet omis, les faire apparaÃ®tre peut aider Ã 
 la lecture. Utilisez
-alors \ci{cdot} qui imprime un seul point centré. \ci{cdots} imprime
-des \textbf{\wi{points de suspension}} centrés (à la manière de points
-de suspension situés plus haut sur la ligne). \ci{ldots} imprime des
+alors \ci{cdot} qui imprime un seul point centrÃ©. \ci{cdots} imprime
+des \textbf{\wi{points de suspension}} centrÃ©s (Ã  la maniÃ¨re de points
+de suspension situÃ©s plus haut sur la ligne). \ci{ldots} imprime des
 points de suspension normaux. En plus de ces commandes vous avez
-également \ci{vdots} pour des points alignés verticalement et
+Ã©galement \ci{vdots} pour des points alignÃ©s verticalement et
 \ci{ddots} qui imprime des \wi{points en diagonale}. D'autres exemples
 se trouvent en section~\ref{sec:arraymat}.
 \begin{example}
@@ -320,7 +320,7 @@ $\Psi = v_1 \cdot v_2
  \cdots (n-1) \cdot n$
 \end{example}
 
-Les commandes \ci{overline} et \ci{underline} créent un \textbf{trait
+Les commandes \ci{overline} et \ci{underline} crÃ©ent un \textbf{trait
 horizontal} au-dessus ou au-dessous d'une expression :
 \index{horizontal!trait}
 \index{trait!horizontal}
@@ -329,7 +329,7 @@ $0.\overline{3} =
  \underline{\underline{1/3}}$
 \end{example}
 
-Les commandes \ci{overbrace} et \ci{underbrace} créent une grande
+Les commandes \ci{overbrace} et \ci{underbrace} crÃ©ent une grande
 \textbf{accolade horizontale} au-dessus ou au-dessous d'une
 expression :
 \index{horizontal!accolade}
@@ -340,14 +340,14 @@ $\underbrace{\overbrace{a+b+c}^6
  _{\text{meaning of life}} = 42$
 \end{example}
 
-\index{mathématiques!accents}
-Pour ajouter des accents mathématiques tels que des \textbf{flèches}
+\index{mathÃ©matiques!accents}
+Pour ajouter des accents mathÃ©matiques tels que des \textbf{flÃ¨ches}
 ou des \textbf{\wi{tilde}s}, vous pouvez utiliser les commandes du
 tableau~\ref{mathacc} p.~\pageref{mathacc}.  Les chapeaux et les
-tildes larges, couvrant plusieurs caractères, sont produits par les
-commandes \ci{widetilde} et \ci{widehat}. Notez bien la différence
+tildes larges, couvrant plusieurs caractÃ¨res, sont produits par les
+commandes \ci{widetilde} et \ci{widehat}. Notez bien la diffÃ©rence
 entre \ci{hat} et \ci{widehat} ainsi que le placement de \ci{bar} pour
-une variable indicée. La commande \verb|'|\index{'@\verb"|'"|} produit
+une variable indicÃ©e. La commande \verb|'|\index{'@\verb"|'"|} produit
 un \wi{prime} :
 % a dash is --
 \begin{example}
@@ -358,9 +358,9 @@ $f(x) = x^2 \qquad f'(x)
 \end{example}
 
 
-Les \textbf{\wi{vecteurs}} sont en général marqués en ajoutant une
-flèche au-dessus des noms de variables. Ceci est obtenu par la
-commande \ci{vec}. Pour coder le vecteur de $A$ à $B$, les commandes
+Les \textbf{\wi{vecteurs}} sont en gÃ©nÃ©ral marquÃ©s en ajoutant une
+flÃ¨che au-dessus des noms de variables. Ceci est obtenu par la
+commande \ci{vec}. Pour coder le vecteur de $A$ Ã  $B$, les commandes
 \ci{overrightarrow} et \ci{overleftarrow} sont bien utiles :
 \begin{example}
 $\vec{a} \qquad
@@ -368,11 +368,11 @@ $\vec{a} \qquad
  \overrightarrow{AB}$
 \end{example}
 
-Les noms des fonctions doivent souvent être imprimés à l'aide
+Les noms des fonctions doivent souvent Ãªtre imprimÃ©s Ã  l'aide
 d'une police droite et non en italique comme les variables. C'est
 pourquoi \LaTeX{} fournit les commandes suivantes pour les fonctions
-les plus utilisées :
-\index{mathématiques!fonctions}
+les plus utilisÃ©es :
+\index{mathÃ©matiques!fonctions}
 
 \begin{tabular}{llllll}
 \ci{arccos} &  \ci{cos}  &  \ci{csc} &  \ci{exp} &  \ci{ker}    & \ci{limsup} \\
@@ -390,13 +390,13 @@ les plus utilisées :
 \end{equation*}
 \end{example}
 
-Les fonctions n'apparaissant pas dans la liste peuvent être déclarées
-avec \ci{DeclareMathOperator}. Il y a même une version étoilée pour
-les fonctions avec des indices ou exposants placés en dessous et en
-dessus\footnote{Parfois appelés \emph{limites}. \NdT}. Cette commande ne peut
-être utilisée
-qu'en préambule, aussi les lignes commentées de l'exemple doivent être
-ajoutées en préambule pour fonctionner.
+Les fonctions n'apparaissant pas dans la liste peuvent Ãªtre dÃ©clarÃ©es
+avec \ci{DeclareMathOperator}. Il y a mÃªme une version Ã©toilÃ©e pour
+les fonctions avec des indices ou exposants placÃ©s en dessous et en
+dessus\footnote{Parfois appelÃ©s \emph{limites}. \NdT}. Cette commande ne peut
+Ãªtre utilisÃ©e
+qu'en prÃ©ambule, aussi les lignes commentÃ©es de l'exemple doivent Ãªtre
+ajoutÃ©es en prÃ©ambule pour fonctionner.
 
 \begin{example}
 %\DeclareMathOperator{\argh}{argh}
@@ -407,21 +407,21 @@ ajoutées en préambule pour fonctionner.
 \end{example}
 
 Pour la fonction \wi{modulo}, il y a deux commandes possibles : 
-\ci{bmod} pour l'opérateur binaire et 
-\ci{pmod} pour l'opérateur unaire :
+\ci{bmod} pour l'opÃ©rateur binaire et 
+\ci{pmod} pour l'opÃ©rateur unaire :
 \begin{example}
 $a\bmod b \\
  x\equiv a \pmod{b}$
 \end{example}
 
 Une \textbf{\wi{fraction}} est produite avec
-\ci{frac}\verb|{|\emph{numérateur}\verb|}{|\emph{dénominateur}\verb|}|. Pour
-les équations en-ligne, la fraction est réduite pour tenir sur la
+\ci{frac}\verb|{|\emph{numÃ©rateur}\verb|}{|\emph{dÃ©nominateur}\verb|}|. Pour
+les Ã©quations en-ligne, la fraction est rÃ©duite pour tenir sur la
 ligne. Ce style peut aussi s'obtenir hors-texte avec
-\ci{tfrac}. L'inverse, c'est-à-dire obtenir des fractions en-ligne
+\ci{tfrac}. L'inverse, c'est-Ã -dire obtenir des fractions en-ligne
 selon le style hors-texte, est obtenu avec \ci{dfrac}.  La forme
-utilisant une barre oblique ($1/2$) est souvent préférable pour des
-petits éléments.
+utilisant une barre oblique ($1/2$) est souvent prÃ©fÃ©rable pour des
+petits Ã©lÃ©ments.
 \begin{example}
 En style hors-texte :
 \begin{equation*}
@@ -436,8 +436,8 @@ $1\frac{1}{2}$~heures \\
 ou bien $1\dfrac{1}{2}$~heures
 \end{example}
 
-Ici nous utilisons la commande \ci{partial} utilisée habituellement
-pour une \wi{dérivée partielle} :
+Ici nous utilisons la commande \ci{partial} utilisÃ©e habituellement
+pour une \wi{dÃ©rivÃ©e partielle} :
 \begin{example}
 \begin{equation*}
   \sqrt{\frac{x^2}{k+1}}\qquad
@@ -447,11 +447,11 @@ pour une \wi{dérivée partielle} :
 \end{equation*}
 \end{example}
 
-Pour imprimer des coefficients binomiaux (à l'américaine) ou d'autres
+Pour imprimer des coefficients binomiaux (Ã  l'amÃ©ricaine) ou d'autres
 structures semblables, utilisez la commande \ci{binom} d'\pai{amsmath} :
 %SC: maybe not the right translation for Pascal's rule
 \begin{example}
-La règle de Pascal est
+La rÃ¨gle de Pascal est
 \begin{equation*}
  \binom{n}{k} =\binom{n-1}{k}
  + \binom{n-1}{k-1}
@@ -461,7 +461,7 @@ La règle de Pascal est
 Il est parfois utile, notamment pour des \wi{relations binaires}, de
 pouvoir superposer des symboles.  La commande
 \ci{stackrel}\verb|{#1}{#2}| place l'argument \verb|#1| en taille
-réduite au-dessus de l'argument \verb|#2|, lui-même mis en position
+rÃ©duite au-dessus de l'argument \verb|#2|, lui-mÃªme mis en position
 normale :
 \begin{example}
 \begin{equation*}
@@ -469,10 +469,10 @@ normale :
 \end{equation*}
 \end{example}
 
-Les \textbf{\wi{intégrale}s} sont produites par la commande \ci{int},
+Les \textbf{\wi{intÃ©grale}s} sont produites par la commande \ci{int},
 les \textbf{\wi{somme}s} par la commande \ci{sum} et les produits par la
 commande \ci{prod}. Les limites
-inférieures et supérieures sont indiquées avec~\verb|_| et~\verb|^|
+infÃ©rieures et supÃ©rieures sont indiquÃ©es avec~\verb|_| et~\verb|^|
 comme pour les indices et les exposants :
 \begin{example}
 \begin{equation*}
@@ -493,24 +493,24 @@ commande \ci{substack} :
 \end{example}
 
 \LaTeX{} fournit toutes sortes de symboles pour les
-\textbf{\wi{crochets} et autres \wi{délimiteurs}} (par exemple
-$[\;\langle\;\|\;\updownarrow$). Les \wi{parenthèses} et les crochets
-sont obtenus avec les caractères correspondants, les \wi{accolades}
-avec \verb|\{|, mais les autres délimiteurs ne sont obtenus que par des
-commandes spéciales (par exemple \verb|\updownarrow|) :
+\textbf{\wi{crochets} et autres \wi{dÃ©limiteurs}} (par exemple
+$[\;\langle\;\|\;\updownarrow$). Les \wi{parenthÃ¨ses} et les crochets
+sont obtenus avec les caractÃ¨res correspondants, les \wi{accolades}
+avec \verb|\{|, mais les autres dÃ©limiteurs ne sont obtenus que par des
+commandes spÃ©ciales (par exemple \verb|\updownarrow|) :
 \begin{example}
 \begin{equation*}
 {a,b,c} \neq \{a,b,c\}
 \end{equation*}
 \end{example}
 
-Si vous ajoutez \ci{left} avant un délimiteur ouvrant et
+Si vous ajoutez \ci{left} avant un dÃ©limiteur ouvrant et
 \vadjust{\pagebreak[3]}%MPG: avoid underfull vbox next page
-\ci{right} avant le délimiteur fermant correspondant, \LaTeX{} détermine
-automatiquement la taille appropriée pour ces symboles. Remarquez
-qu'il est nécessaire de fermer chaque délimiteur ouvrant
-(\ci{left}) avec un délimiteur fermant (\ci{right}). Si vous
-ne voulez pas de délimiteur fermant, utilisez le délimiteur invisible
+\ci{right} avant le dÃ©limiteur fermant correspondant, \LaTeX{} dÃ©termine
+automatiquement la taille appropriÃ©e pour ces symboles. Remarquez
+qu'il est nÃ©cessaire de fermer chaque dÃ©limiteur ouvrant
+(\ci{left}) avec un dÃ©limiteur fermant (\ci{right}). Si vous
+ne voulez pas de dÃ©limiteur fermant, utilisez le dÃ©limiteur invisible
 \og \ci{right.} \fg{} :
 \begin{example}
 \begin{equation*}
@@ -520,10 +520,10 @@ ne voulez pas de délimiteur fermant, utilisez le délimiteur invisible
 \end{equation*}
 \end{example}
 
-Dans certains cas, il est nécessaire d'indiquer la taille exacte des
-délimiteurs mathématiques à la main. Vous pouvez alors utiliser les
-commandes \ci{big}, \ci{Big}, \ci{bigg} et \ci{Bigg} comme préfixes
-des commandes qui impriment les délimiteurs :
+Dans certains cas, il est nÃ©cessaire d'indiquer la taille exacte des
+dÃ©limiteurs mathÃ©matiques Ã  la main. Vous pouvez alors utiliser les
+commandes \ci{big}, \ci{Big}, \ci{bigg} et \ci{Bigg} comme prÃ©fixes
+des commandes qui impriment les dÃ©limiteurs :
 \begin{example}
 $\Big((x+1)(x-1)\Big)^{2}$\\
 $\big( \Big( \bigg( \Bigg( \quad
@@ -533,33 +533,33 @@ $\big( \Big( \bigg( \Bigg( \quad
 \bigg\Downarrow \Bigg\Downarrow$
 \end{example}
 
-Pour une liste de tous les délimiteurs disponibles, reportez-vous au
+Pour une liste de tous les dÃ©limiteurs disponibles, reportez-vous au
 tableau~\ref{tab:delimiters}, page~\pageref{tab:delimiters}.
 
 
 \section{Formules trop longues : \ei{multline}}
 \label{sec:multline}
-\index{equation@équation!trop longue}
+\index{equation@Ã©quation!trop longue}
 
 %SC: I also liked the points raised in "How to write a long formula"
 %by Leslie Lamport, although I suspect it applies better to logic than
 %other fields of mathematics.
 
-Si une équation est trop longue, il faut trouver un moyen de la répartir sur
-plusieurs lignes. Malheureusement, l'équation a alors tendance à devenir moins
-lisible. Pour préserver la lisibilité, voici quelques règles sur la façon de
-découper les équations.
+Si une Ã©quation est trop longue, il faut trouver un moyen de la rÃ©partir sur
+plusieurs lignes. Malheureusement, l'Ã©quation a alors tendance Ã  devenir moins
+lisible. Pour prÃ©server la lisibilitÃ©, voici quelques rÃ¨gles sur la faÃ§on de
+dÃ©couper les Ã©quations.
 \begin{enumerate}
-  \item En général, une équation devrait toujours être coupée \emph{avant} un
-    signe d'égalité ou un opérateur.
-  \item Une coupure devant un signe d'égalité est préférable à une coupure
-    devant un opérateur.
-  \item Une coupure devant un signe \og plus \fg ou moins est préférable à une
+  \item En gÃ©nÃ©ral, une Ã©quation devrait toujours Ãªtre coupÃ©e \emph{avant} un
+    signe d'Ã©galitÃ© ou un opÃ©rateur.
+  \item Une coupure devant un signe d'Ã©galitÃ© est prÃ©fÃ©rable Ã  une coupure
+    devant un opÃ©rateur.
+  \item Une coupure devant un signe \og plus \fg ou moins est prÃ©fÃ©rable Ã  une
     coupure devant un signe de multiplication.
-  \item Il faut éviter autant que possible les coupures à tous les autres
+  \item Il faut Ã©viter autant que possible les coupures Ã  tous les autres
     endroits.
 \end{enumerate}
-La façon la plus simple pour réaliser un tel découpage est d'utiliser
+La faÃ§on la plus simple pour rÃ©aliser un tel dÃ©coupage est d'utiliser
 l'environnement \ei{multline}\footnote{Fourni par \package{amsmath}.}.
 \begin{example}
 \begin{multline}
@@ -570,14 +570,14 @@ l'environnement \ei{multline}\footnote{Fourni par \package{amsmath}.}.
 \end{multline}
 \end{example}
 \noindent
-La différence avec l'environnement \ei{equation} est qu'il est possible
-d'insérer un saut de ligne où l'on veut (voire plusieurs), en utilisant
-\verb+\\+ là où l'équation doit être coupée. Comme pour \ei{equation*}, il
-existe un environnement \ei{multline*} qui supprime la numérotation.
+La diffÃ©rence avec l'environnement \ei{equation} est qu'il est possible
+d'insÃ©rer un saut de ligne oÃ¹ l'on veut (voire plusieurs), en utilisant
+\verb+\\+ lÃ  oÃ¹ l'Ã©quation doit Ãªtre coupÃ©e. Comme pour \ei{equation*}, il
+existe un environnement \ei{multline*} qui supprime la numÃ©rotation.
 
-Souvent le résultat sera
+Souvent le rÃ©sultat sera
 meilleur avec l'environnement \ei{IEEEeqnarray} (voir
-section~\ref{sec:IEEEeqnarray}). Par exemple, considérons la situation
+section~\ref{sec:IEEEeqnarray}). Par exemple, considÃ©rons la situation
 suivante.
 \begin{example}
 \begin{equation}
@@ -599,30 +599,30 @@ ligne. L'usage de \ei{multline} produit alors :
 \end{example}
 
 C'est nettement mieux que \eqref{eq:formule_trop_longue}, mais
-l'inconvénient est que le signe d'égalité perd son importance naturelle, en
-principe supérieure à celle du signe \og plus \fg devant $k$. Une meilleure
-solution est d'utiliser \ei{IEEEeqnarray}, qui sera présenté en détails en
+l'inconvÃ©nient est que le signe d'Ã©galitÃ© perd son importance naturelle, en
+principe supÃ©rieure Ã  celle du signe \og plus \fg devant $k$. Une meilleure
+solution est d'utiliser \ei{IEEEeqnarray}, qui sera prÃ©sentÃ© en dÃ©tails en
 section~\ref{sec:IEEEeqnarray}.
 
 
 \section{Formules multiples}
 \label{sec:IEEEeqnarray}
-\index{equation@équation!multiple}
+\index{equation@Ã©quation!multiple}
 
-Dans le cas le plus général, considérons une suite d'équations qui ne tiennent
+Dans le cas le plus gÃ©nÃ©ral, considÃ©rons une suite d'Ã©quations qui ne tiennent
 pas en entier sur une ligne. Il s'agit d'ajuster l'alignement vertical de
-façon à obtenir une structure lisible et agréable à l'\oe il pour l'ensemble.
+faÃ§on Ã  obtenir une structure lisible et agrÃ©able Ã  l'\oe il pour l'ensemble.
 
-Avant les conseils pour obtenir ce résultat, commençons par quelques mauvais
-exemples qui montrent les principaux inconvénients de certaines solutions
+Avant les conseils pour obtenir ce rÃ©sultat, commenÃ§ons par quelques mauvais
+exemples qui montrent les principaux inconvÃ©nients de certaines solutions
 courantes.
 
-\subsection{Problèmes des commandes traditionnelles}
+\subsection{ProblÃ¨mes des commandes traditionnelles}
 \label{sec:problems_traditional}
 
-Pour grouper ensemble plusieurs équations, on peut utiliser
+Pour grouper ensemble plusieurs Ã©quations, on peut utiliser
 l'environnement \ei{align}\footnote{L'environnement \texttt{align} peut aussi
-  servir à placer plusieurs groupes d'équations côte à côte. Un autre excellent
+  servir Ã  placer plusieurs groupes d'Ã©quations cÃ´te Ã  cÃ´te. Un autre excellent
   cas d'utilisation de l'environnement \ei{IEEEeqnarray}, avec un
   argument comme
   \texttt{\{rCl+rCl\}}.} comme ceci :
@@ -633,7 +633,7 @@ l'environnement \ei{align}\footnote{L'environnement \texttt{align} peut aussi
  \end{align}
 \end{example}
 
-Cette approche pose problème dès qu'une ligne est trop longue.
+Cette approche pose problÃ¨me dÃ¨s qu'une ligne est trop longue.
 \begin{example}
 \begin{align}
   a & = b + c \\
@@ -644,14 +644,14 @@ Cette approche pose problème dès qu'une ligne est trop longue.
 \end{align}
 \end{example}
 \noindent
-Ici, on voudrait que $+\: m$ soit placé exactement sous le $d$ et non sous le
-signe d'égalité. Un \TeX{}pert suggèrera que la commande
+Ici, on voudrait que $+\: m$ soit placÃ© exactement sous le $d$ et non sous le
+signe d'Ã©galitÃ©. Un \TeX{}pert suggÃ¨rera que la commande
 \verb+\mathrel{\phantom{=}} \negmedspace {}+ ajouterait l'espace
-requis devant \verb|+m+n+o|, mais étant donné que nombre
-d'utilisateurs n'ont pas ce genre de maîtrise, une solution plus
+requis devant \verb|+m+n+o|, mais Ã©tant donnÃ© que nombre
+d'utilisateurs n'ont pas ce genre de maÃ®trise, une solution plus
 simple serait la bienvenue.
 
-C'est donc le moment idéal pour introduire l'environnement
+C'est donc le moment idÃ©al pour introduire l'environnement
 \ei{eqnarray}~:
 \begin{example}
 \begin{eqnarray}
@@ -664,8 +664,8 @@ C'est donc le moment idéal pour introduire l'environnement
 \end{example}
 
 C'est mieux mais toujours pas une solution optimale~: les
-espaces autour du signe d'égalité sont trop grands. En particulier, ce
-ne sont pas les mêmes qu'avec les environnements \ei{multline} ou
+espaces autour du signe d'Ã©galitÃ© sont trop grands. En particulier, ce
+ne sont pas les mÃªmes qu'avec les environnements \ei{multline} ou
 \ei{equation} :
 \begin{example}
 \begin{eqnarray}
@@ -673,8 +673,8 @@ ne sont pas les mêmes qu'avec les environnements \ei{multline} ou
 \end{eqnarray}
 \end{example}
 
-\noindent \dots De plus, la formule et le numéro d'équation peuvent se
-chevaucher, même quand il y a suffisamment de place à gauche pour
+\noindent \dots De plus, la formule et le numÃ©ro d'Ã©quation peuvent se
+chevaucher, mÃªme quand il y a suffisamment de place Ã  gauche pour
 pousser la formule :
 \begin{example}
 \begin{eqnarray}
@@ -687,7 +687,7 @@ pousser la formule :
 \end{example}
 
 \noindent Alors que l'environnement propose une commande \ci{lefteqn}
-qui peut être utilisée quand le membre de gauche est trop long.
+qui peut Ãªtre utilisÃ©e quand le membre de gauche est trop long.
 \begin{example}
 \begin{eqnarray}
   \lefteqn{a + b + c + d 
@@ -697,8 +697,8 @@ qui peut être utilisée quand le membre de gauche est trop long.
   & = & n + o + p + q + r + s
 \end{eqnarray}
 \end{example}
-\noindent Ça n'est toujours pas optimal étant donné que le membre de droite
-est trop court et l'ensemble n'est pas centré correctement :
+\noindent Ã‡a n'est toujours pas optimal Ã©tant donnÃ© que le membre de droite
+est trop court et l'ensemble n'est pas centrÃ© correctement :
 \begin{example}
 \begin{eqnarray}
   \lefteqn{a + b + c + d 
@@ -708,34 +708,34 @@ est trop court et l'ensemble n'est pas centré correctement :
 \end{eqnarray}
 \end{example}
 
-\noindent Après avoir suffisamment dénigré la compétition, nous
+\noindent AprÃ¨s avoir suffisamment dÃ©nigrÃ© la compÃ©tition, nous
 pouvons nous diriger vers le glorieux\ldots
 
 \subsection{L'environnement IEEEeqnarray}
 \label{sec:IEEEeqnarray_intro}
 
-L'environnement \ei{IEEEeqnarray} est très puissant et offre beaucoup
-d'options. Nous n'en couvrirons ici que les fonctionnalités de base. Pour plus
-d'information, référez-vous à son manuel\footnote{Le manuel officiel
+L'environnement \ei{IEEEeqnarray} est trÃ¨s puissant et offre beaucoup
+d'options. Nous n'en couvrirons ici que les fonctionnalitÃ©s de base. Pour plus
+d'information, rÃ©fÃ©rez-vous Ã  son manuel\footnote{Le manuel officiel
   s'appelle \CTAN|macros/latex/contrib/IEEEtran/IEEEtran_HOWTO.pdf| ; la partie sur \texttt{IEEEeqnarray}
   se trouve dans l'appendice~F.}.
 
 Pour commencer, il faut charger l'extension\footnote{L'extension
-  \pai{IEEEtrantools} peut ne pas être présente dans votre
+  \pai{IEEEtrantools} peut ne pas Ãªtre prÃ©sente dans votre
   installation, vous pourrez alors la trouver sur le CTAN.}
 \pai{IEEEtrantools} afin de pouvoir utiliser \ei{IEEEeqnarray}. Pour
-cela, ajoutez la ligne suivante à votre préambule.  \small
+cela, ajoutez la ligne suivante Ã  votre prÃ©ambule.  \small
 \begin{verbatim}
-\usepackage[retainorgcmds]{IEEEtrantools}
+\usepackage{IEEEtrantools}
 \end{verbatim}
 \normalsize
 
-Ce qui fait la force d'\ei{IEEEeqnarray}, c'est la capacité de spécifier le
-nombre de \emph{colonnes} dans le tableau d'équation. Le plus souvent, cette
-spécification sera \verb+{rCl}+, c'est-à-dire trois colonnes dont la première
-est alignée à droite, la deuxième centrée et avec un peu plus d'espace autour
+Ce qui fait la force d'\ei{IEEEeqnarray}, c'est la capacitÃ© de spÃ©cifier le
+nombre de \emph{colonnes} dans le tableau d'Ã©quation. Le plus souvent, cette
+spÃ©cification sera \verb+{rCl}+, c'est-Ã -dire trois colonnes dont la premiÃ¨re
+est alignÃ©e Ã  droite, la deuxiÃ¨me centrÃ©e et avec un peu plus d'espace autour
 d'elle (c'est le sens du \texttt{C} majuscule au lieu de \texttt{c}
-minuscule), et la troisième alignée à gauche.
+minuscule), et la troisiÃ¨me alignÃ©e Ã  gauche.
 \begin{example}
 \begin{IEEEeqnarray}{rCl}
   a & = & b + c 
@@ -749,33 +749,33 @@ minuscule), et la troisième alignée à gauche.
 \end{example}
 On peut choisir n'importe quel nombre de colonnes. Par exemple,
 \verb+{c}+ donnera une seule colonne dans laquelle toutes les lignes seront
-centrées, ou bien \verb+{rCll}+ donnera une quatrième colonne alignée à gauche,
+centrÃ©es, ou bien \verb+{rCll}+ donnera une quatriÃ¨me colonne alignÃ©e Ã  gauche,
 par exemple pour des commentaires. Mieux, en plus de \texttt{l}, \texttt{c},
-\texttt{r}, \texttt{L}, \texttt{C}, \texttt{R} pour les entrées en mode mathématique,
+\texttt{r}, \texttt{L}, \texttt{C}, \texttt{R} pour les entrÃ©es en mode mathÃ©matique,
 on dispose aussi de \texttt{s}, \texttt{t}, \texttt{u} pour des colonnes en
-mode texte, respectivement alignées à gauche, centrées ou alignées à droite.
+mode texte, respectivement alignÃ©es Ã  gauche, centrÃ©es ou alignÃ©es Ã  droite.
 Par ailleurs, on peut ajouter de l'espace entre deux colonnes
-avec\footnote{Pour plus de types d'espacement, nous renvoyons à la
+avec\footnote{Pour plus de types d'espacement, nous renvoyons Ã  la
   section~\ref{sec:putting-qed-right} et au manuel officiel.} \og \texttt{.}
 \fg, \og \texttt{/} \fg et \og \texttt{\string?} \fg en ordre croissant.
-Remarquons les espaces autour des signes d'égalité, par rapport au cas
+Remarquons les espaces autour des signes d'Ã©galitÃ©, par rapport au cas
 d'utilisation de l'environnement \texttt{eqnarray}.
 
 \subsection{Usages courants}
 \label{sec:common-usage}
 
-Nous décrivons ici comment utiliser \texttt{IEEEeqnarray} pour résoudre les
-problèmes les plus courants.
+Nous dÃ©crivons ici comment utiliser \texttt{IEEEeqnarray} pour rÃ©soudre les
+problÃ¨mes les plus courants.
 
-Si une ligne et le numéro d'équation se superposent comme dans
+Si une ligne et le numÃ©ro d'Ã©quation se superposent comme dans
 \eqref{eq:eqnarrayfautif}, la commande \small
 \begin{verbatim}
 \IEEEeqnarraynumspace
 \end{verbatim} 
 \normalsize
-permet de résoudre le problème : il suffit de l'ajouter à la fin de la ligne
-en question, et l'ensemble de la formule est décalée vers la gauche de la
-longueur nécessaire (le décalage dépend de la taille du numéro d'équation).
+permet de rÃ©soudre le problÃ¨me : il suffit de l'ajouter Ã  la fin de la ligne
+en question, et l'ensemble de la formule est dÃ©calÃ©e vers la gauche de la
+longueur nÃ©cessaire (le dÃ©calage dÃ©pend de la taille du numÃ©ro d'Ã©quation).
 Par exemple, partant de :
 \begin{example}
 \begin{IEEEeqnarray}{rCl}
@@ -813,15 +813,15 @@ comme remplacement de \ci{lefteqn}.
   & = & k + l + m
 \end{IEEEeqnarray}
 \end{example}
-Son usage est identique à celui de la commande \ci{multicolumns} dans
+Son usage est identique Ã  celui de la commande \ci{multicolumns} dans
 l'environnement \texttt{tabular} : le premier argument \verb+3+ dit qu'il faut
-combiner trois colonnes pour n'en former qu'une, et le deuxième argument
-\verb+l+ dit que son contenu sera aligné à gauche.
+combiner trois colonnes pour n'en former qu'une, et le deuxiÃ¨me argument
+\verb+l+ dit que son contenu sera alignÃ© Ã  gauche.
 
-Remarquons qu'en insérant \ci{quad} dans l'exemple précédent, on peut
+Remarquons qu'en insÃ©rant \ci{quad} dans l'exemple prÃ©cÃ©dent, on peut
 facilement adapter l'alignement vertical\footnote{Nous pensons qu'un
   cadratin est la distance qui rend le mieux dans la plupart des cas.}
-du signe égal, par exemple :
+du signe Ã©gal, par exemple :
 \begin{example}
 \begin{IEEEeqnarray}{rCl}
   \IEEEeqnarraymulticol{3}{l}{
@@ -834,10 +834,10 @@ du signe égal, par exemple :
 \end{IEEEeqnarray}
 \end{example}
 
-Si une formule est découpée en deux ou plusieurs lignes, \LaTeX{}
-croit que le signe $+$ ou $-$ au début d'une ligne est un opérateur
+Si une formule est dÃ©coupÃ©e en deux ou plusieurs lignes, \LaTeX{}
+croit que le signe $+$ ou $-$ au dÃ©but d'une ligne est un opÃ©rateur
 unaire (comme dans $-2$) et non binaire (comme dans $2 - 2$). C'est
-pourquoi il faut ajouter un groupe vide \verb|{}| avant l'opérateur.
+pourquoi il faut ajouter un groupe vide \verb|{}| avant l'opÃ©rateur.
 Par exemple, au lieu de
 \begin{example}
 \begin{IEEEeqnarray}{rCl}
@@ -850,7 +850,7 @@ Par exemple, au lieu de
   & = & p + q + r + s
 \end{IEEEeqnarray}
 \end{example}
-il vaut mieux écrire
+il vaut mieux Ã©crire
 \begin{example}
 \begin{IEEEeqnarray}{rCl}
   a & = & b + c 
@@ -864,24 +864,24 @@ il vaut mieux écrire
 \end{example}
 \noindent Observez l'espace entre $+$ et $l$ dans les deux cas !
 
-La construction \verb|{} + l| force the signe \verb|+| à être
-interprété comme opérateur plutôt que comme signe, et l'espace
-indésirable qui le suit entre \verb|{}| and \verb|+| est compensé par
-un espace moyen négatif \ci{negmedspace}.
+La construction \verb|{} + l| force the signe \verb|+| Ã  Ãªtre
+interprÃ©tÃ© comme opÃ©rateur plutÃ´t que comme signe, et l'espace
+indÃ©sirable qui le suit entre \verb|{}| and \verb|+| est compensÃ© par
+un espace moyen nÃ©gatif \ci{negmedspace}.
 
-Pour supprimer la numérotation sur une ligne particulière, on
+Pour supprimer la numÃ©rotation sur une ligne particuliÃ¨re, on
 dispose de la commande \ci{nonumber} (ou bien \ci{IEEEnonumber}). Si
-un label \verb+\label{...}+ est défini sur cette ligne, il est alors
-transmis à la prochaine équation dont la numérotation n'est pas
-supprimée. Placez plutôt les labels juste avant le \verb+\\+ à la
-fin de la ligne concernée ou avant la fin de la formule. En plus
-d'améliorer la lisibilité du code source, ceci évite des erreurs de
+un label \verb+\label{...}+ est dÃ©fini sur cette ligne, il est alors
+transmis Ã  la prochaine Ã©quation dont la numÃ©rotation n'est pas
+supprimÃ©e. Placez plutÃ´t les labels juste avant le \verb+\\+ Ã  la
+fin de la ligne concernÃ©e ou avant la fin de la formule. En plus
+d'amÃ©liorer la lisibilitÃ© du code source, ceci Ã©vite des erreurs de
 compilation quand une commande \ci{IEEEmulticol} se
-trouve après la définition du label.
+trouve aprÃ¨s la dÃ©finition du label.
 
-Il existe également une version étoilée de l'environnement, qui
-supprime totalement la numérotation. Dans ce cas, on peut ajouter un
-numéro d'équation sur une ligne particulière avec
+Il existe Ã©galement une version Ã©toilÃ©e de l'environnement, qui
+supprime totalement la numÃ©rotation. Dans ce cas, on peut ajouter un
+numÃ©ro d'Ã©quation sur une ligne particuliÃ¨re avec
 \ci{IEEEyesnumber}.
 \begin{example}
 \begin{IEEEeqnarray*}{rCl}
@@ -891,7 +891,7 @@ numéro d'équation sur une ligne particulière avec
 \end{IEEEeqnarray*}
 \end{example}
 
-On peut également obtenir des numéros de sous-équation avec la
+On peut Ã©galement obtenir des numÃ©ros de sous-Ã©quation avec la
 commande \ci{IEEEyessubnumber}.
 \begin{example}
 \begin{IEEEeqnarray}{rCl}
@@ -907,9 +907,9 @@ commande \ci{IEEEyessubnumber}.
 \subsection{Tableaux et matrices}
 \label{sec:arraymat}
 
-Pour composer des \textbf{tableaux} mathématiques, utilisez l'environnement
-\ei{array}. Il fonctionne de manière similaire à l'environnement
-\texttt{tabular}. La commande \verb|\\| est utilisée pour séparer les
+Pour composer des \textbf{tableaux} mathÃ©matiques, utilisez l'environnement
+\ei{array}. Il fonctionne de maniÃ¨re similaire Ã  l'environnement
+\texttt{tabular}. La commande \verb|\\| est utilisÃ©e pour sÃ©parer les
 lignes :
 \begin{example}
   \begin{equation*}
@@ -925,9 +925,9 @@ lignes :
 \end{example}
 %MPG: changed the disposition to help filling the page
 
-L'environnement \ei{array} peut également être utilisé pour imprimer
-des fonctions\index{fonctions!définies par morceaux} définies par morceaux en
-utilisant \og \verb|.| \fg{} comme délimiteur (invisible) de droite :
+L'environnement \ei{array} peut Ã©galement Ãªtre utilisÃ© pour imprimer
+des fonctions\index{fonctions!dÃ©finies par morceaux} dÃ©finies par morceaux en
+utilisant \og \verb|.| \fg{} comme dÃ©limiteur (invisible) de droite :
 \begin{example}
 \begin{equation*}
   |x| =
@@ -955,15 +955,15 @@ plus simple.
 \end{example}
 
 \looseness1
-L'environnement \ei{array} peut servir à mettre en page des
+L'environnement \ei{array} peut servir Ã  mettre en page des
 matrices\index{matrice}, mais \pai{amsmath} fournit une meilleure
 solution avec l'environnement \ei{matrix} et ses variantes. Elles sont au
-nombre de six (avec des délimiteurs différents) : \ei{matrix} (aucun
-délimiteur ), \ei{pmatrix}
+nombre de six (avec des dÃ©limiteurs diffÃ©rents) : \ei{matrix} (aucun
+dÃ©limiteur ), \ei{pmatrix}
 $($, \ei{bmatrix} $[$, \ei{Bmatrix} $\{$, \ei{vmatrix} $\vert$ et
-\ei{Vmatrix} $\Vert$. Vous n'avez pas à spécifier le nombre de
-colonnes comme avec \ei{array}. Leur nombre maximal est de 10 par défaut mais il
-est modifiable (bien que ce ne soit pas fréquent d'avoir besoin de 10
+\ei{Vmatrix} $\Vert$. Vous n'avez pas Ã  spÃ©cifier le nombre de
+colonnes comme avec \ei{array}. Leur nombre maximal est de 10 par dÃ©faut mais il
+est modifiable (bien que ce ne soit pas frÃ©quent d'avoir besoin de 10
 colonnes ou plus~!)~:
 \begin{example}
 \begin{equation*}
@@ -984,25 +984,25 @@ colonnes ou plus~!)~:
 \end{equation*}
 \end{example}
 
-\section{Espacement en mode mathématique}
+\section{Espacement en mode mathÃ©matique}
 \label{sec:math-spacing}
 
-\index{espacement!mathématique}
-\index{mathématiques!espaces}
+\index{espacement!mathÃ©matique}
+\index{mathÃ©matiques!espaces}
 
 Si l'espacement choisi par \LaTeX{} dans une formule n'est pas
-satisfaisant, il peut être ajusté en insérant des commandes
+satisfaisant, il peut Ãªtre ajustÃ© en insÃ©rant des commandes
 d'espacement. Les plus importantes sont : \ci{,} pour une espace fine
 ($\frac{3}{18}\:\textrm{quad}$, \demowidth{0.166em}), \ci{:} pour une
 espace moyenne ($\frac{4}{18}\:\textrm{quad}$, \demowidth{0.222em}) et
 \ci{;} pour une espace grande ($\frac{5}{18}\: \textrm{quad}$,
-\demowidth{0.277em}).  L'espace échappée \verb*|\ | crée une espace
-moyenne similaire à l'espace entre mots. and \ci{quad}
+\demowidth{0.277em}).  L'espace Ã©chappÃ©e \verb*|\ | crÃ©e une espace
+moyenne similaire Ã  l'espace entre mots. and \ci{quad}
 (\demowidth{1em}) et \ci{qquad} (\demowidth{2em}) produisent des
-espaces plus larges.  La largeur d'un \ci{quad}\footnote{Appelé \emph{espace
-    cadratin} en français. \NdT} correspond approximativement à la largeur du
-caractère \og M \fg{} dans la police courante. 
-La commande \verb|\!|\cih{"!} produit une espace fine négative
+espaces plus larges.  La largeur d'un \ci{quad}\footnote{AppelÃ© \emph{espace
+    cadratin} en franÃ§ais. \NdT} correspond approximativement Ã  la largeur du
+caractÃ¨re \og M \fg{} dans la police courante. 
+La commande \verb|\!|\cih{"!} produit une espace fine nÃ©gative
 de $-\frac{3}{18}\:\textrm{quad}$ ($-$\demowidth{0.166em}).
 
 \begin{example}
@@ -1013,12 +1013,12 @@ de $-\frac{3}{18}\:\textrm{quad}$ ($-$\demowidth{0.166em}).
 \end{equation*}
 \end{example}
 
-Remarquez que \og d \fg{} est imprimée en police romaine.
-Dans l'exemple suivant, nous définissons une commande \ci{ud} qui
+Remarquez que \og d \fg{} est imprimÃ©e en police romaine.
+Dans l'exemple suivant, nous dÃ©finissons une commande \ci{ud} qui
 produit \og $\,\mathrm{d}$ \fg{} (remarquez l'espace
-\demowidth{0.166em} avant le $\text{d}$), de manière à ne pas avoir à
-le saisir à chaque fois. La commande  \ci{newcommand} est placée en
-préambule.
+\demowidth{0.166em} avant le $\text{d}$), de maniÃ¨re Ã  ne pas avoir Ã 
+le saisir Ã  chaque fois. La commande  \ci{newcommand} est placÃ©e en
+prÃ©ambule.
 %  More on
 % \ci{newcommand} in section~\ref{} on page \pageref{}. To Do: Add label and
 % reference to "Customising LaTeX" -> "New Commands, Environments and Packages"
@@ -1031,10 +1031,10 @@ préambule.
 \end{equation*}
 \end{example}
 
-Lorsque vous utilisez des intégrales multiples, vous constatez que
+Lorsque vous utilisez des intÃ©grales multiples, vous constatez que
 l'espace entre celles-ci est trop grand. Vous pouvez certes utiliser
 \ci{!}, mais \AmS-\LaTeX{} propose un ensemble de commandes pour
-réaliser cet ajustement : \ci{iint}, \ci{iiint},
+rÃ©aliser cet ajustement : \ci{iint}, \ci{iiint},
 \ci{iiiint} et \ci{idotsint}.
 
 \begin{example}
@@ -1049,33 +1049,33 @@ réaliser cet ajustement : \ci{iint}, \ci{iiint},
 \end{IEEEeqnarray*}
 \end{example}
 
-Reportez-vous au document \texttt{testmath.tex} distribué avec
+Reportez-vous au document \texttt{testmath.tex} distribuÃ© avec
 \AmS-\LaTeX{}, au chapitre 8 de \companion{} ou au chapitre 9 de
-\desgraupes{} pour plus de détails.
+\desgraupes{} pour plus de dÃ©tails.
 
 
-\subsection{Fantômes\texorpdfstring{\dots}{...}}
+\subsection{FantÃ´mes\texorpdfstring{\dots}{...}}
 
 
 Il arrive que \LaTeX{} en fasse un peu trop dans des alignements
 verticaux d'indices ou d'exposants. La commande \ci{phantom} permet
-de réserver de l'espace pour des caractères qui ne seront pas
-imprimés, comme le montrent les exemples suivants :
+de rÃ©server de l'espace pour des caractÃ¨res qui ne seront pas
+imprimÃ©s, comme le montrent les exemples suivants :
 \begin{example}
 \begin{equation*}
 {}^{14}_{6}\text{C}
-\qquad \text{à comparer à} \qquad
+\qquad \text{Ã  comparer Ã } \qquad
 {}^{14}_{\phantom{1}6}\text{C}
 \end{equation*}
 \end{example}
 
 Si vous souhaitez mettre en forme des isotopes comme dans l'exemple
-ci-avant, l'extension \pai{mhchem} dédiée aux formules chimiques peut
+ci-avant, l'extension \pai{mhchem} dÃ©diÃ©e aux formules chimiques peut
 vous y aider.
 
 
-\section{Manipuler les polices mathématiques}\label{sec:fontsz}
-Plusieurs polices mathématiques sont listées au tableau~\ref{mathalpha}
+\section{Manipuler les polices mathÃ©matiques}\label{sec:fontsz}
+Plusieurs polices mathÃ©matiques sont listÃ©es au tableau~\ref{mathalpha}
 page \pageref{mathalpha}.
 \begin{example}
  $\Re \qquad
@@ -1083,10 +1083,10 @@ page \pageref{mathalpha}.
   \mathfrak{R} \qquad
   \mathbb{R} \qquad $  
 \end{example}
-Les deux dernières nécessitent \pai{amssymb} ou \pai{amsfonts}.
+Les deux derniÃ¨res nÃ©cessitent \pai{amssymb} ou \pai{amsfonts}.
 
-Parfois, il peut être nécessaire d'indiquer à \LaTeX{} la taille
-de fonte désirée. En mode mathématique, cette taille est ajustable
+Parfois, il peut Ãªtre nÃ©cessaire d'indiquer Ã  \LaTeX{} la taille
+de fonte dÃ©sirÃ©e. En mode mathÃ©matique, cette taille est ajustable
 avec les quatre commandes~:
 \begin{flushleft}
 \ci{displaystyle}~($\displaystyle 123$),
@@ -1095,9 +1095,9 @@ avec les quatre commandes~:
 \ci{scriptscriptstyle}~($\scriptscriptstyle 123$).
 \end{flushleft}
 
-Si $\sum$ est placé dans une fraction, il sera imprimé dans le style \og
-en-ligne \fg à
-moins d'indiquer à \LaTeX{} le contraire :
+Si $\sum$ est placÃ© dans une fraction, il sera imprimÃ© dans le style \og
+en-ligne \fg Ã 
+moins d'indiquer Ã  \LaTeX{} le contraire :
 \begin{example}
 \begin{equation*}
  P = \frac{\displaystyle{
@@ -1110,8 +1110,8 @@ moins d'indiquer à \LaTeX{} le contraire :
 \end{equation*}
 \end{example}
 
-Changer de style modifie également la façon dont les limites et les
-grands opérateurs sont affichés.
+Changer de style modifie Ã©galement la faÃ§on dont les limites et les
+grands opÃ©rateurs sont affichÃ©s.
  
 % This is not a math accent, and no maths book would be set this way.
 % mathop gets the spacing right.
@@ -1121,13 +1121,13 @@ grands opérateurs sont affichés.
 \index{symboles!gras}
 
 Il est relativement ardu d'obtenir des symboles gras avec \LaTeX{} ;
-cela est sans doute fait exprès car les typographes amateurs ont
-tendance à en abuser. La commande de changement de graisse
-\verb|\mathbf| permet d'obtenir des caractères gras, mais romains
-(donc droits) alors que les symboles mathématiques sont normalement en
+cela est sans doute fait exprÃ¨s car les typographes amateurs ont
+tendance Ã  en abuser. La commande de changement de graisse
+\verb|\mathbf| permet d'obtenir des caractÃ¨res gras, mais romains
+(donc droits) alors que les symboles mathÃ©matiques sont normalement en
 italique. De plus elle ne fonctionne pas sur les minuscules
 grecques. Il y a bien une commande \ci{boldmath}, mais \emph{elle ne
-  peut être utilisée qu'en dehors du mode mathématique}. Cependant
+  peut Ãªtre utilisÃ©e qu'en dehors du mode mathÃ©matique}. Cependant
 elle fonctionne aussi pour les symboles :
 \begin{example}
 $\mu, M \qquad 
@@ -1135,9 +1135,9 @@ $\mu, M \qquad
 \qquad \boldmath{$\mu, M$}
 \end{example}
 
-L'extension \pai{amsbsy} (appelée par \pai{amsmath}) ainsi que
+L'extension \pai{amsbsy} (appelÃ©e par \pai{amsmath}) ainsi que
 l'extenstion \pai{bm} dans le paquet \texttt{tools} simplifient
-beaucoup ce problème puisqu'ils fournissent une commande
+beaucoup ce problÃ¨me puisqu'ils fournissent une commande
 \ci{boldsymbol} :
 
 \begin{example}
@@ -1146,58 +1146,58 @@ $\mu, M \qquad
 \end{example}
 
 
-\section{Théorèmes, lemmes, etc.}
+\section{ThÃ©orÃ¨mes, lemmes, etc.}
 
-En rédigeant des documents mathématiques, on a besoin d'un moyen de
-présenter des lemmes, des définitions, des axiomes et d'autres
+En rÃ©digeant des documents mathÃ©matiques, on a besoin d'un moyen de
+prÃ©senter des lemmes, des dÃ©finitions, des axiomes et d'autres
 structures similaires :
 \begin{lscommand}
 \ci{newtheorem}\verb|{|\emph{nom}\verb|}[|\emph{compteur}\verb|]{|%
          \emph{texte}\verb|}[|\emph{section}\verb|]|
 \end{lscommand}
-L'argument \emph{nom} est un mot-clef utilisé pour identifier le
-théorème. L'argument \emph{texte} définit le nom réel du théorème tel
-qu'il sera imprimé dans le document final.
+L'argument \emph{nom} est un mot-clef utilisÃ© pour identifier le
+thÃ©orÃ¨me. L'argument \emph{texte} dÃ©finit le nom rÃ©el du thÃ©orÃ¨me tel
+qu'il sera imprimÃ© dans le document final.
 
-Les arguments entre crochets sont optionnels. Ils servent à
-indiquer la numérotation à utiliser sur le théorème. Utilisez
-le \emph{compteur} pour indiquer le \emph{nom} d'un théorème déjà
-déclaré. Le nouveau théorème sera alors numéroté dans la même
-séquence. Avec \emph{section} vous indiquez dans quel niveau de
-sectionnement vous voulez numéroter votre théorème.
+Les arguments entre crochets sont optionnels. Ils servent Ã 
+indiquer la numÃ©rotation Ã  utiliser sur le thÃ©orÃ¨me. Utilisez
+le \emph{compteur} pour indiquer le \emph{nom} d'un thÃ©orÃ¨me dÃ©jÃ 
+dÃ©clarÃ©. Le nouveau thÃ©orÃ¨me sera alors numÃ©rotÃ© dans la mÃªme
+sÃ©quence. Avec \emph{section} vous indiquez dans quel niveau de
+sectionnement vous voulez numÃ©roter votre thÃ©orÃ¨me.
 
-Après avoir exécuté \ci{newtheorem} dans le préambule de votre
+AprÃ¨s avoir exÃ©cutÃ© \ci{newtheorem} dans le prÃ©ambule de votre
 document, vous pouvez utiliser la commande suivante :
 
 \begin{code}
 \verb|\begin{|\emph{nom}\verb|}[|\emph{texte}\verb|]|\\
-Ceci est mon premier théorème\\
+Ceci est mon premier thÃ©orÃ¨me\\
 \verb|\end{|\emph{nom}\verb|}|     
 \end{code}
 
-L'extension \pai{amsthm} (qui fait partie d'\AmS-LaTeX) met à
+L'extension \pai{amsthm} (qui fait partie d'\AmS-LaTeX) met Ã 
 disposition la commande
 \ci{theoremstyle}\verb|{|\emph{style}\verb|}| offrant un choix de type de
-théorème parmi trois styles
-préféfinis : \texttt{definition} (titre gras, corps romain),
+thÃ©orÃ¨me parmi trois styles
+prÃ©fÃ©finis : \texttt{definition} (titre gras, corps romain),
 \texttt{plain} (titre gras, corps italique) or \texttt{remark} (titre
 italique, corps romain).
 
 %SC: ah, the initial translation missed the subtle sarcasm here
-Voilà pour la théorie. Les exemples qui suivent devraient lever tout
+VoilÃ  pour la thÃ©orie. Les exemples qui suivent devraient lever tout
 doute et montrer clairement que la commande \verb|\newtheorem| est
-trop complexe à comprendre.
+trop complexe Ã  comprendre.
 
 % actually define things
 \theoremstyle{definition} \newtheorem{loi}{loi}
-\theoremstyle{plain}      \newtheorem{decret}[loi]{Décret}
+\theoremstyle{plain}      \newtheorem{decret}[loi]{DÃ©cret}
 \theoremstyle{remark}     \newtheorem*{lechef}{Le chef}
 
-D'abord définissez les théorèmes :
+D'abord dÃ©finissez les thÃ©orÃ¨mes :
 
 \begin{verbatim}
 \theoremstyle{definition} \newtheorem{loi}{loi}
-\theoremstyle{plain}      \newtheorem{decret}[loi]{Décret}
+\theoremstyle{plain}      \newtheorem{decret}[loi]{DÃ©cret}
 \theoremstyle{remark}     \newtheorem*{lechef}{Le chef}
 \end{verbatim}
 
@@ -1210,28 +1210,28 @@ Le chef a toujours raison,
 voir la loi~\ref{chef}.
 \end{decret}
 \begin{lechef}
-Et si le chef a tort, se référer
-à la loi~\ref{chef}.
+Et si le chef a tort, se rÃ©fÃ©rer
+Ã  la loi~\ref{chef}.
 \end{lechef}
 \end{example}
 
 
-L'environnement \og decret \fg{} utilise le même compteur que l'environnement
-\og loi \fg{}, donc il obtient un numéro dans la même
-séquence que les autres \og lois \fg{}. L'argument entre crochets permet
-de spécifier un titre ou quelque chose de ce genre pour l'environnement.
+L'environnement \og decret \fg{} utilise le mÃªme compteur que l'environnement
+\og loi \fg{}, donc il obtient un numÃ©ro dans la mÃªme
+sÃ©quence que les autres \og lois \fg{}. L'argument entre crochets permet
+de spÃ©cifier un titre ou quelque chose de ce genre pour l'environnement.
 \begin{example}
 \newtheorem{mur}{Murphy}[section]
 \begin{mur} Tout ce qui peut 
 aller mal ira mal.\end{mur}
 \end{example}
 
-Les environnements \og Murphy \fg{} sont numérotés à l'intérieur de la section
+Les environnements \og Murphy \fg{} sont numÃ©rotÃ©s Ã  l'intÃ©rieur de la section
 en cours. On aurait pu utiliser un autre niveau tel que \texttt{chapter}
 ou \texttt{subsection}. 
 
-Si vous voulez personnaliser vos théorèmes au point près, l'extension
-\pai{ntheorem} vous offrira la pléthore d'options dont vous avez
+Si vous voulez personnaliser vos thÃ©orÃ¨mes au point prÃ¨s, l'extension
+\pai{ntheorem} vous offrira la plÃ©thore d'options dont vous avez
 besoin.
 
 \subsection{Preuves et symbole de fin de preuve}
@@ -1249,8 +1249,8 @@ L'extension \pai{amsthm} fournit aussi l'environnement de preuve
 \end{proof}
 \end{example}
 
-La commande \ci{qedhere} permet de déplacer le symbole de fin de
-preuve (CQFD) pour les cas où il finirait seul sur une ligne.
+La commande \ci{qedhere} permet de dÃ©placer le symbole de fin de
+preuve (CQFD) pour les cas oÃ¹ il finirait seul sur une ligne.
 
 \begin{example}
 \begin{proof}
@@ -1266,7 +1266,7 @@ Malheureusement, cette correction ne fonctionne pas avec l'environnement
 \begin{example}
 \begin{proof}
   Voici une preuve qui termine
-  par un alignement d'équations.
+  par un alignement d'Ã©quations.
   \begin{IEEEeqnarray*}{rCl}
     a & = & b + c \\
     & = & d + e. \qedhere
@@ -1275,17 +1275,17 @@ Malheureusement, cette correction ne fonctionne pas avec l'environnement
 \end{example}
 \noindent
 La raison provient de la structure interne d'\ei{IEEEeqnarray}, qui place
-systématiquement une colonne invisible de chaque côté de l'équation, qui
-contiennent seulement des espaces étirables, de façon à ce que le tableau
-d'équations soit correctement centré. Il faudrait en fait placer le
-\ci{qedhere} à l'extérieur de cet espace étirable, mais ce n'est pas possible
+systÃ©matiquement une colonne invisible de chaque cÃ´tÃ© de l'Ã©quation, qui
+contiennent seulement des espaces Ã©tirables, de faÃ§on Ã  ce que le tableau
+d'Ã©quations soit correctement centrÃ©. Il faudrait en fait placer le
+\ci{qedhere} Ã  l'extÃ©rieur de cet espace Ã©tirable, mais ce n'est pas possible
 car ces colonnes sont invisibles pour l'utilisateur.
 
-Il y a une solution très simple : définir ces colonnes étirables explicitement !
+Il y a une solution trÃ¨s simple : dÃ©finir ces colonnes Ã©tirables explicitement !
 \begin{example}
 \begin{proof}
   Voici une preuve qui termine
-  par un alignement d'équations.
+  par un alignement d'Ã©quations.
   \begin{IEEEeqnarray*}{+rCl+x*}
     a & = & b + c \\
     & = & d + e. & \qedhere
@@ -1293,21 +1293,21 @@ Il y a une solution très simple : définir ces colonnes étirables explicitement !
 \end{proof}
 \end{example}
 \noindent
-Ici, le \verb=+= dans \verb={+rCl+x*}= indique un espace étirable : un à
-gauche de l'équation qui, s'il n'était pas présent, serait ajouté
-d'office par \texttt{IEEEeqnarray}, et un à droite de l'équation. Mais
-cette fois à droite, \emph{après} cette colonne étirable, nous ajoutons une
-colonne vide \verb+x+, qui ne sera utilisée que sur la dernière ligne, si
-la commande \ci{qedhere} est utilisée. Enfin, nous ajoutons un \verb+*+ : c'est un
-espace sans épaisseur, qui empêche \texttt{IEEEeqnarray} d'ajouter un autre
-espace \verb=+= indésirable.
+Ici, le \verb=+= dans \verb={+rCl+x*}= indique un espace Ã©tirable : un Ã 
+gauche de l'Ã©quation qui, s'il n'Ã©tait pas prÃ©sent, serait ajoutÃ©
+d'office par \texttt{IEEEeqnarray}, et un Ã  droite de l'Ã©quation. Mais
+cette fois Ã  droite, \emph{aprÃ¨s} cette colonne Ã©tirable, nous ajoutons une
+colonne vide \verb+x+, qui ne sera utilisÃ©e que sur la derniÃ¨re ligne, si
+la commande \ci{qedhere} est utilisÃ©e. Enfin, nous ajoutons un \verb+*+ : c'est un
+espace sans Ã©paisseur, qui empÃªche \texttt{IEEEeqnarray} d'ajouter un autre
+espace \verb=+= indÃ©sirable.
 
-Dans le cas d'équations numérotées, le problème est similaire.
+Dans le cas d'Ã©quations numÃ©rotÃ©es, le problÃ¨me est similaire.
 Comparons
 \begin{example}
 \begin{proof}
   Voici une preuve qui termine
-  par une équation numérotée.
+  par une Ã©quation numÃ©rotÃ©e.
   \begin{equation}
     a = b + c.
   \end{equation}
@@ -1318,22 +1318,22 @@ avec
 \begin{example}
 \begin{proof}
   Voici une preuve qui termine
-  par une équation numérotée.
+  par une Ã©quation numÃ©rotÃ©e.
   \begin{equation}
     a = b + c. \qedhere
   \end{equation}
 \end{proof}
 \end{example}
 \noindent
-Vous remarquerez que dans la deuxième version, qui est correcte, le symbole
-$\Box$ est bien plus proche de l'équation que dans la première.
+Vous remarquerez que dans la deuxiÃ¨me version, qui est correcte, le symbole
+$\Box$ est bien plus proche de l'Ã©quation que dans la premiÃ¨re.
 
-De façon analogue, la bonne manière de placer le symbole de fin de preuve à la
-fin d'un alignements d'équations est la suivante.
+De faÃ§on analogue, la bonne maniÃ¨re de placer le symbole de fin de preuve Ã  la
+fin d'un alignements d'Ã©quations est la suivante.
 \begin{example}
 \begin{proof}
   Voici une preuve qui termine
-  par un alignement d'équations.
+  par un alignement d'Ã©quations.
   \begin{IEEEeqnarray}{+rCl+x*}
     a & = & b + c \\
     & = & d + e. \\
@@ -1342,11 +1342,11 @@ fin d'un alignements d'équations est la suivante.
 \end{proof}
 \end{example}
 \noindent
-par opposition à
+par opposition Ã 
 \begin{example}
 \begin{proof}
   Voici une preuve qui termine
-  par un alignement d'équations.
+  par un alignement d'Ã©quations.
   \begin{IEEEeqnarray}{rCl}
     a & = & b + c \\
     & = & d + e.
