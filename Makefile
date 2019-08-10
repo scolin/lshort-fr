@@ -1,6 +1,6 @@
 #	pstops "4:0L@0.8(22.5cm,-0.6cm)+1L@0.8(22.5cm,13.3cm),2L@0.8(22.5cm,-0.6cm)+3L@0.8(22.5cm,13.3cm)" \
 SHELL = /bin/sh
-VERS = 6.0fr-unreleased
+VERS = 6.1fr-unreleased
 NAME = lshort-fr
 
 OTHER = README CHANGES

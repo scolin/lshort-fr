@@ -214,9 +214,9 @@ césure. Cela signifie que si vous placez une commande de césure dans
 le préambule, cela influencera la césure de l'anglais \footnote{Par défaut
 les documents sont supposés être en anglais. \NdT}. Si vous placez la
 commande après \verb|\begin{document}| et que vous utilisez une
-extension comme \pai{babel} pour le support d'une autre langue,
+extension comme \pai{polyglossia} pour le support d'une autre langue,
 alors les suggestions de césure seront actives pour le langage
-activé via \pai{babel}.
+activé via \pai{polyglossia}.
 
 %MPG: let's do what we say... :-)
 \hyphenation{Anti-cons-ti-tu-tion-nel-le-ment}
@@ -546,16 +546,10 @@ il y a plusieurs domaines pour lesquels
 \begin{enumerate}
 \item Toutes les chaînes de caractères générées automatiquement
   \footnote{\og Table des matières \fg{}, \og Liste des figures \fg{}, \dots}
-  doivent être traduites. Pour de nombreuses langues, ces adaptations
-  peuvent être réalisées par l'extension \pai{babel} de Johannes
-  Braams.
+  doivent être traduites.
 \item \LaTeX{} doit connaître les règles de césure de la nouvelle
-      langue. Définir les règles de césure utilisées par \LaTeX{} est
-      une tâche assez complexe, qui impose la construction de formats
-      spécifiques. Votre \guide{} devrait vous indiquer
-      quelles sont les langues prises en compte par votre installation de
-      \LaTeX{} et comment configurer les règles de césure.
-    \item Certaines règles typographiques changent en fonction de la
+      langue.
+\item Certaines règles typographiques changent en fonction de la
       langue ou de la région géographique. Par exemple le français
       impose une espace avant le caractère deux-points (:).
 \end{enumerate}
@@ -568,58 +562,7 @@ langages tant pour la saisie que pour les polices. De nos jours, les
 moteurs \TeX{} modernes sachant traiter l'UTF-8, ces problèmes ont été
 considérablement allégés.
 
-Aussi, sans plus attendre, voici les réglages à mettre dans le
-préambule de votre document pour que celui-ci puisse accueillir du
-contenu non-anglais.
-
-Pour \hologo{pdfLaTeX}:
-
-\begin{lscommand}
-\verb|\usepackage[T1]{fontenc}|\\
-\verb|\usepackage[utf8]{inputenc}|\\
-\verb|\usepackage{lmodern}|
-\end{lscommand}
-
-Pour \hologo{XeLaTeX}:
-
-\begin{lscommand}
-\verb|\usepackage{fontspec}|\\
-\verb|\defaultfontfeatures{Ligatures=TeX}|
-\end{lscommand}
-
-Pour \hologo{LuaLaTeX}:
-
-\begin{lscommand}
-\verb|\usepackage{luatextra}|\\
-\verb|\defaultfontfeatures{Ligatures=TeX}|
-\end{lscommand}
-
-La figure~\ref{allinone} en page~\pageref{allinone} montre un exemple
-de préambule qui se charge de tous les réglages nécessaires.
-
-\begin{figure}[!bp]
-\begin{lined}{10cm}
-\begin{verbatim}
-\usepackage{iftex}
-\ifPDFTeX
-   \usepackage[utf8]{inputenc}
-   \usepackage[T1]{fontenc}
-   \usepackage{lmodern}
-\else
-   \ifXeTeX
-     \usepackage{fontspec}
-   \else
-     \usepackage{luatextra}
-   \fi
-   \defaultfontfeatures{Ligatures=TeX}
-\fi
-\end{verbatim}
-\end{lined}
-\caption[Préambule tout-en-un]{Préambule tout-en-un qui prend en compte les trois moteurs \TeX{} générant du PDF.} \label{allinone}
-\end{figure}
-
-
-\section{Multilingual Texts with Polyglossia}
+\section{Textes multilingues avec Polyglossia}
 \secby{Axel Kielhorn}{A.Kielhorn@web.de}%
 L'extension \pai{polyglossia}\cite{polyglossia} est un substitut au désormais obsolète paquet
 \pai{babel}. Elle prend soin des motifs de césure et des chaînes de
@@ -645,7 +588,30 @@ police non-\hologo{TeX}, vous devez les émuler. L'option
 
 
 \subsubsection{C'est du $\Gamma\rho\epsilon\epsilon\kappa$ pour moi}
-+%\subsubsection{It's all \textgreek{Ellenik'a} to me} % this requires greek babel.
+%\subsubsection{It's all \textgreek{Ellenik'a} to me} % this requires greek babel.
+
+Selon le moteur \TeX{} que vous utilisez, des commandes différentes
+sont nécessaires dans le préambule de votre ddocument pour activer
+correctement le support multilingue.
+La figure~\ref{allinone} en page~\pageref{allinone} montre un exemple
+de préambule qui se charge de tous les réglages nécessaires.
+
+\begin{figure}[!bp]
+\begin{lined}{10cm}
+\begin{verbatim}
+\usepackage{iftex}
+\ifXeTeX
+  \usepackage{fontspec}
+\else
+  \usepackage{luatextra}
+\fi
+\defaultfontfeatures{Ligatures=TeX}
+\usepackage{polyglossia}
+\end{verbatim}
+\end{lined}
+\caption[Préambule tout-en-un]{Préambule tout-en-un qui prend en compte les trois moteurs \TeX{} générant du PDF.} \label{allinone}
+\end{figure}
+
 
 Jusqu'à maintenant l'utilisation d'un système \hologo{TeX} Unicode
 n'apportait aucun avantage. Cet état de fait change dès que l'on
@@ -657,9 +623,13 @@ et \hologo{TeX} les comprendra.
 
 Écrire en plusieurs langues est facile, il suffit de spécifier les
 langages dans le préambule\footnote{les noms des langages sont en
-  anglais, il faut bien un socle commun... \NdT} :
+  anglais, il faut bien un socle commun... \NdT}. Cet exemple utilise
+le paquet \pai{csquote} qui génère le bon type d'apostrophes en
+fonction du langage dans lequel vous écrivez. Notez qu'il doit être
+chargé \emph{avant} de charger le support pour votre langage.
 
 \begin{lscommand}
+\verb|\usepackage{csquote}|\\
 \verb|\setdefaultlanguage{french}|\\
 \verb|\setotherlanguage[babelshorthands]{german}|
 \end{lscommand}
@@ -670,9 +640,9 @@ Pour écrire un paragraphe en allemand, vous utiliserez l'environnement
 \begin{lscommand}
 Texte en français.\\
 \verb|\begin{german}|\\
-Deutscher Text.\\
+Deutscher \enquote{Text}.\\
 \verb|\end{german}|\\
-Encore du texte en français.
+Encore du \enquote{texte} en français.
 \end{lscommand}
 
 Si vous avez seulement besoin d'un mot dans une langue autre, utilisez
