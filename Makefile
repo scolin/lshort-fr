@@ -1,11 +1,11 @@
 #	pstops "4:0L@0.8(22.5cm,-0.6cm)+1L@0.8(22.5cm,13.3cm),2L@0.8(22.5cm,-0.6cm)+3L@0.8(22.5cm,13.3cm)" \
 SHELL = /bin/sh
-VERS = 6.1fr-unreleased
+VERS = 6.2fr-unreleased
 NAME = lshort-fr
 
 OTHER = README CHANGES
 FILES = src/biblio.tex src/math.tex src/things.tex src/contrib.tex src/lshort.sty src/mylayout.sty src/title.tex \
-	src/custom.tex src/lshort.tex src/overview.tex src/typeset.tex src/fancyhea.sty src/lssym.tex src/spec.tex \
+	src/custom.tex src/lshort.tex src/overview.tex src/typeset.tex src/lssym.tex src/spec.tex \
 	src/lshort-base.tex src/lshort-a5.tex src/graphic.tex src/appendix.tex
 
 # Define some variables
@@ -86,7 +86,7 @@ dist:	rsync
 	ln -s . $(NAME)
 	zip $(NAME)-$(VERS).zip $(NAME)/$(NAME)-$(VERS).src.tar.gz $(NAME)/CHANGES $(NAME)/README $(NAME)/$(NAME).pdf $(NAME)/$(NAME)-letter.pdf $(NAME)/$(NAME)-a5.pdf
 	-rm $(NAME)
-	echo upload $(NAME)-$(VERS).zip to http://www.ctan.org/upload   
+	echo upload $(NAME)-$(VERS).zip to http://www.ctan.org/upload
 
 clean:
 	rm -rf texbuild pdfbuild

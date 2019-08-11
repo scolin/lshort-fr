@@ -91,7 +91,7 @@ J'$\heartsuit$ \LaTeX{}
 \end{example}
 
 Il vaut mieux composer les équations ou les formules plus importantes
-\og \emph{hors-texte} \fg{}, c'est-à-dire sur une ligne à part, plutôt que
+\enquote{\emph{hors-texte}}, c'est-à-dire sur une ligne à part, plutôt que
 d'amocher le paragraphe.  Pour cela, on les
 place entre \verb|\begin{|\ei{equation}\verb|}| et
 \verb|\end{equation}|.
@@ -149,8 +149,8 @@ ligne. Aussi nous recommandons d'utiliser plutôt \ei{equation} et
 désactiver la numérotation par simple ajout ou retrait des étoiles.
 
 Remarquez que les expressions mathématiques sont formatées
-différemment selon qu'elles sont composées \og \wi{en-ligne} \fg{} ou \og
-\wi{hors-texte} \fg{} :
+différemment selon qu'elles sont composées \enquote{\wi{en-ligne}} ou
+\enquote{\wi{hors-texte}} :
  \begin{example}
 Style en-ligne :
 $\lim_{n \to \infty} 
@@ -511,7 +511,7 @@ automatiquement la taille appropriée pour ces symboles. Remarquez
 qu'il est nécessaire de fermer chaque délimiteur ouvrant
 (\ci{left}) avec un délimiteur fermant (\ci{right}). Si vous
 ne voulez pas de délimiteur fermant, utilisez le délimiteur invisible
-\og \ci{right.} \fg{} :
+\enquote{\ci{right.}} :
 \begin{example}
 \begin{equation*}
 1 + \left(\frac{1}{1-x^{2}}
@@ -554,7 +554,7 @@ découper les équations.
     signe d'égalité ou un opérateur.
   \item Une coupure devant un signe d'égalité est préférable à une coupure
     devant un opérateur.
-  \item Une coupure devant un signe \og plus \fg ou moins est préférable à une
+  \item Une coupure devant un signe \enquote{plus} ou moins est préférable à une
     coupure devant un signe de multiplication.
   \item Il faut éviter autant que possible les coupures à tous les autres
     endroits.
@@ -600,7 +600,7 @@ ligne. L'usage de \ei{multline} produit alors :
 
 C'est nettement mieux que \eqref{eq:formule_trop_longue}, mais
 l'inconvénient est que le signe d'égalité perd son importance naturelle, en
-principe supérieure à celle du signe \og plus \fg devant $k$. Une meilleure
+principe supérieure à celle du signe \enquote{plus} devant $k$. Une meilleure
 solution est d'utiliser \ei{IEEEeqnarray}, qui sera présenté en détails en
 section~\ref{sec:IEEEeqnarray}.
 
@@ -756,8 +756,8 @@ on dispose aussi de \texttt{s}, \texttt{t}, \texttt{u} pour des colonnes en
 mode texte, respectivement alignées à gauche, centrées ou alignées à droite.
 Par ailleurs, on peut ajouter de l'espace entre deux colonnes
 avec\footnote{Pour plus de types d'espacement, nous renvoyons à la
-  section~\ref{sec:putting-qed-right} et au manuel officiel.} \og \texttt{.}
-\fg, \og \texttt{/} \fg et \og \texttt{\string?} \fg en ordre croissant.
+  section~\ref{sec:putting-qed-right} et au manuel officiel.} \enquote{\texttt{.}},
+\enquote{\texttt{/}} et \enquote{\texttt{\string?}} en ordre croissant.
 Remarquons les espaces autour des signes d'égalité, par rapport au cas
 d'utilisation de l'environnement \texttt{eqnarray}.
 
@@ -927,7 +927,7 @@ lignes :
 
 L'environnement \ei{array} peut également être utilisé pour imprimer
 des fonctions\index{fonctions!définies par morceaux} définies par morceaux en
-utilisant \og \verb|.| \fg{} comme délimiteur (invisible) de droite :
+utilisant «~\verb|.|~» comme délimiteur (invisible) de droite :
 \begin{example}
 \begin{equation*}
   |x| =
@@ -1001,7 +1001,7 @@ moyenne similaire à l'espace entre mots. and \ci{quad}
 (\demowidth{1em}) et \ci{qquad} (\demowidth{2em}) produisent des
 espaces plus larges.  La largeur d'un \ci{quad}\footnote{Appelé \emph{espace
     cadratin} en français. \NdT} correspond approximativement à la largeur du
-caractère \og M \fg{} dans la police courante. 
+caractère \enquote{M} dans la police courante. 
 La commande \verb|\!|\cih{"!} produit une espace fine négative
 de $-\frac{3}{18}\:\textrm{quad}$ ($-$\demowidth{0.166em}).
 
@@ -1013,9 +1013,9 @@ de $-\frac{3}{18}\:\textrm{quad}$ ($-$\demowidth{0.166em}).
 \end{equation*}
 \end{example}
 
-Remarquez que \og d \fg{} est imprimée en police romaine.
+Remarquez que \enquote{d} est imprimée en police romaine.
 Dans l'exemple suivant, nous définissons une commande \ci{ud} qui
-produit \og $\,\mathrm{d}$ \fg{} (remarquez l'espace
+produit \enquote{$\,\mathrm{d}$} (remarquez l'espace
 \demowidth{0.166em} avant le $\text{d}$), de manière à ne pas avoir à
 le saisir à chaque fois. La commande  \ci{newcommand} est placée en
 préambule.
@@ -1095,8 +1095,8 @@ avec les quatre commandes~:
 \ci{scriptscriptstyle}~($\scriptscriptstyle 123$).
 \end{flushleft}
 
-Si $\sum$ est placé dans une fraction, il sera imprimé dans le style \og
-en-ligne \fg à
+Si $\sum$ est placé dans une fraction, il sera imprimé dans le style
+\enquote{en-ligne} à
 moins d'indiquer à \LaTeX{} le contraire :
 \begin{example}
 \begin{equation*}
@@ -1216,9 +1216,9 @@ Et si le chef a tort, se référer
 \end{example}
 
 
-L'environnement \og decret \fg{} utilise le même compteur que l'environnement
-\og loi \fg{}, donc il obtient un numéro dans la même
-séquence que les autres \og lois \fg{}. L'argument entre crochets permet
+L'environnement \enquote{decret} utilise le même compteur que l'environnement
+\enquote{loi}, donc il obtient un numéro dans la même
+séquence que les autres \enquote{lois}. L'argument entre crochets permet
 de spécifier un titre ou quelque chose de ce genre pour l'environnement.
 \begin{example}
 \newtheorem{mur}{Murphy}[section]
@@ -1226,7 +1226,7 @@ de spécifier un titre ou quelque chose de ce genre pour l'environnement.
 aller mal ira mal.\end{mur}
 \end{example}
 
-Les environnements \og Murphy \fg{} sont numérotés à l'intérieur de la section
+Les environnements \enquote{Murphy} sont numérotés à l'intérieur de la section
 en cours. On aurait pu utiliser un autre niveau tel que \texttt{chapter}
 ou \texttt{subsection}. 
 

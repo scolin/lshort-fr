@@ -28,7 +28,7 @@ reflète la structure logique et sémantique du contenu.
 Ce qui distingue \LaTeX{} des autres logiciels de traitement de texte
 c'est qu'il suffit d'indiquer à \LaTeX{} la structure logique et
 sémantique d'un texte. Il en déduit la forme typographique en fonction
-des \og règles \fg{} définies dans la classe de document et les différents
+des \enquote{règles} définies dans la classe de document et les différents
 fichiers de style.
 
 L'unité de texte la plus importante pour \LaTeX{} (et en typographie)
@@ -155,23 +155,23 @@ grâce au paramètre optionnel \emph{n}
 qui peut prendre une valeur entre zéro et quatre. En donnant à \emph{n}
 une valeur inférieure à quatre, vous laissez à \LaTeX{} la possibilité
 de ne pas tenir compte de votre commande si cela devait rendre le
-résultat réellement laid.  Ne confondez pas ces commandes \og break
-\fg{} avec les commandes \og new \fg{}.  Même lorsque vous utilisez
-une commande \og break \fg{}, \LaTeX{} essaye de justifier le bord
+résultat réellement laid.  Ne confondez pas ces commandes \enquote{break}
+avec les commandes \enquote{new}.  Même lorsque vous utilisez
+une commande \enquote{break}, \LaTeX{} essaye de justifier le bord
 droit du texte et d'ajuster la longueur totale de la page, comme
 expliqué plus loin ; cela peut mener à des trous disgracieux dans
-votre texte.  Si vous voulez réellement commencer une \og nouvelle
-\fg{} ligne ou une \og nouvelle \fg{} page, utilisez la commande \og
-new \fg{} correspondante.
+votre texte.  Si vous voulez réellement commencer une \enquote{nouvelle}
+ligne ou une \enquote{nouvelle} page, utilisez la commande \enquote{new}
+correspondante.
 
 \LaTeX{} essaye toujours de trouver les meilleurs endroits pour les
 retours à la ligne.
 S'il ne trouve pas de solution pour couper les lignes de
 manière conforme à ses normes de qualité, il laisse dépasser un bout
 de ligne sur la marge droite du paragraphe. \LaTeX{} émet alors le
-message d'erreur \og \wiat{\texttt{overfull \bs hbox}}{overfull hbox}
-\footnote{Débordement
-horizontal.} \fg{}. Cela se produit surtout quand \LaTeX{} ne trouve pas
+message d'erreur
+\enquote{\wiat{\texttt{overfull \bs hbox}}{overfull hbox}\footnote{Débordement horizontal.}}.
+Cela se produit surtout quand \LaTeX{} ne trouve pas
 de point de césure dans un mot.\footnote{Bien que \LaTeX{} signale un
   avertissement lorsque cela arrive et affiche la
   ligne qui pose problème, celle-ci n'est pas toujours facile à
@@ -182,9 +182,9 @@ En utilisant alors la commande \ci{sloppy},
 vous pouvez demander à \LaTeX{} d'être moins exigeant. Il ne produira
  plus de lignes trop longues en ajoutant de l'espace entre les
 mots du paragraphe, même si ceux-ci finissent trop espacés selon ses
-critères. Dans ce cas le message \og \wiat{\texttt{underfull \bs hbox}}
-{underfull hbox}\footnote{Boîte
-horizontale pas assez pleine.} \fg{} est produit. Souvent, malgré tout, le
+critères. Dans ce cas le message
+\enquote{\wiat{\texttt{underfull \bs hbox}}{underfull hbox}\footnote{Boîte horizontale pas assez pleine.}}
+est produit. Souvent, malgré tout, le
 résultat est acceptable. La commande \ci{fussy} agit dans l'autre
 sens, au cas où vous voudriez voir \LaTeX{} revenir à ses exigences
 normales.
@@ -205,7 +205,7 @@ La commande :
 \ci{hyphenation}\verb|{|\emph{liste de mots}\verb|}|
 \end{lscommand}
 \noindent permet de ne couper les mots cités en argument qu'aux
-endroits indiqués par \og \verb|-| \fg{}. Cette commande doit être
+endroits indiqués par «~\verb|-|~». Cette commande doit être
 placée dans le préambule et ne doit contenir que des mots composés de
 lettres ou signes considérés comme normaux par \LaTeX{}. La casse des
 caractères n'est pas prise en compte. Les informations de césure sont
@@ -221,9 +221,9 @@ activé via \pai{polyglossia}.
 %MPG: let's do what we say... :-)
 \hyphenation{Anti-cons-ti-tu-tion-nel-le-ment}
 L'exemple ci-dessous permet à
-\og anticonstitutionnellement \fg{} et \og Anticonstitutionnellement
-\fg{},  d'être coupés. Mais il empêche toute césure de \og
-FORTRAN \fg{}, \og Fortran \fg{} ou \og fortran \fg{}. Ni les
+\enquote{anticonstitutionnellement} et \enquote{Anticonstitutionnellement},
+d'être coupés. Mais il empêche toute césure de
+\enquote{FORTRAN}, \enquote{Fortran} ou \enquote{fortran}. Ni les
 caractères spéciaux ni les symboles ne sont autorisés dans cette
 commande.
 
@@ -310,11 +310,10 @@ il y a des guillemets ouvrants et fermants spécifiques. En anglais,
 utilisez deux~\textasciigrave{} pour les guillemets ouvrants et
 deux~\textquotesingle{}
 pour les guillemets fermants.
-En français, avec l'option \pai{francais} de l'extension \pai{babel},
-utilisez \ci{og} et \ci{fg} ou bien utilisez directement
+En français, avec le paquet \pai{csquotes} et l'activation du français via \pai{polyglossia},
+utilisez \ci{enquote} ou bien utilisez directement
 \texttt{\guillemotleft} et
-\texttt{\guillemotright} si vous disposez d'un moyen de saisir ces caractères
-(voir la section~\ref{ss-frenchb} pour plus de détails).
+\texttt{\guillemotright} si vous disposez d'un moyen de saisir ces caractères.
 \begin{example}
 ``Please press the `x' key.''
 
@@ -370,7 +369,7 @@ Pour obtenir une barre oblique entre deux mots, il suffit de l'écrire,
 comme par exemple \texttt{lire/écrire}. Cependant \LaTeX{} considère
 alors cela comme un seul mot et non deux. La césure est désactivée
 pour ces mots, ce qui peut conduire à des erreurs de débordement de
-ligne (\og overfull hbox \fg). Pour surmonter ce problème, utilisez
+ligne (\enquote{overfull hbox}). Pour surmonter ce problème, utilisez
 \ci{slash} comme par exemple \verb|lire\slash écrire| qui autorise la
 césure. Le caractère usuel de barre oblique (\texttt{/}) peut toujours
 être utilisés pour des fractions ou des unités, par exemple \texttt{5 MB/s}.
@@ -430,8 +429,7 @@ plutôt \texttt{gen} à la place de \texttt{official}.
 % un symbole de l'euro qui correspond à la police courante).
 % ne fonctionne pas
 % soit
-% l'extension \pai{eurosans} et la commande \ci{euro} (pour l'\og euro
-% officiel \fg{}).
+% l'extension \pai{eurosans} et la commande \ci{euro} (pour l'\enquote{euro officiel}).
 
 % L'extension \pai{marvosym} fournit également des symboles variés, y
 % compris celui de l'euro, sous le nom \ci{EURtm}. Son défaut est de ne
@@ -538,6 +536,7 @@ Stra\ss e
 \end{table}
 
 \section{Support multilingue\label{international}}
+\secby{Axel Kielhorn}{A.Kielhorn@web.de}%
 \index{international}
 
 Pour composer des documents dans des langues autres que l'anglais,
@@ -545,7 +544,7 @@ il y a plusieurs domaines pour lesquels
 \LaTeX{} doit s'adapter aux spécificités de chaque langue :
 \begin{enumerate}
 \item Toutes les chaînes de caractères générées automatiquement
-  \footnote{\og Table des matières \fg{}, \og Liste des figures \fg{}, \dots}
+  \footnote{\enquote{Table des matières}, \enquote{Liste des figures}, \dots}
   doivent être traduites.
 \item \LaTeX{} doit connaître les règles de césure de la nouvelle
       langue.
@@ -562,33 +561,15 @@ langages tant pour la saisie que pour les polices. De nos jours, les
 moteurs \TeX{} modernes sachant traiter l'UTF-8, ces problèmes ont été
 considérablement allégés.
 
-\section{Textes multilingues avec Polyglossia}
-\secby{Axel Kielhorn}{A.Kielhorn@web.de}%
 L'extension \pai{polyglossia}\cite{polyglossia} est un substitut au désormais obsolète paquet
 \pai{babel}. Elle prend soin des motifs de césure et des chaînes de
-textes générées automatiquement dans les documents en langues autres que l'anglais. L'option \verb|babelshorthands|
-active la compatibilité avec babel en ce qui concerne les raccourcis
-pour l'allemand et le catalan.
+textes générées automatiquement dans vos documents.
 
 L'extension \pai{fontspec}\cite{fontspec} gère le chargement des
 polices pour \hologo{XeLaTeX} et \hologo{LuaTeX}. La police par défaut
 est Latin Modern Roman.
 
-Notez ici
-que certaines commandes \hologo{TeX} sont des ligatures définies dans
-les polices Computer Modern. Si vous souhaitez les utiliser avec une
-police non-\hologo{TeX}, vous devez les émuler. L'option
-\texttt{Ligatures=TeX} definit les ligatures suivantes:
-
-\begin{tabular}{rr@{~~~~}rr@{~~~~}rr}
-\verb|--|	& -- & \verb|---|	& --- & \verb|''|	& ''\\
-\verb|``|	& `` & \verb|!`|	& !`  &  \verb|?`|	& ?`\\
-\verb|,,|	& ,, & \verb|<<|	& <<\\ & \verb|>>|	& >>\\
-\end{tabular}
-
-
-\subsubsection{C'est du $\Gamma\rho\epsilon\epsilon\kappa$ pour moi}
-%\subsubsection{It's all \textgreek{Ellenik'a} to me} % this requires greek babel.
+\subsection{Utilisation de Polyglossia}
 
 Selon le moteur \TeX{} que vous utilisez, des commandes différentes
 sont nécessaires dans le préambule de votre ddocument pour activer
@@ -609,7 +590,7 @@ de préambule qui se charge de tous les réglages nécessaires.
 \usepackage{polyglossia}
 \end{verbatim}
 \end{lined}
-\caption[Préambule tout-en-un]{Préambule tout-en-un qui prend en compte les trois moteurs \TeX{} générant du PDF.} \label{allinone}
+\caption[Préambule tout-en-un]{Préambule tout-en-un qui prend en compte \hologo{LuaLaTeX} et \hologo{XeLaTeX}} \label{allinone}
 \end{figure}
 
 
@@ -618,63 +599,86 @@ n'apportait aucun avantage. Cet état de fait change dès que l'on
 quitte l'alphabet latin et que l'on utilise un langage plus
 intéressant comme le grec ou le russe. Avec un système basé sur
 Unicode, pour pouvez simplement\footnote{Pour des valeurs suffisamment
-  petites de \og simple \fg.} entrer les caractères natifs dans votre éditeur
+  petites de \enquote{simple}.} entrer les caractères natifs dans votre éditeur
 et \hologo{TeX} les comprendra.
 
 Écrire en plusieurs langues est facile, il suffit de spécifier les
 langages dans le préambule\footnote{les noms des langages sont en
   anglais, il faut bien un socle commun... \NdT}. Cet exemple utilise
-le paquet \pai{csquote} qui génère le bon type d'apostrophes en
+le paquet \pai{csquotes} qui génère le bon type d'apostrophes en
 fonction du langage dans lequel vous écrivez. Notez qu'il doit être
 chargé \emph{avant} de charger le support pour votre langage.
 
 \begin{lscommand}
-\verb|\usepackage{csquote}|\\
+\verb|\usepackage[autostyle=true]{csquotes}|\\
 \verb|\setdefaultlanguage{french}|\\
-\verb|\setotherlanguage[babelshorthands]{german}|
+\verb|\setotherlanguage{german}|
 \end{lscommand}
 %
 Pour écrire un paragraphe en allemand, vous utiliserez l'environnement
 \texttt{german} :
 
-\begin{lscommand}
-Texte en français.\\
-\verb|\begin{german}|\\
-Deutscher \enquote{Text}.\\
-\verb|\end{german}|\\
+\begin{example}
+Texte en français.
+\begin{german}
+Deutscher \enquote{Text}.
+\end{german}
 Encore du \enquote{texte} en français.
-\end{lscommand}
+\end{example}
 
 Si vous avez seulement besoin d'un mot dans une langue autre, utilisez
 alors la commande \verb|\text|\emph{langage} :
 
-\begin{lscommand}
-\verb|Texte en français. \textgerman{Gesundheit} est en fait un mot allemand.|
-\end{lscommand}
+\begin{example}
+Saviez-vous que
+\textgerman{Gesundheit} est
+en fait un mot allemand.
+\end{example}
 
 Cela peut sembler superflu puisque le seul avantage est alors une
 césure correcte, mais pour un langage plus exotique le jeu en vaut la
 chandelle.
 
 Parfois la police principale du document ne contient pas les glyphes
-requis pour le second langage\footnote{Latin Modern ne contient pas de
-  caractères cyrilliques.}. La solution est alors de spécifier une
+requis pour le second langage. Par exemple Latin Modern ne contient pas de
+caractères cyrilliques. La solution est alors de spécifier une
 police à utiliser pour ce langage. Chaque fois qu'un nouveau langage
 est activé, \pai{polyglossia} vérifiera d'abord si une police aura été
 spécifiée pour ce langage.
+Si la police \emph{computer modern} vous sied, vous pouvez essayer la
+police \enquote{Computer Modern Unicode} en ajoutant les commandes
+suivantes au préambule de votre document.
 
-\begin{lscommand}
-\verb|\newfontfamily\russianfont[Script=Cyrillic,(...)]{(font)}|
-\end{lscommand}
+\medskip\noindent Pour \hologo{LuaLaTeX} c'est plutôt simple:
+\begin{verbatim}
+\setmainfont{CMU Serif}
+\setsansfont{CMU Sans Serif}
+\setmonofont{CMU Typewriter Text}
+\end{verbatim}
+\noindent Pour \hologo{XeLaTeX} il faut être un peu plus explicite:
+\begin{verbatim}
+\setmainfont{cmun}[
+   Extension=.otf,UprightFont=*rm,ItalicFont=*ti,
+   BoldFont=*bx,BoldItalicFont=*bi,
+ ]
+ \setsansfont{cmun}[
+   Extension=.otf,UprightFont=*ss,ItalicFont=*si,
+   BoldFont=*sx,BoldItalicFont=*so,
+ ]
+ \setmonofont{cmun}[
+   Extension=.otf,UprightFont=*btl,ItalicFont=*bto,
+   BoldFont=*tb,BoldItalicFont=*tx,
+ ]
+\end{verbatim}
 
-Maintenant vous pouvez écrire :
+Une fois les polices appropriées chargées, vous pouvez maintenant écrire :
 
-\begin{lscommand} \verb|\textrussian{Pravda} est un journal russe.|
-\end{lscommand}
-%
-Puisque le document que vous lisez actuellement est codé en Latin1, il
-m'est impossible de montrer les caractères
-cyrilliques\index{russe}\index{cyrillique}.
+\begin{example}
+\textrussian{Правда} est
+un journal russe.
+\textgreek{ἀλήθεια} est la vérité
+ou réalité en philosophie.
+\end{example}
 
 L'extension \pai{xgreek}\index{Grec}\cite{xgreek} offre le support
 pour écrire autant en ancien grec qu'en grec moderne (monotonique ou
@@ -683,7 +687,7 @@ polytonique).
 \subsubsection{Langages à l'écriture de droite à gauche.}
 
 Certains langages s'écrivent de gauche à droite, d'autres de droite à
-gauche (abbrévié en RTL, comme \og right to left \fg en
+gauche (abbrévié en RTL, comme \enquote{right to left} en
 anglais). \pai{polyglossia} doit faire appel à l'extension
 \pai{bidi}\cite{bidi}\footnote{\texttt{bidi} ne fonctionne pas avec
   \hologo{LuaTeX}.} pour le support des langages RTL. L'extension
@@ -768,7 +772,7 @@ alors une espace normale.
 
 Toute exception à ces règles doit être spécifiée par l'auteur du
 document. Une contre-oblique qui précède une espace génère une espace qui ne
-sera pas élargie par \LaTeX{}.  Un tilde \og \verb|~| \fg{} produit
+sera pas élargie par \LaTeX{}.  Un tilde «\verb|~|» produit
 une espace interdisant tout saut de ligne (dit espace
 \emph{insécable}).  \verb|~| est à utiliser pour éviter les coupures
 indésirables : on code par exemple \verb|M.~Dupont|.  La
@@ -854,15 +858,15 @@ liste des titres et de leur numéro de page d'une exécution précédente
 \ci{tableofcontents}
 \end{lscommand}
 \noindent imprime la table des matières à l'endroit où la commande est
-invoquée. Un document doit être traité (on dit aussi \og compilé
-\fg{}) deux fois par \LaTeX{} pour avoir une table des matières
+invoquée. Un document doit être traité (on dit aussi \enquote{compilé})
+deux fois par \LaTeX{} pour avoir une table des matières
 correcte. Dans certains cas, un troisième passage est même
 nécessaire. \LaTeX{} vous indique quand c'est le cas.
 %Remarque: j'ai (SC) créé un cas pathologique qui demande 5
 %compilations, situé dans les exemple de mon GNUmakefile pour LaTeX.
 
 Toutes les commandes citées ci-dessus existent dans une forme
-\og étoilée \fg{} obtenue en ajoutant une étoile \verb|*| au nom de la
+\enquote{étoilée} obtenue en ajoutant une étoile \verb|*| au nom de la
 commande. Ces commandes produisent des titres de sections qui
 n'apparaissent pas dans la table des matières et qui ne sont pas
 numérotés. On peut ainsi remplacer la commande
@@ -954,8 +958,8 @@ automatiquement.}.
 Une référence à cette
 section\label{ma-section}
 ressemble à :
-\og voir section~\ref{ma-section},
-page~\pageref{ma-section}.\fg
+\enquote{voir section~\ref{ma-section},
+page~\pageref{ma-section}.}
 \end{example}
 
 \section{Notes de bas de page}
@@ -1069,8 +1073,8 @@ numérotées) et \ei{description} est utilisé pour des descriptions.
 Notez que l'option \pai{francais} de l'extension \pai{babel} utilise
 une présentation des
 listes simples qui respecte les règles typographiques françaises : utilisation
-d'un tiret pour les listes simples au loin d'un point épais \og \textbullet
-\fg, espaces verticaux réduits.
+d'un tiret pour les listes simples au loin d'un point épais \enquote{\textbullet},
+espaces verticaux réduits.
 %MPG: and this is applied to all languages by default. So don't bother trying
 %to make an example.
 
@@ -1156,7 +1160,7 @@ où les retours à la ligne sont importants. Les vers sont séparés par
 des commandes \ci{\bs} et les strophes par une ligne vide\footnote{Les
 puristes constateront que l'environnement \ei{verse} ne respecte pas
 les règles de la typographie française : les rejets devraient être
-préfixés par \og [\iffalse]\fi \fg et alignés à droite sur le vers précédent.}.
+préfixés par \enquote{[\iffalse]\fi} et alignés à droite sur le vers précédent.}.
 
 \begin{example}
 Voici le début d'une
@@ -1327,11 +1331,11 @@ avec espaces\\
 %
 
 \index{alignement décimal} S'il n'y a pas de commande prévue%
-\footnote{Si les extensions de l'ensemble \og tools \fg{} sont installées
+\footnote{Si les extensions de l'ensemble \enquote{tools} sont installées
           sur votre système, jetez un \oe il sur l'extension
           \pai{dcolumn} faite pour résoudre ce problème.}
 pour aligner les nombres sur le point décimal (ou la virgule si on
-respecte les règles françaises) nous pouvons \og tricher \fg{} et
+respecte les règles françaises) nous pouvons \enquote{tricher} et
 réaliser cet alignement en utilisant deux colonnes : la première
 alignée à droite contient la partie entière et la seconde alignée à
 gauche contient la partie décimale. La commande \verb|\@{,}| dans la
@@ -1340,7 +1344,7 @@ une simple virgule, donnant l'impression d'une seule colonne alignée
 sur le séparateur décimal. N'oubliez pas de remplacer dans votre
 tableau le point ou la virgule
 par un séparateur de colonnes (\verb|&|) ! Un titre peut être
-placé au-dessus de cette \og colonne virtuelle \fg (en fait, de ces deux
+placé au-dessus de cette \enquote{colonne virtuelle} (en fait, de ces deux
 colonnes) en utilisant la commande \ci{multicolumn}.
 
 \begin{example}
@@ -1420,6 +1424,80 @@ l'environnement \texttt{tabular} sont disponibles dans le paquet
 \pai{booktabs}. Celui-ci simplifie grandement la création de tables
 d'aspect professionnel et à l'espacement correct.
 
+\section{Inclusion de graphiques et d'images} \label{eps}
+
+Comme expliqué dans la section précédente,
+avec les environnements \ei{figure} et \texttt{table}, \LaTeX{}
+fournit les mécanismes de base pour travailler avec des objets tels que
+des images ou des graphiques.
+
+Un ensemble de commandes bien adaptées à l'insertion de graphiques dans ces objets flottants est
+fourni par l'extension \pai{graphicx}, développée par D.~P.~Carlisle. Elle
+fait partie d'un ensemble d'extensions appelé \enquote{graphics}.
+\footnote{\CTAN|pkg/graphics|.}.
+
+Voici la marche à suivre pas à pas pour inclure une
+figure dans un document :
+
+\begin{enumerate}
+\item exportez la figure de votre logiciel graphique au format EPS, PDF, PNG ou JPEG.
+\item Si vous avez exporté votre figure sous forme de graphique
+  vectoriel EPS, vous devez la convertir en PDF avant de
+  l'utiliser. Il existe une commande \texttt{epstopdf} pour cette
+  tâche précise. Notez qu'exporter vers le format EPS a du sens même
+  si votre logiciel sait exporter vers le format PDF, étant donné que
+  le PDF est souvent en pleine page et sera réduit lorsqu'importé dans
+  un document, alors qu'EPS fournit un cadre qui définit la zone qui
+  contient exactement la figure.
+\item chargez l'extension \textsf{graphicx} dans le préambule de votre
+      fichier source avec :
+\begin{lscommand}
+\verb|\usepackage{graphicx}|
+\end{lscommand}
+\item utilisez la commande :
+\begin{lscommand}
+\ci{includegraphics}\verb|[|\emph{clef}=\emph{valeur}, ... \verb|]{|\emph{fichier}\verb|}|
+\end{lscommand}
+\noindent pour insérer \emph{fichier} dans votre document. Le param<E8>tre
+optionnel est une liste de paires de \emph{clefs} et de \emph{valeurs}
+séparées par des virgules. Les \emph{clefs} permettent de modifier la
+largeur, la hauteur, ou l'angle de rotation de la figure. Le
+tableau~\ref{keyvals} présente les clefs les plus importantes.
+\end{enumerate}
+
+\begin{table}[tb]
+\caption{Clefs pour l'extension \textsf{graphicx}}
+\label{keyvals}
+\begin{lined}{9cm}
+\begin{tabular}{@{}ll}
+\texttt{width}& définit la largeur de la figure\\
+\texttt{height}& définit la hauteur de la figure\\
+\texttt{angle}& (en degrés) tourne la figure dans le sens \\
+&  des aiguilles d'une montre \\
+\texttt{scale}& échelle de la figure
+\end{tabular}
+
+\bigskip
+\end{lined}
+\end{table}
+
+L'exemple en figure~\ref{figureex} page~\pageref{figureex} devrait
+aider à clarifier le fonctionnement de la commande.
+\begin{figure}
+\begin{lined}{9cm}
+\begin{verbatim}
+\includegraphics[angle=90,width=\textwidth]{test.png}
+\end{verbatim}
+\end{lined}
+\caption{Code d'exemple pour inclure \texttt{test.png} dans un document.\label{figureex}}
+\end{figure}
+
+Cette commande inclut la figure stockée dans le fichier
+\texttt{test.png}. La figure est \emph{d'abord} tournée de 90 degrés
+puis ajustée pour que sa largeur finale soit de 10 cm. Les proportions
+largeur/hauteur sont conservées, puisqu'aucune hauteur n'est spécifiée.
+
+Pour plus d'informations, reportez vous à~\cite{graphics}.
 
 \section{Objets flottants}
 
@@ -1433,9 +1511,9 @@ blanches, ce qui ne serait réellement pas beau.
 \index{tableau}
 \index{figure}
 
-La solution est de laisser \og flotter \fg{} les figures et les tableaux
+La solution est de laisser \enquote{flotter} les figures et les tableaux
 qui ne rentrent pas sur la page en cours, vers une page suivante et de
-compléter la page avec le texte qui suit l'objet \og flottant \fg{}.
+compléter la page avec le texte qui suit l'objet \enquote{flottant}.
 \LaTeX{} fournit deux
 environnements pour les \wi{objets flottants} adaptés respectivement
 aux figures (\ei{figure}) et aux tableaux (\ei{table}). Pour
@@ -1540,8 +1618,8 @@ Avec la commande :
 \end{lscommand}
 \noindent
 vous définissez une légende pour l'objet. Un numéro (incrémenté
- automatiquement) et le mot \og Figure \fg{} ou
- \og Table \fg{}\footnote{Avec l'extension \texttt{babel}, la
+ automatiquement) et le mot \enquote{Figure} ou
+ \enquote{Table}\footnote{Avec l'extension \texttt{babel}, la
  présentation des légendes est modifiée pour obéir aux règles
  françaises.} sont ajoutés par \LaTeX.
 
@@ -1572,8 +1650,8 @@ illustration que vous allez coller sur le document terminé.
 \begin{verbatim}
 La figure~\ref{blanche} est un exemple de Pop-Art.
 \begin{figure}[!htbp]
-\makebox[\textwidth]{\framebox[5cm]{\rule{0pt}{5cm}}}
-\caption{Cinq centimètres sur cinq.\label{blanche}}
+\includegraphics[angle=90,width=\textwidth]{white-box.pdf}
+\caption{White Box by Peter Markus Paulian.\label{white}}
 \end{figure}
 \end{verbatim}
 \end{code}
@@ -1597,112 +1675,6 @@ Elle ordonne à \LaTeX{} de placer tous les objets en attente
 immédiatement puis de commencer une nouvelle
 page. \ci{cleardoublepage} commence une nouvelle page de droite.
 
-\section{Inclusion de graphiques et d'images} \label{eps}
-
-Comme expliqué dans la section précédente,
-avec les environnements \ei{figure} et \texttt{table}, \LaTeX{}
-fournit les mécanismes de base pour travailler avec des objets tels que
-des images ou des graphiques.
-
-Un ensemble de commandes bien adaptées à l'insertion de graphiques dans ces objets flottants est
-fourni par l'extension \pai{graphicx}, développée par D.~P.~Carlisle. Elle
-fait partie d'un ensemble d'extensions appelé \og graphics \fg{}.
-\footnote{\CTAN|pkg/graphics|.}.
-
-Voici la marche à suivre pas à pas pour inclure une
-figure dans un document :
-
-\begin{enumerate}
-\item exportez la figure de votre logiciel graphique au format EPS, PDF, PNG ou JPEG.
-\item Si vous avez exporté votre figure sous forme de graphique
-  vectoriel EPS, vous devez la convertir en PDF avant de
-  l'utiliser. Il existe une commande \texttt{epstopdf} pour cette
-  tâche précise. Notez qu'exporter vers le format EPS a du sens même
-  si votre logiciel sait exporter vers le format PDF, étant donné que
-  le PDF est souvent en pleine page et sera réduit lorsqu'importé dans
-  un document, alors qu'EPS fournit un cadre qui définit la zone qui
-  contient exactement la figure.
-\item chargez l'extension \textsf{graphicx} dans le préambule de votre
-      fichier source avec :
-\begin{lscommand}
-\verb|\usepackage{graphicx}|
-\end{lscommand}
-\item utilisez la commande :
-\begin{lscommand}
-\ci{includegraphics}\verb|[|\emph{clef}=\emph{valeur}, ... \verb|]{|\emph{fichier}\verb|}|
-\end{lscommand}
-\noindent pour insérer \emph{fichier} dans votre document. Le param<E8>tre
-optionnel est une liste de paires de \emph{clefs} et de \emph{valeurs}
-séparées par des virgules. Les \emph{clefs} permettent de modifier la
-largeur, la hauteur, ou l'angle de rotation de la figure. Le
-tableau~\ref{keyvals} présente les clefs les plus importantes.
-\end{enumerate}
-
-\begin{table}[tb]
-\caption{Clefs pour l'extension \textsf{graphicx}}
-\label{keyvals}
-\begin{lined}{9cm}
-\begin{tabular}{@{}ll}
-\texttt{width}& définit la largeur de la figure\\
-\texttt{height}& définit la hauteur de la figure\\
-\texttt{angle}& (en degrés) tourne la figure dans le sens \\
-&  des aiguilles d'une montre \\
-\texttt{scale}& échelle de la figure
-\end{tabular}
-
-\bigskip
-\end{lined}
-\end{table}
-
-L'exemple en figure~\ref{figureex} page~\pageref{figureex} devrait
-aider à clarifier le fonctionnement de la commande.
-\begin{figure}
-\begin{lined}{9cm}
-\begin{verbatim}
-\begin{figure}
-\centering
-\includegraphics[angle=90,
-                 width=0.5\textwidth]{test.png}
-\caption{Ceci est un test.}
-\end{figure}
-\end{verbatim}
-\end{lined}
-\caption{Code d'exemple pour inclure \texttt{test.png} dans un document.\label{figureex}}
-\end{figure}
-
-Cette commande inclut la figure stockée dans le fichier
-\texttt{test.png}. La figure est \emph{d'abord} tournée de 90 degrés
-puis ajustée pour que sa largeur finale soit de 10 cm. Les proportions
-largeur/hauteur sont conservées, puisqu'aucune hauteur n'est spécifiée.
-
-Pour plus d'informations, reportez vous à~\cite{graphics}.
-
-\section{Protection des commandes \texorpdfstring{\og fragiles \fg}{\string«fragiles \string»}}
-
-Les arguments de commandes telles que \ci{section} ou \ci{caption}
-etc., peuvent apparaître plusieurs fois dans le document (par exemple
-dans la table des matières, les hauts de pages\dots), on dit qu'il
-s'agit d'arguments \og mobiles \fg{} (\emph{moving arguments}).
-Certaines commandes, comme \ci{footnote}, \ci{phantom} etc., ne
-produisent pas le résultat escompté quand elles sont exécutées comme
-argument de commandes de type \ci{section}. La compilation du document
-échouera alors. On dit de ces commandes qu'elles sont \og fragiles
-\fg, ce qui signifie qu'elles ont besoin de la protection (comme nous
-tous ?). Il faut alors les faire précéder de \ci{protect} : elles
-fonctionneront alors correctement même si elles sont utilisées dans
-des arguments mobiles.
-
-La commande \ci{protect} n'a d'effet que sur la commande qui la suit
-immédiatement, \emph{même pas} sur ses arguments éventuels.
-La plupart du temps un \ci{protect} de trop ne produira aucun effet pervers.
-
-Voici un exemple d'utilisation de \verb+\protect+ :
-\begin{center}
-\begin{verbatim}
-\section{Je suis prudent
-   \protect\footnote{Je protège ma note de bas de page.}}
-\end{verbatim}
-\end{center}
 
 \endinput
 

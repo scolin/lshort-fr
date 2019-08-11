@@ -161,8 +161,8 @@ systématiquement en tête de l'ordre alphabétique.
 Pour obtenir un classement correct des clés contenant des caractères
 accentués (le «é» doit être classé comme un «e»), on peut utiliser
 le caractère \texttt{@} : la dernière ligne du tableau~\ref{index}
-produira une entrée \og école \fg{} dans l'index, classée comme s'il s'agissait
-de \og ecole \fg{}.
+produira une entrée \enquote{école} dans l'index, classée comme s'il s'agissait
+de \enquote{ecole}.
 
 
 \section{En-têtes améliorés}
@@ -250,8 +250,8 @@ qui justifient que cette extension soit citée ici. L'extension
 document, comme s'il se trouvait à l'intérieur d'un environnement
 \ei{verbatim}.
 
-Puisque l'extension \pai{verbatim} fait partie de l'ensemble \og
-\texttt{tools} \fg{}, elle devrait être déjà disponible sur la plupart
+Puisque l'extension \pai{verbatim} fait partie de l'ensemble
+\enquote{\texttt{tools}}, elle devrait être déjà disponible sur la plupart
 des systèmes. Pour en savoir plus au sujet de cette extension,
 reportez-vous à~\cite{verbatim}.
 
@@ -381,7 +381,7 @@ vos fichiers \LaTeX{} en PDF:
   liens hypertexte.
 \end{enumerate}
 
-Ajoutez simplement \verb+\usepackage[pdftex]{hyperref}+ en tant que
+Ajoutez simplement \verb+\usepackage{hyperref}+ en tant que
 \emph{dernière} commande de votre préambule.
 
 De nombreuses options modifient le comportement de l'extension
@@ -495,8 +495,8 @@ Le code
 Le site web du \href{http://www.ctan.org}{CTAN}.
 \end{verbatim}
 \end{code}
-produit la sortie \og \href{http://www.ctan.org}{CTAN} \fg{}; cliquer
-sur le mot \og \textcolor{magenta}{CTAN} \fg{} vous amènera au site
+produit la sortie \enquote{\href{http://www.ctan.org}{CTAN}}; cliquer
+sur le mot \enquote{\textcolor{magenta}{CTAN}} vous amènera au site
 web du CTAN.
 
 Si la destination du lien n'est pas une URL mais un fichier local,
@@ -504,9 +504,9 @@ vous pouvez utiliser la commande \ci{href} sans la partie 'http://' :
 \begin{verbatim}
   Le document complet est \href{manuel.pdf}{ici}
 \end{verbatim}
-Elle produit le texte \og Le document complet est
-\textcolor{cyan}{ici} \fg{}. Cliquer sur le mot \og
-\textcolor{cyan}{ici} \fg{} ouvrira le fichier \texttt{manuel.pdf} (le
+Elle produit le texte \enquote{Le document complet est
+\textcolor{cyan}{ici}}. Cliquer sur le mot \enquote{
+\textcolor{cyan}{ici}} ouvrira le fichier \texttt{manuel.pdf} (le
 nom de fichier est relatif au document courant).
 
 L'auteur d'un article peut souhaiter que ses lecteurs puissent lui
@@ -538,9 +538,9 @@ apparaissent lors de la réinitialisation d'un compteur, par exemple
 lors de l'utilisation de la commande \ci{mainmatter} fournie par la
 classe de document \texttt{book}. Elle remet à 1 le numéro de page
 page avant le premier chapitre du livre. Cependant, la préface du
-livre a aussi une page numérotée~1 : les liens vers la \og page~1
-\fg{} ne seraient alors plus uniques, d'où l'avertissement \og
-\verb+duplicate+ has been \verb+ignored+ \fg{}.
+livre a aussi une page numérotée~1 : les liens vers la
+\enquote{page~1} ne seraient alors plus uniques, d'où l'avertissement
+«\verb|duplicate| has been \verb|ignored|».
 
 La contre-mesure consiste en l'ajout de \texttt{plainpages=false} aux
 options d'hyperref. Ça ne résout le problème que pour le compteur de
@@ -552,7 +552,7 @@ index de fonctionner.
 \subsection{Problèmes de marque-pages}
 
 Le texte affiché par les marque-pages ne correspond pas toujours à vos
-attentes : comme ceux-ci sont \og juste du texte \fg{}, encore moins de
+attentes : comme ceux-ci sont \enquote{juste du texte}, encore moins de
 caractères que pour \LaTeX{} sont disponibles. Hyperref remarquera ce
 type de problème et notifiera un avertissement :
 \begin{code}
@@ -576,7 +576,7 @@ de problèmes :
         {E=mc**2}}
 \end{verbatim}
 \end{code}
-transforme \verb+$E=mc^2$+ en \og E=mc**2 \fg{} dans la zone de
+transforme \verb+$E=mc^2$+ en \enquote{E=mc**2} dans la zone de
 marque-pages.
 
 Si votre document est écrit en Unicode et que vous utilisez l'option
@@ -624,8 +624,8 @@ cyrilliques ainsi que les ligatures correspondantes.
 De nombreuses polices contiennent au moins deux types de chiffres,
 ceux à l'alignement normal et ceux en style ancien (ou en minuscules)
 qui s'étendent partiellement en dessous de la ligne. Elles peuvent
-contenir des chiffres proportionnés (le \og 1 \fg prend moins de place
-que le \og 0 \fg) ou à espacement fixe mieux adaptés pour des tableaux.
+contenir des chiffres proportionnés (le \enquote{1} prend moins de place
+que le \enquote{0}) ou à espacement fixe mieux adaptés pour des tableaux.
 
 \begin{code}
 \begin{verbatim}
@@ -667,8 +667,8 @@ Pro) contiennent aussi des glyphes alternatifs activés par défaut dans
 le \hologo{XeLaTeX} fourni avec \TeX Live~2010\footnote{Ce
   comportement n'était pas présent car désactivé par défaut dans des
   versions précédentes.}. Le résultat de son utilisation est par
-exemple un \og Q \fg majuscule stylisé dont la queue rejoint par
-en-dessous le \og u \fg qui suit. Pour désactiver cette fonctionnalité,
+exemple un \enquote{Q} majuscule stylisé dont la queue rejoint par
+en-dessous le \enquote{u} qui suit. Pour désactiver cette fonctionnalité,
 vous devrez définir la police sans les traitements contextuels :
 
 \begin{code}
@@ -689,8 +689,8 @@ collection ne comprend pas \texttt{DejaVu}, qui elle est disponible
 sur le site \url{http://dejavu-fonts.org/}.
 
 Assurez-vous que chacune des polices n'est bien installée \emph{qu'une
-seule fois}, sinon vous obtiendrez des résultats au mieux \og
-intéressants \fg.
+  seule fois}, sinon vous obtiendrez des résultats au mieux
+\enquote{intéressants}.
 
 Vous pouvez utiliser toute police installée sur votre ordinateur,
 rappelez-vous cependant que d'autres utilisateurs ne les ont peut-être
@@ -729,7 +729,7 @@ Certaines différences existent entre \hologo{XeLaTeX} et
   de codages.
 \item L'extension \pai{microtype} ne fonctionne pas encore avec
   \hologo{XeLaTeX} et le support pour la saillie de caractères
-  (technique connue sous le nom de \og character protrusion \fg en
+  (technique connue sous le nom de \enquote{character protrusion} en
   anglais) est en cours de développement.
 \item Tout ce qui a trait aux polices doit être vérifié (sauf si vous
   vous cantonnez à la police Latin Modern).

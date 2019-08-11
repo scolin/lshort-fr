@@ -15,7 +15,7 @@
 
 \begin{intro}
 De nombreuses personnes utilisent \LaTeX{} pour mettre en page leur
-texte. Et puisque l'approche \og orientée structure \fg{} est si
+texte. Et puisque l'approche \enquote{orientée structure} est si
 commode, \LaTeX{} fournit également, quoique limitées, des
 possibilités de production graphique sur la base de descriptions
 textuelles. De nombreuses extensions ont été créées pour surmonter ces
@@ -30,7 +30,7 @@ histoire. Celle-ci commence par l'environnement \ei{picture} qui
 permet la création de graphiques par le placement d'éléments
 prédéfinis sur un canevas. Vous pourrez en trouver une description
 complète dans le \manual. Cet environnement fournit la commande
-\ci{qbezier}, le \og \texttt{q} \fg signifiant \og quadratique \fg. De nombreuses
+\ci{qbezier}, le \enquote{\texttt{q}} signifiant \enquote{quadratique}. De nombreuses
 courbes usuelles comme les cercles, ellipses ou caténaires peuvent
 être approchés de manière satisfaisante par des courbes quadratiques
 de Bézier, bien que cela requiert quelque labeur mathématique. Si de
@@ -344,8 +344,8 @@ La commande
 \end{lscommand}
 \noindent produit un ovale centré en $(x,y)$, de largeur $w$ et
 d'hauteur $h$. Les paramètres optionnels de \emph{position}
-\texttt{b}, \texttt{t}, \texttt{l} et \texttt{r} se rapportent à \og
-haut \fg{}, \og bas \fg{},\og gauche \fg{} et \og droite \fg{}
+\texttt{b}, \texttt{t}, \texttt{l} et \texttt{r} se rapportent à \enquote{haut},
+\enquote{bas},\enquote{gauche} et \enquote{droite}
 respectivement. Ils peuvent être combinés comme l'illustre l'exemple
 plus haut.
 
@@ -405,7 +405,7 @@ Une boîte d'image peut être \emph{déclarée} par la commande
 \end{lscommand}
 
 Le paramètre optionnel de \emph{position} a pour effet de définir
-le \og point d'ancrage \fg{} de l'image emboîtée. Dans l'exemple il
+le \enquote{point d'ancrage} de l'image emboîtée. Dans l'exemple il
 est défini comme \texttt{bl} qui met le point d'ancrage dans le coin
 inférieur gauche de l'image emboîtée. Les autres positions possibles
 sont \texttt{t}op (en haut) et \texttt{r}ight (à droite).
@@ -513,8 +513,8 @@ et $(-1.2384,\,0)$. Les croix indiquent les points du caténaire
 \emph{réel}. L'erreur est négligeable, de moins d'un pourcent.
 
 Cet exemple signale l'usage du paramètre optionel de la commande
-\verb|\begin{picture}|. L'image est définie selon des coordonnées \og
-  mathématiques \fg{} commodes, tandis que par la commande
+\verb|\begin{picture}|. L'image est définie selon des coordonnées
+\enquote{mathématiques} commodes, tandis que par la commande
 \begin{lscommand}
   \ci{begin}\verb|{picture}(4.3,3.6)(-2.5,-0.25)|
 \end{lscommand}
@@ -592,7 +592,7 @@ Tout d'abord un diagramme sans signification spéciale :
          arc (0:30:3mm) -- cycle;
 \end{tikzpicture}
 \end{example}
-Remarquez l'usage du point-virgule \og \texttt{;} \fg. Il sépare les
+Remarquez l'usage du point-virgule \enquote{\texttt{;}}. Il sépare les
 commandes individuelles.
 
 Un simple diagramme de Venn.
@@ -614,7 +614,7 @@ Un simple diagramme de Venn.
 \end{tikzpicture}
 \end{example}
 
-Remarquez les boucles \og pour \fg (\texttt{foreach}) dans l'example suivant :
+Remarquez les boucles \enquote{pour} (\texttt{foreach}) dans l'example suivant :
 \begin{example}
 \begin{tikzpicture}[scale=0.8]
   \tikzstyle{v}=[circle, minimum size=2mm,inner sep=0pt,draw]

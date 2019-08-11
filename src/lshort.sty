@@ -15,29 +15,48 @@
 \else
    \ifXeTeX
      \RequirePackage{fontspec}
+     \setmainfont{cmun}[
+      Extension=.otf,
+      UprightFont=*rm,
+      ItalicFont=*ti,
+      BoldFont=*bx,
+      BoldItalicFont=*bi,
+    ]
+    \setsansfont{cmun}[
+      Extension=.otf,
+      UprightFont=*ss,
+      ItalicFont=*si,
+      BoldFont=*sx,
+      BoldItalicFont=*so,
+    ]
+    \setmonofont{cmun}[
+      Extension=.otf,
+      UprightFont=*btl,% light version
+      ItalicFont=*bto,%  light version
+      BoldFont=*tb,
+      BoldItalicFont=*tx,
+    ]
    \else
-     \RequirePackage{luatextra}
+    \setsansfont{CMU Sans Serif}
+    \setmonofont{CMU Typewriter Text}
+    \setmainfont{CMU Serif}
+    \RequirePackage{luatextra}
    \fi
+
    \defaultfontfeatures{Ligatures=TeX}
 \fi
 %save pageref an label
 \let\lsspageref=\pageref
 \ProvidesPackage{lshort}
-\RequirePackage{csquotes}
-% main language has to come last for global layout to be right (mpg)
-\RequirePackage[english,german,greek,francais]{babel}
+\RequirePackage{polyglossia}
+\setdefaultlanguage{french}
+\setotherlanguage{english}
+\setotherlanguage{german}
+\setotherlanguage{greek}
+\setotherlanguage{russian}
+\RequirePackage[autostyle]{csquotes}
 \usepackage[autolanguage]{numprint} % needed for \nombre since frenchb 2.x
 \usepackage{etex} % to avoid "no room for a new \dimen" error
-% the following are defaults of frenchb since 2.x
-% set them so the result is correct even with older frenchb (mpg)
-\FrenchFootnotes
-\AddThinSpaceBeforeFootnotes
-\addto\captionsfrench{%
-  \def\figurename{{\scshape Figure}}%
-  \def\tablename{{\scshape Table}}%
-  }
-% end frenchb 1.x compatibility settings
-\NoAutoSpaceBeforeFDP % another frenchb setting
 \usepackage{xspace} % frenchb commands can use it
 \RequirePackage{mflogo}
 \RequirePackage{hologo} % for \XeTeX logo *ak*
