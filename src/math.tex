@@ -74,7 +74,7 @@ Une \wi{formule} mathématique peut être mise en forme
 au fil du texte à l'intérieur d'un paragraphe
 (\emph{\wi{style en-ligne}}) ou en interrompant le flot du texte pour
 que la mise en forme soit séparée (\textit{\wi{style hors-texte}}). Les
-\wi{équation}s mathématiques \emph{dans} un paragraphe sont entrées
+\wiat{équation}{equation}s mathématiques \emph{dans} un paragraphe sont entrées
 entre deux signes \index{$\iffalse$\fi @\texttt{\$}} \texttt{\$} :
 \begin{example}
 Ajoutez $a$ au carré
@@ -738,13 +738,13 @@ d'elle (c'est le sens du \texttt{C} majuscule au lieu de \texttt{c}
 minuscule), et la troisième alignée à gauche.
 \begin{example}
 \begin{IEEEeqnarray}{rCl}
-  a & = & b + c
-  \\
-  & = & d + e + f + g + h
-  + i + j + k \nonumber\\
-  && \negmedspace {} + l + m + n + o
-  \\
-  & = & p + q + r + s
+a & = & b + c
+\\
+& = & d + e + f + g + h
++ i + j + k \nonumber\\
+&& \negmedspace {} + l + m + n + o
+\\
+& = & p + q + r + s
 \end{IEEEeqnarray}
 \end{example}
 On peut choisir n'importe quel nombre de colonnes. Par exemple,
@@ -853,13 +853,13 @@ Par exemple, au lieu de
 il vaut mieux écrire
 \begin{example}
 \begin{IEEEeqnarray}{rCl}
-  a & = & b + c
-  \\
-  & = & d + e + f + g + h
-  + i + j + k \nonumber\\
-  && \negmedspace {} + l + m + n + o
-  \\
-  & = & p + q + r + s
+a & = & b + c
+\\
+& = & d + e + f + g + h
++ i + j + k \nonumber\\
+&& \negmedspace {} + l + m + n + o
+\\
+& = & p + q + r + s
 \end{IEEEeqnarray}
 \end{example}
 \noindent Observez l'espace entre $+$ et $l$ dans les deux cas !
