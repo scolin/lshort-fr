@@ -15,7 +15,7 @@
 %  with new material
 %
 % Other Changes:
-% -in lshort.sty: 
+% -in lshort.sty:
 %    *example environment adapted: changed in three places
 %     \textwidth by \linewidth. This is necessary for
 %     example-environment within a itemize-list.
@@ -43,9 +43,9 @@
   majorité des utilisateurs, ne désespérez pas si vous n'y trouvez pas
   la solution à votre problème de mise en forme d'une équation
   mathématique. Il y a de fortes chances pour que la solution se
-  trouve dans l'extension \pai{amsmath} de \AmS-\LaTeX{}.% 
+  trouve dans l'extension \pai{amsmath} de \AmS-\LaTeX{}.%
 \end{intro}
-  
+
 \section{L'ensemble \texorpdfstring{\AmS}{AMS}-\LaTeX{}}
 
 Si vous souhaitez saisir des textes \wi{mathématiques} (avancés), vous
@@ -77,14 +77,14 @@ que la mise en forme soit séparée (\textit{\wi{style hors-texte}}). Les
 \wi{équation}s mathématiques \emph{dans} un paragraphe sont entrées
 entre deux signes \index{$\iffalse$\fi @\texttt{\$}} \texttt{\$} :
 \begin{example}
-Ajoutez $a$ au carré 
+Ajoutez $a$ au carré
 et $b$ au carré pour obtenir
-$c$ au carré. Ou, en 
+$c$ au carré. Ou, en
 utilisant une approche plus
 matheuse : $a^2 + b^2 = c^2$.
 \end{example}
 \begin{example}
- \TeX{} se prononce 
+ \TeX{} se prononce
 $\tau\epsilon\chi$\\[5pt]
 100~m$^{3}$ d'eau\\[5pt]
 J'$\heartsuit$ \LaTeX{}
@@ -101,9 +101,9 @@ d'équation et vous y référer ailleurs dans le texte via la commande
 à la place.
 
 \begin{example}
-Ajoutez $a$ au carré 
+Ajoutez $a$ au carré
 et $b$ au carré pour obtenir
-$c$ au carré. Ou, en 
+$c$ au carré. Ou, en
 utilisant une approche plus
 matheuse :
  \begin{equation}
@@ -129,9 +129,9 @@ version étoilée d'\texttt{equation}, \ei{equation*}\footnote{Fournie par
   non-étoilée d'\texttt{equation}.}, ou mieux encore,
 entourez votre équation par \ci{[} et \ci{]} :
 \begin{example}
-Ajoutez $a$ au carré 
+Ajoutez $a$ au carré
 et $b$ au carré pour obtenir
-$c$ au carré. Ou, en 
+$c$ au carré. Ou, en
 utilisant une approche plus
 matheuse :
 \begin{equation*}
@@ -153,13 +153,13 @@ différemment selon qu'elles sont composées \enquote{\wi{en-ligne}} ou
 \enquote{\wi{hors-texte}} :
  \begin{example}
 Style en-ligne :
-$\lim_{n \to \infty} 
-\sum_{k=1}^n \frac{1}{k^2} 
+$\lim_{n \to \infty}
+\sum_{k=1}^n \frac{1}{k^2}
 = \frac{\pi^2}{6}$.
 Style hors-texte :
 \begin{equation}
-  \lim_{n \to \infty} 
-  \sum_{k=1}^n \frac{1}{k^2} 
+  \lim_{n \to \infty}
+  \sum_{k=1}^n \frac{1}{k^2}
   = \frac{\pi^2}{6}
 \end{equation}
 \end{example}
@@ -199,7 +199,7 @@ Il y a également des différences notables entre le \wi{mode
       formule~;
 \item chaque lettre est considérée comme étant le nom d'une variable
       et sera imprimée comme telle. Pour insérer du  texte
-      normal (police et espacement standard) dans une formule, il 
+      normal (police et espacement standard) dans une formule, il
       faut utiliser la commande \verb|\text{...}| (voir également la
       section \ref{sec:fontsz} en page \pageref{sec:fontsz}).
 \end{enumerate}
@@ -213,7 +213,7 @@ $x^{2} \geq 0\qquad
 \text{pour tout } x\in\mathbf{R}$
 \end{example}
 
-Une mode récente et contestable pousse à utiliser la police 
+Une mode récente et contestable pousse à utiliser la police
 \eng{\wi{blackboard bold}} (gras tableau noir, ainsi appelée car c'est par
 le doublement des verticales des lettres que l'on simule le gras
 typographique lorsqu'on ne peut faire autrement) qui est obtenue par
@@ -227,7 +227,7 @@ pour désigner les ensembles de nombres entiers, réels, etc.
 L'exemple précédent devient :
 \begin{example}
 $x^{2} \geq 0\qquad
- \text{pour tout } x 
+ \text{pour tout } x
  \in \mathbb{R}$
 \end{example}
 \fi
@@ -240,7 +240,7 @@ mathématiques.
 \section{Éléments d'une formule mathématique}
 
 
-Cette section décrit les commandes les plus importantes 
+Cette section décrit les commandes les plus importantes
 du mode mathématique. La plupart des commandes de cette section ne
 nécessitent pas \textsf{amsmath}, sauf mention explicite, mais
 chargez-la tout de même.
@@ -261,7 +261,7 @@ page~\pageref{greekletters} pour une liste de lettres grecques.
 $\lambda,\xi,\pi,\theta,
  \mu,\Phi,\Omega,\Delta$
 \end{example}
- 
+
 
 Les \textbf{indices, exposants et lettres supérieures}
 sont\index{indice}\index{exposant}\index{lettre supérieure}
@@ -274,13 +274,13 @@ nombreuses relations binaires comme $\subseteq$ et $\perp$.
 La plupart des commandes du mode mathématique ne s'appliquent qu'au
 caractère suivant. Pour qu'une commande s'applique à un ensemble de
 caractères, il faut les grouper en utilisant des accolades :
-\verb|{...}|. 
+\verb|{...}|.
 
 \begin{example}
-$p^3_{ij} \qquad 
+$p^3_{ij} \qquad
  m_\text{Knuth}\qquad
 \sum_{k=1}^3 k \\[5pt]
- a^x+y \neq a^{x+y}\qquad 
+ a^x+y \neq a^{x+y}\qquad
  e^{x^2} \neq {e^x}^2$
 \end{example}
 
@@ -315,8 +315,8 @@ points de suspension normaux. En plus de ces commandes vous avez
 se trouvent en section~\ref{sec:arraymat}.
 \begin{example}
 $\Psi = v_1 \cdot v_2
- \cdot \ldots \qquad 
- n! = 1 \cdot 2 
+ \cdot \ldots \qquad
+ n! = 1 \cdot 2
  \cdots (n-1) \cdot n$
 \end{example}
 
@@ -325,7 +325,7 @@ horizontal} au-dessus ou au-dessous d'une expression :
 \index{horizontal!trait}
 \index{trait!horizontal}
 \begin{example}
-$0.\overline{3} = 
+$0.\overline{3} =
  \underline{\underline{1/3}}$
 \end{example}
 
@@ -335,7 +335,7 @@ expression :
 \index{horizontal!accolade}
 \index{accolade!horizontale}
 \begin{example}
-$\underbrace{\overbrace{a+b+c}^6 
+$\underbrace{\overbrace{a+b+c}^6
  \cdot \overbrace{d+e+f}^7}
  _{\text{meaning of life}} = 42$
 \end{example}
@@ -351,7 +351,7 @@ une variable indicée. La commande \verb|'|\index{'@\verb"|'"|} produit
 un \wi{prime} :
 % a dash is --
 \begin{example}
-$f(x) = x^2 \qquad f'(x) 
+$f(x) = x^2 \qquad f'(x)
  = 2x \qquad f''(x) = 2\\[5pt]
  \hat{XY} \quad \widehat{XY}
  \quad \bar{x_0} \quad \bar{x}_0$
@@ -406,8 +406,8 @@ ajoutées en préambule pour fonctionner.
 \end{equation*}
 \end{example}
 
-Pour la fonction \wi{modulo}, il y a deux commandes possibles : 
-\ci{bmod} pour l'opérateur binaire et 
+Pour la fonction \wi{modulo}, il y a deux commandes possibles :
+\ci{bmod} pour l'opérateur binaire et
 \ci{pmod} pour l'opérateur unaire :
 \begin{example}
 $a\bmod b \\
@@ -457,7 +457,7 @@ La règle de Pascal est
  + \binom{n-1}{k-1}
 \end{equation*}
 \end{example}
- 
+
 Il est parfois utile, notamment pour des \wi{relations binaires}, de
 pouvoir superposer des symboles.  La commande
 \ci{stackrel}\verb|{#1}{#2}| place l'argument \verb|#1| en taille
@@ -486,7 +486,7 @@ Pour superposer des indices, l'extension \pai{amsmath} propose la
 commande \ci{substack} :
 \begin{example}
 \begin{equation*}
-\sum^n_{\substack{0<i<n \\ 
+\sum^n_{\substack{0<i<n \\
         j\subseteq i}}
    P(i,j) = Q(i,j)
 \end{equation*}
@@ -515,7 +515,7 @@ ne voulez pas de délimiteur fermant, utilisez le délimiteur invisible
 \begin{example}
 \begin{equation*}
 1 + \left(\frac{1}{1-x^{2}}
-    \right)^3 \qquad 
+    \right)^3 \qquad
 \left. \ddagger \frac{~}{~}\right)
 \end{equation*}
 \end{example}
@@ -529,7 +529,7 @@ $\Big((x+1)(x-1)\Big)^{2}$\\
 $\big( \Big( \bigg( \Bigg( \quad
 \big\} \Big\} \bigg\} \Bigg\}\quad
 \big\| \Big\| \bigg\| \Bigg\|\quad
-\big\Downarrow \Big\Downarrow 
+\big\Downarrow \Big\Downarrow
 \bigg\Downarrow \Bigg\Downarrow$
 \end{example}
 
@@ -563,10 +563,10 @@ La façon la plus simple pour réaliser un tel découpage est d'utiliser
 l'environnement \ei{multline}\footnote{Fourni par \package{amsmath}.}.
 \begin{example}
 \begin{multline}
-  a + b + c + d + e + f 
-  + g + h + i  
+  a + b + c + d + e + f
+  + g + h + i
   \\
-  = j + k + l + m + n 
+  = j + k + l + m + n
 \end{multline}
 \end{example}
 \noindent
@@ -581,9 +581,9 @@ section~\ref{sec:IEEEeqnarray}). Par exemple, considérons la situation
 suivante.
 \begin{example}
 \begin{equation}
-  a = b + c + d + e + f 
-  + g + h + i + j 
-  + k + l + m + n + o + p  
+  a = b + c + d + e + f
+  + g + h + i + j
+  + k + l + m + n + o + p
   \label{eq:formule_trop_longue}
 \end{equation}
 \end{example}
@@ -592,7 +592,7 @@ Ici, c'est en fait le membre de droite qui est trop long pour tenir sur une
 ligne. L'usage de \ei{multline} produit alors :
 \begin{example}
 \begin{multline}
-  a = b + c + d + e + f 
+  a = b + c + d + e + f
   + g + h + i + j \\
   + k + l + m + n + o + p
 \end{multline}
@@ -637,7 +637,7 @@ Cette approche pose problème dès qu'une ligne est trop longue.
 \begin{example}
 \begin{align}
   a & = b + c \\
-  & = d + e + f + g + h + i 
+  & = d + e + f + g + h + i
   + j + k + l \nonumber \\
   & + m + n + o \\
   & = p + q + r + s
@@ -656,7 +656,7 @@ C'est donc le moment idéal pour introduire l'environnement
 \begin{example}
 \begin{eqnarray}
   a & = & b + c \\
-  & = & d + e + f + g + h + i 
+  & = & d + e + f + g + h + i
   + j + k + l \nonumber \\
   && +\: m + n + o \\
   & = & p + q + r + s
@@ -678,10 +678,10 @@ chevaucher, même quand il y a suffisamment de place à gauche pour
 pousser la formule :
 \begin{example}
 \begin{eqnarray}
-  a & = & b + c 
+  a & = & b + c
   \\
-  & = & d + e + f + g + h^2 
-  + i^2 + j 
+  & = & d + e + f + g + h^2
+  + i^2 + j
   \label{eq:eqnarrayfautif}
 \end{eqnarray}
 \end{example}
@@ -690,9 +690,9 @@ pousser la formule :
 qui peut être utilisée quand le membre de gauche est trop long.
 \begin{example}
 \begin{eqnarray}
-  \lefteqn{a + b + c + d 
+  \lefteqn{a + b + c + d
     + e + f + g + h}\nonumber\\
-  & = & i + j + k + l + m 
+  & = & i + j + k + l + m
   \\
   & = & n + o + p + q + r + s
 \end{eqnarray}
@@ -701,10 +701,10 @@ qui peut être utilisée quand le membre de gauche est trop long.
 est trop court et l'ensemble n'est pas centré correctement :
 \begin{example}
 \begin{eqnarray}
-  \lefteqn{a + b + c + d 
-    + e + f + g + h} 
+  \lefteqn{a + b + c + d
+    + e + f + g + h}
   \nonumber \\
-  & = & i + j 
+  & = & i + j
 \end{eqnarray}
 \end{example}
 
@@ -738,11 +738,11 @@ d'elle (c'est le sens du \texttt{C} majuscule au lieu de \texttt{c}
 minuscule), et la troisième alignée à gauche.
 \begin{example}
 \begin{IEEEeqnarray}{rCl}
-  a & = & b + c 
+  a & = & b + c
   \\
-  & = & d + e + f + g + h 
+  & = & d + e + f + g + h
   + i + j + k \nonumber\\
-  && \negmedspace {} + l + m + n + o 
+  && \negmedspace {} + l + m + n + o
   \\
   & = & p + q + r + s
 \end{IEEEeqnarray}
@@ -771,7 +771,7 @@ Si une ligne et le numéro d'équation se superposent comme dans
 \eqref{eq:eqnarrayfautif}, la commande \small
 \begin{verbatim}
 \IEEEeqnarraynumspace
-\end{verbatim} 
+\end{verbatim}
 \normalsize
 permet de résoudre le problème : il suffit de l'ajouter à la fin de la ligne
 en question, et l'ensemble de la formule est décalée vers la gauche de la
@@ -779,10 +779,10 @@ longueur nécessaire (le décalage dépend de la taille du numéro d'équation).
 Par exemple, partant de :
 \begin{example}
 \begin{IEEEeqnarray}{rCl}
-  a & = & b + c 
+  a & = & b + c
   \\
-  & = & d + e + f + g + h 
-  + i + j + k 
+  & = & d + e + f + g + h
+  + i + j + k
   \\
   & = & l + m + n
 \end{IEEEeqnarray}
@@ -790,10 +790,10 @@ Par exemple, partant de :
 on obtient :
 \begin{example}
 \begin{IEEEeqnarray}{rCl}
-  a & = & b + c 
+  a & = & b + c
   \\
-  & = & d + e + f + g + h 
-  + i + j + k 
+  & = & d + e + f + g + h
+  + i + j + k
   \IEEEeqnarraynumspace\\
   & = & l + m + n.
 \end{IEEEeqnarray}
@@ -805,10 +805,10 @@ comme remplacement de \ci{lefteqn}.
 \begin{example}
 \begin{IEEEeqnarray}{rCl}
   \IEEEeqnarraymulticol{3}{l}{
-    a + b + c + d + e + f 
+    a + b + c + d + e + f
     + g + h
   }\nonumber\\ \quad
-  & = & i + j 
+  & = & i + j
   \\
   & = & k + l + m
 \end{IEEEeqnarray}
@@ -825,7 +825,7 @@ du signe égal, par exemple :
 \begin{example}
 \begin{IEEEeqnarray}{rCl}
   \IEEEeqnarraymulticol{3}{l}{
-    a + b + c + d + e + f 
+    a + b + c + d + e + f
     + g + h
   }\nonumber\\ \qquad\qquad
   & = & i + j
@@ -841,11 +841,11 @@ pourquoi il faut ajouter un groupe vide \verb|{}| avant l'opérateur.
 Par exemple, au lieu de
 \begin{example}
 \begin{IEEEeqnarray}{rCl}
-  a & = & b + c 
+  a & = & b + c
   \\
-  & = & d + e + f + g + h 
+  & = & d + e + f + g + h
   + i + j + k \nonumber\\
-  && + l + m + n + o 
+  && + l + m + n + o
   \\
   & = & p + q + r + s
 \end{IEEEeqnarray}
@@ -853,11 +853,11 @@ Par exemple, au lieu de
 il vaut mieux écrire
 \begin{example}
 \begin{IEEEeqnarray}{rCl}
-  a & = & b + c 
+  a & = & b + c
   \\
-  & = & d + e + f + g + h 
+  & = & d + e + f + g + h
   + i + j + k \nonumber\\
-  && \negmedspace {} + l + m + n + o 
+  && \negmedspace {} + l + m + n + o
   \\
   & = & p + q + r + s
 \end{IEEEeqnarray}
@@ -945,12 +945,12 @@ L'environnement \ei{cases} d'\package{amsmath} offre une syntaxe
 plus simple.
 \begin{example}
   \begin{equation*}
-    |x| = 
+    |x| =
     \begin{cases}
       -x & \text{si } x < 0,\\
       0 & \text{si } x = 0,\\
       x & \text{si } x > 0.
-    \end{cases} 
+    \end{cases}
 \end{equation*}
 \end{example}
 
@@ -967,19 +967,19 @@ est modifiable (bien que ce ne soit pas fréquent d'avoir besoin de 10
 colonnes ou plus~!)~:
 \begin{example}
 \begin{equation*}
-  \begin{matrix} 
+  \begin{matrix}
     1 & 2 \\
-    3 & 4 
+    3 & 4
   \end{matrix} \qquad
-  \begin{bmatrix} 
-    p_{11} & p_{12} & \ldots 
+  \begin{bmatrix}
+    p_{11} & p_{12} & \ldots
     & p_{1n} \\
-    p_{21} & p_{22} & \ldots 
+    p_{21} & p_{22} & \ldots
     & p_{2n} \\
-    \vdots & \vdots & \ddots 
+    \vdots & \vdots & \ddots
     & \vdots \\
-    p_{m1} & p_{m2} & \ldots 
-    & p_{mn} 
+    p_{m1} & p_{m2} & \ldots
+    & p_{mn}
   \end{bmatrix}
 \end{equation*}
 \end{example}
@@ -1001,7 +1001,7 @@ moyenne similaire à l'espace entre mots. and \ci{quad}
 (\demowidth{1em}) et \ci{qquad} (\demowidth{2em}) produisent des
 espaces plus larges.  La largeur d'un \ci{quad}\footnote{Appelé \emph{espace
     cadratin} en français. \NdT} correspond approximativement à la largeur du
-caractère \enquote{M} dans la police courante. 
+caractère \enquote{M} dans la police courante.
 La commande \verb|\!|\cih{"!} produit une espace fine négative
 de $-\frac{3}{18}\:\textrm{quad}$ ($-$\demowidth{0.166em}).
 
@@ -1027,7 +1027,7 @@ préambule.
 \newcommand{\ud}{\,\mathrm{d}}
 
 \begin{equation*}
- \int_a^b f(x)\ud x 
+ \int_a^b f(x)\ud x
 \end{equation*}
 \end{example}
 
@@ -1041,11 +1041,11 @@ réaliser cet ajustement : \ci{iint}, \ci{iiint},
 \newcommand{\ud}{\,\mathrm{d}}
 
 \begin{IEEEeqnarray*}{c}
-  \int\int f(x)g(y) 
+  \int\int f(x)g(y)
                   \ud x \ud y \\
-  \int\!\!\!\int 
+  \int\!\!\!\int
          f(x)g(y) \ud x \ud y \\
-  \iint f(x)g(y)  \ud x \ud y 
+  \iint f(x)g(y)  \ud x \ud y
 \end{IEEEeqnarray*}
 \end{example}
 
@@ -1081,7 +1081,7 @@ page \pageref{mathalpha}.
  $\Re \qquad
   \mathcal{R} \qquad
   \mathfrak{R} \qquad
-  \mathbb{R} \qquad $  
+  \mathbb{R} \qquad $
 \end{example}
 Les deux dernières nécessitent \pai{amssymb} ou \pai{amsfonts}.
 
@@ -1090,7 +1090,7 @@ de fonte désirée. En mode mathématique, cette taille est ajustable
 avec les quatre commandes~:
 \begin{flushleft}
 \ci{displaystyle}~($\displaystyle 123$),
- \ci{textstyle}~($\textstyle 123$), 
+ \ci{textstyle}~($\textstyle 123$),
 \ci{scriptstyle}~($\scriptstyle 123$) et
 \ci{scriptscriptstyle}~($\scriptscriptstyle 123$).
 \end{flushleft}
@@ -1112,7 +1112,7 @@ moins d'indiquer à \LaTeX{} le contraire :
 
 Changer de style modifie également la façon dont les limites et les
 grands opérateurs sont affichés.
- 
+
 % This is not a math accent, and no maths book would be set this way.
 % mathop gets the spacing right.
 
@@ -1130,7 +1130,7 @@ grecques. Il y a bien une commande \ci{boldmath}, mais \emph{elle ne
   peut être utilisée qu'en dehors du mode mathématique}. Cependant
 elle fonctionne aussi pour les symboles :
 \begin{example}
-$\mu, M \qquad 
+$\mu, M \qquad
 \mathbf{\mu}, \mathbf{M}$
 \qquad \boldmath{$\mu, M$}
 \end{example}
@@ -1172,7 +1172,7 @@ document, vous pouvez utiliser la commande suivante :
 \begin{code}
 \verb|\begin{|\emph{nom}\verb|}[|\emph{texte}\verb|]|\\
 Ceci est mon premier théorème\\
-\verb|\end{|\emph{nom}\verb|}|     
+\verb|\end{|\emph{nom}\verb|}|
 \end{code}
 
 L'extension \pai{amsthm} (qui fait partie d'\AmS-LaTeX) met à
@@ -1222,13 +1222,13 @@ séquence que les autres \enquote{lois}. L'argument entre crochets permet
 de spécifier un titre ou quelque chose de ce genre pour l'environnement.
 \begin{example}
 \newtheorem{mur}{Murphy}[section]
-\begin{mur} Tout ce qui peut 
+\begin{mur} Tout ce qui peut
 aller mal ira mal.\end{mur}
 \end{example}
 
 Les environnements \enquote{Murphy} sont numérotés à l'intérieur de la section
 en cours. On aurait pu utiliser un autre niveau tel que \texttt{chapter}
-ou \texttt{subsection}. 
+ou \texttt{subsection}.
 
 Si vous voulez personnaliser vos théorèmes au point près, l'extension
 \pai{ntheorem} vous offrira la pléthore d'options dont vous avez
