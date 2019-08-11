@@ -1211,7 +1211,12 @@ qu'aucune commande \LaTeX{} ne soit exécutée.
 \end{lscommand}
 \noindent Le caractère \verb|+| est seulement un exemple de caractère
 séparateur. Vous pouvez utiliser n'importe quel caractère, sauf les
-lettres, \verb|*| ou l'espace. La plupart des exemples de commandes
+lettres, \verb|*| ou l'espace\footnote{L'espace peut en fait être
+  utilisé, mais de ce fait devient un délimiteur. Le texte inclus dans
+  \ci{verb} devra alors ne pas contenir d'espace, et la commande ne
+  saurait être la seule sur la ligne (sinon l'espace délimiteur de fin
+  ne sera pas vu.}.
+La plupart des exemples de commandes
 \LaTeX{} dans ce document sont réalisés avec cette commande.
 
 \begin{example}
